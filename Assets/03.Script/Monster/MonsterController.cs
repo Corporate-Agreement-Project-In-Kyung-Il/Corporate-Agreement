@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class MonsterController : MonoBehaviour, IDamageAble
 {
@@ -26,9 +28,9 @@ public class MonsterController : MonoBehaviour, IDamageAble
         TryGetComponent(out collider2D);
 
         monsterStat.health = monsterData.Monster_HP;
+        monsterStat.playerDetectionRange = new Vector2(3f, 7f);
         
         monsterStat.damage = monsterData.Monster_Attack;
-        monsterStat.playerDetectionRange = monsterData.playerDetectionRange;
         monsterStat.attackRange = monsterData.attackRange;
         monsterStat.attackSpeed = monsterData.attackSpeed;
         
@@ -54,10 +56,35 @@ public class MonsterController : MonoBehaviour, IDamageAble
                 break;
         }
     }
+    
+    private Vector2 playerDetectionCenter;
+    private Vector2 target;
 
     private void performIdle()
     {
-        
+        playerDetectionCenter = Vector2.up * transform.position.y;
+        Collider2D[] playerCol = Physics2D.OverlapBoxAll(playerDetectionCenter, monsterStat.playerDetectionRange, 0f,
+            LayerMask.GetMask("Player"));
+
+        float mindistance = 10f;
+        Transform closestPlayer = null;
+
+        for (int i = 0; i < playerCol.Length; i++)
+        {
+            float dist = Vector2.Distance(transform.position, playerCol[i].transform.position);
+
+            if (dist < mindistance)
+            {
+                mindistance = dist;
+                closestPlayer = playerCol[i].transform;
+            }
+        }
+
+        if (closestPlayer != null)
+        {
+            target = closestPlayer.position;
+            ChangeState(EnemyState.Run);
+        }
     }
 
     private void performRun()
@@ -82,6 +109,18 @@ public class MonsterController : MonoBehaviour, IDamageAble
             Destroy(gameObject);
         }
     }
+    
+    public void ChangeState(EnemyState newState)
+    {
+        prevCharacterState = currentCharacterState;
+        currentCharacterState = newState;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(playerDetectionCenter, monsterStat.playerDetectionRange);
+    }
 }
 
 public class MonsterStat
@@ -93,7 +132,7 @@ public class MonsterStat
     public float attackRange;
     public float attackSpeed;
     public float moveSpeed;
-    public float playerDetectionRange;
+    public Vector2 playerDetectionRange;
 }
 
 public enum EnemyState
