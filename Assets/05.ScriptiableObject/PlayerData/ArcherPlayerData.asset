@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArcherPlayerData
   m_EditorClassIdentifier: 
   attackRange: 4
-  moveSpeed: 1
+  moveSpeed: 5
   character_ID: 100001
   characterClass: 0
   characterName: 0

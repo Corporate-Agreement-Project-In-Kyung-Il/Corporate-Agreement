@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     //Component 받아오는 요소
     [SerializeField] private PlayerData data;
     private Collider2D col;
+    private Rigidbody2D rigid;
     private PlayerStat playerStat = new PlayerStat();
     private Animator animator;
     private Weapon weapon;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     private void Awake()
     {
         TryGetComponent(out col);
+        TryGetComponent(out rigid);
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
 
@@ -85,12 +87,14 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         }
     }
     
-    private Vector3 targetPos;
+    private Vector2 targetPos;
+
     private void performRun()
     {
-        targetPos = transform.position + Vector3.up * playerStat.moveSpeed;
+        Debug.Log($"targetPos : {targetPos}");
         animator.SetBool(IsRun, true);
-        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime);
+        targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.deltaTime);
+        rigid.MovePosition(targetPos); //Vector3.Lerp(transform.position, targetPos, Time.deltaTime));
     }
     
     private void performDie()
@@ -104,8 +108,6 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         Collider2D[] enemyAttackRange =
             Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
         animator.SetTrigger(Attack);
-        
-        
         
     }
     
@@ -126,11 +128,22 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         animator.SetBool(IsRun, false);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            rigid.velocity = Vector2.zero;  // 강제로 속도 제거
+        }
+    }
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(enemyDetectionCenter, playerStat.detectionRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
     }
+    
 }
 
 public enum CharacterState
