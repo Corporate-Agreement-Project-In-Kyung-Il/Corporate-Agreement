@@ -9,7 +9,7 @@ public enum SkillType
     Passive,
 }
 
-public enum ActiveName
+/*public enum ActiveName
 {
     전사의강한의지,
     거대한발자국,
@@ -20,12 +20,12 @@ public enum ActiveName
 
 public enum PassiveName
 {
-}
+}*/
 
 [Serializable]
 public class ActiveSkillData
 {
-    public string Skill_ID;
+    public int Skill_ID;
     public string Skill_Name; // enum으로 사용할 경우 SkillName enum 정의 필요
     public SkillType Skill_Type; // enum으로 사용할 경우 SkillType enum 정의 필요
     public int Skill_Minimum_LV;
@@ -43,7 +43,7 @@ public class ActiveSkillData
 [Serializable]
 public class PassiveSkillData
 {
-    public string Skill_ID; // 스킬 고유 ID
+    public int Skill_ID; // 스킬 고유 ID
     public string Skill_Name; // 스킬 이름
     public SkillType Skill_Type; // 예: "buff"
     public int Skill_Minimum_LV; // 스킬 사용 최소 레벨
@@ -60,8 +60,3 @@ public class PassiveSkillData
     public float Activation_Rate_Increase; // 발동 확률 증가량
 }
 
-public interface ISkillAbleCheck
-{
-    public bool SkillConditionChecking();
-    public bool SkillCoolChecking(float cooldown);
-}
