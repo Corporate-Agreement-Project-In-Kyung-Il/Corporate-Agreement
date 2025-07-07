@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403237425}
-  - component: {fileID: 403237424}
+  - component: {fileID: 403237426}
   m_Layer: 0
   m_Name: ExelReader
   m_TagString: Untagged
@@ -139,20 +139,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &403237424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403237423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f172c8a5dab07594b9bc2d08e9e55da9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TableSheetNumber: 7
-  optionChoiceClassName: OptionChoice_Equip
 --- !u!4 &403237425
 Transform:
   m_ObjectHideFlags: 0
@@ -168,6 +154,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &403237426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403237423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4348d5de370669b4fb36965204418b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TableSheetNumber: 7
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,15 +266,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.35937503
     y: 0
-    width: 1
+    width: 0.28125
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

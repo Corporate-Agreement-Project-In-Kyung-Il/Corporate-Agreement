@@ -56,7 +56,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
             rowDatas[i - 2] = rowData;
         }
 #if UNITY_EDITOR
-        var option = ScriptableObject.CreateInstance<OptionChoiceBase>();
+        var option = ScriptableObject.CreateInstance<OptionChoice_Equip>();
 
         for (int i = 0; i < rowDatas.Length; i++)
         {

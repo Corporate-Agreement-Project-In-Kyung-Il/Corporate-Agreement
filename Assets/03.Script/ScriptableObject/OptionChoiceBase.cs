@@ -37,20 +37,40 @@ public class Equip : BaseValue
     public int Equipment_LvUP;
 }
 
-
-[CreateAssetMenu(fileName = "OptionChoice", menuName = "LOH/OptionChoiceBase")]
-public class OptionChoiceBase : ScriptableObject
+[System.Serializable]
+public class Skill : BaseValue
 {
-    public List<IDValuePair<Equip>> data = new List<IDValuePair<Equip>>();
+    
+}
 
-    public Equip GetValue()
+[System.Serializable]
+public class Training : BaseValue
+{
+    
+}
+
+
+public abstract class OptionChoiceBase<T> : ScriptableObject where T : BaseValue, new()
+{
+    public List<IDValuePair<T>> data = new List<IDValuePair<T>>();
+
+    public T GetValue()
     {
-        return new Equip();
+        return new T(); // new() 제한자 덕분에 가능
     }
 
-    public Equip GetValue(int key)
+    public T GetValue(int key)
     {
         var pair = data.Find(x => x.Selection_ID == key);
         return pair != null ? pair.val : null;
     }
 }
+
+[CreateAssetMenu(fileName = "OptionChoice_Equip", menuName = "LOH/OptionChoice_Equip")]
+public class OptionChoice_Equip : OptionChoiceBase<Equip> { }
+
+[CreateAssetMenu(fileName = "OptionChoice_Skill", menuName = "LOH/OptionChoice_Skill")]
+public class OptionChoice_Skill : OptionChoiceBase<Skill> { }
+
+[CreateAssetMenu(fileName = "OptionChoice_Training", menuName = "LOH/OptionChoice_Training")]
+public class OptionChoice_Training : OptionChoiceBase<Training> { }
