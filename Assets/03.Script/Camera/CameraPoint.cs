@@ -9,6 +9,7 @@ public class CameraPoint : MonoBehaviour
     
     private void Update()
     {
+        //카메라
         if (isFollow.Equals(false))
             return;
 
