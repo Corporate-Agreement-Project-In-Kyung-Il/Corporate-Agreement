@@ -11,8 +11,6 @@ public class DataTableReader_KeyValue : MonoBehaviour
     //기획자 분들 쓰실 수도 있어서 0번 시작이아니라 1번 시작입니다.
     [SerializeField] private int m_TableSheetNumber;
 
-    public string optionChoiceClassName = "OptionChoice_EquipDic"; // 스크립터블 오브젝트 클래스 이름
-
     void Start()
     {
         // 인코딩 등록 (한글 깨짐 방지)
@@ -58,14 +56,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
             rowDatas[i - 2] = rowData;
         }
 #if UNITY_EDITOR
-        Type optionType = Type.GetType(optionChoiceClassName);
-        if (optionType == null)
-        {
-            Debug.LogError($"{optionChoiceClassName} 타입을 찾을 수 없습니다.");
-            return;
-        }
-        var option = ScriptableObject.CreateInstance<OptionChoice_Equip>();
-        option.name = $"{optionChoiceClassName}";
+        var option = ScriptableObject.CreateInstance<OptionChoiceBase>();
 
         for (int i = 0; i < rowDatas.Length; i++)
         {
@@ -82,7 +73,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
             float hpLvUpEffect = float.Parse(strarr[5]);
             int equipmentLvUp = int.Parse(strarr[6]);
             
-            var value = new Value
+            var value = new Equip
             {
                 Equipment_Type_ID = equipmentTypeId,
                 Selection_Level = grade,
@@ -92,7 +83,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
                 Equipment_LvUP = equipmentLvUp
             };
             
-            var pair = new IDValuePair
+            var pair = new IDValuePair<Equip>
             {
                 Selection_ID = key,
                 val = value
@@ -100,7 +91,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
             
             option.data.Add(pair);
         }
-        AssetDatabase.CreateAsset(option, $"Assets/00.Resources/OptionChoice/{optionChoiceClassName}.asset");
+        AssetDatabase.CreateAsset(option, $"Assets/00.Resources/OptionChoice/Base.asset");
         AssetDatabase.SaveAssets();
 #endif
     }
