@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WarriorPlayerData
   m_EditorClassIdentifier: 
   attackRange: 1
-  moveSpeed: 1
+  moveSpeed: 5
   character_ID: 100004
   characterClass: 1
   characterName: 3

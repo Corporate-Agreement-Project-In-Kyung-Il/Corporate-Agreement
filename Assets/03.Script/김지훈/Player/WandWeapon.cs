@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponActive : MonoBehaviour
+public class WandWeapon : Weapon
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,10 @@ public class WeaponActive : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    public override bool Attack()
+    {
+        return false;
     }
 }
