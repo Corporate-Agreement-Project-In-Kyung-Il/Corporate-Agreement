@@ -26,8 +26,8 @@ public enum PassiveName
 public class ActiveSkillData
 {
     public int Skill_ID;
-    public string Skill_Name; // enum으로 사용할 경우 SkillName enum 정의 필요
-    public SkillType Skill_Type; // enum으로 사용할 경우 SkillType enum 정의 필요
+    public string Skill_Name; 
+    public SkillType Skill_Type; 
     public int Skill_Minimum_LV;
     public int Skill_Maximum_LV;
     public float Skill_Cooldown;
