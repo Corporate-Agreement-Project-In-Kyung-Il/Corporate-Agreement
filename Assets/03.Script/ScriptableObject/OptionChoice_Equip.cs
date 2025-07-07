@@ -1,34 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class IDValuePair
+{
+    public int Selection_ID;
+    public Value val;
+}
+
+[System.Serializable]
+public class Value
+{
+    public int Equipment_Type_ID;
+    public MyEnum Selection_Level;
+    public string Description;
+    public float Attack_LV_UP_Effect;
+    public float HP_LV_UP_Effect;
+    public int Equipment_LvUP;
+}
+
+public enum MyEnum
+{
+    노말,
+    레어,
+    에픽,
+    유니크,
+    레전드,
+    신화
+}
 [CreateAssetMenu(fileName = "OptionChoice", menuName = "LOH/OptionChoice_Equip")]
 public class OptionChoice_Equip : ScriptableObject
 {
-    public enum EMyEnum
+    public List<IDValuePair> data = new List<IDValuePair>();
+
+    public Value GetValue()
     {
-        노말,
-        레어,
-        에픽,
-        유니크,
-        레전드,
-        신화
+        return new Value();
     }
-    [SerializeField]
-    private string Selection_ID;
 
-    [SerializeField]
-    private string Equipment_Type_ID;
-
-    [SerializeField]
-    private EMyEnum Selection_Level;
-    
-    [SerializeField]
-    private string Description;
-    
-
-    public string selection_ID => Selection_ID;
-    public string equipment_Type_ID => Equipment_Type_ID;
-    public EMyEnum selection_Level => Selection_Level;
-    public string description => Description;
+    // 키로 Value 가져오기
+    public Value GetValue(int key)
+    {
+        var pair = data.Find(x => x.Selection_ID == key);
+        return pair != null ? pair.val : null;
+    }
 }
