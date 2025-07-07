@@ -59,7 +59,7 @@ public class CombatEvent
     public IDamageAble Sender;
     public IDamageAble Receiver;
 
-    public int Damage { get; set; }
+    public float Damage { get; set; }
     //public Vector3 HitPosition { get; set;}
     public Collider2D collider { get; set;}
 }

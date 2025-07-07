@@ -12,7 +12,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     public Collider2D mainCollider => col;
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
-    
+    public float CurrentHp => playerStat.health;
+
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
@@ -99,16 +100,28 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     
     private void performDie()
     {
-
+        gameObject.SetActive(false);
     }
 
+    public bool isTarget = false;
+    public Collider2D target;
     private void performAttack()
     {
         Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
-        Collider2D[] enemyAttackRange =
-            Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
-        animator.SetTrigger(Attack);
+
+        if (isTarget.Equals(false))
+        {
+            Collider2D enemyAttackCol = Physics2D.OverlapBox(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
+            target = enemyAttackCol;
+        }
         
+        if (target != null)
+        {
+            isTarget = true;
+            animator.SetTrigger(Attack);
+            isTarget = weapon.Attack(target);
+        }
+
     }
     
     public void TakeDamage(CombatEvent combatEvent)
@@ -119,6 +132,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
             ChangeState(CharacterState.Die);
             return;
         }
+        Debug.Log($"{gameObject.name}이 데미지를 입음.");
     }
 
     public void ChangeState(CharacterState newState)
@@ -128,13 +142,6 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         animator.SetBool(IsRun, false);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            rigid.velocity = Vector2.zero;  // 강제로 속도 제거
-        }
-    }
     
     private void OnDrawGizmos()
     {

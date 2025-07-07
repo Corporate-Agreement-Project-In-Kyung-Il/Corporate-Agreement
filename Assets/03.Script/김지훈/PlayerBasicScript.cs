@@ -9,6 +9,8 @@ public interface IDamageAble
     public Collider2D mainCollider { get; }
     public GameObject GameObject { get; }
     public float Damage { get; }
+    
+    public float CurrentHp { get; }
     public void TakeDamage(CombatEvent combatEvent);
 }
 

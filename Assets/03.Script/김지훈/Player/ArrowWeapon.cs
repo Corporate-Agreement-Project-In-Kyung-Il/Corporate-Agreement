@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class ArrowWeapon : Weapon
 {
+    private SpriteRenderer sr;
+    private Player player;
     public GameObject arrow;
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        TryGetComponent(out sr); //sr 장착한 검에 대해서 모형 변화
+        player = GetComponentInParent<Player>();        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public override bool Attack()
+    public override bool Attack(Collider2D collider)
     {
         return false;
     }
+    
 }
