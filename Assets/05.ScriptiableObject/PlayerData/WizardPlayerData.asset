@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WizardPlayerData
   m_EditorClassIdentifier: 
   attackRange: 4
-  moveSpeed: 1
+  moveSpeed: 5
   character_ID: 100006
   characterClass: 2
   characterName: 5
