@@ -86,10 +86,14 @@ public class MonsterController : MonoBehaviour, IDamageAble
             ChangeState(EnemyState.Run);
         }
     }
-
+    
     private void performRun()
     {
+        transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime);
+        float distance = Vector3.Distance(transform.position, target);
         
+        if (distance < monsterStat.attackRange)
+            ChangeState(EnemyState.Attack);
     }
 
     private void performAttack()

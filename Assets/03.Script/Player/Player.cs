@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Player : MonoBehaviour, IDamageAble, ICameraPosition
+public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 {
     protected static readonly int IsRun = Animator.StringToHash("isRun");
+    private static readonly int Attack = Animator.StringToHash("attack");
 
     //IDamageAble 요소
     public Collider2D mainCollider => col;
@@ -17,25 +18,25 @@ public abstract class Player : MonoBehaviour, IDamageAble, ICameraPosition
     public bool canMove => cameraMove;
     
     //Component 받아오는 요소
-    [SerializeField] protected PlayerData data;
-    protected Collider2D col;
-    protected PlayerStat playerStat = new PlayerStat();
-    protected Animator animator;
-    protected WeaponActive weapon;
+    [SerializeField] private PlayerData data;
+    private Collider2D col;
+    private PlayerStat playerStat = new PlayerStat();
+    private Animator animator;
+    private Weapon weapon;
         
     //CharacterState 정의 요소
     [SerializeField] private CharacterState currentCharacterState = CharacterState.Run;
     [SerializeField] private CharacterState prevCharacterState = CharacterState.Run;
     
     //기타 선언 변수
-    protected bool cameraMove = true;
-    [SerializeField] protected Vector2 detectionRange; 
+    private bool cameraMove = true;
+    [SerializeField] private Vector2 detectionRange; 
 
     
-    protected void Awake()
+    private void Awake()
     {
         TryGetComponent(out col);
-        weapon = GetComponentInChildren<WeaponActive>();
+        weapon = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
 
         playerStat.health = data.health;
@@ -58,17 +59,15 @@ public abstract class Player : MonoBehaviour, IDamageAble, ICameraPosition
         playerStat.skill_possed = data.skill_possed;
     }
     
-    protected Vector2 enemyDetectionCenter;
+    private Vector2 enemyDetectionCenter;
     
-    protected void Update()
+    private void Update()
     {
         enemyDetectionCenter = Vector2.up * transform.position.y;
-        Collider2D enemyDetectionCol = Physics2D.OverlapBox(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
-
-        if (enemyDetectionCol != null) 
-        {
+        Collider2D[] enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
+        
+        if (enemyDetectionCol.Length > 0) 
             ChangeState(CharacterState.Attack);
-        }
 
         switch (currentCharacterState)
         {
@@ -86,20 +85,29 @@ public abstract class Player : MonoBehaviour, IDamageAble, ICameraPosition
         }
     }
     
-    protected Vector3 targetPos;
-    protected void performRun()
+    private Vector3 targetPos;
+    private void performRun()
     {
         targetPos = transform.position + Vector3.up * playerStat.moveSpeed;
         animator.SetBool(IsRun, true);
         transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime);
     }
     
-    protected void performDie()
+    private void performDie()
     {
+
+    }
+
+    private void performAttack()
+    {
+        Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
+        Collider2D[] enemyAttackRange =
+            Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
+        animator.SetTrigger(Attack);
+        
+        
         
     }
-    
-    protected abstract void performAttack();
     
     public void TakeDamage(CombatEvent combatEvent)
     {
@@ -118,7 +126,7 @@ public abstract class Player : MonoBehaviour, IDamageAble, ICameraPosition
         animator.SetBool(IsRun, false);
     }
 
-    protected void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(enemyDetectionCenter, playerStat.detectionRange);
