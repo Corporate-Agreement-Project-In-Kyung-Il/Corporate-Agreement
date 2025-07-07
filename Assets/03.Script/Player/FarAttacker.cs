@@ -6,5 +6,6 @@ public class FarAttacker : Player
 {
     protected override void performAttack()
     {
+        
     }
 }

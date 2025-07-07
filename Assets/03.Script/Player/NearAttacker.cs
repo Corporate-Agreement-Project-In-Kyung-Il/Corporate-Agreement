@@ -6,5 +6,7 @@ public class NearAttacker : Player
 {
     protected override void performAttack()
     {
+        
     }
+    
 }
