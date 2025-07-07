@@ -5,7 +5,9 @@ using ExcelDataReader;
 
 public class DataTableReader_Example : MonoBehaviour
 {
-    private int rowCount;
+    //기획자 분들 쓰실 수도 있어서 0번 시작이아니라 1번 시작입니다.
+    [SerializeField]
+    private int m_TableSheetNumber;
     void Start()
     {
         // 인코딩 등록 (한글 깨짐 방지)
@@ -20,7 +22,7 @@ public class DataTableReader_Example : MonoBehaviour
         var result = reader.AsDataSet();
 
         // N 번째 시트 가져오기
-        DataTable table = result.Tables[4];
+        DataTable table = result.Tables[m_TableSheetNumber - 1];
 
         // 첫 번째 행부터 전체 출력
         for (int i = 0; i < table.Rows.Count; i++)
