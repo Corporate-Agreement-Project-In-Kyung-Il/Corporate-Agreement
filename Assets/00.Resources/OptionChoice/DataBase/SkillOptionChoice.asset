@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkillOptionChoice
   m_EditorClassIdentifier: 
   data:
-  - Selection_ID: 620001
+  - Key_ID: 620001
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -25,7 +25,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0.01
       Damage_Increase: 0
       Skill_LvUP: 1
-  - Selection_ID: 620002
+  - Key_ID: 620002
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -37,7 +37,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0.02
       Damage_Increase: 0
       Skill_LvUP: 2
-  - Selection_ID: 620003
+  - Key_ID: 620003
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -49,7 +49,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0.03
       Damage_Increase: 0
       Skill_LvUP: 3
-  - Selection_ID: 620004
+  - Key_ID: 620004
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -61,7 +61,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0.04
       Damage_Increase: 0
       Skill_LvUP: 4
-  - Selection_ID: 620005
+  - Key_ID: 620005
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -73,7 +73,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0.06
       Damage_Increase: 0
       Skill_LvUP: 6
-  - Selection_ID: 620006
+  - Key_ID: 620006
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -85,7 +85,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0.08
       Damage_Increase: 0
       Skill_LvUP: 8
-  - Selection_ID: 620007
+  - Key_ID: 620007
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -96,7 +96,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.05
       Skill_LvUP: 1
-  - Selection_ID: 620008
+  - Key_ID: 620008
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -107,7 +107,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.1
       Skill_LvUP: 2
-  - Selection_ID: 620009
+  - Key_ID: 620009
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -118,7 +118,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.15
       Skill_LvUP: 3
-  - Selection_ID: 620010
+  - Key_ID: 620010
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -129,7 +129,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.2
       Skill_LvUP: 4
-  - Selection_ID: 620011
+  - Key_ID: 620011
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -140,7 +140,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.3
       Skill_LvUP: 6
-  - Selection_ID: 620012
+  - Key_ID: 620012
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -151,7 +151,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.4
       Skill_LvUP: 8
-  - Selection_ID: 620013
+  - Key_ID: 620013
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -162,7 +162,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 1
-  - Selection_ID: 620014
+  - Key_ID: 620014
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -173,7 +173,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 2
-  - Selection_ID: 620015
+  - Key_ID: 620015
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -184,7 +184,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 3
-  - Selection_ID: 620016
+  - Key_ID: 620016
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -195,7 +195,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 4
-  - Selection_ID: 620017
+  - Key_ID: 620017
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -206,7 +206,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 6
-  - Selection_ID: 620018
+  - Key_ID: 620018
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -217,7 +217,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 8
-  - Selection_ID: 620019
+  - Key_ID: 620019
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -228,7 +228,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.1
       Skill_LvUP: 1
-  - Selection_ID: 620020
+  - Key_ID: 620020
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -239,7 +239,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.2
       Skill_LvUP: 2
-  - Selection_ID: 620021
+  - Key_ID: 620021
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -250,7 +250,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.3
       Skill_LvUP: 3
-  - Selection_ID: 620022
+  - Key_ID: 620022
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -261,7 +261,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.4
       Skill_LvUP: 4
-  - Selection_ID: 620023
+  - Key_ID: 620023
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -272,7 +272,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.6
       Skill_LvUP: 6
-  - Selection_ID: 620024
+  - Key_ID: 620024
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -283,7 +283,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.8
       Skill_LvUP: 8
-  - Selection_ID: 620025
+  - Key_ID: 620025
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -294,7 +294,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 1
-  - Selection_ID: 620026
+  - Key_ID: 620026
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -305,7 +305,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 2
-  - Selection_ID: 620027
+  - Key_ID: 620027
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -316,7 +316,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 3
-  - Selection_ID: 620028
+  - Key_ID: 620028
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -327,7 +327,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 4
-  - Selection_ID: 620029
+  - Key_ID: 620029
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -338,7 +338,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 6
-  - Selection_ID: 620030
+  - Key_ID: 620030
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -349,7 +349,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 8
-  - Selection_ID: 620031
+  - Key_ID: 620031
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -360,7 +360,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 1
-  - Selection_ID: 620032
+  - Key_ID: 620032
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -371,7 +371,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 2
-  - Selection_ID: 620033
+  - Key_ID: 620033
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -382,7 +382,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 3
-  - Selection_ID: 620034
+  - Key_ID: 620034
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -393,7 +393,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 4
-  - Selection_ID: 620035
+  - Key_ID: 620035
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -404,7 +404,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 6
-  - Selection_ID: 620036
+  - Key_ID: 620036
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -415,7 +415,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 8
-  - Selection_ID: 620037
+  - Key_ID: 620037
     val:
       Selection_Level: 0
       Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -425,7 +425,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.05
       Skill_LvUP: 1
-  - Selection_ID: 620038
+  - Key_ID: 620038
     val:
       Selection_Level: 1
       Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -435,7 +435,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.1
       Skill_LvUP: 2
-  - Selection_ID: 620039
+  - Key_ID: 620039
     val:
       Selection_Level: 2
       Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -445,7 +445,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.15
       Skill_LvUP: 3
-  - Selection_ID: 620040
+  - Key_ID: 620040
     val:
       Selection_Level: 3
       Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -455,7 +455,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.2
       Skill_LvUP: 4
-  - Selection_ID: 620041
+  - Key_ID: 620041
     val:
       Selection_Level: 4
       Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -465,7 +465,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.3
       Skill_LvUP: 6
-  - Selection_ID: 620042
+  - Key_ID: 620042
     val:
       Selection_Level: 5
       Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
@@ -475,7 +475,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.4
       Skill_LvUP: 8
-  - Selection_ID: 620043
+  - Key_ID: 620043
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -486,7 +486,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.1
       Skill_LvUP: 1
-  - Selection_ID: 620044
+  - Key_ID: 620044
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -497,7 +497,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.2
       Skill_LvUP: 2
-  - Selection_ID: 620045
+  - Key_ID: 620045
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -508,7 +508,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.3
       Skill_LvUP: 3
-  - Selection_ID: 620046
+  - Key_ID: 620046
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -519,7 +519,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.4
       Skill_LvUP: 4
-  - Selection_ID: 620047
+  - Key_ID: 620047
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -530,7 +530,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.6
       Skill_LvUP: 6
-  - Selection_ID: 620048
+  - Key_ID: 620048
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -541,7 +541,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.8
       Skill_LvUP: 8
-  - Selection_ID: 620049
+  - Key_ID: 620049
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -552,7 +552,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 1
-  - Selection_ID: 620050
+  - Key_ID: 620050
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -563,7 +563,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 2
-  - Selection_ID: 620051
+  - Key_ID: 620051
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -574,7 +574,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 3
-  - Selection_ID: 620052
+  - Key_ID: 620052
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -585,7 +585,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 4
-  - Selection_ID: 620053
+  - Key_ID: 620053
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -596,7 +596,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 6
-  - Selection_ID: 620054
+  - Key_ID: 620054
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0
@@ -607,7 +607,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0
       Skill_LvUP: 8
-  - Selection_ID: 620055
+  - Key_ID: 620055
     val:
       Selection_Level: 0
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -618,7 +618,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.2
       Skill_LvUP: 1
-  - Selection_ID: 620056
+  - Key_ID: 620056
     val:
       Selection_Level: 1
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -629,7 +629,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.4
       Skill_LvUP: 2
-  - Selection_ID: 620057
+  - Key_ID: 620057
     val:
       Selection_Level: 2
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -640,7 +640,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.6
       Skill_LvUP: 3
-  - Selection_ID: 620058
+  - Key_ID: 620058
     val:
       Selection_Level: 3
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -651,7 +651,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 0.8
       Skill_LvUP: 4
-  - Selection_ID: 620059
+  - Key_ID: 620059
     val:
       Selection_Level: 4
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
@@ -662,7 +662,7 @@ MonoBehaviour:
       Activation_Rate_Increase: 0
       Damage_Increase: 1.2
       Skill_LvUP: 6
-  - Selection_ID: 620060
+  - Key_ID: 620060
     val:
       Selection_Level: 5
       Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,

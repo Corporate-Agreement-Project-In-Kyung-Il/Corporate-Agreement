@@ -57,9 +57,61 @@ public class DataTableReader_KeyValue : MonoBehaviour
 
         switch (m_TableSheetNumber)
         {
+            case 1 :
+#if UNITY_EDITOR
+                var optionCharacter = ScriptableObject.CreateInstance<OptionChoice_Character>();
+
+                for (int i = 0; i < rowDatas.Length; i++)
+                {
+                    var strarr = rowDatas[i].Split('|');
+                    // 공백 제거
+                    for (int k = 0; k < strarr.Length; k++)
+                        strarr[k] = strarr[k].Trim();
+            
+                    int Character_ID = int.Parse(strarr[0]);
+                    string Character_Class = strarr[1];
+                    string Character_Name = strarr[2];
+                    ECharacterGrade grade = (ECharacterGrade)Enum.Parse(typeof(ECharacterGrade), strarr[3]);
+                    float Attack = float.Parse(strarr[4]);
+                    float Health = float.Parse(strarr[5]);
+                    float Attack_Speed = float.Parse(strarr[6]);
+                    float Critical_Probability = float.Parse(strarr[7]);
+                    float Training_type = float.Parse(strarr[8]);
+                    float equip_item = float.Parse(strarr[9]);
+                    float skill_possed1 = float.Parse(strarr[10]);
+                    float skill_possed2 = float.Parse(strarr[11]);
+
+                    var CharacterValue = new Character
+                    {
+                        Character_ID = Character_ID,
+                        Character_Class = Character_Class,
+                        Character_Name = Character_Name,
+                        Character_Grade = grade.ToString(),
+                        Attack = Attack,
+                        Health = Health,
+                        Attack_Speed = Attack_Speed,
+                        Critical_Probability = Critical_Probability,
+                        Training_type = Training_type,
+                        equip_item = equip_item,
+                        skill_possed1 = skill_possed1,
+                        skill_possed2 = skill_possed2
+                    };
+            
+                    var pair = new IDValuePair<Character>
+                    {
+                        Key_ID = Character_ID,
+                        val = CharacterValue
+                    };
+            
+                    optionCharacter.data.Add(pair);
+                }
+                AssetDatabase.CreateAsset(optionCharacter, $"Assets/00.Resources/OptionChoice/DataBase/CharacterOptionChoice.asset");
+                AssetDatabase.SaveAssets();
+#endif
+                break;
             case 5 :
 #if UNITY_EDITOR
-                var optionSkill = ScriptableObject.CreateInstance<OptionChoice_Skill>();
+                var optionSkill = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
 
                 for (int i = 0; i < rowDatas.Length; i++)
                 {
@@ -78,7 +130,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
                     float damageIncrease = float.Parse(strarr[7]);
                     int skillLvUp = int.Parse(strarr[8]);
             
-                    var skillValue = new Skill
+                    var skillValue = new SkillOption
                     {
                         Skill_ID = skill_ID,
                         Selection_Level = grade,
@@ -90,21 +142,21 @@ public class DataTableReader_KeyValue : MonoBehaviour
                         Skill_LvUP = skillLvUp
                     };
             
-                    var pair = new IDValuePair<Skill>
+                    var pair = new IDValuePair<SkillOption>
                     {
-                        Selection_ID = key,
+                        Key_ID = key,
                         val = skillValue
                     };
             
                     optionSkill.data.Add(pair);
                 }
-                AssetDatabase.CreateAsset(optionSkill, $"Assets/00.Resources/OptionChoice/SkillOptionChoice.asset");
+                AssetDatabase.CreateAsset(optionSkill, $"Assets/00.Resources/OptionChoice/DataBase/SkillOptionChoice.asset");
                 AssetDatabase.SaveAssets();
 #endif
                 break;
             case 7 : 
 #if UNITY_EDITOR
-                var optionEquip = ScriptableObject.CreateInstance<OptionChoice_Equip>();
+                var optionEquip = ScriptableObject.CreateInstance<OptionChoice_EquipOption>();
 
                 for (int i = 0; i < rowDatas.Length; i++)
                 {
@@ -121,7 +173,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
                     float hpLvUpEffect = float.Parse(strarr[5]);
                     int equipmentLvUp = int.Parse(strarr[6]);
             
-                    var value = new Equip
+                    var value = new EquipOption
                     {
                         Equipment_Type_ID = equipmentTypeId,
                         Selection_Level = grade,
@@ -131,21 +183,21 @@ public class DataTableReader_KeyValue : MonoBehaviour
                         Equipment_LvUP = equipmentLvUp
                     };
             
-                    var pair = new IDValuePair<Equip>
+                    var pair = new IDValuePair<EquipOption>
                     {
-                        Selection_ID = key,
+                        Key_ID = key,
                         val = value
                     };
             
                     optionEquip.data.Add(pair);
                 }
-                AssetDatabase.CreateAsset(optionEquip, $"Assets/00.Resources/OptionChoice/EquipOptionChoice.asset");
+                AssetDatabase.CreateAsset(optionEquip, $"Assets/00.Resources/OptionChoice/DataBase/EquipOptionChoice.asset");
                 AssetDatabase.SaveAssets();
 #endif
                 break;
             case 9 :
 #if UNITY_EDITOR
-                var optionTraining = ScriptableObject.CreateInstance<OptionChoice_Training>();
+                var optionTraining = ScriptableObject.CreateInstance<OptionChoice_TrainingOption>();
 
                 for (int i = 0; i < rowDatas.Length; i++)
                 {
@@ -163,7 +215,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
                     float attackSpeedIncrease = float.Parse(strarr[6]);
                     int trainingLvUp = int.Parse(strarr[7]);
             
-                    var value = new Training
+                    var value = new TrainingOption
                     {   
                         Training_ID = trainingId,
                         Selection_Level = grade,
@@ -174,15 +226,15 @@ public class DataTableReader_KeyValue : MonoBehaviour
                         Training_LvUP = trainingLvUp
                     };
             
-                    var pair = new IDValuePair<Training>
+                    var pair = new IDValuePair<TrainingOption>
                     {
-                        Selection_ID = key,
+                        Key_ID = key,
                         val = value
                     };
             
                     optionTraining.data.Add(pair);
                 }
-                AssetDatabase.CreateAsset(optionTraining, $"Assets/00.Resources/OptionChoice/TrainingOptionChoice.asset");
+                AssetDatabase.CreateAsset(optionTraining, $"Assets/00.Resources/OptionChoice/DataBase/TrainingOptionChoice.asset");
                 AssetDatabase.SaveAssets();
 #endif
                 break;

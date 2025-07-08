@@ -6,15 +6,14 @@ using UnityEngine;
 [System.Serializable]
 public class IDValuePair<T> where T : BaseValue
 {
-    public int Selection_ID;
+    public int Key_ID;
     public T val;
 }
 
 [System.Serializable]
 public abstract class BaseValue
 {
-    public MyEnum Selection_Level;
-    public string Description;
+    
 }
 
 public enum MyEnum
@@ -27,9 +26,17 @@ public enum MyEnum
     신화
 }
 
-[System.Serializable]
-public class Equip : BaseValue
+public enum ECharacterGrade
 {
+    S,
+    A
+}
+
+[System.Serializable]
+public class EquipOption : BaseValue
+{
+    public MyEnum Selection_Level;
+    public string Description;
     public int Equipment_Type_ID;
     public float Attack_LV_UP_Effect;
     public float HP_LV_UP_Effect;
@@ -37,8 +44,10 @@ public class Equip : BaseValue
 }
 
 [System.Serializable]
-public class Skill : BaseValue
+public class SkillOption : BaseValue
 {
+    public MyEnum Selection_Level;
+    public string Description;
     public int Skill_ID;
     public float Cooldown_Reduction;
     public float Duration_Increase;
@@ -48,13 +57,32 @@ public class Skill : BaseValue
 }
 
 [System.Serializable]
-public class Training : BaseValue
+public class TrainingOption : BaseValue
 {
+    public MyEnum Selection_Level;
+    public string Description;
     public int Training_ID;
     public float Critical_Damage_Increase;
     public float Critical_Rate_Increase;
     public float Attack_Speed_Increase;
     public int Training_LvUP;
+}
+
+[System.Serializable]
+public class Character : BaseValue
+{
+    public int Character_ID;
+    public string Character_Class;
+    public string Character_Name;
+    public string Character_Grade;
+    public float Attack;
+    public float Health;
+    public float Attack_Speed;
+    public float Critical_Probability;
+    public float Training_type;
+    public float equip_item;
+    public float skill_possed1;
+    public float skill_possed2;
 }
 
 
@@ -69,7 +97,7 @@ public abstract class OptionChoiceBase<T> : ScriptableObject where T : BaseValue
 
     public T GetValue(int key)
     {
-        var pair = data.Find(x => x.Selection_ID == key);
+        var pair = data.Find(x => x.Key_ID == key);
         return pair != null ? pair.val : null;
     }
 }
