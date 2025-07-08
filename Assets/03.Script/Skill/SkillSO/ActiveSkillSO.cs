@@ -1,8 +1,10 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ActiveSkill", menuName = "ScriptableObjects/Skill/ActiveSkill")]
-public class ActiveSkillSO : ScriptableObject
+public class ActiveSkillSO : ScriptableObject,ISkillID
 {
+    public int SkillID { get;private set; }
+    
     public int Skill_ID;
     public string Skill_Name;
     public SkillType Skill_Type;
@@ -20,9 +22,9 @@ public class ActiveSkillSO : ScriptableObject
 
     public virtual void UseSkill()
     {
-        
         Debug.Log($"Use Skill: {Skill_Name}");
     }
+    
 }
 
 
