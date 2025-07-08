@@ -126,6 +126,10 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             isTarget = weapon.Attack(target);
         }*/
     }
+
+    public void UseSkill()
+    {
+    }
     
     public void TakeDamage(CombatEvent combatEvent)
     {

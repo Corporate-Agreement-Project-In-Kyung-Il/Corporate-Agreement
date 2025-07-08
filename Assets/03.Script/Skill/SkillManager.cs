@@ -70,6 +70,7 @@ public class SkillManager : MonoBehaviour
                    
                     Debug.Log(players[i].data.skill_possed[0]);
                     Debug.Log(skills[j].SkillID);
+                    Debug.Log(players[i].skills[0]);
                 }
                 
                 
@@ -80,6 +81,7 @@ public class SkillManager : MonoBehaviour
                     
                     players[i].skills[1] = skills[j];
                     
+                    Debug.Log(players[i].skills[1]);
                 }
             }
         }
