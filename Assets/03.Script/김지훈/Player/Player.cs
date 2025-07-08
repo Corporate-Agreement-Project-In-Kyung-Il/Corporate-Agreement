@@ -62,16 +62,25 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         playerStat.equip_item = data.equip_item;
         playerStat.skill_possed = data.skill_possed;
     }
-    
+
     private Vector2 enemyDetectionCenter;
     
     private void Update()
     {
         enemyDetectionCenter = Vector2.up * transform.position.y;
         Collider2D[] enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
-        
-        if (enemyDetectionCol.Length > 0) 
+
+        if (enemyDetectionCol.Length > 0)
+        {
+            animator.SetBool(IsRun, false);
             ChangeState(CharacterState.Attack);
+        }
+        else
+        {
+            isTarget = false;
+            animator.SetBool(IsAttack, false);
+            ChangeState(CharacterState.Run);
+        }
 
         switch (currentCharacterState)
         {
@@ -106,8 +115,15 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 
     public bool isTarget = false;
     public Collider2D target;
+    private float attackTimer = 0f;
+    
     private void performAttack()
     {
+        attackTimer -= Time.deltaTime;
+        
+        if (attackTimer > 0f)
+            return;
+        
         Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
 
         if (isTarget.Equals(false))
@@ -121,18 +137,23 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
             isTarget = true;
             animator.SetBool(IsAttack, true);
             isTarget = weapon.Attack(target);
+            
+            attackTimer = 1f / playerStat.attackSpeed;
         }
 
     }
     
     public void TakeDamage(CombatEvent combatEvent)
     {
+        playerStat.health -= combatEvent.Damage;
+        
         if (playerStat.health <= 0)
         {
             cameraMove = false;
             ChangeState(CharacterState.Die);
             return;
         }
+        
         Debug.Log($"{gameObject.name}이 데미지를 입음.");
     }
 
@@ -140,7 +161,6 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     {
         prevCharacterState = currentCharacterState;
         currentCharacterState = newState;
-        animator.SetBool(IsRun, false);
     }
 
     
