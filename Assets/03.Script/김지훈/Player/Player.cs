@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 {
-    protected static readonly int IsRun = Animator.StringToHash("isRun");
-    private static readonly int Attack = Animator.StringToHash("attack");
+    private static readonly int IsRun = Animator.StringToHash("isRun");
+    private static readonly int IsAttack = Animator.StringToHash("isAttack");
+
 
     //IDamageAble 요소
     public Collider2D mainCollider => col;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     [SerializeField] private CharacterState prevCharacterState = CharacterState.Run;
     
     //기타 선언 변수
-    private bool cameraMove = true;
+    [SerializeField] private bool cameraMove = true;
     [SerializeField] private Vector2 detectionRange; 
 
     
@@ -61,20 +62,18 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         playerStat.equip_item = data.equip_item;
         playerStat.skill_possed = data.skill_possed;
     }
-    
+
     private Vector2 enemyDetectionCenter;
-    
+    private Collider2D[] enemyDetectionCol;
     private void Update()
     {
         enemyDetectionCenter = Vector2.up * transform.position.y;
-        Collider2D[] enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
-        
-        if (enemyDetectionCol.Length > 0) 
-            ChangeState(CharacterState.Attack);
+        enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
 
         switch (currentCharacterState)
         {
             case CharacterState.Run:
+                animator.SetBool(IsRun, true);
                 performRun();
                 break;
             
@@ -92,8 +91,12 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 
     private void performRun()
     {
+        if (enemyDetectionCol.Length > 0)
+        {
+            ChangeState(CharacterState.Attack);
+        }
+        
         Debug.Log($"targetPos : {targetPos}");
-        animator.SetBool(IsRun, true);
         targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.deltaTime);
         rigid.MovePosition(targetPos); //Vector3.Lerp(transform.position, targetPos, Time.deltaTime));
     }
@@ -105,8 +108,21 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 
     public bool isTarget = false;
     public Collider2D target;
+    private float attackTimer = 0f;
+    
     private void performAttack()
     {
+        if(enemyDetectionCol.Length <= 0)
+        {
+            isTarget = false;
+            ChangeState(CharacterState.Run);
+        }
+        
+        attackTimer -= Time.deltaTime;
+        
+        if (attackTimer > 0f)
+            return;
+        
         Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
 
         if (isTarget.Equals(false))
@@ -118,28 +134,34 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         if (target != null)
         {
             isTarget = true;
-            animator.SetTrigger(Attack);
+            animator.SetBool(IsAttack, true);
             isTarget = weapon.Attack(target);
+            
+            attackTimer = 1f / playerStat.attackSpeed;
         }
 
     }
     
     public void TakeDamage(CombatEvent combatEvent)
     {
+        playerStat.health -= combatEvent.Damage;
+        
         if (playerStat.health <= 0)
         {
             cameraMove = false;
             ChangeState(CharacterState.Die);
             return;
         }
+        
         Debug.Log($"{gameObject.name}이 데미지를 입음.");
     }
 
     public void ChangeState(CharacterState newState)
     {
+        animator.SetBool(IsRun, false);
+        animator.SetBool(IsAttack, false);
         prevCharacterState = currentCharacterState;
         currentCharacterState = newState;
-        animator.SetBool(IsRun, false);
     }
 
     

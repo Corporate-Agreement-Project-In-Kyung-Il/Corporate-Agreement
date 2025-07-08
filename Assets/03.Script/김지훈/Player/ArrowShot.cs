@@ -1,50 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MagicBall : MonoBehaviour
+public class ArrowShot : MonoBehaviour
 {
-    private static readonly int Explosion = Animator.StringToHash("Explosion");
-    
-    private Animator animator;
     private Collider2D collider;
-    private AnimatorStateInfo currentStateInfo;
+    
     public Transform target;
     public Player player;
     public bool isTargetNotDead = true;
+    
+    public float arrowDamage;
 
-    
-    public float magicDamage;
-    
     private void Start()
     {
-        TryGetComponent(out animator);
         TryGetComponent(out collider);
     }
 
-    void Update()
+    private void Update()
     {
-        currentStateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        
         transform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime);
         
         float distance = Vector3.Distance(transform.position, target.position);
 
         if (distance < 0.1f)
         {
-            animator.SetTrigger(Explosion);
-        }
-
-        if (currentStateInfo.IsName("Explosion") && currentStateInfo.normalizedTime >= 0.25f &&
-            currentStateInfo.normalizedTime < 0.5f)
-        {
             collider.enabled = true;
-        }
-        else
-        {
-            collider.enabled = false;
         }
     }
 
@@ -52,25 +34,23 @@ public class MagicBall : MonoBehaviour
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
-        
-        if(other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+
+        if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage) && other.transform.Equals(target))
         {
             CombatEvent combatEvent = new CombatEvent();
             combatEvent.Receiver = enemyDamage;
             combatEvent.Sender = player;
-            combatEvent.Damage = magicDamage;
+            combatEvent.Damage = arrowDamage;
             combatEvent.collider = other;
+            gameObject.SetActive(false);
             
-            CombatSystem.instance.AddCombatEvent(combatEvent);
-
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))
             {
                 isTargetNotDead = false;
                 return;
             }
-
             isTargetNotDead = true;
         }
-            
+
     }
 }

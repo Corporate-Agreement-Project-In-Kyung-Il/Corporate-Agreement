@@ -24,8 +24,9 @@ public class CameraPoint : MonoBehaviour
         {
             if (colliders[i].TryGetComponent(out ICameraPosition cameraPosition) && cameraPosition.cameraMoveTransform != null)
             {
-                if (cameraPosition.canMove) 
-                    points += cameraPosition.cameraMoveTransform.position;
+                Debug.Log($"cameraPosition.canMove = {cameraPosition.canMove}");
+               if (cameraPosition.canMove) 
+                   points += cameraPosition.cameraMoveTransform.position;
             }
         }
 
