@@ -9,13 +9,14 @@ public interface ISkillID
     public int SkillID { get; set; }
 
     public void SetSkillID();
-    
 }
 
 public class SkillManager : MonoBehaviour
 {
     [SerializeField] private Player_jin[] players;
     [SerializeField] private ScriptableObject[] skillObjects;
+    [SerializeField] private SkillBase[] skillPrefab;
+
     private ISkillID[] skills;
 
     private void Awake()
@@ -31,8 +32,9 @@ public class SkillManager : MonoBehaviour
                 temp.Add(id);
             }
         }
+
         skills = temp.ToArray();
-        
+
         foreach (var skill in skills)
         {
             skill.SetSkillID();
@@ -54,40 +56,42 @@ public class SkillManager : MonoBehaviour
         players = FindObjectsOfType<Player_jin>();
     }
 
+    
+
     public void ConnectSkills()
     {
-        Debug.Log("1");
         for (int i = 0; i < players.Length; i++)
         {
-            Debug.Log("2");
             for (int j = 0; j < skills.Length; j++)
             {
-                Debug.Log("3");
-               
                 if (players[i].data.skill_possed[0] == skills[j].SkillID)
                 {
-                    Debug.Log("0");
                     players[i].skills[0] = skills[j];
-                   
-                    Debug.Log(players[i].data.skill_possed[0]);
-                    Debug.Log(skills[j].SkillID);
-                    Debug.Log(players[i].skills[0]);
+
+                    for (int x = 0; x < skillPrefab.Length; x++)
+                    {
+                        if (skills[j].SkillID == skillPrefab[x].SkillID)
+                        {
+                            players[i].skillPrefab[0] = skillPrefab[x];
+                           
+                        }
+                    }
                 }
-                
-                
+
                 if (players[i].data.skill_possed[1] == skills[j].SkillID)
                 {
-                    Debug.Log(players[i].data.skill_possed[1]);
-                    Debug.Log(skills[j].SkillID);
-                    
                     players[i].skills[1] = skills[j];
-                    
-                    Debug.Log(players[i].skills[1]);
+
+                    for (int x = 0; x < skillPrefab.Length; x++)
+                    {
+                        if (skills[j].SkillID == skillPrefab[x].SkillID)
+                        {
+                            players[i].skillPrefab[1] = skillPrefab[x];
+                            
+                        }
+                    }
                 }
             }
         }
-
-        Debug.Log("5");
-        Debug.Log(players[0].SkillID);
     }
 }
