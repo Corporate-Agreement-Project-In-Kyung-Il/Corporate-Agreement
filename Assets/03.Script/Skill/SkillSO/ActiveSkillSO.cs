@@ -25,11 +25,6 @@ public class ActiveSkillSO : ScriptableObject,ISkillID
     public float Cooldown_Reduction;
     public float Damage_Increase;
     
-    public virtual void UseSkill()
-    {
-        Debug.Log($"Use Skill: {Skill_Name}");
-    }
-    
 }
 
 
