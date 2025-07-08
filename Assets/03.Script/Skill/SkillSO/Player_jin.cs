@@ -16,7 +16,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     
     //스킬ID
     public List<int> SkillID => playerStat.skill_possed;
-    public ISkillID[] skills;
+    public ISkillID[] skills = new ISkillID[2];
     
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
@@ -106,8 +106,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     {
      // gameObject.SetActive(false);
     }
-
-    public List<ScriptableObject> Player_Skills_List;
+    
     public bool isTarget = false;
     public Collider2D target;
     private void performAttack()
