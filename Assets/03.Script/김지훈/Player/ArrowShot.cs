@@ -6,6 +6,7 @@ using UnityEngine;
 public class ArrowShot : MonoBehaviour
 {
     private Collider2D collider;
+    private Vector3 prevPosition;
     
     public Transform target;
     public Player player;
@@ -20,7 +21,15 @@ public class ArrowShot : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime);
+        Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime);
+        Vector3 moveDir = (nextPos - transform.position).normalized;
+        
+        if (moveDir != Vector3.zero)
+        {
+            transform.up = moveDir;
+        }
+        transform.position = nextPos;
         
         float distance = Vector3.Distance(transform.position, target.position);
 
@@ -28,6 +37,7 @@ public class ArrowShot : MonoBehaviour
         {
             collider.enabled = true;
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

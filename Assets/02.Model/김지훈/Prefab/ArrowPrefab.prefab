@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2194154568735615800}
   - component: {fileID: 4097171101335782030}
-  - component: {fileID: 1578177575278391442}
   - component: {fileID: 3885454155210348562}
+  - component: {fileID: 1578177575278391442}
   m_Layer: 0
   m_Name: ArrowPrefab
   m_TagString: Untagged
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1578177575278391442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5970997329809062061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba221cfba4a90f74b90b4cc4c537ff3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  player: {fileID: 0}
-  isTargetNotDead: 1
-  arrowDamage: 0
 --- !u!61 &3885454155210348562
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.12}
   m_EdgeRadius: 0
+--- !u!114 &1578177575278391442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5970997329809062061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba221cfba4a90f74b90b4cc4c537ff3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  player: {fileID: 0}
+  isTargetNotDead: 1
+  arrowDamage: 0
