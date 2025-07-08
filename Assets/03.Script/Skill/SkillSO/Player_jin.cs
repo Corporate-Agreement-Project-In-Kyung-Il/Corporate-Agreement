@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IDamageAble, ICameraPosition
+public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 {
     protected static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int Attack = Animator.StringToHash("attack");
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     public Collider2D mainCollider => col;
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
-    public float CurrentHp => playerStat.health;
+    public float CurrentHp { get; }
 
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
@@ -27,8 +27,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     private Weapon weapon;
         
     //CharacterState 정의 요소
-    [SerializeField] private CharacterState currentCharacterState = CharacterState.Run;
-    [SerializeField] private CharacterState prevCharacterState = CharacterState.Run;
+    [SerializeField] private CharacterState_jin currentCharacterState = CharacterState_jin.Run;
+    [SerializeField] private CharacterState_jin prevCharacterState = CharacterState_jin.Run;
     
     //기타 선언 변수
     private bool cameraMove = true;
@@ -70,19 +70,19 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         Collider2D[] enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
         
         if (enemyDetectionCol.Length > 0) 
-            ChangeState(CharacterState.Attack);
+            ChangeState(CharacterState_jin.Attack);
 
         switch (currentCharacterState)
         {
-            case CharacterState.Run:
+            case CharacterState_jin.Run:
                 performRun();
                 break;
             
-            case CharacterState.Attack:
+            case CharacterState_jin.Attack:
                 performAttack();
                 break;
             
-            case CharacterState.Die:
+            case CharacterState_jin.Die:
                 performDie();
                 break;
         }
@@ -100,28 +100,20 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     
     private void performDie()
     {
-        gameObject.SetActive(false);
+
     }
 
-    public bool isTarget = false;
-    public Collider2D target;
+    public ActiveSkillSO ActiveSkill;
     private void performAttack()
     {
         Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
-
-        if (isTarget.Equals(false))
-        {
-            Collider2D enemyAttackCol = Physics2D.OverlapBox(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
-            target = enemyAttackCol;
-        }
+        Collider2D[] enemyAttackRange =
+            Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
+        animator.SetTrigger(Attack);
         
-        if (target != null)
-        {
-            isTarget = true;
-            animator.SetTrigger(Attack);
-            isTarget = weapon.Attack(target);
-        }
-
+        ActiveSkill.UseSkill();
+        
+        
     }
     
     public void TakeDamage(CombatEvent combatEvent)
@@ -129,19 +121,25 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         if (playerStat.health <= 0)
         {
             cameraMove = false;
-            ChangeState(CharacterState.Die);
+            ChangeState(CharacterState_jin.Die);
             return;
         }
-        Debug.Log($"{gameObject.name}이 데미지를 입음.");
     }
 
-    public void ChangeState(CharacterState newState)
+    public void ChangeState(CharacterState_jin newState)
     {
         prevCharacterState = currentCharacterState;
         currentCharacterState = newState;
         animator.SetBool(IsRun, false);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            rigid.velocity = Vector2.zero;  // 강제로 속도 제거
+        }
+    }
     
     private void OnDrawGizmos()
     {
@@ -153,7 +151,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     
 }
 
-public enum CharacterState
+public enum CharacterState_jin
 {
     Run,
     Attack,
