@@ -61,16 +61,19 @@ public class MagicBall : MonoBehaviour
         {
             target = closestTarget;
         }
-        //else
-        //{
-        //    gameObject.SetActive(false);
-        //}
     }
+    
+    [SerializeField] private float timeSinceStart = 2f;
     
     private void MoveToEnemyHurt()
     {
+        timeSinceStart += Time.deltaTime; 
+        
+        float t = timeSinceStart;
+        float curveSpeed = Mathf.Pow(t, 2f);
+        
         currentStateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        transform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.position, curveSpeed * Time.deltaTime);
         
         float distance = Vector3.Distance(transform.position, target.position);
 

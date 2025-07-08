@@ -5585,7 +5585,7 @@ GameObject:
   - component: {fileID: 2015966073}
   - component: {fileID: 2015966072}
   m_Layer: 0
-  m_Name: CameraConfinder
+  m_Name: CameraConfinder_MonsterExistSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

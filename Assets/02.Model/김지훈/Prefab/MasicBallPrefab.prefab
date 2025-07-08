@@ -125,6 +125,7 @@ MonoBehaviour:
   player: {fileID: 0}
   isTargetNotDead: 1
   magicDamage: 0
+  timeSinceStart: 2.1
 --- !u!61 &3627931841980187727
 BoxCollider2D:
   m_ObjectHideFlags: 0

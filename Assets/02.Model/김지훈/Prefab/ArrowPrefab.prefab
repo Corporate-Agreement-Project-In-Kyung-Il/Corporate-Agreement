@@ -147,3 +147,4 @@ MonoBehaviour:
   player: {fileID: 0}
   isTargetNotDead: 1
   arrowDamage: 0
+  timeSinceStart: 2.1

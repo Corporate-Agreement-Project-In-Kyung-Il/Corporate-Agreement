@@ -60,16 +60,18 @@ public class ArrowShot : MonoBehaviour
         {                                                                                                    
             target = closestTarget;                                                                          
         }                                                                                                    
-        //else
-        //{
-        //    gameObject.SetActive(false);
-        //}
         
     }
     
+    [SerializeField] private float timeSinceStart = 2f;             
     private void MoveToEnemyHurt()
     {
-        Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime);
+        timeSinceStart += Time.deltaTime;  
+        
+        float t = timeSinceStart;
+        float curveSpeed = Mathf.Pow(t, 2f); 
+        
+        Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, curveSpeed * Time.deltaTime);
         Vector3 moveDir = (nextPos - transform.position).normalized;
         
         if (moveDir != Vector3.zero)
