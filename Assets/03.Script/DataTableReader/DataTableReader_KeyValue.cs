@@ -10,7 +10,6 @@ public class DataTableReader_KeyValue : MonoBehaviour
 {
     //기획자 분들 쓰실 수도 있어서 0번 시작이아니라 1번 시작입니다.
     [SerializeField] private int m_TableSheetNumber;
-
     void Start()
     {
         // 인코딩 등록 (한글 깨짐 방지)
@@ -55,44 +54,138 @@ public class DataTableReader_KeyValue : MonoBehaviour
             }
             rowDatas[i - 2] = rowData;
         }
-#if UNITY_EDITOR
-        var option = ScriptableObject.CreateInstance<OptionChoice_Equip>();
 
-        for (int i = 0; i < rowDatas.Length; i++)
+        switch (m_TableSheetNumber)
         {
-            var strarr = rowDatas[i].Split('|');
-            // 공백 제거
-            for (int k = 0; k < strarr.Length; k++)
-                strarr[k] = strarr[k].Trim();
+            case 5 :
+#if UNITY_EDITOR
+                var optionSkill = ScriptableObject.CreateInstance<OptionChoice_Skill>();
+
+                for (int i = 0; i < rowDatas.Length; i++)
+                {
+                    var strarr = rowDatas[i].Split('|');
+                    // 공백 제거
+                    for (int k = 0; k < strarr.Length; k++)
+                        strarr[k] = strarr[k].Trim();
             
-            int key = int.Parse(strarr[0]);
-            int equipmentTypeId = int.Parse(strarr[1]);
-            MyEnum grade = (MyEnum)Enum.Parse(typeof(MyEnum), strarr[2]);
-            string description = strarr[3];
-            float attackLvUpEffect = float.Parse(strarr[4]);
-            float hpLvUpEffect = float.Parse(strarr[5]);
-            int equipmentLvUp = int.Parse(strarr[6]);
+                    int key = int.Parse(strarr[0]);
+                    int skill_ID = int.Parse(strarr[1]);
+                    MyEnum grade = (MyEnum)Enum.Parse(typeof(MyEnum), strarr[2]);
+                    string description = strarr[3];
+                    float cooldownReduction = float.Parse(strarr[4]);
+                    float durationIncrease = float.Parse(strarr[5]);
+                    float activationRateIncrease = float.Parse(strarr[6]);
+                    float damageIncrease = float.Parse(strarr[7]);
+                    int skillLvUp = int.Parse(strarr[8]);
             
-            var value = new Equip
-            {
-                Equipment_Type_ID = equipmentTypeId,
-                Selection_Level = grade,
-                Description = description,
-                Attack_LV_UP_Effect = attackLvUpEffect,
-                HP_LV_UP_Effect = hpLvUpEffect,
-                Equipment_LvUP = equipmentLvUp
-            };
+                    var skillValue = new Skill
+                    {
+                        Skill_ID = skill_ID,
+                        Selection_Level = grade,
+                        Description = description,
+                        Cooldown_Reduction = cooldownReduction,
+                        Duration_Increase = durationIncrease,
+                        Activation_Rate_Increase = activationRateIncrease,
+                        Damage_Increase = damageIncrease,
+                        Skill_LvUP = skillLvUp
+                    };
             
-            var pair = new IDValuePair<Equip>
-            {
-                Selection_ID = key,
-                val = value
-            };
+                    var pair = new IDValuePair<Skill>
+                    {
+                        Selection_ID = key,
+                        val = skillValue
+                    };
             
-            option.data.Add(pair);
-        }
-        AssetDatabase.CreateAsset(option, $"Assets/00.Resources/OptionChoice/Base.asset");
-        AssetDatabase.SaveAssets();
+                    optionSkill.data.Add(pair);
+                }
+                AssetDatabase.CreateAsset(optionSkill, $"Assets/00.Resources/OptionChoice/SkillOptionChoice.asset");
+                AssetDatabase.SaveAssets();
 #endif
+                break;
+            case 7 : 
+#if UNITY_EDITOR
+                var optionEquip = ScriptableObject.CreateInstance<OptionChoice_Equip>();
+
+                for (int i = 0; i < rowDatas.Length; i++)
+                {
+                    var strarr = rowDatas[i].Split('|');
+                    // 공백 제거
+                    for (int k = 0; k < strarr.Length; k++)
+                        strarr[k] = strarr[k].Trim();
+            
+                    int key = int.Parse(strarr[0]);
+                    int equipmentTypeId = int.Parse(strarr[1]);
+                    MyEnum grade = (MyEnum)Enum.Parse(typeof(MyEnum), strarr[2]);
+                    string description = strarr[3];
+                    float attackLvUpEffect = float.Parse(strarr[4]);
+                    float hpLvUpEffect = float.Parse(strarr[5]);
+                    int equipmentLvUp = int.Parse(strarr[6]);
+            
+                    var value = new Equip
+                    {
+                        Equipment_Type_ID = equipmentTypeId,
+                        Selection_Level = grade,
+                        Description = description,
+                        Attack_LV_UP_Effect = attackLvUpEffect,
+                        HP_LV_UP_Effect = hpLvUpEffect,
+                        Equipment_LvUP = equipmentLvUp
+                    };
+            
+                    var pair = new IDValuePair<Equip>
+                    {
+                        Selection_ID = key,
+                        val = value
+                    };
+            
+                    optionEquip.data.Add(pair);
+                }
+                AssetDatabase.CreateAsset(optionEquip, $"Assets/00.Resources/OptionChoice/EquipOptionChoice.asset");
+                AssetDatabase.SaveAssets();
+#endif
+                break;
+            case 9 :
+#if UNITY_EDITOR
+                var optionTraining = ScriptableObject.CreateInstance<OptionChoice_Training>();
+
+                for (int i = 0; i < rowDatas.Length; i++)
+                {
+                    var strarr = rowDatas[i].Split('|');
+                    // 공백 제거
+                    for (int k = 0; k < strarr.Length; k++)
+                        strarr[k] = strarr[k].Trim();
+            
+                    int key = int.Parse(strarr[0]);
+                    int trainingId = int.Parse(strarr[1]);
+                    MyEnum grade = (MyEnum)Enum.Parse(typeof(MyEnum), strarr[2]);
+                    string description = strarr[3];
+                    float criticalDamageIncrease = float.Parse(strarr[4]);
+                    float criticalRateIncrease = float.Parse(strarr[5]);
+                    float attackSpeedIncrease = float.Parse(strarr[6]);
+                    int trainingLvUp = int.Parse(strarr[7]);
+            
+                    var value = new Training
+                    {   
+                        Training_ID = trainingId,
+                        Selection_Level = grade,
+                        Description = description,
+                        Critical_Damage_Increase = criticalDamageIncrease,
+                        Critical_Rate_Increase = criticalRateIncrease,
+                        Attack_Speed_Increase = attackSpeedIncrease,
+                        Training_LvUP = trainingLvUp
+                    };
+            
+                    var pair = new IDValuePair<Training>
+                    {
+                        Selection_ID = key,
+                        val = value
+                    };
+            
+                    optionTraining.data.Add(pair);
+                }
+                AssetDatabase.CreateAsset(optionTraining, $"Assets/00.Resources/OptionChoice/TrainingOptionChoice.asset");
+                AssetDatabase.SaveAssets();
+#endif
+                break;
+        }
     }
 }

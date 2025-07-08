@@ -15,7 +15,6 @@ public abstract class BaseValue
 {
     public MyEnum Selection_Level;
     public string Description;
-    
 }
 
 public enum MyEnum
@@ -40,13 +39,22 @@ public class Equip : BaseValue
 [System.Serializable]
 public class Skill : BaseValue
 {
-    
+    public int Skill_ID;
+    public float Cooldown_Reduction;
+    public float Duration_Increase;
+    public float Activation_Rate_Increase;
+    public float Damage_Increase;
+    public int Skill_LvUP;
 }
 
 [System.Serializable]
 public class Training : BaseValue
 {
-    
+    public int Training_ID;
+    public float Critical_Damage_Increase;
+    public float Critical_Rate_Increase;
+    public float Attack_Speed_Increase;
+    public int Training_LvUP;
 }
 
 
@@ -65,12 +73,3 @@ public abstract class OptionChoiceBase<T> : ScriptableObject where T : BaseValue
         return pair != null ? pair.val : null;
     }
 }
-
-[CreateAssetMenu(fileName = "OptionChoice_Equip", menuName = "LOH/OptionChoice_Equip")]
-public class OptionChoice_Equip : OptionChoiceBase<Equip> { }
-
-[CreateAssetMenu(fileName = "OptionChoice_Skill", menuName = "LOH/OptionChoice_Skill")]
-public class OptionChoice_Skill : OptionChoiceBase<Skill> { }
-
-[CreateAssetMenu(fileName = "OptionChoice_Training", menuName = "LOH/OptionChoice_Training")]
-public class OptionChoice_Training : OptionChoiceBase<Training> { }
