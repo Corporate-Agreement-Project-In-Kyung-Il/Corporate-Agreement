@@ -13,7 +13,10 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
-
+    
+    //스킬ID
+    public List<int> SkillID => playerStat.skill_possed;
+    
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
