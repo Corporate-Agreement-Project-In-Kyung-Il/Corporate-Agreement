@@ -91,19 +91,28 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
                 performDie();
                 break;
         }*/
-        for (int i = 0; i < skills.Length; i++)
-        {
-            if (skills[i] == null) continue;
-
-            skillCooldownTimers[i] -= Time.deltaTime;
-
-            if (skillCooldownTimers[i] <= 0f)
-            {
-                UseSkill(i);
-                ResetCooldown(i);
-            }
-        }
+            skillCooldownTimers[0] -= Time.deltaTime;
+            skillCooldownTimers[1] -= Time.deltaTime;
+            SkillCondition();
     }
+
+    private void SkillCondition()
+    {
+        if (skillCooldownTimers[0] <= 0f)
+        {
+            UseSkill(0);
+            ResetCooldown(0);
+        }
+        
+        if (skillCooldownTimers[1] <= 0f)
+        {
+            UseSkill(1);
+            ResetCooldown(1);
+        }
+        
+        
+    }
+
     private void UseSkill(int index)
     {
         if (skills[index] is ActiveSkillSO active)
