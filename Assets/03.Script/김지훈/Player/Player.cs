@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 {
-    protected static readonly int IsRun = Animator.StringToHash("isRun");
-    private static readonly int Attack = Animator.StringToHash("attack");
+    private static readonly int IsRun = Animator.StringToHash("isRun");
+    private static readonly int IsAttack = Animator.StringToHash("isAttack");
+
 
     //IDamageAble 요소
     public Collider2D mainCollider => col;
@@ -118,7 +119,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         if (target != null)
         {
             isTarget = true;
-            animator.SetTrigger(Attack);
+            animator.SetBool(IsAttack, true);
             isTarget = weapon.Attack(target);
         }
 
