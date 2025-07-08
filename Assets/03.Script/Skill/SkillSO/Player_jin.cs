@@ -18,6 +18,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     public List<int> SkillID => playerStat.skill_possed;
     public ISkillID[] skills = new ISkillID[2];
     
+    
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
