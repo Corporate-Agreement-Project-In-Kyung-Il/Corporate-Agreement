@@ -103,7 +103,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
         gameObject.SetActive(false);
     }
 
-    public ActiveSkillSO ActiveSkill;
+    public List<ScriptableObject> Player_Skills_List;
     public bool isTarget = false;
     public Collider2D target;
     private void performAttack()
@@ -115,17 +115,13 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             Collider2D enemyAttackCol = Physics2D.OverlapBox(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
             target = enemyAttackCol;
         }
-        
+
         if (target != null)
         {
             isTarget = true;
             animator.SetTrigger(Attack);
             isTarget = weapon.Attack(target);
         }
-        
-        ActiveSkill.UseSkill();
-        
-        
     }
     
     public void TakeDamage(CombatEvent combatEvent)
