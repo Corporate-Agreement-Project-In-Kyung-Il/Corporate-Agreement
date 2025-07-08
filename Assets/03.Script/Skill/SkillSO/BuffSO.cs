@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Buff", menuName = "ScriptableObjects/Skill/Buff")]
-public class BuffSO : ScriptableObject
+public class BuffSO : ScriptableObject, ISkillID
 {
     public int Skill_ID;
     public string Skill_Name;
@@ -24,4 +24,9 @@ public class BuffSO : ScriptableObject
     public float Cooldown_Reduction;
     public float Duration_Increase;
     public float Activation_Rate_Increase;
+    public int SkillID { get; set; }
+    public void SetSkillID()
+    {
+        SkillID = Skill_ID;
+    }
 }

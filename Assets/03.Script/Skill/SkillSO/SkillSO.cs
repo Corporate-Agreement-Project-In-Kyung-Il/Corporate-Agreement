@@ -6,7 +6,5 @@ using UnityEngine;
 
 public class SkillSO : ScriptableObject
 {
-    public List<ScriptableObject> skill_List;
-    public ISkillID[] SkillID;
-    
+   
 }

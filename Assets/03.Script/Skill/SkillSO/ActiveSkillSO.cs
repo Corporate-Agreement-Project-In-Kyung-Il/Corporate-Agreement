@@ -1,10 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ActiveSkill", menuName = "ScriptableObjects/Skill/ActiveSkill")]
 public class ActiveSkillSO : ScriptableObject,ISkillID
 {
-    public int SkillID { get;private set; }
-    
+    public int SkillID { get; set; }
+    public void SetSkillID()
+    {
+        SkillID = Skill_ID;
+    }
+
     public int Skill_ID;
     public string Skill_Name;
     public SkillType Skill_Type;
@@ -19,7 +24,7 @@ public class ActiveSkillSO : ScriptableObject,ISkillID
     public int Skill_Range_height;
     public float Cooldown_Reduction;
     public float Damage_Increase;
-
+    
     public virtual void UseSkill()
     {
         Debug.Log($"Use Skill: {Skill_Name}");

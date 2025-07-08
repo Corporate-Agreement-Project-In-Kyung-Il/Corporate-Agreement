@@ -341,6 +341,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1169386087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1169386089}
+  - component: {fileID: 1169386088}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1169386088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169386087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1bb3e660219bb428c66eab99cabb7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  skillObjects:
+  - {fileID: 11400000, guid: 9f2616352cbfd8c49a31729017b3a545, type: 2}
+  - {fileID: 11400000, guid: 7fe4d03c629be3343b67b281c78b747f, type: 2}
+  - {fileID: 11400000, guid: dbf208633ea98634c81f093807fe7a59, type: 2}
+  - {fileID: 11400000, guid: 0f5f1b213caae8e42b27a37ab46ea761, type: 2}
+  - {fileID: 11400000, guid: b67382884c6d42644aaa9ef27f857317, type: 2}
+  - {fileID: 11400000, guid: 3c2cb63ac0b6ce149a67eaadcc3d2be2, type: 2}
+  - {fileID: 11400000, guid: da8442d59c0f72c4596d3adb5632433f, type: 2}
+  - {fileID: 11400000, guid: 336c473fbd56d07478ed059ba3c24f93, type: 2}
+  - {fileID: 11400000, guid: 94b7999f77bf6a043a633bfa8c3d61c2, type: 2}
+  - {fileID: 11400000, guid: dbfcb69415dc5d1488d5659722284031, type: 2}
+--- !u!4 &1169386089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169386087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401079779
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c5a52467cf34e499161a4e2add4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
   currentCharacterState: 0
   prevCharacterState: 0
   detectionRange: {x: 0, y: 0}
@@ -399,3 +455,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1401079781}
+  - {fileID: 1169386089}

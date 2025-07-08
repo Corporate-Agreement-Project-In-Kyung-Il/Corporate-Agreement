@@ -16,13 +16,14 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     
     //스킬ID
     public List<int> SkillID => playerStat.skill_possed;
+    public ISkillID[] skills;
     
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
     
     //Component 받아오는 요소
-    [SerializeField] private PlayerData data;
+    [SerializeField] public PlayerData data;
     private Collider2D col;
     private Rigidbody2D rigid;
     private PlayerStat playerStat = new PlayerStat();
@@ -69,7 +70,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     
     private void Update()
     {
-        enemyDetectionCenter = Vector2.up * transform.position.y;
+        /*enemyDetectionCenter = Vector2.up * transform.position.y;
         Collider2D[] enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
         
         if (enemyDetectionCol.Length > 0) 
@@ -88,22 +89,22 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             case CharacterState_jin.Die:
                 performDie();
                 break;
-        }
+        }*/
     }
     
     private Vector2 targetPos;
 
     private void performRun()
     {
-        Debug.Log($"targetPos : {targetPos}");
+        /*Debug.Log($"targetPos : {targetPos}");
         animator.SetBool(IsRun, true);
         targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.deltaTime);
-        rigid.MovePosition(targetPos); //Vector3.Lerp(transform.position, targetPos, Time.deltaTime));
+        rigid.MovePosition(targetPos);*/ //Vector3.Lerp(transform.position, targetPos, Time.deltaTime));
     }
     
     private void performDie()
     {
-        gameObject.SetActive(false);
+     // gameObject.SetActive(false);
     }
 
     public List<ScriptableObject> Player_Skills_List;
@@ -111,7 +112,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     public Collider2D target;
     private void performAttack()
     {
-        Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
+        /*Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
 
         if (isTarget.Equals(false))
         {
@@ -124,33 +125,33 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             isTarget = true;
             animator.SetTrigger(Attack);
             isTarget = weapon.Attack(target);
-        }
+        }*/
     }
     
     public void TakeDamage(CombatEvent combatEvent)
     {
-        if (playerStat.health <= 0)
-        {
-            cameraMove = false;
-            ChangeState(CharacterState_jin.Die);
-            return;
-        }
-        Debug.Log($"{gameObject.name}이 데미지를 입음.");
+        // if (playerStat.health <= 0)
+        // {
+        //     cameraMove = false;
+        //     ChangeState(CharacterState_jin.Die);
+        //     return;
+        // }
+        // Debug.Log($"{gameObject.name}이 데미지를 입음.");
     }
 
     public void ChangeState(CharacterState_jin newState)
     {
-        prevCharacterState = currentCharacterState;
-        currentCharacterState = newState;
-        animator.SetBool(IsRun, false);
+        // prevCharacterState = currentCharacterState;
+        // currentCharacterState = newState;
+        // animator.SetBool(IsRun, false);
     }
     
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(enemyDetectionCenter, playerStat.detectionRange);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
+        // Gizmos.color = Color.yellow;
+        // Gizmos.DrawWireCube(enemyDetectionCenter, playerStat.detectionRange);
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
     }
     
 }
