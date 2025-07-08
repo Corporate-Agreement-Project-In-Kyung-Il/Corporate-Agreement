@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bd0cde2cd730d4587fcf33edab91bf, type: 3}
-  m_Name: Stage1_3
+  m_Script: {fileID: 11500000, guid: fc61d0925bcb4917b49ca8c72e3a89f2, type: 3}
+  m_Name: AreaPattern1
   m_EditorClassIdentifier: 
-  mStageIndex: 1
-  mMonsterHp: 100
-  mMonsterAttack: 10
-  mSpawnMonsterTypeList: 010000000200000003000000
-  mAreaInfoList:
-  - {fileID: 11400000, guid: 4d719c1e110468f4b830ae00adfd358a, type: 2}
+  mMonsterSpawnPointList:
+  - {x: 0, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: 2}
