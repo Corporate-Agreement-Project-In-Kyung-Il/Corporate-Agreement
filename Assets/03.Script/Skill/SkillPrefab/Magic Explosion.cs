@@ -1,9 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicExplosion : MonoBehaviour
+public class MagicExplosion : MonoBehaviour,ISkillID
 {
+    public int SkillId;
+    public int SkillID { get; set; }
+    public void SetSkillID()
+    {
+        SkillID = SkillId;
+    }
+
     void Start()
     {
         Debug.Log("start MagicExplosion");
@@ -20,4 +28,6 @@ public class MagicExplosion : MonoBehaviour
             //데미지입힘
         }
     }
+
+    
 }

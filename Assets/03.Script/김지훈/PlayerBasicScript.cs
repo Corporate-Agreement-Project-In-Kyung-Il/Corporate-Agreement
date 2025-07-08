@@ -61,7 +61,7 @@ public enum character_name
     아이언,
     디노,
     [Description("기본 궁수")]
-    궁수,
+    기본_궁수,
     사비나,
     [Description("기본 마법사")]
     마법사,

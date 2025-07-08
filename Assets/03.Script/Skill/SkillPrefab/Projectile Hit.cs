@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileHit : MonoBehaviour
+public class ProjectileHit : MonoBehaviour,ISkillID
 {
+    public int SkillId;
+    public int SkillID { get; set; }
+    public void SetSkillID()
+    {
+        SkillID = SkillId;
+    }
     void Start()
     {
         Debug.Log("start ProjectileHit");

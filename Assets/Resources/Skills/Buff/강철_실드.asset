@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: daa37303b9e2950488e065613c5e15a4, type: 3}
-  m_Name: "\uBC29\uD328\uC758 \uAC00\uD638"
+  m_Name: "\uAC15\uCCA0_\uC2E4\uB4DC"
   m_EditorClassIdentifier: 
-  Skill_ID: 100011
-  Skill_Name: "\uBC29\uD328\uC758 \uAC00\uD638"
+  Skill_ID: 100013
+  Skill_Name: "\uAC15\uCCA0_\uC2E4\uB4DC"
   Skill_Type: 1
   Skill_Minimum_LV: 1
   Skill_current_LV: 0
-  Skill_Class: 0
-  Skill_Character: 0
+  Skill_Class: 3
+  Skill_Character: 2
   Skill_Range: 0
   Skill_Maximum_LV: 1024
-  Skill_Cooldown: 8
+  Skill_Cooldown: 10
   Skill_Duration: 4
-  Skill_Buff_Type: 300001
-  Skill_Activation_Rate: 0.4
+  Skill_Buff_Type: 300002
+  Skill_Buff_Type_Object: {fileID: 11400000, guid: efee6c4c7aa52bb4880af60ebac90c41, type: 2}
+  Skill_Activation_Rate: 1
   Cooldown_Reduction: 0.2
   Duration_Increase: 0.05
-  Activation_Rate_Increase: 0.01
-  SkillPrefab: {fileID: 570433544885308978, guid: a5eadfb777803fe4f8a48677dd2ca22f, type: 3}
+  Activation_Rate_Increase: 0
+  SkillPrefab: {fileID: 0}

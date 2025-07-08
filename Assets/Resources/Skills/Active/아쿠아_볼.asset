@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3792cab7314e4e4cb7a13515fbf07d8, type: 3}
-  m_Name: "\uB9C8\uBC95 \uD3ED\uBC1C"
+  m_Name: "\uC544\uCFE0\uC544_\uBCFC"
   m_EditorClassIdentifier: 
-  Skill_ID: 100018
-  Skill_Name: "\uB9C8\uBC95 \uD3ED\uBC1C"
+  Skill_ID: 100020
+  Skill_Name: "\uC544\uCFE0\uC544_\uBCFC"
   Skill_Type: 0
   Skill_Minimum_LV: 1
   Skill_current_LV: 0
   Skill_Maximum_LV: 1024
-  Skill_Cooldown: 3
-  Skill_Damage: 2
+  Skill_Cooldown: 20
+  Skill_Damage: 10
   Skill_Attack_Count: 1
   Wide_Area: 1
   Skill_Range_width: 3
   Skill_Range_height: 3
-  Cooldown_Reduction: 0.1
-  Damage_Increase: 0.1
-  SkillPrefab: {fileID: 4143726780913922746, guid: 795ad91052cd3fe4dbddf222b7c66b33, type: 3}
+  Cooldown_Reduction: 0.2
+  Damage_Increase: 0.2
+  SkillPrefab: {fileID: 0}

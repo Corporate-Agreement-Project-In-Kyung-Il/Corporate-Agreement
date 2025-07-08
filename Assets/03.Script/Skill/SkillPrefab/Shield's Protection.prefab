@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5938386060077368857}
-  - component: {fileID: 8178700543365525075}
+  - component: {fileID: 2280487081948018563}
   m_Layer: 0
   m_Name: Shield's Protection
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8178700543365525075
+--- !u!114 &2280487081948018563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 570433544885308978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b7b2ad7d069e514d81772437bfe636a, type: 3}
+  m_Script: {fileID: 11500000, guid: d06c10dd4e1e5b04a87882bbe8f4068d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkillId: 100011
