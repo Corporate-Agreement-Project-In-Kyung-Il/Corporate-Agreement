@@ -16,6 +16,7 @@ MonoBehaviour:
   Skill_Name: "\uC804\uC0AC\uC758 \uAC15\uD55C \uC758\uC9C0"
   Skill_Type: 0
   Skill_Minimum_LV: 1
+  Skill_current_LV: 0
   Skill_Maximum_LV: 1024
   Skill_Cooldown: 6
   Skill_Damage: 1
@@ -25,3 +26,4 @@ MonoBehaviour:
   Skill_Range_height: 1
   Cooldown_Reduction: 0.1
   Damage_Increase: 0.05
+  SkillPrefab: {fileID: 6031747265999018269, guid: 3206b1ff4556adc468826be8fc80937a, type: 3}

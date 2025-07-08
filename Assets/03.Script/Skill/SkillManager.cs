@@ -15,7 +15,7 @@ public class SkillManager : MonoBehaviour
 {
     [SerializeField] private Player_jin[] players;
     [SerializeField] private ScriptableObject[] skillObjects;
-    [SerializeField] private SkillBase[] skillPrefab;
+
 
     private ISkillID[] skills;
 
@@ -56,8 +56,6 @@ public class SkillManager : MonoBehaviour
         players = FindObjectsOfType<Player_jin>();
     }
 
-    
-
     public void ConnectSkills()
     {
         for (int i = 0; i < players.Length; i++)
@@ -67,29 +65,11 @@ public class SkillManager : MonoBehaviour
                 if (players[i].data.skill_possed[0] == skills[j].SkillID)
                 {
                     players[i].skills[0] = skills[j];
-
-                    for (int x = 0; x < skillPrefab.Length; x++)
-                    {
-                        if (skills[j].SkillID == skillPrefab[x].SkillID)
-                        {
-                            players[i].skillPrefab[0] = skillPrefab[x];
-                           
-                        }
-                    }
                 }
 
                 if (players[i].data.skill_possed[1] == skills[j].SkillID)
                 {
                     players[i].skills[1] = skills[j];
-
-                    for (int x = 0; x < skillPrefab.Length; x++)
-                    {
-                        if (skills[j].SkillID == skillPrefab[x].SkillID)
-                        {
-                            players[i].skillPrefab[1] = skillPrefab[x];
-                            
-                        }
-                    }
                 }
             }
         }

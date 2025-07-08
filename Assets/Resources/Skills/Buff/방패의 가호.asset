@@ -16,6 +16,7 @@ MonoBehaviour:
   Skill_Name: "\uBC29\uD328\uC758 \uAC00\uD638"
   Skill_Type: 1
   Skill_Minimum_LV: 1
+  Skill_current_LV: 0
   Skill_Class: 0
   Skill_Character: 0
   Skill_Range: 0
@@ -27,3 +28,4 @@ MonoBehaviour:
   Cooldown_Reduction: 0.2
   Duration_Increase: 0.05
   Activation_Rate_Increase: 0.01
+  SkillPrefab: {fileID: 2747486703515030945, guid: e6a78ec345eda8a46bc9c1f79e9fd2f1, type: 3}

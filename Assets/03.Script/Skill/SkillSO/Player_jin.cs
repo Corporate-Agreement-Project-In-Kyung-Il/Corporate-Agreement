@@ -17,9 +17,10 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     //스킬ID
     public List<int> SkillID => playerStat.skill_possed;
     public ISkillID[] skills = new ISkillID[2];
-    public SkillBase[] skillPrefab = new SkillBase[2];
-    
-    //ICameraPosition 요소 
+    public GameObject skillPrefab;
+    public GameObject skillPrefab2;
+
+    //ICameraPosition 요소    
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
 
@@ -68,6 +69,27 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
         playerStat.skill_possed = data.skill_possed;
     }
 
+    private void Start()
+    {
+        if (skills[0] is ActiveSkillSO skill)
+        {
+            skillPrefab = skill.SkillPrefab;
+        }
+        else if (skills[0] is BuffSO buff)
+        {
+            skillPrefab = buff.SkillPrefab;
+        }
+
+        if (skills[1] is ActiveSkillSO skill2)
+        {
+            skillPrefab2 = skill2.SkillPrefab;
+        }
+        else if (skills[1] is BuffSO buff2)
+        {
+            skillPrefab2 = buff2.SkillPrefab;
+        }
+    }
+
     private Vector2 enemyDetectionCenter;
 
     private void Update()
@@ -114,13 +136,18 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 
     private void UseSkill(int index)
     {
+        
+        
         if (skills[index] is ActiveSkillSO active)
         {
             Debug.Log($"[액티브] {active.Skill_Name} 발동! 쿨타임: {active.Skill_Cooldown}");
+            Instantiate(skillPrefab2);
+            
             // 공격/이펙트/범위 등 구현
         }
         else if (skills[index] is BuffSO buff)
         {
+            Instantiate(skillPrefab);
             Debug.Log($"[버프] {buff.Skill_Name} 발동! 쿨타임 : {buff.Skill_Cooldown}, 지속시간: {buff.Skill_Duration}초");
             // 스탯 증가 등 버프 효과 적용
         }
@@ -169,10 +196,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             isTarget = weapon.Attack(target);
         }*/
     }
-
-    public void UseSkill()
-    {
-    }
+    
 
     public void TakeDamage(CombatEvent combatEvent)
     {

@@ -10,6 +10,7 @@ public class BuffSO : ScriptableObject, ISkillID
     public SkillType Skill_Type;
     public int Skill_Minimum_LV;
 
+    public int Skill_current_LV;
     public  character_class Skill_Class;
     public character_name Skill_Character;
     public bool Skill_Range;
@@ -24,6 +25,8 @@ public class BuffSO : ScriptableObject, ISkillID
     public float Cooldown_Reduction;
     public float Duration_Increase;
     public float Activation_Rate_Increase;
+    public GameObject SkillPrefab;
+    
     public int SkillID { get; set; }
     public void SetSkillID()
     {
