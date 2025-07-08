@@ -1,8 +1,10 @@
 using System;
 using _03.Script.엄시형.Data;
+using _03.Script.엄시형.Monster;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _03.Script.엄시형.Editor
 {
@@ -10,20 +12,20 @@ namespace _03.Script.엄시형.Editor
 [CreateAssetMenu(fileName = "New Grid", menuName = "Test/Grid")]
 public class GridHolder : ScriptableObject
 {
-    public int rows = 5;
-    public int cols = 6;
+    public int Rows = 5;
+    public int Cols = 6;
 
-    public Wrapper<MonsterType>[] grid;
-    public Sprite[] textures;
+    public Wrapper<MonsterType>[] Grid;
+    public Sprite[] Textures;
     
     public void ResetGrid()
     {
-        grid = new Wrapper<MonsterType>[rows];
+        Grid = new Wrapper<MonsterType>[Rows];
         
-        for (int i = 0; i < rows; i++)
+        for (int i = 0; i < Rows; i++)
         {
-            grid[i] = new Wrapper<MonsterType>();
-            grid[i].values = new MonsterType[cols];
+            Grid[i] = new Wrapper<MonsterType>();
+            Grid[i].Values = new MonsterType[Cols];
         }
     }
 }
@@ -40,14 +42,14 @@ public class GridHolder : ScriptableObject
         // TODO : 텍스쳐 뜨게 변경해야함
         private void OnEnable()
         {
-            rowsProp = serializedObject.FindProperty("rows");
-            colsProp = serializedObject.FindProperty("cols");
-            gridProp = serializedObject.FindProperty("grid");
-            texturesProp = serializedObject.FindProperty("textures");
+            rowsProp = serializedObject.FindProperty("Rows");
+            colsProp = serializedObject.FindProperty("Cols");
+            gridProp = serializedObject.FindProperty("Grid");
+            texturesProp = serializedObject.FindProperty("Textures");
 
             var holder = (GridHolder) target;
             
-            if (holder.grid == null || holder.grid.Length != holder.rows || NeedColResize(holder))
+            if (holder.Grid == null || holder.Grid.Length != holder.Rows || NeedColResize(holder))
             {
                 holder.ResetGrid();
                 EditorUtility.SetDirty(holder);
@@ -57,9 +59,9 @@ public class GridHolder : ScriptableObject
 
         private bool NeedColResize(GridHolder holder)
         {
-            foreach (var row in holder.grid)
+            foreach (var row in holder.Grid)
             {
-                if (row == null || row.values == null || row.values.Length != holder.cols)
+                if (row == null || row.Values == null || row.Values.Length != holder.Cols)
                     return true;
             }
             
@@ -92,18 +94,18 @@ public class GridHolder : ScriptableObject
         {
             var holder = (GridHolder) target;
 
-            for (int i = 0; i < holder.rows; i++)
+            for (int i = 0; i < holder.Rows; i++)
             {
                 if (i >= gridProp.arraySize)
                 {
                     continue;
                 }
 
-                SerializedProperty rowProp = gridProp.GetArrayElementAtIndex(i).FindPropertyRelative("values");
+                SerializedProperty rowProp = gridProp.GetArrayElementAtIndex(i).FindPropertyRelative("Values");
 
                 EditorGUILayout.BeginHorizontal();
                 
-                for (int j = 0; j < holder.cols; j++)
+                for (int j = 0; j < holder.Cols; j++)
                 {
                     if (j >= rowProp.arraySize)
                         continue;
@@ -114,12 +116,12 @@ public class GridHolder : ScriptableObject
                     Texture2D tex = null;
                     
                     if (
-                        holder.textures != null 
-                        && currentIndex < holder.textures.Length 
-                        && holder.textures[currentIndex] != null
+                        holder.Textures != null 
+                        && currentIndex < holder.Textures.Length 
+                        && holder.Textures[currentIndex] != null
                         && (MonsterType) currentIndex != MonsterType.Unknown)
                     {
-                        tex = holder.textures[currentIndex].texture;
+                        tex = holder.Textures[currentIndex].texture;
                     }
                     
                     
