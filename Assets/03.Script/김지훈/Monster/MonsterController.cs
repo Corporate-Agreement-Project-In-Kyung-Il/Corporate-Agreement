@@ -12,11 +12,13 @@ public class MonsterController : MonoBehaviour, IDamageAble
     public Collider2D mainCollider => collider2D;
     public GameObject GameObject => gameObject;
     public float Damage => monsterStat.damage;
-    
+    public float CurrentHp => monsterStat.health;
+
     //Component 받아오는 요소
     public MonsterData monsterData;
     public MonsterStat monsterStat = new MonsterStat();
     private Collider2D collider2D;
+    private Weapon weapon;
     
     //CharacterState 정의 요소
     [SerializeField] private EnemyState currentCharacterState = EnemyState.Idle;
@@ -26,7 +28,8 @@ public class MonsterController : MonoBehaviour, IDamageAble
     private void Awake()
     {
         TryGetComponent(out collider2D);
-
+        TryGetComponent(out weapon);
+        
         monsterStat.health = monsterData.Monster_HP;
         monsterStat.playerDetectionRange = new Vector2(3f, 7f);
         
@@ -38,15 +41,18 @@ public class MonsterController : MonoBehaviour, IDamageAble
         monsterStat.moveSpeed = monsterData.moveSpeed;
     }
 
+    private void Start()
+    {
+        CombatSystem.instance.RegisterMonster(this);
+    }
+
     private void Update()
     {
+        
         switch (currentCharacterState)
         {
             case EnemyState.Idle :
                 performIdle();
-                break;
-            case EnemyState.Run :
-                performRun();
                 break;
             case EnemyState.Attack:
                 performAttack();
@@ -58,14 +64,16 @@ public class MonsterController : MonoBehaviour, IDamageAble
     }
     
     private Vector2 playerDetectionCenter;
-    private Vector2 target;
+    private Transform target;
+    private Collider2D[] playerCol;
 
+    //실시간으로 가까운 거리에 있는 Player를 탐색하면서 이동함.
     private void performIdle()
     {
         playerDetectionCenter = Vector2.up * transform.position.y;
-        Collider2D[] playerCol = Physics2D.OverlapBoxAll(playerDetectionCenter, monsterStat.playerDetectionRange, 0f,
+        playerCol = Physics2D.OverlapBoxAll(playerDetectionCenter, monsterStat.playerDetectionRange, 0f,
             LayerMask.GetMask("Player"));
-
+        
         float mindistance = 10f;
         Transform closestPlayer = null;
 
@@ -82,36 +90,55 @@ public class MonsterController : MonoBehaviour, IDamageAble
 
         if (closestPlayer != null)
         {
-            target = closestPlayer.position;
-            ChangeState(EnemyState.Run);
+            target = closestPlayer;
+            
+            transform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime);
+            
+            float distance = Vector2.Distance(transform.position, target.position);
+            if (distance < monsterStat.attackRange)
+                ChangeState(EnemyState.Attack);
         }
     }
     
-    private void performRun()
-    {
-        transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime);
-        float distance = Vector3.Distance(transform.position, target);
-        
-        if (distance < monsterStat.attackRange)
-            ChangeState(EnemyState.Attack);
-    }
 
     private void performAttack()
     {
+        float distance = Vector2.Distance(transform.position, target.position);
+
+        if (distance > monsterStat.attackRange)
+        {
+            ChangeState(EnemyState.Idle);
+            return;
+        }
         
+
+        if (target.gameObject.TryGetComponent(out IDamageAble playerDamage))
+        {
+            CombatEvent combatEvent = new CombatEvent();
+
+            combatEvent.Receiver = playerDamage;
+            combatEvent.Sender = this;
+            combatEvent.Damage = monsterStat.damage;
+            combatEvent.collider = playerDamage.mainCollider;
+            
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+        }
+
     }
 
     private void performDie()
     {
-        
+        gameObject.SetActive(false);
     }
     
     public void TakeDamage(CombatEvent combatEvent)
     {
         if (monsterStat.health <= 0)
         {
-            Destroy(gameObject);
+            ChangeState(EnemyState.Die);
         }
+        
+        Debug.Log($"{gameObject.name}이 피해 받음");
     }
     
     public void ChangeState(EnemyState newState)
@@ -141,8 +168,7 @@ public class MonsterStat
 
 public enum EnemyState
 {
-    Idle,
-    Run,
+    Idle, //Idle에서 run하고 다함
     Attack,
     Die
 }

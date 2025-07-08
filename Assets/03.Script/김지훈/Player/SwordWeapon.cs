@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class SwordWeapon : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    private SpriteRenderer sr;
+    private Player player;
+    
+    private void Start()
     {
-        
+        TryGetComponent(out sr); //sr 장착한 검에 대해서 모형 변화
+        player = GetComponentInParent<Player>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override bool Attack(Collider2D collider)
     {
+        if (collider.gameObject.TryGetComponent(out IDamageAble enemyDamage).Equals(false))
+            return false;
         
-    }
-    
-    public override bool Attack()
-    {
+        Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
+            
+        CombatEvent combatEvent = new CombatEvent();
+        combatEvent.Receiver = enemyDamage;
+        combatEvent.Sender = player;
+        combatEvent.Damage = player.Damage;
+        combatEvent.collider = enemyDamage.mainCollider;
+            
+        CombatSystem.instance.AddCombatEvent(combatEvent);
+
+        if (enemyDamage.CurrentHp > 0)
+        {
+            return true;
+        }
         return false;
     }
 }

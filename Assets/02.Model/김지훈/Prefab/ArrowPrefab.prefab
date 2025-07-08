@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2194154568735615800}
   - component: {fileID: 4097171101335782030}
   m_Layer: 0
-  m_Name: ArcherPrefab
+  m_Name: ArrowPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

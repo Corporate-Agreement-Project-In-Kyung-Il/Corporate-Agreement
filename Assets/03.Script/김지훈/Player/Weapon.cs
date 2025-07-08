@@ -4,12 +4,5 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public enum weaponType
-    {
-        Unkown,
-        Sword,
-        Arrow,
-        Wand
-    }
-    public abstract bool Attack();
+    public abstract bool Attack(Collider2D collider);
 }
