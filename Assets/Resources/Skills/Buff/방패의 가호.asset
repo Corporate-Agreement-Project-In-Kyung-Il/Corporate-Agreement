@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa37303b9e2950488e065613c5e15a4, type: 3}
+  m_Name: "\uBC29\uD328\uC758 \uAC00\uD638"
+  m_EditorClassIdentifier: 
+  Skill_ID: 100011
+  Skill_Name: "\uBC29\uD328\uC758 \uAC00\uD638"
+  Skill_Type: 1
+  Skill_Minimum_LV: 1
+  Skill_Class: 0
+  Skill_Character: 0
+  Skill_Range: 0
+  Skill_Maximum_LV: 1024
+  Skill_Cooldown: 8
+  Skill_Duration: 4
+  Skill_Buff_Type: 300001
+  Skill_Activation_Rate: 0.4
+  Cooldown_Reduction: 0.2
+  Duration_Increase: 0.05
+  Activation_Rate_Increase: 0.01
