@@ -32,8 +32,8 @@ public class ActiveSkillSO : ScriptableObject,ISkillID
     
     public GameObject SkillPrefab;
 
-#if UNITY_EDITOR
-    private void OnValidate()
+
+    public void SetPrefab()
     {
         if (SkillPrefab == null)
         {
@@ -74,7 +74,7 @@ public class ActiveSkillSO : ScriptableObject,ISkillID
             }
         }
     }
-#endif
+
     
 }
 

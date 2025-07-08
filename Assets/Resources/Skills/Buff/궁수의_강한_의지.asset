@@ -29,4 +29,4 @@ MonoBehaviour:
   Cooldown_Reduction: 0.2
   Duration_Increase: 0.05
   Activation_Rate_Increase: 0
-  SkillPrefab: {fileID: 0}
+  SkillPrefab: {fileID: 8594371035204884787, guid: 77bbf214a2f197947aeea74097506e16, type: 3}

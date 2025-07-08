@@ -26,4 +26,4 @@ MonoBehaviour:
   Skill_Range_height: 3
   Cooldown_Reduction: 0.1
   Damage_Increase: 0.1
-  SkillPrefab: {fileID: 0}
+  SkillPrefab: {fileID: 4143726780913922746, guid: 795ad91052cd3fe4dbddf222b7c66b33, type: 3}

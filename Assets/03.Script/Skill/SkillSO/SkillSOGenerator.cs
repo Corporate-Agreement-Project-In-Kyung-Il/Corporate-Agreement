@@ -42,7 +42,7 @@ public class SkillSOGenerator
         // === BuffListSO 먼저 로드 ===
         BuffListSO[] allBuffTypes = Resources.LoadAll<BuffListSO>("Skills/BuffList");
         GameObject[] allPrefabs = Resources.LoadAll<GameObject>("SkillPrefab");
-        
+       
         // === 액티브 스킬 ===
         DataTable activeTable = result.Tables["Skill(액티브)"];
         for (int i = 1; i < activeTable.Rows.Count; i++)
@@ -68,9 +68,13 @@ public class SkillSOGenerator
             float.TryParse(row[11]?.ToString(), out skill.Cooldown_Reduction);
             float.TryParse(row[12]?.ToString(), out skill.Damage_Increase);
 
+             // 여기가 핵심
+            
             string assetPath = $"Assets/Resources/Skills/Active/{skill.Skill_Name}.asset";
             Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
             AssetDatabase.CreateAsset(skill, assetPath);
+            skill.SetPrefab();
+            
         }
 
         // === 버프 스킬 ===
@@ -131,10 +135,13 @@ public class SkillSOGenerator
                 Debug.LogWarning($"[SkillSOGenerator] BuffType '{skill.Skill_Buff_Type}' → int 변환 실패 (i={i})");
             }
 
+            
             // 저장
             string assetPath = $"Assets/Resources/Skills/Buff/{skill.Skill_Name}.asset";
             Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
             AssetDatabase.CreateAsset(skill, assetPath);
+            skill.SetPrefab();
+            
             
         }
 

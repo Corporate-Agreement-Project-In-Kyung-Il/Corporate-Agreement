@@ -35,7 +35,7 @@ public class BuffSO : ScriptableObject, ISkillID
         SkillID = Skill_ID;
     }
 #if UNITY_EDITOR
-    private void OnValidate()
+    public void SetPrefab()
     {
         if (SkillPrefab == null)
         {
