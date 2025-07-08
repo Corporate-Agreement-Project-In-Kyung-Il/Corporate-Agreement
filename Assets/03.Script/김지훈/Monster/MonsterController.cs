@@ -25,6 +25,8 @@ public class MonsterController : MonoBehaviour, IDamageAble
     [SerializeField] private EnemyState prevCharacterState = EnemyState.Idle;
 
 
+    private float attackTimer;
+    
     private void Awake()
     {
         TryGetComponent(out collider2D);
@@ -91,11 +93,11 @@ public class MonsterController : MonoBehaviour, IDamageAble
         if (closestPlayer != null)
         {
             target = closestPlayer;
-            
+
             transform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime);
-            
+
             float distance = Vector2.Distance(transform.position, target.position);
-            if (distance < monsterStat.attackRange)
+            if (distance < monsterStat.attackRange || collider2D.IsTouching(target.GetComponent<Collider2D>()))
                 ChangeState(EnemyState.Attack);
         }
     }
@@ -103,9 +105,13 @@ public class MonsterController : MonoBehaviour, IDamageAble
 
     private void performAttack()
     {
+        attackTimer -= Time.deltaTime;
+        if (attackTimer > 0f)
+            return;
+        
         float distance = Vector2.Distance(transform.position, target.position);
 
-        if (distance > monsterStat.attackRange)
+        if (distance > monsterStat.attackRange && collider2D.IsTouching(target.GetComponent<Collider2D>()).Equals(false))
         {
             ChangeState(EnemyState.Idle);
             return;
@@ -123,6 +129,7 @@ public class MonsterController : MonoBehaviour, IDamageAble
             
             CombatSystem.instance.AddCombatEvent(combatEvent);
         }
+        attackTimer = 1f / monsterStat.attackSpeed;
 
     }
 
@@ -133,6 +140,8 @@ public class MonsterController : MonoBehaviour, IDamageAble
     
     public void TakeDamage(CombatEvent combatEvent)
     {
+        monsterStat.health -= combatEvent.Damage;
+        
         if (monsterStat.health <= 0)
         {
             ChangeState(EnemyState.Die);
