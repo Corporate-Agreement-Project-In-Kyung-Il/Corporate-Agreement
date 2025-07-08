@@ -38,6 +38,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     private bool cameraMove = true;
     [SerializeField] private Vector2 detectionRange; 
 
+    private float[] skillCooldownTimers = new float[2];
     
     private void Awake()
     {
@@ -90,6 +91,40 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
                 performDie();
                 break;
         }*/
+        for (int i = 0; i < skills.Length; i++)
+        {
+            if (skills[i] == null) continue;
+
+            skillCooldownTimers[i] -= Time.deltaTime;
+
+            if (skillCooldownTimers[i] <= 0f)
+            {
+                UseSkill(i);
+                ResetCooldown(i);
+            }
+        }
+    }
+    private void UseSkill(int index)
+    {
+        if (skills[index] is ActiveSkillSO active)
+        {
+            
+            Debug.Log($"[액티브] {active.Skill_Name} 발동! 쿨타임: {active.Skill_Cooldown}");
+            // 공격/이펙트/범위 등 구현
+        }
+        else if (skills[index] is BuffSO buff)
+        {
+            Debug.Log($"[버프] {buff.Skill_Name} 발동! 쿨타임 : {buff.Skill_Cooldown}, 지속시간: {buff.Skill_Duration}초");
+            // 스탯 증가 등 버프 효과 적용
+        }
+    }
+
+    private void ResetCooldown(int index)
+    {
+        if (skills[index] is ActiveSkillSO active)
+            skillCooldownTimers[index] = active.Skill_Cooldown;
+        else if (skills[index] is BuffSO buff)
+            skillCooldownTimers[index] = buff.Skill_Cooldown;
     }
     
     private Vector2 targetPos;

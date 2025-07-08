@@ -9,6 +9,7 @@ public interface ISkillID
     public int SkillID { get; set; }
 
     public void SetSkillID();
+    
 }
 
 public class SkillManager : MonoBehaviour
