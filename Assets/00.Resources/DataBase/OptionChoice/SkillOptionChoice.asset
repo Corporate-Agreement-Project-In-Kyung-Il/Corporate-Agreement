@@ -13,18 +13,6 @@ MonoBehaviour:
   m_Name: SkillOptionChoice
   m_EditorClassIdentifier: 
   data:
-  - Key_ID: 620001
-    val:
-      Selection_Level: 0
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD558\uBA70,
-        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 1% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Skill_ID: 100011
-      Cooldown_Reduction: 0.2
-      Duration_Increase: 0.05
-      Activation_Rate_Increase: 0.01
-      Damage_Increase: 0
-      Skill_LvUP: 1
   - Key_ID: 620002
     val:
       Selection_Level: 1

@@ -26,10 +26,12 @@ public static class ExcelImporter
         using var reader = ExcelReaderFactory.CreateReader(stream);
         var result = reader.AsDataSet();
 
-        ImportCharacter(result.Tables[0]);   // 1번 시트 (Character)
-        ImportSkillOption(result.Tables[4]);       // 5번 시트 (Skill)
-        ImportEquipOption(result.Tables[6]);       // 7번 시트 (Equip)
-        ImportTrainingOption(result.Tables[8]);    // 9번 시트 (Training)
+        ImportCharacter(result.Tables[0]);         // 1번 시트 (Character)
+        ImportSkillOption(result.Tables[4]);       // 5번 시트 (SkillOption)
+        ImportEquip(result.Tables[5]);             // 6번 시트 (Equip)
+        ImportEquipOption(result.Tables[6]);       // 7번 시트 (EquipOption)
+        ImportTraining(result.Tables[7]);          // 8번 시트 (Training)
+        ImportTrainingOption(result.Tables[8]);    // 9번 시트 (TrainingOption)
 
         AssetDatabase.SaveAssets();
         Debug.Log("Excel 데이터 → ScriptableObject 변환 완료!");
@@ -37,14 +39,13 @@ public static class ExcelImporter
 
     private static void ImportCharacter(DataTable table)
     {
-        var optionCharacter = ScriptableObject.CreateInstance<OptionChoice_Character>();
-        for (int i = 2; i < table.Rows.Count; i++)
+        var playerCharacter = ScriptableObject.CreateInstance<PlayerCharacter>();
+        for (int i = 4; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
             var character = new Character
             {
-                Character_ID = int.Parse(strarr[0]),
                 Character_Class = strarr[1],
                 Character_Name = strarr[2],
                 Character_Grade = strarr[3],
@@ -52,23 +53,23 @@ public static class ExcelImporter
                 Health = float.Parse(strarr[5]),
                 Attack_Speed = float.Parse(strarr[6]),
                 Critical_Probability = float.Parse(strarr[7]),
-                Training_type = float.Parse(strarr[8]),
-                equip_item = float.Parse(strarr[9]),
-                skill_possed1 = float.Parse(strarr[10]),
-                skill_possed2 = float.Parse(strarr[11])
+                Training_type = int.Parse(strarr[8]),
+                equip_item = int.Parse(strarr[9]),
+                skill_possed1 = int.Parse(strarr[10]),
+                skill_possed2 = int.Parse(strarr[11])
             };
 
-            var pair = new IDValuePair<Character> { Key_ID = character.Character_ID, val = character };
-            optionCharacter.data.Add(pair);
+            var pair = new IDValuePair<Character> { Key_ID = int.Parse(strarr[0]), val = character };
+            playerCharacter.data.Add(pair);
         }
 
-        AssetDatabase.CreateAsset(optionCharacter, $"Assets/00.Resources/OptionChoice/DataBase/CharacterOptionChoice.asset");
+        AssetDatabase.CreateAsset(playerCharacter, $"Assets/00.Resources/DataBase/Character.asset");
     }
 
     private static void ImportSkillOption(DataTable table)
     {
         var optionSkill = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
-        for (int i = 2; i < table.Rows.Count; i++)
+        for (int i = 4; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
@@ -88,13 +89,36 @@ public static class ExcelImporter
             optionSkill.data.Add(pair);
         }
 
-        AssetDatabase.CreateAsset(optionSkill, $"Assets/00.Resources/OptionChoice/DataBase/SkillOptionChoice.asset");
+        AssetDatabase.CreateAsset(optionSkill, $"Assets/00.Resources/DataBase/OptionChoice/SkillOptionChoice.asset");
     }
+    private static void ImportEquip(DataTable table)
+    {
+        var playerEquip = ScriptableObject.CreateInstance<PlayerEquip>();
+        for (int i = 4; i < table.Rows.Count; i++)
+        {
+            var strarr = GetTrimmedCells(table, i);
 
+            var equip = new Equip
+            {
+                Equipment_Type_Name = strarr[1],
+                Equipment_Attack = float.Parse(strarr[2]),
+                Equipment_HP = float.Parse(strarr[3]),
+                Equipment_Minimum_LV = int.Parse(strarr[4]),
+                Equipment_Maximum_LV = int.Parse(strarr[5]),
+                Attack_LV_UP_Effect = float.Parse(strarr[6]),
+                HP_LV_UP_Effect = float.Parse(strarr[7])
+            };
+
+            var pair = new IDValuePair<Equip> { Key_ID = int.Parse(strarr[0]), val = equip };
+            playerEquip.data.Add(pair);
+        }
+
+        AssetDatabase.CreateAsset(playerEquip, $"Assets/00.Resources/DataBase/Equip.asset");
+    }
     private static void ImportEquipOption(DataTable table)
     {
         var optionEquip = ScriptableObject.CreateInstance<OptionChoice_EquipOption>();
-        for (int i = 2; i < table.Rows.Count; i++)
+        for (int i = 4; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
@@ -112,13 +136,38 @@ public static class ExcelImporter
             optionEquip.data.Add(pair);
         }
 
-        AssetDatabase.CreateAsset(optionEquip, $"Assets/00.Resources/OptionChoice/DataBase/EquipOptionChoice.asset");
+        AssetDatabase.CreateAsset(optionEquip, $"Assets/00.Resources/DataBase/OptionChoice/EquipOptionChoice.asset");
     }
+    private static void ImportTraining(DataTable table)
+    {
+        var playerTraining = ScriptableObject.CreateInstance<PlayerTraining>();
+        for (int i = 4; i < table.Rows.Count; i++)
+        {
+            var strarr = GetTrimmedCells(table, i);
 
+            var training = new Training
+            {
+                Training_Name = strarr[1],
+                Critical_Rate = int.Parse(strarr[2]),
+                Critical_Damage = float.Parse(strarr[3]),
+                Attack_Speed = float.Parse(strarr[4]),
+                Training_Minimum_LV = int.Parse(strarr[5]),
+                Training_Maximum_LV = int.Parse(strarr[6]),
+                Critical_Damage_Increase = float.Parse(strarr[7]),
+                Critical_Rate_Increase = float.Parse(strarr[8]),
+                Attack_Speed_Increase = float.Parse(strarr[9])
+            };
+
+            var pair = new IDValuePair<Training> { Key_ID = int.Parse(strarr[0]), val = training };
+            playerTraining.data.Add(pair);
+        }
+
+        AssetDatabase.CreateAsset(playerTraining, $"Assets/00.Resources/DataBase/TrainingOptionChoice.asset");
+    }
     private static void ImportTrainingOption(DataTable table)
     {
         var optionTraining = ScriptableObject.CreateInstance<OptionChoice_TrainingOption>();
-        for (int i = 2; i < table.Rows.Count; i++)
+        for (int i = 4; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
@@ -137,7 +186,7 @@ public static class ExcelImporter
             optionTraining.data.Add(pair);
         }
 
-        AssetDatabase.CreateAsset(optionTraining, $"Assets/00.Resources/OptionChoice/DataBase/TrainingOptionChoice.asset");
+        AssetDatabase.CreateAsset(optionTraining, $"Assets/00.Resources/DataBase/OptionChoice/TrainingOptionChoice.asset");
     }
 
     private static string[] GetTrimmedCells(DataTable table, int rowIndex)

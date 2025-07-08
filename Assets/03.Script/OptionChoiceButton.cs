@@ -6,9 +6,9 @@ using Random = System.Random;
 
 public class OptionChoiceButton : MonoBehaviour
 {
-    public ScriptableObject skillOption;
-    public ScriptableObject equipOption;
-    public ScriptableObject trainingOption;
+    public OptionChoice_SkillOption skillOption;
+    public OptionChoice_EquipOption equipOption;
+    public OptionChoice_TrainingOption trainingOption;
     public int choiceCount = 3;
     public enum EOptionType
     {
@@ -72,7 +72,7 @@ public class OptionChoiceButton : MonoBehaviour
         return values[randomIndex];
     }
     
-    int GetSelectionID<T>(OptionChoiceBase<T> option) where T : BaseValue, new()
+    int GetSelectionID<T>(ExelReaderBase<T> option) where T : BaseValue, new()
     {
         if (option == null || option.data == null || option.data.Count == 0)
         {

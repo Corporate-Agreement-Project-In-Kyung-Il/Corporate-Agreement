@@ -43,6 +43,18 @@ public class EquipOption : BaseValue
     public int Equipment_LvUP;
 }
 
+public class Equip : BaseValue
+{
+    public int Equipment_Type_ID;
+    public string Equipment_Type_Name;
+    public float Equipment_Attack;
+    public float Equipment_HP;
+    public int Equipment_Minimum_LV;
+    public int Equipment_Maximum_LV;
+    public float Attack_LV_UP_Effect;
+    public float HP_LV_UP_Effect;
+}
+
 [System.Serializable]
 public class SkillOption : BaseValue
 {
@@ -54,6 +66,20 @@ public class SkillOption : BaseValue
     public float Activation_Rate_Increase;
     public float Damage_Increase;
     public int Skill_LvUP;
+}
+[System.Serializable]
+public class Training : BaseValue
+{
+    public int Training_ID;
+    public string Training_Name;
+    public int Critical_Rate;
+    public float Critical_Damage;
+    public float Attack_Speed;
+    public int Training_Minimum_LV;
+    public int Training_Maximum_LV;
+    public float Critical_Damage_Increase;
+    public float Critical_Rate_Increase;
+    public float Attack_Speed_Increase;
 }
 
 [System.Serializable]
@@ -79,14 +105,14 @@ public class Character : BaseValue
     public float Health;
     public float Attack_Speed;
     public float Critical_Probability;
-    public float Training_type;
-    public float equip_item;
-    public float skill_possed1;
-    public float skill_possed2;
+    public int Training_type;
+    public int equip_item;
+    public int skill_possed1;
+    public int skill_possed2;
 }
 
 
-public abstract class OptionChoiceBase<T> : ScriptableObject where T : BaseValue, new()
+public abstract class ExelReaderBase<T> : ScriptableObject where T : BaseValue, new()
 {
     public List<IDValuePair<T>> data = new List<IDValuePair<T>>();
 

@@ -59,7 +59,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
         {
             case 1 :
 #if UNITY_EDITOR
-                var optionCharacter = ScriptableObject.CreateInstance<OptionChoice_Character>();
+                var optionCharacter = ScriptableObject.CreateInstance<PlayerCharacter>();
 
                 for (int i = 0; i < rowDatas.Length; i++)
                 {
@@ -76,10 +76,10 @@ public class DataTableReader_KeyValue : MonoBehaviour
                     float Health = float.Parse(strarr[5]);
                     float Attack_Speed = float.Parse(strarr[6]);
                     float Critical_Probability = float.Parse(strarr[7]);
-                    float Training_type = float.Parse(strarr[8]);
-                    float equip_item = float.Parse(strarr[9]);
-                    float skill_possed1 = float.Parse(strarr[10]);
-                    float skill_possed2 = float.Parse(strarr[11]);
+                    int Training_type = int.Parse(strarr[8]);
+                    int equip_item = int.Parse(strarr[9]);
+                    int skill_possed1 = int.Parse(strarr[10]);
+                    int skill_possed2 = int.Parse(strarr[11]);
 
                     var CharacterValue = new Character
                     {

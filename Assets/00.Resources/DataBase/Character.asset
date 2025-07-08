@@ -10,26 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5693b6435258f494b9ace5b1c779498a, type: 3}
-  m_Name: CharacterOptionChoice
+  m_Name: Character
   m_EditorClassIdentifier: 
   data:
-  - Key_ID: 100001
-    val:
-      Character_ID: 100001
-      Character_Class: "\uC804\uC0AC"
-      Character_Name: "\uAE30\uBCF8 \uC804\uC0AC"
-      Character_Grade: A
-      Attack: 67
-      Health: 110
-      Attack_Speed: 1
-      Critical_Probability: 0
-      Training_type: 500001
-      equip_item: 400001
-      skill_possed1: 100011
-      skill_possed2: 100012
   - Key_ID: 100002
     val:
-      Character_ID: 100002
+      Character_ID: 0
       Character_Class: "\uC804\uC0AC"
       Character_Name: "\uC544\uC774\uC5B8"
       Character_Grade: S
@@ -43,7 +29,7 @@ MonoBehaviour:
       skill_possed2: 100013
   - Key_ID: 100003
     val:
-      Character_ID: 100003
+      Character_ID: 0
       Character_Class: "\uC804\uC0AC"
       Character_Name: "\uB514\uB178"
       Character_Grade: S
@@ -57,9 +43,9 @@ MonoBehaviour:
       skill_possed2: 100014
   - Key_ID: 100004
     val:
-      Character_ID: 100004
+      Character_ID: 0
       Character_Class: "\uAD81\uC218"
-      Character_Name: "\uAE30\uBCF8 \uAD81\uC218"
+      Character_Name: "\uAE30\uBCF8_\uAD81\uC218"
       Character_Grade: A
       Attack: 67
       Health: 88
@@ -71,7 +57,7 @@ MonoBehaviour:
       skill_possed2: 100016
   - Key_ID: 100005
     val:
-      Character_ID: 100005
+      Character_ID: 0
       Character_Class: "\uAD81\uC218"
       Character_Name: "\uC0AC\uBE44\uB098"
       Character_Grade: S
@@ -85,9 +71,9 @@ MonoBehaviour:
       skill_possed2: 100017
   - Key_ID: 100006
     val:
-      Character_ID: 100006
+      Character_ID: 0
       Character_Class: "\uB9C8\uBC95\uC0AC"
-      Character_Name: "\uAE30\uBCF8 \uB9C8\uBC95\uC0AC"
+      Character_Name: "\uAE30\uBCF8_\uB9C8\uBC95\uC0AC"
       Character_Grade: A
       Attack: 67
       Health: 88
@@ -99,7 +85,7 @@ MonoBehaviour:
       skill_possed2: 100019
   - Key_ID: 100007
     val:
-      Character_ID: 100007
+      Character_ID: 0
       Character_Class: "\uB9C8\uBC95\uC0AC"
       Character_Name: "\uCFE0\uC544"
       Character_Grade: S
