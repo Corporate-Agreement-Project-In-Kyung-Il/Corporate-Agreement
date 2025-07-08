@@ -93,11 +93,11 @@ public class MonsterController : MonoBehaviour, IDamageAble
         if (closestPlayer != null)
         {
             target = closestPlayer;
-            
+
             transform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime);
-            
+
             float distance = Vector2.Distance(transform.position, target.position);
-            if (distance < monsterStat.attackRange)
+            if (distance < monsterStat.attackRange || collider2D.IsTouching(target.GetComponent<Collider2D>()))
                 ChangeState(EnemyState.Attack);
         }
     }
@@ -111,7 +111,7 @@ public class MonsterController : MonoBehaviour, IDamageAble
         
         float distance = Vector2.Distance(transform.position, target.position);
 
-        if (distance > monsterStat.attackRange)
+        if (distance > monsterStat.attackRange && collider2D.IsTouching(target.GetComponent<Collider2D>()).Equals(false))
         {
             ChangeState(EnemyState.Idle);
             return;

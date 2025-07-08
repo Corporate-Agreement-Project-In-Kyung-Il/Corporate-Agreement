@@ -32,7 +32,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     [SerializeField] private CharacterState prevCharacterState = CharacterState.Run;
     
     //기타 선언 변수
-    private bool cameraMove = true;
+    [SerializeField] private bool cameraMove = true;
     [SerializeField] private Vector2 detectionRange; 
 
     
@@ -64,27 +64,16 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     }
 
     private Vector2 enemyDetectionCenter;
-    
+    private Collider2D[] enemyDetectionCol;
     private void Update()
     {
         enemyDetectionCenter = Vector2.up * transform.position.y;
-        Collider2D[] enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
-
-        if (enemyDetectionCol.Length > 0)
-        {
-            animator.SetBool(IsRun, false);
-            ChangeState(CharacterState.Attack);
-        }
-        else
-        {
-            isTarget = false;
-            animator.SetBool(IsAttack, false);
-            ChangeState(CharacterState.Run);
-        }
+        enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
 
         switch (currentCharacterState)
         {
             case CharacterState.Run:
+                animator.SetBool(IsRun, true);
                 performRun();
                 break;
             
@@ -102,8 +91,12 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 
     private void performRun()
     {
+        if (enemyDetectionCol.Length > 0)
+        {
+            ChangeState(CharacterState.Attack);
+        }
+        
         Debug.Log($"targetPos : {targetPos}");
-        animator.SetBool(IsRun, true);
         targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.deltaTime);
         rigid.MovePosition(targetPos); //Vector3.Lerp(transform.position, targetPos, Time.deltaTime));
     }
@@ -119,6 +112,12 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     
     private void performAttack()
     {
+        if(enemyDetectionCol.Length <= 0)
+        {
+            isTarget = false;
+            ChangeState(CharacterState.Run);
+        }
+        
         attackTimer -= Time.deltaTime;
         
         if (attackTimer > 0f)
@@ -159,6 +158,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 
     public void ChangeState(CharacterState newState)
     {
+        animator.SetBool(IsRun, false);
+        animator.SetBool(IsAttack, false);
         prevCharacterState = currentCharacterState;
         currentCharacterState = newState;
     }
