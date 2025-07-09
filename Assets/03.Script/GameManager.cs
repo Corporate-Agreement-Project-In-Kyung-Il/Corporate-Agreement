@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         m_Options.Add(EOptionType.Equip, equipOption);
         m_Options.Add(EOptionType.Training, trainingOption);
         GameStart(playerSkillID);
+        // 오류 저장용 
     }
     
     private void Update()
