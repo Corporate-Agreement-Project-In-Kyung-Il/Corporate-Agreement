@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ArrowShot : MonoBehaviour
@@ -9,10 +10,13 @@ public class ArrowShot : MonoBehaviour
     private Vector3 prevPosition;
     public Transform target;
     public Player player;
+    public float straightAttackRange;
     
     public bool isTargetNotDead = true;
     public float arrowDamage;
 
+    [Header("타켓에 다가가는 속도")]
+    [SerializeField] private float timeSinceStart = 2f;  
     private void Start()
     {
         TryGetComponent(out collider);
@@ -59,32 +63,49 @@ public class ArrowShot : MonoBehaviour
         if (closestTarget != null)                                                                           
         {                                                                                                    
             target = closestTarget;                                                                          
+        }
+        else
+        {
+            Destroy(gameObject);
         }                                                                                                    
         
     }
     
-    [SerializeField] private float timeSinceStart = 2f;             
     private void MoveToEnemyHurt()
     {
-        timeSinceStart += Time.deltaTime;  
-        
-        float t = timeSinceStart;
-        float curveSpeed = Mathf.Pow(t, 2f); 
-        
-        Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, curveSpeed * Time.deltaTime);
-        Vector3 moveDir = (nextPos - transform.position).normalized;
-        
-        if (moveDir != Vector3.zero)
-        {
-            transform.up = moveDir;
-        }
-        transform.position = nextPos;
-        
         float distance = Vector3.Distance(transform.position, target.position);
-
-        if (distance < 0.1f)
+        timeSinceStart += Time.deltaTime;  
+        float t = timeSinceStart;
+        float curveSpeed = Mathf.Pow(t, 2f);
+        float straight = straightAttackRange * 3 / 4;
+        if (distance <= straight)
         {
-            collider.enabled = true;
+            Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, curveSpeed * Time.deltaTime);
+            Vector3 moveDir = (nextPos - transform.position).normalized;
+            
+            if (moveDir != Vector3.zero)
+            {
+                transform.up = moveDir;
+            }
+            transform.position = nextPos;
+            
+            if (distance < 0.1f)
+            {
+                collider.enabled = true;
+            }
+        }
+        else
+        {
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            float dynamicRotateSpeed = Mathf.Lerp(360f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+        
+            float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+            float maxDelta = dynamicRotateSpeed * Time.deltaTime;
+            
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
+            transform.position += transform.up * (curveSpeed * Time.deltaTime);
         }
     }
 

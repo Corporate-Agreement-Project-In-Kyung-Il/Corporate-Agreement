@@ -26,6 +26,7 @@ public class ArrowWeapon : Weapon
         bullet.arrowDamage = player.Damage;
         bullet.target = collider.transform;
         bullet.player = player;
+        bullet.straightAttackRange = player.attackRange;
         
         return arrowShot.isTargetNotDead;
     }

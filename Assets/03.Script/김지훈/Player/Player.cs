@@ -15,6 +15,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
 
+    public float attackRange;
+
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
@@ -42,7 +44,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         TryGetComponent(out rigid);
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
-
+        
+        
         playerStat.health = data.health;
         playerStat.moveSpeed = data.moveSpeed;
         
@@ -55,12 +58,16 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         playerStat.attackDamage = data.attackDamage;
         playerStat.attackSpeed = data.attackSpeed;
         playerStat.attackRange = data.attackRange;
+
         playerStat.criticalProbability = data.criticalProbability;
         playerStat.detectionRange = detectionRange;
         
         playerStat.training_type = data.training_type;
         playerStat.equip_item = data.equip_item;
         playerStat.skill_possed = data.skill_possed;
+        
+        
+        attackRange = playerStat.attackRange; //궁수의 직선 공격 범위를 위해서
     }
 
     private Vector2 enemyDetectionCenter;
