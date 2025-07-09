@@ -106,6 +106,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -124,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ea0ef23c2739624fa289e5558f0ae07
-      internalID: 605074426
+      spriteID: 29ea4d592711c13438aa84823095397b
+      internalID: -1390991108
       vertices: []
       indices: 
       edges: []
@@ -145,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9fc1553d3684304bbcc4ad8849c6b04
-      internalID: -934679696
+      spriteID: c4739712164c17b4a99716946a038b96
+      internalID: -2088412287
       vertices: []
       indices: 
       edges: []
@@ -166,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9764032f82761e49804ae440756f466
-      internalID: 1446228347
+      spriteID: 73506c4d66d4df64c96cdfd9d1e57159
+      internalID: 1939858380
       vertices: []
       indices: 
       edges: []
@@ -187,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47c4adaa03172ed42b8369312246516f
-      internalID: -168513316
+      spriteID: 0066deefeef817547a105966de8da674
+      internalID: -588776048
       vertices: []
       indices: 
       edges: []
@@ -208,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ef76faf71541254391db1dbb0e9a6a0
-      internalID: 582017611
+      spriteID: 10843654d6bde3844b0c79c715185cae
+      internalID: -1912018795
       vertices: []
       indices: 
       edges: []
@@ -229,8 +268,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c505605580e8914585b12e13def5248
-      internalID: -1679724128
+      spriteID: 847fb9efcec05cd40bf50426a5a66713
+      internalID: 1665166766
       vertices: []
       indices: 
       edges: []
@@ -250,8 +289,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aed26f6732b3454aa52e3a44f7f798a
-      internalID: -1260454640
+      spriteID: 0aaea129ac8ae664f902c6facf19af12
+      internalID: 949638181
       vertices: []
       indices: 
       edges: []
@@ -267,13 +306,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wizard_Run_0: 605074426
-      Wizard_Run_1: -934679696
-      Wizard_Run_2: 1446228347
-      Wizard_Run_3: -168513316
-      Wizard_Run_4: 582017611
-      Wizard_Run_5: -1679724128
-      Wizard_Run_6: -1260454640
+      Wizard_Run_0: -1390991108
+      Wizard_Run_1: -2088412287
+      Wizard_Run_2: 1939858380
+      Wizard_Run_3: -588776048
+      Wizard_Run_4: -1912018795
+      Wizard_Run_5: 1665166766
+      Wizard_Run_6: 949638181
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
