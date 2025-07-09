@@ -113,7 +113,9 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
         foreach (var key in keys)
         {
             buffCooldownTimers[key] -= Time.deltaTime;
+            Debug.Log(buffCooldownTimers[key]);
         }
+        
 
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
@@ -124,6 +126,16 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     private Dictionary<BuffEffectType, bool> activeBuffs = new();
     private Dictionary<BuffEffectType, float> buffCooldownTimers = new();
 
+    public float GetAttackSpeed()
+    {
+        return playerStat.attackSpeed;
+    }
+
+    public void SetAttackSpeed(float newSpeed)
+    {
+        playerStat.attackSpeed = newSpeed;
+        Debug.Log($"공격 속도 변경됨: {newSpeed}");
+    }
     public bool HasBuff(BuffEffectType buff)
     {
         return activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
