@@ -17,6 +17,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
 
     public float attackRange;
 
+    
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
@@ -92,6 +93,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
                 performDie();
                 break;
         }
+
+       
     }
     
     private Vector2 targetPos;
@@ -151,7 +154,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     
     public void TakeDamage(CombatEvent combatEvent)
     {
-        playerStat.health -= combatEvent.Damage;
+        playerStat.health -= combatEvent.Damage * 0.6f ;
         
         if (playerStat.health <= 0)
         {
