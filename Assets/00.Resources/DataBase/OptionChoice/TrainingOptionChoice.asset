@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449b7f8e4c4798f4780dfcd90421f5b9, type: 3}
+  m_Name: TrainingOptionChoice
+  m_EditorClassIdentifier: 
+  data:
+  - Key_ID: 630001
+    val:
+      Selection_Level: 0
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000001
+      Critical_Damage_Increase: 0.05
+      Critical_Rate_Increase: 0.02
+      Attack_Speed_Increase: 0.03
+      Training_LvUP: 1
+  - Key_ID: 630002
+    val:
+      Selection_Level: 1
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000001
+      Critical_Damage_Increase: 0.1
+      Critical_Rate_Increase: 0.04
+      Attack_Speed_Increase: 0.06
+      Training_LvUP: 2
+  - Key_ID: 630003
+    val:
+      Selection_Level: 2
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 9% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000001
+      Critical_Damage_Increase: 0.15
+      Critical_Rate_Increase: 0.06
+      Attack_Speed_Increase: 0.09
+      Training_LvUP: 3
+  - Key_ID: 630004
+    val:
+      Selection_Level: 3
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 12% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000001
+      Critical_Damage_Increase: 0.2
+      Critical_Rate_Increase: 0.08
+      Attack_Speed_Increase: 0.12
+      Training_LvUP: 4
+  - Key_ID: 630005
+    val:
+      Selection_Level: 4
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
+        \uACF5\uACA9 \uC18D\uB3C4\uAC00 18% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000001
+      Critical_Damage_Increase: 0.3
+      Critical_Rate_Increase: 0.12
+      Attack_Speed_Increase: 0.18
+      Training_LvUP: 6
+  - Key_ID: 630006
+    val:
+      Selection_Level: 5
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 16% \uC99D\uAC00\uD558\uBA70
+        \uACF5\uACA9 \uC18D\uB3C4\uAC00 24% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000001
+      Critical_Damage_Increase: 0.4
+      Critical_Rate_Increase: 0.16
+      Attack_Speed_Increase: 0.24
+      Training_LvUP: 8
+  - Key_ID: 630007
+    val:
+      Selection_Level: 0
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000002
+      Critical_Damage_Increase: 0.1
+      Critical_Rate_Increase: 0.02
+      Attack_Speed_Increase: 0.05
+      Training_LvUP: 1
+  - Key_ID: 630008
+    val:
+      Selection_Level: 1
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000002
+      Critical_Damage_Increase: 0.2
+      Critical_Rate_Increase: 0.04
+      Attack_Speed_Increase: 0.1
+      Training_LvUP: 2
+  - Key_ID: 630009
+    val:
+      Selection_Level: 2
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000002
+      Critical_Damage_Increase: 0.3
+      Critical_Rate_Increase: 0.06
+      Attack_Speed_Increase: 0.15
+      Training_LvUP: 3
+  - Key_ID: 630010
+    val:
+      Selection_Level: 3
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000002
+      Critical_Damage_Increase: 0.4
+      Critical_Rate_Increase: 0.08
+      Attack_Speed_Increase: 0.2
+      Training_LvUP: 4
+  - Key_ID: 630011
+    val:
+      Selection_Level: 4
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 60% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
+        \uACF5\uACA9 \uC18D\uB3C4\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000002
+      Critical_Damage_Increase: 0.6
+      Critical_Rate_Increase: 0.12
+      Attack_Speed_Increase: 0.3
+      Training_LvUP: 6
+  - Key_ID: 630012
+    val:
+      Selection_Level: 5
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 80% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 16% \uC99D\uAC00\uD558\uBA70
+        \uACF5\uACA9 \uC18D\uB3C4\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000002
+      Critical_Damage_Increase: 0.8
+      Critical_Rate_Increase: 0.16
+      Attack_Speed_Increase: 0.4
+      Training_LvUP: 8
+  - Key_ID: 630013
+    val:
+      Selection_Level: 0
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000003
+      Critical_Damage_Increase: 0.05
+      Critical_Rate_Increase: 0.02
+      Attack_Speed_Increase: 0.03
+      Training_LvUP: 1
+  - Key_ID: 630014
+    val:
+      Selection_Level: 1
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000003
+      Critical_Damage_Increase: 0.1
+      Critical_Rate_Increase: 0.04
+      Attack_Speed_Increase: 0.06
+      Training_LvUP: 2
+  - Key_ID: 630015
+    val:
+      Selection_Level: 2
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 9% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000003
+      Critical_Damage_Increase: 0.15
+      Critical_Rate_Increase: 0.06
+      Attack_Speed_Increase: 0.09
+      Training_LvUP: 3
+  - Key_ID: 630016
+    val:
+      Selection_Level: 3
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
+        \uC18D\uB3C4\uAC00 12% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000003
+      Critical_Damage_Increase: 0.2
+      Critical_Rate_Increase: 0.08
+      Attack_Speed_Increase: 0.12
+      Training_LvUP: 4
+  - Key_ID: 630017
+    val:
+      Selection_Level: 4
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
+        \uACF5\uACA9 \uC18D\uB3C4\uAC00 18% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000003
+      Critical_Damage_Increase: 0.3
+      Critical_Rate_Increase: 0.12
+      Attack_Speed_Increase: 0.18
+      Training_LvUP: 6
+  - Key_ID: 630018
+    val:
+      Selection_Level: 5
+      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
+        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 18% \uC99D\uAC00\uD558\uBA70
+        \uACF5\uACA9 \uC18D\uB3C4\uAC00 24% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Training_ID: 5000003
+      Critical_Damage_Increase: 0.4
+      Critical_Rate_Increase: 0.18
+      Attack_Speed_Increase: 0.24
+      Training_LvUP: 8

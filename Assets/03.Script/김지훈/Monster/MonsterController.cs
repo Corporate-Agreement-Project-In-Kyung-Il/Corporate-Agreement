@@ -138,6 +138,7 @@ public class MonsterController : MonoBehaviour, IDamageAble
         gameObject.SetActive(false);
     }
     
+    
     public void TakeDamage(CombatEvent combatEvent)
     {
         monsterStat.health -= combatEvent.Damage;
@@ -160,6 +161,11 @@ public class MonsterController : MonoBehaviour, IDamageAble
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(playerDetectionCenter, monsterStat.playerDetectionRange);
+    }
+
+    private void OnDisable()
+    {
+        MonsterExistSystem.Instance.RemoveEnemyFromList(collider2D);
     }
 }
 

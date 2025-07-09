@@ -2,5 +2,5 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "OptionChoice_Equip", menuName = "LOH/OptionChoice_Equip")]
-public class OptionChoice_Equip : OptionChoiceBase<Equip> { }
+[CreateAssetMenu(fileName = "Equip", menuName = "LOH/Equip")]
+public class PlayerEquip : ExelReaderBase<Equip> { }

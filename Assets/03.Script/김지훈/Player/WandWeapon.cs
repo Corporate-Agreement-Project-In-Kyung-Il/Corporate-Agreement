@@ -21,7 +21,7 @@ public class WandWeapon : Weapon
         
         Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
         
-        var bullet = Instantiate(magicBall, transform.position, Quaternion.identity, transform);
+        var bullet = Instantiate(magicBall, transform.position, Quaternion.identity);
 
         bullet.magicDamage = player.Damage;
         bullet.target = collider.transform;

@@ -162,8 +162,7 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier:
-    Android: com.DefaultCompany.LOH_Team4
+  applicationIdentifier: {}
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -379,13 +378,6 @@ PlayerSettings:
     - m_Textures: []
       m_Width: 36
       m_Height: 36
-      m_Kind: 0
-      m_SubKind: 
-  - m_BuildTarget: VisionOS
-    m_Icons:
-    - m_Textures: []
-      m_Width: 1024
-      m_Height: 1024
       m_Kind: 0
       m_SubKind: 
   - m_BuildTarget: iPhone

@@ -1,0 +1,675 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b6b7c16e992444e8731a5a43a00d69, type: 3}
+  m_Name: SkillOptionChoice
+  m_EditorClassIdentifier: 
+  data:
+  - Key_ID: 620001
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD558\uBA70,
+        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 1% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100011
+      Cooldown_Reduction: 0.2
+      Duration_Increase: 0.05
+      Activation_Rate_Increase: 0.01
+      Damage_Increase: 0
+      Skill_LvUP: 1
+  - Key_ID: 620002
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD558\uBA70,
+        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 2% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100011
+      Cooldown_Reduction: 0.4
+      Duration_Increase: 0.1
+      Activation_Rate_Increase: 0.02
+      Damage_Increase: 0
+      Skill_LvUP: 2
+  - Key_ID: 620003
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD558\uBA70,
+        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100011
+      Cooldown_Reduction: 0.6
+      Duration_Increase: 0.15
+      Activation_Rate_Increase: 0.03
+      Damage_Increase: 0
+      Skill_LvUP: 3
+  - Key_ID: 620004
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD558\uBA70,
+        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 4% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100011
+      Cooldown_Reduction: 0.8
+      Duration_Increase: 0.2
+      Activation_Rate_Increase: 0.04
+      Damage_Increase: 0
+      Skill_LvUP: 4
+  - Key_ID: 620005
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD558\uBA70,
+        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100011
+      Cooldown_Reduction: 1.2
+      Duration_Increase: 0.3
+      Activation_Rate_Increase: 0.06
+      Damage_Increase: 0
+      Skill_LvUP: 6
+  - Key_ID: 620006
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD558\uBA70,
+        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 8% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100011
+      Cooldown_Reduction: 1.6
+      Duration_Increase: 0.4
+      Activation_Rate_Increase: 0.08
+      Damage_Increase: 0
+      Skill_LvUP: 8
+  - Key_ID: 620007
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0,
+        1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100012
+      Cooldown_Reduction: 0.1
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.05
+      Skill_LvUP: 1
+  - Key_ID: 620008
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100012
+      Cooldown_Reduction: 0.2
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.1
+      Skill_LvUP: 2
+  - Key_ID: 620009
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0,
+        1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100012
+      Cooldown_Reduction: 0.3
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.15
+      Skill_LvUP: 3
+  - Key_ID: 620010
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
+        1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100012
+      Cooldown_Reduction: 0.4
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.2
+      Skill_LvUP: 4
+  - Key_ID: 620011
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100012
+      Cooldown_Reduction: 0.6
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.3
+      Skill_LvUP: 6
+  - Key_ID: 620012
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
+        1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100012
+      Cooldown_Reduction: 0.8
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.4
+      Skill_LvUP: 8
+  - Key_ID: 620013
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100013
+      Cooldown_Reduction: 0.02
+      Duration_Increase: 0.05
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 1
+  - Key_ID: 620014
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100013
+      Cooldown_Reduction: 0.04
+      Duration_Increase: 0.1
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 2
+  - Key_ID: 620015
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100013
+      Cooldown_Reduction: 0.06
+      Duration_Increase: 0.15
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 3
+  - Key_ID: 620016
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100013
+      Cooldown_Reduction: 0.08
+      Duration_Increase: 0.2
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 4
+  - Key_ID: 620017
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100013
+      Cooldown_Reduction: 0.12
+      Duration_Increase: 0.3
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 6
+  - Key_ID: 620018
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100013
+      Cooldown_Reduction: 0.16
+      Duration_Increase: 0.4
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 8
+  - Key_ID: 620019
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100014
+      Cooldown_Reduction: 0.1
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.1
+      Skill_LvUP: 1
+  - Key_ID: 620020
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100014
+      Cooldown_Reduction: 0.2
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.2
+      Skill_LvUP: 2
+  - Key_ID: 620021
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100014
+      Cooldown_Reduction: 0.3
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.3
+      Skill_LvUP: 3
+  - Key_ID: 620022
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100014
+      Cooldown_Reduction: 0.4
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.4
+      Skill_LvUP: 4
+  - Key_ID: 620023
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 60% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100014
+      Cooldown_Reduction: 0.6
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.6
+      Skill_LvUP: 6
+  - Key_ID: 620024
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 80% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100014
+      Cooldown_Reduction: 0.8
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.8
+      Skill_LvUP: 8
+  - Key_ID: 620025
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100015
+      Cooldown_Reduction: 0.2
+      Duration_Increase: 0.05
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 1
+  - Key_ID: 620026
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100015
+      Cooldown_Reduction: 0.4
+      Duration_Increase: 0.1
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 2
+  - Key_ID: 620027
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100015
+      Cooldown_Reduction: 0.6
+      Duration_Increase: 0.15
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 3
+  - Key_ID: 620028
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100015
+      Cooldown_Reduction: 0.8
+      Duration_Increase: 0.2
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 4
+  - Key_ID: 620029
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100015
+      Cooldown_Reduction: 1.2
+      Duration_Increase: 0.3
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 6
+  - Key_ID: 620030
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100015
+      Cooldown_Reduction: 1.6
+      Duration_Increase: 0.4
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 8
+  - Key_ID: 620031
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100016
+      Cooldown_Reduction: 0.2
+      Duration_Increase: 0.05
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 1
+  - Key_ID: 620032
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100016
+      Cooldown_Reduction: 0.4
+      Duration_Increase: 0.1
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 2
+  - Key_ID: 620033
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100016
+      Cooldown_Reduction: 0.6
+      Duration_Increase: 0.15
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 3
+  - Key_ID: 620034
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100016
+      Cooldown_Reduction: 0.8
+      Duration_Increase: 0.2
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 4
+  - Key_ID: 620035
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100016
+      Cooldown_Reduction: 1.2
+      Duration_Increase: 0.3
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 6
+  - Key_ID: 620036
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100016
+      Cooldown_Reduction: 1.6
+      Duration_Increase: 0.4
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 8
+  - Key_ID: 620037
+    val:
+      Selection_Level: 0
+      Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100017
+      Cooldown_Reduction: 0
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.05
+      Skill_LvUP: 1
+  - Key_ID: 620038
+    val:
+      Selection_Level: 1
+      Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100017
+      Cooldown_Reduction: 0
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.1
+      Skill_LvUP: 2
+  - Key_ID: 620039
+    val:
+      Selection_Level: 2
+      Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100017
+      Cooldown_Reduction: 0
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.15
+      Skill_LvUP: 3
+  - Key_ID: 620040
+    val:
+      Selection_Level: 3
+      Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100017
+      Cooldown_Reduction: 0
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.2
+      Skill_LvUP: 4
+  - Key_ID: 620041
+    val:
+      Selection_Level: 4
+      Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100017
+      Cooldown_Reduction: 0
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.3
+      Skill_LvUP: 6
+  - Key_ID: 620042
+    val:
+      Selection_Level: 5
+      Description: "\uC2A4\uD0AC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100017
+      Cooldown_Reduction: 0
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.4
+      Skill_LvUP: 8
+  - Key_ID: 620043
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100018
+      Cooldown_Reduction: 0.1
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.1
+      Skill_LvUP: 1
+  - Key_ID: 620044
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100018
+      Cooldown_Reduction: 0.2
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.2
+      Skill_LvUP: 2
+  - Key_ID: 620045
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100018
+      Cooldown_Reduction: 0.3
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.3
+      Skill_LvUP: 3
+  - Key_ID: 620046
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100018
+      Cooldown_Reduction: 0.4
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.4
+      Skill_LvUP: 4
+  - Key_ID: 620047
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uB370\uBBF8\uC9C0\uAC00 60% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100018
+      Cooldown_Reduction: 0.6
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.6
+      Skill_LvUP: 6
+  - Key_ID: 620048
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uB370\uBBF8\uC9C0\uAC00 80% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100018
+      Cooldown_Reduction: 0.8
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.8
+      Skill_LvUP: 8
+  - Key_ID: 620049
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100019
+      Cooldown_Reduction: 0.2
+      Duration_Increase: 0.1
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 1
+  - Key_ID: 620050
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100019
+      Cooldown_Reduction: 0.4
+      Duration_Increase: 0.2
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 2
+  - Key_ID: 620051
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100019
+      Cooldown_Reduction: 0.6
+      Duration_Increase: 0.3
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 3
+  - Key_ID: 620052
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100019
+      Cooldown_Reduction: 0.8
+      Duration_Increase: 0.4
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 4
+  - Key_ID: 620053
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 60% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100019
+      Cooldown_Reduction: 1.2
+      Duration_Increase: 0.6
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 6
+  - Key_ID: 620054
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0
+        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 80% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100019
+      Cooldown_Reduction: 1.6
+      Duration_Increase: 0.8
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0
+      Skill_LvUP: 8
+  - Key_ID: 620055
+    val:
+      Selection_Level: 0
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100020
+      Cooldown_Reduction: 0.2
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.2
+      Skill_LvUP: 1
+  - Key_ID: 620056
+    val:
+      Selection_Level: 1
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100020
+      Cooldown_Reduction: 0.4
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.4
+      Skill_LvUP: 2
+  - Key_ID: 620057
+    val:
+      Selection_Level: 2
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uB370\uBBF8\uC9C0\uAC00 60% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100020
+      Cooldown_Reduction: 0.6
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.6
+      Skill_LvUP: 3
+  - Key_ID: 620058
+    val:
+      Selection_Level: 3
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uB370\uBBF8\uC9C0\uAC00 80% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100020
+      Cooldown_Reduction: 0.8
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 0.8
+      Skill_LvUP: 4
+  - Key_ID: 620059
+    val:
+      Selection_Level: 4
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uB370\uBBF8\uC9C0\uAC00 120% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100020
+      Cooldown_Reduction: 1.2
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 1.2
+      Skill_LvUP: 6
+  - Key_ID: 620060
+    val:
+      Selection_Level: 5
+      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+        \uB370\uBBF8\uC9C0\uAC00 160% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Skill_ID: 100020
+      Cooldown_Reduction: 1.6
+      Duration_Increase: 0
+      Activation_Rate_Increase: 0
+      Damage_Increase: 1.6
+      Skill_LvUP: 8

@@ -21,7 +21,7 @@ public class ArrowWeapon : Weapon
         
         Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
         
-        var bullet = Instantiate(arrowShot, transform.position, Quaternion.identity, transform);
+        var bullet = Instantiate(arrowShot, transform.position, Quaternion.identity);
         
         bullet.arrowDamage = player.Damage;
         bullet.target = collider.transform;
