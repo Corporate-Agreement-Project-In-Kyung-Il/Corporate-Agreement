@@ -44,14 +44,17 @@ public class Spawner : MonoBehaviour
         
         int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;
         
-        for (int i = 0; i < areaInfoSo.MonsterSpawnPointList.Count; i++)
+        for (int i = 0; i < areaInfoSo.MonsterCount; i++)
         {
             MonsterType type = mStageInfo.SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
             BaseMonster monsterPrefab = mMonsterTable.GetMonster(type);
             Vector2Int spawnPointVec2 = areaInfoSo.MonsterSpawnPointList[i];
             Vector3 spawnPoint = new Vector3(spawnPointVec2.x, spawnPointVec2.y, 0);
             
-            Instantiate(monsterPrefab, spawnPoint, Quaternion.identity);
+            // Instantiate에서 좌표 바로 안주는 이유 월드 기준으로 스폰해서 이상한곳에 스폰
+            // Instantiate후 로컬좌표로 변경
+            BaseMonster monster = Instantiate(monsterPrefab, parent: mStageTilemapList[0].transform);
+            monster.transform.localPosition = spawnPoint;
         }
     }
 }
