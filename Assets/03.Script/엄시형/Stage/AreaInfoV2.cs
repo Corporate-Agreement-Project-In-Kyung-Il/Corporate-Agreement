@@ -11,15 +11,15 @@ namespace _03.Script.엄시형.Data.V2
     public class AreaInfoSO : ScriptableObject
     {
         // public bool bIsBossStage =>  mbIsBossStage;
-        public int MonsterCount => mMonsterSpawnPointList.Count;
+        public int MonsterCount => MonsterSpawnPointList.Count;
         // public List<MonsterType> SpawnMonsterTypeList => mSpawnMonsterTypeList;
-        public List<Vector2Int> MonsterSpawnPointList => mMonsterSpawnPointList;
+        public List<Vector2> MonsterSpawnPointList;
         
         // [Header("등장 몬스터!")]
         // [SerializeField] private List<MonsterType> mSpawnMonsterTypeList;
         
-        [Header("몬스터 스폰지점")]
-        [SerializeField] private List<Vector2Int> mMonsterSpawnPointList;
+        // [Header("몬스터 스폰지점")]
+        // [SerializeField] private List<Vector2> mMonsterSpawnPointList;
         
         // private bool mbIsBossStage;
     }
