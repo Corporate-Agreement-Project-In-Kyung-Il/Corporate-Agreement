@@ -88,16 +88,10 @@ public class ArrowShot : MonoBehaviour
                 transform.up = moveDir;
             }
             transform.position = nextPos;
-            
-            if (distance < 0.1f)
-            {
-                collider.enabled = true;
-            }
         }
         else
         {
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
-            float dynamicRotateSpeed = Mathf.Lerp(360f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
+            float dynamicRotateSpeed = Mathf.Lerp(180f, 120f, distance / 5f); // 가까울수록 빠르게 회전
             Vector3 dirToTarget = (target.position - transform.position).normalized;
         
             float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
@@ -106,6 +100,11 @@ public class ArrowShot : MonoBehaviour
             
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
             transform.position += transform.up * (curveSpeed * Time.deltaTime);
+        }
+        Debug.Log($"{gameObject.name }의 거리 = {distance}");
+        if (distance < 0.1f)
+        {
+            collider.enabled = true;
         }
     }
 
@@ -121,6 +120,7 @@ public class ArrowShot : MonoBehaviour
             combatEvent.Sender = player;
             combatEvent.Damage = arrowDamage;
             combatEvent.collider = other;
+            
             gameObject.SetActive(false);
             
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))
