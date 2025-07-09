@@ -19,6 +19,7 @@ public static class ExcelImporter
         if (!File.Exists(filePath))
         {
             Debug.LogError("엑셀 파일이 존재하지 않습니다: " + filePath);
+            
             return;
         }
 
@@ -40,7 +41,7 @@ public static class ExcelImporter
     private static void ImportCharacter(DataTable table)
     {
         var playerCharacter = ScriptableObject.CreateInstance<PlayerCharacter>();
-        for (int i = 4; i < table.Rows.Count; i++)
+        for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
@@ -69,7 +70,7 @@ public static class ExcelImporter
     private static void ImportSkillOption(DataTable table)
     {
         var optionSkill = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
-        for (int i = 4; i < table.Rows.Count; i++)
+        for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
@@ -94,7 +95,7 @@ public static class ExcelImporter
     private static void ImportEquip(DataTable table)
     {
         var playerEquip = ScriptableObject.CreateInstance<PlayerEquip>();
-        for (int i = 4; i < table.Rows.Count; i++)
+        for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
@@ -118,7 +119,7 @@ public static class ExcelImporter
     private static void ImportEquipOption(DataTable table)
     {
         var optionEquip = ScriptableObject.CreateInstance<OptionChoice_EquipOption>();
-        for (int i = 4; i < table.Rows.Count; i++)
+        for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
@@ -141,7 +142,7 @@ public static class ExcelImporter
     private static void ImportTraining(DataTable table)
     {
         var playerTraining = ScriptableObject.CreateInstance<PlayerTraining>();
-        for (int i = 4; i < table.Rows.Count; i++)
+        for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
@@ -167,7 +168,7 @@ public static class ExcelImporter
     private static void ImportTrainingOption(DataTable table)
     {
         var optionTraining = ScriptableObject.CreateInstance<OptionChoice_TrainingOption>();
-        for (int i = 4; i < table.Rows.Count; i++)
+        for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 

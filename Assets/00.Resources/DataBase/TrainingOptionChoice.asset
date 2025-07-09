@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: TrainingOptionChoice
   m_EditorClassIdentifier: 
   data:
+  - Key_ID: 500001
+    val:
+      Training_ID: 0
+      Training_Name: "\uAC15\uC778\uD55C_\uC804\uC0AC\uC758_\uBE44\uAE30"
+      Critical_Rate: 0
+      Critical_Damage: 1.5
+      Attack_Speed: 1
+      Training_Minimum_LV: 1
+      Training_Maximum_LV: 1024
+      Critical_Damage_Increase: 0.05
+      Critical_Rate_Increase: 0.02
+      Attack_Speed_Increase: 0.03
   - Key_ID: 500002
     val:
       Training_ID: 0

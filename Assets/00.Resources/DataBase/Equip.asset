@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Equip
   m_EditorClassIdentifier: 
   data:
+  - Key_ID: 400001
   - Key_ID: 400002
   - Key_ID: 400003

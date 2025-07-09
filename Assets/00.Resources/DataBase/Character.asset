@@ -13,6 +13,20 @@ MonoBehaviour:
   m_Name: Character
   m_EditorClassIdentifier: 
   data:
+  - Key_ID: 100001
+    val:
+      Character_ID: 0
+      Character_Class: "\uC804\uC0AC"
+      Character_Name: "\uAE30\uBCF8_\uC804\uC0AC"
+      Character_Grade: A
+      Attack: 67
+      Health: 110
+      Attack_Speed: 1
+      Critical_Probability: 0
+      Training_type: 500001
+      equip_item: 400001
+      skill_possed1: 100011
+      skill_possed2: 100012
   - Key_ID: 100002
     val:
       Character_ID: 0
