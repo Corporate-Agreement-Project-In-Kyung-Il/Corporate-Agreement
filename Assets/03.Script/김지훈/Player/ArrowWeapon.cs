@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class ArrowWeapon : Weapon
 {
-    private SpriteRenderer sr;
-    private Player player;
     public ArrowShot arrowShot;
-
-    void Start()
-    {
-        TryGetComponent(out sr); //sr 장착한 검에 대해서 모형 변화
-        player = GetComponentInParent<Player>();        
-    }
 
     public override bool Attack(Collider2D collider)
     {
@@ -21,11 +13,16 @@ public class ArrowWeapon : Weapon
         
         Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
         
-        var bullet = Instantiate(arrowShot, transform.position, Quaternion.identity);
+        //var bullet = Instantiate(arrowShot, transform.position, Quaternion.identity);
+        ArrowShot bullet = ObjectPoolSystem.Instance.GetObjectOrNull("ArrowShot") as ArrowShot;
         
+        bullet.transform.position = transform.position;
         bullet.arrowDamage = player.Damage;
         bullet.target = collider.transform;
         bullet.player = player;
+        bullet.straightAttackRange = player.attackRange;
+        
+        bullet.gameObject.SetActive(true);
         
         return arrowShot.isTargetNotDead;
     }

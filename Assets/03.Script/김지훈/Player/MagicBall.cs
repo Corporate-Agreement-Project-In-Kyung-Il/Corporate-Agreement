@@ -4,23 +4,48 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MagicBall : MonoBehaviour
+public class MagicBall : MonoBehaviour, IObjectPoolItem
 {
+    //애니메이션 Bool값
     private static readonly int Explosion = Animator.StringToHash("Explosion");
     
+    //Component 구성요소
     private Animator animator;
     private Collider2D collider;
     private AnimatorStateInfo currentStateInfo;
+    
+    //Weapon 타입한테 받아오는 값
     public Transform target;
     public Player player;
-    
     public bool isTargetNotDead = true;
     public float magicDamage;
+
+    [Header("유도 설정")] 
+    [SerializeField] private float initialSpeed = 2f;
+    [SerializeField] private float explosionTriggerDistance = 0.15f;
+    
+    [Header("생명주기")]
+    [SerializeField] private float lifeTime = 7f;
+    
+    [Header("타켓에 다가가는 속도")]
+    [SerializeField] private float timeSinceStart = 2f;
+    private bool isRotate = true;
+    
+    //IObjectPoolItem
+    public string Key { get; set; }
+    public GameObject GameObject => gameObject;
+    public void ReturnToPool()
+    {
+        gameObject.SetActive(false);
+        ObjectPoolSystem.Instance.ReturnToPool(this);
+    }
     
     private void Start()
     {
         TryGetComponent(out animator);
         TryGetComponent(out collider);
+        Destroy(gameObject, lifeTime);
+        
     }
 
     void Update()
@@ -62,9 +87,6 @@ public class MagicBall : MonoBehaviour
             target = closestTarget;
         }
     }
-    
-    [SerializeField] private float timeSinceStart = 2f;
-    
     private void MoveToEnemyHurt()
     {
         timeSinceStart += Time.deltaTime; 
@@ -72,14 +94,38 @@ public class MagicBall : MonoBehaviour
         float t = timeSinceStart;
         float curveSpeed = Mathf.Pow(t, 2f);
         
-        currentStateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        transform.position = Vector2.MoveTowards(transform.position, target.position, curveSpeed * Time.deltaTime);
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        float dynamicRotateSpeed = Mathf.Lerp(360f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
         
-        float distance = Vector3.Distance(transform.position, target.position);
+        
+        currentStateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        Vector3 dirToTarget = (target.position - transform.position).normalized;
+        
+        float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+        
+        float maxDelta = dynamicRotateSpeed * Time.deltaTime;
+        
 
-        if (distance < 0.1f)
+        
+        if (isRotate)
+        {
+            //if (moveDir != Vector3.zero)
+            //{
+            //    transform.up = moveDir;
+            //}
+            
+            // 회전 제한
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
+        }
+
+        transform.position += transform.up * (curveSpeed * Time.deltaTime);
+        
+        if (distanceToTarget < 0.3f)
         {
             animator.SetTrigger(Explosion);
+            transform.rotation = Quaternion.identity;
+            isRotate = false;
         }
         
 
@@ -112,11 +158,14 @@ public class MagicBall : MonoBehaviour
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))
             {
                 isTargetNotDead = false;
-                gameObject.SetActive(false);
+                ReturnToPool();
                 return;
             }
-            gameObject.SetActive(false);
+
+            ReturnToPool();
             isTargetNotDead = true;
         }
     }
+
+
 }
