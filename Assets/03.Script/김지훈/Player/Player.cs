@@ -15,6 +15,9 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
 
+    public float attackRange;
+
+    
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
@@ -42,7 +45,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         TryGetComponent(out rigid);
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
-
+        
+        
         playerStat.health = data.health;
         playerStat.moveSpeed = data.moveSpeed;
         
@@ -55,18 +59,28 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         playerStat.attackDamage = data.attackDamage;
         playerStat.attackSpeed = data.attackSpeed;
         playerStat.attackRange = data.attackRange;
+
         playerStat.criticalProbability = data.criticalProbability;
         playerStat.detectionRange = detectionRange;
         
         playerStat.training_type = data.training_type;
         playerStat.equip_item = data.equip_item;
         playerStat.skill_possed = data.skill_possed;
+        
+        
+        attackRange = playerStat.attackRange; //궁수의 직선 공격 범위를 위해서
+    }
+
+    private void Start()
+    {
+        weapon.playerAnimator = animator;
     }
 
     private Vector2 enemyDetectionCenter;
     private Collider2D[] enemyDetectionCol;
     private void Update()
     {
+        
         enemyDetectionCenter = Vector2.up * transform.position.y;
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
 
@@ -85,6 +99,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
                 performDie();
                 break;
         }
+
+       
     }
     
     private Vector2 targetPos;
@@ -144,7 +160,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     
     public void TakeDamage(CombatEvent combatEvent)
     {
-        playerStat.health -= combatEvent.Damage;
+        playerStat.health -= combatEvent.Damage * 0.6f ;
         
         if (playerStat.health <= 0)
         {

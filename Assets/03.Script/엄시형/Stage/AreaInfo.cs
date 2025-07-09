@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _03.Script.엄시형.Stage.DTO;
 using UnityEngine;
 
 namespace _03.Script.엄시형.Data
@@ -8,11 +9,15 @@ namespace _03.Script.엄시형.Data
     public class AreaInfo
     {
         public bool bIsBossStage =>  mbIsBossStage;
-        public int MonsterCount => mMonsterSpawnPointList.Count;
-        public List<Vector2Int> MonsterSpawnPointList => mMonsterSpawnPointList;
+        
+        /// <summary>
+        /// 지금은 Point하나당 한 몬스터라 상관없지만 한Point에 여러 마리 나온다면 변경 필요
+        /// </summary>
+        public int MonsterCount => mAreaPattern.MonsterSpawnPoints.Count;
+        public AreaPattern AreaPattern => mAreaPattern;
     
         [Header("몬스터 스폰지점")]
-        [SerializeField] private List<Vector2Int> mMonsterSpawnPointList;
+        [SerializeField] private AreaPattern mAreaPattern;
         
         private bool mbIsBossStage;
     }

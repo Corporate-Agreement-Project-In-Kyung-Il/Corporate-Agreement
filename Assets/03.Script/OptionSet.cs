@@ -2,14 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 using Random = System.Random;
 
-public class OptionChoiceButton : MonoBehaviour
+public class OptionSet : MonoBehaviour
 {
     public OptionChoice_SkillOption skillOption;
     public OptionChoice_EquipOption equipOption;
     public OptionChoice_TrainingOption trainingOption;
     public int choiceCount = 3;
+    public OptionButton[] optionButtons; // UI 버튼 배열
+
+    private List<int> m_SelectionID;
+    
     public enum EOptionType
     {
         Skill,
@@ -24,6 +30,11 @@ public class OptionChoiceButton : MonoBehaviour
         m_Options.Add(EOptionType.Training, trainingOption);
     }
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -34,6 +45,7 @@ public class OptionChoiceButton : MonoBehaviour
 
     private void CreateChoices()
     {
+        m_SelectionID = new  List<int>();
         for (int i = 0; i < choiceCount; i++)
         {
             EOptionType choicedOption = GetOptionType();
@@ -44,17 +56,20 @@ public class OptionChoiceButton : MonoBehaviour
                     case EOptionType.Skill:
                         var skill = option as OptionChoice_SkillOption;
                         int skillID = GetSelectionID(skill);
-                        Debug.Log("Skill 선택됨: " + skillID);
+                        m_SelectionID.Add(skillID);
+                        Debug.Log("Skill 선택지 띄움 SkillOption 번호 : " + skillID);
                         break;
                     case EOptionType.Equip:
                         var equip = option as OptionChoice_EquipOption;
                         int equipID = GetSelectionID(equip);
-                        Debug.Log("Equip 선택됨: " + equipID);
+                        m_SelectionID.Add(equipID);
+                        Debug.Log("Equip 선택지 선택됨 EquipOption 번호: " + equipID);
                         break;
                     case EOptionType.Training:
                         var training = option as OptionChoice_TrainingOption;
                         int trainingID = GetSelectionID(training);
-                        Debug.Log("Training 선택됨: " + trainingID);
+                        m_SelectionID.Add(trainingID);
+                        Debug.Log("Training 선택지 선택됨 Training 번호: " + trainingID);
                         break;
                 }
             }
@@ -63,8 +78,11 @@ public class OptionChoiceButton : MonoBehaviour
                 Debug.LogError("No option found for type: " + choicedOption);
             }
         }
+        
+        optionButtons[0].gameObject.SetActive(true);
     }
 
+    // 3종류 선택지 중에 어떤 선택지를 띄울지 랜덤 선택 (장비 , 스킬, 훈련)
     EOptionType GetOptionType()
     {
         EOptionType[] values = (EOptionType[])System.Enum.GetValues(typeof(EOptionType));
@@ -72,6 +90,7 @@ public class OptionChoiceButton : MonoBehaviour
         return values[randomIndex];
     }
     
+    // 선택지 번호를 가져오는 코드
     int GetSelectionID<T>(ExelReaderBase<T> option) where T : BaseValue, new()
     {
         if (option == null || option.data == null || option.data.Count == 0)
