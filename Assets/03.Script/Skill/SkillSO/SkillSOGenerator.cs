@@ -76,7 +76,15 @@ public class SkillSOGenerator
             string assetPath = $"Assets/Resources/Skills/Active/{skill.Skill_Name}.asset";
             Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
             AssetDatabase.CreateAsset(skill, assetPath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
             skill.SetPrefab();
+            EditorApplication.delayCall += () =>
+            {
+                skill.SetPrefab();
+                EditorUtility.SetDirty(skill); // 변경 사항 저장
+                AssetDatabase.SaveAssets();
+            };
             
         }
 
@@ -143,16 +151,19 @@ public class SkillSOGenerator
             string assetPath = $"Assets/Resources/Skills/Buff/{skill.Skill_Name}.asset";
             Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
             AssetDatabase.CreateAsset(skill, assetPath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
             skill.SetPrefab();
-            
-            
+            EditorApplication.delayCall += () =>
+            {
+                skill.SetPrefab();
+                EditorUtility.SetDirty(skill); // 변경 사항 저장
+                AssetDatabase.SaveAssets();
+            };
         }
-
         
-
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-
+        
+        
         Debug.Log("✅ 스킬 및 버프 타입 ScriptableObject 생성 완료!");
     }
 }
