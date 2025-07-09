@@ -3,17 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BuffEffectType
+{
+    Shield_Protection,
+    Steel_Shield,
+    Projectile_Hit,
+    Archer_Strong_Mind,
+    Wizard_Strong_Mind,
+    // 나중에 쉽게 추가 가능
+}
+
 public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 {
     protected static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int Attack = Animator.StringToHash("attack");
 
+    
+    
     //IDamageAble 요소
     public Collider2D mainCollider => col;
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
-
+    
+    
+    
     //스킬ID
     public List<int> SkillID => playerStat.skill_possed;
     public ISkillID[] skills = new ISkillID[2];
@@ -94,31 +108,85 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 
     private void Update()
     {
-        /*enemyDetectionCenter = Vector2.up * transform.position.y;
-        Collider2D[] enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
+        List<BuffEffectType> keys = new List<BuffEffectType>(buffCooldownTimers.Keys);
 
-        if (enemyDetectionCol.Length > 0)
-            ChangeState(CharacterState_jin.Attack);
-
-        switch (currentCharacterState)
+        foreach (var key in keys)
         {
-            case CharacterState_jin.Run:
-                performRun();
-                break;
+            buffCooldownTimers[key] -= Time.deltaTime;
+            Debug.Log(buffCooldownTimers[key]);
+        }
+        
 
-            case CharacterState_jin.Attack:
-                performAttack();
-                break;
-
-            case CharacterState_jin.Die:
-                performDie();
-                break;
-        }*/
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
+
         SkillCondition();
     }
+    //-----------------------------버프--------------------------------------------------
+    private Dictionary<BuffEffectType, bool> activeBuffs = new();
+    private Dictionary<BuffEffectType, float> buffCooldownTimers = new();
 
+    public float GetAttackSpeed()
+    {
+        return playerStat.attackSpeed;
+    }
+
+    public void SetAttackSpeed(float newSpeed)
+    {
+        playerStat.attackSpeed = newSpeed;
+        Debug.Log($"공격 속도 변경됨: {newSpeed}");
+    }
+    public bool HasBuff(BuffEffectType buff)
+    {
+        return activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
+    }
+
+    public void SetBuffState(BuffEffectType buff, bool isActive)
+    {
+        activeBuffs[buff] = isActive;
+    }
+
+    private bool CanUseBuff(BuffEffectType type)
+    {
+        return !buffCooldownTimers.ContainsKey(type) || buffCooldownTimers[type] <= 0f;
+    }
+
+    public void TriggerBuff(BuffSO buff)
+    {
+        if (!Enum.TryParse(buff.Skill_Buff_Type, out BuffEffectType effect))
+        {
+            Debug.LogWarning($"[TriggerBuff] BuffEffectType 파싱 실패: {buff.Skill_Buff_Type}");
+            return;
+        }
+
+        if (!CanUseBuff(effect))
+        {
+            Debug.Log($"❌ {effect} 쿨타임 중: {buffCooldownTimers[effect]:F2}s 남음");
+            return;
+        }
+
+        Debug.Log($"✅ 버프 발동: {effect}");
+
+        SetBuffState(effect, true);
+        StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect));
+
+        buffCooldownTimers[effect] = buff.Skill_Cooldown;
+    }
+
+    private IEnumerator RemoveBuffAfter(float duration, BuffEffectType effect)
+    {
+        yield return new WaitForSeconds(duration);
+        SetBuffState(effect, false);
+        Debug.Log($"버프 종료됨: {effect}");
+    }
+
+    public void SetAttackDamage(float newDamage)
+    {
+        playerStat.attackDamage = newDamage;
+        Debug.Log($"공격력 변경됨: {newDamage}");
+    }
+
+    //-----------------------------버프--------------------------------------------------
     private void SkillCondition()
     {
         if (skillCooldownTimers[0] <= 0f)
@@ -148,8 +216,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
         else if (skills[index] is BuffSO buff)
         {
             Instantiate(skillPrefab);
-            Debug.Log($"[버프] {buff.Skill_Name} 발동! 쿨타임 : {buff.Skill_Cooldown}, 지속시간: {buff.Skill_Duration}초");
-            // 스탯 증가 등 버프 효과 적용
+            TriggerBuff(buff); // 쿨타임 체크 + 버프 적용 + 지속시간 관리
         }
     }
 
