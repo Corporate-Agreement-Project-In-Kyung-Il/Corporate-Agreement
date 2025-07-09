@@ -49,22 +49,20 @@ public enum character_class
 {
     전사,
     궁수,
-    마법사,
-    Null
+    마법사
 }
 
 public enum character_name
 {
-    Null,
     [Description("기본 전사")]
-    전사,
+    기본전사,
     아이언,
     디노,
     [Description("기본 궁수")]
-    기본_궁수,
+    기본궁수,
     사비나,
     [Description("기본 마법사")]
-    마법사,
+    기본마법사,
     쿠아
 }
 
