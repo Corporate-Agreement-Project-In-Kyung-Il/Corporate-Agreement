@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ArrowShot : MonoBehaviour
+public class ArrowShot : MonoBehaviour, IObjectPoolItem
 {
     private Collider2D collider;
     private Vector3 prevPosition;
@@ -17,6 +17,16 @@ public class ArrowShot : MonoBehaviour
 
     [Header("타켓에 다가가는 속도")]
     [SerializeField] private float timeSinceStart = 2f;  
+    
+    //IObjectPoolItem
+    public string Key { get; set; }
+    public GameObject GameObject => gameObject;
+    public void ReturnToPool()
+    {
+        gameObject.SetActive(false);
+        ObjectPoolSystem.Instance.ReturnToPool(this);
+    }
+    
     private void Start()
     {
         TryGetComponent(out collider);
@@ -66,7 +76,7 @@ public class ArrowShot : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            ReturnToPool();
         }                                                                                                    
         
     }
@@ -120,8 +130,8 @@ public class ArrowShot : MonoBehaviour
             combatEvent.Sender = player;
             combatEvent.Damage = arrowDamage;
             combatEvent.collider = other;
-            
-            gameObject.SetActive(false);
+
+            ReturnToPool();
             
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))
             {
@@ -132,4 +142,5 @@ public class ArrowShot : MonoBehaviour
         }
 
     }
+
 }

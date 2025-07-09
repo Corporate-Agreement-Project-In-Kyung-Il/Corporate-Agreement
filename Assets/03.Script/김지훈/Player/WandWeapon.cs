@@ -13,11 +13,16 @@ public class WandWeapon : Weapon
         
         Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
         
-        var bullet = Instantiate(magicBall, transform.position, Quaternion.identity);
 
+        //var bullet = Instantiate(magicBall, transform.position, Quaternion.identity);
+        MagicBall bullet = ObjectPoolSystem.Instance.GetObjectOrNull("MagicBall") as MagicBall;
+        
+        bullet.transform.position = transform.position;
         bullet.magicDamage = player.Damage;
         bullet.target = collider.transform;
         bullet.player = player;
+        
+        bullet.gameObject.SetActive(true);
         
         return magicBall.isTargetNotDead;
     }

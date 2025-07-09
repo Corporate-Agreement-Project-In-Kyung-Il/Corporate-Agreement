@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MagicBall : MonoBehaviour
+public class MagicBall : MonoBehaviour, IObjectPoolItem
 {
     //애니메이션 Bool값
     private static readonly int Explosion = Animator.StringToHash("Explosion");
@@ -30,6 +30,15 @@ public class MagicBall : MonoBehaviour
     [Header("타켓에 다가가는 속도")]
     [SerializeField] private float timeSinceStart = 2f;
     private bool isRotate = true;
+    
+    //IObjectPoolItem
+    public string Key { get; set; }
+    public GameObject GameObject => gameObject;
+    public void ReturnToPool()
+    {
+        gameObject.SetActive(false);
+        ObjectPoolSystem.Instance.ReturnToPool(this);
+    }
     
     private void Start()
     {
@@ -149,11 +158,14 @@ public class MagicBall : MonoBehaviour
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))
             {
                 isTargetNotDead = false;
-                gameObject.SetActive(false);
+                ReturnToPool();
                 return;
             }
-            gameObject.SetActive(false);
+
+            ReturnToPool();
             isTargetNotDead = true;
         }
     }
+
+
 }
