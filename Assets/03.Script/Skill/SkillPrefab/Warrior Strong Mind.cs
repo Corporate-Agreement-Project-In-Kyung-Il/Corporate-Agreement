@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WarriorStrongMind : MonoBehaviour, ISkillID
 {
@@ -11,22 +12,26 @@ public class WarriorStrongMind : MonoBehaviour, ISkillID
     {
         SkillID = SkillId;
     }
-    
+
+    public Player owner;
+    public int attackCount;
     void Start()
     {
         Debug.Log("start WarriorStrongMind");
+        AttakcTarget();
     }
 
     void Update()
     {
+       
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void AttakcTarget()
     {
-        if (other.CompareTag("Enemy"))
-        {
-            //데미지입힘
-        }
+        //owner.target에게 데미지를 입힘
+        attackCount++;
+        AttakcTarget();
     }
+
 }
