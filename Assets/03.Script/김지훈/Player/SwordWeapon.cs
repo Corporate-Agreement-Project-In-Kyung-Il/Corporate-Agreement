@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class SwordWeapon : Weapon
 {
-    private SpriteRenderer sr;
-    private Player player;
-    
-    private void Start()
-    {
-        TryGetComponent(out sr); //sr 장착한 검에 대해서 모형 변화
-        player = GetComponentInParent<Player>();
-    }
-
     public override bool Attack(Collider2D collider)
     {
         if (collider.gameObject.TryGetComponent(out IDamageAble enemyDamage).Equals(false))

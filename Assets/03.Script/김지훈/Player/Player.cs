@@ -71,10 +71,16 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         attackRange = playerStat.attackRange; //궁수의 직선 공격 범위를 위해서
     }
 
+    private void Start()
+    {
+        weapon.playerAnimator = animator;
+    }
+
     private Vector2 enemyDetectionCenter;
     private Collider2D[] enemyDetectionCol;
     private void Update()
     {
+        
         enemyDetectionCenter = Vector2.up * transform.position.y;
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
 

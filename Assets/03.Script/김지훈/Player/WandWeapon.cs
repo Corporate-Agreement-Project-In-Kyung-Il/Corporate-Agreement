@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class WandWeapon : Weapon
 {
-    private SpriteRenderer sr;
-    private Player player;
     public MagicBall magicBall;
-    void Start()
-    {
-        TryGetComponent(out sr); //sr 장착한 검에 대해서 모형 변화
-        player = GetComponentInParent<Player>();
-    }
-    
     
     public override bool Attack(Collider2D collider)
     {
