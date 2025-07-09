@@ -371,17 +371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  skillObjects:
-  - {fileID: 11400000, guid: 9f2616352cbfd8c49a31729017b3a545, type: 2}
-  - {fileID: 11400000, guid: 7fe4d03c629be3343b67b281c78b747f, type: 2}
-  - {fileID: 11400000, guid: dbf208633ea98634c81f093807fe7a59, type: 2}
-  - {fileID: 11400000, guid: 0f5f1b213caae8e42b27a37ab46ea761, type: 2}
-  - {fileID: 11400000, guid: b67382884c6d42644aaa9ef27f857317, type: 2}
-  - {fileID: 11400000, guid: 3c2cb63ac0b6ce149a67eaadcc3d2be2, type: 2}
-  - {fileID: 11400000, guid: da8442d59c0f72c4596d3adb5632433f, type: 2}
-  - {fileID: 11400000, guid: 336c473fbd56d07478ed059ba3c24f93, type: 2}
-  - {fileID: 11400000, guid: 94b7999f77bf6a043a633bfa8c3d61c2, type: 2}
-  - {fileID: 11400000, guid: dbfcb69415dc5d1488d5659722284031, type: 2}
+  skillObjects: []
+  Selection_ID: 0
 --- !u!4 &1169386089
 Transform:
   m_ObjectHideFlags: 0
