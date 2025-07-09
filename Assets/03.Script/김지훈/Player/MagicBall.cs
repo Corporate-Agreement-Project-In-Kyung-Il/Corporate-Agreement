@@ -38,7 +38,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     {
         target = null;
         timeSinceStart = 2.1f;
-        isRotate = false;
+        isRotate = true;
         gameObject.SetActive(false);
         ObjectPoolSystem.Instance.ReturnToPool(this);
     }
