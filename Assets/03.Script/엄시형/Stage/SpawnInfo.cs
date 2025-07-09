@@ -6,13 +6,13 @@ namespace _03.Script.엄시형.Stage
     [Serializable]
     public struct SpawnInfo
     {
-        public Vector2 SpawnPoint { get; private set; }
-        public float SpawnRadius { get; private set; }
+        public Vector2 Point { get; private set; }
+        public float Radius { get; private set; }
         
-        public SpawnInfo(Vector2 spawnPoint, float spawnRadius)
+        public SpawnInfo(Vector2 point, float radius)
         {
-            SpawnPoint = spawnPoint;
-            SpawnRadius = spawnRadius;
+            Point = point;
+            Radius = radius;
         }
     }
 }

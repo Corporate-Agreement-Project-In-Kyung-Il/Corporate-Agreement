@@ -44,10 +44,12 @@ public class Spawner : MonoBehaviour
     /// <param name="type"> 몬스터 종류(MonsterType) </param>
     /// <param name="parent"> 구역(Area) </param>
     /// <returns> 스폰 몬스터 </returns>
-    private BaseMonster SpawnMonster(Vector2 position, MonsterType type, GameObject parent)
+    private BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
     {
+        Vector2 randomOffset = Random.insideUnitCircle * spawnInfo.Radius;
+        Vector2 spawnPos = spawnInfo.Point + randomOffset;
         BaseMonster monster = Instantiate(mMonsterTable.GetMonster(type), parent.transform);
-        monster.transform.localPosition = position; // 부모의 로컬 좌표로 스폰
+        monster.transform.localPosition = spawnPos; // 부모의 로컬 좌표로 스폰
         
         return monster;
     }
@@ -60,11 +62,14 @@ public class Spawner : MonoBehaviour
         
         for (int i = 0; i < stageInfo.AreaInfoList.Count; i++)
         {
-            for (int x = 0; x < stageInfo.AreaInfoList[i].MonsterCount; x++)
+            AreaInfoSO areaInfo = stageInfo.AreaInfoList[i];
+            
+            for (int x = 0; x < areaInfo.MonsterCount; x++)
             {
                 MonsterType type = stageInfo.SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
                 
-                SpawnMonster(stageInfo.AreaInfoList[i].MonsterSpawnPointList[x]
+                SpawnMonsterInRange(
+                    areaInfo.SpawnInfoList[x]
                     , type
                     , mAreaList[i]);
             }
