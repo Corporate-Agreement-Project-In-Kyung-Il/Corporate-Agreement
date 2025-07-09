@@ -13,6 +13,8 @@ public class OptionSet : MonoBehaviour
     public OptionChoice_TrainingOption trainingOption;
     public int choiceCount = 3;
     public OptionButton[] optionButtons; // UI 버튼 배열
+
+    private List<int> m_SelectionID;
     
     public enum EOptionType
     {
@@ -30,9 +32,7 @@ public class OptionSet : MonoBehaviour
 
     private void Start()
     {
-        optionButtons = new OptionButton[3];
-        optionButtons[0] = new OptionButton { selectionButton = GameObject.Find("SelectionButton1").GetComponent<Button>(), 
-            enchantButton = GameObject.Find("EnchantButton1").GetComponent<Button>() };
+        
     }
 
     private void Update()
@@ -45,6 +45,7 @@ public class OptionSet : MonoBehaviour
 
     private void CreateChoices()
     {
+        m_SelectionID = new  List<int>();
         for (int i = 0; i < choiceCount; i++)
         {
             EOptionType choicedOption = GetOptionType();
@@ -55,16 +56,19 @@ public class OptionSet : MonoBehaviour
                     case EOptionType.Skill:
                         var skill = option as OptionChoice_SkillOption;
                         int skillID = GetSelectionID(skill);
+                        m_SelectionID.Add(skillID);
                         Debug.Log("Skill 선택지 띄움 SkillOption 번호 : " + skillID);
                         break;
                     case EOptionType.Equip:
                         var equip = option as OptionChoice_EquipOption;
                         int equipID = GetSelectionID(equip);
+                        m_SelectionID.Add(equipID);
                         Debug.Log("Equip 선택지 선택됨 EquipOption 번호: " + equipID);
                         break;
                     case EOptionType.Training:
                         var training = option as OptionChoice_TrainingOption;
                         int trainingID = GetSelectionID(training);
+                        m_SelectionID.Add(trainingID);
                         Debug.Log("Training 선택지 선택됨 Training 번호: " + trainingID);
                         break;
                 }
@@ -74,6 +78,8 @@ public class OptionSet : MonoBehaviour
                 Debug.LogError("No option found for type: " + choicedOption);
             }
         }
+        
+        optionButtons[0].gameObject.SetActive(true);
     }
 
     // 3종류 선택지 중에 어떤 선택지를 띄울지 랜덤 선택 (장비 , 스킬, 훈련)

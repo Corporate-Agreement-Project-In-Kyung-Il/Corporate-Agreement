@@ -397,12 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3b9471b45a31a4e8abdacdceacc132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionButton: {fileID: 1136168957}
-  enchantButton: {fileID: 1302314567}
-  m_OnClick:
+  m_OnClickEvent:
     m_PersistentCalls:
       m_Calls: []
-  button: {fileID: 0}
 --- !u!1 &451243495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,12 +1168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3b9471b45a31a4e8abdacdceacc132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionButton: {fileID: 122526909}
-  enchantButton: {fileID: 1580486704}
-  m_OnClick:
+  m_OnClickEvent:
     m_PersistentCalls:
       m_Calls: []
-  button: {fileID: 0}
 --- !u!1 &913720775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,12 +1325,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3b9471b45a31a4e8abdacdceacc132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionButton: {fileID: 885983608}
-  enchantButton: {fileID: 1654985397}
-  m_OnClick:
+  m_OnClickEvent:
     m_PersistentCalls:
-      m_Calls: []
-  button: {fileID: 0}
+      m_Calls:
+      - m_Target: {fileID: 885983606}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1136168955
 GameObject:
   m_ObjectHideFlags: 0
