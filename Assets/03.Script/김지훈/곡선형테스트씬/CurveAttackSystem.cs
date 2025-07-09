@@ -12,6 +12,7 @@ public class CurveAttackSystem : MonoBehaviour
     [Header("생명 주기")]
     public float lifeTime = 5f;
     public GameObject explosionEffect;
+    private bool moving = true;
 
     private Rigidbody2D rb;
     private Animator ani;
@@ -25,6 +26,9 @@ public class CurveAttackSystem : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (moving.Equals(false))
+            return;
+        
         if (target == null)
         {
             rb.velocity = transform.up * moveSpeed;
@@ -46,18 +50,22 @@ public class CurveAttackSystem : MonoBehaviour
 
         // 현재 forward(=up) 방향으로 이동
         rb.velocity = transform.up * moveSpeed;
+
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance < 0.1f)
+        {
+            ani.SetTrigger("Explosion");
+            moving = false;
+            transform.rotation = Quaternion.identity;
+            rb.velocity = Vector2.zero;
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform == target || collision.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")))
-        {
-            Explode();
-        }
-    }
-
-    private void Explode()
-    {
-        ani.SetTrigger("Explosion");
+        if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
+            return;
     }
 }
