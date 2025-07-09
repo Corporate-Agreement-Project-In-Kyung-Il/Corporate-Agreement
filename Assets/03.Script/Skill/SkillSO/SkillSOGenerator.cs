@@ -8,6 +8,9 @@ using System.Text;
 
 public class SkillSOGenerator
 {
+    /// <summary>
+    /// 
+    /// </summary>
     
     [MenuItem("Tools/Generate Skill ScriptableObjects")]
     public static void Generate()

@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 #endif
 using UnityEngine;
-
+//
 [CreateAssetMenu(fileName = "ActiveSkill", menuName = "ScriptableObjects/Skill/ActiveSkill")]
 public class ActiveSkillSO : ScriptableObject,ISkillID
 {
