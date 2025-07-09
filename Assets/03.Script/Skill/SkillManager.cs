@@ -21,6 +21,10 @@ public class SkillManager : MonoBehaviour
     
     private ISkillID[] skills;
 
+    public void SetSelectionID(int id)
+    {
+        Selection_ID = id;
+    }
     private void Awake()
     {
         FindPlayers();
