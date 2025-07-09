@@ -3,17 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BuffEffectType
+{
+    Shield_Protection,
+    Steel_Shield,
+    Projectile_Hit,
+    Archer_Strong_Mind,
+    Wizard_Strong_Mind,
+    // 나중에 쉽게 추가 가능
+}
+
 public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 {
     protected static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int Attack = Animator.StringToHash("attack");
 
+    
+    
     //IDamageAble 요소
     public Collider2D mainCollider => col;
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
-
+    
+    
+    
     //스킬ID
     public List<int> SkillID => playerStat.skill_possed;
     public ISkillID[] skills = new ISkillID[2];
@@ -118,7 +132,35 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
         skillCooldownTimers[1] -= Time.deltaTime;
         SkillCondition();
     }
+    //-----------------------------버프--------------------------------------------------
+    private Dictionary<BuffEffectType, bool> activeBuffs = new();// 버프 관련 
+    private void ApplyBuff(BuffSO buff)
+    {
+        if (Enum.TryParse(buff.Skill_Buff_Type, out BuffEffectType effect))
+        {
+            activeBuffs[effect] = true;
+            Debug.Log($"버프 발동됨: {effect}");
+            // 지속시간 후 제거 코루틴도 가능
+            StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect));
+        }
+        else
+        {
+            Debug.LogWarning($"[ApplyBuff] Unknown BuffEffectType: {buff.Skill_Buff_Type}");
+        }
+    }
 
+    private IEnumerator RemoveBuffAfter(float duration, BuffEffectType effect)
+    {
+        yield return new WaitForSeconds(duration);
+        activeBuffs[effect] = false;
+        Debug.Log($"버프 종료됨: {effect}");
+    }
+    public void SetAttackDamage(float newDamage)
+    {
+        playerStat.attackDamage = newDamage;
+        Debug.Log($"공격력 변경됨: {newDamage}");
+    }
+    //-----------------------------버프--------------------------------------------------
     private void SkillCondition()
     {
         if (skillCooldownTimers[0] <= 0f)
