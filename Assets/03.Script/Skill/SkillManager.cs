@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -23,7 +24,7 @@ public class SkillManager : MonoBehaviour
 
     public void SetSelectionID(int id)
     {
-        Selection_ID = id;
+        Selection_ID = GameManager.Instance.optionButtons[id].selectID;
     }
     private void Awake()
     {

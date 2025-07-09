@@ -397,9 +397,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3b9471b45a31a4e8abdacdceacc132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OnClickEvent:
+  m_SkillOptionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1799502162}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: SetSelectionID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_EquipOptionEvent:
     m_PersistentCalls:
       m_Calls: []
+  m_TrainingOptionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  optionType: 
+  selectID: 0
 --- !u!1 &451243495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1074,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 885983609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 976181302}
+        m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &885983609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,9 +1200,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3b9471b45a31a4e8abdacdceacc132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OnClickEvent:
+  m_SkillOptionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1799502162}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: SetSelectionID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_EquipOptionEvent:
     m_PersistentCalls:
       m_Calls: []
+  m_TrainingOptionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  optionType: 
+  selectID: 0
 --- !u!1 &913720775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,21 +1377,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3b9471b45a31a4e8abdacdceacc132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OnClickEvent:
+  m_SkillOptionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 885983606}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 1799502162}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: SetSelectionID
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_EquipOptionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_TrainingOptionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  optionType: 
+  selectID: 0
 --- !u!1 &1136168955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1730,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1372559802}
-  - component: {fileID: 1372559801}
   - component: {fileID: 1372559803}
   m_Layer: 0
   m_Name: GameManager
@@ -1679,26 +1738,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1372559801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372559800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7d667b6907a344a9f042df6f881f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillOption: {fileID: 11400000, guid: 285384f425eae6d498af08bea9782029, type: 2}
-  equipOption: {fileID: 11400000, guid: 549d7421d10a73b45ab8118e516d4ac8, type: 2}
-  trainingOption: {fileID: 11400000, guid: 59a288d438933b64eb4929e1bd364ba0, type: 2}
-  choiceCount: 3
-  optionButtons:
-  - {fileID: 976181302}
-  - {fileID: 372828260}
-  - {fileID: 898236779}
 --- !u!4 &1372559802
 Transform:
   m_ObjectHideFlags: 0
@@ -1726,6 +1765,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea23ca7e7f1916478e0e021999fea8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  choiceCount: 3
+  optionButtons:
+  - {fileID: 976181302}
+  - {fileID: 372828260}
+  - {fileID: 898236779}
   skillOption: {fileID: 11400000, guid: 285384f425eae6d498af08bea9782029, type: 2}
   equipOption: {fileID: 11400000, guid: 549d7421d10a73b45ab8118e516d4ac8, type: 2}
   trainingOption: {fileID: 11400000, guid: 59a288d438933b64eb4929e1bd364ba0, type: 2}
@@ -2052,6 +2096,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709542987}
   m_CullTransparentMesh: 1
+--- !u!1 &1799502161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1799502163}
+  - component: {fileID: 1799502162}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1799502162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799502161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1bb3e660219bb428c66eab99cabb7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  skillObjects:
+  - {fileID: 11400000, guid: 1832d048d73901c4594bc5bf8a0aa216, type: 2}
+  - {fileID: 11400000, guid: 397501cda897ad64eabd691e8e24f41c, type: 2}
+  - {fileID: 11400000, guid: 27fd90555b9af354e825988cbda6feb3, type: 2}
+  - {fileID: 11400000, guid: 1289290f49b3a9247852e38e64202aab, type: 2}
+  - {fileID: 11400000, guid: ff0ee21de6aced54aa735af97ee0f3b9, type: 2}
+  - {fileID: 11400000, guid: cf02ebc5e6e1ac344a625ca16beb9a08, type: 2}
+  - {fileID: 11400000, guid: 16a0ae5e0564c4b4e97cd1362efd5b02, type: 2}
+  - {fileID: 11400000, guid: f4c5ccdbf405e0e43bba764547b8d653, type: 2}
+  - {fileID: 11400000, guid: 2f25bd0647141bb43a6dddc79f716bab, type: 2}
+  - {fileID: 11400000, guid: 3a6f29d9a30e9b84cbf6c02ee49bfeac, type: 2}
+  Selection_ID: 0
+--- !u!4 &1799502163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799502161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.15917401, y: 0.19816095, z: -0.0060265455}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884681551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,3 +2265,4 @@ SceneRoots:
   - {fileID: 1372559802}
   - {fileID: 451243499}
   - {fileID: 525270158}
+  - {fileID: 1799502163}
