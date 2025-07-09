@@ -16,13 +16,15 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     public float arrowDamage;
 
     [Header("타켓에 다가가는 속도")]
-    [SerializeField] private float timeSinceStart = 2f;  
+    [SerializeField] private float timeSinceStart = 2.1f;  
     
     //IObjectPoolItem
     public string Key { get; set; }
     public GameObject GameObject => gameObject;
     public void ReturnToPool()
     {
+        target = null;
+        timeSinceStart = 2.1f;
         gameObject.SetActive(false);
         ObjectPoolSystem.Instance.ReturnToPool(this);
     }
@@ -76,7 +78,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
         }
         else
         {
-            ReturnToPool();
+            //ReturnToPool();
         }                                                                                                    
         
     }

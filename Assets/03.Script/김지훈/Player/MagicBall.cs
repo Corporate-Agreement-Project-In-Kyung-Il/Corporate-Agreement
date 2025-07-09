@@ -36,6 +36,9 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     public GameObject GameObject => gameObject;
     public void ReturnToPool()
     {
+        target = null;
+        timeSinceStart = 2.1f;
+        isRotate = false;
         gameObject.SetActive(false);
         ObjectPoolSystem.Instance.ReturnToPool(this);
     }
@@ -44,7 +47,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     {
         TryGetComponent(out animator);
         TryGetComponent(out collider);
-        Destroy(gameObject, lifeTime);
+       // Destroy(gameObject, lifeTime);
         
     }
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5f79a04dd51417498de54e9d211d321, type: 3}
-  m_Name: WizardPlayerData
+  m_Name: "WizardPlayerData\uB9C8\uBC95\uC0AC"
   m_EditorClassIdentifier: 
   attackRange: 4
   moveSpeed: 5

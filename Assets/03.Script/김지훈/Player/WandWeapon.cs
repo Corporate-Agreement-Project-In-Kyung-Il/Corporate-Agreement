@@ -22,6 +22,7 @@ public class WandWeapon : Weapon
         bullet.target = collider.transform;
         bullet.player = player;
         
+        
         bullet.gameObject.SetActive(true);
         
         return magicBall.isTargetNotDead;

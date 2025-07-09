@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5f79a04dd51417498de54e9d211d321, type: 3}
-  m_Name: WarriorPlayerData
+  m_Name: "ArcherPlayerData\uC544\uCC98"
   m_EditorClassIdentifier: 
-  attackRange: 1
+  attackRange: 4
   moveSpeed: 5
   character_ID: 100004
   characterClass: 1
-  characterName: 3
+  characterName: 4
   characterGrade: 0
   attackDamage: 67
   health: 88
