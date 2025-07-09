@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,7 +16,6 @@ public class SkillManager : MonoBehaviour
 {
     [SerializeField] private Player_jin[] players;
     [SerializeField] private ScriptableObject[] skillObjects;
-//
 
     public int Selection_ID;// 여기다 스킬 선택했을때 넣어주시면 됩니다. 
     
@@ -23,7 +23,7 @@ public class SkillManager : MonoBehaviour
 
     public void SetSelectionID(int id)
     {
-        Selection_ID = id;
+        Selection_ID = GameManager.Instance.optionButtons[id].selectID;
     }
     private void Awake()
     {
@@ -45,11 +45,12 @@ public class SkillManager : MonoBehaviour
         {
             skill.SetSkillID();
         }
+        ConnectSkills();
     }
 
     void Start()
     {
-        ConnectSkills();
+        
     }
 
 

@@ -4,11 +4,13 @@ using Unity.VisualScripting;
 using UnityEditor;
 #endif
 using UnityEngine;
+
 //
 [CreateAssetMenu(fileName = "ActiveSkill", menuName = "ScriptableObjects/Skill/ActiveSkill")]
-public class ActiveSkillSO : ScriptableObject,ISkillID
+public class ActiveSkillSO : ScriptableObject, ISkillID
 {
     public int SkillID { get; set; }
+
     public void SetSkillID()
     {
         SkillID = Skill_ID;
@@ -29,10 +31,10 @@ public class ActiveSkillSO : ScriptableObject,ISkillID
     public int Skill_Range_height;
     public float Cooldown_Reduction;
     public float Damage_Increase;
-    
+
     public GameObject SkillPrefab;
 
-
+#if UNITY_EDITOR
     public void SetPrefab()
     {
         if (SkillPrefab == null)
@@ -74,10 +76,21 @@ public class ActiveSkillSO : ScriptableObject,ISkillID
             }
         }
     }
-
-    
+#endif
 }
 
+public class ActiveSkillStat
+{
+    public int Skill_Minimum_LV;
+    public int Skill_current_LV;
+    public int Skill_Maximum_LV;
 
-
-
+    public float Skill_Cooldown;
+    public float Skill_Damage;
+    public int Skill_Attack_Count;
+    public bool Wide_Area;
+    public int Skill_Range_width;
+    public int Skill_Range_height;
+    public float Cooldown_Reduction;
+    public float Damage_Increase;
+}
