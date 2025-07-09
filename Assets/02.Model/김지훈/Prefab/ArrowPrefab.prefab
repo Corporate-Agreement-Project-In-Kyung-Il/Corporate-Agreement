@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4097171101335782030}
   - component: {fileID: 3885454155210348562}
   - component: {fileID: 1578177575278391442}
+  - component: {fileID: 1734467268760361088}
   m_Layer: 0
   m_Name: ArrowPrefab
   m_TagString: Untagged
@@ -145,6 +146,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   player: {fileID: 0}
+  straightAttackRange: 0
   isTargetNotDead: 1
   arrowDamage: 0
   timeSinceStart: 2.1
+--- !u!50 &1734467268760361088
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5970997329809062061}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

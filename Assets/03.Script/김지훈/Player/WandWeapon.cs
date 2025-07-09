@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class WandWeapon : Weapon
 {
-    private SpriteRenderer sr;
-    private Player player;
     public MagicBall magicBall;
-    void Start()
-    {
-        TryGetComponent(out sr); //sr 장착한 검에 대해서 모형 변화
-        player = GetComponentInParent<Player>();
-    }
-    
     
     public override bool Attack(Collider2D collider)
     {
@@ -21,11 +13,16 @@ public class WandWeapon : Weapon
         
         Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
         
-        var bullet = Instantiate(magicBall, transform.position, Quaternion.identity);
 
+        //var bullet = Instantiate(magicBall, transform.position, Quaternion.identity);
+        MagicBall bullet = ObjectPoolSystem.Instance.GetObjectOrNull("MagicBall") as MagicBall;
+        
+        bullet.transform.position = transform.position;
         bullet.magicDamage = player.Damage;
         bullet.target = collider.transform;
         bullet.player = player;
+        
+        bullet.gameObject.SetActive(true);
         
         return magicBall.isTargetNotDead;
     }

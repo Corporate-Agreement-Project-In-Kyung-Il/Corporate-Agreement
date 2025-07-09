@@ -12,17 +12,20 @@ namespace _03.Script.엄시형.Stage
         public List<AreaInfoSO> AreaInfoList => mAreaInfoList;
         public List<MonsterType> SpawnMonsterTypeList => mSpawnMonsterTypeList;
 
+        /// <summary>
+        /// -1이면 데이터를 가져오지 못한경우
+        /// </summary>
         [Header("현재 스테이지")]
-        [SerializeField] private int mStageIndex;
+        [SerializeField] private int mStageId = -1;
 
         [Header("몬스터 정보")]
         [SerializeField] private float mMonsterHp = 100f;
         [SerializeField] private float mMonsterAttack = 10f;
         [SerializeField] private List<MonsterType> mSpawnMonsterTypeList;
-    
+        
         [Header("구역 정보 1구역 2구역 3구역 4구역(보스스테이지)")]
         [SerializeField] private List<AreaInfoSO> mAreaInfoList;
-    
+        
         private void OnValidate()
         {
             Debug.Assert(mAreaInfoList != null
