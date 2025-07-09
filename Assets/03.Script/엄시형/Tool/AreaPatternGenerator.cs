@@ -5,6 +5,7 @@ using _03.Script.엄시형.Data.V2;
 using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -22,6 +23,7 @@ namespace _03.Script.엄시형.Tool
         [SerializeField] private AreaInfoSO mAreaPattern;
         
         private readonly List<SpawnInfo> mSpawnInfoList = new List<SpawnInfo>();
+        private readonly List<GameObject> mPointObjectList = new List<GameObject>();
         
         private void Awake()
         {
@@ -51,6 +53,7 @@ namespace _03.Script.엄시형.Tool
                 SpawnInfo spawnInfo = new SpawnInfo(localPos, radius);
                 
                 mSpawnInfoList.Add(spawnInfo);
+                mPointObjectList.Add(point.gameObject);
             }
         }
         
@@ -59,6 +62,16 @@ namespace _03.Script.엄시형.Tool
             if (GUI.Button(new Rect(10, 10, 100, 40), "저장"))
             {
                 mAreaPattern.SpawnInfoList = mSpawnInfoList;
+            }
+            
+            if (GUI.Button(new Rect(110, 10, 100, 40), "초기화"))
+            {
+                foreach (var pointObj in mPointObjectList)
+                {
+                    Destroy(pointObj);
+                }
+                
+                mPointObjectList.Clear();
             }
         }
     }

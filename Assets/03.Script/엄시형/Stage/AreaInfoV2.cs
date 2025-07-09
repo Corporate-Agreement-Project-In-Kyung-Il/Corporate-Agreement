@@ -1,10 +1,6 @@
-using System;
 using System.Collections.Generic;
-using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage;
-using _03.Script.엄시형.Util;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _03.Script.엄시형.Data.V2
 {
