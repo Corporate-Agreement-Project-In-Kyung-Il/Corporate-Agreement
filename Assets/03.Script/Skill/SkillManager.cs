@@ -46,11 +46,12 @@ public class SkillManager : MonoBehaviour
         {
             skill.SetSkillID();
         }
+        ConnectSkills();
     }
 
     void Start()
     {
-        ConnectSkills();
+        
     }
 
 
