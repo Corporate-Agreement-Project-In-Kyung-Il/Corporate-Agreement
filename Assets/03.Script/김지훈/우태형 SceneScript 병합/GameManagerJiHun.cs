@@ -8,7 +8,7 @@ using UnityEngine;
 public class GameManagerJiHun : MonoBehaviour
 {
     public int choiceCount = 3;
-    public OptionButton[] optionButtons; // UI 버튼 배열
+    public OptionButtonJiHun[] optionButtons; // UI 버튼 배열
     
     Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
     
@@ -19,9 +19,11 @@ public class GameManagerJiHun : MonoBehaviour
     [SerializeField]
     private OptionChoice_SkillOption m_IngameSkillOption;
     public static GameManagerJiHun Instance { get; private set; }
-    public int[] characterID = new int[3];
     
-    public PlayerDataReceiverJiHun[] playerStatAdjust = new PlayerDataReceiverJiHun[3];
+    //Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
+    public int[] characterID = new int[3];
+
+    public PlayerDataReceiverJiHun playerStatAdjust;
     
     private void Awake()
     {
@@ -35,7 +37,7 @@ public class GameManagerJiHun : MonoBehaviour
             Destroy(gameObject);
         }
         
-        playerStatAdjust = GetComponentsInChildren<PlayerDataReceiverJiHun>();
+        playerStatAdjust = GetComponentInChildren<PlayerDataReceiverJiHun>();
     }
 
     private void Start()
@@ -78,7 +80,8 @@ public class GameManagerJiHun : MonoBehaviour
     }
     
     #region 랜덤 선택지 뽑는 코드
-    
+
+    public ScriptableObject buffData;
     private void CreateChoices()
     {
         for (int i = 0; i < choiceCount; i++)
@@ -97,6 +100,9 @@ public class GameManagerJiHun : MonoBehaviour
                         break;
                     case EOptionType.Equip:
                         var equip = option as OptionChoice_EquipOption;
+                        
+                        buffData = equip;
+                        
                         int equipID = GetSelectionID(equip);
                         optionButtons[i].selectID = equipID;
                         optionButtons[i].optionType = "Equip";
@@ -104,6 +110,9 @@ public class GameManagerJiHun : MonoBehaviour
                         break;
                     case EOptionType.Training:
                         var training = option as OptionChoice_TrainingOption;
+                        
+                        buffData = training;
+                        
                         int trainingID = GetSelectionID(training);
                         optionButtons[i].selectID = trainingID;
                         optionButtons[i].optionType = "Training";

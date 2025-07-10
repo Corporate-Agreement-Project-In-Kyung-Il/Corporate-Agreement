@@ -32,7 +32,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     [SerializeField] private PlayerData data;
     private Collider2D col;
     private Rigidbody2D rigid;
-    private PlayerStat playerStat = new PlayerStat();
+    public PlayerStat playerStat = new PlayerStat();
     private Animator animator;
     private Weapon weapon;
         
@@ -204,15 +204,15 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
         {
             case character_class.전사 :
                 GameManagerJiHun.Instance.characterID[0] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust[0].DependencyPlayerStat = buffplayerStat;
+                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[0] = buffplayerStat;
                 break;
             case character_class.궁수 :
                 GameManagerJiHun.Instance.characterID[1] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust[1].DependencyPlayerStat = buffplayerStat;
+                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[1] = buffplayerStat;
                 break;
             case character_class.마법사 :
                 GameManagerJiHun.Instance.characterID[2] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust[2].DependencyPlayerStat = buffplayerStat;
+                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[2] = buffplayerStat;
                 break;
         }
     }
