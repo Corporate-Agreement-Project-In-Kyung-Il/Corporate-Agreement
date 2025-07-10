@@ -19,6 +19,11 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     public WarriorStrongMind()
     {
+        
+    }
+
+    private void OnEnable()
+    {
         AttakcTarget();
     }
 
