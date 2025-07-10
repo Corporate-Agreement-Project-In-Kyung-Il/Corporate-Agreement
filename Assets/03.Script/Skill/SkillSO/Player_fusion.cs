@@ -78,10 +78,28 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     {
         weapon.playerAnimator = animator;
 
-        if (skills[0] is ActiveSkillSO skill1) skillPrefab = skill1.SkillPrefab;
+        if (skills[0] is ActiveSkillSO skill1)
+        {
+            skillPrefab = skill1.SkillPrefab;
+            
+            if (skillPrefab.TryGetComponent(out ActiveSkillBase activeScript))
+            {
+                activeScript.owner = this;
+                activeScript.Initialize();
+            }
+        }
         else if (skills[0] is BuffSO buff1) skillPrefab = buff1.SkillPrefab;
 
-        if (skills[1] is ActiveSkillSO skill2) skillPrefab2 = skill2.SkillPrefab;
+        if (skills[1] is ActiveSkillSO skill2)
+        {
+            skillPrefab2 = skill2.SkillPrefab;
+            
+            if (skillPrefab2.TryGetComponent(out ActiveSkillBase activeScript))
+            {
+                activeScript.owner = this;
+                activeScript.Initialize();
+            }
+        }
         else if (skills[1] is BuffSO buff2) skillPrefab2 = buff2.SkillPrefab;
     }
 
@@ -95,11 +113,15 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         SkillCondition();
 
         enemyDetectionCenter = Vector2.up * transform.position.y;
-        enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
+        enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f,
+            LayerMask.GetMask("Enemy"));
 
         switch (currentCharacterState)
         {
-            case CharacterState_jin.Run: animator.SetBool(IsRun, true); performRun(); break;
+            case CharacterState_jin.Run:
+                animator.SetBool(IsRun, true);
+                performRun();
+                break;
             case CharacterState_jin.Attack: performAttack(); break;
             case CharacterState_jin.Die: performDie(); break;
         }
@@ -116,7 +138,8 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     {
         gameObject.SetActive(false);
     }
-private void performAttack()
+
+    private void performAttack()
     {
         if (enemyDetectionCol.Length <= 0)
         {
@@ -131,7 +154,8 @@ private void performAttack()
         Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
         if (!isTarget)
         {
-            Collider2D enemyAttackCol = Physics2D.OverlapBox(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
+            Collider2D enemyAttackCol =
+                Physics2D.OverlapBox(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
             target = enemyAttackCol;
         }
 
@@ -153,10 +177,8 @@ private void performAttack()
             attackTimer = 1f / playerStat.attackSpeed;
             SkillCondition();
         }
-
-        
     }
-    
+
 
     public void TakeDamage(CombatEvent combatEvent)
     {
@@ -194,20 +216,29 @@ private void performAttack()
 
     private void SkillCondition()
     {
-        if (skillCooldownTimers[0] <= 0f) { UseSkill(0); ResetCooldown(0); }
-        if (skillCooldownTimers[1] <= 0f) { UseSkill(1); ResetCooldown(1); }
+        if (skillCooldownTimers[0] <= 0f)
+        {
+            UseSkill(0);
+            ResetCooldown(0);
+        }
+
+        if (skillCooldownTimers[1] <= 0f)
+        {
+            UseSkill(1);
+            ResetCooldown(1);
+        }
     }
 
     private void UseSkill(int index)
     {
-        if (skills[index] is ActiveSkillSO active)
+        if (skills[index] is ActiveSkillSO active&&target!=null)
         {
             Debug.Log($"[액티브] {active.Skill_Name} 발동! 쿨타임: {active.Skill_Cooldown}");
-            GameObject skillObj = Instantiate(skillPrefab);
-            if (skillObj.TryGetComponent(out ActiveSkillBase activeScript))
-                activeScript.owner = this;
+            Instantiate(skillPrefab,transform.position, Quaternion.identity);
+            
         }
-        else if (skills[index] is BuffSO buff)
+
+        if (skills[index] is BuffSO buff)
         {
             Instantiate(skillPrefab2);
             TriggerBuff(buff);
@@ -270,7 +301,7 @@ private void performAttack()
 
         Debug.Log($"✅ 버프 발동: {effect}");
         SetBuffState(effect, true);
-        
+
         StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect));
         buffCooldownTimers[effect] = buff.Skill_Cooldown;
     }
