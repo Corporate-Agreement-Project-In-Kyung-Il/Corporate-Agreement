@@ -113,7 +113,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
             transform.position += transform.up * (curveSpeed * Time.deltaTime);
         }
-        Debug.Log($"{gameObject.name }의 거리 = {distance}");
+       // Debug.Log($"{gameObject.name }의 거리 = {distance}");
         if (distance < 0.1f)
         {
             collider.enabled = true;

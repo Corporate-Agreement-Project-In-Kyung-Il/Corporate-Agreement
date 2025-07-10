@@ -20,6 +20,11 @@ public interface ICameraPosition
     public bool canMove { get; }
 }
 
+public interface IBuffSelection
+{ 
+    public PlayerStat buffplayerStat { get; }
+}
+
 public class PlayerStat
 {
     //내가 따로 넣어준 것들(지훈)

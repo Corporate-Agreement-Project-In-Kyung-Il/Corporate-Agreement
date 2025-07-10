@@ -11,7 +11,7 @@ public class ArrowWeapon : Weapon
         if (collider.gameObject.TryGetComponent(out IDamageAble enemyDamage).Equals(false))
             return false;
         
-        Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
+        //Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
         
         //var bullet = Instantiate(arrowShot, transform.position, Quaternion.identity);
         ArrowShot bullet = ObjectPoolSystem.Instance.GetObjectOrNull("ArrowShot") as ArrowShot;

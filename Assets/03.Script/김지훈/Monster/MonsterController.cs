@@ -153,7 +153,7 @@ public class MonsterController : MonoBehaviour, IDamageAble
             ChangeState(EnemyState.Die);
         }
         
-        Debug.Log($"{gameObject.name}이 피해 받음");
+       // Debug.Log($"{gameObject.name}이 피해 받음");
     }
     
     public void ChangeState(EnemyState newState)

@@ -19,6 +19,7 @@ public class OptionButton : MonoBehaviour
 
    public string optionType;
    public int selectID;
+   
    public void OnClick()
    {
       switch (optionType)

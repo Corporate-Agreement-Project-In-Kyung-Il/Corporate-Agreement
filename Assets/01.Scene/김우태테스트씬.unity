@@ -703,15 +703,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.35937503
+    x: 0
     y: 0
-    width: 0.28125
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2267,7 +2267,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1bb3e660219bb428c66eab99cabb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skillObjects:
   - {fileID: 11400000, guid: 1832d048d73901c4594bc5bf8a0aa216, type: 2}
   - {fileID: 11400000, guid: 397501cda897ad64eabd691e8e24f41c, type: 2}
