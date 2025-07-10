@@ -19,7 +19,6 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     {
         attackCount = 0;
         Debug.Log("start BeastClaw");
-        Initialize();
         AttackTarget();
     }
 
@@ -40,7 +39,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
             stat.Damage = skill.Skill_Damage;
             stat.Attack_Count = skill.Skill_Attack_Count;
         }
-        else if (owner.skills[1].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill2)
+        else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
             stat.Attack_Count = skill2.Skill_Attack_Count;

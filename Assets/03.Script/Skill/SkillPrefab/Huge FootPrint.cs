@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,14 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
     public BoxCollider2D collider;
 
-    void Start()
+    public HugeFootPrint()
+    {
+        
+    }
+
+    private void Start()
     {
         collider = GetComponent<BoxCollider2D>();
-        Initialize();
     }
 
     void Update()
@@ -27,11 +32,12 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log("거대한 발자국 공격!");
-            //데미지입힘
-        }
+        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
+            return;
+
+        Debug.Log("거대한 발자국 공격!");
+        //데미지입힘
+        Destroy(this);
     }
 
     public override void Initialize()
@@ -41,7 +47,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
             stat.Damage = skill.Skill_Damage;
             collider.size = new Vector2(stat.Range_width, stat.Range_height);
         }
-        else if (owner.skills[1].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill2)
+        else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
             collider.size = new Vector2(stat.Range_width, stat.Range_height);
