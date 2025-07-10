@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum BuffEffectType
 {
@@ -124,6 +125,27 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     private Dictionary<BuffEffectType, bool> activeBuffs = new();
     private Dictionary<BuffEffectType, float> buffCooldownTimers = new();
 
+    private float shieldBlockChance = 0f;
+
+    private float damageReductionRate = 0f;
+
+    public void SetDamageReductionRate(float rate)
+    {
+        damageReductionRate = rate;
+        Debug.Log($"🛡️ 데미지 경감률 설정됨: {rate * 100}%");
+    }
+
+    public float GetDamageReductionRate()
+    {
+        return damageReductionRate;
+    }
+    
+    public void SetShieldBlockChance(float chance)
+    {
+        shieldBlockChance = chance;
+        Debug.Log($"🛡️ 방어 확률 설정됨: {chance * 100}%");
+    }
+    
     public float GetAttackSpeed()
     {
         return playerStat.attackSpeed;
@@ -265,13 +287,29 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 
     public void TakeDamage(CombatEvent combatEvent)
     {
-        // if (playerStat.health <= 0)
-        // {
-        //     cameraMove = false;
-        //     ChangeState(CharacterState_jin.Die);
-        //     return;
-        // }
-        // Debug.Log($"{gameObject.name}이 데미지를 입음.");
+        float finalDamage = combatEvent.Damage * (1 - damageReductionRate);
+
+        playerStat.health -= finalDamage;
+
+        if (playerStat.health <= 0)
+        {
+            cameraMove = false;
+            ChangeState(CharacterState_jin.Die);
+        }
+        
+        if (Random.value < shieldBlockChance)
+        {
+            Debug.Log("🛡️ 공격 무효화됨!");
+            return;
+        }
+
+        playerStat.health -= combatEvent.Damage;
+
+        if (playerStat.health <= 0)
+        {
+            cameraMove = false;
+            ChangeState(CharacterState_jin.Die);
+        }
     }
 
     public void ChangeState(CharacterState_jin newState)
