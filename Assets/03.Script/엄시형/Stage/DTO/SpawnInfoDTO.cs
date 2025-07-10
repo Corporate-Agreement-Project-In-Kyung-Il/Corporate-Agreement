@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _03.Script.엄시형.Stage.DTO
 {
@@ -12,14 +13,16 @@ namespace _03.Script.엄시형.Stage.DTO
     {
         public float X;
         public float Y;
-        public float Radius;
+        public float Diameter;
+        
+        public Vector2 Pos => new Vector2(X, Y);
         
         public SpawnInfoDTO() {}
-        public SpawnInfoDTO(Vector2 pos, float radius)
+        public SpawnInfoDTO(Vector2 pos, float diameter)
         {
             X = pos.x;
             Y = pos.y;
-            Radius = radius;
+            Diameter = diameter;
         }
     }
 }
