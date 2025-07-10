@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class WarriorStrongMind : MonoBehaviour, ISkillID
-{
+{//단일 공격 3번때림 
     public int SkillId;
     public int SkillID { get; set; }
 
@@ -12,7 +12,8 @@ public class WarriorStrongMind : MonoBehaviour, ISkillID
     {
         SkillID = SkillId;
     }
-
+ 
+    //owner로 데이터 받아옴
     public Player owner;
     public int attackCount;
     void Start()
@@ -23,11 +24,13 @@ public class WarriorStrongMind : MonoBehaviour, ISkillID
 
     void Update()
     {
+        
     }
 
     private void AttakcTarget()
     {
         //owner.target에게 데미지를 입힘
+        
         attackCount++;
         AttakcTarget();
     }

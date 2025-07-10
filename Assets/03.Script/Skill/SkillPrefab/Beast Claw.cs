@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BeastClaw : MonoBehaviour,ISkillID
-{
+{//단일기 3번공격
     public int SkillId;
     public int SkillID { get; set; }
     public void SetSkillID()
