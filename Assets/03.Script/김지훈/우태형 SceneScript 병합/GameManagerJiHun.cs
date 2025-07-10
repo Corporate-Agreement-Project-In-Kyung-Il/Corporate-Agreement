@@ -7,15 +7,9 @@ using UnityEngine;
 
 public class GameManagerJiHun : MonoBehaviour
 {
-        public int choiceCount = 3;
+    public int choiceCount = 3;
     public OptionButton[] optionButtons; // UI 버튼 배열
     
-    public enum EOptionType
-    {
-        Skill,
-        Equip,
-        Training
-    }
     Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
     
     public OptionChoice_SkillOption skillOption;
@@ -26,7 +20,9 @@ public class GameManagerJiHun : MonoBehaviour
     private OptionChoice_SkillOption m_IngameSkillOption;
     public static GameManagerJiHun Instance { get; private set; }
     public int[] characterID = new int[3];
-
+    
+    public PlayerDataReceiverJiHun[] playerStatAdjust = new PlayerDataReceiverJiHun[3];
+    
     private void Awake()
     {
         if (Instance == null)
@@ -38,16 +34,17 @@ public class GameManagerJiHun : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        playerStatAdjust = GetComponentsInChildren<PlayerDataReceiverJiHun>();
     }
 
     private void Start()
     {
-        int[] playerSkillID = { 100012, 100016, 100020 };
-        m_Options.Add(GameManager.EOptionType.Skill, skillOption);
-        m_Options.Add(GameManager.EOptionType.Equip, equipOption);
-        m_Options.Add(GameManager.EOptionType.Training, trainingOption);
-        GameStart(playerSkillID);
+        m_Options.Add(EOptionType.Skill, skillOption);
+        m_Options.Add(EOptionType.Equip, equipOption);
+        m_Options.Add(EOptionType.Training, trainingOption);
         // 오류 저장용 
+        SetDatabase();
     }
     
     private void Update()
@@ -56,11 +53,6 @@ public class GameManagerJiHun : MonoBehaviour
         {
             CreateChoices();
         }
-    }
-
-    public void GameStart(int[] playerSkillID)
-    {
-        SetDatabase();
     }
 
     void SetDatabase()
@@ -91,26 +83,26 @@ public class GameManagerJiHun : MonoBehaviour
     {
         for (int i = 0; i < choiceCount; i++)
         {
-            GameManager.EOptionType choicedOption = GetOptionType();
+            EOptionType choicedOption = GetOptionType();
             if (m_Options.TryGetValue(choicedOption, out ScriptableObject option))
             {
                 switch (choicedOption)
                 {
-                    case GameManager.EOptionType.Skill:
+                    case EOptionType.Skill:
                         var skill = option as OptionChoice_SkillOption;
                         int skillID = GetSelectionID(skill);
                         optionButtons[i].selectID = skillID;
                         optionButtons[i].optionType = "Skill";
                         Debug.Log("Skill 선택지 띄움 SkillOption 번호 : " + skillID + "/" + i);
                         break;
-                    case GameManager.EOptionType.Equip:
+                    case EOptionType.Equip:
                         var equip = option as OptionChoice_EquipOption;
                         int equipID = GetSelectionID(equip);
                         optionButtons[i].selectID = equipID;
                         optionButtons[i].optionType = "Equip";
                         Debug.Log("Equip 선택지 선택됨 EquipOption 번호: " + equipID + "/" + i);
                         break;
-                    case GameManager.EOptionType.Training:
+                    case EOptionType.Training:
                         var training = option as OptionChoice_TrainingOption;
                         int trainingID = GetSelectionID(training);
                         optionButtons[i].selectID = trainingID;
@@ -127,9 +119,9 @@ public class GameManagerJiHun : MonoBehaviour
     }
 
     // 3종류 선택지 중에 어떤 선택지를 띄울지 랜덤 선택 (장비 , 스킬, 훈련)
-    GameManager.EOptionType GetOptionType()
+    EOptionType GetOptionType()
     {
-        GameManager.EOptionType[] values = (GameManager.EOptionType[])System.Enum.GetValues(typeof(GameManager.EOptionType));
+        EOptionType[] values = (EOptionType[])System.Enum.GetValues(typeof(EOptionType));
         int randomIndex = UnityEngine.Random.Range(0, values.Length);
         return values[randomIndex];
     }

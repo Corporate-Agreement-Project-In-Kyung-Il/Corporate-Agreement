@@ -1,16 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDataReceiverJiHun : MonoBehaviour
 {
-    //IBuffSelection 요소 
-    public PlayerStat buffplayerStat { get; }
+    public PlayerStat DependencyPlayerStat;
+    public ScriptableObject HostStat;
     
     public int equipSelectionID;
     public int trainingSelectionID;
     
-    
+    private void Update()
+    {
+        
+    }
+
     //public OptionChoice_EquipOption equip;
 
     //public void GetOptionValue()

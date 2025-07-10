@@ -11,12 +11,7 @@ public class GameManager : MonoBehaviour
     public int choiceCount = 3;
     public OptionButton[] optionButtons; // UI 버튼 배열
     
-    public enum EOptionType
-    {
-        Skill,
-        Equip,
-        Training
-    }
+
     Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
     
     public OptionChoice_SkillOption skillOption;
@@ -156,4 +151,11 @@ public class GameManager : MonoBehaviour
     
 
     #endregion
+}
+
+public enum EOptionType
+{
+    Skill,
+    Equip,
+    Training
 }
