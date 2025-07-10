@@ -17,6 +17,7 @@ public class OptionButton : MonoBehaviour
    [SerializeField] 
    UnityEvent m_TrainingOptionEvent;
 
+   public int rerollCount;
    public string optionType;
    public int selectID;
    public void OnClick()
