@@ -9,7 +9,7 @@ public class SteelShield : MonoBehaviour, ISkillID
     public float damageReductionRate = 0.4f; // 40% 경감
     public float duration = 5f;
 
-    private Player_jin player;
+    private Player_fusion player;
 
     public void SetSkillID()
     {
@@ -20,7 +20,7 @@ public class SteelShield : MonoBehaviour, ISkillID
     {
         Debug.Log("start SteelShield");
 
-        player = FindObjectOfType<Player_jin>();
+        player = FindObjectOfType<Player_fusion>();
 
         if (player != null)
         {
@@ -38,7 +38,7 @@ public class SteelShield : MonoBehaviour, ISkillID
         }
         else
         {
-            Debug.LogWarning("[SteelShield] Player_jin 찾기 실패");
+            Debug.LogWarning("[SteelShield] Player_fusion 찾기 실패");
         }
     }
 

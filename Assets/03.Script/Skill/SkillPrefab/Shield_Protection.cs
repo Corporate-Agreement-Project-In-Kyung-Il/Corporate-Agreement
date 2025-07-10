@@ -10,7 +10,7 @@ public class Shield_Protection : MonoBehaviour, ISkillID
     public float blockChance = 0.3f; // 30%
     public float duration = 5f;
 
-    private Player_jin player;
+    private Player_fusion player;
 
     public void SetSkillID()
     {
@@ -21,7 +21,7 @@ public class Shield_Protection : MonoBehaviour, ISkillID
     {
         Debug.Log("start Shield_Protection");
 
-        player = FindObjectOfType<Player_jin>();
+        player = FindObjectOfType<Player_fusion>();
 
         if (player != null)
         {
@@ -39,7 +39,7 @@ public class Shield_Protection : MonoBehaviour, ISkillID
         }
         else
         {
-            Debug.LogWarning("Player_jin 찾기 실패");
+            Debug.LogWarning("Player_fusion 찾기 실패");
         }
     }
 

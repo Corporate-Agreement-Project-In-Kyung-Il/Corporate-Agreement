@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WandWeapon : Weapon_fusion
+public class ArrowWeapon_fusion : Weapon_fusion
 {
-    public MagicBall magicBall;
-    
+    public ArrowShot_fusion arrowShot;
+
     public override bool Attack(Collider2D collider)
     {
         if (collider.gameObject.TryGetComponent(out IDamageAble enemyDamage).Equals(false))
@@ -13,19 +13,20 @@ public class WandWeapon : Weapon_fusion
         
         //Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
         
-
-        //var bullet = Instantiate(magicBall, transform.position, Quaternion.identity);
-        MagicBall_fusion bullet = ObjectPoolSystem.Instance.GetObjectOrNull("MagicBall") as MagicBall_fusion;
+        //var bullet = Instantiate(arrowShot, transform.position, Quaternion.identity);
+        //---------------
+        ArrowShot_fusion bullet = ObjectPoolSystem.Instance.GetObjectOrNull("ArrowShot") as ArrowShot_fusion;
         
         bullet.transform.position = transform.position;
-        bullet.magicDamage = player.Damage;
+        bullet.arrowDamage = player.Damage;
         bullet.target = collider.transform;
         bullet.player = player;
-        
+        bullet.straightAttackRange = player.attackRange;
         
         bullet.gameObject.SetActive(true);
-        
-        return magicBall.isTargetNotDead;
+        Debug.Log("아야");
+        //----------------------
+        return arrowShot.isTargetNotDead;
     }
     
 }

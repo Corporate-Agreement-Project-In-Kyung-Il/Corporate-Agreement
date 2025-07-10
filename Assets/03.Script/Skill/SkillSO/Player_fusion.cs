@@ -28,7 +28,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     private Rigidbody2D rigid;
     private PlayerStat playerStat = new PlayerStat();
     private Animator animator;
-    private Weapon weapon;
+    private Weapon_fusion weapon;
 
     [SerializeField] private CharacterState_jin currentCharacterState = CharacterState_jin.Run;
     [SerializeField] private CharacterState_jin prevCharacterState = CharacterState_jin.Run;
@@ -53,7 +53,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     {
         TryGetComponent(out col);
         TryGetComponent(out rigid);
-        weapon = GetComponentInChildren<Weapon>();
+        weapon = GetComponentInChildren<Weapon_fusion>();
         animator = GetComponentInChildren<Animator>();
 
         playerStat.health = data.health;
@@ -92,7 +92,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
 
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
-        SkillCondition();
+        
 
         enemyDetectionCenter = Vector2.up * transform.position.y;
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
@@ -234,6 +234,10 @@ private void performAttack()
         Debug.Log($"🛡️ 방어 확률 설정됨: {chance * 100}%");
     }
 
+    public float GetAttackSpeed()
+    {
+        return playerStat.attackSpeed;
+    }
     public void SetAttackSpeed(float newSpeed)
     {
         playerStat.attackSpeed = newSpeed;

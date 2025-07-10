@@ -8,7 +8,7 @@ public class WizardStrongMind : MonoBehaviour, ISkillID
     public float duration = 3f; // 지속 시간
 
     private float originalAttackDamage;
-    private Player_jin player;
+    private Player_fusion player;
 
     public void SetSkillID()
     {
@@ -19,7 +19,7 @@ public class WizardStrongMind : MonoBehaviour, ISkillID
     {
         Debug.Log("start WizardStrongMind");
 
-        player = FindObjectOfType<Player_jin>();
+        player = FindObjectOfType<Player_fusion>();
 
         if (player != null)
         {
@@ -42,7 +42,7 @@ public class WizardStrongMind : MonoBehaviour, ISkillID
         }
         else
         {
-            Debug.LogWarning("[WizardStrongMind] Player_jin 찾기 실패");
+            Debug.LogWarning("[WizardStrongMind] Player_fusion 찾기 실패");
         }
     }
 

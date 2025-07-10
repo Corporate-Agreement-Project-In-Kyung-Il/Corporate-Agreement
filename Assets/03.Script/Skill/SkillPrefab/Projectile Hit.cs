@@ -8,7 +8,7 @@ public class ProjectileHit : MonoBehaviour, ISkillID
     public int SkillID { get; set; }
     public float duration = 3f; // 버프 지속 시간
 
-    private Player_jin player;
+    private Player_fusion player;
     private float originalAttackSpeed;
 
     public void SetSkillID()
@@ -20,7 +20,7 @@ public class ProjectileHit : MonoBehaviour, ISkillID
     {
         Debug.Log("start ProjectileHit");
 
-        player = FindObjectOfType<Player_jin>();
+        player = FindObjectOfType<Player_fusion>();
 
         if (player != null)
         {

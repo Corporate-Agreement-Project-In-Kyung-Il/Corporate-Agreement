@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WandWeapon : Weapon_fusion
+public class WandWeapon_fusion : Weapon_fusion
 {
-    public MagicBall magicBall;
+    public MagicBall_fusion magicBall;
     
     public override bool Attack(Collider2D collider)
     {
