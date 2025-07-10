@@ -1,6 +1,7 @@
 using System;
 using _03.Script.엄시형.Data;
 using _03.Script.엄시형.Monster;
+using _03.Script.엄시형.Util;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -8,29 +9,28 @@ using UnityEngine.Serialization;
 
 namespace _03.Script.엄시형.Editor
 {
- 
-[CreateAssetMenu(fileName = "New Grid", menuName = "Test/Grid")]
-public class GridHolder : ScriptableObject
-{
-    public int Rows = 5;
-    public int Cols = 6;
-
-    public Wrapper<MonsterType>[] Grid;
-    public Sprite[] Textures;
-    
-    public void ResetGrid()
+    [CreateAssetMenu(fileName = "New Grid", menuName = "Test/Grid")]
+    public class GridHolder : ScriptableObject
     {
-        Grid = new Wrapper<MonsterType>[Rows];
+        public int Rows = 5;
+        public int Cols = 6;
+
+        public Wrapper<MonsterType>[] Grid;
+        public Sprite[] Textures;
         
-        for (int i = 0; i < Rows; i++)
+        public void ResetGrid()
         {
-            Grid[i] = new Wrapper<MonsterType>();
-            Grid[i].Values = new MonsterType[Cols];
+            Grid = new Wrapper<MonsterType>[Rows];
+            
+            for (int i = 0; i < Rows; i++)
+            {
+                Grid[i] = new Wrapper<MonsterType>();
+                Grid[i].Values = new MonsterType[Cols];
+            }
         }
     }
-}
  
-#if UNITY_EDITOR
+
     [CustomEditor(typeof(GridHolder))]
     public class GridHolderEditor : UnityEditor.Editor
     {
@@ -159,4 +159,3 @@ public class GridHolder : ScriptableObject
         
     }
 }
-#endif

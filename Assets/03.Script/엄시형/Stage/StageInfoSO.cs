@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using _03.Script.엄시형.Data.V2;
 using _03.Script.엄시형.Monster;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace _03.Script.엄시형.Stage
 {
@@ -24,6 +26,7 @@ namespace _03.Script.엄시형.Stage
         [Header("구역 정보 1구역 2구역 3구역 4구역(보스스테이지)")]
         [SerializeField] private List<AreaInfoSO> mAreaInfoList = new List<AreaInfoSO>();
         
+        [Conditional("UNITY_EDITOR")]
         private void OnValidate()
         {
             Debug.Assert(mAreaInfoList.Count != 0, "mAreaInfoList 요소가 0 인스펙터 확인");

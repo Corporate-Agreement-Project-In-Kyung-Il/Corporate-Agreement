@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using _03.Script.엄시형.Stage.DTO;
 using UnityEngine;
 
-namespace _03.Script.엄시형.Data
+namespace _03.Script.엄시형.Data.V1
 {
     [Serializable]
+    [Obsolete("AreaInfo V2를 사용해주세요 ", true)]
     public class AreaInfo
     {
+        
         public bool bIsBossStage =>  mbIsBossStage;
         
         /// <summary>
@@ -18,7 +20,7 @@ namespace _03.Script.엄시형.Data
     
         [Header("몬스터 스폰지점")]
         [SerializeField] private AreaPattern mAreaPattern;
-        
+
         private bool mbIsBossStage;
     }
 }

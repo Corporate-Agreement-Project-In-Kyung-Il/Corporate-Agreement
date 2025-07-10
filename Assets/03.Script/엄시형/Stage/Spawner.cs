@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using _00.Resources.엄시형.PrefabTable;
 using _03.Script.엄시형.Data.V2;
 using _03.Script.엄시형.Monster;
@@ -9,6 +10,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 // [CreateAssetMenu(fileName = "Spawner", menuName = "SO/Stage/Spawner", order = 1)]
@@ -32,6 +34,7 @@ public class Spawner : MonoBehaviour
     
     // TODO : Area 동적생성
     
+    [Conditional("UNITY_EDITOR")]
     private void OnValidate()
     {
         Debug.Assert(mAreaList.Count != 0, "mAreaList 요소가 0 인스펙터 확인");
