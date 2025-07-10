@@ -9,7 +9,7 @@ public class SwordWeapon : Weapon
         if (collider.gameObject.TryGetComponent(out IDamageAble enemyDamage).Equals(false))
             return false;
         
-        Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
+       // Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
             
         CombatEvent combatEvent = new CombatEvent();
         combatEvent.Receiver = enemyDamage;
