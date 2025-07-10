@@ -23,8 +23,6 @@ public class WarriorStrongMind : MonoBehaviour, ISkillID
 
     void Update()
     {
-       
-        
     }
 
     private void AttakcTarget()

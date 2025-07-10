@@ -17,8 +17,6 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 {
     protected static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int Attack = Animator.StringToHash("attack");
-
-    
     
     //IDamageAble 요소
     public Collider2D mainCollider => col;
