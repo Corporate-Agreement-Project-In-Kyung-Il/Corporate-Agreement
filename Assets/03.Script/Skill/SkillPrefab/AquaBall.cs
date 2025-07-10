@@ -45,6 +45,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
 
         Debug.Log("아쿠아볼 공격!");
         //데미지입힘
+        Destroy(gameObject);
     }
 
     public override void Initialize()

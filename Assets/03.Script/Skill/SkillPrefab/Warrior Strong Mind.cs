@@ -19,7 +19,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     public WarriorStrongMind()
     {
-       // AttakcTarget();
+        AttakcTarget();
     }
 
     private void Start()
@@ -30,14 +30,18 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     private void Update()
     {
-        if (owner.target== null) return;
+        if (owner.target == null) return;
         transform.position = owner.target.transform.position; //타겟 포지션추적
     }
 
     private void AttakcTarget()
     {
-        if (attackCount >= stat.Attack_Count || owner.target == null) return;
-
+        if (attackCount >= stat.Attack_Count || owner.target == null)
+        {
+            Destroy(this);
+            return;
+        }
+        
         //owner.target에게 데미지를 입힘 (플레이어 합치고 추가)
         Debug.Log("전사의 강한의지 공격!");
         attackCount++;

@@ -39,12 +39,13 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    { if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
+    {
+        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
-       
-            Debug.Log("마법폭발 공격!");
-            //데미지입힘
-        
+
+        Debug.Log("마법폭발 공격!");
+        Destroy(gameObject);
+        //데미지입힘
     }
 
     public override void Initialize()

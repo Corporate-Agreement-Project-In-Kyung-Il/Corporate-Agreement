@@ -37,7 +37,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
         Debug.Log("거대한 발자국 공격!");
         //데미지입힘
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     public override void Initialize()
