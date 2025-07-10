@@ -18,15 +18,14 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 {
     protected static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int Attack = Animator.StringToHash("attack");
-    
+
     //IDamageAble 요소
     public Collider2D mainCollider => col;
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
-    
-    
-    
+
+
     //스킬ID
     public List<int> SkillID => playerStat.skill_possed;
     public ISkillID[] skills = new ISkillID[2];
@@ -114,13 +113,14 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             buffCooldownTimers[key] -= Time.deltaTime;
             Debug.Log(buffCooldownTimers[key]);
         }
-        
+
 
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
 
         SkillCondition();
     }
+
     //-----------------------------버프--------------------------------------------------
     private Dictionary<BuffEffectType, bool> activeBuffs = new();
     private Dictionary<BuffEffectType, float> buffCooldownTimers = new();
@@ -139,13 +139,13 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     {
         return damageReductionRate;
     }
-    
+
     public void SetShieldBlockChance(float chance)
     {
         shieldBlockChance = chance;
         Debug.Log($"🛡️ 방어 확률 설정됨: {chance * 100}%");
     }
-    
+
     public float GetAttackSpeed()
     {
         return playerStat.attackSpeed;
@@ -156,6 +156,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
         playerStat.attackSpeed = newSpeed;
         Debug.Log($"공격 속도 변경됨: {newSpeed}");
     }
+
     public bool HasBuff(BuffEffectType buff)
     {
         return activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
@@ -224,13 +225,12 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 
     private void UseSkill(int index)
     {
-        
-        
         if (skills[index] is ActiveSkillSO active)
         {
             Debug.Log($"[액티브] {active.Skill_Name} 발동! 쿨타임: {active.Skill_Cooldown}");
-            Instantiate(skillPrefab2);
-            
+            GameObject skillObj = Instantiate(skillPrefab2);
+            ActiveSkillBase activeScript = skillObj.GetComponent<ActiveSkillBase>();
+            activeScript.owner = this;
             // 공격/이펙트/범위 등 구현
         }
         else if (skills[index] is BuffSO buff)
@@ -283,7 +283,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             isTarget = weapon.Attack(target);
         }*/
     }
-    
+
 
     public void TakeDamage(CombatEvent combatEvent)
     {
@@ -296,7 +296,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             cameraMove = false;
             ChangeState(CharacterState_jin.Die);
         }
-        
+
         if (Random.value < shieldBlockChance)
         {
             Debug.Log("🛡️ 공격 무효화됨!");

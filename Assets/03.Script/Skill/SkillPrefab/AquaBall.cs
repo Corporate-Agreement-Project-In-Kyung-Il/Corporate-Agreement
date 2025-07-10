@@ -3,25 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AquaBall : MonoBehaviour,ISkillID
-{//광역기 투사체, 적 추적후 터짐
+public class AquaBall : ActiveSkillBase, ISkillID
+{
+    //광역기 투사체, 적 추적후 터짐
     public int SkillId;
     public int SkillID { get; set; }
+
     public void SetSkillID()
     {
         SkillID = SkillId;
     }
-    
+
+    public float moveSpeed;
+    private BoxCollider2D coll;
+
     void Start()
     {
         Debug.Log("start AquaBall");
-        coll = GetComponent<Collider2D>();
+        coll = GetComponent<BoxCollider2D>();
         coll.enabled = false;
     }
 
-    public Player owner;
-    public float moveSpeed;
-    private Collider2D coll;
+
     void Update()
     {
         Vector2 dir = (owner.target.transform.position - transform.position).normalized;
@@ -39,8 +42,22 @@ public class AquaBall : MonoBehaviour,ISkillID
     {
         if (other.CompareTag("Enemy"))
         {
+            Debug.Log("아쿠아볼 공격!");
             //데미지입힘
         }
     }
-    
+
+    public override void Initialize()
+    {
+        if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
+        {
+            stat.Damage = skill.Skill_Damage;
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
+        }
+        else if (owner.skills[1].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill2)
+        {
+            stat.Damage = skill2.Skill_Damage;
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
+        }
+    }
 }
