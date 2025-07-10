@@ -3253,7 +3253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1997286237}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -3314,7 +3314,6 @@ GameObject:
   - component: {fileID: 650879643}
   - component: {fileID: 650879644}
   - component: {fileID: 650879645}
-  - component: {fileID: 650879647}
   - component: {fileID: 650879646}
   m_Layer: 6
   m_Name: Archer
@@ -3390,6 +3389,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 0
   data: {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
+  playerStat:
+    attackRange: 0
+    moveSpeed: 0
+    detectionRange: {x: 0, y: 0}
+    character_ID: 0
+    characterClass: 0
+    characterName: 0
+    characterGrade: 0
+    attackDamage: 0
+    health: 0
+    attackSpeed: 0
+    criticalProbability: 0
+    training_type: 0
+    equip_item: 0
+    skill_possed: 
   currentCharacterState: 0
   prevCharacterState: 0
   cameraMove: 1
@@ -3423,22 +3437,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &650879647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650879642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e8166b98a0d8745aa0d120eca25aa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HostStat: {fileID: 0}
-  equipSelectionID: 0
-  trainingSelectionID: 0
-  equip: {fileID: 0}
 --- !u!1 &708092090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4999,7 +4997,6 @@ GameObject:
   - component: {fileID: 834880788}
   - component: {fileID: 834880789}
   - component: {fileID: 834880790}
-  - component: {fileID: 834880792}
   - component: {fileID: 834880791}
   m_Layer: 6
   m_Name: Warrior
@@ -5075,6 +5072,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 0
   data: {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
+  playerStat:
+    attackRange: 0
+    moveSpeed: 0
+    detectionRange: {x: 0, y: 0}
+    character_ID: 0
+    characterClass: 0
+    characterName: 0
+    characterGrade: 0
+    attackDamage: 0
+    health: 0
+    attackSpeed: 0
+    criticalProbability: 0
+    training_type: 0
+    equip_item: 0
+    skill_possed: 
   currentCharacterState: 0
   prevCharacterState: 0
   cameraMove: 1
@@ -5108,22 +5120,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &834880792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834880787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e8166b98a0d8745aa0d120eca25aa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HostStat: {fileID: 0}
-  equipSelectionID: 0
-  trainingSelectionID: 0
-  equip: {fileID: 0}
 --- !u!1 &840550194
 GameObject:
   m_ObjectHideFlags: 0
@@ -8530,16 +8526,16 @@ MonoBehaviour:
   - {fileID: 2136171030}
   - {fileID: 650879645}
   skillObjects:
-  - {fileID: 11400000, guid: 1832d048d73901c4594bc5bf8a0aa216, type: 2}
-  - {fileID: 11400000, guid: 397501cda897ad64eabd691e8e24f41c, type: 2}
-  - {fileID: 11400000, guid: 27fd90555b9af354e825988cbda6feb3, type: 2}
-  - {fileID: 11400000, guid: 1289290f49b3a9247852e38e64202aab, type: 2}
-  - {fileID: 11400000, guid: ff0ee21de6aced54aa735af97ee0f3b9, type: 2}
-  - {fileID: 11400000, guid: cf02ebc5e6e1ac344a625ca16beb9a08, type: 2}
-  - {fileID: 11400000, guid: 16a0ae5e0564c4b4e97cd1362efd5b02, type: 2}
-  - {fileID: 11400000, guid: f4c5ccdbf405e0e43bba764547b8d653, type: 2}
-  - {fileID: 11400000, guid: 2f25bd0647141bb43a6dddc79f716bab, type: 2}
-  - {fileID: 11400000, guid: 3a6f29d9a30e9b84cbf6c02ee49bfeac, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Selection_ID: 0
 --- !u!1 &1447129410
 GameObject:
@@ -10005,7 +10001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1997286236}
   - component: {fileID: 1997286238}
-  - component: {fileID: 1997286237}
+  - component: {fileID: 1997286239}
   m_Layer: 5
   m_Name: Option 2
   m_TagString: Untagged
@@ -10034,65 +10030,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1997286237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997286235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3b9471b45a31a4e8abdacdceacc132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SkillOptionEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1391432620}
-        m_TargetAssemblyTypeName: SkillManagerJiHun, Assembly-CSharp
-        m_MethodName: SetSelectionID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_EquipOptionEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2017356582}
-        m_TargetAssemblyTypeName: PlayerDataReceiverJiHun, Assembly-CSharp
-        m_MethodName: SetEquipSelectionID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_TrainingOptionEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2017356582}
-        m_TargetAssemblyTypeName: PlayerDataReceiverJiHun, Assembly-CSharp
-        m_MethodName: SetTrainingSelectionID
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  optionType: 
-  selectID: 0
 --- !u!114 &1997286238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10117,6 +10054,65 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 40}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1997286239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997286235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29baa5b831e2c9e46b7a36df124118dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SkillOptionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1391432620}
+        m_TargetAssemblyTypeName: SkillManagerJiHun, Assembly-CSharp
+        m_MethodName: SetSelectionID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_EquipOptionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2017356582}
+        m_TargetAssemblyTypeName: PlayerDataReceiverJiHun, Assembly-CSharp
+        m_MethodName: SetEquipSelectionID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_TrainingOptionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2017356582}
+        m_TargetAssemblyTypeName: PlayerDataReceiverJiHun, Assembly-CSharp
+        m_MethodName: SetTrainingSelectionID
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  optionType: 
+  selectID: 0
 --- !u!1 &2012629646
 GameObject:
   m_ObjectHideFlags: 0
@@ -10149,14 +10145,15 @@ MonoBehaviour:
   choiceCount: 3
   optionButtons:
   - {fileID: 1959006709}
-  - {fileID: 0}
+  - {fileID: 1997286239}
   - {fileID: 1334221547}
   skillOption: {fileID: 11400000, guid: 285384f425eae6d498af08bea9782029, type: 2}
   equipOption: {fileID: 11400000, guid: 549d7421d10a73b45ab8118e516d4ac8, type: 2}
   trainingOption: {fileID: 11400000, guid: 59a288d438933b64eb4929e1bd364ba0, type: 2}
-  m_IngameSkillOption: {fileID: 0}
+  m_IngameSkillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
   characterID: 000000000000000000000000
   playerStatAdjust: {fileID: 0}
+  buffData: {fileID: 0}
 --- !u!4 &2012629649
 Transform:
   m_ObjectHideFlags: 0
@@ -10352,10 +10349,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e8166b98a0d8745aa0d120eca25aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HostStat: {fileID: 0}
+  DependencyPlayerStat:
+  - attackRange: 0
+    moveSpeed: 0
+    detectionRange: {x: 0, y: 0}
+    character_ID: 0
+    characterClass: 0
+    characterName: 0
+    characterGrade: 0
+    attackDamage: 0
+    health: 0
+    attackSpeed: 0
+    criticalProbability: 0
+    training_type: 0
+    equip_item: 0
+    skill_possed: 
+  - attackRange: 0
+    moveSpeed: 0
+    detectionRange: {x: 0, y: 0}
+    character_ID: 0
+    characterClass: 0
+    characterName: 0
+    characterGrade: 0
+    attackDamage: 0
+    health: 0
+    attackSpeed: 0
+    criticalProbability: 0
+    training_type: 0
+    equip_item: 0
+    skill_possed: 
+  - attackRange: 0
+    moveSpeed: 0
+    detectionRange: {x: 0, y: 0}
+    character_ID: 0
+    characterClass: 0
+    characterName: 0
+    characterGrade: 0
+    attackDamage: 0
+    health: 0
+    attackSpeed: 0
+    criticalProbability: 0
+    training_type: 0
+    equip_item: 0
+    skill_possed: 
   equipSelectionID: 0
   trainingSelectionID: 0
-  equip: {fileID: 0}
 --- !u!1 &2088976905
 GameObject:
   m_ObjectHideFlags: 0
@@ -10537,7 +10575,6 @@ GameObject:
   - component: {fileID: 2136171028}
   - component: {fileID: 2136171029}
   - component: {fileID: 2136171030}
-  - component: {fileID: 2136171032}
   - component: {fileID: 2136171031}
   m_Layer: 6
   m_Name: Wizard
@@ -10613,6 +10650,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 0
   data: {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
+  playerStat:
+    attackRange: 0
+    moveSpeed: 0
+    detectionRange: {x: 0, y: 0}
+    character_ID: 0
+    characterClass: 0
+    characterName: 0
+    characterGrade: 0
+    attackDamage: 0
+    health: 0
+    attackSpeed: 0
+    criticalProbability: 0
+    training_type: 0
+    equip_item: 0
+    skill_possed: 
   currentCharacterState: 0
   prevCharacterState: 0
   cameraMove: 1
@@ -10646,22 +10698,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2136171032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136171027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e8166b98a0d8745aa0d120eca25aa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HostStat: {fileID: 0}
-  equipSelectionID: 0
-  trainingSelectionID: 0
-  equip: {fileID: 0}
 --- !u!1 &2144023664
 GameObject:
   m_ObjectHideFlags: 0
