@@ -32,6 +32,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     private void Start()
     {
         TryGetComponent(out collider);
+        collider.enabled = true;
     }
 
     private void Update()
@@ -49,8 +50,6 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
 
     private void FindNextTarget()
     {
-        //현재 위치를 기준으로 제일 가까운 애를 공격하게
-        collider.enabled = false;
         
         //현재 위치를 기준으로 제일 가까운 애를 공격하게                                                                         
         List<Collider2D> targetList = MonsterExistSystem.Instance.monsterList;                               
@@ -76,10 +75,6 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
         {                                                                                                    
             target = closestTarget;                                                                          
         }
-        else
-        {
-            //ReturnToPool();
-        }                                                                                                    
         
     }
     
@@ -114,10 +109,6 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             transform.position += transform.up * (curveSpeed * Time.deltaTime);
         }
        // Debug.Log($"{gameObject.name }의 거리 = {distance}");
-        if (distance < 0.1f)
-        {
-            collider.enabled = true;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

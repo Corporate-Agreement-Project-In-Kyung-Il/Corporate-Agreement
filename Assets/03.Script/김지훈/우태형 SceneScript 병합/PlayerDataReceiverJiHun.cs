@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerDataReceiverJiHun : MonoBehaviour
 {
+    //IBuffSelection 요소 
+    public PlayerStat buffplayerStat { get; }
+    
     public int equipSelectionID;
     public int trainingSelectionID;
     

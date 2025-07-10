@@ -8,7 +8,9 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     private static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int IsAttack = Animator.StringToHash("isAttack");
 
-
+    //IBuffSelection 요소 
+    public PlayerStat buffplayerStat { get; }
+    
     //IDamageAble 요소
     public Collider2D mainCollider => col;
     public GameObject GameObject => gameObject;
@@ -21,9 +23,6 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     //ICameraPosition 요소 
     public Transform cameraMoveTransform => gameObject.transform;
     public bool canMove => cameraMove;
-    
-    //IBuffSelection 요소 
-    public PlayerStat buffplayerStat { get; }
     
     //Component 받아오는 요소
     [SerializeField] private PlayerData data;
@@ -210,6 +209,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
                 break;
         }
     }
+    
 }
 
 public enum CharacterState
