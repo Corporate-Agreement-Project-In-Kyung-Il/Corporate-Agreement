@@ -230,7 +230,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             Debug.Log($"[액티브] {active.Skill_Name} 발동! 쿨타임: {active.Skill_Cooldown}");
             GameObject skillObj = Instantiate(skillPrefab2);
             ActiveSkillBase activeScript = skillObj.GetComponent<ActiveSkillBase>();
-            activeScript.owner = this;
+            //activeScript.owner = this;
             // 공격/이펙트/범위 등 구현
         }
         else if (skills[index] is BuffSO buff)

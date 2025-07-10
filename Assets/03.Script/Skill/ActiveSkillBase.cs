@@ -7,7 +7,7 @@ public abstract class ActiveSkillBase : MonoBehaviour
 {
     //owner로 데이터 받아옴
     //Instantiate 할때 같이 정보 넘겨줌
-    public Player_jin owner;
+    public Player_fusion owner;
 
     //public Player owner;
     public SkillStat stat = new SkillStat();

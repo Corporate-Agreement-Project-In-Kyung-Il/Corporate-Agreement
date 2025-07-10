@@ -1,22 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
 public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelection
 {
-    // Animator Hash
     private static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int IsAttack = Animator.StringToHash("isAttack");
     private static readonly int Attack = Animator.StringToHash("attack");
 
-    // Interfaces
     public Collider2D mainCollider => col;
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
@@ -25,27 +18,22 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     public bool canMove => cameraMove;
     public PlayerStat buffplayerStat => playerStat;
 
-    // Components
-    [SerializeField] private PlayerData data;
-    private Collider2D col;
-    private Rigidbody2D rigid;
-    private Animator animator;
-    private Weapon weapon;
-    private PlayerStat playerStat = new PlayerStat();
-
-    // States
-    [SerializeField] private CharacterState currentCharacterState = CharacterState.Run;
-    [SerializeField] private CharacterState prevCharacterState = CharacterState.Run;
-    [SerializeField] private bool cameraMove = true;
-
-    // Skills
     public List<int> SkillID => playerStat.skill_possed;
     public ISkillID[] skills = new ISkillID[2];
     public GameObject skillPrefab;
     public GameObject skillPrefab2;
-    private float[] skillCooldownTimers = new float[2];
 
-    // Detection
+    [SerializeField] public PlayerData data;
+    private Collider2D col;
+    private Rigidbody2D rigid;
+    private PlayerStat playerStat = new PlayerStat();
+    private Animator animator;
+    private Weapon weapon;
+
+    [SerializeField] private CharacterState_jin currentCharacterState = CharacterState_jin.Run;
+    [SerializeField] private CharacterState_jin prevCharacterState = CharacterState_jin.Run;
+
+    private bool cameraMove = true;
     [SerializeField] private Vector2 detectionRange;
     private Vector2 enemyDetectionCenter;
     private Collider2D[] enemyDetectionCol;
@@ -53,10 +41,11 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     public Collider2D target;
     public float attackRange;
     private float attackTimer = 0f;
+    private float[] skillCooldownTimers = new float[2];
 
-    // Buff
     private Dictionary<BuffEffectType, bool> activeBuffs = new();
     private Dictionary<BuffEffectType, float> buffCooldownTimers = new();
+
     private float shieldBlockChance = 0f;
     private float damageReductionRate = 0f;
 
@@ -67,7 +56,6 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
 
-        // PlayerStat 초기화
         playerStat.health = data.health;
         playerStat.moveSpeed = data.moveSpeed;
         playerStat.character_ID = data.character_ID;
@@ -95,38 +83,32 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
 
         if (skills[1] is ActiveSkillSO skill2) skillPrefab2 = skill2.SkillPrefab;
         else if (skills[1] is BuffSO buff2) skillPrefab2 = buff2.SkillPrefab;
-
-        InputGameManagerSkillID(playerStat.characterClass, playerStat.skill_possed[1]);
     }
 
     private void Update()
     {
-        // 버프 쿨타임 감소
         List<BuffEffectType> keys = new List<BuffEffectType>(buffCooldownTimers.Keys);
         foreach (var key in keys) buffCooldownTimers[key] -= Time.deltaTime;
 
-        // 스킬 쿨타임 감소 및 발동
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
         SkillCondition();
 
-        // 적 탐지
         enemyDetectionCenter = Vector2.up * transform.position.y;
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
 
-        // 상태 처리
         switch (currentCharacterState)
         {
-            case CharacterState.Run: animator.SetBool(IsRun, true); performRun(); break;
-            case CharacterState.Attack: performAttack(); break;
-            case CharacterState.Die: performDie(); break;
+            case CharacterState_jin.Run: animator.SetBool(IsRun, true); performRun(); break;
+            case CharacterState_jin.Attack: performAttack(); break;
+            case CharacterState_jin.Die: performDie(); break;
         }
     }
-    private Vector2 targetPos;
+
     private void performRun()
     {
-        if (enemyDetectionCol.Length > 0) ChangeState(CharacterState.Attack);
-        targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.deltaTime);
+        if (enemyDetectionCol.Length > 0) ChangeState(CharacterState_jin.Attack);
+        Vector2 targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.deltaTime);
         rigid.MovePosition(targetPos);
     }
 
@@ -134,13 +116,12 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     {
         gameObject.SetActive(false);
     }
-
-    private void performAttack()
+private void performAttack()
     {
         if (enemyDetectionCol.Length <= 0)
         {
             isTarget = false;
-            ChangeState(CharacterState.Run);
+            ChangeState(CharacterState_jin.Run);
             return;
         }
 
@@ -158,10 +139,24 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         {
             isTarget = true;
             animator.SetBool(IsAttack, true);
-            isTarget = weapon.Attack(target);
+
+            // 기본 공격
+            bool isStillTarget = weapon.Attack(target);
+            // 버프가 있다면 한 번 더 공격
+            if (HasBuff(BuffEffectType.Archer_Strong_Mind))
+            {
+                Debug.Log("🏹 아처 스트롱 마인드 발동! 추가 공격");
+                weapon.Attack(target);
+            }
+
+            isTarget = isStillTarget;
             attackTimer = 1f / playerStat.attackSpeed;
+            SkillCondition();
         }
+
+        
     }
+    
 
     public void TakeDamage(CombatEvent combatEvent)
     {
@@ -171,7 +166,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         if (playerStat.health <= 0)
         {
             cameraMove = false;
-            ChangeState(CharacterState.Die);
+            ChangeState(CharacterState_jin.Die);
             return;
         }
 
@@ -185,11 +180,11 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         if (playerStat.health <= 0)
         {
             cameraMove = false;
-            ChangeState(CharacterState.Die);
+            ChangeState(CharacterState_jin.Die);
         }
     }
 
-    public void ChangeState(CharacterState newState)
+    public void ChangeState(CharacterState_jin newState)
     {
         animator.SetBool(IsRun, false);
         animator.SetBool(IsAttack, false);
@@ -208,7 +203,9 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         if (skills[index] is ActiveSkillSO active)
         {
             Debug.Log($"[액티브] {active.Skill_Name} 발동! 쿨타임: {active.Skill_Cooldown}");
-            Instantiate(skillPrefab);
+            GameObject skillObj = Instantiate(skillPrefab);
+            if (skillObj.TryGetComponent(out ActiveSkillBase activeScript))
+                activeScript.owner = this;
         }
         else if (skills[index] is BuffSO buff)
         {
@@ -223,17 +220,6 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         else if (skills[index] is BuffSO buff) skillCooldownTimers[index] = buff.Skill_Cooldown;
     }
 
-    private void InputGameManagerSkillID(character_class character, int canskillID)
-    {
-        switch (character)
-        {
-            case character_class.전사: GameManagerJiHun.Instance.characterID[0] = canskillID; break;
-            case character_class.궁수: GameManagerJiHun.Instance.characterID[1] = canskillID; break;
-            case character_class.마법사: GameManagerJiHun.Instance.characterID[2] = canskillID; break;
-        }
-    }
-
-    // ─── Buff Logic ─────────────────────────────────────────────────────────────
     public void SetDamageReductionRate(float rate)
     {
         damageReductionRate = rate;
@@ -261,7 +247,6 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     }
 
     public bool HasBuff(BuffEffectType buff) => activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
-
     public void SetBuffState(BuffEffectType buff, bool isActive) => activeBuffs[buff] = isActive;
 
     private bool CanUseBuff(BuffEffectType type)
@@ -285,6 +270,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
 
         Debug.Log($"✅ 버프 발동: {effect}");
         SetBuffState(effect, true);
+        
         StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect));
         buffCooldownTimers[effect] = buff.Skill_Cooldown;
     }
@@ -304,4 +290,3 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
     }
 }
-

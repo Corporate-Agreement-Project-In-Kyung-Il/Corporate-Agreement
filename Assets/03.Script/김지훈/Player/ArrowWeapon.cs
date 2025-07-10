@@ -14,6 +14,7 @@ public class ArrowWeapon : Weapon
         //Debug.Log($"공격 대상: {enemyDamage.GameObject.name}, HP: {enemyDamage.CurrentHp}");
         
         //var bullet = Instantiate(arrowShot, transform.position, Quaternion.identity);
+        //---------------
         ArrowShot bullet = ObjectPoolSystem.Instance.GetObjectOrNull("ArrowShot") as ArrowShot;
         
         bullet.transform.position = transform.position;
@@ -23,7 +24,7 @@ public class ArrowWeapon : Weapon
         bullet.straightAttackRange = player.attackRange;
         
         bullet.gameObject.SetActive(true);
-        
+        //----------------------
         return arrowShot.isTargetNotDead;
     }
     
