@@ -13,7 +13,7 @@ namespace _03.Script.엄시형.Data
         /// <summary>
         /// 지금은 Point하나당 한 몬스터라 상관없지만 한Point에 여러 마리 나온다면 변경 필요
         /// </summary>
-        public int MonsterCount => mAreaPattern.MonsterSpawnPoints.Count;
+        public int MonsterCount => mAreaPattern.MonsterSpawnInfoList.Count;
         public AreaPattern AreaPattern => mAreaPattern;
     
         [Header("몬스터 스폰지점")]

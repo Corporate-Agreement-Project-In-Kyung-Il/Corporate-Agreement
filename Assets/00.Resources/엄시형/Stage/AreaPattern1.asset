@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc61d0925bcb4917b49ca8c72e3a89f2, type: 3}
   m_Name: AreaPattern1
   m_EditorClassIdentifier: 
-  mMonsterSpawnPointList:
-  - {x: 0, y: 0}
-  - {x: 0, y: 1}
-  - {x: 0, y: 2}
+  SpawnInfoList:
+  - <Point>k__BackingField: {x: 0.7472958, y: 4.269912}
+    <Radius>k__BackingField: 5
+  - <Point>k__BackingField: {x: 0.46411023, y: 0.4154377}
+    <Radius>k__BackingField: 0.5
+  - <Point>k__BackingField: {x: 0.98328394, y: -1.5983286}
+    <Radius>k__BackingField: 0.5

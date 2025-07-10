@@ -11,6 +11,6 @@ namespace _03.Script.엄시형.Stage.DTO
         public int PatternId { get; private set; }
         
         [field: SerializeField]
-        public List<SpawnInfo> MonsterSpawnPoints { get; private set; }
+        public List<SpawnInfo> MonsterSpawnInfoList { get; private set; } = new List<SpawnInfo>();
     }
 }
