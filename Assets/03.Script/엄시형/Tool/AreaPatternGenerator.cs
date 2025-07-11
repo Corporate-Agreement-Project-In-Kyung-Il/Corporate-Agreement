@@ -25,6 +25,10 @@ namespace _03.Script.엄시형.Tool
         
         // TODO : Id에 따라 변하게
         [SerializeField] private int mPatternId = 1;
+
+        // [Header("폴더명을 입력해주세요")]
+        // [SerializeField] private string mFolderName;
+        
         private int mPrevId = 1;
         
         private readonly List<GameObject> mPointObjectList = new List<GameObject>();
@@ -37,6 +41,11 @@ namespace _03.Script.엄시형.Tool
             Debug.Assert(mPointPrefab != null, "mPointPrefab이 빠졌습니다");
             Debug.Assert(mMainCam != null, "mMainCam이 빠졌습니다");
             
+            // if (string.IsNullOrEmpty(mFolderName))
+            // {
+            //     Debug.LogError("폴더명을 입력해주세요");
+            // }
+            
             if (mPatternId != mPrevId)
             {
                 Debug.Log("패턴 ID가 변경되었습니다: " + mPatternId);
@@ -47,38 +56,6 @@ namespace _03.Script.엄시형.Tool
             mPrevId = mPatternId;
         }
         
-        private void RepaintPoints()
-        {
-            if (mAreaPatternDTOList.Count < mPatternId)
-            {
-                foreach (var pointObj in mPointObjectList)
-                {
-                    Destroy(pointObj);
-                }
-
-                mPointObjectList.Clear();
-                mAreaPatternDTOList.Add(new AreaPatternDTO(mPatternId));
-            }
-            else
-            {
-                foreach (var pointObj in mPointObjectList)
-                {
-                    Destroy(pointObj);
-                }
-
-                mPointObjectList.Clear();
-
-                foreach (var spawnInfo in mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList)
-                {
-                    Vector2 worldPos = mTilemap.transform.TransformPoint(spawnInfo.Pos);
-                    GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
-                    point.transform.position = worldPos;
-
-                    point.transform.localScale = Vector3.one * spawnInfo.Diameter;
-                    mPointObjectList.Add(point.gameObject);
-                }
-            }
-        }
         
         private void Awake()
         {
@@ -103,7 +80,7 @@ namespace _03.Script.엄시형.Tool
         void Update()
         {
             // 휠클릭 
-            if (Input.GetKeyDown(KeyCode.Mouse2))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Vector2 worldPos = mMainCam.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
@@ -116,15 +93,6 @@ namespace _03.Script.엄시형.Tool
                         Destroy(hit.collider.gameObject);
                     }
                 }
-                
-                // Debug.Log(hit.collider.gameObject.name);
-                //
-                // if (hit && hit.collider.name == "PointCircle(Clone)")
-                // {
-                //     // mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Add(spawnInfo);
-                //     mPointObjectList.Remove(hit.collider.gameObject);
-                //     Destroy(hit.collider.gameObject);
-                // }
             }
 
             // 포인트 오브젝트 배치 우클릭
@@ -240,8 +208,7 @@ namespace _03.Script.엄시형.Tool
             
             if (GUILayout.Button("폴더 열기", GUILayout.Height(btnHeight), GUILayout.Width(60)))
             {
-                string fullPath = Path.Combine(Application.persistentDataPath, "LOH_Team4");
-                EditorUtility.RevealInFinder(fullPath);
+                EditorUtility.RevealInFinder(mPersistenceManager.fullPath);
             }
             
             GUILayout.EndHorizontal();
@@ -257,15 +224,54 @@ namespace _03.Script.엄시형.Tool
             GUI.Label(new Rect(10, 80, 150, 40), $"마지막 ID : {mAreaPatternDTOList.Last().PatternId}", labelStyle);
             
         }
+        
+        private void RepaintPoints()
+        {
+            if (mAreaPatternDTOList.Count < mPatternId)
+            {
+                foreach (var pointObj in mPointObjectList)
+                {
+                    Destroy(pointObj);
+                }
+
+                mPointObjectList.Clear();
+                mAreaPatternDTOList.Add(new AreaPatternDTO(mPatternId));
+            }
+            else
+            {
+                foreach (var pointObj in mPointObjectList)
+                {
+                    Destroy(pointObj);
+                }
+
+                mPointObjectList.Clear();
+
+                foreach (var spawnInfo in mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList)
+                {
+                    Vector2 worldPos = mTilemap.transform.TransformPoint(spawnInfo.Pos);
+                    GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
+                    point.transform.position = worldPos;
+
+                    point.transform.localScale = Vector3.one * spawnInfo.Diameter;
+                    mPointObjectList.Add(point.gameObject);
+                }
+            }
+        }
     }
 
     internal class AreaPatternPersistenceManager
     {
+        public readonly string fullPath;
+        
+        public AreaPatternPersistenceManager()
+        {
+            fullPath = Path.Combine(Application.dataPath, "05.DataTable", "AreaPattern.json");
+        }
+            
         public void WriteAsJSON(List<AreaPatternDTO> patterns)
         {
             AllAreaPatternDTO allPatterns = new AllAreaPatternDTO(patterns);
             
-            string fullPath = Path.Combine(Application.persistentDataPath, "AreaPattern.json");
             string json = JsonUtility.ToJson(allPatterns);
 
             Debug.Log(fullPath);
@@ -275,7 +281,6 @@ namespace _03.Script.엄시형.Tool
         public bool TryReadFromJson(out List<AreaPatternDTO> areaPatternList)
         {
             areaPatternList = new List<AreaPatternDTO>();
-            string fullPath = Path.Combine(Application.persistentDataPath, "AreaPattern.json");
 
             if (File.Exists(fullPath) == false) return false;
             
