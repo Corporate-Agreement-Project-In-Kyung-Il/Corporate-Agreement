@@ -239,8 +239,19 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
 
         if (skills[index] is BuffSO buff)
         {
-            Instantiate(skillPrefab2);
+            GameObject instance = null;
+
+            if (index == 0) instance = Instantiate(skillPrefab);
+            else if (index == 1) instance = Instantiate(skillPrefab2);
+
             TriggerBuff(buff);
+
+            // 버프 프리팹도 일정 시간 후 삭제
+            if (instance != null)
+            {
+                Debug.Log($"▶ {buff.Skill_Name} 프리팹 {buff.Skill_Duration}초 후 삭제 예정");
+                Destroy(instance, buff.Skill_Duration); // 지속시간만큼 기다렸다가 삭제
+            }
         }
     }
 
@@ -282,18 +293,30 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     }
 
     public bool HasBuff(BuffEffectType buff) => activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
-    public void SetBuffState(BuffEffectType buff, bool isActive) => activeBuffs[buff] = isActive;
-
+    
+    public void SetBuffState(BuffEffectType buff, bool isActive)
+    {
+        Debug.Log($"[SetBuffState] {gameObject.name}에 {buff} 상태 → {isActive}");
+        activeBuffs[buff] = isActive;
+    }
     private bool CanUseBuff(BuffEffectType type)
     {
         return !buffCooldownTimers.ContainsKey(type) || buffCooldownTimers[type] <= 0f;
     }
 
+    
     public void TriggerBuff(BuffSO buff)
     {
         if (!Enum.TryParse(buff.Skill_Buff_Type, out BuffEffectType effect))
         {
             Debug.LogWarning($"[TriggerBuff] BuffEffectType 파싱 실패: {buff.Skill_Buff_Type}");
+            return;
+        }
+
+        // ✅ 이미 버프 중이라면 발동하지 않음
+        if (HasBuff(effect))
+        {
+            Debug.Log($"❗이미 {effect} 버프가 적용되어 있음. 중복 적용 안함.");
             return;
         }
 
@@ -306,15 +329,18 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         Debug.Log($"✅ 버프 발동: {effect}");
         SetBuffState(effect, true);
 
-        StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect));
-        buffCooldownTimers[effect] = buff.Skill_Cooldown;
+        StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect, buff.Skill_Cooldown));
     }
 
-    private IEnumerator RemoveBuffAfter(float duration, BuffEffectType effect)
+    private IEnumerator RemoveBuffAfter(float duration, BuffEffectType effect, float cooldown)
     {
         yield return new WaitForSeconds(duration);
+
         SetBuffState(effect, false);
         Debug.Log($"버프 종료됨: {effect}");
+
+        buffCooldownTimers[effect] = cooldown; // ⏱️ 이제서야 쿨타임 시작!
+        Debug.Log($"⏳ {effect} 쿨타임 시작됨: {cooldown}초");
     }
 
     private void OnDrawGizmos()
