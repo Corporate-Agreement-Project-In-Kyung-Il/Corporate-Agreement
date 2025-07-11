@@ -81,7 +81,6 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         if (skills[0] is ActiveSkillSO skill1)
         {
             skillPrefab = skill1.SkillPrefab;
-            
             if (skillPrefab.TryGetComponent(out ActiveSkillBase activeScript))
             {
                 activeScript.owner = this;
@@ -123,7 +122,6 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
         if (skills[1] is ActiveSkillSO skill2)
         {
             skillPrefab2 = skill2.SkillPrefab;
-            
             if (skillPrefab2.TryGetComponent(out ActiveSkillBase activeScript))
             {
                 activeScript.owner = this;
@@ -140,7 +138,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
 
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
-        
+
 
         enemyDetectionCenter = Vector2.up * transform.position.y;
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f,
@@ -262,10 +260,12 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
 
     private void UseSkill(int index)
     {
-        if (skills[index] is ActiveSkillSO active && target != null)
+        if (skills[index] is ActiveSkillSO active)
         {
             Debug.Log($"[액티브] {active.Skill_Name} 발동! 쿨타임: {active.Skill_Cooldown}");
-            Instantiate(skillPrefab, transform.position, Quaternion.identity);
+
+            if (index == 0) Instantiate(skillPrefab, transform.position, Quaternion.identity);
+            else if (index == 1) Instantiate(skillPrefab2, transform.position, Quaternion.identity);
         }
 
         if (skills[index] is BuffSO buff)
@@ -337,6 +337,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     {
         return playerStat.attackSpeed;
     }
+
     public void SetAttackSpeed(float newSpeed)
     {
         playerStat.attackSpeed = newSpeed;
@@ -350,18 +351,19 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     }
 
     public bool HasBuff(BuffEffectType buff) => activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
-    
+
     public void SetBuffState(BuffEffectType buff, bool isActive)
     {
         Debug.Log($"[SetBuffState] {gameObject.name}에 {buff} 상태 → {isActive}");
         activeBuffs[buff] = isActive;
     }
+
     private bool CanUseBuff(BuffEffectType type)
     {
         return !buffCooldownTimers.ContainsKey(type) || buffCooldownTimers[type] <= 0f;
     }
 
-    
+
     public void TriggerBuff(BuffSO buff)
     {
         if (!Enum.TryParse(buff.Skill_Buff_Type, out BuffEffectType effect))

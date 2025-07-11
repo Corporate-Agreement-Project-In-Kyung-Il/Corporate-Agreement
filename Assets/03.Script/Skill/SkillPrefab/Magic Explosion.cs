@@ -8,7 +8,6 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     //광역기 투사체
     public int SkillId;
     public int SkillID { get; set; }
-
     public void SetSkillID()
     {
         SkillID = SkillId;
@@ -39,16 +38,18 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    { if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
+    {
+        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
-       
-            Debug.Log("마법폭발 공격!");
-            //데미지입힘
-        
+
+        Debug.Log("마법폭발 공격!");
+        Destroy(gameObject);
+        //데미지입힘
     }
 
     public override void Initialize()
     {
+        SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;

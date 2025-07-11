@@ -9,7 +9,6 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     public int SkillID { get; set; }
 
     public int attackCount;
-
     public void SetSkillID()
     {
         SkillID = SkillId;
@@ -24,7 +23,11 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 
     private void AttackTarget()
     {
-        if (attackCount >= stat.Attack_Count) return;
+        if (attackCount >= stat.Attack_Count || owner.target == null)
+        {
+            Destroy(this);
+            return;
+        }
 
         //owner.target에게 데미지를 입힘 (플레이어 합치고 추가)
         Debug.Log("발톱 공격!");
@@ -34,6 +37,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 
     public override void Initialize()
     {
+        SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
