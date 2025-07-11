@@ -154,6 +154,8 @@ MonoBehaviour:
   mPointPrefab: {fileID: 5060137937089105653, guid: dbc6094a052d115458e4e51f408d0eb0, type: 3}
   mTilemap: {fileID: 918218208}
   mMainCam: {fileID: 740000933}
+  mAreaPatternDTOList: []
+  mPatternId: 1
 --- !u!4 &193129569
 Transform:
   m_ObjectHideFlags: 0
@@ -163,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 193129567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07479118, y: 2.5773885, z: 0.025453387}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -318,7 +320,7 @@ GameObject:
   - component: {fileID: 918218208}
   - component: {fileID: 918218207}
   m_Layer: 0
-  m_Name: Area1
+  m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
