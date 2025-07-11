@@ -14,8 +14,9 @@ namespace _03.Script.엄시형.Stage.DTO
         public int PatternId;
         public List<SpawnInfoDTO> MonsterSpawnInfoList = new List<SpawnInfoDTO>();
 
-        public AreaPatternDTO()
+        public AreaPatternDTO(int patternId)
         {
+            PatternId = patternId;
             MonsterSpawnInfoList = new List<SpawnInfoDTO>();
         }
     }
