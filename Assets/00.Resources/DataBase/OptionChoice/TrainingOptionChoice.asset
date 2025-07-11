@@ -19,7 +19,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000001
+      Training_ID: 500001
       Critical_Damage_Increase: 0.05
       Critical_Rate_Increase: 0.02
       Attack_Speed_Increase: 0.03
@@ -30,7 +30,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000001
+      Training_ID: 500001
       Critical_Damage_Increase: 0.1
       Critical_Rate_Increase: 0.04
       Attack_Speed_Increase: 0.06
@@ -41,7 +41,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 9% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000001
+      Training_ID: 500001
       Critical_Damage_Increase: 0.15
       Critical_Rate_Increase: 0.06
       Attack_Speed_Increase: 0.09
@@ -52,7 +52,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 12% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000001
+      Training_ID: 500001
       Critical_Damage_Increase: 0.2
       Critical_Rate_Increase: 0.08
       Attack_Speed_Increase: 0.12
@@ -63,7 +63,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
         \uACF5\uACA9 \uC18D\uB3C4\uAC00 18% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000001
+      Training_ID: 500001
       Critical_Damage_Increase: 0.3
       Critical_Rate_Increase: 0.12
       Attack_Speed_Increase: 0.18
@@ -74,7 +74,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 16% \uC99D\uAC00\uD558\uBA70
         \uACF5\uACA9 \uC18D\uB3C4\uAC00 24% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000001
+      Training_ID: 500001
       Critical_Damage_Increase: 0.4
       Critical_Rate_Increase: 0.16
       Attack_Speed_Increase: 0.24
@@ -85,7 +85,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000002
+      Training_ID: 500002
       Critical_Damage_Increase: 0.1
       Critical_Rate_Increase: 0.02
       Attack_Speed_Increase: 0.05
@@ -96,7 +96,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000002
+      Training_ID: 500002
       Critical_Damage_Increase: 0.2
       Critical_Rate_Increase: 0.04
       Attack_Speed_Increase: 0.1
@@ -107,7 +107,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000002
+      Training_ID: 500002
       Critical_Damage_Increase: 0.3
       Critical_Rate_Increase: 0.06
       Attack_Speed_Increase: 0.15
@@ -118,7 +118,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000002
+      Training_ID: 500002
       Critical_Damage_Increase: 0.4
       Critical_Rate_Increase: 0.08
       Attack_Speed_Increase: 0.2
@@ -129,7 +129,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 60% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
         \uACF5\uACA9 \uC18D\uB3C4\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000002
+      Training_ID: 500002
       Critical_Damage_Increase: 0.6
       Critical_Rate_Increase: 0.12
       Attack_Speed_Increase: 0.3
@@ -140,7 +140,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 80% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 16% \uC99D\uAC00\uD558\uBA70
         \uACF5\uACA9 \uC18D\uB3C4\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000002
+      Training_ID: 500002
       Critical_Damage_Increase: 0.8
       Critical_Rate_Increase: 0.16
       Attack_Speed_Increase: 0.4
@@ -151,7 +151,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000003
+      Training_ID: 500003
       Critical_Damage_Increase: 0.05
       Critical_Rate_Increase: 0.02
       Attack_Speed_Increase: 0.03
@@ -162,7 +162,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000003
+      Training_ID: 500003
       Critical_Damage_Increase: 0.1
       Critical_Rate_Increase: 0.04
       Attack_Speed_Increase: 0.06
@@ -173,7 +173,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 9% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000003
+      Training_ID: 500003
       Critical_Damage_Increase: 0.15
       Critical_Rate_Increase: 0.06
       Attack_Speed_Increase: 0.09
@@ -184,7 +184,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
         \uC18D\uB3C4\uAC00 12% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000003
+      Training_ID: 500003
       Critical_Damage_Increase: 0.2
       Critical_Rate_Increase: 0.08
       Attack_Speed_Increase: 0.12
@@ -195,7 +195,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
         \uACF5\uACA9 \uC18D\uB3C4\uAC00 18% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000003
+      Training_ID: 500003
       Critical_Damage_Increase: 0.3
       Critical_Rate_Increase: 0.12
       Attack_Speed_Increase: 0.18
@@ -206,7 +206,7 @@ MonoBehaviour:
       Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
         \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 18% \uC99D\uAC00\uD558\uBA70
         \uACF5\uACA9 \uC18D\uB3C4\uAC00 24% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Training_ID: 5000003
+      Training_ID: 500003
       Critical_Damage_Increase: 0.4
       Critical_Rate_Increase: 0.18
       Attack_Speed_Increase: 0.24

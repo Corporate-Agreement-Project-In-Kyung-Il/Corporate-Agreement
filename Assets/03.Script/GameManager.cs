@@ -10,12 +10,7 @@ public class GameManager : MonoBehaviour
     public OptionButton[] optionButtons; // UI 버튼 배열
     public int baseRerollCount = 3; // 기본 리롤 횟수
     
-    public enum EOptionType
-    {
-        Skill,
-        Equip,
-        Training
-    }
+
     Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
     
     public OptionChoice_SkillOption skillOption;
@@ -168,4 +163,11 @@ public class GameManager : MonoBehaviour
         return option.data[randomIndex].Key_ID; // IDValuePair<T> 에 id가 있다고 가정
     }
     #endregion
+}
+
+public enum EOptionType
+{
+    Skill,
+    Equip,
+    Training
 }

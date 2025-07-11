@@ -18,7 +18,7 @@ MonoBehaviour:
       Selection_Level: 0
       Description: "\uACF5\uACA9\uB825\uC774 50 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         180 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000001
+      Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 50
       HP_LV_UP_Effect: 180
       Equipment_LvUP: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
       Selection_Level: 1
       Description: "\uACF5\uACA9\uB825\uC774 100 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         360 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000001
+      Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 100
       HP_LV_UP_Effect: 360
       Equipment_LvUP: 2
@@ -36,7 +36,7 @@ MonoBehaviour:
       Selection_Level: 2
       Description: "\uACF5\uACA9\uB825\uC774 150 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         540 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000001
+      Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 150
       HP_LV_UP_Effect: 540
       Equipment_LvUP: 3
@@ -45,7 +45,7 @@ MonoBehaviour:
       Selection_Level: 3
       Description: "\uACF5\uACA9\uB825\uC774 200 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         720 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000001
+      Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 200
       HP_LV_UP_Effect: 720
       Equipment_LvUP: 4
@@ -54,7 +54,7 @@ MonoBehaviour:
       Selection_Level: 4
       Description: "\uACF5\uACA9\uB825\uC774 300 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         1080 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000001
+      Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 300
       HP_LV_UP_Effect: 1080
       Equipment_LvUP: 6
@@ -63,7 +63,7 @@ MonoBehaviour:
       Selection_Level: 5
       Description: "\uACF5\uACA9\uB825\uC774 400 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         1440 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000001
+      Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 400
       HP_LV_UP_Effect: 1440
       Equipment_LvUP: 8
@@ -72,7 +72,7 @@ MonoBehaviour:
       Selection_Level: 0
       Description: "\uACF5\uACA9\uB825\uC774 40 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         144 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000002
+      Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 40
       HP_LV_UP_Effect: 144
       Equipment_LvUP: 1
@@ -81,7 +81,7 @@ MonoBehaviour:
       Selection_Level: 1
       Description: "\uACF5\uACA9\uB825\uC774 80 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         288 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000002
+      Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 80
       HP_LV_UP_Effect: 288
       Equipment_LvUP: 2
@@ -90,7 +90,7 @@ MonoBehaviour:
       Selection_Level: 2
       Description: "\uACF5\uACA9\uB825\uC774 120 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         432 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000002
+      Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 120
       HP_LV_UP_Effect: 432
       Equipment_LvUP: 3
@@ -99,7 +99,7 @@ MonoBehaviour:
       Selection_Level: 3
       Description: "\uACF5\uACA9\uB825\uC774 160 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         576 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000002
+      Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 160
       HP_LV_UP_Effect: 576
       Equipment_LvUP: 4
@@ -108,7 +108,7 @@ MonoBehaviour:
       Selection_Level: 4
       Description: "\uACF5\uACA9\uB825\uC774 240 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         864 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000002
+      Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 240
       HP_LV_UP_Effect: 864
       Equipment_LvUP: 6
@@ -117,7 +117,7 @@ MonoBehaviour:
       Selection_Level: 5
       Description: "\uACF5\uACA9\uB825\uC774 320 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         1152 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000002
+      Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 320
       HP_LV_UP_Effect: 1152
       Equipment_LvUP: 8
@@ -126,7 +126,7 @@ MonoBehaviour:
       Selection_Level: 0
       Description: "\uACF5\uACA9\uB825\uC774 20 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         126 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000003
+      Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 20
       HP_LV_UP_Effect: 126
       Equipment_LvUP: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
       Selection_Level: 1
       Description: "\uACF5\uACA9\uB825\uC774 40 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         252 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000003
+      Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 40
       HP_LV_UP_Effect: 252
       Equipment_LvUP: 2
@@ -144,7 +144,7 @@ MonoBehaviour:
       Selection_Level: 2
       Description: "\uACF5\uACA9\uB825\uC774 60 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         378 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000003
+      Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 60
       HP_LV_UP_Effect: 378
       Equipment_LvUP: 3
@@ -153,7 +153,7 @@ MonoBehaviour:
       Selection_Level: 3
       Description: "\uACF5\uACA9\uB825\uC774 80 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         504 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000003
+      Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 80
       HP_LV_UP_Effect: 504
       Equipment_LvUP: 4
@@ -162,7 +162,7 @@ MonoBehaviour:
       Selection_Level: 4
       Description: "\uACF5\uACA9\uB825\uC774 120 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         756 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000003
+      Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 120
       HP_LV_UP_Effect: 756
       Equipment_LvUP: 6
@@ -171,7 +171,7 @@ MonoBehaviour:
       Selection_Level: 5
       Description: "\uACF5\uACA9\uB825\uC774 160 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
         1008 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      Equipment_Type_ID: 4000003
+      Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 160
       HP_LV_UP_Effect: 1008
       Equipment_LvUP: 8
