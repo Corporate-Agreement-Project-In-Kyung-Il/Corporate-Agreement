@@ -3,12 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IDamageAble, ICameraPosition
+public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelection
 {
     private static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int IsAttack = Animator.StringToHash("isAttack");
 
-
+    //IBuffSelection 요소로 이거는 GameManager로 보내서 PlayerDataReceiverJiHun에 수정할 수 있게 한다.
+    public PlayerStat buffplayerStat
+    {
+        get => playerStat;
+        set => playerStat = value;
+    }
+    
     //IDamageAble 요소
     public Collider2D mainCollider => col;
     public GameObject GameObject => gameObject;
@@ -26,7 +32,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
     [SerializeField] private PlayerData data;
     private Collider2D col;
     private Rigidbody2D rigid;
-    private PlayerStat playerStat = new PlayerStat();
+    public PlayerStat playerStat = new PlayerStat();
     private Animator animator;
     private Weapon weapon;
         
@@ -69,11 +75,14 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         
         
         attackRange = playerStat.attackRange; //궁수의 직선 공격 범위를 위해서
+        
+        
     }
 
     private void Start()
     {
         weapon.playerAnimator = animator;
+        InputGameManagerSkillID(playerStat.characterClass ,playerStat.skill_possed[1]);
     }
 
     private Vector2 enemyDetectionCenter;
@@ -112,7 +121,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
             ChangeState(CharacterState.Attack);
         }
         
-        Debug.Log($"targetPos : {targetPos}");
+        //Debug.Log($"targetPos : {targetPos}");
         targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.deltaTime);
         rigid.MovePosition(targetPos); //Vector3.Lerp(transform.position, targetPos, Time.deltaTime));
     }
@@ -169,7 +178,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
             return;
         }
         
-        Debug.Log($"{gameObject.name}이 데미지를 입음.");
+       // Debug.Log($"{gameObject.name}이 데미지를 입음.");
     }
 
     public void ChangeState(CharacterState newState)
@@ -188,7 +197,27 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
     }
-    
+
+    private void InputGameManagerSkillID(character_class character, int canskillID)
+    {
+        switch (character)
+        {
+            case character_class.전사 :
+                GameManagerJiHun.Instance.characterID[0] = canskillID;
+                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[0] = buffplayerStat;
+                break;
+            case character_class.궁수 :
+                GameManagerJiHun.Instance.characterID[1] = canskillID;
+                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[1] = buffplayerStat;
+                break;
+            case character_class.마법사 :
+                GameManagerJiHun.Instance.characterID[2] = canskillID;
+                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[2] = buffplayerStat;
+                break;
+        }
+    }
+
+
 }
 
 public enum CharacterState

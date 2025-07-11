@@ -20,6 +20,12 @@ public interface ICameraPosition
     public bool canMove { get; }
 }
 
+public interface IBuffSelection
+{ 
+    public PlayerStat buffplayerStat { get; }
+}
+
+[System.Serializable]
 public class PlayerStat
 {
     //내가 따로 넣어준 것들(지훈)
@@ -57,14 +63,14 @@ public enum character_name
 {
     Null,
     [Description("기본 전사")]
-    전사,
+    기본_전사,
     아이언,
     디노,
     [Description("기본 궁수")]
     기본_궁수,
     사비나,
     [Description("기본 마법사")]
-    마법사,
+    기본_마법사,
     쿠아
 }
 

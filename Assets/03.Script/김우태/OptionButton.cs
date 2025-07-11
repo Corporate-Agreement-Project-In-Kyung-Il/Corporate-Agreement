@@ -8,12 +8,32 @@ using UnityEngine.UI;
 
 public class OptionButton : MonoBehaviour
 {
-   [SerializeField]
-   UnityEvent<int> m_OnClickEvent;
+   [SerializeField] 
+   UnityEvent m_SkillOptionEvent;
    
+   [SerializeField] 
+   UnityEvent m_EquipOptionEvent;
+   
+   [SerializeField] 
+   UnityEvent m_TrainingOptionEvent;
+
+   public int rerollCount;
+   public string optionType;
    public int selectID;
+   
    public void OnClick()
    {
-      m_OnClickEvent.Invoke(selectID);
+      switch (optionType)
+      {
+         case "Skill":
+            m_SkillOptionEvent.Invoke();
+            break;
+         case "Equip":
+            m_EquipOptionEvent.Invoke();
+            break;
+         case "Training":
+            m_TrainingOptionEvent.Invoke();
+            break;
+      }
    }
 }

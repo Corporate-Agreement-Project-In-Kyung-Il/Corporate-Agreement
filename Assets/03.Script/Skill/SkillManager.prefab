@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3023606166440009014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3542750386890304528}
+  - component: {fileID: 8870052630348864615}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3542750386890304528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3023606166440009014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8870052630348864615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3023606166440009014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1bb3e660219bb428c66eab99cabb7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  skillObjects:
+  - {fileID: 11400000, guid: 1832d048d73901c4594bc5bf8a0aa216, type: 2}
+  - {fileID: 11400000, guid: 397501cda897ad64eabd691e8e24f41c, type: 2}
+  - {fileID: 11400000, guid: 27fd90555b9af354e825988cbda6feb3, type: 2}
+  - {fileID: 11400000, guid: 1289290f49b3a9247852e38e64202aab, type: 2}
+  - {fileID: 11400000, guid: ff0ee21de6aced54aa735af97ee0f3b9, type: 2}
+  - {fileID: 11400000, guid: cf02ebc5e6e1ac344a625ca16beb9a08, type: 2}
+  - {fileID: 11400000, guid: 16a0ae5e0564c4b4e97cd1362efd5b02, type: 2}
+  - {fileID: 11400000, guid: f4c5ccdbf405e0e43bba764547b8d653, type: 2}
+  - {fileID: 11400000, guid: 2f25bd0647141bb43a6dddc79f716bab, type: 2}
+  - {fileID: 11400000, guid: 3a6f29d9a30e9b84cbf6c02ee49bfeac, type: 2}
+  Selection_ID: 0

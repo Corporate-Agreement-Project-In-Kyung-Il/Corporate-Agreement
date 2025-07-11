@@ -83,7 +83,7 @@ public class MonsterController : MonoBehaviour, IDamageAble
         {
             float dist = Vector2.Distance(transform.position, playerCol[i].transform.position);
 
-            if (dist < mindistance)
+            if (dist < mindistance && playerCol[i].gameObject.activeSelf)
             {
                 mindistance = dist;
                 closestPlayer = playerCol[i].transform;
@@ -115,6 +115,11 @@ public class MonsterController : MonoBehaviour, IDamageAble
         {
             ChangeState(EnemyState.Idle);
             return;
+        }
+
+        if (target.gameObject.activeSelf.Equals(false))
+        {
+            ChangeState(EnemyState.Idle);
         }
         
 
@@ -148,7 +153,7 @@ public class MonsterController : MonoBehaviour, IDamageAble
             ChangeState(EnemyState.Die);
         }
         
-        Debug.Log($"{gameObject.name}이 피해 받음");
+       // Debug.Log($"{gameObject.name}이 피해 받음");
     }
     
     public void ChangeState(EnemyState newState)

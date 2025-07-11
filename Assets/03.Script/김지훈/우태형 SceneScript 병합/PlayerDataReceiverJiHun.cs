@@ -1,0 +1,70 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerDataReceiverJiHun : MonoBehaviour
+{
+    //Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
+    public PlayerStat[] DependencyPlayerStat;
+    
+    //버프시킬 scriptAbleObject -> OptionChoice_EquipOption 혹은 OptionChoice_TrainingOption
+    public int equipSelectionID;
+    public int trainingSelectionID;
+    
+
+    //public OptionChoice_EquipOption equip;
+
+    //public void GetOptionValue()
+    //{
+    //    equip.GetValue(equipSelectionID);
+    //}
+    
+    public void SetEquipSelectionID(int id)
+    {
+        equipSelectionID = GameManagerJiHun.Instance.optionButtons[id].selectID;
+
+        var equipOption = GameManagerJiHun.Instance.buffData as OptionChoice_EquipOption;
+        var equipData = equipOption?.GetValue(equipSelectionID);
+
+
+        for (int i = 0; i < DependencyPlayerStat.Length; i++)
+        {
+            Debug.Log($"{DependencyPlayerStat[i].equip_item} :::: {equipData.Equipment_Type_ID}");
+            
+            if (DependencyPlayerStat[i].equip_item.Equals(equipData.Equipment_Type_ID))
+            {
+                Debug.Log($"{equipData.Description} :::::: {equipData.Equipment_LvUP}");
+                DependencyPlayerStat[i].attackDamage += equipData.Attack_LV_UP_Effect;
+                DependencyPlayerStat[i].health += equipData.HP_LV_UP_Effect;
+                break;
+            }
+        }
+        
+        // HostStat = GameManagerJiHun.Instance.
+    }
+    
+    public void SetTrainingSelectionID(int id)
+    {
+        trainingSelectionID = GameManagerJiHun.Instance.optionButtons[id].selectID;
+        
+        var trainingOption = GameManagerJiHun.Instance.buffData as OptionChoice_TrainingOption; 
+        var trainingData = trainingOption?.GetValue(trainingSelectionID);
+        
+        for (int i = 0; i < DependencyPlayerStat.Length; i++)
+        {
+            Debug.Log($"{DependencyPlayerStat[i].training_type} :::: {trainingData.Training_ID}");
+            
+            if (DependencyPlayerStat[i].training_type.Equals(trainingData.Training_ID))
+            {
+                Debug.Log($"{trainingData.Description} :::::: {trainingData.Training_LvUP}");
+                
+                DependencyPlayerStat[i].attackDamage += trainingData.Critical_Damage_Increase;
+                DependencyPlayerStat[i].criticalProbability += trainingData.Critical_Rate_Increase;
+                DependencyPlayerStat[i].attackSpeed += trainingData.Attack_Speed_Increase;
+                break;
+            }
+        }
+    }
+    
+}

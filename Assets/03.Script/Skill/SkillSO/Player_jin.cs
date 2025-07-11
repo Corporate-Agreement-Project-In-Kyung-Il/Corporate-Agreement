@@ -2,6 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
+public enum BuffEffectType
+{
+    Shield_Protection,
+    Steel_Shield,
+    Projectile_Hit,
+    Archer_Strong_Mind,
+    Wizard_Strong_Mind,
+    // 나중에 쉽게 추가 가능
+}
 
 public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 {
@@ -13,6 +24,7 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
+
 
     //스킬ID
     public List<int> SkillID => playerStat.skill_possed;
@@ -94,31 +106,108 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 
     private void Update()
     {
-        /*enemyDetectionCenter = Vector2.up * transform.position.y;
-        Collider2D[] enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f, LayerMask.GetMask("Enemy"));
+        List<BuffEffectType> keys = new List<BuffEffectType>(buffCooldownTimers.Keys);
 
-        if (enemyDetectionCol.Length > 0)
-            ChangeState(CharacterState_jin.Attack);
-
-        switch (currentCharacterState)
+        foreach (var key in keys)
         {
-            case CharacterState_jin.Run:
-                performRun();
-                break;
+            buffCooldownTimers[key] -= Time.deltaTime;
+            Debug.Log(buffCooldownTimers[key]);
+        }
 
-            case CharacterState_jin.Attack:
-                performAttack();
-                break;
 
-            case CharacterState_jin.Die:
-                performDie();
-                break;
-        }*/
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
+
         SkillCondition();
     }
 
+    //-----------------------------버프--------------------------------------------------
+    private Dictionary<BuffEffectType, bool> activeBuffs = new();
+    private Dictionary<BuffEffectType, float> buffCooldownTimers = new();
+
+    private float shieldBlockChance = 0f;
+
+    private float damageReductionRate = 0f;
+
+    public void SetDamageReductionRate(float rate)
+    {
+        damageReductionRate = rate;
+        Debug.Log($"🛡️ 데미지 경감률 설정됨: {rate * 100}%");
+    }
+
+    public float GetDamageReductionRate()
+    {
+        return damageReductionRate;
+    }
+
+    public void SetShieldBlockChance(float chance)
+    {
+        shieldBlockChance = chance;
+        Debug.Log($"🛡️ 방어 확률 설정됨: {chance * 100}%");
+    }
+
+    public float GetAttackSpeed()
+    {
+        return playerStat.attackSpeed;
+    }
+
+    public void SetAttackSpeed(float newSpeed)
+    {
+        playerStat.attackSpeed = newSpeed;
+        Debug.Log($"공격 속도 변경됨: {newSpeed}");
+    }
+
+    public bool HasBuff(BuffEffectType buff)
+    {
+        return activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
+    }
+
+    public void SetBuffState(BuffEffectType buff, bool isActive)
+    {
+        activeBuffs[buff] = isActive;
+    }
+
+    private bool CanUseBuff(BuffEffectType type)
+    {
+        return !buffCooldownTimers.ContainsKey(type) || buffCooldownTimers[type] <= 0f;
+    }
+
+    public void TriggerBuff(BuffSO buff)
+    {
+        if (!Enum.TryParse(buff.Skill_Buff_Type, out BuffEffectType effect))
+        {
+            Debug.LogWarning($"[TriggerBuff] BuffEffectType 파싱 실패: {buff.Skill_Buff_Type}");
+            return;
+        }
+
+        if (!CanUseBuff(effect))
+        {
+            Debug.Log($"❌ {effect} 쿨타임 중: {buffCooldownTimers[effect]:F2}s 남음");
+            return;
+        }
+
+        Debug.Log($"✅ 버프 발동: {effect}");
+
+        SetBuffState(effect, true);
+        StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect));
+
+        buffCooldownTimers[effect] = buff.Skill_Cooldown;
+    }
+
+    private IEnumerator RemoveBuffAfter(float duration, BuffEffectType effect)
+    {
+        yield return new WaitForSeconds(duration);
+        SetBuffState(effect, false);
+        Debug.Log($"버프 종료됨: {effect}");
+    }
+
+    public void SetAttackDamage(float newDamage)
+    {
+        playerStat.attackDamage = newDamage;
+        Debug.Log($"공격력 변경됨: {newDamage}");
+    }
+
+    //-----------------------------버프--------------------------------------------------
     private void SkillCondition()
     {
         if (skillCooldownTimers[0] <= 0f)
@@ -136,20 +225,18 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
 
     private void UseSkill(int index)
     {
-        
-        
         if (skills[index] is ActiveSkillSO active)
         {
             Debug.Log($"[액티브] {active.Skill_Name} 발동! 쿨타임: {active.Skill_Cooldown}");
-            Instantiate(skillPrefab2);
-            
+            GameObject skillObj = Instantiate(skillPrefab2);
+            ActiveSkillBase activeScript = skillObj.GetComponent<ActiveSkillBase>();
+            //activeScript.owner = this;
             // 공격/이펙트/범위 등 구현
         }
         else if (skills[index] is BuffSO buff)
         {
             Instantiate(skillPrefab);
-            Debug.Log($"[버프] {buff.Skill_Name} 발동! 쿨타임 : {buff.Skill_Cooldown}, 지속시간: {buff.Skill_Duration}초");
-            // 스탯 증가 등 버프 효과 적용
+            TriggerBuff(buff); // 쿨타임 체크 + 버프 적용 + 지속시간 관리
         }
     }
 
@@ -196,17 +283,33 @@ public class Player_jin : MonoBehaviour, IDamageAble, ICameraPosition
             isTarget = weapon.Attack(target);
         }*/
     }
-    
+
 
     public void TakeDamage(CombatEvent combatEvent)
     {
-        // if (playerStat.health <= 0)
-        // {
-        //     cameraMove = false;
-        //     ChangeState(CharacterState_jin.Die);
-        //     return;
-        // }
-        // Debug.Log($"{gameObject.name}이 데미지를 입음.");
+        float finalDamage = combatEvent.Damage * (1 - damageReductionRate);
+
+        playerStat.health -= finalDamage;
+
+        if (playerStat.health <= 0)
+        {
+            cameraMove = false;
+            ChangeState(CharacterState_jin.Die);
+        }
+
+        if (Random.value < shieldBlockChance)
+        {
+            Debug.Log("🛡️ 공격 무효화됨!");
+            return;
+        }
+
+        playerStat.health -= combatEvent.Damage;
+
+        if (playerStat.health <= 0)
+        {
+            cameraMove = false;
+            ChangeState(CharacterState_jin.Die);
+        }
     }
 
     public void ChangeState(CharacterState_jin newState)

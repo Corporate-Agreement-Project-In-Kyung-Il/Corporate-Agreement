@@ -14,6 +14,7 @@ public class ObjectPoolSystem : MonoBehaviour
         public string Key;
         public GameObject Prefab;
         public byte ExpandSize;
+        public Transform parent;
     }
 
     public ObjectPoolData[] ObjectPoolDatas;
@@ -47,7 +48,11 @@ public class ObjectPoolSystem : MonoBehaviour
             Debug.Log("옳바른 형식이 아닌 Prefab임");
             return;
         }
-        pool.Initialize(poolItem, transform, data.ExpandSize, data.Key);
+
+        if (data.parent == null)
+            data.parent = transform;
+        
+        pool.Initialize(poolItem, data.parent, data.ExpandSize, data.Key);
         objectPoolDic.Add(data.Key, pool);
     }
 

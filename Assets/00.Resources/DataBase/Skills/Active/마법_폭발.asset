@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3792cab7314e4e4cb7a13515fbf07d8, type: 3}
+  m_Name: "\uB9C8\uBC95_\uD3ED\uBC1C"
+  m_EditorClassIdentifier: 
+  Skill_ID: 100018
+  Skill_Name: "\uB9C8\uBC95_\uD3ED\uBC1C"
+  Skill_Type: 0
+  Skill_Minimum_LV: 1
+  Skill_current_LV: 0
+  Skill_Maximum_LV: 1024
+  Skill_Cooldown: 3
+  Skill_Damage: 2
+  Skill_Attack_Count: 1
+  Wide_Area: 1
+  Skill_Range_width: 3
+  Skill_Range_height: 3
+  Cooldown_Reduction: 0.1
+  Damage_Increase: 0.1
+  SkillPrefab: {fileID: 4143726780913922746, guid: 795ad91052cd3fe4dbddf222b7c66b33, type: 3}
