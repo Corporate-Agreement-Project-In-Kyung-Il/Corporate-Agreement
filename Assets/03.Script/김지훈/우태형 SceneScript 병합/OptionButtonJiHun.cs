@@ -6,13 +6,17 @@ using UnityEngine.Events;
 
 public class OptionButtonJiHun : MonoBehaviour
 {
-    [SerializeField] private UnityEvent m_SkillOptionEvent;
-    [SerializeField] private UnityEvent m_EquipOptionEvent;
-    [SerializeField] private UnityEvent m_TrainingOptionEvent;
+    private UnityEvent m_SkillOptionEvent;
+    private UnityEvent m_EquipOptionEvent;
+    private UnityEvent m_TrainingOptionEvent;
 
     public string optionType;
     public int selectID;
     public IBuffSelection[] buffSelections;
+    private void Start()
+    {
+        
+    }
 
     public void OnClick()
     {

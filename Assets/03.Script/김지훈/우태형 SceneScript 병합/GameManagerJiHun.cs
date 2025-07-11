@@ -7,9 +7,15 @@ using UnityEngine;
 
 public class GameManagerJiHun : MonoBehaviour
 {
-    public int choiceCount = 3;
-    public OptionButtonJiHun[] optionButtons; // UI 버튼 배열
+        public int choiceCount = 3;
+    public OptionButton[] optionButtons; // UI 버튼 배열
     
+    public enum EOptionType
+    {
+        Skill,
+        Equip,
+        Training
+    }
     Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
     
     public OptionChoice_SkillOption skillOption;
@@ -19,12 +25,8 @@ public class GameManagerJiHun : MonoBehaviour
     [SerializeField]
     private OptionChoice_SkillOption m_IngameSkillOption;
     public static GameManagerJiHun Instance { get; private set; }
-    
-    //Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
     public int[] characterID = new int[3];
 
-    public PlayerDataReceiverJiHun playerStatAdjust;
-    
     private void Awake()
     {
         if (Instance == null)
@@ -36,17 +38,16 @@ public class GameManagerJiHun : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
-        playerStatAdjust = GetComponentInChildren<PlayerDataReceiverJiHun>();
     }
 
     private void Start()
     {
-        m_Options.Add(EOptionType.Skill, skillOption);
-        m_Options.Add(EOptionType.Equip, equipOption);
-        m_Options.Add(EOptionType.Training, trainingOption);
+        int[] playerSkillID = { 100012, 100016, 100020 };
+        m_Options.Add(GameManager.EOptionType.Skill, skillOption);
+        m_Options.Add(GameManager.EOptionType.Equip, equipOption);
+        m_Options.Add(GameManager.EOptionType.Training, trainingOption);
+        GameStart(playerSkillID);
         // 오류 저장용 
-        SetDatabase();
     }
     
     private void Update()
@@ -55,6 +56,11 @@ public class GameManagerJiHun : MonoBehaviour
         {
             CreateChoices();
         }
+    }
+
+    public void GameStart(int[] playerSkillID)
+    {
+        SetDatabase();
     }
 
     void SetDatabase()
@@ -80,39 +86,32 @@ public class GameManagerJiHun : MonoBehaviour
     }
     
     #region 랜덤 선택지 뽑는 코드
-
-    public ScriptableObject buffData;
+    
     private void CreateChoices()
     {
         for (int i = 0; i < choiceCount; i++)
         {
-            EOptionType choicedOption = GetOptionType();
+            GameManager.EOptionType choicedOption = GetOptionType();
             if (m_Options.TryGetValue(choicedOption, out ScriptableObject option))
             {
                 switch (choicedOption)
                 {
-                    case EOptionType.Skill:
+                    case GameManager.EOptionType.Skill:
                         var skill = option as OptionChoice_SkillOption;
                         int skillID = GetSelectionID(skill);
                         optionButtons[i].selectID = skillID;
                         optionButtons[i].optionType = "Skill";
                         Debug.Log("Skill 선택지 띄움 SkillOption 번호 : " + skillID + "/" + i);
                         break;
-                    case EOptionType.Equip:
+                    case GameManager.EOptionType.Equip:
                         var equip = option as OptionChoice_EquipOption;
-                        
-                        buffData = equip;
-                        
                         int equipID = GetSelectionID(equip);
                         optionButtons[i].selectID = equipID;
                         optionButtons[i].optionType = "Equip";
                         Debug.Log("Equip 선택지 선택됨 EquipOption 번호: " + equipID + "/" + i);
                         break;
-                    case EOptionType.Training:
+                    case GameManager.EOptionType.Training:
                         var training = option as OptionChoice_TrainingOption;
-                        
-                        buffData = training;
-                        
                         int trainingID = GetSelectionID(training);
                         optionButtons[i].selectID = trainingID;
                         optionButtons[i].optionType = "Training";
@@ -128,9 +127,9 @@ public class GameManagerJiHun : MonoBehaviour
     }
 
     // 3종류 선택지 중에 어떤 선택지를 띄울지 랜덤 선택 (장비 , 스킬, 훈련)
-    EOptionType GetOptionType()
+    GameManager.EOptionType GetOptionType()
     {
-        EOptionType[] values = (EOptionType[])System.Enum.GetValues(typeof(EOptionType));
+        GameManager.EOptionType[] values = (GameManager.EOptionType[])System.Enum.GetValues(typeof(GameManager.EOptionType));
         int randomIndex = UnityEngine.Random.Range(0, values.Length);
         return values[randomIndex];
     }

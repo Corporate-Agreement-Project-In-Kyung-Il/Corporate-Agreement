@@ -8,12 +8,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     private static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int IsAttack = Animator.StringToHash("isAttack");
 
-    //IBuffSelection 요소로 이거는 GameManager로 보내서 PlayerDataReceiverJiHun에 수정할 수 있게 한다.
-    public PlayerStat buffplayerStat
-    {
-        get => playerStat;
-        set => playerStat = value;
-    }
+    //IBuffSelection 요소 
+    public PlayerStat buffplayerStat { get; }
     
     //IDamageAble 요소
     public Collider2D mainCollider => col;
@@ -32,7 +28,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     [SerializeField] private PlayerData data;
     private Collider2D col;
     private Rigidbody2D rigid;
-    public PlayerStat playerStat = new PlayerStat();
+    private PlayerStat playerStat = new PlayerStat();
     private Animator animator;
     private Weapon weapon;
         
@@ -204,20 +200,16 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
         {
             case character_class.전사 :
                 GameManagerJiHun.Instance.characterID[0] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[0] = buffplayerStat;
                 break;
             case character_class.궁수 :
                 GameManagerJiHun.Instance.characterID[1] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[1] = buffplayerStat;
                 break;
             case character_class.마법사 :
                 GameManagerJiHun.Instance.characterID[2] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[2] = buffplayerStat;
                 break;
         }
     }
-
-
+    
 }
 
 public enum CharacterState
