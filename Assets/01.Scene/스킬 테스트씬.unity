@@ -5167,8 +5167,18 @@ MonoBehaviour:
   - {x: 3.9999998, y: 10, z: 0}
   - {x: 3.9999998, y: -7, z: 0}
   m_ShapePathHash: 0
+<<<<<<< HEAD
   m_Mesh: {fileID: 1420816779}
   m_InstanceId: 69132
+=======
+<<<<<<< HEAD
+  m_Mesh: {fileID: 1861315296}
+  m_InstanceId: 31544
+=======
+  m_Mesh: {fileID: 630736101}
+  m_InstanceId: 28968
+>>>>>>> 4c2307f95a3773f68334adc0853588d6bfac9b70
+>>>>>>> Feature/LJN
   m_LocalBounds:
     m_Center: {x: 0, y: 1.5, z: 0}
     m_Extent: {x: 3.9999998, y: 8.5, z: 0}
@@ -8562,6 +8572,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   Origin_skillObjects:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> Feature/LJN
   - {fileID: 11400000, guid: 862394ac6f9a08e41bf4961270814a9b, type: 2}
   - {fileID: 11400000, guid: f706b4408a614e647a6e0733fcdc5f1c, type: 2}
   - {fileID: 11400000, guid: 82a956103d63f3549aa4d6519c21fc49, type: 2}
@@ -8573,6 +8587,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1440924e63783b54a91a69fed6844451, type: 2}
   - {fileID: 11400000, guid: 6f9b667c932c60e4a9be050064b7377a, type: 2}
   skillObjects:
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 4c2307f95a3773f68334adc0853588d6bfac9b70
+>>>>>>> Feature/LJN
   - {fileID: 11400000, guid: 862394ac6f9a08e41bf4961270814a9b, type: 2}
   - {fileID: 11400000, guid: f706b4408a614e647a6e0733fcdc5f1c, type: 2}
   - {fileID: 11400000, guid: 82a956103d63f3549aa4d6519c21fc49, type: 2}
@@ -8583,6 +8602,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 410aaae6396ed6e449f263d2c83700a4, type: 2}
   - {fileID: 11400000, guid: 1440924e63783b54a91a69fed6844451, type: 2}
   - {fileID: 11400000, guid: 6f9b667c932c60e4a9be050064b7377a, type: 2}
+<<<<<<< HEAD
   skillOption: {fileID: 11400000, guid: 285384f425eae6d498af08bea9782029, type: 2}
   Selection_ID: 0
 --- !u!43 &1420816779
@@ -8750,6 +8770,16 @@ Mesh:
     offset: 0
     size: 0
     path: 
+=======
+<<<<<<< HEAD
+  skillOption: {fileID: 0}
+  Selection_ID: 0
+=======
+  skillObjects: []
+  skillOption: {fileID: 11400000, guid: 285384f425eae6d498af08bea9782029, type: 2}
+  Selection_ID: 620028
+>>>>>>> 4c2307f95a3773f68334adc0853588d6bfac9b70
+>>>>>>> Feature/LJN
 --- !u!1 &1469812132
 GameObject:
   m_ObjectHideFlags: 0
