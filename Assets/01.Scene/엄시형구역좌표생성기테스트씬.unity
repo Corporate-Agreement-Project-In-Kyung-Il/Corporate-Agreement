@@ -154,7 +154,8 @@ MonoBehaviour:
   mPointPrefab: {fileID: 5060137937089105653, guid: dbc6094a052d115458e4e51f408d0eb0, type: 3}
   mTilemap: {fileID: 918218208}
   mMainCam: {fileID: 740000933}
-  mAreaPattern: {fileID: 11400000, guid: 0a12e2e6f2d712549855ebc88b895ef7, type: 2}
+  mAreaPatternDTOList: []
+  mPatternId: 1
 --- !u!4 &193129569
 Transform:
   m_ObjectHideFlags: 0

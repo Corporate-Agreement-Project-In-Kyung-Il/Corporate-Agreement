@@ -1,20 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using _03.Script.엄시형.Data;
-using _03.Script.엄시형.Data.V2;
-using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
-using CsvHelper;
-using CsvHelper.Configuration;
-using LitJson;
-using Unity.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Debug = UnityEngine.Debug;
 
@@ -33,9 +21,9 @@ namespace _03.Script.엄시형.Tool
         [SerializeField] private List<AreaPatternDTO> mAreaPatternDTOList = new List<AreaPatternDTO>();
         
         // TODO : Id에 따라 변하게
-        [SerializeField] private int mPatternId;
+        [SerializeField] private int mPatternId = 1;
+        private int mPrevId = 1;
         
-        // private readonly List<SpawnInfoDTO> mSpawnInfoList = new List<SpawnInfoDTO>();
         private readonly List<GameObject> mPointObjectList = new List<GameObject>();
         private readonly AreaPatternPersistenceManager mPersistenceManager = new AreaPatternPersistenceManager();
 
@@ -45,15 +33,24 @@ namespace _03.Script.엄시형.Tool
             Debug.Assert(mTilemap != null, "Tilemap이 빠졌습니다");
             Debug.Assert(mPointPrefab != null, "mPointPrefab이 빠졌습니다");
             Debug.Assert(mMainCam != null, "mMainCam이 빠졌습니다");
+            
+            
+            if (mPatternId != mPrevId)
+            {
+                Debug.Log("패턴 ID가 변경되었습니다: " + mPatternId);
+                // mPointObjectList.Clear();
+            }
+            
+            mPrevId = mPatternId;
         }
 
+        
+        
         private void Awake()
         {
             if (mPersistenceManager.TryReadFromJson(out mAreaPatternDTOList))
             {
-                // mPointObjectList.Clear();
-
-                foreach (var spawnInfo in mAreaPatternDTOList[0].MonsterSpawnInfoList)
+                foreach (var spawnInfo in mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList)
                 {
                     Vector2 worldPos = mTilemap.transform.TransformPoint(spawnInfo.Pos);
                     GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
@@ -67,18 +64,16 @@ namespace _03.Script.엄시형.Tool
             {
                 mAreaPatternDTOList.Add(new AreaPatternDTO());
             }
-            
-            // Debug.Assert(mAreaPatternDTOList.Count != 0, "mAreaPattern이 빠졌습니다");
         }
-
-        // Update is called once per frame
+        
         void Update()
         {
-            if (Input.GetMouseButtonDown(1))
+            // 포인트 오브젝트 배치
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 Vector2 worldPos = mMainCam.ScreenToWorldPoint(Input.mousePosition);
-            
                 Vector2 localPos = mTilemap.transform.InverseTransformPoint(worldPos);
+                
                 float diameter = mPointPrefab.transform.localScale.x;
                 
                 // Instantiate는 월드 좌표로 생성해 로컬좌표로 변경함
@@ -87,8 +82,7 @@ namespace _03.Script.엄시형.Tool
 
                 SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, diameter);
                 
-                mAreaPatternDTOList[mPatternId].MonsterSpawnInfoList.Add(spawnInfo);
-                // mSpawnInfoList.Add(spawnInfo);
+                mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Add(spawnInfo);
                 mPointObjectList.Add(point.gameObject);
             }
         }
@@ -97,14 +91,14 @@ namespace _03.Script.엄시형.Tool
         {
             if (GUI.Button(new Rect(10, 10, 100, 40), "저장"))
             {
-                mAreaPatternDTOList[mPatternId].MonsterSpawnInfoList.Clear();
+                mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Clear();
                 
                 foreach (var pointObj in mPointObjectList)
                 {
                     Vector2 localPos = mTilemap.transform.InverseTransformPoint(pointObj.transform.position);
                     
                     SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, pointObj.transform.localScale.x);
-                    mAreaPatternDTOList[mPatternId].MonsterSpawnInfoList.Add(spawnInfo);
+                    mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Add(spawnInfo);
                 }
                 
                 mPersistenceManager.WriteAsJSON(mAreaPatternDTOList);
