@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public OptionButton[] optionButtons; // UI 버튼 배열
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         SetIngameDatabase();
     }
-
+    
     void SetIngameDatabase()
     {
 #if UNITY_EDITOR
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < choiceCount; i++)
         {
-            RandomOptionToButton(optionButtons[i], baseRerollCount);
+            SetRandomOptionToButton(optionButtons[i], baseRerollCount);
         }
     }
 
@@ -98,15 +99,46 @@ public class GameManager : MonoBehaviour
         }
 
         optionButton.rerollCount--;
-        RandomOptionToButton(optionButton, optionButton.rerollCount); // 남은 횟수 유지
+        SetRandomOptionToButton(optionButton, optionButton.rerollCount); // 남은 횟수 유지
+    }
+    
+    private int GradeToInt(string grade)
+    {
+        return grade switch
+        {
+            "노말" => 1,
+            "레어" => 2,
+            "에픽" => 3,
+            "유니크" => 4,
+            "레전드" => 5,
+            "신화" => 6,
+            _ => 0 // 기본값
+        };
+    }
+
+    public ScriptableObject type;
+    public void UpgradeChoice(OptionButton optionButton) 
+    { 
+        type = GetOptionType(optionButton.optionType); 
+    }
+    
+    private ScriptableObject GetOptionType(EOptionType optionType)
+    {
+        return optionType switch
+        {
+            EOptionType.Skill => m_IngameSkillOption,
+            EOptionType.Equip => equipOption,
+            EOptionType.Training => trainingOption,
+            _ => null
+        };
     }
 
     /// <summary>
     /// 버튼에 랜덤 선택지 적용 (Skill / Equip / Training)
     /// </summary>
-    private void RandomOptionToButton(OptionButton button, int rerollCount)
+    private void SetRandomOptionToButton(OptionButton button, int rerollCount)
     {
-        EOptionType choicedOption = GetOptionType();
+        EOptionType choicedOption = GetRandomOptionType();
 
         if (!m_Options.TryGetValue(choicedOption, out ScriptableObject option))
         {
@@ -121,21 +153,21 @@ public class GameManager : MonoBehaviour
             case EOptionType.Skill:
                 var skill = option as OptionChoice_SkillOption;
                 button.selectID = GetSelectionID(skill);
-                button.optionType = "Skill";
+                button.optionType = EOptionType.Skill;
                 Debug.Log($"[Skill] 선택지: {button.selectID}");
                 break;
 
             case EOptionType.Equip:
                 var equip = option as OptionChoice_EquipOption;
                 button.selectID = GetSelectionID(equip);
-                button.optionType = "Equip";
+                button.optionType = EOptionType.Equip;
                 Debug.Log($"[Equip] 선택지: {button.selectID}");
                 break;
 
             case EOptionType.Training:
                 var training = option as OptionChoice_TrainingOption;
                 button.selectID = GetSelectionID(training);
-                button.optionType = "Training";
+                button.optionType = EOptionType.Training;
                 Debug.Log($"[Training] 선택지: {button.selectID}");
                 break;
         }
@@ -143,7 +175,7 @@ public class GameManager : MonoBehaviour
 
 
     // 3종류 선택지 중에 어떤 선택지를 띄울지 랜덤 선택 (장비 , 스킬, 훈련)
-    EOptionType GetOptionType()
+    EOptionType GetRandomOptionType()
     {
         EOptionType[] values = (EOptionType[])System.Enum.GetValues(typeof(EOptionType));
         int randomIndex = UnityEngine.Random.Range(0, values.Length);
@@ -171,3 +203,4 @@ public enum EOptionType
     Equip,
     Training
 }
+

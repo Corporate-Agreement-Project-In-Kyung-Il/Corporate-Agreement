@@ -18,20 +18,20 @@ public class OptionButton : MonoBehaviour
    UnityEvent m_TrainingOptionEvent;
 
    public int rerollCount;
-   public string optionType;
+   public EOptionType optionType;
    public int selectID;
    
    public void OnClick()
    {
       switch (optionType)
       {
-         case "Skill":
+         case EOptionType.Skill:
             m_SkillOptionEvent.Invoke();
             break;
-         case "Equip":
+         case EOptionType.Equip:
             m_EquipOptionEvent.Invoke();
             break;
-         case "Training":
+         case EOptionType.Training:
             m_TrainingOptionEvent.Invoke();
             break;
       }

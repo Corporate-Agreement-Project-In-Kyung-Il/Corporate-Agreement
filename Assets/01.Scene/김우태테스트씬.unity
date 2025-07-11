@@ -502,7 +502,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rerollCount: 0
-  optionType: 
+  optionType: 0
   selectID: 0
 --- !u!1 &386278386
 GameObject:
@@ -1543,7 +1543,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rerollCount: 0
-  optionType: 
+  optionType: 0
   selectID: 0
 --- !u!1 &913720775
 GameObject:
@@ -1746,7 +1746,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rerollCount: 0
-  optionType: 
+  optionType: 0
   selectID: 0
 --- !u!1 &1136168955
 GameObject:
@@ -2347,6 +2347,7 @@ MonoBehaviour:
   trainingOption: {fileID: 11400000, guid: 59a288d438933b64eb4929e1bd364ba0, type: 2}
   m_IngameSkillOption: {fileID: 0}
   characterSkillID: ab860100af860100b2860100ac860100b0860100b4860100
+  type: {fileID: 0}
 --- !u!1 &1580486702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,7 +2551,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1654985398}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1372559803}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: UpgradeChoice
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 976181302}
+          m_ObjectArgumentAssemblyTypeName: OptionButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1654985398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2684,7 +2697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1799502162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2699,16 +2712,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   skillObjects:
-  - {fileID: 11400000, guid: 1832d048d73901c4594bc5bf8a0aa216, type: 2}
-  - {fileID: 11400000, guid: 397501cda897ad64eabd691e8e24f41c, type: 2}
-  - {fileID: 11400000, guid: 27fd90555b9af354e825988cbda6feb3, type: 2}
-  - {fileID: 11400000, guid: 1289290f49b3a9247852e38e64202aab, type: 2}
-  - {fileID: 11400000, guid: ff0ee21de6aced54aa735af97ee0f3b9, type: 2}
-  - {fileID: 11400000, guid: cf02ebc5e6e1ac344a625ca16beb9a08, type: 2}
-  - {fileID: 11400000, guid: 16a0ae5e0564c4b4e97cd1362efd5b02, type: 2}
-  - {fileID: 11400000, guid: f4c5ccdbf405e0e43bba764547b8d653, type: 2}
-  - {fileID: 11400000, guid: 2f25bd0647141bb43a6dddc79f716bab, type: 2}
-  - {fileID: 11400000, guid: 3a6f29d9a30e9b84cbf6c02ee49bfeac, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillOption: {fileID: 0}
   Selection_ID: 0
 --- !u!4 &1799502163
 Transform:
