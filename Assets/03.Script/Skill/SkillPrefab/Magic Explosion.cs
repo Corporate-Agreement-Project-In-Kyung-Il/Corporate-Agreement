@@ -8,7 +8,6 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     //광역기 투사체
     public int SkillId;
     public int SkillID { get; set; }
-
     public void SetSkillID()
     {
         SkillID = SkillId;
@@ -50,6 +49,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
 
     public override void Initialize()
     {
+        SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;

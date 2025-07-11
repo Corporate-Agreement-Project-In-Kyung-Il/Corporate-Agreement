@@ -9,7 +9,6 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     public int SkillID { get; set; }
 
     public int attackCount;
-
     public void SetSkillID()
     {
         SkillID = SkillId;
@@ -38,6 +37,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 
     public override void Initialize()
     {
+        SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
