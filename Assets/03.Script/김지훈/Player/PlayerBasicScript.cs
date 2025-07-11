@@ -22,9 +22,10 @@ public interface ICameraPosition
 
 public interface IBuffSelection
 { 
-    public PlayerStat buffplayerStat { get; }
+    public PlayerStat buffplayerStat { get; set; }
 }
 
+[System.Serializable]
 public class PlayerStat
 {
     //내가 따로 넣어준 것들(지훈)
