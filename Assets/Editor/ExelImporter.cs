@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using UnityEditor;
@@ -66,7 +67,7 @@ public static class ExcelImporter
         float.TryParse(row[11]?.ToString(), out skill.Cooldown_Reduction);
         float.TryParse(row[12]?.ToString(), out skill.Damage_Increase);
 
-        string assetPath = $"Assets/00.Resources/DataBase/Resources/Skills/Active/{skill.Skill_Name}.asset";
+        string assetPath = $"Assets/00.Resources/DataBase/Skills/Active/{skill.Skill_Name}.asset";
         Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
         AssetDatabase.CreateAsset(skill, assetPath);
         AssetDatabase.SaveAssets();
@@ -84,8 +85,28 @@ public static class ExcelImporter
 
 public static void ImportBuffSkill(DataTable table)
 {
-    BuffListSO[] allBuffTypes = Resources.LoadAll<BuffListSO>("Skills/BuffList");
+    // var allBuffTypes_List = AssetDatabase.LoadAllAssetsAtPath(($"Assets/00.Resources/DataBase/Skills/Active/"));
+    //
+    //
+    // for (int i = 0; i < allBuffTypes_List.Length; i++)
+    // {
+    //     if (allBuffTypes_List[i] is BuffListSO buffListSO)
+    //     {
+    //         
+    //     }
+    // }
+    List<BuffListSO> allBuffTypes = new List<BuffListSO>();
+    string[] guids = AssetDatabase.FindAssets("t:BuffListSO", new[] { "Assets/00.Resources/DataBase/Skills/BuffList" });
 
+    foreach (string guid in guids)
+    {
+        string path = AssetDatabase.GUIDToAssetPath(guid);
+        var asset = AssetDatabase.LoadAssetAtPath<BuffListSO>(path);
+        if (asset != null)
+            allBuffTypes.Add(asset);
+    }
+
+    
     for (int i = 1; i < table.Rows.Count; i++)
     {
         var row = table.Rows[i];
@@ -140,7 +161,7 @@ public static void ImportBuffSkill(DataTable table)
             Debug.LogWarning($"[SkillSOGenerator] BuffType '{skill.Skill_Buff_Type}' → int 변환 실패 (i={i})");
         }
 
-        string assetPath = $"Assets/00.Resources/DataBase/Resources/Skills/Buff/{skill.Skill_Name}.asset";
+        string assetPath = $"Assets/00.Resources/DataBase/Skills/Buff/{skill.Skill_Name}.asset";
         Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
         AssetDatabase.CreateAsset(skill, assetPath);
         AssetDatabase.SaveAssets();
@@ -172,7 +193,7 @@ public static void ImportBuff(DataTable table)
         buff_list.SkillBuffTypeName = row[1]?.ToString();
         buff_list.Buff_Description = row[2]?.ToString();
 
-        string assetPath = $"Assets/00.Resources/DataBase/Resources/Skills/BuffList/{buff_list.SkillBuffTypeName}.asset";
+        string assetPath = $"Assets/00.Resources/DataBase/Skills/BuffList/{buff_list.SkillBuffTypeName}.asset";
         Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
         AssetDatabase.CreateAsset(buff_list, assetPath);
     }

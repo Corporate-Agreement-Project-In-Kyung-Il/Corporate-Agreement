@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f79a04dd51417498de54e9d211d321, type: 3}
+  m_Name: "WizardPlayerData\uB9C8\uBC95\uC0AC"
+  m_EditorClassIdentifier: 
+  attackRange: 4
+  moveSpeed: 5
+  character_ID: 100006
+  characterClass: 2
+  characterName: 5
+  characterGrade: 0
+  attackDamage: 1
+  health: 10000
+  attackSpeed: 0.5
+  criticalProbability: 0
+  training_type: 500003
+  equip_item: 400003
+  skill_possed: b2860100b3860100

@@ -20,6 +20,7 @@ public class OptionButton : MonoBehaviour
    public int rerollCount;
    public string optionType;
    public int selectID;
+   
    public void OnClick()
    {
       switch (optionType)

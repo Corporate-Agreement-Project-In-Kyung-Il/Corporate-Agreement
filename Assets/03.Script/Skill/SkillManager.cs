@@ -17,6 +17,8 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private Player_jin[] players;
     [SerializeField] private ScriptableObject[] skillObjects;
 
+    [SerializeField]
+    private OptionChoice_SkillOption skillOption;
     public int Selection_ID;// 여기다 스킬 선택했을때 넣어주시면 됩니다. 
     
     private ISkillID[] skills;
@@ -56,6 +58,16 @@ public class SkillManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("getkeydown Alpha1");
+            SkillEnchant();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SkillEnchant();
+        }
     }
 
     public void FindPlayers()
@@ -81,4 +93,49 @@ public class SkillManager : MonoBehaviour
             }
         }
     }
+
+    public void SkillEnchant()
+    {
+        var a = skillOption.GetValue(Selection_ID);
+    
+        Debug.Log($"Skill_ID: {a.Skill_ID}, Selection_Level: {a.Selection_Level}, Description: {a.Description}, " +
+                  $"Cooldown_Reduction: {a.Cooldown_Reduction}, Duration_Increase: {a.Duration_Increase}, " +
+                  $"Activation_Rate_Increase: {a.Activation_Rate_Increase}, Damage_Increase: {a.Damage_Increase}, " +
+                  $"Skill_LvUP: {a.Skill_LvUP}");
+        
+        foreach (var player in players)
+        {
+            for (int i = 0; i < player.skills.Length; i++)
+            {
+                if (player.data.skill_possed[i] == a.Skill_ID)
+                {
+                    if (skills[i] is ActiveSkillSO active)
+                    {
+                        active.Skill_current_LV+= a.Skill_LvUP;
+                        Debug.Log($"▶ {player.name}의 Skill {a.Skill_ID} 레벨이 {a.Skill_LvUP} 만큼 증가 → 현재 레벨: {active.Skill_current_LV}");
+                        active.Cooldown_Reduction-= a.Cooldown_Reduction;
+                        Debug.Log($"▶ {player.name}의 Skill {a.Skill_ID} 쿨타임이 {a.Cooldown_Reduction} 만큼 감소 → 현재 쿨타임: {active.Cooldown_Reduction}");
+                        active.Damage_Increase+= a.Damage_Increase;
+                        Debug.Log($"▶ {player.name}의 Skill {a.Skill_ID} 데미지가 {a.Damage_Increase} 만큼 증가 → 현재 데미지: {active.Damage_Increase}");
+                    }
+
+                    if (skills[i] is BuffSO buff)
+                    {
+                        buff.Skill_current_LV += a.Skill_LvUP;
+                        Debug.Log($"▶ {player.name}의 Skill {a.Skill_ID} 레벨이 {a.Skill_LvUP} 만큼 증가 → 현재 레벨: {buff.Skill_current_LV}");
+                        buff.Cooldown_Reduction -= a.Cooldown_Reduction;
+                        Debug.Log($"▶ {player.name}의 Skill {a.Skill_ID} 쿨타임이 {a.Cooldown_Reduction} 만큼 감소 → 현재 쿨타임: {buff.Cooldown_Reduction}");
+                        buff.Duration_Increase += a.Duration_Increase;
+                        Debug.Log($"▶ {player.name}의 Skill {a.Skill_ID} 지속시간이 {a.Duration_Increase} 만큼 증가 → 현재 지속시간: {buff.Duration_Increase}");
+                        buff.Activation_Rate_Increase += a.Activation_Rate_Increase;
+                        Debug.Log($"▶ {player.name}의 Skill {a.Skill_ID} 발동확률이 {a.Activation_Rate_Increase} 만큼 증가 → 현재 레벨: {buff.Activation_Rate_Increase}");
+                    }
+
+                   
+                }
+            }
+        }
+        
+    }
+
 }
