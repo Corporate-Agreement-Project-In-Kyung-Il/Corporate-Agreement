@@ -102,22 +102,52 @@ namespace _03.Script.엄시형.Tool
         
         void Update()
         {
-            // 포인트 오브젝트 배치
+            // 휠클릭 
+            if (Input.GetKeyDown(KeyCode.Mouse2))
+            {
+                Vector2 worldPos = mMainCam.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
+
+                foreach (var hit in hits)
+                {
+                    if (hit.collider.gameObject.name == "PointCircle(Clone)")
+                    {
+                        mPointObjectList.Remove(hit.collider.gameObject);
+                        Destroy(hit.collider.gameObject);
+                    }
+                }
+                
+                // Debug.Log(hit.collider.gameObject.name);
+                //
+                // if (hit && hit.collider.name == "PointCircle(Clone)")
+                // {
+                //     // mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Add(spawnInfo);
+                //     mPointObjectList.Remove(hit.collider.gameObject);
+                //     Destroy(hit.collider.gameObject);
+                // }
+            }
+
+            // 포인트 오브젝트 배치 우클릭
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 Vector2 worldPos = mMainCam.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 localPos = mTilemap.transform.InverseTransformPoint(worldPos);
-                
-                float diameter = mPointPrefab.transform.localScale.x;
-                
-                // Instantiate는 월드 좌표로 생성해 로컬좌표로 변경함
-                GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
-                point.transform.localPosition = localPos;
+                RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
 
-                SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, diameter);
+                if (hit && hit.collider.name == "Area")
+                {
+                    Vector2 localPos = mTilemap.transform.InverseTransformPoint(hit.point);
+                    
+                    float diameter = mPointPrefab.transform.localScale.x;
                 
-                mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Add(spawnInfo);
-                mPointObjectList.Add(point.gameObject);
+                    // Instantiate는 월드 좌표로 생성해 로컬좌표로 변경함
+                    GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
+                    point.transform.localPosition = localPos;
+
+                    SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, diameter);
+                
+                    mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Add(spawnInfo);
+                    mPointObjectList.Add(point.gameObject);
+                }
             }
         }
         
