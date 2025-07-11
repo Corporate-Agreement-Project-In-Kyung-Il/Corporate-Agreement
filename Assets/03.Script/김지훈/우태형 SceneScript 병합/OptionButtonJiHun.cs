@@ -12,7 +12,8 @@ public class OptionButtonJiHun : MonoBehaviour
 
     public string optionType;
     public int selectID;
-    public IBuffSelection[] buffSelections;
+
+    public BaseValue selectedData; // ✅ 선택된 데이터 저장
 
     public void OnClick()
     {

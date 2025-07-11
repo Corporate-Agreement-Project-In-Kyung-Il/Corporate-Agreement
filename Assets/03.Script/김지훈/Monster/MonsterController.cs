@@ -152,8 +152,7 @@ public class MonsterController : MonoBehaviour, IDamageAble
         {
             ChangeState(EnemyState.Die);
         }
-        
-       // Debug.Log($"{gameObject.name}이 피해 받음");
+        //Debug.Log($"{combatEvent.Sender}가 {gameObject.name}에게 피해 줌");
     }
     
     public void ChangeState(EnemyState newState)
@@ -173,7 +172,7 @@ public class MonsterController : MonoBehaviour, IDamageAble
         MonsterExistSystem.Instance.RemoveEnemyFromList(collider2D);
     }
 }
-
+[System.Serializable]
 public class MonsterStat
 {
     public float health;
