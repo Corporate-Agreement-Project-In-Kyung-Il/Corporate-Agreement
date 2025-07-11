@@ -24,12 +24,13 @@ namespace _03.Script.엄시형.Tool
         [SerializeField] private List<AreaPatternDTO> mAreaPatternDTOList = new List<AreaPatternDTO>();
         
         // TODO : Id에 따라 변하게
-        [Header("*** ID는 1부터 시작해야함 순차적으로 증가해야함 ***")]
         [SerializeField] private int mPatternId = 1;
         private int mPrevId = 1;
         
         private readonly List<GameObject> mPointObjectList = new List<GameObject>();
         private readonly AreaPatternPersistenceManager mPersistenceManager = new AreaPatternPersistenceManager();
+
+        
         
         [Conditional("UNITY_EDITOR")]
         private void OnValidate()
@@ -42,45 +43,39 @@ namespace _03.Script.엄시형.Tool
             {
                 Debug.Log("패턴 ID가 변경되었습니다: " + mPatternId);
 
-                ChangedPatternId();
+                if (mAreaPatternDTOList.Count < mPatternId)
+                {
+                    foreach (var pointObj in mPointObjectList)
+                    {
+                        Destroy(pointObj);
+                    }
+
+                    mPointObjectList.Clear();
+                    mAreaPatternDTOList.Add(new AreaPatternDTO(mPatternId));
+                }
+                else
+                {
+                    foreach (var pointObj in mPointObjectList)
+                    {
+                        Destroy(pointObj);
+                    }
+
+                    mPointObjectList.Clear();
+
+                    foreach (var spawnInfo in mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList)
+                    {
+                        Vector2 worldPos = mTilemap.transform.TransformPoint(spawnInfo.Pos);
+                        GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
+                        point.transform.position = worldPos;
+
+                        point.transform.localScale = Vector3.one * spawnInfo.Diameter;
+                        mPointObjectList.Add(point.gameObject);
+                    }
+                }
             }
                
             mPrevId = mPatternId;
         }
-        
-        private void ChangedPatternId()
-        {
-            if (mAreaPatternDTOList.Count < mPatternId)
-            {
-                foreach (var pointObj in mPointObjectList)
-                {
-                    Destroy(pointObj);
-                }
-
-                mPointObjectList.Clear();
-                mAreaPatternDTOList.Add(new AreaPatternDTO(mPatternId));
-            }
-            else
-            {
-                foreach (var pointObj in mPointObjectList)
-                {
-                    Destroy(pointObj);
-                }
-
-                mPointObjectList.Clear();
-
-                foreach (var spawnInfo in mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList)
-                {
-                    Vector2 worldPos = mTilemap.transform.TransformPoint(spawnInfo.Pos);
-                    GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
-                    point.transform.position = worldPos;
-
-                    point.transform.localScale = Vector3.one * spawnInfo.Diameter;
-                    mPointObjectList.Add(point.gameObject);
-                }
-            }
-        }
-        
         private void Awake()
         {
             if (mPersistenceManager.TryReadFromJson(out mAreaPatternDTOList))
@@ -143,7 +138,7 @@ namespace _03.Script.엄시형.Tool
                 mPersistenceManager.WriteAsJSON(mAreaPatternDTOList);
             }
             
-            if (GUI.Button(new Rect(btnWidth + margin, 10, btnWidth, btnHeight), "패턴 초기화"))
+            if (GUI.Button(new Rect(btnWidth + margin, 10, btnWidth, btnHeight), "현재 패턴 초기화"))
             {
                 foreach (var pointObj in mPointObjectList)
                 {
@@ -153,34 +148,15 @@ namespace _03.Script.엄시형.Tool
                 mPointObjectList.Clear();
             }
             
-            // if (GUI.Button(new Rect(btnWidth * 2 + margin, 10, btnWidth, btnHeight), "<<"))
-            // {
-            //     if (mPatternId > 1)
-            //     {
-            //         mPatternId--;
-            //     }
-            //     else
-            //     {
-            //         mPatternId = mAreaPatternDTOList.Last().PatternId;
-            //     }
-            //     
-            //     mPrevId = mPatternId;
-            //     ChangedPatternId();
-            // }
-            //
-            // if (GUI.Button(new Rect(btnWidth * 3 + margin, 10, btnWidth, btnHeight), ">>"))
-            // {
-            //     if (mPatternId < mAreaPatternDTOList.Last().PatternId)
-            //     {
-            //         mPatternId++;
-            //     }
-            //     else
-            //     {
-            //         mPatternId = 1;
-            //     }
-            //     
-            //     ChangedPatternId();
-            // }
+            if (GUI.Button(new Rect(btnWidth * 2 + margin, 10, btnWidth, btnHeight), "<<"))
+            {
+                
+            }
+            
+            if (GUI.Button(new Rect(btnWidth * 3 + margin, 10, btnWidth, btnHeight), ">>"))
+            {
+                
+            }
 
             GUIStyle labelStyle = new GUIStyle(GUI.skin.label);
             labelStyle.fontSize = 15;
