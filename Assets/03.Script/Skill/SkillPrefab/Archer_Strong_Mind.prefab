@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6217518115775983664}
   - component: {fileID: 1066744777820259538}
   m_Layer: 0
-  m_Name: Archer Strong Mind
+  m_Name: Archer_Strong_Mind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

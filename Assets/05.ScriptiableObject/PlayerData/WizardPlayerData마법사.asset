@@ -18,8 +18,8 @@ MonoBehaviour:
   characterClass: 2
   characterName: 5
   characterGrade: 0
-  attackDamage: 67
-  health: 88
+  attackDamage: 1
+  health: 10000
   attackSpeed: 0.5
   criticalProbability: 0
   training_type: 500003

@@ -24,7 +24,6 @@ public class ArrowWeapon_fusion : Weapon_fusion
         bullet.straightAttackRange = player.attackRange;
         
         bullet.gameObject.SetActive(true);
-        Debug.Log("아야");
         //----------------------
         return arrowShot.isTargetNotDead;
     }
