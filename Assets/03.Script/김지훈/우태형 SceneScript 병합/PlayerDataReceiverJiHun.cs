@@ -26,40 +26,27 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
         equipSelectionID = GameManagerJiHun.Instance.optionButtons[id].selectID;
 
         var selectedDataEquip = GameManagerJiHun.Instance.optionButtons[id].selectedData;
-       // var equipOption = GameManagerJiHun.Instance.buffData as OptionChoice_EquipOption;
-       // var equipData = equipOption?.GetValue(equipSelectionID);
-       
-       if (selectedDataEquip == null)
-       {
-           Debug.LogError($"[Training 선택지 에러] optionButtons[{id}].selectedData 가 null입니다.");
-           return;
-       }
-       
         var equipOption = selectedDataEquip as EquipOption;
         
-        if (equipOption == null)
-        {
-            Debug.LogError($"[Training 선택지 에러] selectedData는 TrainingOption 타입이 아닙니다.");
-            return;
-        }
         Debug.Log($"{equipOption.Equipment_LvUP}");
         Debug.Log($"{equipOption.Equipment_Type_ID}");
         Debug.Log($"{equipOption.Description}");
         Debug.Log($"{equipOption.Selection_Level}");
         Debug.Log($"{equipOption.Attack_LV_UP_Effect}");
         Debug.Log($"{equipOption.HP_LV_UP_Effect}");
-        //for (int i = 0; i < DependencyPlayerStat.Length; i++)
-        //{
-        //    Debug.Log($"{DependencyPlayerStat[i].equip_item} :::: {equipOption.Equipment_Type_ID}");
-        //    
-        //    if (DependencyPlayerStat[i].equip_item.Equals(equipOption.Equipment_Type_ID))
-        //    {
-        //        Debug.Log($"{equipOption.Description} :::::: {equipOption.Equipment_LvUP}");
-        //        DependencyPlayerStat[i].attackDamage += equipOption.Attack_LV_UP_Effect;
-        //        DependencyPlayerStat[i].health += equipOption.HP_LV_UP_Effect;
-        //        break;
-        //    }
-        //}
+        
+        for (int i = 0; i < DependencyPlayerStat.Length; i++)
+        {
+            Debug.Log($"{DependencyPlayerStat[i].equip_item} :::: {equipOption.Equipment_Type_ID}");
+            
+            if (DependencyPlayerStat[i].equip_item.Equals(equipOption.Equipment_Type_ID))
+            {
+                Debug.Log($"{equipOption.Description} :::::: {equipOption.Equipment_LvUP}");
+                DependencyPlayerStat[i].attackDamage += equipOption.Attack_LV_UP_Effect;
+                DependencyPlayerStat[i].health += equipOption.HP_LV_UP_Effect;
+                break;
+            }
+        }
         
         // HostStat = GameManagerJiHun.Instance.
     }
@@ -71,21 +58,7 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
         
         
         var selected = GameManagerJiHun.Instance.optionButtons[id].selectedData;
-        
-        
-        if (selected == null)
-        {
-            Debug.LogError($"[Training 선택지 에러] optionButtons[{id}].selectedData 가 null입니다.");
-            return;
-        }
-
         var trainingOption = selected as TrainingOption;
-        
-        if (trainingOption == null)
-        {
-            Debug.LogError($"[Training 선택지 에러] selectedData는 TrainingOption 타입이 아닙니다.");
-            return;
-        }
             
         Debug.Log($"{trainingOption.Training_LvUP}");
         Debug.Log($"{trainingOption.Selection_Level}");
@@ -95,23 +68,20 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
         Debug.Log($"{trainingOption.Critical_Rate_Increase}");
         Debug.Log($"{trainingOption.Training_ID}");
         
-        //var trainingOption = GameManagerJiHun.Instance.buffData as OptionChoice_TrainingOption; 
-        //var trainingData = trainingOption?.GetValue(trainingSelectionID);
-        
-        //for (int i = 0; i < DependencyPlayerStat.Length; i++)
-        //{
-        //    Debug.Log($"{DependencyPlayerStat[i].training_type} :::: {trainingOption.Training_ID}");
-        //    
-        //    if (DependencyPlayerStat[i].training_type.Equals(trainingOption.Training_ID))
-        //    {
-        //        Debug.Log($"{trainingOption.Description} :::::: {trainingOption.Training_LvUP}");
-        //        
-        //        DependencyPlayerStat[i].attackDamage += trainingOption.Critical_Damage_Increase;
-        //        DependencyPlayerStat[i].criticalProbability += trainingOption.Critical_Rate_Increase;
-        //        DependencyPlayerStat[i].attackSpeed += trainingOption.Attack_Speed_Increase;
-        //        break;
-        //    }
-        //}
+        for (int i = 0; i < DependencyPlayerStat.Length; i++)
+        {
+            Debug.Log($"{DependencyPlayerStat[i].training_type} :::: {trainingOption.Training_ID}");
+            
+            if (DependencyPlayerStat[i].training_type.Equals(trainingOption.Training_ID))
+            {
+                Debug.Log($"{trainingOption.Description} :::::: {trainingOption.Training_LvUP}");
+                
+                DependencyPlayerStat[i].attackDamage += trainingOption.Critical_Damage_Increase;
+                DependencyPlayerStat[i].criticalProbability += trainingOption.Critical_Rate_Increase;
+                DependencyPlayerStat[i].attackSpeed += trainingOption.Attack_Speed_Increase;
+                break;
+            }
+        }
     }
     
 }
