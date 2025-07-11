@@ -26,7 +26,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     [SerializeField] public PlayerData data;
     private Collider2D col;
     private Rigidbody2D rigid;
-    private PlayerStat playerStat = new PlayerStat();
+    public PlayerStat playerStat = new PlayerStat();
     private Animator animator;
     private Weapon_fusion weapon;
 
@@ -43,11 +43,11 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
     private float attackTimer = 0f;
     private float[] skillCooldownTimers = new float[2];
 
-    private Dictionary<BuffEffectType, bool> activeBuffs = new();
+    public Dictionary<BuffEffectType, bool> activeBuffs = new();
     private Dictionary<BuffEffectType, float> buffCooldownTimers = new();
 
-    private float shieldBlockChance = 0f;
-    private float damageReductionRate = 0f;
+    public float shieldBlockChance = 0f;
+    public float damageReductionRate = 0f;
 
     private void Awake()
     {
@@ -88,7 +88,37 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
                 activeScript.Initialize();
             }
         }
-        else if (skills[0] is BuffSO buff1) skillPrefab = buff1.SkillPrefab;
+        else if (skills[0] is BuffSO buff1)
+        {
+            skillPrefab = buff1.SkillPrefab;
+
+            if (skillPrefab != null)
+            {
+                MonoBehaviour[] scripts = skillPrefab.GetComponents<MonoBehaviour>();
+
+                // Transform 말고 다른 스크립트가 하나도 없을 경우
+                bool hasBuffScript = false;
+                foreach (var script in scripts)
+                {
+                    if (script is ISkillID)
+                    {
+                        hasBuffScript = true;
+                        break;
+                    }
+                }
+
+                if (!hasBuffScript)
+                {
+                    Debug.LogWarning($"❌ {skillPrefab.name} 안에 버프 스크립트(MonoBehaviour)가 없습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("❌ SkillPrefab 자체가 null입니다.");
+            }
+        }
+
+
 
         if (skills[1] is ActiveSkillSO skill2)
         {
@@ -204,6 +234,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
             cameraMove = false;
             ChangeState(CharacterState_jin.Die);
         }
+        Debug.Log($"{combatEvent.Sender}가 {gameObject.name}에게 피해 입힘.");
     }
 
     public void ChangeState(CharacterState_jin newState)
@@ -239,18 +270,45 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
 
         if (skills[index] is BuffSO buff)
         {
-            GameObject instance = null;
+            Debug.Log($"[버프] {buff.Skill_Name} 발동! 지속 시간: {buff.Skill_Duration}");
 
-            if (index == 0) instance = Instantiate(skillPrefab);
-            else if (index == 1) instance = Instantiate(skillPrefab2);
+            GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
 
-            TriggerBuff(buff);
-
-            // 버프 프리팹도 일정 시간 후 삭제
-            if (instance != null)
+            GameObject buffObj = Instantiate(
+                prefab,
+                transform.position,
+                Quaternion.identity,
+                transform // 플레이어에 붙여서 자동 제거되게
+            );
+            
+             //자동 스크립트 타입에 따라 연결
+             MonoBehaviour[] components = buffObj.GetComponents<MonoBehaviour>();
+            foreach (var comp in components)
             {
-                Debug.Log($"▶ {buff.Skill_Name} 프리팹 {buff.Skill_Duration}초 후 삭제 예정");
-                Destroy(instance, buff.Skill_Duration); // 지속시간만큼 기다렸다가 삭제
+                if (comp is ISkillID && comp is MonoBehaviour mono)
+                {
+                    // 공통 속성 할당 (리플렉션 없이 타입으로 확인)
+                    if (comp is Shield_Protection shield)
+                    {
+                        shield.Initialize(this, buff);
+                    }
+                    else if (comp is SteelShield steel)
+                    {
+                        steel.Initialize(this, buff);
+                    }
+                    else if (comp is ProjectileHit proj)
+                    {
+                        proj.Initialize(this, buff);
+                    }
+                    else if (comp is Archer_Strong_Mind archer)
+                    {
+                        archer.Initialize(this, buff);
+                    }
+                    else if (comp is WizardStrongMind wizard)
+                    {
+                        wizard.Initialize(this, buff);
+                    }
+                }
             }
         }
     }

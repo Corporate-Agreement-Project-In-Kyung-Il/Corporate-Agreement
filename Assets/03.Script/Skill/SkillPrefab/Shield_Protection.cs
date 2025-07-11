@@ -1,60 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shield_Protection : MonoBehaviour, ISkillID
 {
     public int SkillId;
     public int SkillID { get; set; }
+    public void SetSkillID() => SkillID = SkillId;
 
-    public float blockChance = 0.3f; // 30%
-    public float duration = 5f;
+    public Player_fusion owner;
+    public BuffSO buffSO;
 
-    private Player_fusion player;
+    private float duration;
+    private float timer;
+    private float activationRate;
+    private bool initialized = false;
 
-    public void SetSkillID()
+    public void Initialize(Player_fusion _owner, BuffSO _buff)
     {
-        SkillID = SkillId;
+        owner = _owner;
+        buffSO = _buff;
+
+        activationRate = buffSO.Skill_Activation_Rate + buffSO.Activation_Rate_Increase;
+        owner.shieldBlockChance += activationRate;
+
+        duration = buffSO.Skill_Duration + buffSO.Duration_Increase;
+        timer = 0f;
+        initialized = true;
+
+        Debug.Log($"🛡️ 방어 확률 버프 ON: {owner.shieldBlockChance}");
     }
 
-    void Start()
+    void Update()
     {
-        Debug.Log("start Shield_Protection");
+        if (!initialized) return;
 
-        player = FindObjectOfType<Player_fusion>();
-
-        if (player != null)
+        timer += Time.deltaTime;
+        if (timer >= duration)
         {
-            if (player.HasBuff(BuffEffectType.Shield_Protection))
-            {
-                Debug.Log("이미 Shield_Protection 버프 적용 중");
-                Destroy(gameObject);
-                return;
-            }
-
-            player.SetBuffState(BuffEffectType.Shield_Protection, true);
-            player.SetShieldBlockChance(blockChance);
-
-            StartCoroutine(RemoveBuffAfterDuration());
+            owner.shieldBlockChance -= activationRate;
+            Debug.Log($"🛡️ 방어 확률 버프 OFF: {owner.shieldBlockChance}");
+            Destroy(gameObject);
         }
-        else
-        {
-            Debug.LogWarning("Player_fusion 찾기 실패");
-        }
-    }
-
-    private IEnumerator RemoveBuffAfterDuration()
-    {
-        yield return new WaitForSeconds(duration);
-
-        if (player != null)
-        {
-            player.SetShieldBlockChance(0f);
-            player.SetBuffState(BuffEffectType.Shield_Protection, false);
-            Debug.Log("Shield_Protection 버프 종료");
-        }
-
-        Destroy(gameObject);
     }
 }
-
