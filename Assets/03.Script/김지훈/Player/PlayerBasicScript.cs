@@ -22,7 +22,7 @@ public interface ICameraPosition
 
 public interface IBuffSelection
 { 
-    public PlayerStat buffplayerStat { get; set; }
+    public PlayerStat buffplayerStat { get; }
 }
 
 [System.Serializable]
