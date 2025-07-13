@@ -9,7 +9,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     //단일 공격 3번때림 
     public int SkillId;
     public int SkillID { get; set; }
-    
+
 
     public void SetSkillID()
     {
@@ -18,6 +18,10 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     public int attackCount;
 
+    private void Awake()
+    {
+        Initialize();
+    }
     private void Start()
     {
         Debug.Log("start WarriorStrongMind");
@@ -33,16 +37,21 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     public void AttackTarget()
     {
         Debug.Log(stat.Attack_Count);//여기서 스탯이 0으로 초기화되네
-        
-        if (attackCount >= stat.Attack_Count) return;
+
+        if (attackCount >= stat.Attack_Count)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Debug.Log("전사의 강한의지 공격!");
+
         attackCount++;
     }
 
     public override void Initialize()
     {
         SetSkillID();
-        
+
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
@@ -52,7 +61,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
         {
             stat.Damage = skill2.Skill_Damage;
             stat.Attack_Count = skill2.Skill_Attack_Count;
-            Debug.Log(stat.Attack_Count);
+            Debug.Log(stat.Attack_Count);//여기는 잘되는데
         }
     }
 }

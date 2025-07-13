@@ -62,8 +62,8 @@ public static class ExcelImporter
         float.TryParse(row[6]?.ToString(), out skill.Skill_Damage);
         int.TryParse(row[7]?.ToString(), out skill.Skill_Attack_Count);
         bool.TryParse(row[8]?.ToString(), out skill.Wide_Area);
-        int.TryParse(row[9]?.ToString(), out skill.Skill_Range_width);
-        int.TryParse(row[10]?.ToString(), out skill.Skill_Range_height);
+        float.TryParse(row[9]?.ToString(), out skill.Skill_Range_width);
+        float.TryParse(row[10]?.ToString(), out skill.Skill_Range_height);
         float.TryParse(row[11]?.ToString(), out skill.Cooldown_Reduction);
         float.TryParse(row[12]?.ToString(), out skill.Damage_Increase);
 

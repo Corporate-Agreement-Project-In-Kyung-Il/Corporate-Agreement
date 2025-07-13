@@ -13,7 +13,10 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     {
         SkillID = SkillId;
     }
-
+    void Awake()
+    {
+        Initialize();
+    }
     void Start()
     {
         attackCount = 0;

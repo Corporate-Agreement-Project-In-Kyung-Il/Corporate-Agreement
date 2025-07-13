@@ -101,10 +101,13 @@ public class SkillManager_fusion : MonoBehaviour
                     {
                         active.Skill_current_LV+= a.Skill_LvUP;
                         Debug.Log($"▶ {player.name}의 Skill {active.SkillID} 레벨이 {a.Skill_LvUP} 만큼 증가 → 현재 레벨: {active.Skill_current_LV}");
+                     
                         active.Skill_Cooldown-= a.Cooldown_Reduction;
                         Debug.Log($"▶ {player.name}의 Skill {active.SkillID} 쿨타임이 {a.Cooldown_Reduction} 만큼 감소 → 현재 쿨타임: {active.Skill_Cooldown}");
+                        
                         active.Skill_Damage+= a.Damage_Increase;
                         Debug.Log($"▶ {player.name}의 Skill {active.SkillID} 데미지가 {a.Damage_Increase} 만큼 증가 → 현재 데미지: {active.Skill_Damage}");
+
                     }
 
                     if (player.skills[i] is BuffSO buff)

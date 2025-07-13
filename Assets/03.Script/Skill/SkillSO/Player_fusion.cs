@@ -84,7 +84,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
             if (skillPrefab.TryGetComponent(out ActiveSkillBase activeScript))
             {
                 activeScript.owner = this;
-                activeScript.Initialize();
+                //activeScript.Initialize();
             }
         }
         else if (skills[0] is BuffSO buff1)
@@ -125,7 +125,7 @@ public class Player_fusion : MonoBehaviour, IDamageAble, ICameraPosition, IBuffS
             if (skillPrefab2.TryGetComponent(out ActiveSkillBase activeScript))
             {
                 activeScript.owner = this;
-                activeScript.Initialize();
+               // activeScript.Initialize();
             }
         }
         else if (skills[1] is BuffSO buff2) skillPrefab2 = buff2.SkillPrefab;

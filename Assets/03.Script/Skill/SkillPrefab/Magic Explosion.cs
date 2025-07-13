@@ -16,10 +16,13 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     public float moveSpeed;
     private BoxCollider2D coll;
 
+    private void Awake()
+    {
+        Initialize();
+    }
     void Start()
     {
         Debug.Log("start MagicExplosion");
-        coll = GetComponent<BoxCollider2D>();
         coll.enabled = false;
     }
 
@@ -42,6 +45,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
+
         Debug.Log("마법폭발 공격!");
         Destroy(gameObject);
         //데미지입힘
@@ -49,16 +53,17 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
 
     public override void Initialize()
     {
+        coll = GetComponent<BoxCollider2D>();
         SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
-            //coll.size = new Vector2(stat.Range_width, stat.Range_height);
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
-           // coll.size = new Vector2(stat.Range_width, stat.Range_height);
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
     }
 }

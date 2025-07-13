@@ -15,15 +15,16 @@ public class AquaBall : ActiveSkillBase, ISkillID
 
     public float moveSpeed;
     private BoxCollider2D coll;
-
+    private void Awake()
+    {
+        Initialize();
+    }
     void Start()
     {
         Debug.Log("start AquaBall");
-        coll = GetComponent<BoxCollider2D>();
+
         coll.enabled = false;
     }
-
-
     void Update()
     {
         Vector2 dir = (owner.target.transform.position - transform.position).normalized;
@@ -42,6 +43,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
+
         Debug.Log("아쿠아볼 공격!");
         //데미지입힘
         Destroy(gameObject);
@@ -49,16 +51,17 @@ public class AquaBall : ActiveSkillBase, ISkillID
 
     public override void Initialize()
     {
+        coll = GetComponent<BoxCollider2D>();
         SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
-           // coll.size = new Vector2(stat.Range_width, stat.Range_height);
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
-            //coll.size = new Vector2(stat.Range_width, stat.Range_height);
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
     }
 }
