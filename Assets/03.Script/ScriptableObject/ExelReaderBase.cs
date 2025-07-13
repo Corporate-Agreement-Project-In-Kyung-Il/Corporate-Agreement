@@ -111,13 +111,7 @@ public class Character : BaseValue
     public int skill_possed2;
 }
 
-public interface IExelReaderBase
-{
-    IList GetRawData(); // object로 데이터를 추출
-}
-
-
-public abstract class ExelReaderBase<T> : ScriptableObject, IExelReaderBase where T : BaseValue, new()
+public abstract class ExelReaderBase<T> : ScriptableObject where T : BaseValue, new()
 {
     public List<IDValuePair<T>> data = new List<IDValuePair<T>>();
     

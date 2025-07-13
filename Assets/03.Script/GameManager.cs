@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 
 public class GameManager : MonoBehaviour
@@ -102,24 +103,66 @@ public class GameManager : MonoBehaviour
         SetRandomOptionToButton(optionButton, optionButton.rerollCount); // 남은 횟수 유지
     }
     
-    private int GradeToInt(string grade)
+    private int GradeToInt(MyEnum grade)
     {
         return grade switch
         {
-            "노말" => 1,
-            "레어" => 2,
-            "에픽" => 3,
-            "유니크" => 4,
-            "레전드" => 5,
-            "신화" => 6,
-            _ => 0 // 기본값
+            MyEnum.노말 => 1, 
+            MyEnum.레어=> 2,
+            MyEnum.에픽 => 3,
+            MyEnum.유니크 => 4,
+            MyEnum.레전드 => 5,
+            MyEnum.신화 => 6,
+            _ => 0
         };
     }
 
     public ScriptableObject type;
-    public void UpgradeChoice(OptionButton optionButton) 
-    { 
-        type = GetOptionType(optionButton.optionType); 
+    public void UpgradeChoice(OptionButton optionButton)
+    {
+        GetMatchedOptionData(optionButton);
+    }
+    
+    public void  GetMatchedOptionData(OptionButton optionButton)
+    {
+        type = GetOptionType(optionButton.optionType);
+
+        // 필드 접근
+        var dataField = type.GetType().GetField("data");
+
+        switch (optionButton.optionType)
+        {
+            case EOptionType.Skill :
+                var data = m_IngameSkillOption;
+                var value = data.GetValue(optionButton.selectID);
+                var s = value.Selection_Level;
+                HashSet<int> skillID = new HashSet<int>{ value.Skill_ID };
+        
+                // 2. 필터링 : Skill_ID를 기준으로 필터링
+                var filtered = m_IngameSkillOption.data
+                    .Where(pair => skillID.Contains(((SkillOption)pair.val).Skill_ID))
+                    .ToList();
+                var nextGrade = filtered
+                    .Where(v => v.val.Selection_Level > value.Selection_Level)
+                    .OrderBy(v => v.val.Selection_Level)
+                    .FirstOrDefault();
+                if (nextGrade != null)
+                {
+                    // 승급 가능
+                    optionButton.selectID = nextGrade.Key_ID;
+                    Debug.Log($"[Upgrade] {value.Selection_Level} → {nextGrade.val.Selection_Level}");
+                }
+                else
+                {
+                    // 더 높은 등급이 없음
+                    Debug.Log("이미 최고 등급입니다.");
+                }
+                break;
+            case EOptionType.Equip :
+                break;
+            case EOptionType.Training :
+                break;
+        }
     }
     
     private ScriptableObject GetOptionType(EOptionType optionType)
