@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyHpBarManager : MonoBehaviour
 {
-    public GameObject hpBarPrefab;
+    public EnemyHpBar enemyBar;
     public Canvas uiCanvas; //World Space로 설정된 Canvas
     public float barDisplayPosition;
     
@@ -43,15 +43,16 @@ public class EnemyHpBarManager : MonoBehaviour
                 // 없으면 생성
                 if (hpBars.ContainsKey(enemyTransform).Equals(false))
                 {
-                    GameObject bar = Instantiate(hpBarPrefab);
-                    bar.transform.SetParent(uiCanvas.transform, worldPositionStays: false);
-                    
-                    bar.transform.position = enemyTransform.position + Vector3.up * barDisplayPosition;
-                    bar.transform.localRotation = Quaternion.identity;
-                    
-                    bar.GetComponent<EnemyHpBar>().target = enemyTransform;
-                    
-                    hpBars[enemyTransform] = bar;
+                    EnemyHpBar EnemyHpDisplay = ObjectPoolSystem.Instance.GetObjectOrNull("HpBarDisplay") as EnemyHpBar;
+                    //var bar = Instantiate(enemyBar, enemyTransform.position + Vector3.up * barDisplayPosition, Quaternion.identity);
+                    //hpBar.transform.SetParent(uiCanvas.transform, worldPositionStays: false);
+                    EnemyHpDisplay.gameObject.SetActive(true);
+                    if (enemyTransform.gameObject.TryGetComponent(out MonsterController monster))
+                        EnemyHpDisplay.target = monster;
+                    hpBars[enemyTransform] = EnemyHpDisplay.gameObject;
+                    //bar.transform.position = enemyTransform.position + Vector3.up * barDisplayPosition;
+                    //bar.transform.localRotation = Quaternion.identity;
+
                 }
             }
             else
@@ -59,8 +60,10 @@ public class EnemyHpBarManager : MonoBehaviour
                 // 있으면 삭제
                 if (hpBars.ContainsKey(enemyTransform))
                 {
+                    
                     Destroy(hpBars[enemyTransform]);
                     hpBars.Remove(enemyTransform);
+                    
                 }
             }
         }

@@ -4255,7 +4255,7 @@ RectTransform:
   m_GameObject: {fileID: 868349418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.2, y: 3.2, z: 3.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1893633365}
@@ -4277,9 +4277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c73c5c51089e054498f91ab3d322c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpBarPrefab: {fileID: 522975138877312362, guid: c1108dcebcaca684290a53daa19815d1, type: 3}
+  enemyBar: {fileID: 6971478168102752326, guid: c1108dcebcaca684290a53daa19815d1, type: 3}
   uiCanvas: {fileID: 1893633364}
-  barDisplayPosition: 0
+  barDisplayPosition: 0.4
 --- !u!1 &899681628
 GameObject:
   m_ObjectHideFlags: 0
@@ -7528,6 +7528,10 @@ MonoBehaviour:
     Prefab: {fileID: 3658221399565947346, guid: 96cb839f2e1eb1647aee876fd7fa0a9d, type: 3}
     ExpandSize: 7
     parent: {fileID: 0}
+  - Key: HpBarDisplay
+    Prefab: {fileID: 522975138877312362, guid: c1108dcebcaca684290a53daa19815d1, type: 3}
+    ExpandSize: 20
+    parent: {fileID: 868349419}
 --- !u!4 &1912501535
 Transform:
   m_ObjectHideFlags: 0

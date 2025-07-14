@@ -147,6 +147,7 @@ public class MonsterController : BaseMonster, IDamageAble
     public void TakeDamage(CombatEvent combatEvent)
     {
         monsterStat.health -= combatEvent.Damage;
+        DamgeEvent.OnTriggerMonsterDamageEvent(this);   
         
         if (monsterStat.health <= 0)
         {
