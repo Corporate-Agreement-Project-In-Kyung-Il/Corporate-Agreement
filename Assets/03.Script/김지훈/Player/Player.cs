@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelection
 {
@@ -55,6 +56,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
         
         playerStat.health = data.health;
         playerStat.moveSpeed = data.moveSpeed;
+        playerStat.isDead = data.isDead;
         
         playerStat.character_ID = data.character_ID;
         
@@ -128,6 +130,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     
     private void performDie()
     {
+        data.isDead = true;
         gameObject.SetActive(false);
     }
 
