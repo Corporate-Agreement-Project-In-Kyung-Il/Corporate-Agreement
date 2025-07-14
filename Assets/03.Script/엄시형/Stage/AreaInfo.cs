@@ -19,7 +19,7 @@ namespace _03.Script.엄시형.Data.V1
     
         [Header("몬스터 스폰지점")]
         [SerializeField] private AreaPattern mAreaPattern;
-
+        
         private bool mbIsBossStage;
     }
 }

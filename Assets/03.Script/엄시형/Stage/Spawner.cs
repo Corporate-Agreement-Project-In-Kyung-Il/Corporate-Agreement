@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour
     [Conditional("UNITY_EDITOR")]
     private void OnValidate()
     {
-        Debug.Assert(mAreaList.Count != 0, "mAreaList 요소가 0 인스펙터 확인");
+        // Debug.Assert(mAreaList.Count != 0, "mAreaList 요소가 0 인스펙터 확인");
         Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
         Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
     }

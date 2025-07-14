@@ -8,6 +8,7 @@ namespace _03.Script.엄시형.Data.V2
     [CreateAssetMenu(fileName = "AreaInfoSO", menuName = "SO/Stage/AreaInfoSO", order = 1)]
     public class AreaInfoSO : ScriptableObject
     {
+        public int AreaId;
         // public bool bIsBossStage =>  mbIsBossStage;
         public int MonsterCount => SpawnInfoList.Count;
         // public List<MonsterType> SpawnMonsterTypeList => mSpawnMonsterTypeList;

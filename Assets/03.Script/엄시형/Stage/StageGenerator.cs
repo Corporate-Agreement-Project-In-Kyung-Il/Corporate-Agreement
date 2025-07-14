@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,13 +12,9 @@ using Debug = UnityEngine.Debug;
 public class AutoMapGenerator : MonoBehaviour
 {
     // [SerializeField] private Tilemap m_CurTilemap;
+    // TODO : Tilemap을 여러개 넣어서 순차적으로 생성하는 기능 추가
     [SerializeField] private List<Tilemap> m_TilemapList;
-    
-    
-    /// <summary>
-    /// int: Spawn
-    /// </summary>
-    private Dictionary<int, List<AreaPattern>> m_AreaPatterns;
+    [SerializeField] private AreaInfoTableSO m_AreaInfoTable;
     [SerializeField] private GameObject m_Grid;  
     // [SerializeField] private TilemapRenderer m_CurTilemapRenderer;
     // [SerializeField] private int mTileCount = 10;
@@ -27,6 +24,7 @@ public class AutoMapGenerator : MonoBehaviour
     private void OnValidate()
     {
         Debug.Assert(m_Grid != null, "m_Grid 컴포넌트를 넣어주세요");
+        // Debug.Log(m_AreaInfoTable.GetInfoOrNull(10001));
         // Debug.Assert(m_TilemapList.Count <= 0, "m_TilemapList가 없음 컴포넌트를 넣어주세요");
     }
 
