@@ -16,6 +16,8 @@ using Random = UnityEngine.Random;
 // [CreateAssetMenu(fileName = "Spawner", menuName = "SO/Stage/Spawner", order = 1)]
 public class Spawner : MonoBehaviour
 {
+    public static Spawner Instance { get; private set; }
+    
     [SerializeField] private MonsterTableSO mMonsterTable;
     
     [Header("스테이지 정보")]
@@ -44,27 +46,36 @@ public class Spawner : MonoBehaviour
 
     void Awake()
     {
-        SpawnAllMonstersInStage(mStageInfo);
+        Instance = this;
+        
+        SpawnAllMonstersInStage();
     }
+    
+    // private Player SpawnPlayer(Vector2 position, character_class characterClass)
+    // {
+    //     return Instantiate(mMonsterTable.GetMonster(type)
+    //         , position
+    //         , Quaternion.identity);
+    // }
     
     private BaseMonster SpawnMonster(Vector2 position, MonsterType type)
     {
        return Instantiate(mMonsterTable.GetMonster(type), position, Quaternion.identity);
     }
     
-    public void SpawnAllMonstersInStage(StageInfoSo stageInfo)
+    public void SpawnAllMonstersInStage()
     {
-        Debug.Assert(stageInfo != null, "널 들어옴");
+        Debug.Assert(mStageInfo != null, "널 들어옴");
         
-        int monsterTypeLength = stageInfo.SpawnMonsterTypeList.Count;
+        int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;
         
-        for (int i = 0; i < stageInfo.AreaInfoList.Count; i++)
+        for (int i = 0; i < mStageInfo.AreaInfoList.Count; i++)
         {
-            AreaInfoSO areaInfo = stageInfo.AreaInfoList[i];
+            AreaInfoSO areaInfo = mStageInfo.AreaInfoList[i];
             
             for (int x = 0; x < areaInfo.MonsterCount; x++)
             {
-                MonsterType type = stageInfo.SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
+                MonsterType type = mStageInfo.SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
                 
                 SpawnMonsterInRange(
                     areaInfo.SpawnInfoList[x]
@@ -74,13 +85,22 @@ public class Spawner : MonoBehaviour
         }
     }
     
-    // TODO : 추후 수정해야함
-    private void SetPositionStartPoint(Player character)
+    /// <summary>
+    /// 플레이어 캐릭터의 시작 위치를 설정합니다.
+    /// **Instantiate하는게 아님**.
+    /// </summary>
+    /// <param name="character"></param>
+    public void SetPositionStartPoint(Player character)
     {
-        // switch (character.type)
-        // {
-        //     
-        // }
+        if (mPlayerSpawnPointDic.TryGetValue(character.playerStat.characterClass
+                , out var spawnPos))
+        {
+            character.transform.position = spawnPos;
+        }
+        else
+        {
+            Debug.Log("캐릭터 클래스에 맞는 스폰 위치가 없습니다.");
+        }
     }
 
     /// <summary>
@@ -89,7 +109,7 @@ public class Spawner : MonoBehaviour
     /// <param name="type"> 몬스터 종류(MonsterType) </param>
     /// <param name="parent"> 구역(Area) </param>
     /// <returns> 스폰 몬스터 </returns>
-    private BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
+    public BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
     {
         Vector2 randomOffset = Random.insideUnitCircle * spawnInfo.Radius;
         Vector2 spawnPos = spawnInfo.Point + randomOffset;
