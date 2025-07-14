@@ -123,6 +123,7 @@ public class ArrowShot_fusion : MonoBehaviour, IObjectPoolItem
             combatEvent.Sender = player;
             combatEvent.Damage = arrowDamage;
             combatEvent.collider = other;
+            CombatSystem.instance.AddCombatEvent(combatEvent);
 
             ReturnToPool();
             

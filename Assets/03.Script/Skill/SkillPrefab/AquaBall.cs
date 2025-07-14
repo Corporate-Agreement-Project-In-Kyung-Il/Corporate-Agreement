@@ -8,7 +8,6 @@ public class AquaBall : ActiveSkillBase, ISkillID
     //광역기 투사체, 적 추적후 터짐
     public int SkillId;
     public int SkillID { get; set; }
-
     public void SetSkillID()
     {
         SkillID = SkillId;
@@ -16,15 +15,16 @@ public class AquaBall : ActiveSkillBase, ISkillID
 
     public float moveSpeed;
     private BoxCollider2D coll;
-
+    private void Awake()
+    {
+        Initialize();
+    }
     void Start()
     {
         Debug.Log("start AquaBall");
-        coll = GetComponent<BoxCollider2D>();
+
         coll.enabled = false;
     }
-
-
     void Update()
     {
         Vector2 dir = (owner.target.transform.position - transform.position).normalized;
@@ -43,6 +43,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
+
         Debug.Log("아쿠아볼 공격!");
         //데미지입힘
         Destroy(gameObject);
@@ -50,6 +51,8 @@ public class AquaBall : ActiveSkillBase, ISkillID
 
     public override void Initialize()
     {
+        coll = GetComponent<BoxCollider2D>();
+        SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;

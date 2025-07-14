@@ -8,26 +8,24 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
     //광역기 한번때림
     public int SkillId;
     public int SkillID { get; set; }
-
     public void SetSkillID()
     {
         SkillID = SkillId;
     }
 
-    public BoxCollider2D collider;
-
-    public HugeFootPrint()
+    public BoxCollider2D coll;
+    private void Awake()
     {
-        
+        Initialize();
     }
-
     private void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
+        transform.position=owner.target.transform.position;
     }
 
     void Update()
     {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -42,15 +40,17 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
     public override void Initialize()
     {
+        coll = GetComponent<BoxCollider2D>();
+        SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
-            collider.size = new Vector2(stat.Range_width, stat.Range_height);
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
-            collider.size = new Vector2(stat.Range_width, stat.Range_height);
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
     }
 }

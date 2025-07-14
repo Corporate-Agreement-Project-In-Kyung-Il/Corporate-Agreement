@@ -1,54 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Archer_Strong_Mind : MonoBehaviour, ISkillID
 {
     public int SkillId;
     public int SkillID { get; set; }
-    public float duration = 2f;
+    public void SetSkillID() => SkillID = SkillId;
 
-    private Player_fusion player;
+    public Player_fusion owner;
+    public BuffSO buffSO;
 
-    public void SetSkillID()
+    private float duration;
+    private float timer;
+    private bool initialized = false;
+
+    public void Initialize(Player_fusion _owner, BuffSO _buff)
     {
-        SkillID = SkillId;
+        owner = _owner;
+        buffSO = _buff;
+
+        owner.SetBuffState(BuffEffectType.Archer_Strong_Mind, true);
+
+        duration = buffSO.Skill_Duration + buffSO.Duration_Increase;
+        timer = 0f;
+        initialized = true;
+
+        Debug.Log("🏹 아처 스트롱 마인드 ON");
     }
 
-    void Start()
+    void Update()
     {
-        Debug.Log("start ArcherStrongMind");
+        if (!initialized) return;
 
-        player = FindObjectOfType<Player_fusion>();
-
-        if (player != null)
+        timer += Time.deltaTime;
+        if (timer >= duration)
         {
-            if (player.HasBuff(BuffEffectType.Archer_Strong_Mind))
-            {
-                Debug.Log("이미 Archer_Strong_Mind 버프가 적용되어 있음. 중복 적용 안함.");
-                Destroy(gameObject);
-                return;
-            }
-
-            player.SetBuffState(BuffEffectType.Archer_Strong_Mind, true);
-            StartCoroutine(RemoveBuffAfterDuration());
+            owner.SetBuffState(BuffEffectType.Archer_Strong_Mind, false);
+            Debug.Log("🏹 아처 스트롱 마인드 OFF");
+            Destroy(gameObject);
         }
-        else
-        {
-            Debug.LogWarning("[ArcherStrongMind] Player_fusion 찾기 실패");
-        }
-    }
-
-    private IEnumerator RemoveBuffAfterDuration()
-    {
-        yield return new WaitForSeconds(duration);
-
-        if (player != null)
-        {
-            player.SetBuffState(BuffEffectType.Archer_Strong_Mind, false);
-            Debug.Log("Archer_Strong_Mind 버프 종료");
-        }
-
-        Destroy(gameObject);
     }
 }

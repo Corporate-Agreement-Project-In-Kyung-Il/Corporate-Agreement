@@ -31,5 +31,4 @@ public abstract class ActiveSkillBase : MonoBehaviour
     }
 
     public abstract void Initialize();
-
 }
