@@ -22,21 +22,28 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
     
     public void SetEquipSelectionID(int id)
     {
+        GameManagerJiHun.Instance.isButtonActivePrepare = false;
         equipSelectionID = GameManagerJiHun.Instance.optionButtons[id].selectID;
 
-        var equipOption = GameManagerJiHun.Instance.buffData as OptionChoice_EquipOption;
-        var equipData = equipOption?.GetValue(equipSelectionID);
-
-
+        var selectedDataEquip = GameManagerJiHun.Instance.optionButtons[id].selectedData;
+        var equipOption = selectedDataEquip as EquipOption;
+        
+        Debug.Log($"{equipOption.Equipment_LvUP}");
+        Debug.Log($"{equipOption.Equipment_Type_ID}");
+        Debug.Log($"{equipOption.Description}");
+        Debug.Log($"{equipOption.Selection_Level}");
+        Debug.Log($"{equipOption.Attack_LV_UP_Effect}");
+        Debug.Log($"{equipOption.HP_LV_UP_Effect}");
+        
         for (int i = 0; i < DependencyPlayerStat.Length; i++)
         {
-            Debug.Log($"{DependencyPlayerStat[i].equip_item} :::: {equipData.Equipment_Type_ID}");
+            Debug.Log($"{DependencyPlayerStat[i].equip_item} :::: {equipOption.Equipment_Type_ID}");
             
-            if (DependencyPlayerStat[i].equip_item.Equals(equipData.Equipment_Type_ID))
+            if (DependencyPlayerStat[i].equip_item.Equals(equipOption.Equipment_Type_ID))
             {
-                Debug.Log($"{equipData.Description} :::::: {equipData.Equipment_LvUP}");
-                DependencyPlayerStat[i].attackDamage += equipData.Attack_LV_UP_Effect;
-                DependencyPlayerStat[i].health += equipData.HP_LV_UP_Effect;
+                Debug.Log($"{equipOption.Description} :::::: {equipOption.Equipment_LvUP}");
+                DependencyPlayerStat[i].attackDamage += equipOption.Attack_LV_UP_Effect;
+                DependencyPlayerStat[i].health += equipOption.HP_LV_UP_Effect;
                 break;
             }
         }
@@ -46,22 +53,32 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
     
     public void SetTrainingSelectionID(int id)
     {
+        GameManagerJiHun.Instance.isButtonActivePrepare = false;
         trainingSelectionID = GameManagerJiHun.Instance.optionButtons[id].selectID;
         
-        var trainingOption = GameManagerJiHun.Instance.buffData as OptionChoice_TrainingOption; 
-        var trainingData = trainingOption?.GetValue(trainingSelectionID);
+        
+        var selected = GameManagerJiHun.Instance.optionButtons[id].selectedData;
+        var trainingOption = selected as TrainingOption;
+            
+        Debug.Log($"{trainingOption.Training_LvUP}");
+        Debug.Log($"{trainingOption.Selection_Level}");
+        Debug.Log($"{trainingOption.Description}");
+        Debug.Log($"{trainingOption.Attack_Speed_Increase}");
+        Debug.Log($"{trainingOption.Critical_Damage_Increase}");
+        Debug.Log($"{trainingOption.Critical_Rate_Increase}");
+        Debug.Log($"{trainingOption.Training_ID}");
         
         for (int i = 0; i < DependencyPlayerStat.Length; i++)
         {
-            Debug.Log($"{DependencyPlayerStat[i].training_type} :::: {trainingData.Training_ID}");
+            Debug.Log($"{DependencyPlayerStat[i].training_type} :::: {trainingOption.Training_ID}");
             
-            if (DependencyPlayerStat[i].training_type.Equals(trainingData.Training_ID))
+            if (DependencyPlayerStat[i].training_type.Equals(trainingOption.Training_ID))
             {
-                Debug.Log($"{trainingData.Description} :::::: {trainingData.Training_LvUP}");
+                Debug.Log($"{trainingOption.Description} :::::: {trainingOption.Training_LvUP}");
                 
-                DependencyPlayerStat[i].attackDamage += trainingData.Critical_Damage_Increase;
-                DependencyPlayerStat[i].criticalProbability += trainingData.Critical_Rate_Increase;
-                DependencyPlayerStat[i].attackSpeed += trainingData.Attack_Speed_Increase;
+                DependencyPlayerStat[i].attackDamage += trainingOption.Critical_Damage_Increase;
+                DependencyPlayerStat[i].criticalProbability += trainingOption.Critical_Rate_Increase;
+                DependencyPlayerStat[i].attackSpeed += trainingOption.Attack_Speed_Increase;
                 break;
             }
         }

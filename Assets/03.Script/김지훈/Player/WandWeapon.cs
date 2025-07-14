@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WandWeapon : Weapon_fusion
+public class WandWeapon : Weapon
 {
     public MagicBall magicBall;
     
@@ -15,7 +15,7 @@ public class WandWeapon : Weapon_fusion
         
 
         //var bullet = Instantiate(magicBall, transform.position, Quaternion.identity);
-        MagicBall_fusion bullet = ObjectPoolSystem.Instance.GetObjectOrNull("MagicBall") as MagicBall_fusion;
+        MagicBall bullet = ObjectPoolSystem.Instance.GetObjectOrNull("MagicBall") as MagicBall;
         
         bullet.transform.position = transform.position;
         bullet.magicDamage = player.Damage;

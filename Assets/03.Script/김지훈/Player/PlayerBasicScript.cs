@@ -32,6 +32,7 @@ public class PlayerStat
     public float attackRange;
     public float moveSpeed;
     public Vector2 detectionRange;
+    public bool isDead;
     
     //기존 기획 Table에 있는 것들
     public int character_ID;

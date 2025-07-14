@@ -8,7 +8,7 @@ public class PlayerData : ScriptableObject
     //따로 내가 추가한 변수(지훈)
     public float attackRange; // 공격 범위
     public float moveSpeed; //기본 이동 속도
-    
+    public bool isDead = false;   
     //기존 기획 테이블에 있는 것들
     public int character_ID;
 

@@ -123,9 +123,10 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             combatEvent.Sender = player;
             combatEvent.Damage = arrowDamage;
             combatEvent.collider = other;
-
-            ReturnToPool();
+            CombatSystem.instance.AddCombatEvent(combatEvent);
             
+            ReturnToPool();
+
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))
             {
                 isTargetNotDead = false;
@@ -133,7 +134,6 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             }
             isTargetNotDead = true;
         }
-
     }
 
 }
