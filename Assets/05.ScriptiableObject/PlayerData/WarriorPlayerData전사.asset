@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f79a04dd51417498de54e9d211d321, type: 3}
   m_Name: "WarriorPlayerData\uC804\uC0AC"
   m_EditorClassIdentifier: 
-  attackRange: 10000
+  attackRange: 1
   moveSpeed: 20
   isDead: 0
   character_ID: 100001

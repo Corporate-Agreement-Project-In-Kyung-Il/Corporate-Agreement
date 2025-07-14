@@ -8,24 +8,26 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
     //광역기 한번때림
     public int SkillId;
     public int SkillID { get; set; }
+
     public void SetSkillID()
     {
         SkillID = SkillId;
     }
 
     public BoxCollider2D coll;
+
     private void Awake()
     {
         Initialize();
     }
+
     private void Start()
     {
-        transform.position=owner.target.transform.position;
     }
 
     void Update()
     {
-        
+        transform.position = owner.target.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,6 +37,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
         Debug.Log("거대한 발자국 공격!");
         //데미지입힘
+        
         Destroy(gameObject);
     }
 
@@ -45,11 +48,17 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
+            stat.Range_height = skill.Skill_Range_height;
+            stat.Range_width = skill.Skill_Range_width;
+            
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
+            stat.Range_height = skill2.Skill_Range_height;
+            stat.Range_width = skill2.Skill_Range_width;
+            
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
     }

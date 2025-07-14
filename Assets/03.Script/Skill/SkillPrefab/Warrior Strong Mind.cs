@@ -22,9 +22,9 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     {
         Initialize();
     }
+
     private void Start()
     {
-        Debug.Log("start WarriorStrongMind");
         attackCount = 0;
         AttackTarget();
     }
@@ -36,16 +36,17 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     public void AttackTarget()
     {
-        Debug.Log(stat.Attack_Count);//여기서 스탯이 0으로 초기화되네
-
         if (attackCount >= stat.Attack_Count)
         {
             Destroy(gameObject);
             return;
         }
-        Debug.Log("전사의 강한의지 공격!");
-
-        attackCount++;
+        else
+        {
+            Debug.Log("전사의 강한의지 공격!");
+            attackCount++;
+            AttackTarget();
+        }
     }
 
     public override void Initialize()
@@ -61,7 +62,6 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
         {
             stat.Damage = skill2.Skill_Damage;
             stat.Attack_Count = skill2.Skill_Attack_Count;
-            Debug.Log(stat.Attack_Count);//여기는 잘되는데
         }
     }
 }

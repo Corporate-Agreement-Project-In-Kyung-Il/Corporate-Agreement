@@ -24,18 +24,19 @@ public class BeastClaw : ActiveSkillBase, ISkillID
         AttackTarget();
     }
 
-    private void AttackTarget()
+    public void AttackTarget()
     {
-        if (attackCount >= stat.Attack_Count || owner.target == null)
+        if (attackCount >= stat.Attack_Count)
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
-
-        //owner.target에게 데미지를 입힘 (플레이어 합치고 추가)
-        Debug.Log("발톱 공격!");
-        attackCount++;
-        AttackTarget();
+        else
+        {
+            Debug.Log("전사의 강한의지 공격!");
+            attackCount++;
+            AttackTarget();
+        }
     }
 
     public override void Initialize()

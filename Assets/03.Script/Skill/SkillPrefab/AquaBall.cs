@@ -21,8 +21,6 @@ public class AquaBall : ActiveSkillBase, ISkillID
     }
     void Start()
     {
-        Debug.Log("start AquaBall");
-
         coll.enabled = false;
     }
     void Update()
@@ -45,6 +43,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
 
 
         Debug.Log("아쿠아볼 공격!");
+        
         //데미지입힘
         Destroy(gameObject);
     }
@@ -56,11 +55,17 @@ public class AquaBall : ActiveSkillBase, ISkillID
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
+            stat.Range_width=skill.Skill_Range_width;
+            stat.Range_height=skill.Skill_Range_height;
+            
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
+            stat.Range_width=skill2.Skill_Range_width;
+            stat.Range_height=skill2.Skill_Range_height;
+            
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
     }
