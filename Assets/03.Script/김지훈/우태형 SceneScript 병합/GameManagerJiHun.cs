@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class GameManagerJiHun : MonoBehaviour
 {
+    public Canvas canvas;
     public int choiceCount = 3;
     public OptionButtonJiHun[] optionButtons; // UI 버튼 배열
     
@@ -59,6 +60,7 @@ public class GameManagerJiHun : MonoBehaviour
                 // 선택지 생성 전, 버튼 비활성화
                 optionButtons[i].gameObject.SetActive(false);
                 optionButtons[i].selectedData = null;
+                canvas.gameObject.SetActive(false);
             }
 
             isButtonActivePrepare = true;
@@ -71,6 +73,9 @@ public class GameManagerJiHun : MonoBehaviour
                 // 선택지 생성, 버튼 활성화
                 optionButtons[i].gameObject.SetActive(true);
             }
+            
+            canvas.gameObject.SetActive(true);
+            
 
             CreateChoices();
         }
