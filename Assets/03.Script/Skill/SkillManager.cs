@@ -82,7 +82,7 @@ public class SkillManager : MonoBehaviour
                 if (players[i].data.skill_possed[0] == skills[j].SkillID)
                 {
                     players[i].skills[0] = skills[j];
-                    if (skills[0] is BuffSO buff)
+                    if (players[i].skills[0] is BuffSO buff)
                     {
                         buffs.Add(buff);
                     }
@@ -91,7 +91,7 @@ public class SkillManager : MonoBehaviour
                 if (players[i].data.skill_possed[1] == skills[j].SkillID)
                 {
                     players[i].skills[1] = skills[j];
-                    if (skills[1] is BuffSO buff)
+                    if (players[i].skills[1] is BuffSO buff)
                     {
                         buffs.Add(buff);
                     }
