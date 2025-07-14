@@ -15,7 +15,6 @@ public class EnemyHpBar : MonoBehaviour
         }
         if (target == null) return;
 
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + offset);
-        transform.position = screenPos;
+        transform.position = target.position + offset;
     }
 }

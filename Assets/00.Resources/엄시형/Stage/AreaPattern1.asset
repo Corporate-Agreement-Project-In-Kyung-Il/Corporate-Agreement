@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AreaPattern1
   m_EditorClassIdentifier: 
   SpawnInfoList:
-  - <Point>k__BackingField: {x: 0.7472958, y: 4.269912}
-    <Radius>k__BackingField: 5
-  - <Point>k__BackingField: {x: 0.46411023, y: 0.4154377}
-    <Radius>k__BackingField: 0.5
-  - <Point>k__BackingField: {x: 0.98328394, y: -1.5983286}
-    <Radius>k__BackingField: 0.5
+  - <Point>k__BackingField: {x: 1, y: 0}
+    <Radius>k__BackingField: 0
+  - <Point>k__BackingField: {x: 0, y: 0}
+    <Radius>k__BackingField: 0
+  - <Point>k__BackingField: {x: -1, y: 0}
+    <Radius>k__BackingField: 0
