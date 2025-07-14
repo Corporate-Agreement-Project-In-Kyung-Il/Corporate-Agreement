@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -27,6 +28,11 @@ public class GameManager : MonoBehaviour
     // Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
 
     public PlayerDataReceiverJiHun playerStatAdjust;
+    public SkillManager skillManager;
+
+    public static bool IsPaused = false;
+    
+    
     private void Awake()
     {
         if (Instance == null)
@@ -53,6 +59,30 @@ public class GameManager : MonoBehaviour
         {
             CreateChoices(3);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (IsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        IsPaused = false;
+    }
+    
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        IsPaused = true;
     }
 
     public void GameStart()
@@ -83,6 +113,7 @@ public class GameManager : MonoBehaviour
         m_Options.Add(EOptionType.Skill, m_IngameSkillOption);
         m_Options.Add(EOptionType.Equip, equipOption);
         m_Options.Add(EOptionType.Training, trainingOption);
+        
 #endif
     }
     
@@ -95,6 +126,7 @@ public class GameManager : MonoBehaviour
         {
             SetRandomOptionToButton(optionButtons[i], baseRerollCount);
         }
+        Pause();
     }
 
     public void RerollChoice(OptionButton optionButton)

@@ -25,18 +25,24 @@ public class OptionButton : MonoBehaviour
 
    public void OnClick()
    {
-      optionCanvas.gameObject.SetActive(false);
       switch (optionType)
       {
          case EOptionType.Skill:
             m_SkillOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
          case EOptionType.Equip:
             m_EquipOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
          case EOptionType.Training:
             m_TrainingOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
+         
       }
    }
 }
