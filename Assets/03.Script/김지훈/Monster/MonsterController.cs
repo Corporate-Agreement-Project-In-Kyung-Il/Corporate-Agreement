@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _03.Script.엄시형.Monster;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.XR;
-
-public class MonsterController : MonoBehaviour, IDamageAble
+public class MonsterController : BaseMonster, IDamageAble
 {
     //IDamageAble 요소
     public Collider2D mainCollider => collider2D;
@@ -171,6 +171,9 @@ public class MonsterController : MonoBehaviour, IDamageAble
     {
         MonsterExistSystem.Instance.RemoveEnemyFromList(collider2D);
     }
+
+
+    public override MonsterType Type => monsterData.monsterType;
 }
 [System.Serializable]
 public class MonsterStat

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using _03.Script.엄시형.Monster;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "MonsterData", menuName = "ScriptableObjects/MonsterData")]
 public class MonsterData : ScriptableObject
 {
     //내가 추가한 것
+    public MonsterType monsterType;
     public float attackRange;
     public float attackSpeed;
     public float moveSpeed;

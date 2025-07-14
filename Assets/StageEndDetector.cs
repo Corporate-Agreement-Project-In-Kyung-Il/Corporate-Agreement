@@ -5,13 +5,20 @@ using UnityEngine;
 
 public class StageEndDetector : MonoBehaviour
 {
+    public Collider2D nextSceneCollider;
+    public bool mb_IsDetected;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
+        // Debug.Log(other.Equals(nextSceneCollider));
+        // Debug.Log(other.name);
         
-        // TODO : 다음 스테이지 넘어가게
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        // TODO : 다음 스테이지 넘어가게, mb_IsDetected 나중에 false해줘야함
+        if (mb_IsDetected == false 
+            && other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            mb_IsDetected = true;
+            Debug.Log("다음 스테이지");
             Spawner.Instance.SpawnAllMonstersInStage();
         }
     }

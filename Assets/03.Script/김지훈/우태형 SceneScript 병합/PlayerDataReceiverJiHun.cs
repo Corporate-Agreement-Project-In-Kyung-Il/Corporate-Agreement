@@ -22,11 +22,11 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
     
     public void SetEquipSelectionID(int id)
     {
-        GameManagerJiHun.Instance.isButtonActivePrepare = false;
-        equipSelectionID = GameManagerJiHun.Instance.optionButtons[id].selectID;
+        equipSelectionID = GameManager.Instance.optionButtons[id].selectID;
 
-        var selectedDataEquip = GameManagerJiHun.Instance.optionButtons[id].selectedData;
+        var selectedDataEquip = GameManager.Instance.optionButtons[id].selectedData;
         var equipOption = selectedDataEquip as EquipOption;
+        
         
         Debug.Log($"{equipOption.Equipment_LvUP}");
         Debug.Log($"{equipOption.Equipment_Type_ID}");
@@ -53,11 +53,10 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
     
     public void SetTrainingSelectionID(int id)
     {
-        GameManagerJiHun.Instance.isButtonActivePrepare = false;
-        trainingSelectionID = GameManagerJiHun.Instance.optionButtons[id].selectID;
+        trainingSelectionID = GameManager.Instance.optionButtons[id].selectID;
         
         
-        var selected = GameManagerJiHun.Instance.optionButtons[id].selectedData;
+        var selected = GameManager.Instance.optionButtons[id].selectedData;
         var trainingOption = selected as TrainingOption;
             
         Debug.Log($"{trainingOption.Training_LvUP}");

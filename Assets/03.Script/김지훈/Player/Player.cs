@@ -206,16 +206,19 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
         switch (character)
         {
             case character_class.전사 :
-                GameManagerJiHun.Instance.characterID[0] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[0] = buffplayerStat;
+                GameManager.Instance.characterSkillID[0] = 100011;
+                GameManager.Instance.characterSkillID[1] = canskillID;
+                GameManager.Instance.playerStatAdjust.DependencyPlayerStat[0] = buffplayerStat;
                 break;
             case character_class.궁수 :
-                GameManagerJiHun.Instance.characterID[1] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[1] = buffplayerStat;
+                GameManager.Instance.characterSkillID[2] = 100015;
+                GameManager.Instance.characterSkillID[3] = canskillID;
+                GameManager.Instance.playerStatAdjust.DependencyPlayerStat[1] = buffplayerStat;
                 break;
             case character_class.마법사 :
-                GameManagerJiHun.Instance.characterID[2] = canskillID;
-                GameManagerJiHun.Instance.playerStatAdjust.DependencyPlayerStat[2] = buffplayerStat;
+                GameManager.Instance.characterSkillID[4] = 100018;
+                GameManager.Instance.characterSkillID[5] = canskillID;
+                GameManager.Instance.playerStatAdjust.DependencyPlayerStat[2] = buffplayerStat;
                 break;
         }
     }
