@@ -133,24 +133,22 @@ public class GameManager : MonoBehaviour
         switch (optionButton.optionType)
         {
             case EOptionType.Skill :
-                var data = m_IngameSkillOption;
-                var value = data.GetValue(optionButton.selectID);
-                var s = value.Selection_Level;
-                HashSet<int> skillID = new HashSet<int>{ value.Skill_ID };
-        
-                // 2. 필터링 : Skill_ID를 기준으로 필터링
-                var filtered = m_IngameSkillOption.data
+                var skillData = m_IngameSkillOption;
+                var skillValue = skillData.GetValue(optionButton.selectID);
+                HashSet<int> skillID = new HashSet<int>{ skillValue.Skill_ID };
+                
+                var skillFiltered = m_IngameSkillOption.data
                     .Where(pair => skillID.Contains(((SkillOption)pair.val).Skill_ID))
                     .ToList();
-                var nextGrade = filtered
-                    .Where(v => v.val.Selection_Level > value.Selection_Level)
+                var skillNextGrade = skillFiltered
+                    .Where(v => v.val.Selection_Level > skillValue.Selection_Level)
                     .OrderBy(v => v.val.Selection_Level)
                     .FirstOrDefault();
-                if (nextGrade != null)
+                if (skillNextGrade != null)
                 {
                     // 승급 가능
-                    optionButton.selectID = nextGrade.Key_ID;
-                    Debug.Log($"[Upgrade] {value.Selection_Level} → {nextGrade.val.Selection_Level}");
+                    optionButton.selectID = skillNextGrade.Key_ID;
+                    Debug.Log($"[Upgrade] {skillValue.Selection_Level} → {skillNextGrade.val.Selection_Level}");
                 }
                 else
                 {
@@ -158,9 +156,54 @@ public class GameManager : MonoBehaviour
                     Debug.Log("이미 최고 등급입니다.");
                 }
                 break;
-            case EOptionType.Equip :
+            case EOptionType.Equip : 
+                var equipData = equipOption;
+                var equipValue = equipData.GetValue(optionButton.selectID);
+                HashSet<int> equipID = new HashSet<int>{ equipValue.Equipment_Type_ID };
+                
+                var equipFiltered = equipOption.data
+                    .Where(pair => equipID.Contains(((EquipOption)pair.val).Equipment_Type_ID))
+                    .ToList();
+                var equipNextGrade = equipFiltered
+                    .Where(v => v.val.Selection_Level > equipValue.Selection_Level)
+                    .OrderBy(v => v.val.Selection_Level)
+                    .FirstOrDefault();
+                if (equipNextGrade != null)
+                {
+                    // 승급 가능
+                    optionButton.selectID = equipNextGrade.Key_ID;
+                    Debug.Log($"[Upgrade] {equipValue.Selection_Level} → {equipNextGrade.val.Selection_Level}");
+                }
+                else
+                {
+                    // 더 높은 등급이 없음
+                    Debug.Log("이미 최고 등급입니다.");
+                }
                 break;
             case EOptionType.Training :
+                var trainingData = trainingOption;
+                var trainingValue = trainingData.GetValue(optionButton.selectID);
+                HashSet<int> trainingID = new HashSet<int>{ trainingValue.Training_ID };
+                
+                // 2. 필터링 : Skill_ID를 기준으로 필터링
+                var trainingFiltered = trainingOption.data
+                    .Where(pair => trainingID.Contains(((TrainingOption)pair.val).Training_ID))
+                    .ToList();
+                var trainingNextGrade = trainingFiltered
+                    .Where(v => v.val.Selection_Level > trainingValue.Selection_Level)
+                    .OrderBy(v => v.val.Selection_Level)
+                    .FirstOrDefault();
+                if (trainingNextGrade != null)
+                {
+                    // 승급 가능
+                    optionButton.selectID = trainingNextGrade.Key_ID;
+                    Debug.Log($"[Upgrade] {trainingValue.Selection_Level} → {trainingNextGrade.val.Selection_Level}");
+                }
+                else
+                {
+                    // 더 높은 등급이 없음
+                    Debug.Log("이미 최고 등급입니다.");
+                }
                 break;
         }
     }
