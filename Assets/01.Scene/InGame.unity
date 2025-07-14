@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 128173404}
-  - component: {fileID: 128173403}
+  - component: {fileID: 128173405}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -155,32 +155,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &128173403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128173402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b1bb3e660219bb428c66eab99cabb7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players: []
-  skillObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  skillOption: {fileID: 0}
-  Selection_ID: 0
 --- !u!4 &128173404
 Transform:
   m_ObjectHideFlags: 0
@@ -196,6 +170,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &128173405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128173402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1bb3e660219bb428c66eab99cabb7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  Origin_skillObjects:
+  - {fileID: 11400000, guid: 862394ac6f9a08e41bf4961270814a9b, type: 2}
+  - {fileID: 11400000, guid: f706b4408a614e647a6e0733fcdc5f1c, type: 2}
+  - {fileID: 11400000, guid: 82a956103d63f3549aa4d6519c21fc49, type: 2}
+  - {fileID: 11400000, guid: 5b180d11364a81a4a88b5f886133d011, type: 2}
+  - {fileID: 11400000, guid: 88ddf401846552343aaf7d8e126a1c2e, type: 2}
+  - {fileID: 11400000, guid: 4cfa488539845a54d93d38f3488a7dd3, type: 2}
+  - {fileID: 11400000, guid: d29449668be5b5241ba545682d536a5a, type: 2}
+  - {fileID: 11400000, guid: 410aaae6396ed6e449f263d2c83700a4, type: 2}
+  - {fileID: 11400000, guid: 1440924e63783b54a91a69fed6844451, type: 2}
+  - {fileID: 11400000, guid: 6f9b667c932c60e4a9be050064b7377a, type: 2}
+  skillObjects: []
+  skillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
+  Selection_ID: 0
 --- !u!1 &144104697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1656,7 @@ MonoBehaviour:
   skillOption: {fileID: 11400000, guid: 285384f425eae6d498af08bea9782029, type: 2}
   equipOption: {fileID: 11400000, guid: 549d7421d10a73b45ab8118e516d4ac8, type: 2}
   trainingOption: {fileID: 11400000, guid: 59a288d438933b64eb4929e1bd364ba0, type: 2}
-  m_IngameSkillOption: {fileID: 0}
+  m_IngameSkillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
   characterSkillID: ab860100af860100b2860100ac860100b0860100b4860100
   canvas: {fileID: 188872456}
   playerStatAdjust: {fileID: 1689890959}
@@ -5623,7 +5624,7 @@ MonoBehaviour:
   m_SkillOptionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 128173403}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
         m_MethodName: SetSelectionID
         m_Mode: 3
@@ -6949,7 +6950,7 @@ MonoBehaviour:
   m_SkillOptionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 128173403}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
         m_MethodName: SetSelectionID
         m_Mode: 3
@@ -8024,7 +8025,7 @@ MonoBehaviour:
   m_SkillOptionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 128173403}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
         m_MethodName: SetSelectionID
         m_Mode: 3

@@ -21,7 +21,7 @@ MonoBehaviour:
   characterGrade: 0
   attackDamage: 1
   health: 10000
-  attackSpeed: 10000000
+  attackSpeed: 1
   criticalProbability: 0
   training_type: 500002
   equip_item: 400002

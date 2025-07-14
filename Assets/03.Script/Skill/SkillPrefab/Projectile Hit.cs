@@ -10,7 +10,7 @@ public class ProjectileHit : MonoBehaviour, ISkillID
         SkillID = SkillId;
     }
 
-    public Player_fusion owner;
+    public Player owner;
     public BuffSO buffSO;
 
     private float duration;
@@ -18,7 +18,7 @@ public class ProjectileHit : MonoBehaviour, ISkillID
 
     private float originalAttackSpeed;
 
-    public void Initialize(Player_fusion _owner, BuffSO _buff)
+    public void Initialize(Player _owner, BuffSO _buff)
     {
         owner = _owner;
         buffSO = _buff;
