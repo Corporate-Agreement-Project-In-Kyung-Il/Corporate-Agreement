@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillId: 100015
   owner: {fileID: 0}
-  buffSO: {fileID: 11400000, guid: 6f9b667c932c60e4a9be050064b7377a, type: 2}
+  buffSO: {fileID: 0}

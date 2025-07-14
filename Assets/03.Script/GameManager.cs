@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public OptionButton[] optionButtons; // UI 버튼 배열
     public int baseRerollCount = 3; // 기본 리롤 횟수
     
+    
 
     Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
     
@@ -22,8 +23,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private OptionChoice_SkillOption m_IngameSkillOption;
     public static GameManager Instance { get; private set; }
-    public int[] characterSkillID;
+    public int[] characterSkillID = new int[6];
+    public Canvas canvas;
+ 
+    // Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
 
+    public PlayerDataReceiverJiHun playerStatAdjust;
     private void Awake()
     {
         if (Instance == null)
@@ -37,10 +42,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /*
     private void Start()
     {
         GameStart();
     }
+    */
     
     private void Update()
     {
@@ -54,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         SetIngameDatabase();
     }
-    
+
     void SetIngameDatabase()
     {
 #if UNITY_EDITOR
@@ -83,8 +90,9 @@ public class GameManager : MonoBehaviour
     
     #region 랜덤 선택지 뽑는 코드
     
-    private void CreateChoices(int choiceCount)
+    public void CreateChoices(int choiceCount)
     {
+        canvas.gameObject.SetActive(true);
         for (int i = 0; i < choiceCount; i++)
         {
             SetRandomOptionToButton(optionButtons[i], baseRerollCount);
@@ -101,20 +109,6 @@ public class GameManager : MonoBehaviour
 
         optionButton.rerollCount--;
         SetRandomOptionToButton(optionButton, optionButton.rerollCount); // 남은 횟수 유지
-    }
-    
-    private int GradeToInt(MyEnum grade)
-    {
-        return grade switch
-        {
-            MyEnum.노말 => 1, 
-            MyEnum.레어=> 2,
-            MyEnum.에픽 => 3,
-            MyEnum.유니크 => 4,
-            MyEnum.레전드 => 5,
-            MyEnum.신화 => 6,
-            _ => 0
-        };
     }
 
     public ScriptableObject type;
@@ -240,20 +234,25 @@ public class GameManager : MonoBehaviour
                 var skill = option as OptionChoice_SkillOption;
                 button.selectID = GetSelectionID(skill);
                 button.optionType = EOptionType.Skill;
+                button.selectedData = skill.GetValue();
                 Debug.Log($"[Skill] 선택지: {button.selectID}");
                 break;
 
             case EOptionType.Equip:
                 var equip = option as OptionChoice_EquipOption;
+                var equipData = GetSelectionData(equip);
                 button.selectID = GetSelectionID(equip);
                 button.optionType = EOptionType.Equip;
+                button.selectedData = equipData.val;//equip.GetValue();
                 Debug.Log($"[Equip] 선택지: {button.selectID}");
                 break;
 
             case EOptionType.Training:
                 var training = option as OptionChoice_TrainingOption;
+                var tariningData = GetSelectionData(training);
                 button.selectID = GetSelectionID(training);
                 button.optionType = EOptionType.Training;
+                button.selectedData = tariningData.val;
                 Debug.Log($"[Training] 선택지: {button.selectID}");
                 break;
         }
@@ -279,6 +278,18 @@ public class GameManager : MonoBehaviour
 
         int randomIndex = UnityEngine.Random.Range(0, option.data.Count);
         return option.data[randomIndex].Key_ID; // IDValuePair<T> 에 id가 있다고 가정
+    }
+    
+    IDValuePair<T> GetSelectionData<T>(ExelReaderBase<T> option) where T : BaseValue, new()
+    {
+        if (option == null || option.data == null || option.data.Count == 0)
+        {
+            Debug.LogWarning("옵션이 null이거나 비어있음");
+            return null;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, option.data.Count);
+        return option.data[randomIndex];
     }
     #endregion
 }

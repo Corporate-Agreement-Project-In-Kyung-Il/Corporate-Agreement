@@ -20,10 +20,12 @@ public class OptionButton : MonoBehaviour
    public int rerollCount;
    public EOptionType optionType;
    public int selectID;
-   
-   
+   public Canvas optionCanvas;
+   public BaseValue selectedData;
+
    public void OnClick()
    {
+      optionCanvas.gameObject.SetActive(false);
       switch (optionType)
       {
          case EOptionType.Skill:

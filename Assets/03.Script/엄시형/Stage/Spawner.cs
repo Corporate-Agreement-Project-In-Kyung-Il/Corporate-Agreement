@@ -24,8 +24,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] private StageInfoSo mStageInfo;
     [SerializeField] private List<GameObject> mAreaList = new List<GameObject>();
     // [SerializeField] private List<GameObject> mMonsterList = new List<GameObject>();
-
-    private int mCurStageId = 1;
+    
+    [SerializeField] 
+    private int m_CurStageId = 0;
     
     private Dictionary<character_class, Vector2> mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
@@ -49,6 +50,7 @@ public class Spawner : MonoBehaviour
         Instance = this;
         
         SpawnAllMonstersInStage();
+        GameManager.Instance.GameStart();
     }
     
     // private Player SpawnPlayer(Vector2 position, character_class characterClass)
@@ -65,6 +67,11 @@ public class Spawner : MonoBehaviour
     
     public void SpawnAllMonstersInStage()
     {
+        if(m_CurStageId %3 == 0)
+        {
+            GameManager.Instance.CreateChoices(3);
+        }
+        m_CurStageId++;
         Debug.Assert(mStageInfo != null, "널 들어옴");
         
         int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;

@@ -6,14 +6,14 @@ public class Archer_Strong_Mind : MonoBehaviour, ISkillID
     public int SkillID { get; set; }
     public void SetSkillID() => SkillID = SkillId;
 
-    public Player_fusion owner;
+    public Player owner;
     public BuffSO buffSO;
 
     private float duration;
     private float timer;
     private bool initialized = false;
 
-    public void Initialize(Player_fusion _owner, BuffSO _buff)
+    public void Initialize(Player _owner, BuffSO _buff)
     {
         owner = _owner;
         buffSO = _buff;
