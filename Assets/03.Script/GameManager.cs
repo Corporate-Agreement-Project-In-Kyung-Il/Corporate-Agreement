@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
 {
     public OptionButton[] optionButtons; // UI 버튼 배열
     public int baseRerollCount = 3; // 기본 리롤 횟수
-    
-    
 
     Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
     
