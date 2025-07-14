@@ -9,7 +9,6 @@ namespace _03.Script.엄시형.Data.V1
     [Obsolete("AreaInfo V2를 사용해주세요 ", true)]
     public class AreaInfo
     {
-        
         public bool bIsBossStage =>  mbIsBossStage;
         
         /// <summary>
