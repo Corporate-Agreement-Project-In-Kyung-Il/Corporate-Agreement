@@ -43,8 +43,19 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
         }
         else
         {
-            Debug.Log("전사의 강한의지 공격!");
-            attackCount++;
+            if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+            {
+                attackCount++;
+                CombatEvent combatEvent = new CombatEvent();
+                combatEvent.Receiver = enemyDamage;
+                combatEvent.Sender = owner;
+                combatEvent.Damage = stat.Damage;
+                combatEvent.collider = owner.target;
+
+                CombatSystem.instance.AddCombatEvent(combatEvent);
+
+                Debug.Log("전사의 강한의지 공격!");
+            }
             AttackTarget();
         }
     }

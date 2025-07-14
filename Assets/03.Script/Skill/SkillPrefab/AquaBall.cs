@@ -40,11 +40,21 @@ public class AquaBall : ActiveSkillBase, ISkillID
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
-
-
-        Debug.Log("아쿠아볼 공격!");
         
-        //데미지입힘
+        if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+        {
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = other;
+
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+
+            Debug.Log("아쿠아볼 공격!");
+
+            Destroy(gameObject);
+        }
         Destroy(gameObject);
     }
 

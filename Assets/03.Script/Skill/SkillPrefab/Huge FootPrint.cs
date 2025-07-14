@@ -35,10 +35,22 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
-        Debug.Log("거대한 발자국 공격!");
+       
         //데미지입힘
-        
-        Destroy(gameObject);
+        if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+        {
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = other;
+
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+
+            Debug.Log("거대한 발자국 공격!");
+
+            Destroy(gameObject);
+        }
     }
 
     public override void Initialize()

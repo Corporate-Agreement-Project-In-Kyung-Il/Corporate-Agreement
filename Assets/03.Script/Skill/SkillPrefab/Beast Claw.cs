@@ -9,18 +9,21 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     public int SkillID { get; set; }
 
     public int attackCount;
+
     public void SetSkillID()
     {
         SkillID = SkillId;
     }
+
     void Awake()
     {
         Initialize();
     }
+
     void Start()
     {
         attackCount = 0;
-        Debug.Log("start BeastClaw");
+        
         AttackTarget();
     }
 
@@ -33,8 +36,19 @@ public class BeastClaw : ActiveSkillBase, ISkillID
         }
         else
         {
-            Debug.Log("전사의 강한의지 공격!");
-            attackCount++;
+            if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+            {
+                attackCount++;
+                CombatEvent combatEvent = new CombatEvent();
+                combatEvent.Receiver = enemyDamage;
+                combatEvent.Sender = owner;
+                combatEvent.Damage = stat.Damage;
+                combatEvent.collider = owner.target;
+
+                CombatSystem.instance.AddCombatEvent(combatEvent);
+
+                Debug.Log("야수의 발톱 공격!");
+            }
             AttackTarget();
         }
     }
