@@ -243,6 +243,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
         if (playerStat.health <= 0)
         {
             cameraMove = false;
+            AliveExistSystem.Instance.RemovePlayerFromList(col);
             ChangeState(CharacterState.Die);
             return;
         }

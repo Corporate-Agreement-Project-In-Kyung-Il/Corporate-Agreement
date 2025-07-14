@@ -170,7 +170,7 @@ public class MonsterController : BaseMonster, IDamageAble
 
     private void OnDisable()
     {
-        MonsterExistSystem.Instance.RemoveEnemyFromList(collider2D);
+        AliveExistSystem.Instance.RemoveEnemyFromList(collider2D);
     }
 
 

@@ -7,9 +7,16 @@ using UnityEngine;
 public class DamgeEvent : MonoBehaviour
 {
     public static event Action<MonsterController> enemydamageEvent;
+    
+    public static event Action<Player> playerDamageEvent;
 
     public static void OnTriggerMonsterDamageEvent(MonsterController monster)
     {
         enemydamageEvent?.Invoke(monster);
+    }
+
+    public static void OnTriggerPlayerDamageEvent(Player player)
+    {
+        playerDamageEvent?.Invoke(player);
     }
 }

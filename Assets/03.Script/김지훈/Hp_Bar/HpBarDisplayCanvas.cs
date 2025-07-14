@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHpBarManager : MonoBehaviour
+public class HpBarManager : MonoBehaviour
 {
+    public PlayerHpBar playerHpBar;
     public EnemyHpBar enemyBar;
     public Canvas uiCanvas; //World Space로 설정된 Canvas
     public float barDisplayPosition;
     
     private Camera mainCamera;
-    private Dictionary<Transform, GameObject> hpBars = new Dictionary<Transform, GameObject>();
+    private Dictionary<Transform, GameObject> enemyHpBars = new Dictionary<Transform, GameObject>();
+    private Dictionary<Transform, GameObject> playerHpBars = new Dictionary<Transform, GameObject>();
     private Plane[] cameraPlanes;
     private List<Collider2D> monsterList = new List<Collider2D>();
+    private List<Collider2D> playerList = new List<Collider2D>();
     
     private void Start()
     {
@@ -21,15 +24,20 @@ public class EnemyHpBarManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        monsterList = MonsterExistSystem.Instance.monsterList;
+        monsterList = AliveExistSystem.Instance.monsterList;
+        playerList = AliveExistSystem.Instance.playerList;
     }
 
     void Update()
     {
         cameraPlanes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
-        //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); //이거 Monster리스트에 담기게 Instantiate 되면, 바꾸기
+        EnemyHpBarSetting();
 
-        for (int i = 0; i < monsterList.Count; i++)//GameObject enemy in enemies)
+    }
+
+    private void EnemyHpBarSetting()
+    {
+        for (int i = 0; i < monsterList.Count; i++)
         {
             if(monsterList.Count <= 0) continue;
             
@@ -41,29 +49,64 @@ public class EnemyHpBarManager : MonoBehaviour
             if (isVisible)
             {
                 // 없으면 생성
-                if (hpBars.ContainsKey(enemyTransform).Equals(false))
+                if (enemyHpBars.ContainsKey(enemyTransform).Equals(false))
                 {
                     EnemyHpBar EnemyHpDisplay = ObjectPoolSystem.Instance.GetObjectOrNull("HpBarDisplay") as EnemyHpBar;
-                    //var bar = Instantiate(enemyBar, enemyTransform.position + Vector3.up * barDisplayPosition, Quaternion.identity);
-                    //hpBar.transform.SetParent(uiCanvas.transform, worldPositionStays: false);
+
                     EnemyHpDisplay.gameObject.SetActive(true);
                     if (enemyTransform.gameObject.TryGetComponent(out MonsterController monster))
                         EnemyHpDisplay.target = monster;
-                    hpBars[enemyTransform] = EnemyHpDisplay.gameObject;
-                    //bar.transform.position = enemyTransform.position + Vector3.up * barDisplayPosition;
-                    //bar.transform.localRotation = Quaternion.identity;
+                    enemyHpBars[enemyTransform] = EnemyHpDisplay.gameObject;
 
                 }
             }
             else
             {
                 // 있으면 삭제
-                if (hpBars.ContainsKey(enemyTransform))
+                if (enemyHpBars.ContainsKey(enemyTransform))
                 {
                     
-                    Destroy(hpBars[enemyTransform]);
-                    hpBars.Remove(enemyTransform);
+                    Destroy(enemyHpBars[enemyTransform]);
+                    enemyHpBars.Remove(enemyTransform);
                     
+                }
+            }
+        }
+    }
+    
+    private void PlayerHpBarSetting()
+    {
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            if (playerList.Count <= 0) continue;
+
+            Transform playerTransform = playerList[i].transform;
+
+            bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, playerList[i].bounds);
+
+            if (isVisible)
+            {
+                if (playerHpBars.ContainsKey(playerTransform).Equals(false))
+                {
+                    
+                    //PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform + Vector3.up * -0.4f, Quaternion.identity) as PlayerHpBar;
+                        //ObjectPoolSystem.Instance.GetObjectOrNull("PlayerHpBar") as PlayerHpBar;
+
+//                    if (playerHpDisplay == null) continue;
+//
+//                    playerHpDisplay.gameObject.SetActive(true);
+//                    if (playerTransform.TryGetComponent(out Player player))
+//                        playerHpDisplay.target = player;
+//
+                    //playerHpBars[playerTransform] = playerHpDisplay.gameObject;
+                }
+            }
+            else
+            {
+                if (playerHpBars.ContainsKey(playerTransform))
+                {
+                    Destroy(playerHpBars[playerTransform]);
+                    playerHpBars.Remove(playerTransform);
                 }
             }
         }

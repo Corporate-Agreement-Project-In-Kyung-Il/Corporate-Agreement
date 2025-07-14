@@ -66,7 +66,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     private void FindNextTarget()
     {
         //현재 위치를 기준으로 제일 가까운 애를 공격하게 
-        List<Collider2D> targetList = MonsterExistSystem.Instance.monsterList;
+        List<Collider2D> targetList = AliveExistSystem.Instance.monsterList;
 
         float minDistance = 100f;
         Transform closestTarget = null;
