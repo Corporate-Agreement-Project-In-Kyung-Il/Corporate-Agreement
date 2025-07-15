@@ -30,13 +30,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] private StageInfoSo mStageInfo;
     
     [SerializeField] 
-    public int m_CurStageId = 0;
+    public int CurStageId = 1;
     
     private Dictionary<character_class, Vector2> mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
-        { character_class.궁수, new Vector2(-0.5f, 0f) },
-        { character_class.전사 , new Vector2(0.5f, 1f) },
-        { character_class.마법사 , new Vector2(1.5f, 0f)}
+        { character_class.궁수, new Vector2(-0.5f, 1f) },
+        { character_class.전사 , new Vector2(0.5f, 2f) },
+        { character_class.마법사 , new Vector2(1.5f, 1f)}
     };
     
     // TODO : Area 동적생성
@@ -88,12 +88,6 @@ public class Spawner : MonoBehaviour
     
     public void SpawnAllMonstersInStage()
     {
-        if(m_CurStageId %3 == 0)
-        {
-            GameManager.Instance.CreateChoices(3);
-        }
-        m_CurStageId++;
-
         for (var i = 0; i < m_PlayerList.Length; i++)
         {
             var player = m_PlayerList[i];
@@ -123,7 +117,7 @@ public class Spawner : MonoBehaviour
         }
 
         // 보스 스테이지
-        if (m_CurStageId % 3 == 0)
+        if (CurStageId % 3 == 0)
         {
             MonsterType type = mStageInfo
                 .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
@@ -192,7 +186,7 @@ public class Spawner : MonoBehaviour
         }
 
         // 보스 스테이지
-        if (m_CurStageId % 3 == 0)
+        if (CurStageId % 3 == 0)
         {
             var bossTileMap = Instantiate(m_TilemapList[0]
                 , new Vector2(0, topY)

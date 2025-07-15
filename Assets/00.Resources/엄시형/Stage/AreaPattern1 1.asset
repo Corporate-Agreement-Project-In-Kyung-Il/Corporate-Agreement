@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AreaId: 10001
   SpawnInfoList:
-  - <Point>k__BackingField: {x: 0.5, y: 4.269912}
+  - <Point>k__BackingField: {x: 0.5, y: 8}
     <Radius>k__BackingField: 1
-  - <Point>k__BackingField: {x: -0.5, y: 0.4154377}
+  - <Point>k__BackingField: {x: -0.5, y: 7}
     <Radius>k__BackingField: 1
-  - <Point>k__BackingField: {x: 1, y: -1.5983286}
+  - <Point>k__BackingField: {x: 1, y: 8}
     <Radius>k__BackingField: 1
+  mb_IsBossStage: 0

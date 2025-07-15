@@ -17,6 +17,13 @@ public class StageEndDetector : MonoBehaviour
         if (mb_IsDetected == false 
             && other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            
+            if(Spawner.Instance.CurStageId %3 == 0)
+            {
+                GameManager.Instance.CreateChoices(3);
+            }
+            Spawner.Instance.CurStageId++;
+            
             mb_IsDetected = true;
             Debug.Log("다음 스테이지");
             Spawner.Instance.DestoryAllArea();
