@@ -197,6 +197,7 @@ MonoBehaviour:
   skillObjects: []
   skillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
   Selection_ID: 0
+  buffs: []
 --- !u!1 &144104697
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Select
 --- !u!222 &144104700
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -466,7 +467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Select
 --- !u!222 &201932030
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -565,6 +566,7 @@ MonoBehaviour:
   characterSkillID: ab860100af860100b2860100ac860100b0860100b4860100
   canvas: {fileID: 188872456}
   playerStatAdjust: {fileID: 1689890959}
+  skillManager: {fileID: 128173405}
   type: {fileID: 0}
 --- !u!4 &321154673
 Transform:
@@ -1644,7 +1646,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Echant
 --- !u!222 &1005184319
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2698,7 +2700,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Echant
 --- !u!222 &1596208379
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3989,7 +3991,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Select
 --- !u!222 &1657411812
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5171,7 +5173,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Echant
 --- !u!222 &2143961053
 CanvasRenderer:
   m_ObjectHideFlags: 0
