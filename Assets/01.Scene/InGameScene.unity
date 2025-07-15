@@ -559,9 +559,9 @@ MonoBehaviour:
   - {fileID: 2117860704}
   - {fileID: 1678880258}
   baseRerollCount: 3
-  skillOption: {fileID: 0}
-  equipOption: {fileID: 0}
-  trainingOption: {fileID: 0}
+  skillOption: {fileID: 11400000, guid: 285384f425eae6d498af08bea9782029, type: 2}
+  equipOption: {fileID: 11400000, guid: 549d7421d10a73b45ab8118e516d4ac8, type: 2}
+  trainingOption: {fileID: 11400000, guid: 59a288d438933b64eb4929e1bd364ba0, type: 2}
   m_IngameSkillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
   characterSkillID: ab860100af860100b2860100ac860100b0860100b4860100
   canvas: {fileID: 188872456}

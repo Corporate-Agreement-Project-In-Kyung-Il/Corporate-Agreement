@@ -14,7 +14,7 @@ public enum BuffEffectType
     Wizard_Strong_Mind,
     // 나중에 쉽게 추가 가능
 }
-public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelection
+public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 {
     private static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int IsAttack = Animator.StringToHash("isAttack");
@@ -25,8 +25,6 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
-    public Transform cameraMoveTransform => gameObject.transform;
-    public bool canMove => cameraMove;
     public PlayerStat buffplayerStat
     {
         get => playerStat;

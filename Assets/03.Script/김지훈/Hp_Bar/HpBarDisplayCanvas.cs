@@ -94,13 +94,10 @@ public class HpBarManager : MonoBehaviour
             {
                 if (playerHpBars.ContainsKey(playerTransform).Equals(false))
                 {
-                    PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) as PlayerHpBar;
-                        //ObjectPoolSystem.Instance.GetObjectOrNull("PlayerHpBar") as PlayerHpBar;
-
-//                    if (playerHpDisplay == null) continue;
-//
+                    PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) 
+                        as PlayerHpBar;
                     playerHpDisplay.gameObject.SetActive(true);
-//                    if (playerTransform.TryGetComponent(out Player player))
+                    
                     if(playerTransform.gameObject.TryGetComponent(out Player player)) 
                         playerHpDisplay.target = player;
                     
