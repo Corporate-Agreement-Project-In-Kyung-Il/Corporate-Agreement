@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ConfinerSizeController : MonoBehaviour
 {
+    [Header("카메라가 렌더링할 범위의 tilemapCollider들")]
     public TilemapCollider2D[] tilemapColliders; // 여러 개 할당 가능
 
     private BoxCollider2D boxCollider;

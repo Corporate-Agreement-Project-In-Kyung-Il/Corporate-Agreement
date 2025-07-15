@@ -50,7 +50,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     private Weapon weapon2;
 
     
-    [SerializeField, Tooltip("현재의 player의 상태")] private CharacterState currentCharacterState = CharacterState.Run;
+    [SerializeField, Header("현재의 player의 상태."), Tooltip("현재의 player의 상태")] private CharacterState currentCharacterState = CharacterState.Run;
     [SerializeField] private CharacterState prevCharacterState = CharacterState.Run;
 
     private bool cameraMove = true;

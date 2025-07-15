@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraPoint : MonoBehaviour
 {
+    [Header("카메라가 따라가는 Target")]
     [SerializeField] private bool isFollow = false;
     private Vector2 size = new Vector2(5.5f, 10f);
     
