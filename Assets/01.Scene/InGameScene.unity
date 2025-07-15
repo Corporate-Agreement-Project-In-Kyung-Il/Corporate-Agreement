@@ -4060,7 +4060,7 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
-  optionCanvas: {fileID: 0}
+  optionCanvas: {fileID: 188872456}
 --- !u!114 &1678880259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5139,7 +5139,7 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
-  optionCanvas: {fileID: 0}
+  optionCanvas: {fileID: 188872456}
 --- !u!114 &2143961052
 MonoBehaviour:
   m_ObjectHideFlags: 0
