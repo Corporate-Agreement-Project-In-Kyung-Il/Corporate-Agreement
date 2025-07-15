@@ -6,37 +6,54 @@ public class CameraPoint : MonoBehaviour
 {
     [SerializeField] private bool isFollow = false;
     private Vector2 size = new Vector2(5.5f, 10f);
-    
+    private Vector2 cameraPointPosition = new Vector2(0,-3.65f);
     private void Update()
     {
-        //카메라
-        if (isFollow.Equals(false))
-            return;
+        if (isFollow.Equals(false)) return;
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, size, 0f, LayerMask.GetMask("Player"));
+        Vector3 sumPositions = Vector3.zero;
+        int count = 0;
 
-        if (colliders.Length == 0)
-            return;
+        List<Collider2D> playerColliderList = AliveExistSystem.Instance.playerList;
+        Collider2D[] overlapColliders = Physics2D.OverlapBoxAll(transform.position, size, 0f, LayerMask.GetMask("Player"));
 
-        Vector3 points = Vector3.zero;
+        // 중복 검사 쉽게 하려고 HashSet 활용
+        HashSet<Collider2D> overlapSet = new HashSet<Collider2D>(overlapColliders);
 
-        for (int i = 0; i < colliders.Length; i++)
+        // playerList에서 overlap된 콜라이더만 선택
+        foreach (var col in playerColliderList)
         {
-            if (colliders[i].TryGetComponent(out ICameraPosition cameraPosition) && cameraPosition.cameraMoveTransform != null)
+            if (overlapSet.Contains(col))
             {
-               // Debug.Log($"cameraPosition.canMove = {cameraPosition.canMove}");
-               if (cameraPosition.canMove) 
-                   points += cameraPosition.cameraMoveTransform.position;
+                sumPositions += col.transform.position;
+                count++;
             }
         }
 
-        transform.position = points / colliders.Length;
-        
+        if (count > 0)
+        {
+            Vector3 averagePos = sumPositions / count;
+            transform.position = averagePos;
+        }
     }
     
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, size);
+    }
+    
+    private void InitalPosition()
+    {
+        transform.position = cameraPointPosition;
+    }
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += InitalPosition;
+    }
+
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent += InitalPosition;
     }
 }

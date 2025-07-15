@@ -35,7 +35,7 @@ public class MonsterController : BaseMonster, IDamageAble
         TryGetComponent(out weapon);
         
         monsterStat.health = monsterData.Monster_HP;
-        monsterStat.playerDetectionRange = new Vector2(3f, 8f);
+        monsterStat.playerDetectionRange = new Vector2(3f, 10f);
         
         monsterStat.damage = monsterData.Monster_Attack;
         monsterStat.attackRange = monsterData.attackRange;

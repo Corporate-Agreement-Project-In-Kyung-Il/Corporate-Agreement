@@ -26,6 +26,7 @@ public class StageEndDetector : MonoBehaviour
             
             mb_IsDetected = true;
             Debug.Log("다음 스테이지");
+            
             Spawner.Instance.DestoryAllArea();
             Spawner.Instance.SpawnAllMonstersInStage();
             mb_IsDetected = false;

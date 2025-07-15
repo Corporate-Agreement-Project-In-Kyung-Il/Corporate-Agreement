@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private Player[] m_PlayerList;
     private List<Tilemap> m_CurAreaList;
+    public List<Tilemap> CurAreaList => m_CurAreaList;
     
     [Header("스테이지 정보")]
     [SerializeField] private StageInfoSo mStageInfo;
@@ -38,7 +39,9 @@ public class Spawner : MonoBehaviour
         { character_class.전사 , new Vector2(0.5f, 2f) },
         { character_class.마법사 , new Vector2(1.5f, 1f)}
     };
-    
+
+
+
     // TODO : Area 동적생성
     
     [Conditional("UNITY_EDITOR")]
@@ -53,10 +56,14 @@ public class Spawner : MonoBehaviour
     {
         Instance = this;
         
-        SpawnAllMonstersInStage();
         GameManager.Instance.GameStart();
     }
-    
+
+    private void Start()
+    {
+        SpawnAllMonstersInStage();
+    }
+
     // private Player SpawnPlayer(Vector2 position, character_class characterClass)
     // {
     //     return Instantiate(mMonsterTable.GetMonster(type)
@@ -98,6 +105,9 @@ public class Spawner : MonoBehaviour
         // var areaList = GenerateMap();
         m_CurAreaList = GenerateMap();
         
+        
+  
+        
         int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;
         
         for (int i = 0; i < mStageInfo.AreaInfoList.Count; i++)
@@ -129,6 +139,7 @@ public class Spawner : MonoBehaviour
             
             boss.gameObject.transform.localScale = Vector3.one * 3f;
         }
+        StageClearEvent.OnTriggerStageClearEvent(); // 맵 완성다 되었음.
     }
     
     /// <summary>
@@ -201,4 +212,6 @@ public class Spawner : MonoBehaviour
         m_StageEndPoint.transform.position = new Vector2(0, topY);
         return areaList;
     }
+
+
 }

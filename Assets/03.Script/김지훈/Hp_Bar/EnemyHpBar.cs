@@ -68,14 +68,13 @@ public class EnemyHpBar : MonoBehaviour, IObjectPoolItem
         ObjectPoolSystem.Instance.ReturnToPool(this);
     }
 
-    private void SliderDown(MonsterController damagedMonster)
+    public void SliderDown(MonsterController damagedMonster)
     {
         if (target.Equals(damagedMonster))
         {
             targetValue = damagedMonster.CurrentHp / damagedMonster.monsterData.Monster_HP;
             isLerping = true;
         }
-
     }
     
     private void OnEnable()

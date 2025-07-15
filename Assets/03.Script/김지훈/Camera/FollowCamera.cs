@@ -21,7 +21,7 @@ public class FollowCamera : MonoBehaviour
 
     private Vector3 shakeOffset;
     private float shakeTimer = 0f;
-
+    private Vector3 cameraPosition = new Vector3(0.5f, 1, -10);
     private void Awake()
     {
         instance = this;
@@ -52,7 +52,7 @@ public class FollowCamera : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.up * realTarget.y + Vector3.forward * realTarget.z;
+            transform.position = Vector3.right  * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z;
         }
     }
 
@@ -65,11 +65,11 @@ public class FollowCamera : MonoBehaviour
         if (realTarget.y > transform.position.y) 
             if (distance > 0.01f) 
             { 
-                transform.position = Vector3.Lerp(transform.position, Vector3.up * realTarget.y + Vector3.forward * realTarget.z, moveSpeed * Time.deltaTime); 
+                transform.position = Vector3.Lerp(transform.position, Vector3.right  * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z, moveSpeed * Time.deltaTime); 
             }
             else 
             { 
-                transform.position = Vector3.up * realTarget.y + Vector3.forward * realTarget.z; 
+                transform.position = Vector3.right  * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z; 
             }
     }
 
@@ -77,5 +77,18 @@ public class FollowCamera : MonoBehaviour
     {
         instance.shakeTimer = instance.shakeDuration;
     }
-    
+
+    private void InitalPosition()
+    {
+        transform.position = cameraPosition;
+    }
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += InitalPosition;
+    }
+
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent += InitalPosition;
+    }
 }

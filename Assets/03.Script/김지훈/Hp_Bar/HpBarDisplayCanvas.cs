@@ -56,10 +56,14 @@ public class HpBarManager : MonoBehaviour
                 if (enemyHpBars.ContainsKey(enemyTransform).Equals(false))
                 {
                     EnemyHpBar EnemyHpDisplay = ObjectPoolSystem.Instance.GetObjectOrNull("HpBarDisplay") as EnemyHpBar;
-
+     
                     EnemyHpDisplay.gameObject.SetActive(true);
                     if (enemyTransform.gameObject.TryGetComponent(out MonsterController monster))
+                    {
                         EnemyHpDisplay.target = monster;
+                        EnemyHpDisplay.SliderDown(monster);
+                    }
+
                     enemyHpBars[enemyTransform] = EnemyHpDisplay.gameObject;
 
                 }
