@@ -14,6 +14,11 @@ public class WizardStrongMind : MonoBehaviour, ISkillID
     private float originalDamage;
     private bool initialized = false;
 
+    public SpriteRenderer sr;
+    void Start()
+    {
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
     public void Initialize(Player _owner, BuffSO _buff)
     {
         owner = _owner;
