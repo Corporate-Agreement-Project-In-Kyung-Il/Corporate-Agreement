@@ -49,35 +49,35 @@ public static class ExcelImporter
         Debug.Log("Excel 데이터 → ScriptableObject 변환 완료!");
         
         
-        using var monsterStream = File.Open(playerStatFilePath, FileMode.Open, FileAccess.Read);
+        using var monsterStream = File.Open(monsterStatFilePath, FileMode.Open, FileAccess.Read);
         using var monsterReader = ExcelReaderFactory.CreateReader(monsterStream);
         var monsterResult = monsterReader.AsDataSet();
         ImportMonsterStat(monsterResult.Tables[0]);
+        AssetDatabase.SaveAssets();
     }
 
     private static void ImportMonsterStat(DataTable table)
     {
-        var playerEquip = ScriptableObject.CreateInstance<PlayerEquip>();
+        var monsterStat = ScriptableObject.CreateInstance<MonsterStatExel>();
         for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
 
-            var equip = new Equip
+            var monster = new MonsterExel
             {
-                Equipment_Type_Name = strarr[1],
-                Equipment_Attack = float.Parse(strarr[2]),
-                Equipment_HP = float.Parse(strarr[3]),
-                Equipment_Minimum_LV = int.Parse(strarr[4]),
-                Equipment_Maximum_LV = int.Parse(strarr[5]),
-                Attack_LV_UP_Effect = float.Parse(strarr[6]),
-                HP_LV_UP_Effect = float.Parse(strarr[7])
+                Monster_HP = float.Parse(strarr[1]),
+                Monster_Attack = float.Parse(strarr[2]),
+                Monster_SpawnCount = int.Parse(strarr[3]),
+                IsBossStage = int.Parse(strarr[4]) == 1 ? true : false,
+                Boss_HP = float.Parse(strarr[5]),
+                Boss_Attack = float.Parse(strarr[6])
             };
 
-            var pair = new IDValuePair<Equip> { Key_ID = int.Parse(strarr[0]), val = equip };
-            playerEquip.data.Add(pair);
+            var pair = new IDValuePair<MonsterExel> { Key_ID = int.Parse(strarr[0]), val = monster };
+            monsterStat.data.Add(pair);
         }
-
-        AssetDatabase.CreateAsset(playerEquip, $"Assets/00.Resources/DataBase/MonsterStat.asset");
+        Debug.Log("Monster");
+        AssetDatabase.CreateAsset(monsterStat, $"Assets/00.Resources/DataBase/MonsterStat.asset");
     }
     
     public static void ImportActiveSkill(DataTable table)
