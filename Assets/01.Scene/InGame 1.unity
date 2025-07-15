@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1bb3e660219bb428c66eab99cabb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Players: []
-  m_OriginSkillObjects:
+  players: []
+  Origin_skillObjects:
   - {fileID: 11400000, guid: 862394ac6f9a08e41bf4961270814a9b, type: 2}
   - {fileID: 11400000, guid: f706b4408a614e647a6e0733fcdc5f1c, type: 2}
   - {fileID: 11400000, guid: 82a956103d63f3549aa4d6519c21fc49, type: 2}
@@ -194,9 +194,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 410aaae6396ed6e449f263d2c83700a4, type: 2}
   - {fileID: 11400000, guid: 1440924e63783b54a91a69fed6844451, type: 2}
   - {fileID: 11400000, guid: 6f9b667c932c60e4a9be050064b7377a, type: 2}
-  m_SkillObjects: []
-  m_SkillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
-  selectionID: 0
+  skillObjects: []
+  skillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
+  Selection_ID: 0
 --- !u!1 &144104697
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select
+  m_Text: Button
 --- !u!222 &144104700
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1660,7 +1660,6 @@ MonoBehaviour:
   characterSkillID: ab860100af860100b2860100ac860100b0860100b4860100
   canvas: {fileID: 188872456}
   playerStatAdjust: {fileID: 1689890959}
-  skillManager: {fileID: 128173405}
   type: {fileID: 0}
 --- !u!4 &321154673
 Transform:
@@ -5258,9 +5257,8 @@ GameObject:
   - component: {fileID: 1198262288}
   - component: {fileID: 1198262287}
   - component: {fileID: 1198262286}
-  - component: {fileID: 1198262289}
   m_Layer: 5
-  m_Name: Select
+  m_Name: Choice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5380,51 +5378,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198262284}
   m_CullTransparentMesh: 1
---- !u!114 &1198262289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198262284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &1210070594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5671,7 +5624,7 @@ MonoBehaviour:
   m_SkillOptionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 128173405}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
         m_MethodName: SetSelectionID
         m_Mode: 3
@@ -6997,7 +6950,7 @@ MonoBehaviour:
   m_SkillOptionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 128173405}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
         m_MethodName: SetSelectionID
         m_Mode: 3
@@ -8072,7 +8025,7 @@ MonoBehaviour:
   m_SkillOptionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 128173405}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
         m_MethodName: SetSelectionID
         m_Mode: 3
@@ -9246,7 +9199,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Upgrade
+  m_Text: Button
 --- !u!222 &2143961053
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9491,6 +9444,7 @@ SceneRoots:
   - {fileID: 899681630}
   - {fileID: 1399486816}
   - {fileID: 800662207}
+  - {fileID: 128173404}
   - {fileID: 1280521293}
   - {fileID: 188872457}
   - {fileID: 350046773}
@@ -9502,7 +9456,6 @@ SceneRoots:
   - {fileID: 2015966071}
   - {fileID: 1582793735}
   - {fileID: 265046586}
-  - {fileID: 128173404}
   - {fileID: 321154673}
   - {fileID: 1912501535}
   - {fileID: 1469812133}
