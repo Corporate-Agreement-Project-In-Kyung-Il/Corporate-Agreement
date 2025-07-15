@@ -24,6 +24,24 @@ public class PlayerHpBar : MonoBehaviour
     private void LateUpdate()
     {
         FollwTarget();
+
+        switch (target.playerStat.characterName)
+        {
+            case character_name.기본_전사 :
+                break;
+            case character_name.디노 :
+                break;
+            case character_name.아이언 :
+                break;
+            case character_name.기본_궁수 :
+                break;
+            case character_name.사비나 :
+                break;
+            case character_name.기본_마법사 :
+                break;
+            case character_name.쿠아 :
+                break;
+        }
     }
 
     private void Update()

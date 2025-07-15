@@ -32,6 +32,7 @@ public class HpBarManager : MonoBehaviour
     {
         cameraPlanes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
         EnemyHpBarSetting();
+        PlayerHpBarSetting();
 
     }
 
@@ -65,10 +66,8 @@ public class HpBarManager : MonoBehaviour
                 // 있으면 삭제
                 if (enemyHpBars.ContainsKey(enemyTransform))
                 {
-                    
                     Destroy(enemyHpBars[enemyTransform]);
                     enemyHpBars.Remove(enemyTransform);
-                    
                 }
             }
         }
@@ -88,17 +87,17 @@ public class HpBarManager : MonoBehaviour
             {
                 if (playerHpBars.ContainsKey(playerTransform).Equals(false))
                 {
-                    
-                    //PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform + Vector3.up * -0.4f, Quaternion.identity) as PlayerHpBar;
+                    PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) as PlayerHpBar;
                         //ObjectPoolSystem.Instance.GetObjectOrNull("PlayerHpBar") as PlayerHpBar;
 
 //                    if (playerHpDisplay == null) continue;
 //
-//                    playerHpDisplay.gameObject.SetActive(true);
+                    playerHpDisplay.gameObject.SetActive(true);
 //                    if (playerTransform.TryGetComponent(out Player player))
-//                        playerHpDisplay.target = player;
-//
-                    //playerHpBars[playerTransform] = playerHpDisplay.gameObject;
+                    if(playerTransform.gameObject.TryGetComponent(out Player player)) 
+                        playerHpDisplay.target = player;
+                    
+                    playerHpBars[playerTransform] = playerHpDisplay.gameObject;
                 }
             }
             else
