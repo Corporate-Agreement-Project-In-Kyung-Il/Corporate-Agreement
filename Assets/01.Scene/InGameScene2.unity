@@ -1037,7 +1037,7 @@ MonoBehaviour:
   moveSpeed: 5
   offset: {x: 0.5, y: 2, z: -9.5}
   shakeDuration: 0.01
-  shakeMagnitude: 0.01
+  shakeMagnitude: 0.05
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
