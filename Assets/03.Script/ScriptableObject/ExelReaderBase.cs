@@ -57,9 +57,15 @@ public class Equip : BaseValue
 }
 
 [System.Serializable]
-public class Monster : BaseValue
+public class MonsterExel : BaseValue
 {
-    
+    public int Stage_ID;
+    public float Monster_HP;
+    public float Monster_Attack;
+    public int Monster_SpawnCount;
+    public bool IsBossStage;
+    public float Boss_HP;
+    public float Boss_Attack;
 }
 
 [System.Serializable]
