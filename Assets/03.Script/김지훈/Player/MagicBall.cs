@@ -133,6 +133,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         if (distanceToTarget < 0.3f)
         {
             animator.SetTrigger(Explosion);
+            FollowCamera.Shake();
             transform.rotation = Quaternion.identity;
             isRotate = false;
         }
