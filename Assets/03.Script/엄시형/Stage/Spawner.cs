@@ -19,7 +19,8 @@ public class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     
-    [SerializeField] private MonsterTableSO mMonsterTable;
+    // [SerializeField] private MonsterStatExel m_MonsterStatTable;
+    [SerializeField] private MonsterTableSO m_MonsterTable;
     [SerializeField] private List<Tilemap> m_TilemapList;
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
@@ -39,17 +40,13 @@ public class Spawner : MonoBehaviour
         { character_class.전사 , new Vector2(0.5f, 2f) },
         { character_class.마법사 , new Vector2(1.5f, 1f)}
     };
-
-
-
-    // TODO : Area 동적생성
     
     [Conditional("UNITY_EDITOR")]
     private void OnValidate()
     {
         // Debug.Assert(mAreaList.Count != 0, "mAreaList 요소가 0 인스펙터 확인");
         Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
-        Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
+        // Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
     }
 
     void Awake()
