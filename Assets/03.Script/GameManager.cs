@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -9,26 +10,40 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
+    [Tooltip("선택지 1, 2, 3번")]
     public OptionButton[] optionButtons; // UI 버튼 배열
+    
+    [Tooltip("선택지가 생성 될 때 기본 리롤 횟수가 설정 됩니다.")]
     public int baseRerollCount = 3; // 기본 리롤 횟수
     
     
 
     Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
     
+    [Tooltip("Skill SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_SkillOption skillOption;
+    [Tooltip("Equip SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_EquipOption equipOption;
+    [Tooltip("Training SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_TrainingOption trainingOption;
     
     [SerializeField]
     private OptionChoice_SkillOption m_IngameSkillOption;
     public static GameManager Instance { get; private set; }
     public int[] characterSkillID = new int[6];
+    [Tooltip("선택지 옵션 Canvas 입니다. 선택지가 등장할 때 활성화 되고, 버튼이 눌리면 비활성화 됩니다.")]
     public Canvas canvas;
  
     // Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
 
     public PlayerDataReceiverJiHun playerStatAdjust;
+    
+    [Tooltip("Skill Manager가 들어가야 합니다.")]
+    public SkillManager skillManager;
+
+    public static bool IsPaused = false;
+    
+    
     private void Awake()
     {
         if (Instance == null)
@@ -55,6 +70,30 @@ public class GameManager : MonoBehaviour
         {
             CreateChoices(3);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (IsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        IsPaused = false;
+    }
+    
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        IsPaused = true;
     }
 
     public void GameStart()
@@ -85,6 +124,8 @@ public class GameManager : MonoBehaviour
         m_Options.Add(EOptionType.Skill, m_IngameSkillOption);
         m_Options.Add(EOptionType.Equip, equipOption);
         m_Options.Add(EOptionType.Training, trainingOption);
+        skillManager.skillOption = m_IngameSkillOption;
+        
 #endif
     }
     
@@ -97,6 +138,7 @@ public class GameManager : MonoBehaviour
         {
             SetRandomOptionToButton(optionButtons[i], baseRerollCount);
         }
+        Pause();
     }
 
     public void RerollChoice(OptionButton optionButton)
