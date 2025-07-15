@@ -38,10 +38,10 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     public GameObject skillPrefab;
     public GameObject skillPrefab2;
 
-    [SerializeField, Tooltip("게임 시작할 때 받아오는 초기값이 저장된 곳.\n" + " 초기에 Player의 Stat을 조절하고 싶으면 여기")] 
+    [SerializeField, Header("게임 시작할 때 받아오는 초기값이 저장된 곳."), Tooltip("게임 시작할 때 받아오는 초기값이 저장된 곳.\n" + " 초기에 Player의 Stat을 조절하고 싶으면 여기")] 
     public PlayerData data;
     
-    [Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
+    [Header("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기."), Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
     public PlayerStat playerStat = new PlayerStat();
     
     private Collider2D col;
@@ -201,7 +201,15 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
         if (target != null)
         {
             isTarget = true;
-            animator.SetBool(IsAttack, true);
+            if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange)
+            {
+                animator.SetBool(IsAttack, true);
+            }
+            else
+            {
+                animator.SetBool(IsAttack, false);
+            }
+
             isTarget = weapon2.Attack(target);
             
             bool isStillTarget = weapon2.Attack(target);

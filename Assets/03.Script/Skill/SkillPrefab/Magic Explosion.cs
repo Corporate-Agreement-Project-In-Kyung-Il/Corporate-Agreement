@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MagicExplosion : ActiveSkillBase, ISkillID
 {
+    
     //광역기 투사체
     public int SkillId;
     public int SkillID { get; set; }

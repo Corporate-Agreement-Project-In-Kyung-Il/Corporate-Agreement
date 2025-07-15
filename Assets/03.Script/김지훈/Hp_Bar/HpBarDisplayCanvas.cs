@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class HpBarManager : MonoBehaviour
 {
+    [Header("PlayerHpBar 표시")]
     public PlayerHpBar playerHpBar;
+    [Header("EnemyHpBar 표시")]
     public EnemyHpBar enemyBar;
     public Canvas uiCanvas; //World Space로 설정된 Canvas
+    [Header("기본적인 EnemyGameObject 기준 : HpBar 표시위치")]
     public float barDisplayPosition;
     
     private Camera mainCamera;
