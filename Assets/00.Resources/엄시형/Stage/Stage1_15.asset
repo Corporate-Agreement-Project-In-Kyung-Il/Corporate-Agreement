@@ -20,3 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24ee87f06a833fd4e800260427047bb1, type: 2}
   - {fileID: 11400000, guid: 1ee0a8fce6a0c3c479d9f636a56fd8f1, type: 2}
   - {fileID: 11400000, guid: e54c56cfc72bc964c8afe7d381d0899a, type: 2}
+  BossAreaInfo: {fileID: 11400000, guid: 1bc755a0d58da9d4d92e2665549ffecb, type: 2}

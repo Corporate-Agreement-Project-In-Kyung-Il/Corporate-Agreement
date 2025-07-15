@@ -26,6 +26,9 @@ namespace _03.Script.엄시형.Stage
         [Header("구역 정보 1구역 2구역 3구역 4구역(보스스테이지)")]
         [SerializeField] private List<AreaInfoSO> mAreaInfoList = new List<AreaInfoSO>();
         
+        [Header("보스 구역 정보")]
+        [SerializeField] public AreaInfoSO BossAreaInfo;
+        
         [Conditional("UNITY_EDITOR")]
         private void OnValidate()
         {

@@ -9,7 +9,7 @@ namespace _03.Script.엄시형.Data.V2
     public class AreaInfoSO : ScriptableObject
     {
         public int AreaId;
-        // public bool bIsBossStage =>  mbIsBossStage;
+        public bool b_IsBossStage =>  mb_IsBossStage;
         public int MonsterCount => SpawnInfoList.Count;
         // public List<MonsterType> SpawnMonsterTypeList => mSpawnMonsterTypeList;
         public List<SpawnInfo> SpawnInfoList = new List<SpawnInfo>();
@@ -20,7 +20,7 @@ namespace _03.Script.엄시형.Data.V2
         // [Header("몬스터 스폰지점")]
         // [SerializeField] private List<Vector2> mMonsterSpawnPointList;
         
-        // private bool mbIsBossStage;
+        [SerializeField] private bool mb_IsBossStage;
 
         // private void OnValidate()
         // {
