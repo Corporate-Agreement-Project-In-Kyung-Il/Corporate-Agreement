@@ -17,7 +17,7 @@ MonoBehaviour:
   isDead: 0
   character_ID: 100006
   characterClass: 2
-  characterName: 5
+  characterName: 6
   characterGrade: 0
   attackDamage: 1
   health: 10000
