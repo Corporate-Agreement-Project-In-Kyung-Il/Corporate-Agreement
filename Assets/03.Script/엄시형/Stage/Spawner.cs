@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using _00.Resources.엄시형.PrefabTable;
 using _03.Script.엄시형.Data.V2;
 using _03.Script.엄시형.Monster;
@@ -19,20 +20,23 @@ public class Spawner : MonoBehaviour
     public static Spawner Instance { get; private set; }
     
     [SerializeField] private MonsterTableSO mMonsterTable;
+    [SerializeField] private List<Tilemap> m_TilemapList;
+    [SerializeField] private GameObject m_Grid;  
+    [SerializeField] private StageEndDetector m_StageEndPoint;
+    [SerializeField] private Player[] m_PlayerList;
+    private List<Tilemap> m_CurAreaList;
     
     [Header("스테이지 정보")]
     [SerializeField] private StageInfoSo mStageInfo;
-    [SerializeField] private List<GameObject> mAreaList = new List<GameObject>();
-    // [SerializeField] private List<GameObject> mMonsterList = new List<GameObject>();
     
     [SerializeField] 
-    private int m_CurStageId = 0;
+    public int CurStageId = 1;
     
     private Dictionary<character_class, Vector2> mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
-        { character_class.궁수, new Vector2(-0.5f, -4.5f) },
-        { character_class.전사 , new Vector2(0.5f, -3.5f) },
-        { character_class.마법사 , new Vector2(1.5f, -4.5f)}
+        { character_class.궁수, new Vector2(-0.5f, 1f) },
+        { character_class.전사 , new Vector2(0.5f, 2f) },
+        { character_class.마법사 , new Vector2(1.5f, 1f)}
     };
     
     // TODO : Area 동적생성
@@ -40,7 +44,7 @@ public class Spawner : MonoBehaviour
     [Conditional("UNITY_EDITOR")]
     private void OnValidate()
     {
-        Debug.Assert(mAreaList.Count != 0, "mAreaList 요소가 0 인스펙터 확인");
+        // Debug.Assert(mAreaList.Count != 0, "mAreaList 요소가 0 인스펙터 확인");
         Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
         Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
     }
@@ -60,19 +64,39 @@ public class Spawner : MonoBehaviour
     //         , Quaternion.identity);
     // }
     
-    private BaseMonster SpawnMonster(Vector2 position, MonsterType type)
+    private BaseMonster SpawnMonster(Vector2 position, MonsterType type
+        , GameObject parent)
     {
-       return Instantiate(mMonsterTable.GetMonster(type), position, Quaternion.identity);
+       var monster = Instantiate(
+           mMonsterTable.GetMonster(type)
+           , position, Quaternion.identity
+           , parent: parent.transform);
+       monster.transform.localPosition = position;
+       
+       return monster;
+    }
+    
+    public void DestoryAllArea()
+    {
+        for (int i = 0; i < m_CurAreaList.Count; i++)
+        {
+            Destroy(m_CurAreaList[i].gameObject);
+        }
+        
+        m_CurAreaList.Clear();
     }
     
     public void SpawnAllMonstersInStage()
     {
-        if(m_CurStageId %3 == 0)
+        for (var i = 0; i < m_PlayerList.Length; i++)
         {
-            GameManager.Instance.CreateChoices(3);
+            var player = m_PlayerList[i];
+            SetPositionStartPoint(player);
         }
-        m_CurStageId++;
+
         Debug.Assert(mStageInfo != null, "널 들어옴");
+        // var areaList = GenerateMap();
+        m_CurAreaList = GenerateMap();
         
         int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;
         
@@ -82,13 +106,28 @@ public class Spawner : MonoBehaviour
             
             for (int x = 0; x < areaInfo.MonsterCount; x++)
             {
-                MonsterType type = mStageInfo.SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
-                
+                MonsterType type = mStageInfo
+                    .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
+            
                 SpawnMonsterInRange(
                     areaInfo.SpawnInfoList[x]
                     , type
-                    , mAreaList[i]);
+                    , parent: m_CurAreaList[i].gameObject);
             }
+        }
+
+        // 보스 스테이지
+        if (CurStageId % 3 == 0)
+        {
+            MonsterType type = mStageInfo
+                .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
+            
+            var boss = SpawnMonster(
+                mStageInfo.BossAreaInfo.SpawnInfoList[0].Point
+                , type
+                , parent: m_CurAreaList.Last().gameObject);
+            
+            boss.gameObject.transform.localScale = Vector3.one * 3f;
         }
     }
     
@@ -124,5 +163,42 @@ public class Spawner : MonoBehaviour
         monster.transform.localPosition = spawnPos; // 부모의 로컬 좌표로 스폰
         
         return monster;
+    }
+    
+    public List<Tilemap> GenerateMap()
+    {
+        List<Tilemap> areaList = new List<Tilemap>();
+        
+        float topY = 0f;
+        
+        for (int i = 0; i < mStageInfo.AreaInfoList.Count; i++)
+        {
+            var curTileMap = Instantiate(m_TilemapList[0]
+                , new Vector2(0, topY)
+                , Quaternion.identity
+                , parent: m_Grid.transform);
+
+            areaList.Add(curTileMap);
+            
+            // Debug.Log(curTileMap.transform.position);
+            topY += curTileMap.cellBounds.yMax;
+            // topY = curTilemap.transform.position.y + curTileMap.localBounds.extents.y + cellSize.y * 0.5f;
+        }
+
+        // 보스 스테이지
+        if (CurStageId % 3 == 0)
+        {
+            var bossTileMap = Instantiate(m_TilemapList[0]
+                , new Vector2(0, topY)
+                , Quaternion.identity
+                , parent: m_Grid.transform);
+            
+            areaList.Add(bossTileMap);
+            
+            topY += bossTileMap.cellBounds.yMax;
+        }
+        
+        m_StageEndPoint.transform.position = new Vector2(0, topY);
+        return areaList;
     }
 }
