@@ -6,7 +6,9 @@ using UnityEngine;
 public class AliveExistSystem : MonoBehaviour
 {
     public static AliveExistSystem Instance;
+    [Header("현재 Stage에 살아있는 Monster들")]
     public List<Collider2D> monsterList = new List<Collider2D>();
+    [Header("현재 Stage에 살아있는 Player들")]
     public List<Collider2D> playerList = new List<Collider2D>();
     
     private Collider2D col;

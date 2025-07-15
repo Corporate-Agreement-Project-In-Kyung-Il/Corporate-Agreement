@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 public enum BuffEffectType
 {
@@ -37,16 +38,20 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     public GameObject skillPrefab;
     public GameObject skillPrefab2;
 
-    [SerializeField] public PlayerData data;
+    [SerializeField, Tooltip("게임 시작할 때 받아오는 초기값이 저장된 곳.\n" + " 초기에 Player의 Stat을 조절하고 싶으면 여기")] 
+    public PlayerData data;
+    
+    [Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
+    public PlayerStat playerStat = new PlayerStat();
+    
     private Collider2D col;
     private Rigidbody2D rigid;
-    public PlayerStat playerStat = new PlayerStat();
     private Animator animator;
     private Weapon weapon2;
 
     
-    [SerializeField] private CharacterState currentCharacterState2 = CharacterState.Run;
-    [SerializeField] private CharacterState prevCharacterState2 = CharacterState.Run;
+    [SerializeField, Tooltip("현재의 player의 상태")] private CharacterState currentCharacterState = CharacterState.Run;
+    [SerializeField] private CharacterState prevCharacterState = CharacterState.Run;
 
     private bool cameraMove = true;
     [SerializeField] private Vector2 detectionRange;
@@ -132,7 +137,7 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f,
             LayerMask.GetMask("Enemy"));
 
-        switch (currentCharacterState2)
+        switch (currentCharacterState)
         {
             case CharacterState.Run: animator.SetBool(IsRun, true); performRun(); break;
             case CharacterState.Attack: performAttack(); break;
@@ -156,51 +161,15 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
         data.isDead = true;
         gameObject.SetActive(false);
     }
-
-    //private void performAttack()
-    //{
-    //    if (enemyDetectionCol.Length <= 0)
-    //    {
-    //        isTarget = false;
-    //        ChangeState(CharacterState.Run);
-    //        return;
-    //    }
-    //
-    //    attackTimer -= Time.deltaTime;
-    //    if (attackTimer > 0f) return;
-    //
-    //    Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
-    //    if (!isTarget)
-    //    {
-    //        Collider2D enemyAttackCol =
-    //            Physics2D.OverlapBox(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
-    //        target = enemyAttackCol;
-    //    }
-    //
-    //    if (target != null)
-    //    {
-    //        isTarget = true;
-    //        animator.SetBool(IsAttack, true);
-    //
-    //        bool still = false;
-    //       
-    //        if (weapon2 != null) still = weapon2.Attack(target);
-    //
-    //        if (HasBuff(BuffEffectType.Archer_Strong_Mind) && weapon != null)
-    //            weapon.Attack(target);
-    //
-    //        isTarget = still;
-    //        attackTimer = 1f / playerStat.attackSpeed;
-    //
-    //        SkillCondition();
-    //    }
-    //}
+    
     private void performAttack()
     {
         if(enemyDetectionCol.Length <= 0)
         {
             isTarget = false;
+            target = null;
             ChangeState(CharacterState.Run);
+            return;
         }
         
         attackTimer -= Time.deltaTime;
@@ -212,8 +181,21 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
 
         if (isTarget.Equals(false))
         {
-            Collider2D enemyAttackCol = Physics2D.OverlapBox(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
-            target = enemyAttackCol;
+            Collider2D[] enemyAttackCol = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
+            float minDistance = 100f;
+            Collider2D closestEnemy = null;
+            for (int i = 0; i < enemyAttackCol.Length; i++)
+            {
+                if (enemyAttackCol[i] == null) continue;
+
+                float distance = Vector2.Distance(transform.position, enemyAttackCol[i].transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestEnemy = enemyAttackCol[i];
+                }
+            }
+            target = closestEnemy;
         }
         
         if (target != null)
@@ -223,11 +205,13 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
             isTarget = weapon2.Attack(target);
             
             bool isStillTarget = weapon2.Attack(target);
+            
             if (HasBuff(BuffEffectType.Archer_Strong_Mind))
             {
                 Debug.Log("🏹 아처 스트롱 마인드 발동! 추가 공격");
                 weapon2.Attack(target);
             }
+            
             isTarget = isStillTarget;
             attackTimer = 1f / playerStat.attackSpeed;
             SkillCondition();
@@ -239,7 +223,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     {
         float finalDamage = combatEvent.Damage * (1 - damageReductionRate);
         playerStat.health -= finalDamage;
-
+        DamgeEvent.OnTriggerPlayerDamageEvent(this);
+        
         if (playerStat.health <= 0)
         {
             cameraMove = false;
@@ -267,8 +252,8 @@ public class Player : MonoBehaviour, IDamageAble, ICameraPosition, IBuffSelectio
     {
         animator.SetBool(IsRun, false);
         animator.SetBool(IsAttack, false);
-        prevCharacterState2 = currentCharacterState2;
-        currentCharacterState2 = newState;
+        prevCharacterState = currentCharacterState;
+        currentCharacterState = newState;
     }
 
     private void SkillCondition()

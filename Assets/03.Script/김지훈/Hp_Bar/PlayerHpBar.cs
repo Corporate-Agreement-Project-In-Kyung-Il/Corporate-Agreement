@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHpBar : MonoBehaviour
 {
+
     [Header("HpBar 위치")]
     public Vector3 offset = new Vector3(0, -0.4f, 0); // 머리 위에 위치
     

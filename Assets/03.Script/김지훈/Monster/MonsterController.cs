@@ -15,13 +15,15 @@ public class MonsterController : BaseMonster, IDamageAble
     public float CurrentHp => monsterStat.health;
 
     //Component 받아오는 요소
+    [Tooltip("초기에 실행할 때 monsterData로 체력, 공격력등을 받아오는 데이터\n" + "게임 시작할 때 monster의 체력을 올리고 싶다면 여기서 바꾸기")] 
     public MonsterData monsterData;
+    [Tooltip("MonsterData 정보를 받아와서 실질적으로 Monster를 관리하는 것.\n" + "게임 도중에 monster의 체력을 올리고 싶다면 여기를 바꾸기.")]
     public MonsterStat monsterStat = new MonsterStat();
     private Collider2D collider2D;
     private Weapon weapon;
     
     //CharacterState 정의 요소
-    [SerializeField] private EnemyState currentCharacterState = EnemyState.Idle;
+    [SerializeField, Tooltip("현재 EnemyState의 상태")] private EnemyState currentCharacterState = EnemyState.Idle;
     [SerializeField] private EnemyState prevCharacterState = EnemyState.Idle;
 
 
@@ -62,6 +64,12 @@ public class MonsterController : BaseMonster, IDamageAble
             case EnemyState.Die :
                 performDie();
                 break;
+        }
+        
+                
+        if (monsterStat.health <= 0)
+        {
+            ChangeState(EnemyState.Die);
         }
     }
     

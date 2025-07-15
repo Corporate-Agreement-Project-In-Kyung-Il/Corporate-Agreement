@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: "ArcherPlayerData\uC544\uCC98"
   m_EditorClassIdentifier: 
   attackRange: 4
-  moveSpeed: 20
-  isDead: 0
+  moveSpeed: 5
+  isDead: 1
   character_ID: 100004
   characterClass: 1
   characterName: 4
   characterGrade: 0
   attackDamage: 1
-  health: 10000
+  health: 100
   attackSpeed: 1
   criticalProbability: 0
   training_type: 500002
