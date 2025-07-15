@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         m_Options.Add(EOptionType.Skill, m_IngameSkillOption);
         m_Options.Add(EOptionType.Equip, equipOption);
         m_Options.Add(EOptionType.Training, trainingOption);
-        skillManager.SetSkillSo(m_IngameSkillOption);
+        skillManager.skillOption = m_IngameSkillOption;
         
 #endif
     }
