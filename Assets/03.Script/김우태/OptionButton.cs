@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ public class OptionButton : MonoBehaviour
    public int selectID;
    public Canvas optionCanvas;
    public BaseValue selectedData;
-
+   
    public void OnClick()
    {
       switch (optionType)
