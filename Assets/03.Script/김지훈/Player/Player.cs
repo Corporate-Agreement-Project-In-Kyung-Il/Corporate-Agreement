@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
@@ -131,7 +132,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
 
-        enemyDetectionCenter = transform.position;
+        enemyDetectionCenter = Vector2.right * 0.5f + Vector2.up * transform.position.y;
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f,
             LayerMask.GetMask("Enemy"));
 
@@ -155,11 +156,38 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     {
         if (enemyDetectionCol.Length > 0)
         {
-            ChangeState(CharacterState.Attack);
-        }
+            float minDistance = 100f;
+            Collider2D closestEnemy = null;
+            for (int i = 0; i < enemyDetectionCol.Length; i++)
+            {
+                if (enemyDetectionCol[i] == null) continue;
+        
+                float distance = Vector2.Distance(transform.position, enemyDetectionCol[i].transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestEnemy = enemyDetectionCol[i];
+                }
+            }
+            target = closestEnemy;
 
-        targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.fixedDeltaTime);
-        rigid.MovePosition(targetPos);
+            if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange)
+            {
+                attackTimer = 1f / playerStat.attackSpeed;
+                ChangeState(CharacterState.Attack);
+            }
+            else
+            {
+                Vector2 dir = ((Vector2)target.transform.position - rigid.position).normalized;
+                Vector2 nextPos = rigid.position + dir * (playerStat.moveSpeed * Time.fixedDeltaTime);
+                rigid.MovePosition(nextPos);
+            }
+        }
+        else
+        {
+            targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.fixedDeltaTime);
+            rigid.MovePosition(targetPos);
+        }
     }
 
     private void performDie()
@@ -170,7 +198,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     
     private void performAttack()
     {
-        if(enemyDetectionCol.Length <= 0)
+        if(enemyDetectionCol.Length <= 0 || target == null)
         {
             isTarget = false;
             target = null;
@@ -178,59 +206,39 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
             return;
         }
         
+        float distance = Vector2.Distance(transform.position, target.transform.position);
+        
+        if (distance > playerStat.attackRange)
+        {
+            target = null;
+            ChangeState(CharacterState.Run);
+            return;
+        }
+        else
+        {
+            animator.SetBool(IsAttack, true);
+        }
+        
         attackTimer -= Time.deltaTime;
         
         if (attackTimer > 0f)
             return;
         
-        Vector2 boxSize = new Vector2(playerStat.attackRange, playerStat.attackRange);
-
-        if (isTarget.Equals(false))
+        isTarget = true;
+        isTarget = weapon2.Attack(target);
+        
+        bool isStillTarget = weapon2.Attack(target);
+        
+        if (HasBuff(BuffEffectType.Archer_Strong_Mind))
         {
-            Collider2D[] enemyAttackCol = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, LayerMask.GetMask("Enemy"));
-            float minDistance = 100f;
-            Collider2D closestEnemy = null;
-            for (int i = 0; i < enemyAttackCol.Length; i++)
-            {
-                if (enemyAttackCol[i] == null) continue;
-
-                float distance = Vector2.Distance(transform.position, enemyAttackCol[i].transform.position);
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    closestEnemy = enemyAttackCol[i];
-                }
-            }
-            target = closestEnemy;
+            Debug.Log("🏹 아처 스트롱 마인드 발동! 추가 공격");
+            weapon2.Attack(target);
         }
         
-        if (target != null)
-        {
-            isTarget = true;
-            if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange)
-            {
-                animator.SetBool(IsAttack, true);
-            }
-            else
-            {
-                animator.SetBool(IsAttack, false);
-            }
-
-            isTarget = weapon2.Attack(target);
-            
-            bool isStillTarget = weapon2.Attack(target);
-            
-            if (HasBuff(BuffEffectType.Archer_Strong_Mind))
-            {
-                Debug.Log("🏹 아처 스트롱 마인드 발동! 추가 공격");
-                weapon2.Attack(target);
-            }
-            
-            isTarget = isStillTarget;
-            attackTimer = 1f / playerStat.attackSpeed;
-            SkillCondition();
-        }
-
+        isTarget = isStillTarget;
+        attackTimer = 1f / playerStat.attackSpeed;
+        SkillCondition();
+        
     }
 
     public void TakeDamage(CombatEvent combatEvent)
