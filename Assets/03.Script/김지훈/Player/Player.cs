@@ -183,7 +183,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         }
         target = closestEnemy;
 
-        if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange)
+        if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange || target.IsTouching(col))
         {
             attackTimer = 1f / playerStat.attackSpeed;
             ChangeState(CharacterState.Attack);
