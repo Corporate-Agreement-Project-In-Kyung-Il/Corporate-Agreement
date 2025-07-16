@@ -22,7 +22,13 @@ namespace _03.Script.엄시형.Stage.DTO
         {
             X = pos.x;
             Y = pos.y;
+            
             Diameter = diameter;
+        }
+        
+        public SpawnInfo ToSpawnInfo()
+        {
+            return new SpawnInfo(Pos, Diameter);
         }
     }
 }

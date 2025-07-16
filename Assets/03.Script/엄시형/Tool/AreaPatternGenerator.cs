@@ -259,7 +259,7 @@ namespace _03.Script.엄시형.Tool
         }
     }
 
-    internal class AreaPatternPersistenceManager
+    public class AreaPatternPersistenceManager
     {
         public readonly string fullPath;
         

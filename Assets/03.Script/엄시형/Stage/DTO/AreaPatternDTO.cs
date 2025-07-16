@@ -19,5 +19,10 @@ namespace _03.Script.엄시형.Stage.DTO
             PatternId = patternId;
             MonsterSpawnInfoList = new List<SpawnInfoDTO>();
         }
+
+        public AreaPattern ToAreaPattern()
+        {
+            return new AreaPattern(PatternId, MonsterSpawnInfoList);
+        }
     }
 }

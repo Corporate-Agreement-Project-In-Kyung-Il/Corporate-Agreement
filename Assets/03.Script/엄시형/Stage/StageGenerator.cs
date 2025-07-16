@@ -15,7 +15,7 @@ public class AutoMapGenerator : MonoBehaviour
     // [SerializeField] private Tilemap m_CurTilemap;
     // TODO : Tilemap을 여러개 넣어서 순차적으로 생성하는 기능 추가
     
-    [SerializeField] private StageInfoSo m_StageInfo;
+    [SerializeField] private StageInfo m_StageInfo;
     [SerializeField] private GameObject m_Grid;  
     // [SerializeField] private TilemapRenderer m_CurTilemapRenderer;
     // [SerializeField] private int mTileCount = 10;

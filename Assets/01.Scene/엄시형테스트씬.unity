@@ -3881,7 +3881,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StageEndDetector: {fileID: 1399486814}
+  m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_MonsterStatTable: {fileID: 11400000, guid: 16f2c6dd7713c95479fdf2e0347103ed, type: 2}
+  m_MonsterData: {fileID: 11400000, guid: eac4037eda615a84ab77d0319915898b, type: 2}
   m_MonsterTable: {fileID: 11400000, guid: 8cd7e0585f7a01847a69123de230f27a, type: 2}
   m_TilemapList:
   - {fileID: 3852055898315261543, guid: 7c708ddd127038541966e6e1b198eed7, type: 3}
@@ -3891,7 +3893,13 @@ MonoBehaviour:
   - {fileID: 1185224000}
   - {fileID: 1378329100}
   - {fileID: 1044278924}
-  mStageInfo: {fileID: 11400000, guid: c448e225bccf4394b9b66899eaa150bd, type: 2}
+  mStageInfo:
+    SpawnMonsterTypeList: 
+    m_MaxStageId: 0
+    m_AreaInfoList: []
+    BossAreaInfo:
+      <PatternId>k__BackingField: 0
+      <MonsterSpawnInfoList>k__BackingField: []
   CurStageId: 1
 --- !u!4 &1641550388
 Transform:

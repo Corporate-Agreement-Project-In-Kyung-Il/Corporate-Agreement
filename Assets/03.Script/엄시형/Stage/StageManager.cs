@@ -8,6 +8,6 @@ namespace _03.Script.엄시형.Stage
     public class StageManager : MonoBehaviour
     {
         [SerializeField] private Spawner mSpawner;
-        [SerializeField] private StageInfoSo mStageInfo;
+        [SerializeField] private StageInfo mStageInfo;
     }
 }

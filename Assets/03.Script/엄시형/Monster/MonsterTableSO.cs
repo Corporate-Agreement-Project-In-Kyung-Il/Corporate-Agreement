@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using _03.Script.엄시형.Data;
 using _03.Script.엄시형.Monster;
+using _03.Script.엄시형.Stage;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Debug = UnityEngine.Debug;
@@ -24,7 +25,7 @@ namespace _00.Resources.엄시형.PrefabTable
             
             Debug.Assert(mMonsterDic != null, "mMonsters => mMonsterDic 변환 실패");
         }
-
+        
         public BaseMonster GetMonster(MonsterType type)
         {
             return mMonsterDic[type];

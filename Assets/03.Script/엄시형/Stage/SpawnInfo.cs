@@ -12,6 +12,12 @@ namespace _03.Script.엄시형.Stage
         [field: SerializeField]
         public float Radius { get; set; }
         
+        public SpawnInfo(int x, int y, float radius)
+        {
+            Point = new Vector2(x, y);
+            Radius = radius;
+        }
+        
         public SpawnInfo(Vector2 point, float radius)
         {
             Point = point;

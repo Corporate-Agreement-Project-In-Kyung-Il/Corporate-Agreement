@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using _00.Resources.엄시형.PrefabTable;
-using _03.Script.엄시형.Data.V2;
 using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage;
+using _03.Script.엄시형.Stage.DTO;
+using _03.Script.엄시형.Tool;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -20,26 +21,34 @@ public class Spawner : MonoBehaviour
     public static Spawner Instance { get; private set; }
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
+    
+    [SerializeField] private StagePatternTableSO m_StagePatternTable;
+    
     [SerializeField] private MonsterStatExel m_MonsterStatTable;
+    [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private MonsterTableSO m_MonsterTable;
+    
     [SerializeField] private List<Tilemap> m_TilemapList;
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private Player[] m_PlayerList;
+    
+    private AreaPatternPersistenceManager m_AreaPersistenceMgr;
+    
     private List<Tilemap> m_CurAreaList;
     public List<Tilemap> CurAreaList => m_CurAreaList;
     
     [Header("스테이지 정보")]
-    [SerializeField] private StageInfoSo mStageInfo;
+    [SerializeField] private StageInfo mStageInfo;
     
-    [SerializeField] 
+    [SerializeField]
     public int CurStageId = 1;
     
     private Dictionary<character_class, Vector2> mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
         { character_class.궁수, new Vector2(-0.5f, 1f) },
         { character_class.전사 , new Vector2(0.5f, 2f) },
-        { character_class.마법사 , new Vector2(1.5f, 1f)}
+        { character_class.마법사 , new Vector2(1.5f, 1f) }
     };
     
     [Conditional("UNITY_EDITOR")]
@@ -49,11 +58,17 @@ public class Spawner : MonoBehaviour
         Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
         // Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
     }
-
+    
     void Awake()
     {
         Instance = this;
+
+        // foreach (var VARIABLE in mStageInfo.)
+        // {
+        //     
+        // }
         
+        // mStageInfo = ;
         GameManager.Instance.GameStart();
     }
 
@@ -75,12 +90,17 @@ public class Spawner : MonoBehaviour
         }
         
         CurStageId++;
+        
+        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
         DestoryAllArea();
         SpawnAllMonstersInStage();
     }
     
+    
+    
     private void Start()
     {
+        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
         SpawnAllMonstersInStage();
     }
 
@@ -125,22 +145,19 @@ public class Spawner : MonoBehaviour
         // var areaList = GenerateMap();
         m_CurAreaList = GenerateMap();
         
-        
-  
-        
         int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;
         
         for (int i = 0; i < mStageInfo.AreaInfoList.Count; i++)
         {
-            AreaInfoSO areaInfo = mStageInfo.AreaInfoList[i];
+            AreaPattern areaInfo = mStageInfo.AreaInfoList[i];
             
-            for (int x = 0; x < areaInfo.MonsterCount; x++)
+            for (int x = 0; x < areaInfo.MonsterSpawnInfoList.Count; x++)
             {
                 MonsterType type = mStageInfo
                     .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
             
                 SpawnMonsterInRange(
-                    areaInfo.SpawnInfoList[x]
+                    areaInfo.MonsterSpawnInfoList[x]
                     , type
                     , parent: m_CurAreaList[i].gameObject);
             }
@@ -153,7 +170,7 @@ public class Spawner : MonoBehaviour
                 .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
             
             var boss = SpawnMonster(
-                mStageInfo.BossAreaInfo.SpawnInfoList[0].Point
+                mStageInfo.BossAreaInfo.MonsterSpawnInfoList[0].Point
                 , type
                 , parent: m_CurAreaList.Last().gameObject);
             
@@ -232,6 +249,4 @@ public class Spawner : MonoBehaviour
         m_StageEndPoint.transform.position = new Vector2(0, topY);
         return areaList;
     }
-
-
 }
