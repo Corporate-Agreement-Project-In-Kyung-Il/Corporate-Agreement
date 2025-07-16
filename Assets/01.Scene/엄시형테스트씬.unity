@@ -3880,7 +3880,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMonsterTable: {fileID: 11400000, guid: 8cd7e0585f7a01847a69123de230f27a, type: 2}
+  m_StageEndDetector: {fileID: 1399486814}
+  m_MonsterStatTable: {fileID: 11400000, guid: 16f2c6dd7713c95479fdf2e0347103ed, type: 2}
+  m_MonsterTable: {fileID: 11400000, guid: 8cd7e0585f7a01847a69123de230f27a, type: 2}
   m_TilemapList:
   - {fileID: 3852055898315261543, guid: 7c708ddd127038541966e6e1b198eed7, type: 3}
   m_Grid: {fileID: 1058518465}

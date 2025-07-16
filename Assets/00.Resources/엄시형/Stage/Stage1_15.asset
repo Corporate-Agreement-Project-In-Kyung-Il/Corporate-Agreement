@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bd0cde2cd730d4587fcf33edab91bf, type: 3}
   m_Name: Stage1_15
   m_EditorClassIdentifier: 
-  mStageId: 0
-  mMonsterHp: 100
-  mMonsterAttack: 10
-  mSpawnMonsterTypeList: 01000000
-  mAreaInfoList:
+  m_StageId: 0
+  m_MonsterHp: 100
+  m_MonsterAttack: 10
+  m_SpawnMonsterTypeList: 01000000
+  m_AreaInfoList:
   - {fileID: 11400000, guid: 24ee87f06a833fd4e800260427047bb1, type: 2}
   - {fileID: 11400000, guid: 1ee0a8fce6a0c3c479d9f636a56fd8f1, type: 2}
   - {fileID: 11400000, guid: e54c56cfc72bc964c8afe7d381d0899a, type: 2}

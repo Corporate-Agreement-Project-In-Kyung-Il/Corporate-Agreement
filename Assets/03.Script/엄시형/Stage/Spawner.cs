@@ -19,7 +19,8 @@ public class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     
-    // [SerializeField] private MonsterStatExel m_MonsterStatTable;
+    [SerializeField] private StageEndDetector m_StageEndDetector;
+    [SerializeField] private MonsterStatExel m_MonsterStatTable;
     [SerializeField] private MonsterTableSO m_MonsterTable;
     [SerializeField] private List<Tilemap> m_TilemapList;
     [SerializeField] private GameObject m_Grid;  
@@ -56,6 +57,28 @@ public class Spawner : MonoBehaviour
         GameManager.Instance.GameStart();
     }
 
+    private void OnEnable()
+    {
+        m_StageEndDetector.OnStageEnd += SetNextStage;
+    }
+    
+    private void OnDisable()
+    {
+        m_StageEndDetector.OnStageEnd -= SetNextStage;
+    }
+
+    public void SetNextStage()
+    {
+        if (CurStageId % 3 == 0)
+        {
+            GameManager.Instance.CreateChoices(3);
+        }
+        
+        CurStageId++;
+        DestoryAllArea();
+        SpawnAllMonstersInStage();
+    }
+    
     private void Start()
     {
         SpawnAllMonstersInStage();
@@ -72,7 +95,7 @@ public class Spawner : MonoBehaviour
         , GameObject parent)
     {
        var monster = Instantiate(
-           mMonsterTable.GetMonster(type)
+           m_MonsterTable.GetMonster(type)
            , position, Quaternion.identity
            , parent: parent.transform);
        monster.transform.localPosition = position;
@@ -167,7 +190,7 @@ public class Spawner : MonoBehaviour
     {
         Vector2 randomOffset = Random.insideUnitCircle * spawnInfo.Radius;
         Vector2 spawnPos = spawnInfo.Point + randomOffset;
-        BaseMonster monster = Instantiate(mMonsterTable.GetMonster(type), parent.transform);
+        BaseMonster monster = Instantiate(m_MonsterTable.GetMonster(type), parent.transform);
         monster.transform.localPosition = spawnPos; // 부모의 로컬 좌표로 스폰
         
         return monster;
