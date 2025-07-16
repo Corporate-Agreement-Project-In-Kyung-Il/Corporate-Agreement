@@ -131,7 +131,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         skillCooldownTimers[0] -= Time.deltaTime;
         skillCooldownTimers[1] -= Time.deltaTime;
 
-        enemyDetectionCenter = Vector2.up * transform.position.y;
+        enemyDetectionCenter = transform.position;
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f,
             LayerMask.GetMask("Enemy"));
 

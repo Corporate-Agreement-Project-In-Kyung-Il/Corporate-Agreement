@@ -135,5 +135,14 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             isTargetNotDead = true;
         }
     }
+    
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += ReturnToPool;
+    }
 
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent -= ReturnToPool;
+    }
 }

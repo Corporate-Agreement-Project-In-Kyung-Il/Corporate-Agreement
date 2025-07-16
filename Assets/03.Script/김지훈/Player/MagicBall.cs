@@ -53,6 +53,8 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
 
     void Update()
     {
+
+        
         if (target.gameObject.activeSelf.Equals(false))
         {
             FindNextTarget();
@@ -147,7 +149,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         {
             collider.enabled = false;
         }
-
+        
         if(currentStateInfo.IsName("Explosion") && currentStateInfo.normalizedTime >= 0.9f)
             ReturnToPool();
     }
@@ -177,5 +179,14 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         }
     }
 
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += ReturnToPool;
+    }
+
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent -= ReturnToPool;
+    }
 
 }

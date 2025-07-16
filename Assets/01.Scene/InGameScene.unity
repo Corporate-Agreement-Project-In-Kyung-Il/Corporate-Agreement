@@ -1035,11 +1035,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f5b084554f79241ac9057c7f591157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1378329103}
-  moveSpeed: 5
+  target: {fileID: 1582793735}
+  moveSpeed: 4
   offset: {x: 0.5, y: 2, z: -9.5}
   shakeDuration: 0.01
   shakeMagnitude: 0.05
+  dampingValue: 0.08
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,11 +2236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1834d1cdfede7f94f884d9367b2dbe1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1378329103 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3052112776325436124, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
-  m_PrefabInstance: {fileID: 2593611471807610423}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1399486813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,7 +2602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1582793735
 Transform:
   m_ObjectHideFlags: 0
