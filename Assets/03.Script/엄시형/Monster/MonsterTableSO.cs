@@ -12,7 +12,7 @@ using Debug = UnityEngine.Debug;
 namespace _00.Resources.엄시형.PrefabTable
 {
     [CreateAssetMenu(fileName = "MonsterTable", menuName = "SO/Table/MonsterTable", order = 1)]
-    public class MonsterTableSO : ScriptableObject
+    public sealed class MonsterTableSO : ScriptableObject
     {
         [SerializeField] private BaseMonster[] mMonsters;
         private Dictionary<MonsterType, BaseMonster> mMonsterDic;

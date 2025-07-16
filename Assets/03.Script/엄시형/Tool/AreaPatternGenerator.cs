@@ -11,7 +11,7 @@ using Debug = UnityEngine.Debug;
 
 namespace _03.Script.엄시형.Tool
 {
-    public class AreaPatternGenerator : MonoBehaviour
+    public sealed class AreaPatternGenerator : MonoBehaviour
     {
         // [ReadOnly]
         [SerializeField] public GameObject mPointPrefab;

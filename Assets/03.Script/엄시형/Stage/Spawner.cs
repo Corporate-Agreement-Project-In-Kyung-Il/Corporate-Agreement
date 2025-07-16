@@ -16,7 +16,7 @@ using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 // [CreateAssetMenu(fileName = "Spawner", menuName = "SO/Stage/Spawner", order = 1)]
-public class Spawner : MonoBehaviour
+public sealed class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     
@@ -62,13 +62,8 @@ public class Spawner : MonoBehaviour
     void Awake()
     {
         Instance = this;
-
-        // foreach (var VARIABLE in mStageInfo.)
-        // {
-        //     
-        // }
         
-        // mStageInfo = ;
+        m_StagePatternTable.Init();
         GameManager.Instance.GameStart();
     }
 
@@ -100,7 +95,8 @@ public class Spawner : MonoBehaviour
     
     private void Start()
     {
-        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
+        // m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
+        mStageInfo = m_StagePatternTable.GetStageInfo(1);
         SpawnAllMonstersInStage();
     }
 

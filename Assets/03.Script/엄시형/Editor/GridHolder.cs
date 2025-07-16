@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 namespace _03.Script.엄시형.Editor
 {
     [CreateAssetMenu(fileName = "New Grid", menuName = "Test/Grid")]
-    public class GridHolder : ScriptableObject
+    public sealed class GridHolder : ScriptableObject
     {
         public int Rows = 5;
         public int Cols = 6;
@@ -32,7 +32,7 @@ namespace _03.Script.엄시형.Editor
  
 
     [CustomEditor(typeof(GridHolder))]
-    public class GridHolderEditor : UnityEditor.Editor
+    public sealed class GridHolderEditor : UnityEditor.Editor
     {
         SerializedProperty rowsProp;
         SerializedProperty colsProp;

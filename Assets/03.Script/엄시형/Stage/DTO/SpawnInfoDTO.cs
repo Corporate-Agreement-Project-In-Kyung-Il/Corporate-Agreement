@@ -9,7 +9,7 @@ namespace _03.Script.엄시형.Stage.DTO
     /// 다른용도 사용금지
     /// </summary>
     [Serializable]
-    public class SpawnInfoDTO
+    public sealed class SpawnInfoDTO
     {
         public float X;
         public float Y;

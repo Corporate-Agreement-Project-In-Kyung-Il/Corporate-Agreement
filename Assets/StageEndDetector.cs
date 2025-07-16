@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageEndDetector : MonoBehaviour
+public sealed class StageEndDetector : MonoBehaviour
 {
     public Collider2D nextSceneCollider;
     public bool mb_IsDetected;

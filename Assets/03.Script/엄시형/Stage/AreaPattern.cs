@@ -5,13 +5,13 @@ using UnityEngine;
 namespace _03.Script.엄시형.Stage.DTO
 {
     [Serializable]
-    public class AreaPattern
+    public sealed class AreaPattern
     {
         [field: SerializeField]
         public int PatternId { get; private set; }
         
         [field: SerializeField]
-        public List<SpawnInfo> MonsterSpawnInfoList { get; private set; } = new List<SpawnInfo>();
+        public List<SpawnInfo> MonsterSpawnInfoList { get; set; } = new List<SpawnInfo>();
         
         public AreaPattern() {}
         
@@ -25,6 +25,13 @@ namespace _03.Script.엄시형.Stage.DTO
             {
                 MonsterSpawnInfoList.Add(dto.ToSpawnInfo());
             }
+        }
+        
+        public AreaPattern(int id, List<SpawnInfo> SpawnInfoList)
+        {
+            PatternId = id;
+
+            MonsterSpawnInfoList = new List<SpawnInfo>(SpawnInfoList);
         }
         
         public int GetStageId()

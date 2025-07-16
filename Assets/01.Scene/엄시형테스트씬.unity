@@ -984,15 +984,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.18085106
     y: 0
-    width: 1
+    width: 0.63829786
     height: 1
   near clip plane: 0.3
   far clip plane: 10
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.046875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3900,7 +3900,7 @@ MonoBehaviour:
     BossAreaInfo:
       <PatternId>k__BackingField: 0
       <MonsterSpawnInfoList>k__BackingField: []
-  CurStageId: 1
+  CurStageId: 3
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ using Debug = UnityEngine.Debug;
 namespace _03.Script.엄시형.Stage
 {
     [Serializable]
-    public class StageInfo
+    public sealed class StageInfo
     {
         // TODO : 엑셀이나 CSV부터 읽어오기 + 에디터에 올리기
         public List<AreaPattern> AreaInfoList => m_AreaInfoList;
