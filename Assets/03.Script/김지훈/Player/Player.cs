@@ -138,15 +138,21 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
         switch (currentCharacterState)
         {
-            case CharacterState.Run: animator.SetBool(IsRun, true); break;
-            case CharacterState.Attack: performAttack(); break;
-            case CharacterState.Die: performDie(); break;
+            case CharacterState.Run: 
+                animator.SetBool(IsRun, true); 
+                break;
+            case CharacterState.Attack: 
+                performAttack(); 
+                break;
+            case CharacterState.Die: 
+                performDie(); 
+                break;
         }
     }
 
     private void FixedUpdate()
     {
-        if (currentCharacterState == CharacterState.Run)
+        if (currentCharacterState.Equals(CharacterState.Run))
         {
             performRun();
         }
@@ -154,40 +160,41 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
     private void performRun()
     {
-        if (enemyDetectionCol.Length > 0)
-        {
-            float minDistance = 100f;
-            Collider2D closestEnemy = null;
-            for (int i = 0; i < enemyDetectionCol.Length; i++)
-            {
-                if (enemyDetectionCol[i] == null) continue;
-        
-                float distance = Vector2.Distance(transform.position, enemyDetectionCol[i].transform.position);
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    closestEnemy = enemyDetectionCol[i];
-                }
-            }
-            target = closestEnemy;
-
-            if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange)
-            {
-                attackTimer = 1f / playerStat.attackSpeed;
-                ChangeState(CharacterState.Attack);
-            }
-            else
-            {
-                Vector2 dir = ((Vector2)target.transform.position - rigid.position).normalized;
-                Vector2 nextPos = rigid.position + dir * (playerStat.moveSpeed * Time.fixedDeltaTime);
-                rigid.MovePosition(nextPos);
-            }
-        }
-        else
+        if (enemyDetectionCol.Length.Equals(0))
         {
             targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.fixedDeltaTime);
             rigid.MovePosition(targetPos);
+            return;
         }
+        
+        float minDistance = 100f;
+        Collider2D closestEnemy = null;
+        
+        for (int i = 0; i < enemyDetectionCol.Length; i++)
+        {
+            if (enemyDetectionCol[i] == null) continue;
+        
+            float distance = Vector2.Distance(transform.position, enemyDetectionCol[i].transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestEnemy = enemyDetectionCol[i];
+            }
+        }
+        target = closestEnemy;
+
+        if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange)
+        {
+            attackTimer = 1f / playerStat.attackSpeed;
+            ChangeState(CharacterState.Attack);
+        }
+        else
+        {
+            Vector2 dir = ((Vector2)target.transform.position - rigid.position).normalized;
+            Vector2 nextPos = rigid.position + dir * (playerStat.moveSpeed * Time.fixedDeltaTime);
+            rigid.MovePosition(nextPos);
+        }
+
     }
 
     private void performDie()
@@ -211,7 +218,6 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         if (distance > playerStat.attackRange)
         {
             target = null;
-            ChangeState(CharacterState.Run);
             return;
         }
         else
@@ -238,7 +244,6 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         isTarget = isStillTarget;
         attackTimer = 1f / playerStat.attackSpeed;
         SkillCondition();
-        
     }
 
     public void TakeDamage(CombatEvent combatEvent)
