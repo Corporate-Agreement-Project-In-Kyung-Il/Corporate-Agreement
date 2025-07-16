@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 using UnityEngine.Rendering.Universal;
 
 
@@ -71,6 +72,11 @@ public class GameManager : MonoBehaviour
             CreateChoices(3);
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            TestProbability();
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (IsPaused)
@@ -94,6 +100,49 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         IsPaused = true;
+    }
+
+    public void TestProbability()
+    {
+        Debug.Log("확률 테스트 시작");
+        int 노말 = 0;
+        int 레어 = 0;
+        int 에픽 = 0;
+        int 유니크 = 0;
+        int 레전드 = 0;
+        int 신화 = 0;
+
+        for (int i = 0; i < 1000000; i++)
+        {
+            int Q = GetRandomSelectionID(equipOption, EOptionType.Equip);
+            switch (equipOption.GetValue(Q).Selection_Level)
+            {
+                case MyEnum.노말 :
+                    노말++;
+                    break;
+                case MyEnum.레어 :
+                    레어++;
+                    break;
+                case MyEnum.에픽 :
+                    에픽++;
+                    break;
+                case MyEnum.유니크 :
+                    유니크++;
+                    break;
+                case MyEnum.레전드 :
+                    레전드++;
+                    break;
+                case MyEnum.신화 :
+                    신화++;
+                    break;
+            }
+        }
+        Debug.Log($"노말 : {노말}");
+        Debug.Log($"레어 : {레어}");
+        Debug.Log($"에픽 : {에픽}");
+        Debug.Log($"유니크 : {유니크}");
+        Debug.Log($"레전드 : {레전드}");
+        Debug.Log($"신화 : {신화}");
     }
 
     public void GameStart()
@@ -274,7 +323,7 @@ public class GameManager : MonoBehaviour
         {
             case EOptionType.Skill:
                 var skill = option as OptionChoice_SkillOption;
-                button.selectID = GetSelectionID(skill);
+                button.selectID = GetRandomSelectionID(skill, EOptionType.Skill);
                 button.optionType = EOptionType.Skill;
                 button.selectedData = skill.GetValue();
                 Debug.Log($"[Skill] 선택지: {button.selectID}");
@@ -283,7 +332,7 @@ public class GameManager : MonoBehaviour
             case EOptionType.Equip:
                 var equip = option as OptionChoice_EquipOption;
                 var equipData = GetSelectionData(equip);
-                button.selectID = GetSelectionID(equip);
+                button.selectID = GetRandomSelectionID(equip, EOptionType.Equip);
                 button.optionType = EOptionType.Equip;
                 button.selectedData = equipData.val;//equip.GetValue();
                 Debug.Log($"[Equip] 선택지: {button.selectID}");
@@ -292,7 +341,7 @@ public class GameManager : MonoBehaviour
             case EOptionType.Training:
                 var training = option as OptionChoice_TrainingOption;
                 var tariningData = GetSelectionData(training);
-                button.selectID = GetSelectionID(training);
+                button.selectID = GetRandomSelectionID(training, EOptionType.Training);
                 button.optionType = EOptionType.Training;
                 button.selectedData = tariningData.val;
                 Debug.Log($"[Training] 선택지: {button.selectID}");
@@ -310,7 +359,7 @@ public class GameManager : MonoBehaviour
     }
     
     // 선택지 번호를 가져오는 코드
-    int GetSelectionID<T>(ExelReaderBase<T> option) where T : BaseValue, new()
+    int GetRandomSelectionID<T>(ExelReaderBase<T> option, EOptionType optionType) where T : BaseValue, new()
     {
         if (option == null || option.data == null || option.data.Count == 0)
         {
@@ -318,8 +367,77 @@ public class GameManager : MonoBehaviour
             return -1;
         }
 
-        int randomIndex = UnityEngine.Random.Range(0, option.data.Count);
-        return option.data[randomIndex].Key_ID; // IDValuePair<T> 에 id가 있다고 가정
+        /*int randomIndex = UnityEngine.Random.Range(0, option.data.Count);
+        return option.data[randomIndex].Key_ID; // IDValuePair<T> 에 id가 있다고 가정*/
+        
+        // 1. 등급별 가중치 설정
+        Dictionary<MyEnum, int> levelWeights = new Dictionary<MyEnum, int>()
+        {
+            { MyEnum.노말, 500 },
+            { MyEnum.레어, 257 },
+            { MyEnum.에픽, 140 },
+            { MyEnum.유니크, 80 },
+            { MyEnum.레전드, 20 },
+            { MyEnum.신화, 3 }
+        };
+        
+        List<(int id, int weight)> weightedList = new List<(int, int)>();
+
+        if (option is OptionChoice_SkillOption)
+        {
+            foreach (var pair in m_IngameSkillOption.data)
+            {
+                if (levelWeights.TryGetValue(((SkillOption)pair.val).Selection_Level, out int weight))
+                {
+                    weightedList.Add((pair.Key_ID, weight));
+                }
+            }
+        }
+        else if (option is OptionChoice_EquipOption)
+        {
+            foreach (var pair in equipOption.data)
+            {
+                if (levelWeights.TryGetValue(((EquipOption)pair.val).Selection_Level, out int weight))
+                {
+                    weightedList.Add((pair.Key_ID, weight));
+                }
+            }
+        }
+        else if (option is OptionChoice_TrainingOption)
+        {
+            foreach (var pair in trainingOption.data)
+            {
+                if (levelWeights.TryGetValue(((TrainingOption)pair.val).Selection_Level, out int weight))
+                {
+                    weightedList.Add((pair.Key_ID, weight));
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("지원하지 않는 타입입니다.");
+            return -1;
+        }
+
+        if (weightedList.Count == 0)
+        {
+            Debug.LogWarning("가중치 목록이 비어 있음");
+            return -1;
+        }
+
+        int totalWeight = weightedList.Sum(w => w.weight);
+        int rand = UnityEngine.Random.Range(0, totalWeight);
+        int cumulative = 0;
+
+        foreach (var item in weightedList)
+        {
+            cumulative += item.weight;
+            if (rand <= cumulative)
+                return item.id;
+        }
+
+        Debug.LogWarning("Fallback으로 마지막 항목 선택됨");
+        return weightedList.Last().id;
     }
     
     IDValuePair<T> GetSelectionData<T>(ExelReaderBase<T> option) where T : BaseValue, new()
@@ -342,4 +460,6 @@ public enum EOptionType
     Equip,
     Training
 }
+
+
 
