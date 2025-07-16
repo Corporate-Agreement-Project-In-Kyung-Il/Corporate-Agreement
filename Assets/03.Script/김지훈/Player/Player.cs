@@ -137,9 +137,17 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
         switch (currentCharacterState)
         {
-            case CharacterState.Run: animator.SetBool(IsRun, true); performRun(); break;
+            case CharacterState.Run: animator.SetBool(IsRun, true); break;
             case CharacterState.Attack: performAttack(); break;
             case CharacterState.Die: performDie(); break;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (currentCharacterState == CharacterState.Run)
+        {
+            performRun();
         }
     }
 
@@ -150,7 +158,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
             ChangeState(CharacterState.Attack);
         }
 
-        targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.deltaTime);
+        targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.fixedDeltaTime);
         rigid.MovePosition(targetPos);
     }
 

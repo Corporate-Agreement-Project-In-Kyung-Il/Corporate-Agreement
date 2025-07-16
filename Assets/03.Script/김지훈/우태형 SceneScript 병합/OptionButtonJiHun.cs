@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Obsolete("이제 안 씀, OptionButton을 사용하도록", true)]
 public class OptionButtonJiHun : MonoBehaviour
 {
     [SerializeField] private UnityEvent m_SkillOptionEvent;

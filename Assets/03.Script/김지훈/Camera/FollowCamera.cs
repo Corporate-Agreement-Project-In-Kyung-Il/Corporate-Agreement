@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = System.Diagnostics.Debug;
 using Random = UnityEngine.Random;
 
 public class FollowCamera : MonoBehaviour
@@ -10,7 +12,7 @@ public class FollowCamera : MonoBehaviour
     
     [Header("카메라가 따라갈 target")]
     public Transform target;
-    [Header("카메라가 target을 따라가느 속도")]
+    [Header("카메라가 target을 따라가는 속도")]
     public float moveSpeed = 5f;
     [Header("카메라 Y축 따라가는 정도 조절하고 카메라가 z축으로 얼마나 떨어져저 보여줄지 결정하는 것")] 
     public Vector3 offset;
@@ -32,7 +34,7 @@ public class FollowCamera : MonoBehaviour
         if (AliveExistSystem.Instance.playerList.Count <= 0) 
             return;
         
-        UpdateShake();
+        //UpdateShake();
         Follow();
     }
     private void UpdateShake()
@@ -57,24 +59,23 @@ public class FollowCamera : MonoBehaviour
     }
 
     private Vector3 realTarget;
+    private Vector3 velocity = Vector3.zero;
+    
+    [Header("카메라가 적을 만났을 때 댐핑되느 정도")]
+    public float dampingValue = 0.08f;
     private void Follow()
     {
         realTarget = target.position + offset;
-        //float distance = target.position.y - transform.position.y;
-
-
-        if (realTarget.y > transform.position.y)
+        Vector3 targetPos = new Vector3(0.5f, realTarget.y, realTarget.z);
+        
+        float distance = realTarget.y - transform.position.y;
+        if (distance < dampingValue)
         {
-            //if (distance > 0.01f)
-            //{
-                transform.position = Vector3.Lerp(transform.position,
-                    Vector3.right * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z,
-                    moveSpeed * Time.deltaTime);
-            //}
-            //else
-            //{
-            //    transform.position = Vector3.right * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z;
-            //}
+            transform.position = targetPos;
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPos, Time.fixedDeltaTime * moveSpeed);
         }
     }
 
@@ -94,6 +95,17 @@ public class FollowCamera : MonoBehaviour
 
     private void OnDisable()
     {
-        StageClearEvent.stageClearEvent += InitalPosition;
+        StageClearEvent.stageClearEvent -= InitalPosition;
+    }
+
+    
+    [Conditional("UNITY_EDITOR")] //에디터에서만 돈다. Runtime에서는 삭제되는 코드임
+    private void OnValidate()
+    {
+        Debug.Assert(target == null ,"target이 비어있습니다.");
+        
+        #if UNITY_EDITOR
+        Debug.Assert(target == null ,"target이 비어있습니다.");
+    #endif
     }
 }

@@ -22,7 +22,7 @@ public class PlayerHpBar : MonoBehaviour
         TryGetComponent(out hpSlider);
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         switch (target.playerStat.characterName)
         {

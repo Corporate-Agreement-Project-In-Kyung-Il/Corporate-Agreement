@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CameraPoint : MonoBehaviour
 {
-    [SerializeField] private bool isFollow = false;
+    //[SerializeField] private bool isFollow = false;
     private Vector2 size = new Vector2(5.5f, 10f);
     private Vector2 cameraPointPosition = new Vector2(0,-3.65f);
-    private void Update()
+    private void FixedUpdate()
     {
-        if (isFollow.Equals(false)) return;
+       // if (isFollow.Equals(false)) return;
 
         Vector3 sumPositions = Vector3.zero;
         int count = 0;
