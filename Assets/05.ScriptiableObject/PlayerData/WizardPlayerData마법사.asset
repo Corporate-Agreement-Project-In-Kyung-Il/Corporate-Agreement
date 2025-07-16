@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "WizardPlayerData\uB9C8\uBC95\uC0AC"
   m_EditorClassIdentifier: 
   attackRange: 4
-  moveSpeed: 5
+  moveSpeed: 10
   isDead: 1
   character_ID: 100006
   characterClass: 2

@@ -13,7 +13,7 @@ public class PlayerHpBar : MonoBehaviour
     public float lerpSpeed = 5f;  // 보간 속도 (조절 가능)
     public Player target; // 따라갈 Enemy
     
-    private Slider hpSlider;
+    public Slider hpSlider;
     private float targetValue;     // 목표 체력 비율
     private bool isLerping = false;
 
@@ -53,6 +53,12 @@ public class PlayerHpBar : MonoBehaviour
     {
         if (!isLerping) return;
 
+        if (target.gameObject.activeSelf.Equals(false))
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         hpSlider.value = Mathf.Lerp(hpSlider.value, targetValue, Time.deltaTime * lerpSpeed);
 
         // 거의 도달하면 보간 종료
@@ -61,6 +67,7 @@ public class PlayerHpBar : MonoBehaviour
             hpSlider.value = targetValue;
             isLerping = false;
         }
+        
     }
     
     private void FollwTarget()

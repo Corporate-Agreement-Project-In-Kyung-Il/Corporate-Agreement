@@ -60,17 +60,22 @@ public class FollowCamera : MonoBehaviour
     private void Follow()
     {
         realTarget = target.position + offset;
-        float distance = target.position.y - transform.position.y;
-        
-        if (realTarget.y > transform.position.y) 
-            if (distance > 0.01f) 
-            { 
-                transform.position = Vector3.Lerp(transform.position, Vector3.right  * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z, moveSpeed * Time.deltaTime); 
-            }
-            else 
-            { 
-                transform.position = Vector3.right  * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z; 
-            }
+        //float distance = target.position.y - transform.position.y;
+
+
+        if (realTarget.y > transform.position.y)
+        {
+            //if (distance > 0.01f)
+            //{
+                transform.position = Vector3.Lerp(transform.position,
+                    Vector3.right * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z,
+                    moveSpeed * Time.deltaTime);
+            //}
+            //else
+            //{
+            //    transform.position = Vector3.right * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z;
+            //}
+        }
     }
 
     public static void Shake()

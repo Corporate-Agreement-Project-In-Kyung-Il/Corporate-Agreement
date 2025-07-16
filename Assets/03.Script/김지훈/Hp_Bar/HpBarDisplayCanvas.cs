@@ -88,30 +88,32 @@ public class HpBarManager : MonoBehaviour
 
             Transform playerTransform = playerList[i].transform;
 
-            bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, playerList[i].bounds);
+            //bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, playerList[i].bounds);
 
-            if (isVisible)
+            //if (isVisible)
+            //{
+            if (playerHpBars.ContainsKey(playerTransform).Equals(false))
             {
-                if (playerHpBars.ContainsKey(playerTransform).Equals(false))
+                PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) 
+                    as PlayerHpBar;
+                playerHpDisplay.gameObject.SetActive(true);
+
+                if (playerTransform.gameObject.TryGetComponent(out Player player))
                 {
-                    PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) 
-                        as PlayerHpBar;
-                    playerHpDisplay.gameObject.SetActive(true);
-                    
-                    if(playerTransform.gameObject.TryGetComponent(out Player player)) 
-                        playerHpDisplay.target = player;
-                    
-                    playerHpBars[playerTransform] = playerHpDisplay.gameObject;
+                    playerHpDisplay.target = player;
                 }
+
+                playerHpBars[playerTransform] = playerHpDisplay.gameObject;
             }
-            else
-            {
-                if (playerHpBars.ContainsKey(playerTransform))
-                {
-                    Destroy(playerHpBars[playerTransform]);
-                    playerHpBars.Remove(playerTransform);
-                }
-            }
+            //}
+            //else
+            //{
+             //if (playerHpBars.ContainsKey(playerTransform))
+             //{
+             //    Destroy(playerHpBars[playerTransform]);
+             //    playerHpBars.Remove(playerTransform);
+             //}
+            //}
         }
     }
 }
