@@ -17,14 +17,13 @@ namespace _03.Script.엄시형.Tool
 {
     public sealed class AreaPatternGenerator : MonoBehaviour
     {
+        // TODO : AreaPattern말고 StageInfo로 변경해야함
         // [ReadOnly]
         [SerializeField] public GameObject m_PointPrefab;
-        
         
         [SerializeField] public AreaTilemapTableSO m_AreaTilemapTable;
         // [ReadOnly]
         [SerializeField] private Grid m_Grid;
-        [SerializeField] private Tilemap m_Tilemap;
         [SerializeField] private Camera m_MainCam;
         
         [SerializeField] private Button m_SaveBtn;
@@ -32,6 +31,8 @@ namespace _03.Script.엄시형.Tool
         [SerializeField] private Button m_DecreaseBtn;
         [SerializeField] private Button m_IncreaseBtn;
         [SerializeField] private Button m_OpenFolderBtn;
+        
+        private Tilemap m_Tilemap;
         
         // TODO : ID읽어와서 중복 못하게
         [SerializeField] private List<AreaPatternDTO> m_AreaPatternDTOList = new List<AreaPatternDTO>();
@@ -151,7 +152,7 @@ namespace _03.Script.엄시형.Tool
         {
             foreach (var pointObj in m_PointObjectList)
             {
-                DestroyImmediate(pointObj); // OnValidate에서는 Destroy 대신 DestroyImmediate 권장
+                Destroy(pointObj); // OnValidate에서는 Destroy 대신 DestroyImmediate 권장
             }
 
             m_PointObjectList.Clear();
@@ -262,7 +263,7 @@ namespace _03.Script.엄시형.Tool
             }
         }
     }
-
+    
     public class AreaPatternPersistenceManager
     {
         public readonly string fullPath;
