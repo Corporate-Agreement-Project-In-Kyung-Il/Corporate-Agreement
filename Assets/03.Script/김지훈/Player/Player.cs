@@ -136,6 +136,11 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f,
             LayerMask.GetMask("Enemy"));
 
+        if (rigid.velocity != Vector2.zero)
+        {
+            rigid.velocity = Vector2.zero;
+        }
+        
         switch (currentCharacterState)
         {
             case CharacterState.Run: 
@@ -160,6 +165,8 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
     private void performRun()
     {
+        rigid.velocity = Vector3.zero;
+        
         if (enemyDetectionCol.Length.Equals(0))
         {
             targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.fixedDeltaTime);
@@ -282,6 +289,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         prevCharacterState = currentCharacterState;
         currentCharacterState = newState;
     }
+    
 
     private void SkillCondition()
     {
