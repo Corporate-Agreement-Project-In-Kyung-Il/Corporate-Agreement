@@ -5,11 +5,13 @@ using UnityEngine;
 public class CameraPoint : MonoBehaviour
 {
     //[SerializeField] private bool isFollow = false;
+
+    
     private Vector2 size = new Vector2(5.5f, 10f);
     private Vector2 cameraPointPosition = new Vector2(0.5f, -2.65f);
-
-    [SerializeField] private float currentY = 0f;
-    [SerializeField] private float previousY = 0f;
+    
+    [SerializeField] private float currentY = -2.45f;
+    [SerializeField] private float previousY = -2.46f;
     
     private void FixedUpdate()
     {
