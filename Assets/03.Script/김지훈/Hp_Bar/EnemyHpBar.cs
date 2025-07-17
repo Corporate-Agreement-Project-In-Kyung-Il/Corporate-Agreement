@@ -64,6 +64,7 @@ public class EnemyHpBar : MonoBehaviour, IObjectPoolItem
     public void ReturnToPool()
     {
         target = null;
+        hpSlider.value = 1;
         gameObject.SetActive(false);
         ObjectPoolSystem.Instance.ReturnToPool(this);
     }
