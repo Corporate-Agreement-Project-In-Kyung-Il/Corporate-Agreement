@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _03.Script.엄시형.Monster;
 
 namespace _03.Script.엄시형.Stage.DTO
 {
+    [Serializable]
     public struct StageInfoDTO
     {
         public List<AreaPatternDTO> AreaPatternList;
