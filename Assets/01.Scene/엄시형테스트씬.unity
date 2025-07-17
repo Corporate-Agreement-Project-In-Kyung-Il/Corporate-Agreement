@@ -984,15 +984,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.18085106
+    x: 0
     y: 0
-    width: 0.63829786
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 10
   field of view: 34
   orthographic: 1
-  orthographic size: 7.046875
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3893,14 +3893,7 @@ MonoBehaviour:
   - {fileID: 1185224000}
   - {fileID: 1378329100}
   - {fileID: 1044278924}
-  mStageInfo:
-    SpawnMonsterTypeList: 
-    m_MaxStageId: 0
-    m_AreaInfoList: []
-    BossAreaInfo:
-      <PatternId>k__BackingField: 0
-      <MonsterSpawnInfoList>k__BackingField: []
-  CurStageId: 3
+  CurStageId: 1
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0

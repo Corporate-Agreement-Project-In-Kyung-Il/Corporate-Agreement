@@ -9,10 +9,10 @@ namespace _03.Script.엄시형.Stage.DTO
     /// 다른용도 사용금지
     /// </summary>
     [Serializable]
-    public sealed class AreaPatternDTO
+    public struct AreaPatternDTO
     {
         public int PatternId;
-        public List<SpawnInfoDTO> MonsterSpawnInfoList = new List<SpawnInfoDTO>();
+        public List<SpawnInfoDTO> MonsterSpawnInfoList;
 
         public AreaPatternDTO(int patternId)
         {

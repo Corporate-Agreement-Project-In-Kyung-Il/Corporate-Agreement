@@ -15,6 +15,7 @@ namespace _03.Script.엄시형.Stage
         
         public Dictionary<int, StageInfo> m_StageInfoDic = new Dictionary<int, StageInfo>();
         [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
+        [SerializeField] private List<StageInfo> m_StageInfo = new List<StageInfo>();
         
         private void Reset()
         {
@@ -36,31 +37,29 @@ namespace _03.Script.엄시형.Stage
                 {
                     AreaPattern pattern = dto.ToAreaPattern();
                     int stageId = pattern.GetStageId();
-
-                    // Debug.Log("stageId" + stageId);
                     
                     if (m_StageInfoDic.ContainsKey(stageId) == false)
                     {
-                        var stageInfo = new StageInfo();
-                        
-                        stageInfo.SpawnMonsterTypeList = new List<MonsterType>()
-                        {
-                            MonsterType.Slime
-                        };
-                        
-                        stageInfo.BossAreaInfo = new AreaPattern(
-                            110004
-                            , new List<SpawnInfo>()
+                        var stageInfo = new StageInfo(
+                            new List<AreaPattern>(),
+                            // Slime 몬스터만 일단 넣어둠
+                            new List<MonsterType>()
                             {
-                                new SpawnInfo(
-                                    new Vector2(0f, 15f)
-                                    , 0f)
-                            });
+                                MonsterType.Slime
+                            },
+                            // 일단 BOSS 구역은 패턴 고정
+                            new AreaPattern(110004
+                                , new List<SpawnInfo>()
+                                {
+                                    new SpawnInfo(new Vector2(0f, 15f), 0f)
+                                }),
+                            15);
                         
                         m_StageInfoDic.Add(stageId, stageInfo);
+                        m_StageInfo.Add(stageInfo);
                     }
                     
-                    m_StageInfoDic[stageId].AreaInfoList.Add(pattern);
+                    m_StageInfoDic[stageId].AreaPatternList.Add(pattern);
                     
                     m_AreaPatternList.Add(pattern);
                 }

@@ -8,6 +8,7 @@ using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Tool;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -38,8 +39,7 @@ public sealed class Spawner : MonoBehaviour
     private List<Tilemap> m_CurAreaList;
     public List<Tilemap> CurAreaList => m_CurAreaList;
     
-    [Header("스테이지 정보")]
-    [SerializeField] private StageInfo mStageInfo;
+    private StageInfo mStageInfo;
     
     [SerializeField]
     public int CurStageId = 1;
@@ -50,12 +50,13 @@ public sealed class Spawner : MonoBehaviour
         { character_class.전사 , new Vector2(0.5f, 2f) },
         { character_class.마법사 , new Vector2(1.5f, 1f) }
     };
-    
+
+
     [Conditional("UNITY_EDITOR")]
     private void OnValidate()
     {
         // Debug.Assert(mAreaList.Count != 0, "mAreaList 요소가 0 인스펙터 확인");
-        Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
+        // Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
         // Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
     }
     
@@ -143,9 +144,9 @@ public sealed class Spawner : MonoBehaviour
         
         int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;
         
-        for (int i = 0; i < mStageInfo.AreaInfoList.Count; i++)
+        for (int i = 0; i < mStageInfo.AreaPatternList.Count; i++)
         {
-            AreaPattern areaInfo = mStageInfo.AreaInfoList[i];
+            AreaPattern areaInfo = mStageInfo.AreaPatternList[i];
             
             for (int x = 0; x < areaInfo.MonsterSpawnInfoList.Count; x++)
             {
@@ -166,7 +167,7 @@ public sealed class Spawner : MonoBehaviour
                 .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
             
             var boss = SpawnMonster(
-                mStageInfo.BossAreaInfo.MonsterSpawnInfoList[0].Point
+                mStageInfo.BossAreaPattern.MonsterSpawnInfoList[0].Point
                 , type
                 , parent: m_CurAreaList.Last().gameObject);
             
@@ -215,7 +216,7 @@ public sealed class Spawner : MonoBehaviour
         
         float topY = 0f;
         
-        for (int i = 0; i < mStageInfo.AreaInfoList.Count; i++)
+        for (int i = 0; i < mStageInfo.AreaPatternList.Count; i++)
         {
             var curTileMap = Instantiate(m_TilemapList[0]
                 , new Vector2(0, topY)
