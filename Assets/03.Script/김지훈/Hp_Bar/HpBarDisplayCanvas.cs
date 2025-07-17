@@ -18,6 +18,7 @@ public class HpBarDisplayCanvas : MonoBehaviour
     private Plane[] cameraPlanes;
     private List<Collider2D> monsterList = new List<Collider2D>();
     private List<Collider2D> playerList = new List<Collider2D>();
+    private Collider2D[] colliderEnemy = new Collider2D[30];
     
     public Vector2 enemyHpDetectionSize = new Vector2(5.5f, 25f);
     private void Start()
@@ -37,15 +38,19 @@ public class HpBarDisplayCanvas : MonoBehaviour
 
     private void EnemyHpBarSetting()
     {
-        Collider2D[] colliderEnemy = Physics2D.OverlapBoxAll
-                (Vector2.right * mainCamera.transform.position.x + 
-                 Vector2.up * mainCamera.transform.position.y, enemyHpDetectionSize, 0f,
-                    LayerMask.GetMask("Enemy"));
+         int count =Physics2D.OverlapBoxNonAlloc(new Vector2(mainCamera.transform.position.x,
+            mainCamera.transform.position.y), enemyHpDetectionSize, 0f, colliderEnemy, LayerMask.GetMask("Enemy"));
+        
+        //colliderEnemy = Physics2D.OverlapBoxAll
+        //        (Vector2.right * mainCamera.transform.position.x + 
+        //         Vector2.up * mainCamera.transform.position.y, enemyHpDetectionSize, 0f,
+        //            LayerMask.GetMask("Enemy"));
             
         //bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, monsterList[i].bounds);
         
         // 현재 존재하는 모든 몬스터들에 대해 검사
-        for (int i = 0; i < colliderEnemy.Length; i++)
+        
+        for (int i = 0; i < count; i++)//colliderEnemy.Length; i++)
         {
             Transform enemyTransform = colliderEnemy[i].transform;
         
@@ -96,10 +101,10 @@ public class HpBarDisplayCanvas : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(Vector2.right * mainCamera.transform.position.x +
-                        Vector2.up * mainCamera.transform.position.y, enemyHpDetectionSize);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawWireCube(Vector2.right * mainCamera.transform.position.x +
+    //                    Vector2.up * mainCamera.transform.position.y, enemyHpDetectionSize);
+    //}
 }
