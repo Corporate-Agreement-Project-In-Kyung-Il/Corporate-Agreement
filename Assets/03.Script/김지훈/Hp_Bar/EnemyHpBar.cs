@@ -47,23 +47,19 @@ public class EnemyHpBar : MonoBehaviour, IObjectPoolItem
     
     private void FollwTarget()
     {
-        if (target.gameObject.activeSelf == false)
-        {
-            ReturnToPool();
-        }
-
-        if (target == null)
+        if (target == null || target.gameObject.activeSelf == false)
         {
             ReturnToPool();
             return;
         }
-
+        
         transform.position = target.transform.position + offset;
     }
 
     public void ReturnToPool()
     {
         target = null;
+        hpSlider.value = 1;
         gameObject.SetActive(false);
         ObjectPoolSystem.Instance.ReturnToPool(this);
     }

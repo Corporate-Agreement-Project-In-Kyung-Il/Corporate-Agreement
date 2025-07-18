@@ -14,12 +14,6 @@ public interface IDamageAble
     public void TakeDamage(CombatEvent combatEvent);
 }
 
-public interface ICameraPosition
-{
-    public Transform cameraMoveTransform { get; }
-    public bool canMove { get; }
-}
-
 public interface IBuffSelection
 { 
     public PlayerStat buffplayerStat { get; }

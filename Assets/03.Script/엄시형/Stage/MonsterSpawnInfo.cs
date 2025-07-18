@@ -6,7 +6,7 @@ namespace _03.Script.엄시형.Data
 {
     
     [System.Serializable]
-    public class MonsterSpawnInfo
+    public sealed class MonsterSpawnInfo
     {
         public BaseMonster Monster => mMonster;
         public Vector2Int Index => mIndex;

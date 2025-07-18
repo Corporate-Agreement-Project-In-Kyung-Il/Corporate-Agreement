@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageEndDetector : MonoBehaviour
+public sealed class StageEndDetector : MonoBehaviour
 {
     public Collider2D nextSceneCollider;
     public bool mb_IsDetected;
+    public event Action OnStageEnd;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,18 +18,9 @@ public class StageEndDetector : MonoBehaviour
         if (mb_IsDetected == false 
             && other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            
-            if(Spawner.Instance.CurStageId %3 == 0)
-            {
-                GameManager.Instance.CreateChoices(3);
-            }
-            Spawner.Instance.CurStageId++;
-            
             mb_IsDetected = true;
             Debug.Log("다음 스테이지");
-            
-            Spawner.Instance.DestoryAllArea();
-            Spawner.Instance.SpawnAllMonstersInStage();
+            OnStageEnd.Invoke();
             mb_IsDetected = false;
         }
     }

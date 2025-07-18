@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using _03.Script.엄시형.Monster;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 [CreateAssetMenu(fileName = "MonsterData", menuName = "ScriptableObjects/MonsterData")]
 public class MonsterData : ScriptableObject
@@ -23,4 +26,13 @@ public class MonsterData : ScriptableObject
     public bool Boss_Check;
     public float Boss_HP;
     public float Boss_Attack;
+    
+    public void SetMonsterData(MonsterExel data)
+    {
+        Monster_HP = data.Monster_HP;
+        Monster_Attack = data.Monster_Attack;
+        Boss_Check = data.IsBossStage;
+        Boss_HP = data.Boss_HP;
+        Boss_Attack = data.Boss_Attack;
+    }
 }

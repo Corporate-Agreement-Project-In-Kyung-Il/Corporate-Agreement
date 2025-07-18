@@ -15,14 +15,17 @@ MonoBehaviour:
   attackRange: 1
   moveSpeed: 20
   isDead: 0
+<<<<<<< HEAD
   moveSpeed: 5
   isDead: 1
+=======
+>>>>>>> Develop
   character_ID: 100001
   characterClass: 0
   characterName: 1
   characterGrade: 0
-  attackDamage: 10
-  health: 100
+  attackDamage: 1
+  health: 100000
   attackSpeed: 1
   criticalProbability: 0
   training_type: 500001

@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class CameraPoint : MonoBehaviour
 {
-    [SerializeField] private bool isFollow = false;
-    private Vector2 size = new Vector2(5.5f, 10f);
-    private Vector2 cameraPointPosition = new Vector2(0,-3.65f);
-    private void Update()
-    {
-        if (isFollow.Equals(false)) return;
+    //[SerializeField] private bool isFollow = false;
 
-        Vector3 sumPositions = Vector3.zero;
+    
+    private Vector2 size = new Vector2(5.5f, 10f);
+    private Vector2 cameraPointPosition = new Vector2(0.5f, -2.65f);
+    
+    [SerializeField] private float currentY = -2.45f;
+    [SerializeField] private float previousY = -2.46f;
+    
+    private void FixedUpdate()
+    {
+       // if (isFollow.Equals(false)) return;
+       if (currentY > previousY) 
+           previousY = currentY;
+       
+
+       Vector3 sumPositions = Vector3.zero;
         int count = 0;
 
         List<Collider2D> playerColliderList = AliveExistSystem.Instance.playerList;
@@ -33,7 +42,10 @@ public class CameraPoint : MonoBehaviour
         if (count > 0)
         {
             Vector3 averagePos = sumPositions / count;
-            transform.position = averagePos;
+            currentY = averagePos.y;
+            
+            if(currentY > previousY) 
+                transform.position = averagePos;
         }
     }
     
@@ -46,6 +58,8 @@ public class CameraPoint : MonoBehaviour
     private void InitalPosition()
     {
         transform.position = cameraPointPosition;
+        previousY = -2.66f;
+        currentY = -2.65f;
     }
     private void OnEnable()
     {
