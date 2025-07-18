@@ -34,12 +34,6 @@ public class SkillManager : MonoBehaviour
         Selection_ID = GameManager.Instance.optionButtons[id].selectID;
         SkillEnchant();
     }
-
-    private void OnValidate()
-    {
-        AutoAssignSkillObjects();
-    }
-
     private void Awake()
     {
         AutoAssignSkillObjects();
