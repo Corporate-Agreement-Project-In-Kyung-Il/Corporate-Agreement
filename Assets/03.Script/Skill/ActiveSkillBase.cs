@@ -23,8 +23,8 @@ public abstract class ActiveSkillBase : MonoBehaviour
         public int Attack_Count;
         public bool Wide_Area;
 
-        public int Range_width;
-        public int Range_height;
+        public float Range_width;
+        public float Range_height;
 
         public float Cooldown_Reduction;
         public float Damage_Increase;

@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: "WarriorPlayerData\uC804\uC0AC"
   m_EditorClassIdentifier: 
   attackRange: 1
-  moveSpeed: 5
-  isDead: 1
+  moveSpeed: 20
+  isDead: 0
   character_ID: 100001
   characterClass: 0
   characterName: 1
   characterGrade: 0
-  attackDamage: 10
-  health: 10000
+  attackDamage: 1
+  health: 100000
   attackSpeed: 1
   criticalProbability: 0
   training_type: 500001

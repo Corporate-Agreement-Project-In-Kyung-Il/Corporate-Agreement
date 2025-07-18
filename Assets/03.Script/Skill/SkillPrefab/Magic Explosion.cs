@@ -9,6 +9,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     //광역기 투사체
     public int SkillId;
     public int SkillID { get; set; }
+
     public void SetSkillID()
     {
         SkillID = SkillId;
@@ -21,6 +22,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     {
         Initialize();
     }
+
     void Start()
     {
         Debug.Log("start MagicExplosion");
@@ -46,10 +48,21 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
+        if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+        {
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = other;
 
-        Debug.Log("마법폭발 공격!");
-        Destroy(gameObject);
-        //데미지입힘
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+
+            Debug.Log("마법폭발 공격!");
+
+            Destroy(gameObject);
+            //데미지입힘
+        }
     }
 
     public override void Initialize()
@@ -59,11 +72,17 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
+            stat.Range_width = skill.Skill_Range_width;
+            stat.Range_height = skill.Skill_Range_height;
+
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
+            stat.Range_width = skill2.Skill_Range_width;
+            stat.Range_height = skill2.Skill_Range_height;
+
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
     }
