@@ -24,7 +24,8 @@ public class AquaBall : ActiveSkillBase, ISkillID
         coll.enabled = false;
     }
     void Update()
-    {
+    {  if (owner.target == null) return;
+        
         Vector2 dir = (owner.target.transform.position - transform.position).normalized;
         float dis = Vector2.Distance(owner.target.transform.position, transform.position);
 

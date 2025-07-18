@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   SkillId: 100020
-  moveSpeed: 3
+  moveSpeed: 8
 --- !u!61 &6936442006367251607
 BoxCollider2D:
   m_ObjectHideFlags: 0

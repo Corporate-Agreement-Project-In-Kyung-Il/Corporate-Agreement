@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MagicExplosion : ActiveSkillBase, ISkillID
 {
-    
     //광역기 투사체
     public int SkillId;
     public int SkillID { get; set; }
@@ -32,6 +31,8 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
 
     void Update()
     {
+        if (owner.target == null) return;
+        
         Vector2 dir = (owner.target.transform.position - transform.position).normalized;
         float dis = Vector2.Distance(owner.target.transform.position, transform.position);
 
@@ -91,6 +92,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     {
         Destroy(gameObject);
     }
+
     private void OnEnable()
     {
         StageClearEvent.stageClearEvent += ReturnToPool;
