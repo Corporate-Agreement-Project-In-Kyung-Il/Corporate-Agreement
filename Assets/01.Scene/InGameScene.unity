@@ -1252,6 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHpBar: {fileID: 6455272225453176847, guid: 10677f9fbd8ad3b42ab10c56433e41d6, type: 3}
+  skillBar: {fileID: 0}
   enemyHpDetectionSize: {x: 5.5, y: 25}
 --- !u!114 &908362424
 MonoBehaviour:
