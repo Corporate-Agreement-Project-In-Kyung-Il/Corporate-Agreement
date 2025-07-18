@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using _03.Script.엄시형.Data;
 using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage.DTO;
@@ -20,14 +21,15 @@ namespace _03.Script.엄시형.Stage
         
         private void Reset()
         {
-            Init();
+            //Init();
         }
         
         public StageInfo GetStageInfo(int stageId)
         {
-            return m_StageInfoDic[stageId];
+            //return m_StageInfoDic[stageId];
+            return m_StageInfo.First();
         }
-
+        
         public void Init()
         {
             if (m_AreaPerstistenceMgr
@@ -56,8 +58,8 @@ namespace _03.Script.엄시형.Stage
                                 }),
                             15);
                         
-                        m_StageInfoDic.Add(stageId, stageInfo);
                         m_StageInfo.Add(stageInfo);
+                        m_StageInfoDic.Add(stageId, stageInfo);
                     }
                     
                     m_StageInfoDic[stageId].AreaPatternList.Add(pattern);

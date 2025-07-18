@@ -64,7 +64,7 @@ public sealed class Spawner : MonoBehaviour
     {
         Instance = this;
         
-        m_StagePatternTable.Init();
+        //m_StagePatternTable.Init();
         GameManager.Instance.GameStart();
     }
 
