@@ -1,0 +1,1 @@
+{"StageInfoList":[{"AreaPatternList":[{"PatternId":100001,"MonsterSpawnInfoList":[{"X":0.0,"Y":0.0,"Diameter":0.0}]},{"PatternId":100002,"MonsterSpawnInfoList":[{"X":0.0,"Y":0.0,"Diameter":0.0}]}],"SpawnMonsterTypeList":[1],"BossAreaPattern":{"PatternId":100001,"MonsterSpawnInfoList":[{"X":0.0,"Y":0.0,"Diameter":0.0}]},"MaxStageId":15}]}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _03.Script.엄시형.Stage.DTO;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Tilemaps;
 
 namespace _03.Script.엄시형.Stage
@@ -14,7 +15,11 @@ namespace _03.Script.엄시형.Stage
 
         public Tilemap GetTilemapOrNull(int id)
         {
-            return m_TilemapList.FirstOrDefault(tile => id == tile.Id)?.Tilemap;
+            var tile = m_TilemapList.FirstOrDefault(tile => id == tile.Id)?.Tilemap;
+            
+            Debug.Assert(tile != null, $"AreaTilemapTableSO에서 {id}에 해당하는 Tilemap을 찾을 수 없습니다. ");
+            
+            return tile;
         }
     }
 

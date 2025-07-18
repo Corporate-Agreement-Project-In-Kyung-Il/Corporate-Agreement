@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using _03.Script.엄시형.Data;
 using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage.DTO;
@@ -20,16 +21,21 @@ namespace _03.Script.엄시형.Stage
         
         private void Reset()
         {
-            Init();
+            // Init();
         }
         
         public StageInfo GetStageInfo(int stageId)
         {
-            return m_StageInfoDic[stageId];
+            // return m_StageInfoDic[stageId];
+            // return m_StageInfoDic.First().Value;
+            return m_StageInfo.FirstOrDefault();
         }
 
         public void Init()
         {
+            // TODO : 안드로이드 경로 문제
+            // Dic으로 변환못함 
+            
             if (m_AreaPerstistenceMgr
                 .TryReadFromJson(out List<AreaPatternDTO> areaPatterns))
             {
