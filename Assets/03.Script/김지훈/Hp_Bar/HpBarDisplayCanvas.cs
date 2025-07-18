@@ -90,40 +90,19 @@ public class HpBarDisplayCanvas : MonoBehaviour
             {
                 PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) 
                     as PlayerHpBar;
-                playerHpDisplay.gameObject.SetActive(true);
-
-                if (playerTransform.gameObject.TryGetComponent(out Player player))
-                {
-                    playerHpDisplay.target = player;
-                }
-
-                playerHpBars[playerTransform] = playerHpDisplay.gameObject;
-            }
-        }
-    }
-
-    private void SkillBarSetting()
-    {
-        playerList = AliveExistSystem.Instance.playerList;
-        
-        for (int i = 0; i < playerList.Count; i++)
-        {
-            if (playerList.Count <= 0) continue;
-
-            Transform playerTransform = playerList[i].transform;
-            
-            if (playerHpBars.ContainsKey(playerTransform).Equals(false))
-            {
                 SkillParentBar skillTimeDisplay = Instantiate(skillBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) 
                     as SkillParentBar;
                 
+                playerHpDisplay.gameObject.SetActive(true);
                 skillTimeDisplay.gameObject.SetActive(true);
 
                 if (playerTransform.gameObject.TryGetComponent(out Player player))
                 {
+                    playerHpDisplay.target = player;
                     skillTimeDisplay.target = player;
                 }
 
+                playerHpBars[playerTransform] = playerHpDisplay.gameObject;
                 playerHpBars[playerTransform] = skillTimeDisplay.gameObject;
             }
         }

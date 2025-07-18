@@ -16,6 +16,9 @@ public class SkillParentBar : MonoBehaviour
     private float targetValue;     // 목표 체력 비율
     private bool isLerping = false;
 
+    [Header("Transform 위치, 0번 기본전사, 1번 기본 궁수, 2번 기본 마법사, 나머지는 후에 추후 구현")]
+    public float[] targetPositions;  
+
     private void Start()
     {
         skillSliders = GetComponentsInChildren<SkillChildrenBar>();
@@ -26,19 +29,19 @@ public class SkillParentBar : MonoBehaviour
         switch (target.playerStat.characterName)
         {
             case character_name.기본_전사 :
-                offset = Vector3.up * -1.0f; 
+                offset = Vector3.up * targetPositions[0]; 
                 break;
             case character_name.디노 :
                 break;
             case character_name.아이언 :
                 break;
             case character_name.기본_궁수 :
-                offset = Vector3.up * -1.1f; 
+                offset = Vector3.up * targetPositions[1]; 
                 break;
             case character_name.쿠아 :
                 break;
             case character_name.기본_마법사 :
-                offset = Vector3.up * -1.3f; 
+                offset = Vector3.up * targetPositions[2]; 
                 break;
             case character_name.사비나 :
                 break;
