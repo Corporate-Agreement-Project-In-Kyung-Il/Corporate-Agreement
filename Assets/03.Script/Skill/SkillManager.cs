@@ -38,7 +38,7 @@ public class SkillManager : MonoBehaviour
     }
     private void Awake()
     {
-        AutoAssignSkillObjects();
+        //AutoAssignSkillObjects();
         FindPlayers();
         List<ScriptableObject> clonedList = new();
         foreach (var origin in Origin_skillObjects)
@@ -97,37 +97,35 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    private void AutoAssignSkillObjects()
-    {
-#if UNITY_EDITOR
-        // 1) 검색할 폴더 경로 지정
-        string[] skillFolders = new[]
-        {
-            "Assets/00.Resources/DataBase/Skills/Active",
-            "Assets/00.Resources/DataBase/Skills/Buff"
-        };
-
-        // 2) 해당 폴더 내의 ScriptableObject 에셋 GUID만 검색
-        string[] guids = AssetDatabase.FindAssets(
-            "t:ScriptableObject",
-            skillFolders
-        );
-
-        // 3) GUID → 에셋 로드 → 필터링(null 제거) → 배열 변환
-        var assets = guids
-            .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
-            .Select(path => AssetDatabase.LoadAssetAtPath<ScriptableObject>(path))
-            .Where(obj => obj != null)
-            .ToArray();
-
-        // 4) 배열에 할당
-        Origin_skillObjects = assets;
-
-        // 5) 에디터에 Dirty 표시해서 저장하도록 함
-        EditorUtility.SetDirty(this);
-#endif
-    }
-
+    //private void AutoAssignSkillObjects()
+    //{
+    //    // 1) 검색할 폴더 경로 지정
+    //    string[] skillFolders = new[]
+    //    {
+    //        "Assets/00.Resources/DataBase/Skills/Active",
+    //        "Assets/00.Resources/DataBase/Skills/Buff"
+    //    };
+    //
+    //    // 2) 해당 폴더 내의 ScriptableObject 에셋 GUID만 검색
+    //    string[] guids = AssetDatabase.FindAssets(
+    //        "t:ScriptableObject",
+    //        skillFolders
+    //    );
+    //
+    //    // 3) GUID → 에셋 로드 → 필터링(null 제거) → 배열 변환
+    //    var assets = guids
+    //        .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
+    //        .Select(path => AssetDatabase.LoadAssetAtPath<ScriptableObject>(path))
+    //        .Where(obj => obj != null)
+    //        .ToArray();
+    //
+    //    // 4) 배열에 할당
+    //    Origin_skillObjects = assets;
+    //
+    //    // 5) 에디터에 Dirty 표시해서 저장하도록 함
+    //    EditorUtility.SetDirty(this);
+    //}
+    //
     public void SkillEnchant()
     {
         var a = skillOption.GetValue(Selection_ID);

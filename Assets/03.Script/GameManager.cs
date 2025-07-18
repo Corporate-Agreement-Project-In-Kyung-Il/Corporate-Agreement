@@ -152,7 +152,33 @@ public class GameManager : MonoBehaviour
 
     void SetIngameDatabase()
     {
+        void SetIngameDatabase()
+        {
+            // 공통 로직: 캐릭터 ID 기반 필터링
+            HashSet<int> allowedIds = new HashSet<int>(characterSkillID);
+
+            var filtered = skillOption.data
+                .Where(pair => allowedIds.Contains(((SkillOption)pair.val).Skill_ID))
+                .ToList();
+
+            m_IngameSkillOption = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
+            m_IngameSkillOption.data = filtered;
+
 #if UNITY_EDITOR
+            // 에디터에서만 저장 (실제 게임 빌드에는 필요 없음)
+            AssetDatabase.CreateAsset(m_IngameSkillOption, $"Assets/00.Resources/DataBase/OptionChoice/InGameSkillOptionChoice.asset");
+            AssetDatabase.SaveAssets();
+#endif
+
+            // 공통 로직: 필드 등록 및 세팅
+            m_Options[EOptionType.Skill] = m_IngameSkillOption;
+            m_Options[EOptionType.Equip] = equipOption;
+            m_Options[EOptionType.Training] = trainingOption;
+            skillManager.SetSkillOption(m_IngameSkillOption);
+
+            CreateChoices(3);
+        }
+/*#if UNITY_EDITOR
         // 게임 시작할 때 InGame선택지 ScriptableObject 생성
         // 1. HashSet으로 ID 생성
         HashSet<int> allowedIds = new HashSet<int>(characterSkillID);
@@ -175,7 +201,7 @@ public class GameManager : MonoBehaviour
         m_Options.Add(EOptionType.Training, trainingOption);
         skillManager.SetSkillOption(m_IngameSkillOption);
         CreateChoices(3);
-#endif
+#endif*/
     }
     
     #region 랜덤 선택지 뽑는 코드
@@ -358,6 +384,12 @@ public class GameManager : MonoBehaviour
         return values[randomIndex];
     }
     
+    public int 노말_가중치 = 500;
+    public int 레어_가중치 = 257;
+    public int 에픽_가중치 = 140;
+    public int 유니크_가중치 = 80;
+    public int 레전드_가중치 = 20;
+    public int 신화_가중치 = 3;
     // 선택지 번호를 가져오는 코드
     int GetRandomSelectionID<T>(ExelReaderBase<T> option, EOptionType optionType) where T : BaseValue, new()
     {
@@ -373,12 +405,12 @@ public class GameManager : MonoBehaviour
         // 1. 등급별 가중치 설정
         Dictionary<MyEnum, int> levelWeights = new Dictionary<MyEnum, int>()
         {
-            { MyEnum.노말, 500 },
-            { MyEnum.레어, 257 },
-            { MyEnum.에픽, 140 },
-            { MyEnum.유니크, 80 },
-            { MyEnum.레전드, 20 },
-            { MyEnum.신화, 3 }
+            { MyEnum.노말, 노말_가중치 },
+            { MyEnum.레어, 레어_가중치 },
+            { MyEnum.에픽, 에픽_가중치 },
+            { MyEnum.유니크, 유니크_가중치 },
+            { MyEnum.레전드, 레전드_가중치 },
+            { MyEnum.신화, 신화_가중치 }
         };
         
         List<(int id, int weight)> weightedList = new List<(int, int)>();
