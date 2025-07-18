@@ -29,6 +29,10 @@ public class SkillManager : MonoBehaviour
 
     private ISkillID[] skills;
 
+    public void SetSkillOption(OptionChoice_SkillOption ingameSkillOption)
+    {
+        skillOption = ingameSkillOption;
+    }
     public void SetSelectionID(int id)
     {
         Selection_ID = GameManager.Instance.optionButtons[id].selectID;

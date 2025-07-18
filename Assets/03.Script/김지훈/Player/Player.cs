@@ -133,8 +133,6 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         skillCooldownTimers[1] -= Time.deltaTime;
 
         enemyDetectionCenter = Vector2.right * 0.5f + Vector2.up * transform.position.y;
-        enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f,
-            LayerMask.GetMask("Enemy"));
 
         if (rigid.velocity != Vector2.zero)
         {
@@ -157,6 +155,8 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
     private void FixedUpdate()
     {
+        enemyDetectionCol = Physics2D.OverlapBoxAll(enemyDetectionCenter, playerStat.detectionRange, 0f,
+            LayerMask.GetMask("Enemy"));
         if (currentCharacterState.Equals(CharacterState.Run))
         {
             performRun();
