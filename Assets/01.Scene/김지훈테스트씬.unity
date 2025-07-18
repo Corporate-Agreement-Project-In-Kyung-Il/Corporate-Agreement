@@ -567,6 +567,12 @@ MonoBehaviour:
   playerStatAdjust: {fileID: 1689890959}
   skillManager: {fileID: 128173405}
   type: {fileID: 0}
+  "\uB178\uB9D0_\uAC00\uC911\uCE58": 500
+  "\uB808\uC5B4_\uAC00\uC911\uCE58": 257
+  "\uC5D0\uD53D_\uAC00\uC911\uCE58": 140
+  "\uC720\uB2C8\uD06C_\uAC00\uC911\uCE58": 80
+  "\uB808\uC804\uB4DC_\uAC00\uC911\uCE58": 20
+  "\uC2E0\uD654_\uAC00\uC911\uCE58": 3
 --- !u!4 &321154673
 Transform:
   m_ObjectHideFlags: 0
@@ -1091,12 +1097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac171a43cdbb44299816a8bf0b011fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PortraitSmartphones: 1
-  PortraitTablets: 0
-  _targetFieldOfView: 60
-  _targetOrthographicSize: 10
-  defaultFieldOfView: 60
-  defaultOrthographicSize: 5
 --- !u!1 &800662206
 GameObject:
   m_ObjectHideFlags: 0
