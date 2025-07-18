@@ -19,11 +19,9 @@ public class SkillManager : MonoBehaviour
 {
     [SerializeField] private Player[] players;
     [SerializeField] private ScriptableObject[] Origin_skillObjects;
-
     [SerializeField] private ScriptableObject[] skillObjects;
-
-
     [SerializeField] private OptionChoice_SkillOption skillOption;
+
 
     public int Selection_ID; // 여기다 스킬 선택했을때 넣어주시면 됩니다. 
 

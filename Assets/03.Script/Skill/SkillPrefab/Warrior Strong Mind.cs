@@ -31,6 +31,8 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     private void Update()
     {
+        if (owner.target == null) return;
+        
         transform.position = owner.target.transform.position;
     }
 
