@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
+
 public enum BuffEffectType
 {
     Shield_Protection,
@@ -15,6 +16,7 @@ public enum BuffEffectType
     Wizard_Strong_Mind,
     // 나중에 쉽게 추가 가능
 }
+
 public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 {
     private static readonly int IsRun = Animator.StringToHash("isRun");
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     public GameObject GameObject => gameObject;
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
+
     public PlayerStat buffplayerStat
     {
         get => playerStat;
@@ -37,19 +40,25 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     public GameObject skillPrefab;
     public GameObject skillPrefab2;
 
-    [SerializeField, Header("게임 시작할 때 받아오는 초기값이 저장된 곳."), Tooltip("게임 시작할 때 받아오는 초기값이 저장된 곳.\n" + " 초기에 Player의 Stat을 조절하고 싶으면 여기")] 
+    public float[] MaxskillCoolTimer => MaxskillCooldownTimers;
+    public float[] CurrentCoolTimer => currentSkillCooldownTimers;
+
+    [SerializeField, Header("게임 시작할 때 받아오는 초기값이 저장된 곳."),
+     Tooltip("게임 시작할 때 받아오는 초기값이 저장된 곳.\n" + " 초기에 Player의 Stat을 조절하고 싶으면 여기")]
     public PlayerData data;
-    
+
     [Header("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기."), Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
     public PlayerStat playerStat = new PlayerStat();
-    
+
     private Collider2D col;
     private Rigidbody2D rigid;
     private Animator animator;
     private Weapon weapon2;
 
-    
-    [SerializeField, Header("현재의 player의 상태."), Tooltip("현재의 player의 상태")] private CharacterState currentCharacterState = CharacterState.Run;
+
+    [SerializeField, Header("현재의 player의 상태."), Tooltip("현재의 player의 상태")]
+    private CharacterState currentCharacterState = CharacterState.Run;
+
     [SerializeField] private CharacterState prevCharacterState = CharacterState.Run;
 
     private bool cameraMove = true;
@@ -60,7 +69,8 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     public Collider2D target;
     public float attackRange;
     private float attackTimer = 0f;
-    private float[] skillCooldownTimers = new float[2];
+    private float[] MaxskillCooldownTimers = new float[2];
+    private float[] currentSkillCooldownTimers = new float[2];
 
     public Dictionary<BuffEffectType, bool> activeBuffs = new();
     private Dictionary<BuffEffectType, float> buffCooldownTimers = new();
@@ -129,8 +139,8 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     {
         List<BuffEffectType> keys = new List<BuffEffectType>(buffCooldownTimers.Keys);
         foreach (var key in keys) buffCooldownTimers[key] -= Time.deltaTime;
-        skillCooldownTimers[0] -= Time.deltaTime;
-        skillCooldownTimers[1] -= Time.deltaTime;
+        currentSkillCooldownTimers[0] -= Time.deltaTime;
+        currentSkillCooldownTimers[1] -= Time.deltaTime;
 
         enemyDetectionCenter = Vector2.right * 0.5f + Vector2.up * transform.position.y;
 
@@ -138,17 +148,17 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         {
             rigid.velocity = Vector2.zero;
         }
-        
+
         switch (currentCharacterState)
         {
-            case CharacterState.Run: 
-                animator.SetBool(IsRun, true); 
+            case CharacterState.Run:
+                animator.SetBool(IsRun, true);
                 break;
-            case CharacterState.Attack: 
-                performAttack(); 
+            case CharacterState.Attack:
+                performAttack();
                 break;
-            case CharacterState.Die: 
-                performDie(); 
+            case CharacterState.Die:
+                performDie();
                 break;
         }
     }
@@ -166,21 +176,21 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     private void performRun()
     {
         rigid.velocity = Vector3.zero;
-        
+
         if (enemyDetectionCol.Length.Equals(0))
         {
             targetPos = rigid.position + Vector2.up * (playerStat.moveSpeed * Time.fixedDeltaTime);
             rigid.MovePosition(targetPos);
             return;
         }
-        
+
         float minDistance = 100f;
         Collider2D closestEnemy = null;
-        
+
         for (int i = 0; i < enemyDetectionCol.Length; i++)
         {
             if (enemyDetectionCol[i] == null) continue;
-        
+
             float distance = Vector2.Distance(transform.position, enemyDetectionCol[i].transform.position);
             if (distance < minDistance)
             {
@@ -188,9 +198,11 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
                 closestEnemy = enemyDetectionCol[i];
             }
         }
+
         target = closestEnemy;
 
-        if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange || target.IsTouching(col))
+        if (Vector3.Distance(transform.position, target.transform.position) < playerStat.attackRange ||
+            target.IsTouching(col))
         {
             attackTimer = 1f / playerStat.attackSpeed;
             ChangeState(CharacterState.Attack);
@@ -201,7 +213,6 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
             Vector2 nextPos = rigid.position + dir * (playerStat.moveSpeed * Time.fixedDeltaTime);
             rigid.MovePosition(nextPos);
         }
-
     }
 
     private void performDie()
@@ -209,19 +220,19 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         data.isDead = true;
         gameObject.SetActive(false);
     }
-    
+
     private void performAttack()
     {
-        if(enemyDetectionCol.Length <= 0 || target == null)
+        if (enemyDetectionCol.Length <= 0 || target == null)
         {
             isTarget = false;
             target = null;
             ChangeState(CharacterState.Run);
             return;
         }
-        
+
         float distance = Vector2.Distance(transform.position, target.transform.position);
-        
+
         if (distance > playerStat.attackRange)
         {
             target = null;
@@ -231,23 +242,23 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         {
             animator.SetBool(IsAttack, true);
         }
-        
+
         attackTimer -= Time.deltaTime;
-        
+
         if (attackTimer > 0f)
             return;
-        
+
         isTarget = true;
         isTarget = weapon2.Attack(target);
-        
+
         bool isStillTarget = weapon2.Attack(target);
-        
+
         if (HasBuff(BuffEffectType.Archer_Strong_Mind))
         {
             Debug.Log("🏹 아처 스트롱 마인드 발동! 추가 공격");
             weapon2.Attack(target);
         }
-        
+
         isTarget = isStillTarget;
         attackTimer = 1f / playerStat.attackSpeed;
         SkillCondition();
@@ -258,7 +269,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         float finalDamage = combatEvent.Damage * (1 - damageReductionRate);
         playerStat.health -= finalDamage;
         DamgeEvent.OnTriggerPlayerDamageEvent(this);
-        
+
         if (playerStat.health <= 0)
         {
             cameraMove = false;
@@ -280,7 +291,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
             ChangeState(CharacterState.Die);
         }
     }
-    
+
 
     public void ChangeState(CharacterState newState)
     {
@@ -289,12 +300,21 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         prevCharacterState = currentCharacterState;
         currentCharacterState = newState;
     }
-    
+
 
     private void SkillCondition()
     {
-        if (skillCooldownTimers[0] <= 0f) { UseSkill(0); ResetCooldown(0); }
-        if (skillCooldownTimers[1] <= 0f) { UseSkill(1); ResetCooldown(1); }
+        if (currentSkillCooldownTimers[0] <= 0f)
+        {
+            UseSkill(0);
+            ResetCooldown(0);
+        }
+
+        if (currentSkillCooldownTimers[1] <= 0f)
+        {
+            UseSkill(1);
+            ResetCooldown(1);
+        }
     }
 
     private void UseSkill(int index)
@@ -325,8 +345,11 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
     private void ResetCooldown(int index)
     {
-        if (skills[index] is ActiveSkillSO active) skillCooldownTimers[index] = active.Skill_Cooldown;
-        else if (skills[index] is BuffSO buff) skillCooldownTimers[index] = buff.Skill_Cooldown;
+        if (skills[index] is ActiveSkillSO active) MaxskillCooldownTimers[index] = active.Skill_Cooldown;
+        else if (skills[index] is BuffSO buff) MaxskillCooldownTimers[index] = buff.Skill_Cooldown;
+
+        currentSkillCooldownTimers[0] = MaxskillCooldownTimers[0];
+        currentSkillCooldownTimers[1] = MaxskillCooldownTimers[1];
     }
 
     public bool HasBuff(BuffEffectType buff) => activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
