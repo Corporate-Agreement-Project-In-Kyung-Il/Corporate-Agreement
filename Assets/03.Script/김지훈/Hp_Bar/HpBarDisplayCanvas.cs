@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HpBarDisplayCanvas : MonoBehaviour
 {
     [Header("PlayerHpBar 표시")]
     public PlayerHpBar playerHpBar;
+    
+    [Header("SkillBar 표시")]
+    public SkillParentBar skillBar;
 
     //public Canvas uiCanvas; //World Space로 설정된 Canvas
     //[Header("기본적인 EnemyGameObject 기준 : HpBar 표시위치")]
@@ -30,10 +34,8 @@ public class HpBarDisplayCanvas : MonoBehaviour
 
     void Update()
     {
-        cameraPlanes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
         EnemyHpBarSetting();
         PlayerHpBarSetting();
-
     }
 
     private void EnemyHpBarSetting()
@@ -100,11 +102,30 @@ public class HpBarDisplayCanvas : MonoBehaviour
         }
     }
 
+    private void SkillBarSetting()
+    {
+        playerList = AliveExistSystem.Instance.playerList;
+        
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            if (playerList.Count <= 0) continue;
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.blue;
-    //    Gizmos.DrawWireCube(Vector2.right * mainCamera.transform.position.x +
-    //                    Vector2.up * mainCamera.transform.position.y, enemyHpDetectionSize);
-    //}
+            Transform playerTransform = playerList[i].transform;
+            
+            if (playerHpBars.ContainsKey(playerTransform).Equals(false))
+            {
+                SkillParentBar skillTimeDisplay = Instantiate(skillBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) 
+                    as SkillParentBar;
+                
+                skillTimeDisplay.gameObject.SetActive(true);
+
+                if (playerTransform.gameObject.TryGetComponent(out Player player))
+                {
+                    skillTimeDisplay.target = player;
+                }
+
+                playerHpBars[playerTransform] = skillTimeDisplay.gameObject;
+            }
+        }
+    }
 }
