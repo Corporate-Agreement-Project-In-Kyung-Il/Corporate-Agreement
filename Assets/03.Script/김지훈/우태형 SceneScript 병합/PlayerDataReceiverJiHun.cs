@@ -6,19 +6,16 @@ using UnityEngine;
 public class PlayerDataReceiverJiHun : MonoBehaviour
 {
     //Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
+    [Header("Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사")]
     public PlayerStat[] DependencyPlayerStat;
     
     //버프시킬 scriptAbleObject -> OptionChoice_EquipOption 혹은 OptionChoice_TrainingOption
+    [Header("선택지가 EquipSelection일 떄, 선택된 Equip의 ID")]
     public int equipSelectionID;
+    [Header("선택지가 TrainingSelection일 떄, 선택된 Training의 ID")]
     public int trainingSelectionID;
     
-
-    //public OptionChoice_EquipOption equip;
-
-    //public void GetOptionValue()
-    //{
-    //    equip.GetValue(equipSelectionID);
-    //}
+    
     
     public void SetEquipSelectionID(int id)
     {

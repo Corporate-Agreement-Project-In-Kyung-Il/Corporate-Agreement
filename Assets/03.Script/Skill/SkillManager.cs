@@ -22,12 +22,16 @@ public class SkillManager : MonoBehaviour
 
     [SerializeField] private ScriptableObject[] skillObjects;
 
+    
+    public OptionChoice_SkillOption skillOption;
 
     [SerializeField] private OptionChoice_SkillOption skillOption;
 
     public int Selection_ID; // 여기다 스킬 선택했을때 넣어주시면 됩니다. 
 
     private ISkillID[] skills;
+    
+    public List<BuffSO> buffs;
 
     public void SetSelectionID(int id)
     {
@@ -85,11 +89,19 @@ public class SkillManager : MonoBehaviour
                 if (players[i].data.skill_possed[0] == skills[j].SkillID)
                 {
                     players[i].skills[0] = skills[j];
+                    if (players[i].skills[0] is BuffSO buff)
+                    {
+                        buffs.Add(buff);
+                    }
                 }
 
                 if (players[i].data.skill_possed[1] == skills[j].SkillID)
                 {
                     players[i].skills[1] = skills[j];
+                    if (players[i].skills[1] is BuffSO buff)
+                    {
+                        buffs.Add(buff);
+                    }
                 }
             }
         }

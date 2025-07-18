@@ -43,6 +43,7 @@ public class EquipOption : BaseValue
     public int Equipment_LvUP;
 }
 
+[System.Serializable]
 public class Equip : BaseValue
 {
     public int Equipment_Type_ID;
@@ -53,6 +54,18 @@ public class Equip : BaseValue
     public int Equipment_Maximum_LV;
     public float Attack_LV_UP_Effect;
     public float HP_LV_UP_Effect;
+}
+
+[System.Serializable]
+public class MonsterExel : BaseValue
+{
+    public int Stage_ID;
+    public float Monster_HP;
+    public float Monster_Attack;
+    public int Monster_SpawnCount;
+    public bool IsBossStage;
+    public float Boss_HP;
+    public float Boss_Attack;
 }
 
 [System.Serializable]

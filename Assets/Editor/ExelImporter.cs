@@ -16,32 +16,71 @@ public static class ExcelImporter
         // 인코딩 등록
         System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
-        string filePath = Application.dataPath + "/05.DataTable/성장 데이터 종합.xlsx";
-        if (!File.Exists(filePath))
+        string playerStatFilePath = Application.dataPath + "/05.DataTable/성장 데이터 종합.xlsx";
+        string monsterStatFilePath = Application.dataPath + "/05.DataTable/몬스터 스탯.xlsx";
+        if (!File.Exists(playerStatFilePath))
         {
-            Debug.LogError("엑셀 파일이 존재하지 않습니다: " + filePath);
+            Debug.LogError("엑셀 파일이 존재하지 않습니다: " + playerStatFilePath);
+            
+            return;
+        }
+        
+        if (!File.Exists(monsterStatFilePath))
+        {
+            Debug.LogError("엑셀 파일이 존재하지 않습니다: " + monsterStatFilePath);
             
             return;
         }
 
-        using var stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
-        using var reader = ExcelReaderFactory.CreateReader(stream);
-        var result = reader.AsDataSet();
+        using var playerStream = File.Open(playerStatFilePath, FileMode.Open, FileAccess.Read);
+        using var playerReader = ExcelReaderFactory.CreateReader(playerStream);
+        var playerResult = playerReader.AsDataSet();
 
-        ImportCharacter(result.Tables[0]);         // 1번 시트 (Character)
-        ImportBuff(result.Tables[3]);              // 4번 시트 (BuffList)
-        ImportActiveSkill(result.Tables[1]);       // 2번 시트 (ActiveSkill)
-        ImportBuffSkill(result.Tables[2]);         // 3번 시트 (BuffSkill)         여기는 버프 리스트가 먼저 생성되어야 버프 스킬에 들어가서 List 먼저 생성하였습니다.
-        ImportSkillOption(result.Tables[4]);       // 5번 시트 (SkillOption)
-        ImportEquip(result.Tables[5]);             // 6번 시트 (Equip)
-        ImportEquipOption(result.Tables[6]);       // 7번 시트 (EquipOption)
-        ImportTraining(result.Tables[7]);          // 8번 시트 (Training)
-        ImportTrainingOption(result.Tables[8]);    // 9번 시트 (TrainingOption)
-
+        ImportCharacter(playerResult.Tables[0]);         // 1번 시트 (Character)
+        ImportBuff(playerResult.Tables[3]);              // 4번 시트 (BuffList)
+        ImportActiveSkill(playerResult.Tables[1]);       // 2번 시트 (ActiveSkill)
+        ImportBuffSkill(playerResult.Tables[2]);         // 3번 시트 (BuffSkill)         여기는 버프 리스트가 먼저 생성되어야 버프 스킬에 들어가서 List 먼저 생성하였습니다.
+        ImportSkillOption(playerResult.Tables[4]);       // 5번 시트 (SkillOption)
+        ImportEquip(playerResult.Tables[5]);             // 6번 시트 (Equip)
+        ImportEquipOption(playerResult.Tables[6]);       // 7번 시트 (EquipOption)
+        ImportTraining(playerResult.Tables[7]);          // 8번 시트 (Training)
+        ImportTrainingOption(playerResult.Tables[8]);    // 9번 시트 (TrainingOption)
         AssetDatabase.SaveAssets();
         Debug.Log("Excel 데이터 → ScriptableObject 변환 완료!");
+        
+        
+        using var monsterStream = File.Open(monsterStatFilePath, FileMode.Open, FileAccess.Read);
+        using var monsterReader = ExcelReaderFactory.CreateReader(monsterStream);
+        var monsterResult = monsterReader.AsDataSet();
+        ImportMonsterStat(monsterResult.Tables[0]);
+        AssetDatabase.SaveAssets();
     }
 
+    private static void ImportMonsterStat(DataTable table)
+    {
+        var monsterStat = ScriptableObject.CreateInstance<MonsterStatExel>();
+        for (int i = 3; i < table.Rows.Count; i++)
+        {
+            var strarr = GetTrimmedCells(table, i);
+
+            var monster = new MonsterExel
+            {
+                Stage_ID = int.Parse(strarr[0]),
+                Monster_HP = float.Parse(strarr[1]),
+                Monster_Attack = float.Parse(strarr[2]),
+                Monster_SpawnCount = int.Parse(strarr[3]),
+                IsBossStage = int.Parse(strarr[4]) == 1 ? true : false,
+                Boss_HP = float.Parse(strarr[5]),
+                Boss_Attack = float.Parse(strarr[6])
+            };
+
+            var pair = new IDValuePair<MonsterExel> { Key_ID = int.Parse(strarr[0]), val = monster };
+            monsterStat.data.Add(pair);
+        }
+        Debug.Log("Monster");
+        AssetDatabase.CreateAsset(monsterStat, $"Assets/00.Resources/DataBase/MonsterStat.asset");
+    }
+    
     public static void ImportActiveSkill(DataTable table)
 {
     for (int i = 1; i < table.Rows.Count; i++)

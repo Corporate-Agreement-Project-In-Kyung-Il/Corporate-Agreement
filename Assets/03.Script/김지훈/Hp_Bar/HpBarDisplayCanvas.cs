@@ -3,49 +3,116 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHpBarManager : MonoBehaviour
+public class HpBarManager : MonoBehaviour
 {
-    public GameObject hpBarPrefab;
-    public Canvas uiCanvas;
-
+    [Header("PlayerHpBar 표시")]
+    public PlayerHpBar playerHpBar;
+    [Header("EnemyHpBar 표시")]
+    public EnemyHpBar enemyBar;
+    public Canvas uiCanvas; //World Space로 설정된 Canvas
+    [Header("기본적인 EnemyGameObject 기준 : HpBar 표시위치")]
+    public float barDisplayPosition;
+    
     private Camera mainCamera;
-    private Dictionary<Transform, GameObject> hpBars = new Dictionary<Transform, GameObject>();
+    private Dictionary<Transform, GameObject> enemyHpBars = new Dictionary<Transform, GameObject>();
+    private Dictionary<Transform, GameObject> playerHpBars = new Dictionary<Transform, GameObject>();
     private Plane[] cameraPlanes;
-
+    private List<Collider2D> monsterList = new List<Collider2D>();
+    private List<Collider2D> playerList = new List<Collider2D>();
+    
     private void Start()
     {
         mainCamera = Camera.main;
     }
 
+    private void LateUpdate()
+    {
+        monsterList = AliveExistSystem.Instance.monsterList;
+        playerList = AliveExistSystem.Instance.playerList;
+    }
+
     void Update()
     {
         cameraPlanes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); //이거 Monster리스트에 담기게 Instantiate 되면, 바꾸기
+        EnemyHpBarSetting();
+        PlayerHpBarSetting();
 
-        foreach (GameObject enemy in enemies)
+    }
+
+    private void EnemyHpBarSetting()
+    {
+        for (int i = 0; i < monsterList.Count; i++)
         {
-            Renderer rend = enemy.GetComponentInChildren<Renderer>();
-            if (rend == null) continue;
+            if(monsterList.Count <= 0) continue;
+            
+            Transform enemyTransform = monsterList[i].transform;
 
-            bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, rend.bounds);
+            //if (rend == null) continue;
+            bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, monsterList[i].bounds);
 
             if (isVisible)
             {
                 // 없으면 생성
-                if (!hpBars.ContainsKey(enemy.transform))
+                if (enemyHpBars.ContainsKey(enemyTransform).Equals(false))
                 {
-                    GameObject bar = Instantiate(hpBarPrefab, uiCanvas.transform);
-                    bar.GetComponent<EnemyHpBar>().target = enemy.transform;
-                    hpBars[enemy.transform] = bar;
+                    EnemyHpBar EnemyHpDisplay = ObjectPoolSystem.Instance.GetObjectOrNull("HpBarDisplay") as EnemyHpBar;
+     
+                    EnemyHpDisplay.gameObject.SetActive(true);
+                    if (enemyTransform.gameObject.TryGetComponent(out MonsterController monster))
+                    {
+                        EnemyHpDisplay.target = monster;
+                        EnemyHpDisplay.SliderDown(monster);
+                    }
+
+                    enemyHpBars[enemyTransform] = EnemyHpDisplay.gameObject;
+
                 }
             }
             else
             {
                 // 있으면 삭제
-                if (hpBars.ContainsKey(enemy.transform))
+                if (enemyHpBars.ContainsKey(enemyTransform))
                 {
-                    Destroy(hpBars[enemy.transform]);
-                    hpBars.Remove(enemy.transform);
+                    Destroy(enemyHpBars[enemyTransform]);
+                    enemyHpBars.Remove(enemyTransform);
+                }
+            }
+        }
+    }
+    
+    private void PlayerHpBarSetting()
+    {
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            if (playerList.Count <= 0) continue;
+
+            Transform playerTransform = playerList[i].transform;
+
+            bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, playerList[i].bounds);
+
+            if (isVisible)
+            {
+                if (playerHpBars.ContainsKey(playerTransform).Equals(false))
+                {
+                    PlayerHpBar playerHpDisplay = Instantiate(playerHpBar, playerTransform.position + Vector3.up * -0.4f, Quaternion.identity, this.transform) as PlayerHpBar;
+                        //ObjectPoolSystem.Instance.GetObjectOrNull("PlayerHpBar") as PlayerHpBar;
+
+//                    if (playerHpDisplay == null) continue;
+//
+                    playerHpDisplay.gameObject.SetActive(true);
+//                    if (playerTransform.TryGetComponent(out Player player))
+                    if(playerTransform.gameObject.TryGetComponent(out Player player)) 
+                        playerHpDisplay.target = player;
+                    
+                    playerHpBars[playerTransform] = playerHpDisplay.gameObject;
+                }
+            }
+            else
+            {
+                if (playerHpBars.ContainsKey(playerTransform))
+                {
+                    Destroy(playerHpBars[playerTransform]);
+                    playerHpBars.Remove(playerTransform);
                 }
             }
         }

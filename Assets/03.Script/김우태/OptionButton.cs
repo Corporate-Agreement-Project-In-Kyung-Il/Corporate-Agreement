@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -22,21 +23,27 @@ public class OptionButton : MonoBehaviour
    public int selectID;
    public Canvas optionCanvas;
    public BaseValue selectedData;
-
+   
    public void OnClick()
    {
-      optionCanvas.gameObject.SetActive(false);
       switch (optionType)
       {
          case EOptionType.Skill:
             m_SkillOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
          case EOptionType.Equip:
             m_EquipOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
          case EOptionType.Training:
             m_TrainingOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
+         
       }
    }
 }
