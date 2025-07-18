@@ -65,6 +65,7 @@ public static class ExcelImporter
 
             var monster = new MonsterExel
             {
+                Stage_ID = int.Parse(strarr[0]),
                 Monster_HP = float.Parse(strarr[1]),
                 Monster_Attack = float.Parse(strarr[2]),
                 Monster_SpawnCount = int.Parse(strarr[3]),

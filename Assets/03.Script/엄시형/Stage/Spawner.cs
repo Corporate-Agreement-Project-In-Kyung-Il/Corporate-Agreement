@@ -24,7 +24,7 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
     [SerializeField] private StagePatternTableSO m_StagePatternTable;
-    
+    [SerializeField] private AreaTilemapTableSO m_AreaTilemapTable;
     [SerializeField] private MonsterStatExel m_MonsterStatTable;
     [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private MonsterTableSO m_MonsterTable;
@@ -218,7 +218,10 @@ public sealed class Spawner : MonoBehaviour
         
         for (int i = 0; i < mStageInfo.AreaPatternList.Count; i++)
         {
-            var curTileMap = Instantiate(m_TilemapList[0]
+            var patternId = mStageInfo.AreaPatternList[i].PatternId;
+            var tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
+            
+            var curTileMap = Instantiate(tilemap
                 , new Vector2(0, topY)
                 , Quaternion.identity
                 , parent: m_Grid.transform);

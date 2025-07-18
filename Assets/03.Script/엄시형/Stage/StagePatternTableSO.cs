@@ -14,6 +14,7 @@ namespace _03.Script.엄시형.Stage
         private AreaPatternPersistenceManager m_AreaPerstistenceMgr = new AreaPatternPersistenceManager();
         
         public Dictionary<int, StageInfo> m_StageInfoDic = new Dictionary<int, StageInfo>();
+        
         [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
         [SerializeField] private List<StageInfo> m_StageInfo = new List<StageInfo>();
         
