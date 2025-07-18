@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,4 +27,5 @@ public class PlayerData : ScriptableObject
     public int training_type; //훈련 적용 분류
     public int equip_item; //장비 적용 분류
     public List<int> skill_possed; //스킬 적용
+    
 }

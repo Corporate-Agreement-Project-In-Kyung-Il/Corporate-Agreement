@@ -3,78 +3,107 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 namespace _03.Script.엄시형.Tool
 {
-    public class AreaPatternGenerator : MonoBehaviour
+    public sealed class AreaPatternGenerator : MonoBehaviour
     {
+        // TODO : AreaPattern말고 StageInfo로 변경해야함
         // [ReadOnly]
-        [SerializeField] public GameObject mPointPrefab;
+        [SerializeField] public GameObject m_PointPrefab;
         
+        [SerializeField] public AreaTilemapTableSO m_AreaTilemapTable;
         // [ReadOnly]
-        [SerializeField] private Tilemap mTilemap;
-        [SerializeField] private Camera mMainCam;
+        [SerializeField] private Grid m_Grid;
+        [SerializeField] private Camera m_MainCam;
+        
+        [SerializeField] private Button m_SaveBtn;
+        [SerializeField] private Button m_ResetBtn;
+        [SerializeField] private Button m_DecreaseBtn;
+        [SerializeField] private Button m_IncreaseBtn;
+        [SerializeField] private Button m_OpenFolderBtn;
+        
+        private Tilemap m_Tilemap;
         
         // TODO : ID읽어와서 중복 못하게
-        [SerializeField] private List<AreaPatternDTO> mAreaPatternDTOList = new List<AreaPatternDTO>();
+        [SerializeField] private List<AreaPatternDTO> m_AreaPatternDTOList = new List<AreaPatternDTO>();
+        
+        [Header("스테이지 정보 리스트")]
+        [SerializeField] private List<StageInfoDTO> m_StageInfoList = new List<StageInfoDTO>();
         
         // TODO : Id에 따라 변하게
-        [SerializeField] private int mPatternId = 1;
-
-        // [Header("폴더명을 입력해주세요")]
-        // [SerializeField] private string mFolderName;
+        [FormerlySerializedAs("m_PatternId")] [SerializeField] private int m_CurIdx = 1;
         
-        private int mPrevId = 1;
+        private int m_PrevIdx = 1;
         
-        private readonly List<GameObject> mPointObjectList = new List<GameObject>();
-        private readonly AreaPatternPersistenceManager mPersistenceManager = new AreaPatternPersistenceManager();
+        private readonly List<GameObject> m_PointObjectList = new List<GameObject>();
+        private readonly AreaPatternPersistenceManager m_PersistenceManager = new AreaPatternPersistenceManager();
+        
+        // 저장버튼
+        // 초기화버튼
+        // AreaPattern Id-- 버튼
+        // AreaPattern Id++ 버튼
+        // 폴더 열기 버튼
         
         [Conditional("UNITY_EDITOR")]
         private void OnValidate()
         {
-            Debug.Assert(mTilemap != null, "Tilemap이 빠졌습니다");
-            Debug.Assert(mPointPrefab != null, "mPointPrefab이 빠졌습니다");
-            Debug.Assert(mMainCam != null, "mMainCam이 빠졌습니다");
+            Debug.Assert(m_PointPrefab != null, "mPointPrefab이 빠졌습니다");
+            Debug.Assert(m_MainCam != null, "mMainCam이 빠졌습니다");
+            Debug.Assert(m_AreaTilemapTable != null, "m_AreaTilemapTable != null");
             
-            // if (string.IsNullOrEmpty(mFolderName))
-            // {
-            //     Debug.LogError("폴더명을 입력해주세요");
-            // }
-            
-            if (mPatternId != mPrevId)
+            if (m_CurIdx != m_PrevIdx)
             {
-                Debug.Log("패턴 ID가 변경되었습니다: " + mPatternId);
+                Debug.Log("패턴 ID가 변경되었습니다: " + m_CurIdx);
 
                 RepaintPoints();
             }
                
-            mPrevId = mPatternId;
+            m_PrevIdx = m_CurIdx;
         }
         
         
         private void Awake()
         {
-            if (mPersistenceManager.TryReadFromJson(out mAreaPatternDTOList))
+            if (m_PersistenceManager.TryReadFromJson(out m_AreaPatternDTOList))
             {
-                foreach (var spawnInfo in mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList)
+                // patternId에 해당하는 타일맵 생성
+                var patternId = m_AreaPatternDTOList[0].PatternId;
+                m_Tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
+                m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
+                
+                foreach (var spawnInfo in m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList)
                 {
-                    Vector2 worldPos = mTilemap.transform.TransformPoint(spawnInfo.Pos);
-                    GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
+                    Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
+                    GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
                     point.transform.position = worldPos;
 
                     point.transform.localScale = Vector3.one * spawnInfo.Diameter;
-                    mPointObjectList.Add(point.gameObject);
+                    m_PointObjectList.Add(point.gameObject);
                 }
             }
             else
             {
-                mAreaPatternDTOList.Add(new AreaPatternDTO(mPatternId));
+                m_AreaPatternDTOList.Add(new AreaPatternDTO(m_CurIdx));
             }
+            
+            m_SaveBtn.onClick.AddListener(Save);
+            m_ResetBtn.onClick.AddListener(ResetCurPattern);
+            m_DecreaseBtn.onClick.AddListener(DecreasePatternId);
+            m_IncreaseBtn.onClick.AddListener(IncreasePatternId);
+            m_OpenFolderBtn.onClick.AddListener(() =>
+            {
+                EditorUtility.RevealInFinder(m_PersistenceManager.fullPath);
+            });
         }
         
         void Update()
@@ -82,14 +111,14 @@ namespace _03.Script.엄시형.Tool
             // 휠클릭 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                Vector2 worldPos = mMainCam.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 worldPos = m_MainCam.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
 
                 foreach (var hit in hits)
                 {
                     if (hit.collider.gameObject.name == "PointCircle(Clone)")
                     {
-                        mPointObjectList.Remove(hit.collider.gameObject);
+                        m_PointObjectList.Remove(hit.collider.gameObject);
                         Destroy(hit.collider.gameObject);
                     }
                 }
@@ -98,168 +127,144 @@ namespace _03.Script.엄시형.Tool
             // 포인트 오브젝트 배치 우클릭
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                Vector2 worldPos = mMainCam.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 worldPos = m_MainCam.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
 
-                if (hit && hit.collider.name == "Area")
+                if (hit && hit.collider.TryGetComponent(out Tilemap tilemap))
                 {
-                    Vector2 localPos = mTilemap.transform.InverseTransformPoint(hit.point);
+                    Vector2 localPos = m_Tilemap.transform.InverseTransformPoint(hit.point);
                     
-                    float diameter = mPointPrefab.transform.localScale.x;
+                    float diameter = m_PointPrefab.transform.localScale.x;
                 
                     // Instantiate는 월드 좌표로 생성해 로컬좌표로 변경함
-                    GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
+                    GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
                     point.transform.localPosition = localPos;
 
                     SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, diameter);
                 
-                    mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Add(spawnInfo);
-                    mPointObjectList.Add(point.gameObject);
+                    m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList.Add(spawnInfo);
+                    m_PointObjectList.Add(point.gameObject);
                 }
             }
         }
         
-        private void OnGUI()
+        public void ResetCurPattern()
         {
-            int btnWidth = 400;
-            int btnHeight = 20;
-            int margin = 5;
-
-            GUILayout.BeginArea(new Rect(10, 10, btnWidth, btnHeight + 10)); // 전체 버튼 영역 지정
-            GUILayout.BeginHorizontal();
-
-            // 저장 버튼
-            if (GUILayout.Button("저장", GUILayout.Height(btnHeight)))
+            foreach (var pointObj in m_PointObjectList)
             {
-                mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Clear();
-
-                foreach (var pointObj in mPointObjectList)
-                {
-                    Vector2 localPos = mTilemap.transform.InverseTransformPoint(pointObj.transform.position);
-                    SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, pointObj.transform.localScale.x);
-                    mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList.Add(spawnInfo);
-                }
-
-                mPersistenceManager.WriteAsJSON(mAreaPatternDTOList);
+                Destroy(pointObj); // OnValidate에서는 Destroy 대신 DestroyImmediate 권장
             }
 
-            // 패턴 초기화 버튼
-            if (GUILayout.Button("패턴 초기화", GUILayout.Height(btnHeight)))
+            m_PointObjectList.Clear();
+        }
+            
+        public void DecreasePatternId()
+        {
+            if (m_CurIdx > 1)
             {
-                foreach (var pointObj in mPointObjectList)
-                {
-                    DestroyImmediate(pointObj); // OnValidate에서는 Destroy 대신 DestroyImmediate 권장
-                }
-
-                mPointObjectList.Clear();
+                m_CurIdx--;
+            }
+            else if (m_AreaPatternDTOList.Count > 0)
+            {
+                m_CurIdx = m_AreaPatternDTOList.Count;
             }
 
-            // <<
-            if (GUILayout.Button("<<", GUILayout.Height(btnHeight), GUILayout.Width(40)))
-            {
-                if (mPatternId > 1)
-                {
-                    
-                    mPatternId--;
-                }
-                else if (mAreaPatternDTOList.Count > 0)
-                {
-                    mPatternId = mAreaPatternDTOList.Last().PatternId;
-                }
+            m_PrevIdx = m_CurIdx;
+            RepaintPoints();
+        }
 
-                mPrevId = mPatternId;
-                RepaintPoints();
+        public void IncreasePatternId()
+        {
+            int maxIndex = m_AreaPatternDTOList.Count; // 0부터 시작하므로 -1
+
+            if (m_CurIdx < maxIndex)
+            {
+                m_CurIdx++;
             }
-
-            // >>
-            if (GUILayout.Button(">>", GUILayout.Height(btnHeight), GUILayout.Width(40)))
+            else
             {
-                int maxPatternId = mAreaPatternDTOList.Last().PatternId;
-
-                if (mPatternId < maxPatternId)
-                {
-                    mPatternId++;
-                }
-                else
-                {
-                    mPatternId = 1;
-                }
+                m_CurIdx = 1;
+            }
                 
-                mPrevId = mPatternId;
-                RepaintPoints();
-            }
+            m_PrevIdx = m_CurIdx;
+            RepaintPoints();
+        }
             
-            // >>
-            if (GUILayout.Button("추가", GUILayout.Height(btnHeight), GUILayout.Width(60)))
-            {
-                mPatternId++;
-                
-                foreach (var pointObj in mPointObjectList)
-                {
-                    Destroy(pointObj);
-                }
+        // public void AddPattern()
+        // {
+        //     m_PatternId++;
+        //         
+        //     foreach (var pointObj in m_PointObjectList)
+        //     {
+        //         Destroy(pointObj);
+        //     }
+        //
+        //     m_PointObjectList.Clear();
+        //     m_PatternId = m_AreaPatternDTOList.Last().PatternId + 1;
+        //     m_AreaPatternDTOList.Add(new AreaPatternDTO(m_PatternId));
+        //     m_PrevId = m_PatternId;
+        //     RepaintPoints();
+        // }
+        
+        public void Save()
+        {
+            m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList.Clear();
 
-                mPointObjectList.Clear();
-                mPatternId = mAreaPatternDTOList.Last().PatternId + 1;
-                mAreaPatternDTOList.Add(new AreaPatternDTO(mPatternId));
-                mPrevId = mPatternId;
-                RepaintPoints();
-            }
-            
-            if (GUILayout.Button("폴더 열기", GUILayout.Height(btnHeight), GUILayout.Width(60)))
+            foreach (var pointObj in m_PointObjectList)
             {
-                EditorUtility.RevealInFinder(mPersistenceManager.fullPath);
+                Vector2 localPos = m_Tilemap.transform.InverseTransformPoint(pointObj.transform.position);
+                SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, pointObj.transform.localScale.x);
+                m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList.Add(spawnInfo);
             }
-            
-            GUILayout.EndHorizontal();
-            GUILayout.EndArea();
 
-            GUIStyle labelStyle = new GUIStyle(GUI.skin.label)
-            {
-                fontSize = 15,
-                normal = { textColor = Color.white }
-            };
-            
-            GUI.Label(new Rect(10, 50, 150, 40), $"현재 Pattern ID : {mPatternId}", labelStyle);
-            GUI.Label(new Rect(10, 80, 150, 40), $"마지막 ID : {mAreaPatternDTOList.Last().PatternId}", labelStyle);
-            
+            m_PersistenceManager.WriteAsJSON(m_AreaPatternDTOList);
         }
         
         private void RepaintPoints()
         {
-            if (mAreaPatternDTOList.Count < mPatternId)
+            if (m_AreaPatternDTOList.Count < m_CurIdx)
             {
-                foreach (var pointObj in mPointObjectList)
+                foreach (var pointObj in m_PointObjectList)
                 {
                     Destroy(pointObj);
                 }
 
-                mPointObjectList.Clear();
-                mAreaPatternDTOList.Add(new AreaPatternDTO(mPatternId));
+                m_PointObjectList.Clear();
+                m_AreaPatternDTOList.Add(new AreaPatternDTO(m_CurIdx));
             }
             else
             {
-                foreach (var pointObj in mPointObjectList)
+                foreach (var pointObj in m_PointObjectList)
                 {
                     Destroy(pointObj);
                 }
 
-                mPointObjectList.Clear();
+                m_PointObjectList.Clear();
+                
+                // 패턴 ID에 해당하는 타일맵을 생성
+                // patternId에 해당하는 타일맵 생성
 
-                foreach (var spawnInfo in mAreaPatternDTOList[mPatternId - 1].MonsterSpawnInfoList)
+                var area = m_Grid.GetComponentInChildren<Tilemap>();
+                Destroy(area.gameObject);
+                
+                var patternId = m_AreaPatternDTOList[m_CurIdx - 1].PatternId;
+                m_Tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
+                m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
+                
+                foreach (var spawnInfo in m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList)
                 {
-                    Vector2 worldPos = mTilemap.transform.TransformPoint(spawnInfo.Pos);
-                    GameObject point = Instantiate(mPointPrefab, parent: mTilemap.transform);
+                    Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
+                    GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
                     point.transform.position = worldPos;
 
                     point.transform.localScale = Vector3.one * spawnInfo.Diameter;
-                    mPointObjectList.Add(point.gameObject);
+                    m_PointObjectList.Add(point.gameObject);
                 }
             }
         }
     }
-
-    internal class AreaPatternPersistenceManager
+    
+    public class AreaPatternPersistenceManager
     {
         public readonly string fullPath;
         

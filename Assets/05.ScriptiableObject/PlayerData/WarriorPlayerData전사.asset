@@ -20,7 +20,7 @@ MonoBehaviour:
   characterName: 1
   characterGrade: 0
   attackDamage: 10
-  health: 100
+  health: 10000
   attackSpeed: 1
   criticalProbability: 0
   training_type: 500001

@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using _00.Resources.엄시형.PrefabTable;
-using _03.Script.엄시형.Data.V2;
 using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage;
+using _03.Script.엄시형.Stage.DTO;
+using _03.Script.엄시형.Tool;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,52 +17,87 @@ using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 // [CreateAssetMenu(fileName = "Spawner", menuName = "SO/Stage/Spawner", order = 1)]
-public class Spawner : MonoBehaviour
+public sealed class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     
-    [SerializeField] private MonsterTableSO mMonsterTable;
+    [SerializeField] private StageEndDetector m_StageEndDetector;
+    
+    [SerializeField] private StagePatternTableSO m_StagePatternTable;
+    [SerializeField] private AreaTilemapTableSO m_AreaTilemapTable;
+    [SerializeField] private MonsterStatExel m_MonsterStatTable;
+    [SerializeField] private MonsterData m_MonsterData;
+    [SerializeField] private MonsterTableSO m_MonsterTable;
+    
     [SerializeField] private List<Tilemap> m_TilemapList;
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private Player[] m_PlayerList;
+    
+    private AreaPatternPersistenceManager m_AreaPersistenceMgr;
+    
     private List<Tilemap> m_CurAreaList;
     public List<Tilemap> CurAreaList => m_CurAreaList;
     
-    [Header("스테이지 정보")]
-    [SerializeField] private StageInfoSo mStageInfo;
+    private StageInfo mStageInfo;
     
-    [SerializeField] 
+    [SerializeField]
     public int CurStageId = 1;
     
     private Dictionary<character_class, Vector2> mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
         { character_class.궁수, new Vector2(-0.5f, 1f) },
         { character_class.전사 , new Vector2(0.5f, 2f) },
-        { character_class.마법사 , new Vector2(1.5f, 1f)}
+        { character_class.마법사 , new Vector2(1.5f, 1f) }
     };
 
 
-
-    // TODO : Area 동적생성
-    
     [Conditional("UNITY_EDITOR")]
     private void OnValidate()
     {
         // Debug.Assert(mAreaList.Count != 0, "mAreaList 요소가 0 인스펙터 확인");
-        Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
-        Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
+        // Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
+        // Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
     }
-
+    
     void Awake()
     {
         Instance = this;
         
+        m_StagePatternTable.Init();
         GameManager.Instance.GameStart();
     }
 
+    private void OnEnable()
+    {
+        m_StageEndDetector.OnStageEnd += SetNextStage;
+    }
+    
+    private void OnDisable()
+    {
+        m_StageEndDetector.OnStageEnd -= SetNextStage;
+    }
+
+    public void SetNextStage()
+    {
+        if (CurStageId % 3 == 0)
+        {
+            GameManager.Instance.CreateChoices(3);
+        }
+        
+        CurStageId++;
+        
+        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
+        DestoryAllArea();
+        SpawnAllMonstersInStage();
+    }
+    
+    
+    
     private void Start()
     {
+        // m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
+        mStageInfo = m_StagePatternTable.GetStageInfo(1);
         SpawnAllMonstersInStage();
     }
 
@@ -75,7 +112,7 @@ public class Spawner : MonoBehaviour
         , GameObject parent)
     {
        var monster = Instantiate(
-           mMonsterTable.GetMonster(type)
+           m_MonsterTable.GetMonster(type)
            , position, Quaternion.identity
            , parent: parent.transform);
        monster.transform.localPosition = position;
@@ -105,22 +142,19 @@ public class Spawner : MonoBehaviour
         // var areaList = GenerateMap();
         m_CurAreaList = GenerateMap();
         
-        
-  
-        
         int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;
         
-        for (int i = 0; i < mStageInfo.AreaInfoList.Count; i++)
+        for (int i = 0; i < mStageInfo.AreaPatternList.Count; i++)
         {
-            AreaInfoSO areaInfo = mStageInfo.AreaInfoList[i];
+            AreaPattern areaInfo = mStageInfo.AreaPatternList[i];
             
-            for (int x = 0; x < areaInfo.MonsterCount; x++)
+            for (int x = 0; x < areaInfo.MonsterSpawnInfoList.Count; x++)
             {
                 MonsterType type = mStageInfo
                     .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
             
                 SpawnMonsterInRange(
-                    areaInfo.SpawnInfoList[x]
+                    areaInfo.MonsterSpawnInfoList[x]
                     , type
                     , parent: m_CurAreaList[i].gameObject);
             }
@@ -133,7 +167,7 @@ public class Spawner : MonoBehaviour
                 .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
             
             var boss = SpawnMonster(
-                mStageInfo.BossAreaInfo.SpawnInfoList[0].Point
+                mStageInfo.BossAreaPattern.MonsterSpawnInfoList[0].Point
                 , type
                 , parent: m_CurAreaList.Last().gameObject);
             
@@ -170,7 +204,7 @@ public class Spawner : MonoBehaviour
     {
         Vector2 randomOffset = Random.insideUnitCircle * spawnInfo.Radius;
         Vector2 spawnPos = spawnInfo.Point + randomOffset;
-        BaseMonster monster = Instantiate(mMonsterTable.GetMonster(type), parent.transform);
+        BaseMonster monster = Instantiate(m_MonsterTable.GetMonster(type), parent.transform);
         monster.transform.localPosition = spawnPos; // 부모의 로컬 좌표로 스폰
         
         return monster;
@@ -182,9 +216,12 @@ public class Spawner : MonoBehaviour
         
         float topY = 0f;
         
-        for (int i = 0; i < mStageInfo.AreaInfoList.Count; i++)
+        for (int i = 0; i < mStageInfo.AreaPatternList.Count; i++)
         {
-            var curTileMap = Instantiate(m_TilemapList[0]
+            var patternId = mStageInfo.AreaPatternList[i].PatternId;
+            var tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
+            
+            var curTileMap = Instantiate(tilemap
                 , new Vector2(0, topY)
                 , Quaternion.identity
                 , parent: m_Grid.transform);
@@ -212,6 +249,4 @@ public class Spawner : MonoBehaviour
         m_StageEndPoint.transform.position = new Vector2(0, topY);
         return areaList;
     }
-
-
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+[Obsolete("이제 안 씀, GameManager를 사용하도록", true)]
 public class GameManagerJiHun : MonoBehaviour
 {
     public Canvas canvas;

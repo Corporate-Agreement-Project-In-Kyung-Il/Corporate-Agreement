@@ -67,4 +67,18 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
     }
+
+    private void ReturnToPool()
+    {
+        Destroy(gameObject);
+    }
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += ReturnToPool;
+    }
+
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent -= ReturnToPool;
+    }
 }

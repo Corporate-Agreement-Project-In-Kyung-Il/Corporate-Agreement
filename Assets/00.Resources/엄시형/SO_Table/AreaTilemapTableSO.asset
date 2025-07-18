@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 524495aa8a3c43d6b8c9294afaf7779e, type: 3}
+  m_Name: AreaTilemapTableSO
+  m_EditorClassIdentifier: 
+  m_TilemapList:
+  - m_Id: 100001
+    m_Tilemap: {fileID: 3852055898315261543, guid: 2806995e89afca94aa8b53e72f54ccd1, type: 3}
+  - m_Id: 100002
+    m_Tilemap: {fileID: 8015887555663789654, guid: ea97571c26006404fbd666b59c4d0dea, type: 3}
+  - m_Id: 100003
+    m_Tilemap: {fileID: 3852055898315261543, guid: efa9b8edd490717448cc8509eb3fb0f2, type: 3}
