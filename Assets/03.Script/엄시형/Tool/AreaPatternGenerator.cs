@@ -102,7 +102,9 @@ namespace _03.Script.엄시형.Tool
             m_IncreaseBtn.onClick.AddListener(IncreasePatternId);
             m_OpenFolderBtn.onClick.AddListener(() =>
             {
+                # if UNITY_EDITOR
                 EditorUtility.RevealInFinder(m_PersistenceManager.fullPath);
+                #endif
             });
         }
         
