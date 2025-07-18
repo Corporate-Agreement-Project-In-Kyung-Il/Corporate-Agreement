@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HpBarManager : MonoBehaviour
+public class HpBarDisplayCanvas : MonoBehaviour
 {
     [Header("PlayerHpBar 표시")]
     public PlayerHpBar playerHpBar;
@@ -18,17 +18,15 @@ public class HpBarManager : MonoBehaviour
     private Plane[] cameraPlanes;
     private List<Collider2D> monsterList = new List<Collider2D>();
     private List<Collider2D> playerList = new List<Collider2D>();
+    private Collider2D[] colliderEnemy = new Collider2D[30];
     
+    public Vector2 enemyHpDetectionSize = new Vector2(5.5f, 25f);
     private void Start()
     {
         mainCamera = Camera.main;
     }
 
-    private void LateUpdate()
-    {
-        monsterList = AliveExistSystem.Instance.monsterList;
-        playerList = AliveExistSystem.Instance.playerList;
-    }
+
 
     void Update()
     {
@@ -40,47 +38,46 @@ public class HpBarManager : MonoBehaviour
 
     private void EnemyHpBarSetting()
     {
-        for (int i = 0; i < monsterList.Count; i++)
-        {
-            if(monsterList.Count <= 0) continue;
+         int count =Physics2D.OverlapBoxNonAlloc(new Vector2(mainCamera.transform.position.x,
+            mainCamera.transform.position.y), enemyHpDetectionSize, 0f, colliderEnemy, LayerMask.GetMask("Enemy"));
+        
+        //colliderEnemy = Physics2D.OverlapBoxAll
+        //        (Vector2.right * mainCamera.transform.position.x + 
+        //         Vector2.up * mainCamera.transform.position.y, enemyHpDetectionSize, 0f,
+        //            LayerMask.GetMask("Enemy"));
             
-            Transform enemyTransform = monsterList[i].transform;
-
-            //if (rend == null) continue;
-            bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, monsterList[i].bounds);
-
-            if (isVisible)
+        //bool isVisible = GeometryUtility.TestPlanesAABB(cameraPlanes, monsterList[i].bounds);
+        
+        // 현재 존재하는 모든 몬스터들에 대해 검사
+        
+        for (int i = 0; i < count; i++)//colliderEnemy.Length; i++)
+        {
+            Transform enemyTransform = colliderEnemy[i].transform;
+        
+            // 이미 생성된 HpBar가 없으면 생성
+            if (enemyHpBars.ContainsKey(enemyTransform) == false)
             {
-                // 없으면 생성
-                if (enemyHpBars.ContainsKey(enemyTransform).Equals(false))
+                EnemyHpBar EnemyHpDisplay = ObjectPoolSystem.Instance.GetObjectOrNull("HpBarDisplay") as EnemyHpBar;
+                if (EnemyHpDisplay == null) continue;
+        
+                EnemyHpDisplay.gameObject.SetActive(true);
+        
+                if (enemyTransform.TryGetComponent(out MonsterController monster))
                 {
-                    EnemyHpBar EnemyHpDisplay = ObjectPoolSystem.Instance.GetObjectOrNull("HpBarDisplay") as EnemyHpBar;
-     
-                    EnemyHpDisplay.gameObject.SetActive(true);
-                    if (enemyTransform.gameObject.TryGetComponent(out MonsterController monster))
-                    {
-                        EnemyHpDisplay.target = monster;
-                        EnemyHpDisplay.SliderDown(monster);
-                    }
-
-                    enemyHpBars[enemyTransform] = EnemyHpDisplay.gameObject;
-
+                    EnemyHpDisplay.target = monster;
+                    EnemyHpDisplay.SliderDown(monster);
                 }
-            }
-            else
-            {
-                // 있으면 삭제
-                if (enemyHpBars.ContainsKey(enemyTransform))
-                {
-                    Destroy(enemyHpBars[enemyTransform]);
-                    enemyHpBars.Remove(enemyTransform);
-                }
+        
+                enemyHpBars[enemyTransform] = EnemyHpDisplay.gameObject;
             }
         }
     }
     
+    
     private void PlayerHpBarSetting()
     {
+        playerList = AliveExistSystem.Instance.playerList;
+        
         for (int i = 0; i < playerList.Count; i++)
         {
             if (playerList.Count <= 0) continue;
@@ -102,4 +99,12 @@ public class HpBarManager : MonoBehaviour
             }
         }
     }
+
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawWireCube(Vector2.right * mainCamera.transform.position.x +
+    //                    Vector2.up * mainCamera.transform.position.y, enemyHpDetectionSize);
+    //}
 }

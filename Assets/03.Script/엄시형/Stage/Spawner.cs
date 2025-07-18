@@ -46,9 +46,9 @@ public sealed class Spawner : MonoBehaviour
     
     private Dictionary<character_class, Vector2> mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
-        { character_class.궁수, new Vector2(-0.5f, 1f) },
-        { character_class.전사 , new Vector2(0.5f, 2f) },
-        { character_class.마법사 , new Vector2(1.5f, 1f) }
+        { character_class.궁수, new Vector2(-0.5f, -2f) },
+        { character_class.전사 , new Vector2(0.5f, -1f) },
+        { character_class.마법사 , new Vector2(1.5f, -2f) }
     };
 
 

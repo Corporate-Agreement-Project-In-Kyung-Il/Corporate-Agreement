@@ -10,12 +10,12 @@ public class DamageText : MonoBehaviour, IObjectPoolItem
     public GameObject GameObject => gameObject;
     
     private Camera camera;
-    private TMP_Text text;
+    public TMP_Text text;
     
     private Transform target;
     private float duration;
     
-    private void Start()
+    private void Awake()
     {
         TryGetComponent(out text);
         camera = Camera.main;

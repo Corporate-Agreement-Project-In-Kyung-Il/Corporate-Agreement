@@ -20,15 +20,14 @@ public class DamageTextController : MonoBehaviour
         string damageString = Mathf.FloorToInt(combatEvent.Damage).ToString();
         
         DamageText damageText = ObjectPoolSystem.Instance.GetObjectOrNull("DamageText") as DamageText;
+
         
+        damageText.transform.position = combatEvent.Receiver.GameObject.transform.position;
         damageText.gameObject.SetActive(true);
-        
-        damageText.transform.position = combatEvent.Receiver.mainCollider.bounds.center;
         damageText.Set(combatEvent.Receiver.mainCollider.transform,
             damageString,
             textDuration,
             Color.red);
-        
     }
     private void OnDisable()
     {

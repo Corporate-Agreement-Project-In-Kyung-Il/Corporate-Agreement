@@ -47,17 +47,12 @@ public class EnemyHpBar : MonoBehaviour, IObjectPoolItem
     
     private void FollwTarget()
     {
-        if (target.gameObject.activeSelf == false)
-        {
-            ReturnToPool();
-        }
-
-        if (target == null)
+        if (target == null || target.gameObject.activeSelf == false)
         {
             ReturnToPool();
             return;
         }
-
+        
         transform.position = target.transform.position + offset;
     }
 
