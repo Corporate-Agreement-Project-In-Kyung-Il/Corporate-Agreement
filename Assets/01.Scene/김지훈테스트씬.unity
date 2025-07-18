@@ -1253,6 +1253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHpBar: {fileID: 6455272225453176847, guid: 10677f9fbd8ad3b42ab10c56433e41d6, type: 3}
+  skillBar: {fileID: 2059360937646731809, guid: 07659eb0e06766449b05e8121c69ae14, type: 3}
+  enemyHpDetectionSize: {x: 5.5, y: 25}
 --- !u!114 &908362424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,7 +2532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697e72358af40c348a08e4439c3c106a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 5.5, y: 27}
   currentY: -2.45
   previousY: -2.46
 --- !u!1 &1596208376
