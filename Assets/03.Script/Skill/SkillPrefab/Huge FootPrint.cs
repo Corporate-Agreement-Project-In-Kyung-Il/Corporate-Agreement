@@ -8,6 +8,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
     //광역기 한번때림
     public int SkillId;
     public int SkillID { get; set; }
+    public GameObject effect;
 
     public void SetSkillID()
     {
@@ -28,7 +29,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
     void Update()
     {
         if (owner.target == null) return;
-        
+
         transform.position = owner.target.transform.position;
     }
 
@@ -37,7 +38,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
-       
+
         //데미지입힘
         if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
         {
@@ -50,9 +51,16 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
             CombatSystem.instance.AddCombatEvent(combatEvent);
 
             Debug.Log("거대한 발자국 공격!");
-
-            Destroy(gameObject);
+            coll.enabled = false;
+            
+            StartCoroutine(effectDelay());
         }
+    }
+
+    IEnumerator effectDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 
     public override void Initialize()
@@ -64,7 +72,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
             stat.Damage = skill.Skill_Damage;
             stat.Range_height = skill.Skill_Range_height;
             stat.Range_width = skill.Skill_Range_width;
-            
+
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
@@ -72,8 +80,10 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
             stat.Damage = skill2.Skill_Damage;
             stat.Range_height = skill2.Skill_Range_height;
             stat.Range_width = skill2.Skill_Range_width;
-            
+
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
+
+        effect.transform.localScale = new Vector3(stat.Range_width, stat.Range_height, 1);
     }
 }
