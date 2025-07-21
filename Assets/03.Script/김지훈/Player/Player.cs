@@ -231,12 +231,22 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
             return;
         }
 
+        //보스몹을 거리 때문에 인식 못하는데 OverlapBoxnonAlloc으로 하기보다는 거리로 재고 나서
+        //만약 보스몹이 한 Stage 2마리 넣거나 큰 몹을 넣는다면 overlapBoxnonAlloc으로 수정
         float distance = Vector2.Distance(transform.position, target.transform.position);
 
         if (distance > playerStat.attackRange)
         {
-            target = null;
-            return;
+            if (enemyDetectionCol.Length > 0)
+            {
+                target = enemyDetectionCol[0];
+                animator.SetBool(IsAttack, true);
+            }
+            else
+            {
+                target = null;
+                return;
+            }
         }
         else
         {
