@@ -34,21 +34,29 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private Player[] m_PlayerList;
     
     // private AreaPatternPersistenceManager m_AreaPersistenceMgr;
-    
     private List<Tilemap> m_CurAreaList;
     public List<Tilemap> CurAreaList => m_CurAreaList;
     
     private StageInfo mStageInfo;
     
+    [Space]
+    [Header("현재 스테이지 ID")]
     [SerializeField]
     public int CurStageId = 1;
     
-    private Dictionary<character_class, Vector2> mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
-    {
-        { character_class.궁수, new Vector2(-0.5f, -2f) },
-        { character_class.전사 , new Vector2(0.5f, -1f) },
-        { character_class.마법사 , new Vector2(1.5f, -2f) }
-    };
+    [Header("아처 스폰 위치")]
+    [SerializeField]
+    private Vector2 m_ArcherSpawnPoint = new Vector2(-0.5f, -2f);
+    
+    [Header("전사 스폰 위치")]
+    [SerializeField]
+    private Vector2 m_KnightSpawnPoint = new Vector2(0.5f, -1f);
+    
+    [Header("마법사 스폰 위치")]
+    [SerializeField]
+    private Vector2 m_WizardSpawnPoint = new Vector2(1.5f, -2f);
+
+    private Dictionary<character_class, Vector2> mPlayerSpawnPointDic;
 
 
     [Conditional("UNITY_EDITOR")]
@@ -62,6 +70,12 @@ public sealed class Spawner : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
+        {
+            { character_class.궁수, m_ArcherSpawnPoint },
+            { character_class.전사 , m_KnightSpawnPoint },
+            { character_class.마법사 , m_WizardSpawnPoint }
+        };
         
         // m_StagePatternTable.Init();
         GameManager.Instance.GameStart();
