@@ -9,6 +9,8 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     public int SkillID { get; set; }
 
     public int attackCount;
+    public float moveSpeed;
+    private bool attacking;
 
     public void SetSkillID()
     {
@@ -18,18 +20,28 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     void Awake()
     {
         Initialize();
+        attacking = false;
     }
 
     void Start()
     {
         attackCount = 0;
-        
-        AttackTarget();
     }
 
     void Update()
     {
-        
+        if (owner.target == null) return;
+
+        Vector2 dir = (owner.target.transform.position - transform.position).normalized;
+        float dis = Vector2.Distance(owner.target.transform.position, transform.position);
+
+        transform.position += (Vector3)(dir * (moveSpeed * Time.deltaTime));
+
+        if (dis < 0.2f && attacking == false)
+        {
+            attacking = true;
+            AttackTarget();
+        }
     }
 
     public void AttackTarget()
@@ -43,6 +55,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
             StartCoroutine(DamageDelay());
         }
     }
+
     IEnumerator DamageDelay()
     {
         if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage) && attackCount < stat.Attack_Count)
@@ -55,10 +68,9 @@ public class BeastClaw : ActiveSkillBase, ISkillID
             combatEvent.collider = owner.target;
 
             CombatSystem.instance.AddCombatEvent(combatEvent);
-            
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         AttackTarget();
     }
 

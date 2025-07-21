@@ -48,6 +48,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   SkillId: 100017
   attackCount: 0
+  moveSpeed: 0
 --- !u!1 &8115530448955229230
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 2204369155886846158}
   - component: {fileID: 1988539095895634988}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
