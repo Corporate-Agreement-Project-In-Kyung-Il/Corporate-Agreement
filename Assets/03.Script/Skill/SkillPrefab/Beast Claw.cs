@@ -27,30 +27,39 @@ public class BeastClaw : ActiveSkillBase, ISkillID
         AttackTarget();
     }
 
+    void Update()
+    {
+        
+    }
+
     public void AttackTarget()
     {
         if (attackCount >= stat.Attack_Count)
         {
             Destroy(gameObject);
-            return;
         }
         else
         {
-            if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
-            {
-                attackCount++;
-                CombatEvent combatEvent = new CombatEvent();
-                combatEvent.Receiver = enemyDamage;
-                combatEvent.Sender = owner;
-                combatEvent.Damage = stat.Damage;
-                combatEvent.collider = owner.target;
-
-                CombatSystem.instance.AddCombatEvent(combatEvent);
-
-                Debug.Log("야수의 발톱 공격!");
-            }
-            AttackTarget();
+            StartCoroutine(DamageDelay());
         }
+    }
+    IEnumerator DamageDelay()
+    {
+        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage) && attackCount < stat.Attack_Count)
+        {
+            attackCount++;
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = owner.target;
+
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+            
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        AttackTarget();
     }
 
     public override void Initialize()

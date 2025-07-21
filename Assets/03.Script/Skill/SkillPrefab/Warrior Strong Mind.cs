@@ -61,8 +61,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
             combatEvent.collider = owner.target;
 
             CombatSystem.instance.AddCombatEvent(combatEvent);
-
-            Debug.Log("전사의 강한의지 공격!");
+            
         }
 
         yield return new WaitForSeconds(0.5f);
