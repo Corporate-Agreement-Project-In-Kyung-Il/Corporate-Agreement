@@ -19,8 +19,8 @@ MonoBehaviour:
   playerDetectionRange: 3
   Stage_ID: 1
   Monster_HP: 30
-  Monster_Attack: 10
+  Monster_Attack: 11
   Monster_quantity: 12
-  Boss_Check: 0
-  Boss_HP: 0
-  Boss_Attack: 0
+  Boss_Check: 1
+  Boss_HP: 168
+  Boss_Attack: 22
