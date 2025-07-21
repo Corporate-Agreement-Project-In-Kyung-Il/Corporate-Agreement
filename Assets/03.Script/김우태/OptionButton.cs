@@ -21,6 +21,7 @@ public class OptionButton : MonoBehaviour
    public int rerollCount;
    public EOptionType optionType;
    public int selectID;
+   public Text rerollCountText;
    public Canvas optionCanvas;
    public BaseValue selectedData;
    
