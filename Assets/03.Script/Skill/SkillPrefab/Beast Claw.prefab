@@ -48,6 +48,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   SkillId: 100017
   attackCount: 0
+  moveSpeed: 0
 --- !u!1 &8115530448955229230
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 2204369155886846158}
   - component: {fileID: 1988539095895634988}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +122,7 @@ SpriteRenderer:
   m_SortingLayerID: 991338845
   m_SortingLayer: 4
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a656bc9d945855c4a86041964f18f746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63960ca1812bd6b4998e4c35a7990cce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

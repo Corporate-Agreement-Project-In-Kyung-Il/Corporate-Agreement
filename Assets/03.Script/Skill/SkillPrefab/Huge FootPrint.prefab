@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   SkillId: 100014
+  effect: {fileID: 2200293995506512734}
   coll: {fileID: 0}
 --- !u!61 &3961951893196772186
 BoxCollider2D:
@@ -179,6 +180,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12a9d44b55bf2134c8ac31caffe4e0cf, type: 3}
+--- !u!1 &2200293995506512734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 669018648118327261, guid: 12a9d44b55bf2134c8ac31caffe4e0cf, type: 3}
+  m_PrefabInstance: {fileID: 1711886077454926979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8600901807587284826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6961823740944585689, guid: 12a9d44b55bf2134c8ac31caffe4e0cf, type: 3}
