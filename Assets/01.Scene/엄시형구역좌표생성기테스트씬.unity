@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 193129569}
-  - component: {fileID: 193129568}
+  - component: {fileID: 193129570}
   m_Layer: 0
   m_Name: PatternGenerator
   m_TagString: Untagged
@@ -260,37 +260,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &193129568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193129567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c54ad284b8119a499c77072ada13e53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PointPrefab: {fileID: 5060137937089105653, guid: dbc6094a052d115458e4e51f408d0eb0, type: 3}
-  m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
-  m_Grid: {fileID: 1573588941}
-  m_Tilemap: {fileID: 0}
-  m_MainCam: {fileID: 740000933}
-  m_SaveBtn: {fileID: 1203837757}
-  m_ResetBtn: {fileID: 2123712795}
-  m_DecreaseBtn: {fileID: 832953780}
-  m_IncreaseBtn: {fileID: 107861949}
-  m_OpenFolderBtn: {fileID: 1414645907}
-  m_AreaPatternDTOList: []
-  m_StageInfoList:
-  - AreaPatternList: []
-    SpawnMonsterTypeList: 
-    BossAreaPattern:
-      PatternId: 0
-      MonsterSpawnInfoList: []
-    MaxStageId: 0
-  m_PatternId: 1
 --- !u!4 &193129569
 Transform:
   m_ObjectHideFlags: 0
@@ -306,6 +275,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193129570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193129567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e623aa229411493b99b953af128998ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PointPrefab: {fileID: 5060137937089105653, guid: dbc6094a052d115458e4e51f408d0eb0, type: 3}
+  m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
+  m_Grid: {fileID: 1573588941}
+  m_MainCam: {fileID: 740000933}
+  m_SaveBtn: {fileID: 1203837757}
+  m_ResetBtn: {fileID: 2123712795}
+  m_DecreaseBtn: {fileID: 832953780}
+  m_IncreaseBtn: {fileID: 107861949}
+  m_OpenFolderBtn: {fileID: 1414645907}
+  m_StageInfoList: []
+  m_CurIdx: 1
 --- !u!1 &244639233
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,17 +21,21 @@ namespace _03.Script.엄시형.Stage
         
         private void Reset()
         {
-            //Init();
+            // Init();
         }
         
         public StageInfo GetStageInfo(int stageId)
         {
-            //return m_StageInfoDic[stageId];
-            return m_StageInfo.First();
+            // return m_StageInfoDic[stageId];
+            // return m_StageInfoDic.First().Value;
+            return m_StageInfo.FirstOrDefault();
         }
-        
+
         public void Init()
         {
+            // TODO : 안드로이드 경로 문제
+            // Dic으로 변환못함 
+            
             if (m_AreaPerstistenceMgr
                 .TryReadFromJson(out List<AreaPatternDTO> areaPatterns))
             {
@@ -58,8 +62,8 @@ namespace _03.Script.엄시형.Stage
                                 }),
                             15);
                         
-                        m_StageInfo.Add(stageInfo);
                         m_StageInfoDic.Add(stageId, stageInfo);
+                        m_StageInfo.Add(stageInfo);
                     }
                     
                     m_StageInfoDic[stageId].AreaPatternList.Add(pattern);

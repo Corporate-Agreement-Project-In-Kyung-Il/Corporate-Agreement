@@ -96,18 +96,26 @@ namespace _03.Script.엄시형.Tool
                 m_AreaPatternDTOList.Add(new AreaPatternDTO(m_CurIdx));
             }
             
+        }
+
+        private void OnEnable()
+        {
             m_SaveBtn.onClick.AddListener(Save);
             m_ResetBtn.onClick.AddListener(ResetCurPattern);
             m_DecreaseBtn.onClick.AddListener(DecreasePatternId);
             m_IncreaseBtn.onClick.AddListener(IncreasePatternId);
-            m_OpenFolderBtn.onClick.AddListener(() =>
-            {
-                # if UNITY_EDITOR
-                EditorUtility.RevealInFinder(m_PersistenceManager.fullPath);
-                #endif
-            });
+            m_OpenFolderBtn.onClick.AddListener(OpenFolder);
         }
-        
+
+        private void OnDisable()
+        {
+            m_SaveBtn.onClick.RemoveListener(Save);
+            m_ResetBtn.onClick.RemoveListener(ResetCurPattern);
+            m_DecreaseBtn.onClick.RemoveListener(DecreasePatternId);
+            m_IncreaseBtn.onClick.RemoveListener(IncreasePatternId);
+            m_OpenFolderBtn.onClick.RemoveListener(OpenFolder);
+        }
+
         void Update()
         {
             // 휠클릭 
@@ -149,8 +157,8 @@ namespace _03.Script.엄시형.Tool
                 }
             }
         }
-        
-        public void ResetCurPattern()
+
+        private void ResetCurPattern()
         {
             foreach (var pointObj in m_PointObjectList)
             {
@@ -159,8 +167,8 @@ namespace _03.Script.엄시형.Tool
 
             m_PointObjectList.Clear();
         }
-            
-        public void DecreasePatternId()
+
+        private void DecreasePatternId()
         {
             if (m_CurIdx > 1)
             {
@@ -175,7 +183,7 @@ namespace _03.Script.엄시형.Tool
             RepaintPoints();
         }
 
-        public void IncreasePatternId()
+        private void IncreasePatternId()
         {
             int maxIndex = m_AreaPatternDTOList.Count; // 0부터 시작하므로 -1
 
@@ -208,7 +216,7 @@ namespace _03.Script.엄시형.Tool
         //     RepaintPoints();
         // }
         
-        public void Save()
+        private void Save()
         {
             m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList.Clear();
 
@@ -220,6 +228,11 @@ namespace _03.Script.엄시형.Tool
             }
 
             m_PersistenceManager.WriteAsJSON(m_AreaPatternDTOList);
+        }
+
+        private void OpenFolder()
+        {
+            EditorUtility.RevealInFinder(m_PersistenceManager.fullPath);
         }
         
         private void RepaintPoints()
