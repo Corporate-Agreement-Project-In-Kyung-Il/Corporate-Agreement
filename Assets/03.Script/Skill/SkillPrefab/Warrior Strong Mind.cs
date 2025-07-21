@@ -32,7 +32,11 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     private void Update()
     {
-        if (owner.target == null) return;
+        if (owner.target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         transform.position = owner.target.transform.position;
     }
@@ -64,7 +68,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
             
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         AttackTarget();
     }
 

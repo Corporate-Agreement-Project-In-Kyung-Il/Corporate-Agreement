@@ -19,6 +19,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
     private void Awake()
     {
+        effect.SetActive(false);
         Initialize();
     }
 
@@ -38,7 +39,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
-
+        effect.SetActive(true);
         //데미지입힘
         if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
         {
@@ -52,7 +53,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
             Debug.Log("거대한 발자국 공격!");
             coll.enabled = false;
-            
+
             StartCoroutine(effectDelay());
         }
     }
