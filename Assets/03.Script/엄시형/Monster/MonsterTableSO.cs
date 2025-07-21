@@ -21,11 +21,16 @@ namespace _00.Resources.엄시형.PrefabTable
         private void OnValidate()
         {
             Debug.Assert(mMonsters != null, "몬스터 프리팹을 넣어주세요");
-            mMonsterDic = mMonsters.ToDictionary((monster) => monster.Type);
+            
             
             Debug.Assert(mMonsterDic != null, "mMonsters => mMonsterDic 변환 실패");
         }
-        
+
+        private void Awake()
+        {
+            mMonsterDic = mMonsters.ToDictionary((monster) => monster.Type);
+        }
+
         public BaseMonster GetMonster(MonsterType type)
         {
             return mMonsterDic[type];
