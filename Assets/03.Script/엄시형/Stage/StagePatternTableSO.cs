@@ -7,6 +7,7 @@ using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Util;
 using UnityEngine;
+using UnityEngine.Assertions;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
@@ -19,20 +20,25 @@ namespace _03.Script.엄시형.Stage
         
         // private Dictionary<int, StageInfo> m_StageInfoDic = new Dictionary<int, StageInfo>();
         
-        // [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
+        [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
         
-        private Dictionary<int, List<AreaPattern>> m_AreaPatternDic = new Dictionary<int, List<AreaPattern>>();
+        // private Dictionary<int, List<AreaPattern>> m_AreaPatternDic = new Dictionary<int, List<AreaPattern>>();
         
-        [Conditional("UNITY_EDITOR")]
-        private void Reset()
-        {
-            Init();
-        }
+        // [Conditional("UNITY_EDITOR")]
+        // private void Reset()
+        // {
+        //     Init();
+        // }
         
         private List<AreaPattern> GetAllPattern(int count)
         {
-            m_AreaPatternDic.TryGetValue(count, out List<AreaPattern> list);
-            Debug.Assert(list != null, $"AreaPatternDic에 {count}키에 해당하는 스폰 정보가 없습니다.");
+            var list = m_AreaPatternList.FindAll(pattern =>
+            {
+                return pattern.MonsterSpawnInfoList.Count == count;
+            });
+            Debug.Log($"count : {count}");
+            // m_AreaPatternDic.TryGetValue(count, out List<AreaPattern> list);
+            // Debug.Assert(list != null, $"AreaPatternDic에 {count}키에 해당하는 스폰 정보가 없습니다.");
             
             return list;
         }
@@ -41,15 +47,19 @@ namespace _03.Script.엄시형.Stage
         {
             List<AreaPattern> list = GetAllPattern(count);
             
+            Debug.Log("AreaPattern Count : " + list.Count);
+            
             AreaPattern pattern = list[Random.Range(0, list.Count)];
             
             // 랜덤으로 AreaPattern 반환
             return pattern;
         }
         
+        
         [Conditional("UNITY_EDITOR")]
         public void Init()
         {
+            m_AreaPatternList.Clear();
             // TODO : 안드로이드 경로 문제
             // Dic으로 변환못함 
             
@@ -61,13 +71,19 @@ namespace _03.Script.엄시형.Stage
                     int key = dto.MonsterSpawnInfoList.Count;
                     
                     // 키가 없으면 리스트 생성
-                    if (m_AreaPatternDic.ContainsKey(key) == false)
-                    {
-                        m_AreaPatternDic[key] = new List<AreaPattern>();
-                    }
-                    
-                    m_AreaPatternDic[key].Add(dto.ToAreaPattern());
+                    // if (m_AreaPatternDic.ContainsKey(key) == false)
+                    // {
+                    //     m_AreaPatternDic[key] = new List<AreaPattern>();
+                    // }
+
+                    var areaPattern = dto.ToAreaPattern();
+                    m_AreaPatternList.Add(areaPattern);
+                    // m_AreaPatternDic[key].Add(areaPattern);
                 }
+            }
+            else
+            {
+                Debug.LogWarning("못읽음");
             }
         }
     }

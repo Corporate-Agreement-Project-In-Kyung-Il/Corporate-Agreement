@@ -14,10 +14,10 @@ namespace _03.Script.엄시형.Stage.V2
     public sealed class StageInfo
     {
         // TODO : 엑셀이나 CSV부터 읽어오기 + 에디터에 올리기
-        public int AreaCount => mSpawnMonsterCountList.Length;
+        public int AreaCount => m_SpawnMonsterCounts.Length;
         public MonsterType MonsterType => m_MonsterType;
         public int MaxStage => m_MaxStageId;
-        public IReadOnlyCollection<int> SpawnMonsterCountList => mSpawnMonsterCountList;
+        public int[] SpawnMonsterCounts => m_SpawnMonsterCounts;
         
         // public AreaPattern BossAreaPattern => m_BossAreaPattern;
         
@@ -28,7 +28,7 @@ namespace _03.Script.엄시형.Stage.V2
         [SerializeField] private int m_MaxStageId;
 
         private MonsterType m_MonsterType;
-        private int[] mSpawnMonsterCountList;
+        private int[] m_SpawnMonsterCounts;
 
         [Conditional("UNITY_EDITOR")]
         private void OnValidate()
@@ -36,12 +36,13 @@ namespace _03.Script.엄시형.Stage.V2
             // Debug.Assert(m_AreaPatternList.Count != 0, "mAreaInfoList 요소가 0 인스펙터 확인");
         }
 
-        public StageInfo(int[] spawnMonsterCout
+        public StageInfo(int[] spawnMonsterCounts
             , MonsterType monsterType
             , int mMaxStageId)
         {
+            m_SpawnMonsterCounts = spawnMonsterCounts;
             // m_AreaPatternList = areaPatternList;
-            // m_SpawnMonsterTypeList = spawnMonsterTypeList;
+            m_MonsterType = monsterType;
             // m_BossAreaPattern = bossAreaPattern;
             m_MaxStageId = mMaxStageId;
         }
