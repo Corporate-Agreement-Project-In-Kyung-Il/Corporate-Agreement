@@ -9,7 +9,9 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     //단일 공격 3번때림 
     public int SkillId;
     public int SkillID { get; set; }
-    
+
+    public float destroyTime = 1f;
+    float timer = 0;
 
     public void SetSkillID()
     {
@@ -26,17 +28,19 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     private void Start()
     {
         attackCount = 0;
-        
+
         AttackTarget();
     }
 
     private void Update()
     {
-        if (owner.target == null)
+        timer += Time.deltaTime;
+        if (timer > destroyTime)
         {
             Destroy(gameObject);
-            return;
         }
+
+        if (owner.target == null) return;
 
         transform.position = owner.target.transform.position;
     }
@@ -65,7 +69,6 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
             combatEvent.collider = owner.target;
 
             CombatSystem.instance.AddCombatEvent(combatEvent);
-            
         }
 
         yield return new WaitForSeconds(0.3f);
