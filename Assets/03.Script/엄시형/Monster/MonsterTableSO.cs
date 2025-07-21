@@ -15,25 +15,24 @@ namespace _00.Resources.엄시형.PrefabTable
     public sealed class MonsterTableSO : ScriptableObject
     {
         [SerializeField] private BaseMonster[] mMonsters;
-        private Dictionary<MonsterType, BaseMonster> mMonsterDic;
+        // private Dictionary<MonsterType, BaseMonster> mMonsterDic;
         
         [Conditional("UNITY_EDITOR")]
         private void OnValidate()
         {
             Debug.Assert(mMonsters != null, "몬스터 프리팹을 넣어주세요");
             
-            
-            Debug.Assert(mMonsterDic != null, "mMonsters => mMonsterDic 변환 실패");
+            // Debug.Assert(mMonsterDic != null, "mMonsters => mMonsterDic 변환 실패");
         }
 
         private void Awake()
         {
-            mMonsterDic = mMonsters.ToDictionary((monster) => monster.Type);
+            // mMonsterDic = mMonsters.ToDictionary((monster) => monster.Type);
         }
 
         public BaseMonster GetMonster(MonsterType type)
         {
-            return mMonsterDic[type];
+            return Array.Find(mMonsters, m => m.Type == type);
         }
     }
 }
