@@ -9,7 +9,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     //단일 공격 3번때림 
     public int SkillId;
     public int SkillID { get; set; }
-
+    
 
     public void SetSkillID()
     {
@@ -26,13 +26,14 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     private void Start()
     {
         attackCount = 0;
+        
         AttackTarget();
     }
 
     private void Update()
     {
         if (owner.target == null) return;
-        
+
         transform.position = owner.target.transform.position;
     }
 
@@ -41,25 +42,31 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
         if (attackCount >= stat.Attack_Count)
         {
             Destroy(gameObject);
-            return;
         }
         else
         {
-            if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
-            {
-                attackCount++;
-                CombatEvent combatEvent = new CombatEvent();
-                combatEvent.Receiver = enemyDamage;
-                combatEvent.Sender = owner;
-                combatEvent.Damage = stat.Damage;
-                combatEvent.collider = owner.target;
-
-                CombatSystem.instance.AddCombatEvent(combatEvent);
-
-                Debug.Log("전사의 강한의지 공격!");
-            }
-            AttackTarget();
+            StartCoroutine(DamageDelay());
         }
+    }
+
+    IEnumerator DamageDelay()
+    {
+        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage) && attackCount < stat.Attack_Count)
+        {
+            attackCount++;
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = owner.target;
+
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+
+            Debug.Log("전사의 강한의지 공격!");
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        AttackTarget();
     }
 
     public override void Initialize()
