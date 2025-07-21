@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordWeapon : Weapon_fusion
+public class SwordWeapon : Weapon
 {
     public override bool Attack(Collider2D collider)
     {

@@ -7,7 +7,7 @@ public abstract class ActiveSkillBase : MonoBehaviour
 {
     //owner로 데이터 받아옴
     //Instantiate 할때 같이 정보 넘겨줌
-    public Player_fusion owner;
+    public Player owner;
 
     //public Player owner;
     public SkillStat stat = new SkillStat();
@@ -23,13 +23,12 @@ public abstract class ActiveSkillBase : MonoBehaviour
         public int Attack_Count;
         public bool Wide_Area;
 
-        public int Range_width;
-        public int Range_height;
+        public float Range_width;
+        public float Range_height;
 
         public float Cooldown_Reduction;
         public float Damage_Increase;
     }
 
     public abstract void Initialize();
-
 }

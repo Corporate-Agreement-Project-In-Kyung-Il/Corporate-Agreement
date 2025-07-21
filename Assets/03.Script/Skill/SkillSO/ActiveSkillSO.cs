@@ -27,8 +27,8 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
     public float Skill_Damage;
     public int Skill_Attack_Count;
     public bool Wide_Area;
-    public int Skill_Range_width;
-    public int Skill_Range_height;
+    public float Skill_Range_width;
+    public float Skill_Range_height;
     public float Cooldown_Reduction;
     public float Damage_Increase;
 
@@ -77,20 +77,4 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
         }
     }
 #endif
-}
-
-public class ActiveSkillStat
-{
-    public int Skill_Minimum_LV;
-    public int Skill_current_LV;
-    public int Skill_Maximum_LV;
-
-    public float Skill_Cooldown;
-    public float Skill_Damage;
-    public int Skill_Attack_Count;
-    public bool Wide_Area;
-    public int Skill_Range_width;
-    public int Skill_Range_height;
-    public float Cooldown_Reduction;
-    public float Damage_Increase;
 }

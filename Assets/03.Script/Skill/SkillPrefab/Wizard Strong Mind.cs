@@ -1,62 +1,44 @@
-using System.Collections;
 using UnityEngine;
 
 public class WizardStrongMind : MonoBehaviour, ISkillID
 {
     public int SkillId;
     public int SkillID { get; set; }
-    public float duration = 3f; // 지속 시간
+    public void SetSkillID() => SkillID = SkillId;
 
-    private float originalAttackDamage;
-    private Player_fusion player;
+    public Player owner;
+    public BuffSO buffSO;
 
-    public void SetSkillID()
+    private float duration;
+    private float timer;
+    private float originalDamage;
+    private bool initialized = false;
+
+    public void Initialize(Player _owner, BuffSO _buff)
     {
-        SkillID = SkillId;
+        owner = _owner;
+        buffSO = _buff;
+
+        originalDamage = owner.buffplayerStat.attackDamage;
+        owner.buffplayerStat.attackDamage *= 2f;
+
+        duration = buffSO.Skill_Duration + buffSO.Duration_Increase;
+        timer = 0f;
+        initialized = true;
+
+        Debug.Log($"💥 마법사 공격력 2배 ON: {owner.buffplayerStat.attackDamage}");
     }
 
-    void Start()
+    void Update()
     {
-        Debug.Log("start WizardStrongMind");
+        if (!initialized) return;
 
-        player = FindObjectOfType<Player_fusion>();
-
-        if (player != null)
+        timer += Time.deltaTime;
+        if (timer >= duration)
         {
-            // 중복 버프 확인
-            if (player.HasBuff(BuffEffectType.Wizard_Strong_Mind))
-            {
-                Debug.Log("이미 Wizard_Strong_Mind 버프가 적용되어 있음. 중복 적용 안함.");
-                Destroy(gameObject);
-                return;
-            }
-
-            // 버프 상태 등록
-            player.SetBuffState(BuffEffectType.Wizard_Strong_Mind, true);
-
-            // 원래 공격력 저장 및 2배 적용
-            originalAttackDamage = player.Damage;
-            player.SetAttackDamage(originalAttackDamage * 2.0f);
-
-            StartCoroutine(EndBuffAfterDuration());
+            owner.buffplayerStat.attackDamage = originalDamage;
+            Debug.Log($"💥 마법사 공격력 2배 OFF: {owner.buffplayerStat.attackDamage}");
+            Destroy(gameObject);
         }
-        else
-        {
-            Debug.LogWarning("[WizardStrongMind] Player_fusion 찾기 실패");
-        }
-    }
-
-    private IEnumerator EndBuffAfterDuration()
-    {
-        yield return new WaitForSeconds(duration);
-
-        if (player != null)
-        {
-            player.SetAttackDamage(originalAttackDamage);
-            player.SetBuffState(BuffEffectType.Wizard_Strong_Mind, false);
-            Debug.Log("Wizard_Strong_Mind 버프 종료: 공격력 복원");
-        }
-
-        Destroy(gameObject);
     }
 }

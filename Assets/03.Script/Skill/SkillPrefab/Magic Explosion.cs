@@ -17,16 +17,22 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     public float moveSpeed;
     private BoxCollider2D coll;
 
+    private void Awake()
+    {
+        Initialize();
+    }
+
     void Start()
     {
         Debug.Log("start MagicExplosion");
-        coll = GetComponent<BoxCollider2D>();
         coll.enabled = false;
     }
 
 
     void Update()
     {
+        if (owner.target == null) return;
+        
         Vector2 dir = (owner.target.transform.position - transform.position).normalized;
         float dis = Vector2.Distance(owner.target.transform.position, transform.position);
 
@@ -43,22 +49,57 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
-        Debug.Log("마법폭발 공격!");
-        Destroy(gameObject);
-        //데미지입힘
+        if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+        {
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = other;
+
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+
+            Debug.Log("마법폭발 공격!");
+
+            Destroy(gameObject);
+            //데미지입힘
+        }
     }
 
     public override void Initialize()
     {
+        coll = GetComponent<BoxCollider2D>();
+        SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
+            stat.Range_width = skill.Skill_Range_width;
+            stat.Range_height = skill.Skill_Range_height;
+
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
+            stat.Range_width = skill2.Skill_Range_width;
+            stat.Range_height = skill2.Skill_Range_height;
+
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
+    }
+
+    private void ReturnToPool()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += ReturnToPool;
+    }
+
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent -= ReturnToPool;
     }
 }

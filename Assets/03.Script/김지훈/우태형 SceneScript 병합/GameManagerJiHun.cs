@@ -5,8 +5,10 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+[Obsolete("이제 안 씀, GameManager를 사용하도록", true)]
 public class GameManagerJiHun : MonoBehaviour
 {
+    public Canvas canvas;
     public int choiceCount = 3;
     public OptionButtonJiHun[] optionButtons; // UI 버튼 배열
     
@@ -48,11 +50,34 @@ public class GameManagerJiHun : MonoBehaviour
         // 오류 저장용 
         SetDatabase();
     }
-    
+
+    public bool isButtonActivePrepare = false;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isButtonActivePrepare.Equals(false))
         {
+            for (int i = 0; i < choiceCount; i++)
+            {
+                // 선택지 생성 전, 버튼 비활성화
+                optionButtons[i].gameObject.SetActive(false);
+                optionButtons[i].selectedData = null;
+                canvas.gameObject.SetActive(false);
+            }
+
+            isButtonActivePrepare = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isButtonActivePrepare)
+        {
+            for (int i = 0; i < choiceCount; i++)
+            {
+                // 선택지 생성, 버튼 활성화
+                optionButtons[i].gameObject.SetActive(true);
+            }
+            
+            canvas.gameObject.SetActive(true);
+            
+
             CreateChoices();
         }
     }
@@ -80,8 +105,7 @@ public class GameManagerJiHun : MonoBehaviour
     }
     
     #region 랜덤 선택지 뽑는 코드
-
-    public ScriptableObject buffData;
+    
     private void CreateChoices()
     {
         for (int i = 0; i < choiceCount; i++)
@@ -100,25 +124,30 @@ public class GameManagerJiHun : MonoBehaviour
                         break;
                     case EOptionType.Equip:
                         var equip = option as OptionChoice_EquipOption;
+                        var equipData = GetSelectionData(equip);
+                        //int equipID = GetSelectionID(equip);
                         
-                        buffData = equip;
-                        
-                        int equipID = GetSelectionID(equip);
-                        optionButtons[i].selectID = equipID;
+                        optionButtons[i].selectID = equipData.Key_ID;
+                        //optionButtons[i].selectID = equipID;
                         optionButtons[i].optionType = "Equip";
-                        Debug.Log("Equip 선택지 선택됨 EquipOption 번호: " + equipID + "/" + i);
+                        
+                        optionButtons[i].selectedData = equipData.val;
+                        Debug.Log("Equip 선택지 선택됨 EquipOption 번호: " + equipData.Key_ID + "/" + i);
                         break;
                     case EOptionType.Training:
                         var training = option as OptionChoice_TrainingOption;
+                        var trainingData = GetSelectionData(training);
                         
-                        buffData = training;
-                        
-                        int trainingID = GetSelectionID(training);
-                        optionButtons[i].selectID = trainingID;
+                        //int trainingID = GetSelectionID(training);
+                        optionButtons[i].selectID = trainingData.Key_ID;
                         optionButtons[i].optionType = "Training";
-                        Debug.Log("Training 선택지 선택됨 Training 번호: " + trainingID + "/" + i);
+                        
+                        optionButtons[i].selectedData = trainingData.val; // ✅ 여기에 저장
+                        Debug.Log("Training 선택지 선택됨 Training 번호: " + trainingData.Key_ID + "/" + i);
                         break;
                 }
+
+
             }
             else
             {
@@ -148,6 +177,18 @@ public class GameManagerJiHun : MonoBehaviour
         return option.data[randomIndex].Key_ID; // IDValuePair<T> 에 id가 있다고 가정
     }
     
+    // 선택된 데이터 자체를 반환하는 함수
+    IDValuePair<T> GetSelectionData<T>(ExelReaderBase<T> option) where T : BaseValue, new()
+    {
+        if (option == null || option.data == null || option.data.Count == 0)
+        {
+            Debug.LogWarning("옵션이 null이거나 비어있음");
+            return null;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, option.data.Count);
+        return option.data[randomIndex];
+    }
 
     #endregion
 }

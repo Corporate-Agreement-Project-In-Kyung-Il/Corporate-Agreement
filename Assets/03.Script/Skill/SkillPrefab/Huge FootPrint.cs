@@ -14,20 +14,22 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
         SkillID = SkillId;
     }
 
-    public BoxCollider2D collider;
+    public BoxCollider2D coll;
 
-    public HugeFootPrint()
+    private void Awake()
     {
-        
+        Initialize();
     }
 
     private void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
+        if (owner.target == null) return;
+        
+        transform.position = owner.target.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,22 +37,43 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
 
-        Debug.Log("거대한 발자국 공격!");
+       
         //데미지입힘
-        Destroy(gameObject);
+        if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+        {
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = other;
+
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+
+            Debug.Log("거대한 발자국 공격!");
+
+            Destroy(gameObject);
+        }
     }
 
     public override void Initialize()
     {
+        coll = GetComponent<BoxCollider2D>();
+        SetSkillID();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
-            collider.size = new Vector2(stat.Range_width, stat.Range_height);
+            stat.Range_height = skill.Skill_Range_height;
+            stat.Range_width = skill.Skill_Range_width;
+            
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
-            collider.size = new Vector2(stat.Range_width, stat.Range_height);
+            stat.Range_height = skill2.Skill_Range_height;
+            stat.Range_width = skill2.Skill_Range_width;
+            
+            coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
     }
 }

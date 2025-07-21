@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CombatSystem : MonoBehaviour
 {
-    private const int MAX_EVENT_PROCESS_COUNT = 10;
+    private const int MAX_EVENT_PROCESS_COUNT = 400;
     
     public class Callbacks
     {

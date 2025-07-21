@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class PlayerData : ScriptableObject
     //따로 내가 추가한 변수(지훈)
     public float attackRange; // 공격 범위
     public float moveSpeed; //기본 이동 속도
-    
+    public bool isDead = false;   
     //기존 기획 테이블에 있는 것들
     public int character_ID;
 
@@ -26,4 +27,5 @@ public class PlayerData : ScriptableObject
     public int training_type; //훈련 적용 분류
     public int equip_item; //장비 적용 분류
     public List<int> skill_possed; //스킬 적용
+    
 }

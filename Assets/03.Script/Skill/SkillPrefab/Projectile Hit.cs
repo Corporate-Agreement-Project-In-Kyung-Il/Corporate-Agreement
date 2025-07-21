@@ -1,68 +1,57 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileHit : MonoBehaviour, ISkillID
 {
     public int SkillId;
     public int SkillID { get; set; }
-    public float duration = 3f; // 버프 지속 시간
-
-    private Player_fusion player;
-    private float originalAttackSpeed;
-
     public void SetSkillID()
     {
         SkillID = SkillId;
     }
 
-    void Start()
+    public Player owner;
+    public BuffSO buffSO;
+
+    private float duration;
+    private float timer;
+
+    private float originalAttackSpeed;
+
+    public void Initialize(Player _owner, BuffSO _buff)
     {
-        Debug.Log("start ProjectileHit");
+        owner = _owner;
+        buffSO = _buff;
 
-        player = FindObjectOfType<Player_fusion>();
+        originalAttackSpeed = owner.playerStat.attackSpeed;
+        owner.playerStat.attackSpeed *= 2f;// 맛도 안나네 띠발
 
-        if (player != null)
+        duration = buffSO.Skill_Duration + buffSO.Duration_Increase;
+        timer = 0f;
+        initialized = true;
+        Debug.Log("공속 버프 on :" +owner.playerStat.attackSpeed);
+    }
+
+    private bool initialized = false;
+
+    void Update()
+    {
+        if (!initialized) return;
+
+        timer += Time.deltaTime;
+        if (timer >= duration)
         {
-            if (player.HasBuff(BuffEffectType.Projectile_Hit))
-            {
-                Debug.Log("이미 Projectile_Hit 버프가 적용되어 있음. 중복 적용 안함.");
-                Destroy(gameObject);
-                return;
-            }
-
-            player.SetBuffState(BuffEffectType.Projectile_Hit, true);
-
-            originalAttackSpeed = player.GetAttackSpeed();
-            player.SetAttackSpeed(originalAttackSpeed * 2.0f);
-
-            StartCoroutine(RemoveBuffAfterDuration());
-        }
-        else
-        {
-            Debug.LogWarning("[ProjectileHit] Player_jin 찾기 실패");
+            owner.playerStat.attackSpeed = originalAttackSpeed;
+            Debug.Log("공속 버프 off:" +owner.playerStat.attackSpeed);
+            Destroy(gameObject);
         }
     }
 
-    private IEnumerator RemoveBuffAfterDuration()
-    {
-        yield return new WaitForSeconds(duration);
-
-        if (player != null)
-        {
-            player.SetAttackSpeed(originalAttackSpeed);
-            player.SetBuffState(BuffEffectType.Projectile_Hit, false);
-            Debug.Log("Projectile_Hit 버프 종료: 공격 속도 복원");
-        }
-
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            // 데미지 입힘
-        }
-    }
+    //void OnDisable()
+    //{
+    //    if (owner != null)
+    //    {
+    //        owner.playerStat.attackSpeed = originalAttackSpeed;
+    //    }
+    //}
 }

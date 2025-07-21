@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Obsolete("이제 안 씀, OptionButton을 사용하도록", true)]
 public class OptionButtonJiHun : MonoBehaviour
 {
     [SerializeField] private UnityEvent m_SkillOptionEvent;
@@ -12,7 +13,8 @@ public class OptionButtonJiHun : MonoBehaviour
 
     public string optionType;
     public int selectID;
-    public IBuffSelection[] buffSelections;
+
+    public BaseValue selectedData; // ✅ 선택된 데이터 저장
 
     public void OnClick()
     {

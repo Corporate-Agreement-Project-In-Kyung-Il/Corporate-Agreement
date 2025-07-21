@@ -51,8 +51,11 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         
     }
 
+
     void Update()
     {
+
+        
         if (target.gameObject.activeSelf.Equals(false))
         {
             FindNextTarget();
@@ -66,7 +69,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     private void FindNextTarget()
     {
         //현재 위치를 기준으로 제일 가까운 애를 공격하게 
-        List<Collider2D> targetList = MonsterExistSystem.Instance.monsterList;
+        List<Collider2D> targetList = AliveExistSystem.Instance.monsterList;
 
         float minDistance = 100f;
         Transform closestTarget = null;
@@ -90,6 +93,8 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
             target = closestTarget;
         }
     }
+
+    private bool shakeTrue = true;
     private void MoveToEnemyHurt()
     {
         timeSinceStart += Time.deltaTime; 
@@ -99,39 +104,51 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         float dynamicRotateSpeed = Mathf.Lerp(360f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
-        
+        float straightDistance = 1f;
         
         currentStateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        Vector3 dirToTarget = (target.position - transform.position).normalized;
         
-        float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
-        
-        float maxDelta = dynamicRotateSpeed * Time.deltaTime;
-        
-
-        
-        if (isRotate)
+        if (distanceToTarget <= straightDistance)
         {
-            //if (moveDir != Vector3.zero)
-            //{
-            //    transform.up = moveDir;
-            //}
-            
-            // 회전 제한
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
-        }
+            Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, curveSpeed * Time.deltaTime);
+            Vector3 moveDir = (nextPos - transform.position).normalized;
 
-        transform.position += transform.up * (curveSpeed * Time.deltaTime);
+            if (moveDir != Vector3.zero)
+            {
+                transform.up = moveDir;
+            }
+
+            transform.position = nextPos;
+        }
+        else
+        {
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+
+            float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+
+            float maxDelta = dynamicRotateSpeed * Time.deltaTime;
+
+            if (isRotate)
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
+
+            transform.position += transform.up * (curveSpeed * Time.deltaTime);
+        }
         
         if (distanceToTarget < 0.3f)
         {
             animator.SetTrigger(Explosion);
+            
+            if (shakeTrue)
+            {
+                DamgeEvent.OnTriggerShake();
+                shakeTrue = false;
+            }
+
             transform.rotation = Quaternion.identity;
             isRotate = false;
         }
         
-
         if (currentStateInfo.IsName("Explosion") && currentStateInfo.normalizedTime >= 0.25f &&
             currentStateInfo.normalizedTime < 0.5f)
         {
@@ -141,6 +158,9 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         {
             collider.enabled = false;
         }
+        
+        if(currentStateInfo.IsName("Explosion") && currentStateInfo.normalizedTime >= 0.9f)
+            ReturnToPool();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -164,11 +184,19 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
                 ReturnToPool();
                 return;
             }
-
-            ReturnToPool();
             isTargetNotDead = true;
         }
     }
 
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += ReturnToPool;
+        shakeTrue = true;
+    }
+
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent -= ReturnToPool;
+    }
 
 }

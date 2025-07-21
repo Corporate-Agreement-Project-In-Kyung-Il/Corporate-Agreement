@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -18,22 +19,31 @@ public class OptionButton : MonoBehaviour
    UnityEvent m_TrainingOptionEvent;
 
    public int rerollCount;
-   public string optionType;
+   public EOptionType optionType;
    public int selectID;
+   public Canvas optionCanvas;
+   public BaseValue selectedData;
    
    public void OnClick()
    {
       switch (optionType)
       {
-         case "Skill":
+         case EOptionType.Skill:
             m_SkillOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
-         case "Equip":
+         case EOptionType.Equip:
             m_EquipOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
-         case "Training":
+         case EOptionType.Training:
             m_TrainingOptionEvent.Invoke();
+            GameManager.Instance.Resume();
+            optionCanvas.gameObject.SetActive(false);
             break;
+         
       }
    }
 }

@@ -6,6 +6,7 @@ namespace _03.Script.엄시형.Monster
     public enum MonsterType
     {
         Unknown = 0,
+        Slime,
         Bear0,
         Catumon,
         Bugfly,

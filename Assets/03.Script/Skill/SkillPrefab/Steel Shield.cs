@@ -1,67 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SteelShield : MonoBehaviour, ISkillID
 {
     public int SkillId;
     public int SkillID { get; set; }
-    public float damageReductionRate = 0.4f; // 40% 경감
-    public float duration = 5f;
+    public void SetSkillID() => SkillID = SkillId;
 
-    private Player_fusion player;
+    public Player owner;
+    public BuffSO buffSO;
 
-    public void SetSkillID()
+    private float duration;
+    private float timer;
+    private float reductionRate = 0.6f;
+    private bool initialized = false;
+
+    public void Initialize(Player _owner, BuffSO _buff)
     {
-        SkillID = SkillId;
+        owner = _owner;
+        buffSO = _buff;
+
+        owner.damageReductionRate += reductionRate;
+
+        duration = buffSO.Skill_Duration + buffSO.Duration_Increase;
+        timer = 0f;
+        initialized = true;
+
+        Debug.Log($"🛡️ 데미지 감소 ON: {owner.damageReductionRate}");
     }
 
-    void Start()
+    void Update()
     {
-        Debug.Log("start SteelShield");
+        if (!initialized) return;
 
-        player = FindObjectOfType<Player_fusion>();
-
-        if (player != null)
+        timer += Time.deltaTime;
+        if (timer >= duration)
         {
-            if (player.HasBuff(BuffEffectType.Steel_Shield))
-            {
-                Debug.Log("이미 Steel_Shield 버프 적용 중");
-                Destroy(gameObject);
-                return;
-            }
-
-            player.SetBuffState(BuffEffectType.Steel_Shield, true);
-            player.SetDamageReductionRate(damageReductionRate);
-
-            StartCoroutine(RemoveBuffAfterDuration());
-        }
-        else
-        {
-            Debug.LogWarning("[SteelShield] Player_fusion 찾기 실패");
-        }
-    }
-
-    private IEnumerator RemoveBuffAfterDuration()
-    {
-        yield return new WaitForSeconds(duration);
-
-        if (player != null)
-        {
-            player.SetDamageReductionRate(0f);
-            player.SetBuffState(BuffEffectType.Steel_Shield, false);
-            Debug.Log("Steel_Shield 버프 종료: 데미지 경감 해제");
-        }
-
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            // 데미지 입힘
+            owner.damageReductionRate -= reductionRate;
+            Debug.Log($"🛡️ 데미지 감소 OFF: {owner.damageReductionRate}");
+            Destroy(gameObject);
         }
     }
 }
-

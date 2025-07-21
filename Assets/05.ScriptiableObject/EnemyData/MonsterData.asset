@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9479cc86dcc33384b80d2a24aea3a610, type: 3}
   m_Name: MonsterData
   m_EditorClassIdentifier: 
+  monsterType: 1
   attackRange: 0.6
   attackSpeed: 1
   moveSpeed: 1
   playerDetectionRange: 3
   Stage_ID: 1
-  Monster_HP: 1000
-  Monster_Attack: 1
+  Monster_HP: 30
+  Monster_Attack: 10
   Monster_quantity: 12
   Boss_Check: 0
   Boss_HP: 0

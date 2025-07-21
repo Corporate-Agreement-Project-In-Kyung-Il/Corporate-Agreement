@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f79a04dd51417498de54e9d211d321, type: 3}
   m_Name: "WizardPlayerData\uB9C8\uBC95\uC0AC"
   m_EditorClassIdentifier: 
-  attackRange: 4
+  attackRange: 3.5
   moveSpeed: 5
+  isDead: 1
   character_ID: 100006
   characterClass: 2
-  characterName: 5
+  characterName: 6
   characterGrade: 0
-  attackDamage: 1
-  health: 10000
+  attackDamage: 1000
+  health: 100
   attackSpeed: 0.5
   criticalProbability: 0
   training_type: 500003

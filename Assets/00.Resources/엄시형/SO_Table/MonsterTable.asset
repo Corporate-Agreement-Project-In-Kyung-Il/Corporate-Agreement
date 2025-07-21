@@ -7,12 +7,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f187587e22a46819755c731273babb0, type: 3}
   m_Name: MonsterTable
   m_EditorClassIdentifier: 
   mMonsters:
-  - {fileID: -6627170738343750876, guid: e3b703ea71fde8047b637ae01173c781, type: 3}
-  - {fileID: 755760450368438538, guid: beca11615595fbe48bdc428b4da0c486, type: 3}
-  - {fileID: 6210595070627118048, guid: e8b1926df56d2e74e81c916b6488c539, type: 3}
+  - {fileID: 5417800384967519980, guid: 897c544420be25149ae3188c0d9ff2cd, type: 3}

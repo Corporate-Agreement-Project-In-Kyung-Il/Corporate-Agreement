@@ -52,7 +52,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     {
         
         //현재 위치를 기준으로 제일 가까운 애를 공격하게                                                                         
-        List<Collider2D> targetList = MonsterExistSystem.Instance.monsterList;                               
+        List<Collider2D> targetList = AliveExistSystem.Instance.monsterList;                               
                                                                                                              
         float minDistance = 100f;                                                                            
         Transform closestTarget = null;                                                                      
@@ -123,9 +123,10 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             combatEvent.Sender = player;
             combatEvent.Damage = arrowDamage;
             combatEvent.collider = other;
-
-            ReturnToPool();
+            CombatSystem.instance.AddCombatEvent(combatEvent);
             
+            ReturnToPool();
+
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))
             {
                 isTargetNotDead = false;
@@ -133,7 +134,15 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             }
             isTargetNotDead = true;
         }
-
+    }
+    
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += ReturnToPool;
     }
 
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent -= ReturnToPool;
+    }
 }
