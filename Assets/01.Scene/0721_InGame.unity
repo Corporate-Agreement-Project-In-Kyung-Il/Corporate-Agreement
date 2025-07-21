@@ -998,7 +998,7 @@ Camera:
   far clip plane: 10
   field of view: 91.49284
   orthographic: 1
-  orthographic size: 7.018182
+  orthographic size: 6.785714
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1060,9 +1060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_AssetsPPU: 110
-  m_RefResolutionX: 720
-  m_RefResolutionY: 1280
+  m_AssetsPPU: 56
+  m_RefResolutionX: 360
+  m_RefResolutionY: 640
   m_CropFrame: 1
   m_GridSnapping: 0
   m_FilterMode: 0
@@ -2505,6 +2505,37 @@ RectTransform:
   m_AnchoredPosition: {x: 82.5, y: -40}
   m_SizeDelta: {x: 240, y: 60}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!1 &1504437761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504437762}
+  m_Layer: 0
+  m_Name: magicBallArrowShotLastTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1504437762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504437761}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 80, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582793734
 GameObject:
   m_ObjectHideFlags: 0
@@ -4307,6 +4338,7 @@ SceneRoots:
   - {fileID: 2593611471807610423}
   - {fileID: 371448464740521723}
   - {fileID: 1460447957}
+  - {fileID: 1504437762}
   - {fileID: 519420032}
   - {fileID: 2015966071}
   - {fileID: 1582793735}

@@ -15,9 +15,12 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     public bool isTargetNotDead = true;
     public float arrowDamage;
 
+    [Header("유도 설정")] 
+    [SerializeField] private float initialSpeed = 2f;
+    [Header("최대 속도")] public float maxSpeed = 5f;
     [Header("타켓에 다가가는 속도")]
     [SerializeField] private float timeSinceStart = 2.1f;  
-    private Vector2 lastTarget = new Vector2(0, 80f);
+    private Vector3 lastTarget = new Vector3(0, 80f, 0f);
     
     //IObjectPoolItem
     public string Key { get; set; }
@@ -88,17 +91,20 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
         }
         
     }
-    [Header("휘어지는 정도")] public float Curvefloat;
+    [Header("휘어지는 정도")] public float curveFloat;
+    public float straight;
+
+    private float velocity;
     private void MoveToEnemyHurt()
     {
         float distance = Vector3.Distance(transform.position, target.position);
         timeSinceStart += Time.deltaTime;  
         float t = timeSinceStart;
-        float curveSpeed = Mathf.Pow(t, Curvefloat);
-        float straight = straightAttackRange * 3 / 4;
+        float curveSpeed = Mathf.Min(Mathf.Pow(t, curveFloat), maxSpeed);
+        velocity = curveSpeed * initialSpeed * Time.deltaTime;
         if (distance <= straight)
         {
-            Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, curveSpeed * Time.deltaTime);
+            Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, velocity);
             Vector3 moveDir = (nextPos - transform.position).normalized;
             
             if (moveDir != Vector3.zero)
@@ -117,20 +123,24 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             float maxDelta = dynamicRotateSpeed * Time.deltaTime;
             
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
-            transform.position += transform.up * (curveSpeed * Time.deltaTime);
+            transform.position += transform.up * (velocity);
         }
        // Debug.Log($"{gameObject.name }의 거리 = {distance}");
     }
 
     private void MoveToLastTarget()
     {
-        Vector3 nextPos = Vector2.MoveTowards(transform.position, lastTarget, Time.deltaTime * 10f);
-        Vector3 moveDir = (nextPos - transform.position).normalized;
+        float distanceToTarget = Vector3.Distance(transform.position, lastTarget);
+        float dynamicRotateSpeed = Mathf.Lerp(180f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
+        Vector3 dirToTarget = (lastTarget - transform.position).normalized;
+        float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
 
-        if (moveDir != Vector3.zero)
-            transform.up = moveDir;
+        float maxDelta = dynamicRotateSpeed * Time.deltaTime;
+        
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
 
-        transform.position = nextPos;
+        transform.position += transform.up * (velocity);
     }
     
     private void OnTriggerEnter2D(Collider2D other)
