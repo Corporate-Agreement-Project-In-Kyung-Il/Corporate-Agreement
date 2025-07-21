@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 188872455}
   - component: {fileID: 188872458}
   m_Layer: 5
-  m_Name: ChoiceCanvas
+  m_Name: OptionCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,6 +567,12 @@ MonoBehaviour:
   playerStatAdjust: {fileID: 1689890959}
   skillManager: {fileID: 128173405}
   type: {fileID: 0}
+  "\uB178\uB9D0_\uAC00\uC911\uCE58": 500
+  "\uB808\uC5B4_\uAC00\uC911\uCE58": 257
+  "\uC5D0\uD53D_\uAC00\uC911\uCE58": 140
+  "\uC720\uB2C8\uD06C_\uAC00\uC911\uCE58": 80
+  "\uB808\uC804\uB4DC_\uAC00\uC911\uCE58": 20
+  "\uC2E0\uD654_\uAC00\uC911\uCE58": 3
 --- !u!4 &321154673
 Transform:
   m_ObjectHideFlags: 0
@@ -897,6 +903,7 @@ GameObject:
   - component: {fileID: 519420034}
   - component: {fileID: 519420033}
   - component: {fileID: 519420035}
+  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -989,7 +996,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 10
-  field of view: 34
+  field of view: 91.49284
   orthographic: 1
   orthographic size: 5
   m_Depth: -1
@@ -1078,6 +1085,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
   confineBox: {fileID: 2015966070}
+--- !u!114 &519420036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac171a43cdbb44299816a8bf0b011fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &800662206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHpBar: {fileID: 6455272225453176847, guid: 10677f9fbd8ad3b42ab10c56433e41d6, type: 3}
-  skillBar: {fileID: 0}
+  skillBar: {fileID: 2059360937646731809, guid: 07659eb0e06766449b05e8121c69ae14, type: 3}
   enemyHpDetectionSize: {x: 5.5, y: 25}
 --- !u!114 &908362424
 MonoBehaviour:
@@ -5154,7 +5173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8233098715114932692, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8000002
+      value: -0.24000001
       objectReference: {fileID: 0}
     - target: {fileID: 8233098715114932692, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5227,7 +5246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3052112776325436124, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6869998
+      value: -0.12699962
       objectReference: {fileID: 0}
     - target: {fileID: 3052112776325436124, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5308,7 +5327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6067534161320484885, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8000002
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 6067534161320484885, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
       propertyPath: m_LocalPosition.z
