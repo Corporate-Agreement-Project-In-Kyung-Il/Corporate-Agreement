@@ -81,8 +81,8 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         
         if (targetList.Count <= 0)
         {
-            target = null;
-            MoveToLastTarget();
+            target.position = lastTarget;
+            MoveToEnemyHurt();
             return;
         }
         
@@ -185,21 +185,21 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
             isRotate = false;
         }
     }
-    private void MoveToLastTarget()
-    {
-        float distanceToTarget = Vector3.Distance(transform.position, lastTarget);
-        float dynamicRotateSpeed = Mathf.Lerp(180f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
-        Vector3 dirToTarget = (lastTarget - transform.position).normalized;
-        float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
-
-        float maxDelta = dynamicRotateSpeed * Time.deltaTime;
-
-        if (isRotate)
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
-
-        transform.position += transform.up * (velocity);
-    }
+    //private void MoveToLastTarget()
+    //{
+    //    float distanceToTarget = Vector3.Distance(transform.position, lastTarget);
+    //    float dynamicRotateSpeed = Mathf.Lerp(180f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
+    //    Vector3 dirToTarget = (lastTarget - transform.position).normalized;
+    //    float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
+    //    Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+    //
+    //    float maxDelta = dynamicRotateSpeed * Time.deltaTime;
+    //
+    //    if (isRotate)
+    //        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
+    //
+    //    transform.position += transform.up * (velocity);
+    //}
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
