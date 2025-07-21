@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DamgeEvent
+public class DamgeEvent : MonoBehaviour
 {
     public static event Action<MonsterController> enemydamageEvent;
+    
     public static event Action<Player> playerDamageEvent;
-    public static event Action ShakeEvent;
 
     public static void OnTriggerMonsterDamageEvent(MonsterController monster)
     {
@@ -19,14 +19,9 @@ public class DamgeEvent
     {
         playerDamageEvent?.Invoke(player);
     }
-
-    public static void OnTriggerShake()
-    {
-        ShakeEvent?.Invoke();
-    }
 }
 
-public class StageClearEvent
+public class StageClearEvent : MonoBehaviour
 {
     public static event Action stageClearEvent;
 

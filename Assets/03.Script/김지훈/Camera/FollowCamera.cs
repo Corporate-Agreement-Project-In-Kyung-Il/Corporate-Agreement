@@ -34,52 +34,29 @@ public class FollowCamera : MonoBehaviour
         if (AliveExistSystem.Instance.playerList.Count <= 0) 
             return;
         
+        //UpdateShake();
         Follow();
     }
-    
-    private void LateUpdate()
+    private void UpdateShake()
     {
-        Vector3 basePosition = transform.position;
-
         if (shakeTimer > 0f)
         {
-            shakeOffset = new Vector3(
+
+            Vector3 randomOffset = new Vector3(
                 Random.Range(-1f, 1f),
                 Random.Range(-1f, 1f),
                 0f
             ) * shakeMagnitude;
 
-            shakeTimer -= Time.deltaTime;
+            transform.position += randomOffset;
+
+            shakeTimer -= Time.fixedDeltaTime;
         }
         else
         {
-            shakeOffset = Vector3.zero;
+            transform.position = Vector3.right  * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z;
         }
-
-        // Follow()에서 설정한 위치에 흔들림만 더하기
-        transform.position = basePosition + shakeOffset;
     }
-    
-    //private void UpdateShake()
-    //{
-    //    if (shakeTimer > 0f)
-    //    {
-    //
-    //        Vector3 randomOffset = new Vector3(
-    //            Random.Range(-1f, 1f),
-    //            Random.Range(-1f, 1f),
-    //            0f
-    //        ) * shakeMagnitude;
-    //
-    //        transform.position += randomOffset;
-    //
-    //        shakeTimer -= Time.fixedDeltaTime;
-    //    }
-    //    else
-    //    {
-    //        transform.position = Vector3.right  * 0.5f + Vector3.up * realTarget.y + Vector3.forward * realTarget.z;
-    //    }
-    //}
 
     private Vector3 realTarget;
     private Vector3 velocity = Vector3.zero;
@@ -114,14 +91,11 @@ public class FollowCamera : MonoBehaviour
     private void OnEnable()
     {
         StageClearEvent.stageClearEvent += InitalPosition;
-        DamgeEvent.ShakeEvent += Shake;
     }
 
     private void OnDisable()
     {
         StageClearEvent.stageClearEvent -= InitalPosition;
-        DamgeEvent.ShakeEvent -= Shake;
-        
     }
 
     
