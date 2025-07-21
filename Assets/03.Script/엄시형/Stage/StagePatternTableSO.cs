@@ -7,6 +7,8 @@ using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Util;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 namespace _03.Script.엄시형.Stage
 {
@@ -15,23 +17,34 @@ namespace _03.Script.엄시형.Stage
     {
         // private AreaPatternPersistenceManager m_AreaPerstistenceMgr = new AreaPatternPersistenceManager();
         
-        private Dictionary<int, StageInfo> m_StageInfoDic = new Dictionary<int, StageInfo>();
+        // private Dictionary<int, StageInfo> m_StageInfoDic = new Dictionary<int, StageInfo>();
         
-        [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
-        [SerializeField] private List<StageInfo> m_StageInfo = new List<StageInfo>();
+        // [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
+        
+        private Dictionary<int, List<AreaPattern>> m_AreaPatternDic = new Dictionary<int, List<AreaPattern>>();
         
         [Conditional("UNITY_EDITOR")]
-
         private void Reset()
         {
             Init();
         }
         
-        public StageInfo GetStageInfo(int stageId)
+        private List<AreaPattern> GetAllPattern(int count)
         {
-            // return m_StageInfoDic[stageId];
-            // return m_StageInfoDic.First().Value;
-            return m_StageInfo.FirstOrDefault();
+            m_AreaPatternDic.TryGetValue(count, out List<AreaPattern> list);
+            Debug.Assert(list != null, $"AreaPatternDic에 {count}키에 해당하는 스폰 정보가 없습니다.");
+            
+            return list;
+        }
+        
+        public AreaPattern GetRandomSpawnPattern(int count)
+        {
+            List<AreaPattern> list = GetAllPattern(count);
+            
+            AreaPattern pattern = list[Random.Range(0, list.Count)];
+            
+            // 랜덤으로 AreaPattern 반환
+            return pattern;
         }
         
         [Conditional("UNITY_EDITOR")]
@@ -42,36 +55,18 @@ namespace _03.Script.엄시형.Stage
             
             if (AreaPatternPersistenceManager.TryReadFromJson(out List<AreaPatternDTO> areaPatterns))
             {
-                
                 foreach (var dto in areaPatterns)
                 {
-                    AreaPattern pattern = dto.ToAreaPattern();
-                    int stageId = pattern.GetStageId();
+                    // 몬스터 카운트를 키로 저장
+                    int key = dto.MonsterSpawnInfoList.Count;
                     
-                    if (m_StageInfoDic.ContainsKey(stageId) == false)
+                    // 키가 없으면 리스트 생성
+                    if (m_AreaPatternDic.ContainsKey(key) == false)
                     {
-                        var stageInfo = new StageInfo(
-                            new List<AreaPattern>(),
-                            // Slime 몬스터만 일단 넣어둠
-                            new List<MonsterType>()
-                            {
-                                MonsterType.Slime
-                            },
-                            // 일단 BOSS 구역은 패턴 고정
-                            new AreaPattern(110004
-                                , new List<SpawnInfo>()
-                                {
-                                    new SpawnInfo(new Vector2(0f, 15f), 0f)
-                                }),
-                            15);
-                        
-                        m_StageInfoDic.Add(stageId, stageInfo);
-                        m_StageInfo.Add(stageInfo);
+                        m_AreaPatternDic[key] = new List<AreaPattern>();
                     }
                     
-                    m_StageInfoDic[stageId].AreaPatternList.Add(pattern);
-                    
-                    m_AreaPatternList.Add(pattern);
+                    m_AreaPatternDic[key].Add(dto.ToAreaPattern());
                 }
             }
         }

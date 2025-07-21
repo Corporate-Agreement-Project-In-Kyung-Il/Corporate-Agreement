@@ -14,11 +14,14 @@ using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
+using StageInfo = _03.Script.엄시형.Stage.V2.StageInfo;
 
 // [CreateAssetMenu(fileName = "Spawner", menuName = "SO/Stage/Spawner", order = 1)]
 public sealed class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
+    public List<Tilemap> CurAreaList => m_CurAreaList;
+    public int CurStageId = 1;
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
@@ -33,17 +36,12 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private Player[] m_PlayerList;
     
-    // private AreaPatternPersistenceManager m_AreaPersistenceMgr;
-    
     private List<Tilemap> m_CurAreaList;
-    public List<Tilemap> CurAreaList => m_CurAreaList;
     
     private StageInfo mStageInfo;
+    // private List<AreaPattern> m_AreaPatternList;
     
-    [SerializeField]
-    public int CurStageId = 1;
-    
-    private Dictionary<character_class, Vector2> mPlayerSpawnPointDic = new Dictionary<character_class, Vector2>
+    private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
         { character_class.궁수, new Vector2(-0.5f, -2f) },
         { character_class.전사 , new Vector2(0.5f, -1f) },
@@ -63,7 +61,7 @@ public sealed class Spawner : MonoBehaviour
     {
         Instance = this;
         
-        // m_StagePatternTable.Init();
+        m_StagePatternTable.Init();
         GameManager.Instance.GameStart();
     }
 
@@ -96,7 +94,7 @@ public sealed class Spawner : MonoBehaviour
     private void Start()
     {
         // m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
-        mStageInfo = m_StagePatternTable.GetStageInfo(1);
+        // mStageInfo = m_StagePatternTable.GetAreaList(1);
         SpawnAllMonstersInStage();
     }
 
@@ -137,24 +135,35 @@ public sealed class Spawner : MonoBehaviour
             SetPositionStartPoint(player);
         }
 
+        var stageInfo = new StageInfo(new int[] { 3, 4, 5 }
+            , MonsterType.Slime
+            , 15);
+        
         Debug.Assert(mStageInfo != null, "널 들어옴");
-        // var areaList = GenerateMap();
-        m_CurAreaList = GenerateMap();
         
-        int monsterTypeLength = mStageInfo.SpawnMonsterTypeList.Count;
+        var areaInfoList = new List<AreaPattern>(mStageInfo.AreaCount);
         
-        for (int i = 0; i < mStageInfo.AreaPatternList.Count; i++)
+        for (int i = 0; i < mStageInfo.AreaCount; i++)
         {
-            AreaPattern areaInfo = mStageInfo.AreaPatternList[i];
+            m_StagePatternTable.GetRandomSpawnPattern(areaInfoList.Count);
+        }
+        
+        m_CurAreaList = GenerateMap(areaInfoList);
+        
+        // 한 종류만 나옴
+        MonsterType monsterType = mStageInfo.MonsterType;
+        
+        // 3마리 4마리 패턴중 랜덤리스트 가져옴
+        
+        // 구역(Area)별로 몬스터 스폰
+        for (int i = 0; i < mStageInfo.AreaCount; i++)
+        {
+            var area = areaInfoList[i];
             
-            for (int x = 0; x < areaInfo.MonsterSpawnInfoList.Count; x++)
+            for (int x = 0; x < areaInfoList.Count; x++)
             {
-                MonsterType type = mStageInfo
-                    .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
-            
-                SpawnMonsterInRange(
-                    areaInfo.MonsterSpawnInfoList[x]
-                    , type
+                SpawnMonsterInRange(area.MonsterSpawnInfoList[x]
+                    , monsterType
                     , parent: m_CurAreaList[i].gameObject);
             }
         }
@@ -162,11 +171,10 @@ public sealed class Spawner : MonoBehaviour
         // 보스 스테이지
         if (CurStageId % 3 == 0)
         {
-            MonsterType type = mStageInfo
-                .SpawnMonsterTypeList[Random.Range(0, monsterTypeLength)];
+            MonsterType type = mStageInfo.MonsterType;
             
             var boss = SpawnMonster(
-                mStageInfo.BossAreaPattern.MonsterSpawnInfoList[0].Point
+                new Vector2(0f, 15f)
                 , type
                 , parent: m_CurAreaList.Last().gameObject);
             
@@ -182,7 +190,7 @@ public sealed class Spawner : MonoBehaviour
     /// <param name="character"></param>
     public void SetPositionStartPoint(Player character)
     {
-        if (mPlayerSpawnPointDic.TryGetValue(character.playerStat.characterClass
+        if (m_PlayerSpawnPointDic.TryGetValue(character.playerStat.characterClass
                 , out var spawnPos))
         {
             character.transform.position = spawnPos;
@@ -209,15 +217,17 @@ public sealed class Spawner : MonoBehaviour
         return monster;
     }
     
-    public List<Tilemap> GenerateMap()
+    public List<Tilemap> GenerateMap(List<AreaPattern> areaPatternList)
     {
-        List<Tilemap> areaList = new List<Tilemap>();
-        
+        int areaPatternCount = areaPatternList.Count;
         float topY = 0f;
         
-        for (int i = 0; i < mStageInfo.AreaPatternList.Count; i++)
+        List<Tilemap> areaList = new List<Tilemap>(areaPatternCount);
+        
+        
+        for (int i = 0; i < areaPatternCount; i++)
         {
-            var patternId = mStageInfo.AreaPatternList[i].PatternId;
+            var patternId = areaPatternList[i].PatternId;
             var tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
             
             var curTileMap = Instantiate(tilemap
