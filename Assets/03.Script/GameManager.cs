@@ -11,40 +11,40 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
-    [Tooltip("선택지 1, 2, 3번")]
-    public OptionButton[] optionButtons; // UI 버튼 배열
-    
+    [Tooltip("선택지 1, 2, 3번")] public OptionButton[] optionButtons; // UI 버튼 배열
+
     [Tooltip("선택지가 생성 될 때 기본 리롤 횟수가 설정 됩니다.")]
     public int baseRerollCount = 3; // 기본 리롤 횟수
-    
-    
 
-    Dictionary<Enum, ScriptableObject> m_Options = new Dictionary<Enum, ScriptableObject>();
-    
+
+
+    Dictionary<EOptionType, ScriptableObject> m_Options = new Dictionary<EOptionType, ScriptableObject>();
+
     [Tooltip("Skill SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_SkillOption skillOption;
+
     [Tooltip("Equip SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_EquipOption equipOption;
+
     [Tooltip("Training SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_TrainingOption trainingOption;
-    
-    [SerializeField]
-    private OptionChoice_SkillOption m_IngameSkillOption;
+
+    [SerializeField] private OptionChoice_SkillOption m_IngameSkillOption;
     public static GameManager Instance { get; private set; }
     public int[] characterSkillID = new int[6];
+
     [Tooltip("선택지 옵션 Canvas 입니다. 선택지가 등장할 때 활성화 되고, 버튼이 눌리면 비활성화 됩니다.")]
     public Canvas canvas;
- 
+
     // Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
 
     public PlayerDataReceiverJiHun playerStatAdjust;
-    
-    [Tooltip("Skill Manager가 들어가야 합니다.")]
-    public SkillManager skillManager;
+
+    [Tooltip("Skill Manager가 들어가야 합니다.")] public SkillManager skillManager;
 
     public static bool IsPaused = false;
-    
-    
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         GameStart();
     }
     */
-    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         IsPaused = false;
     }
-    
+
     public void Pause()
     {
         Time.timeScale = 0f;
@@ -117,26 +117,27 @@ public class GameManager : MonoBehaviour
             int Q = GetRandomSelectionID(equipOption, EOptionType.Equip);
             switch (equipOption.GetValue(Q).Selection_Level)
             {
-                case MyEnum.노말 :
+                case MyEnum.노말:
                     노말++;
                     break;
-                case MyEnum.레어 :
+                case MyEnum.레어:
                     레어++;
                     break;
-                case MyEnum.에픽 :
+                case MyEnum.에픽:
                     에픽++;
                     break;
-                case MyEnum.유니크 :
+                case MyEnum.유니크:
                     유니크++;
                     break;
-                case MyEnum.레전드 :
+                case MyEnum.레전드:
                     레전드++;
                     break;
-                case MyEnum.신화 :
+                case MyEnum.신화:
                     신화++;
                     break;
             }
         }
+
         Debug.Log($"노말 : {노말}");
         Debug.Log($"레어 : {레어}");
         Debug.Log($"에픽 : {에픽}");
@@ -152,57 +153,56 @@ public class GameManager : MonoBehaviour
 
     void SetIngameDatabase()
     {
-        void SetIngameDatabase()
-        {
-            // 공통 로직: 캐릭터 ID 기반 필터링
-            HashSet<int> allowedIds = new HashSet<int>(characterSkillID);
+        // 공통 로직: 캐릭터 ID 기반 필터링
+        HashSet<int> allowedIds = new HashSet<int>(characterSkillID);
 
-            var filtered = skillOption.data
-                .Where(pair => allowedIds.Contains(((SkillOption)pair.val).Skill_ID))
-                .ToList();
+        var filtered = skillOption.data
+            .Where(pair => allowedIds.Contains(((SkillOption)pair.val).Skill_ID))
+            .ToList();
 
-            m_IngameSkillOption = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
-            m_IngameSkillOption.data = filtered;
+        m_IngameSkillOption = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
+        m_IngameSkillOption.data = filtered;
 
 #if UNITY_EDITOR
-            // 에디터에서만 저장 (실제 게임 빌드에는 필요 없음)
-            AssetDatabase.CreateAsset(m_IngameSkillOption, $"Assets/00.Resources/DataBase/OptionChoice/InGameSkillOptionChoice.asset");
-            AssetDatabase.SaveAssets();
+        // 에디터에서만 저장 (실제 게임 빌드에는 필요 없음)
+        AssetDatabase.CreateAsset(m_IngameSkillOption,
+            $"Assets/00.Resources/DataBase/OptionChoice/InGameSkillOptionChoice.asset");
+        AssetDatabase.SaveAssets();
 #endif
 
-            // 공통 로직: 필드 등록 및 세팅
-            m_Options[EOptionType.Skill] = m_IngameSkillOption;
-            m_Options[EOptionType.Equip] = equipOption;
-            m_Options[EOptionType.Training] = trainingOption;
-            skillManager.SetSkillOption(m_IngameSkillOption);
+        // 공통 로직: 필드 등록 및 세팅
+        m_Options[EOptionType.Skill] = m_IngameSkillOption;
+        m_Options[EOptionType.Equip] = equipOption;
+        m_Options[EOptionType.Training] = trainingOption;
+        skillManager.SetSkillOption(m_IngameSkillOption);
 
-            CreateChoices(3);
-        }
+        CreateChoices(3);
+    }
+
 /*#if UNITY_EDITOR
         // 게임 시작할 때 InGame선택지 ScriptableObject 생성
         // 1. HashSet으로 ID 생성
         HashSet<int> allowedIds = new HashSet<int>(characterSkillID);
-        
+
         // 2. 필터링 : Skill_ID를 기준으로 필터링
         var filtered = skillOption.data
             .Where(pair => allowedIds.Contains(((SkillOption)pair.val).Skill_ID))
             .ToList();
-        
+
         //3. 새 ScriptableObject 생성 및 데이터 할당
         m_IngameSkillOption = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
         m_IngameSkillOption.data = filtered;
-        
+
         //4. 저장 경로 및 저장 처리
         AssetDatabase.CreateAsset(m_IngameSkillOption, $"Assets/00.Resources/DataBase/OptionChoice/InGameSkillOptionChoice.asset");
         AssetDatabase.SaveAssets();
-        
+
         m_Options.Add(EOptionType.Skill, m_IngameSkillOption);
         m_Options.Add(EOptionType.Equip, equipOption);
         m_Options.Add(EOptionType.Training, trainingOption);
         skillManager.SetSkillOption(m_IngameSkillOption);
         CreateChoices(3);
 #endif*/
-    }
     
     #region 랜덤 선택지 뽑는 코드
     
