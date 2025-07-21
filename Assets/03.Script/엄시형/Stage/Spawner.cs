@@ -7,7 +7,6 @@ using _00.Resources.엄시형.PrefabTable;
 using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
-using _03.Script.엄시형.Tool;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -34,7 +33,7 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private Player[] m_PlayerList;
     
-    private AreaPatternPersistenceManager m_AreaPersistenceMgr;
+    // private AreaPatternPersistenceManager m_AreaPersistenceMgr;
     
     private List<Tilemap> m_CurAreaList;
     public List<Tilemap> CurAreaList => m_CurAreaList;
