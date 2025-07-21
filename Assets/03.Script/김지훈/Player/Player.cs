@@ -337,17 +337,8 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
         if (skills[index] is BuffSO buff)
         {
-            // 위치 오프셋 설정
-            Vector3 spawnOffset = Vector3.zero;
-            if (index == 0) spawnOffset = new Vector3(-0.6f, 0f, 0f); // 왼쪽
-            if (index == 1) spawnOffset = new Vector3(0.6f, 0f, 0f);  // 오른쪽
-
-            // 프리팹 선택 및 생성
             GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
-            GameObject buffObj = Instantiate(prefab, transform.position + spawnOffset, Quaternion.identity, transform);
-
-            // 스케일 조정
-            buffObj.transform.localScale = new Vector3(1f, 1f, 1f);
+            GameObject buffObj = Instantiate(prefab, transform.position, Quaternion.identity, transform);
             foreach (var comp in buffObj.GetComponents<MonoBehaviour>())
             {
                 if (comp is ISkillID skill)
@@ -364,11 +355,12 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
     private void ResetCooldown(int index)
     {
-        if (skills[index] is ActiveSkillSO active) MaxskillCooldownTimers[index] = active.Skill_Cooldown;
-        else if (skills[index] is BuffSO buff) MaxskillCooldownTimers[index] = buff.Skill_Cooldown;
+        if (skills[index] is ActiveSkillSO active)
+            MaxskillCooldownTimers[index] = active.Skill_Cooldown;
+        else if (skills[index] is BuffSO buff)
+            MaxskillCooldownTimers[index] = buff.Skill_Cooldown;
 
-        currentSkillCooldownTimers[0] = MaxskillCooldownTimers[0];
-        currentSkillCooldownTimers[1] = MaxskillCooldownTimers[1];
+        currentSkillCooldownTimers[index] = MaxskillCooldownTimers[index]; // 수정: 해당 index만 초기화
     }
 
     public bool HasBuff(BuffEffectType buff) => activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
