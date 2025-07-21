@@ -998,7 +998,7 @@ Camera:
   far clip plane: 10
   field of view: 91.49284
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.03125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1044,8 +1044,8 @@ MonoBehaviour:
   target: {fileID: 1582793735}
   moveSpeed: 4
   offset: {x: 0.5, y: 2, z: -9.5}
-  shakeDuration: 0.01
-  shakeMagnitude: 0.05
+  shakeDuration: 0.1
+  shakeMagnitude: 0.1
   dampingValue: 0.08
 --- !u!114 &519420034
 MonoBehaviour:
