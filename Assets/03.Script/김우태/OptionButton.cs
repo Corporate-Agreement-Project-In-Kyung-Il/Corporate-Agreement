@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -21,8 +22,11 @@ public class OptionButton : MonoBehaviour
    public int rerollCount;
    public EOptionType optionType;
    public int selectID;
+   public Text rerollCountText;
    public Canvas optionCanvas;
    public BaseValue selectedData;
+   public GameObject checkOptionPanel;
+   public Button popUpYesButton;
    
    public void OnClick()
    {
@@ -46,4 +50,16 @@ public class OptionButton : MonoBehaviour
          
       }
    }
+   /*public void PopUpPanel()
+   {
+      if (checkOptionPanel.activeSelf)
+      {
+         checkOptionPanel.SetActive(false);
+      }
+      else
+      {
+         checkOptionPanel.SetActive(true);
+         popUpYesButton.onClick.AddListener();
+      }
+   }*/
 }
