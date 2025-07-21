@@ -51,6 +51,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         
     }
 
+
     void Update()
     {
 
@@ -92,6 +93,8 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
             target = closestTarget;
         }
     }
+
+    private bool shakeTrue = true;
     private void MoveToEnemyHurt()
     {
         timeSinceStart += Time.deltaTime; 
@@ -135,7 +138,13 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         if (distanceToTarget < 0.3f)
         {
             animator.SetTrigger(Explosion);
-            FollowCamera.Shake();
+            
+            if (shakeTrue)
+            {
+                DamgeEvent.OnTriggerShake();
+                shakeTrue = false;
+            }
+
             transform.rotation = Quaternion.identity;
             isRotate = false;
         }
@@ -182,6 +191,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     private void OnEnable()
     {
         StageClearEvent.stageClearEvent += ReturnToPool;
+        shakeTrue = true;
     }
 
     private void OnDisable()

@@ -14,7 +14,6 @@ namespace _03.Script.엄시형.Stage.DTO
         
         public AllAreaPatternDTO(List<AreaPatternDTO> areaPatternList)
         {
-            AreaPatternList = new List<AreaPatternDTO>();
             AreaPatternList = areaPatternList;
         }
     }
