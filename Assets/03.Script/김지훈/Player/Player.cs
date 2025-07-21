@@ -231,12 +231,22 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
             return;
         }
 
+        //보스몹을 거리 때문에 인식 못하는데 OverlapBoxnonAlloc으로 하기보다는 거리로 재고 나서
+        //만약 보스몹이 한 Stage 2마리 넣거나 큰 몹을 넣는다면 overlapBoxnonAlloc으로 수정
         float distance = Vector2.Distance(transform.position, target.transform.position);
 
         if (distance > playerStat.attackRange)
         {
-            target = null;
-            return;
+            if (enemyDetectionCol.Length > 0)
+            {
+                target = enemyDetectionCol[0];
+                animator.SetBool(IsAttack, true);
+            }
+            else
+            {
+                target = null;
+                return;
+            }
         }
         else
         {
@@ -327,8 +337,17 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
         if (skills[index] is BuffSO buff)
         {
+            // 위치 오프셋 설정
+            Vector3 spawnOffset = Vector3.zero;
+            if (index == 0) spawnOffset = new Vector3(-0.6f, 0f, 0f); // 왼쪽
+            if (index == 1) spawnOffset = new Vector3(0.6f, 0f, 0f);  // 오른쪽
+
+            // 프리팹 선택 및 생성
             GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
-            GameObject buffObj = Instantiate(prefab, transform.position, Quaternion.identity, transform);
+            GameObject buffObj = Instantiate(prefab, transform.position + spawnOffset, Quaternion.identity, transform);
+
+            // 스케일 조정
+            buffObj.transform.localScale = new Vector3(1f,1f,1f);
             foreach (var comp in buffObj.GetComponents<MonoBehaviour>())
             {
                 if (comp is ISkillID skill)
@@ -345,11 +364,12 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
     private void ResetCooldown(int index)
     {
-        if (skills[index] is ActiveSkillSO active) MaxskillCooldownTimers[index] = active.Skill_Cooldown;
-        else if (skills[index] is BuffSO buff) MaxskillCooldownTimers[index] = buff.Skill_Cooldown;
+        if (skills[index] is ActiveSkillSO active)
+            MaxskillCooldownTimers[index] = active.Skill_Cooldown;
+        else if (skills[index] is BuffSO buff)
+            MaxskillCooldownTimers[index] = buff.Skill_Cooldown;
 
-        currentSkillCooldownTimers[0] = MaxskillCooldownTimers[0];
-        currentSkillCooldownTimers[1] = MaxskillCooldownTimers[1];
+        currentSkillCooldownTimers[index] = MaxskillCooldownTimers[index]; // 수정: 해당 index만 초기화
     }
 
     public bool HasBuff(BuffEffectType buff) => activeBuffs.TryGetValue(buff, out bool isActive) && isActive;

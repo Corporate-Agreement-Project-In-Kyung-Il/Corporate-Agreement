@@ -30,7 +30,8 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     [Header("타켓에 다가가는 속도")]
     [SerializeField] private float timeSinceStart = 2f;
     private bool isRotate = true;
-    
+
+    private Vector2 lastTarget = new Vector2(0, 80f);
     //IObjectPoolItem
     public string Key { get; set; }
     public GameObject GameObject => gameObject;
@@ -48,13 +49,18 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         TryGetComponent(out animator);
         TryGetComponent(out collider);
        // Destroy(gameObject, lifeTime);
-        
+       targetList = AliveExistSystem.Instance.monsterList;   
     }
 
 
     void Update()
     {
-
+        if (targetList.Count <= 0)
+        {
+            target = null;
+            MoveToLastTarget();
+            return;
+        }
         
         if (target.gameObject.activeSelf.Equals(false))
         {
@@ -66,11 +72,14 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         }
     }
 
+    private List<Collider2D> targetList;
     private void FindNextTarget()
     {
         //현재 위치를 기준으로 제일 가까운 애를 공격하게 
-        List<Collider2D> targetList = AliveExistSystem.Instance.monsterList;
+        targetList = AliveExistSystem.Instance.monsterList;
 
+
+        
         float minDistance = 100f;
         Transform closestTarget = null;
         
@@ -95,12 +104,14 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     }
 
     private bool shakeTrue = true;
+
+    [Header("휘어지는 정도")] public float Curvefloat;
     private void MoveToEnemyHurt()
     {
         timeSinceStart += Time.deltaTime; 
         
         float t = timeSinceStart;
-        float curveSpeed = Mathf.Pow(t, 2f);
+        float curveSpeed = Mathf.Pow(t, Curvefloat);
         
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         float dynamicRotateSpeed = Mathf.Lerp(360f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
@@ -162,7 +173,16 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         if(currentStateInfo.IsName("Explosion") && currentStateInfo.normalizedTime >= 0.9f)
             ReturnToPool();
     }
+    private void MoveToLastTarget()
+    {
+        Vector3 nextPos = Vector2.MoveTowards(transform.position, lastTarget, Time.deltaTime * 10f);
+        Vector3 moveDir = (nextPos - transform.position).normalized;
 
+        if (moveDir != Vector3.zero)
+            transform.up = moveDir;
+
+        transform.position = nextPos;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))

@@ -17,6 +17,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
 
     [Header("타켓에 다가가는 속도")]
     [SerializeField] private float timeSinceStart = 2.1f;  
+    private Vector2 lastTarget = new Vector2(0, 80f);
     
     //IObjectPoolItem
     public string Key { get; set; }
@@ -33,10 +34,18 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     {
         TryGetComponent(out collider);
         collider.enabled = true;
+        targetList = AliveExistSystem.Instance.monsterList;     
     }
 
     private void Update()
     {
+        if (targetList.Count <= 0)
+        {
+            target = null;
+            MoveToLastTarget();
+            return;
+        }
+        
         //transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime);
         if (target.gameObject.activeSelf.Equals(false))
         {
@@ -48,15 +57,17 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
         }
     }
 
+    private List<Collider2D> targetList;
     private void FindNextTarget()
     {
-        
         //현재 위치를 기준으로 제일 가까운 애를 공격하게                                                                         
-        List<Collider2D> targetList = AliveExistSystem.Instance.monsterList;                               
-                                                                                                             
+        targetList = AliveExistSystem.Instance.monsterList;                               
+        
         float minDistance = 100f;                                                                            
-        Transform closestTarget = null;                                                                      
-                                                                                                             
+        Transform closestTarget = null;
+
+
+        
         for (int i = 0; i < targetList.Count; i++)                                                           
         {                                                                                                    
             if (targetList[i] != null && targetList[i].gameObject.activeSelf.Equals(false))                  
@@ -77,13 +88,13 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
         }
         
     }
-    
+    [Header("휘어지는 정도")] public float Curvefloat;
     private void MoveToEnemyHurt()
     {
         float distance = Vector3.Distance(transform.position, target.position);
         timeSinceStart += Time.deltaTime;  
         float t = timeSinceStart;
-        float curveSpeed = Mathf.Pow(t, 2f);
+        float curveSpeed = Mathf.Pow(t, Curvefloat);
         float straight = straightAttackRange * 3 / 4;
         if (distance <= straight)
         {
@@ -111,6 +122,17 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
        // Debug.Log($"{gameObject.name }의 거리 = {distance}");
     }
 
+    private void MoveToLastTarget()
+    {
+        Vector3 nextPos = Vector2.MoveTowards(transform.position, lastTarget, Time.deltaTime * 10f);
+        Vector3 moveDir = (nextPos - transform.position).normalized;
+
+        if (moveDir != Vector3.zero)
+            transform.up = moveDir;
+
+        transform.position = nextPos;
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))

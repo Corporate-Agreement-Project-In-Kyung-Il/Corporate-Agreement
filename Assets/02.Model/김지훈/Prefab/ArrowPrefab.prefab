@@ -150,6 +150,7 @@ MonoBehaviour:
   isTargetNotDead: 1
   arrowDamage: 0
   timeSinceStart: 2.1
+  Curvefloat: 3
 --- !u!50 &1734467268760361088
 Rigidbody2D:
   serializedVersion: 4
