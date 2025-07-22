@@ -28,6 +28,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     public void ReturnToPool()
     {
         target = null;
+        transform.rotation = Quaternion.Euler(0f, 0f, 45f);
         timeSinceStart = 2.1f;
         gameObject.SetActive(false);
         ObjectPoolSystem.Instance.ReturnToPool(this);
@@ -44,8 +45,8 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     {
         if (targetList.Count <= 0)
         {
-            target = null;
-            MoveToLastTarget();
+            target.position = lastTarget;
+            MoveToEnemyHurt();
             return;
         }
         
@@ -102,16 +103,21 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
         float t = timeSinceStart;
         float curveSpeed = Mathf.Min(Mathf.Pow(t, curveFloat), maxSpeed);
         velocity = curveSpeed * initialSpeed * Time.deltaTime;
-        if (distance <= straight)
+        if (distance <= straight || target.transform.position.y < transform.position.y)
         {
-            Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, velocity);
-            Vector3 moveDir = (nextPos - transform.position).normalized;
+            Vector3 toTarget = (target.position - transform.position).normalized;
+            Vector3 newDirection = Vector3.Slerp(transform.up, toTarget, Time.deltaTime * 10f); // 전환 속도 조절
+            transform.up = newDirection;
+            transform.position += transform.up * velocity;
             
-            if (moveDir != Vector3.zero)
-            {
-                transform.up = moveDir;
-            }
-            transform.position = nextPos;
+            //Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, velocity);
+            //Vector3 moveDir = (nextPos - transform.position).normalized;
+            //
+            //if (moveDir != Vector3.zero)
+            //{
+            //    transform.up = moveDir;
+            //}
+            //transform.position = nextPos;
         }
         else
         {
@@ -128,20 +134,20 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
        // Debug.Log($"{gameObject.name }의 거리 = {distance}");
     }
 
-    private void MoveToLastTarget()
-    {
-        float distanceToTarget = Vector3.Distance(transform.position, lastTarget);
-        float dynamicRotateSpeed = Mathf.Lerp(180f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
-        Vector3 dirToTarget = (lastTarget - transform.position).normalized;
-        float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
-
-        float maxDelta = dynamicRotateSpeed * Time.deltaTime;
-        
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
-
-        transform.position += transform.up * (velocity);
-    }
+    //private void MoveToLastTarget()
+    //{
+    //    float distanceToTarget = Vector3.Distance(transform.position, lastTarget);
+    //    float dynamicRotateSpeed = Mathf.Lerp(180f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
+    //    Vector3 dirToTarget = (lastTarget - transform.position).normalized;
+    //    float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
+    //    Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+    //
+    //    float maxDelta = dynamicRotateSpeed * Time.deltaTime;
+    //    
+    //    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
+    //
+    //    transform.position += transform.up * (velocity);
+    //}
     
     private void OnTriggerEnter2D(Collider2D other)
     {

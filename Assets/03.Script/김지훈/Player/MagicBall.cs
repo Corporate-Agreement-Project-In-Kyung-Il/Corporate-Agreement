@@ -37,11 +37,17 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     //IObjectPoolItem
     public string Key { get; set; }
     public GameObject GameObject => gameObject;
+    private SpriteRenderer spriteRenderer;
     public void ReturnToPool()
     {
+        spriteRenderer.sortingLayerName = "Skill";
+        spriteRenderer.sortingOrder = 2;
         target = null;
         timeSinceStart = 2.1f;
+        straight = 1.25f;
+        striaghtMove = 180f;
         isRotate = true;
+        transform.localRotation = Quaternion.Euler(0f, 0f, -37f);
         gameObject.SetActive(false);
         ObjectPoolSystem.Instance.ReturnToPool(this);
     }
@@ -50,6 +56,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     {
         TryGetComponent(out animator);
         TryGetComponent(out collider);
+        TryGetComponent(out spriteRenderer);
        // Destroy(gameObject, lifeTime);
        targetList = AliveExistSystem.Instance.monsterList;   
     }
@@ -61,6 +68,8 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         
         if (currentStateInfo.IsName("Explosion"))
         {
+            spriteRenderer.sortingLayerName = "Skill";
+            spriteRenderer.sortingOrder = 2;
             transform.rotation = Quaternion.identity;
             
             switch (currentStateInfo.normalizedTime)
@@ -81,16 +90,16 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         
         if (targetList.Count <= 0)
         {
-            target = null;
-            MoveToLastTarget();
+            target.position = lastTarget;
+            MoveToEnemyHurt();
             return;
         }
-        
-        
         
         if ( target == null || target.gameObject.activeSelf.Equals(false))
         {
             FindNextTarget();
+            striaghtMove = 360f;
+            straight = 1.4f;
         }
         else
         {
@@ -101,6 +110,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     private List<Collider2D> targetList;
     private void FindNextTarget()
     {
+        
         //현재 위치를 기준으로 제일 가까운 애를 공격하게 
         targetList = AliveExistSystem.Instance.monsterList;
 
@@ -126,6 +136,8 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         if (closestTarget != null)
         {
             target = closestTarget;
+            spriteRenderer.sortingLayerName = "Forward";
+            spriteRenderer.sortingOrder = 5;
         }
     }
 
@@ -135,6 +147,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     public float straight;
     
     private float velocity;
+    private float striaghtMove = 270f;
     private void MoveToEnemyHurt()
     {
         timeSinceStart += Time.deltaTime; 
@@ -143,20 +156,36 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
         float curveSpeed = Mathf.Min(Mathf.Pow(t, curvefloat), maxSpeed);
         
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        float dynamicRotateSpeed = Mathf.Lerp(180f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
+        float dynamicRotateSpeed = Mathf.Lerp(striaghtMove, 110f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
 
         velocity = curveSpeed * initialSpeed * Time.deltaTime;
-        if (distanceToTarget < straight)
+        if (distanceToTarget < straight || target.position.y < transform.position.y)
         {
-            Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, velocity);
-            Vector3 moveDir = (nextPos - transform.position).normalized;
+            Vector3 toTarget = (target.position - transform.position).normalized;
+            Vector3 newDirection = Vector3.Slerp(transform.up, toTarget, Time.deltaTime * 10f); // 전환 속도 조절
 
-            if (moveDir != Vector3.zero)
+            if (shakeTrue)
             {
-                transform.up = moveDir;
+                transform.up = newDirection;
+                transform.position += transform.up * velocity;
+            }
+            else
+            {
+                transform.up = toTarget;
+                Vector3 nextPos = Vector2.MoveTowards(transform.position, target.transform.position, velocity);
+                transform.position = nextPos;
             }
 
-            transform.position = nextPos;
+            //직선이동 
+            //Vector3 nextPos = Vector2.MoveTowards(transform.position, target.position, velocity);
+            //Vector3 moveDir = (nextPos - transform.position).normalized;
+            //
+            //if (moveDir != Vector3.zero)
+            //{
+            //    transform.up = moveDir;
+            //}
+            //
+            //transform.position = nextPos;
         }
         else
         {
@@ -185,21 +214,21 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
             isRotate = false;
         }
     }
-    private void MoveToLastTarget()
-    {
-        float distanceToTarget = Vector3.Distance(transform.position, lastTarget);
-        float dynamicRotateSpeed = Mathf.Lerp(180f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
-        Vector3 dirToTarget = (lastTarget - transform.position).normalized;
-        float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
-
-        float maxDelta = dynamicRotateSpeed * Time.deltaTime;
-
-        if (isRotate)
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
-
-        transform.position += transform.up * (velocity);
-    }
+    //private void MoveToLastTarget()
+    //{
+    //    float distanceToTarget = Vector3.Distance(transform.position, lastTarget);
+    //    float dynamicRotateSpeed = Mathf.Lerp(180f, 90f, distanceToTarget / 5f); // 가까울수록 빠르게 회전
+    //    Vector3 dirToTarget = (lastTarget - transform.position).normalized;
+    //    float targetAngle = Mathf.Atan2(dirToTarget.y, dirToTarget.x) * Mathf.Rad2Deg - 90f;
+    //    Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+    //
+    //    float maxDelta = dynamicRotateSpeed * Time.deltaTime;
+    //
+    //    if (isRotate)
+    //        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxDelta);
+    //
+    //    transform.position += transform.up * (velocity);
+    //}
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
