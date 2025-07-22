@@ -43,3 +43,39 @@ MonoBehaviour:
       <Radius>k__BackingField: 1
     - <Point>k__BackingField: {x: -0.66475654, y: 1.0329514}
       <Radius>k__BackingField: 1
+  - <PatternId>k__BackingField: 100001
+    <MonsterSpawnInfoList>k__BackingField:
+    - <Point>k__BackingField: {x: 3, y: 2.775072}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.491404}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 2.8438396}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.353868}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.0329514}
+      <Radius>k__BackingField: 1
+  - <PatternId>k__BackingField: 100002
+    <MonsterSpawnInfoList>k__BackingField:
+    - <Point>k__BackingField: {x: 3, y: 2.775072}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.491404}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 2.8438396}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.353868}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.0329514}
+      <Radius>k__BackingField: 1
+  - <PatternId>k__BackingField: 100003
+    <MonsterSpawnInfoList>k__BackingField:
+    - <Point>k__BackingField: {x: 3, y: 2.775072}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.491404}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 2.8438396}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.353868}
+      <Radius>k__BackingField: 1
+    - <Point>k__BackingField: {x: 3, y: 1.0329514}
+      <Radius>k__BackingField: 1

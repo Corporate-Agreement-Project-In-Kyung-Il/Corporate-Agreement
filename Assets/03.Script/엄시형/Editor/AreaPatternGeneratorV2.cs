@@ -36,7 +36,8 @@ namespace _03.Script.엄시형.Tool.V2
         private Tilemap m_Tilemap;
 
         // TODO : ID읽어와서 중복 못하게
-        // [SerializeField] private List<AreaPatternDTO> m_AreaPatternDTOList = new List<AreaPatternDTO>();
+        // [SerializeField] private List<AreaPatternDTO> m_AreaPatternDTOList
+        // = new List<AreaPatternDTO>();
 
         [Header("스테이지 정보 리스트")] [SerializeField]
         private List<StageInfoDTO> m_StageInfoList = new List<StageInfoDTO>();
@@ -48,7 +49,8 @@ namespace _03.Script.엄시형.Tool.V2
         private int m_PrevIdx = 0;
 
         private readonly List<GameObject> m_PointObjectList = new List<GameObject>();
-        // private readonly AreaPatternPersistenceManager m_PersistenceManager = new AreaPatternPersistenceManager();
+        // private readonly AreaPatternPersistenceManager m_PersistenceManager
+        // = new AreaPatternPersistenceManager();
         private readonly StageInfoPersistMgr m_StagePersistMgr = new StageInfoPersistMgr();
         
         [Conditional("UNITY_EDITOR")]
@@ -79,7 +81,8 @@ namespace _03.Script.엄시형.Tool.V2
                 m_Tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
                 m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
                 
-                foreach (var spawnInfo in m_StageInfoList[0].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
+                foreach (var spawnInfo in 
+                         m_StageInfoList[0].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
                 {
                     Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
                     GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
@@ -174,11 +177,13 @@ namespace _03.Script.엄시형.Tool.V2
                 var area = m_Grid.GetComponentInChildren<Tilemap>();
                 Destroy(area.gameObject);
                 
-                var patternId = m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].PatternId;
+                var patternId 
+                    = m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].PatternId;
                 m_Tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
                 m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
                 
-                foreach (var spawnInfo in m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
+                foreach (var spawnInfo 
+                         in m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
                 {
                     Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
                     GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);

@@ -7,6 +7,7 @@ using _00.Resources.엄시형.PrefabTable;
 using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
+using _03.Script.엄시형.Stage.V2;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -38,7 +39,7 @@ public sealed class Spawner : MonoBehaviour
     
     private List<Tilemap> m_CurTilemapList = new List<Tilemap>();
     private List<AreaPattern> m_CurAreaList = new List<AreaPattern>();
-    
+
     private StageInfo mStageInfo;
     // private List<AreaPattern> m_AreaPatternList;
     
@@ -48,8 +49,7 @@ public sealed class Spawner : MonoBehaviour
         { character_class.전사 , new Vector2(0.5f, -1f) },
         { character_class.마법사 , new Vector2(1.5f, -2f) }
     };
-
-
+    
     [Conditional("UNITY_EDITOR")]
     private void OnValidate()
     {
@@ -63,10 +63,13 @@ public sealed class Spawner : MonoBehaviour
         Instance = this;
         
         mStageInfo = new StageInfo(new int[] { 3, 4, 5 }
+            , StageTheme.Grass
             , MonsterType.Slime
             , 15);
         
         // m_StagePatternTable.Init();
+        // var areas = m_AreaTilemapTable.m_AreaTilemaps[10001];
+        
         GameManager.Instance.GameStart();
     }
 

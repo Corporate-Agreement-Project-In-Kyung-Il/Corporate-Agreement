@@ -10,6 +10,13 @@ using Debug = UnityEngine.Debug;
 
 namespace _03.Script.엄시형.Stage.V2
 {
+    public enum StageTheme
+    {
+        Grass,
+        Perple,
+        Fire,
+    }
+    
     [Serializable]
     public sealed class StageInfo
     {
@@ -17,6 +24,7 @@ namespace _03.Script.엄시형.Stage.V2
         public int AreaCount => m_SpawnMonsterCounts.Length;
         public MonsterType MonsterType => m_MonsterType;
         public int MaxStage => m_MaxStageId;
+        public StageTheme StageTheme => m_StageTheme;
         public int[] SpawnMonsterCounts => m_SpawnMonsterCounts;
         
         // public AreaPattern BossAreaPattern => m_BossAreaPattern;
@@ -29,6 +37,7 @@ namespace _03.Script.엄시형.Stage.V2
 
         private MonsterType m_MonsterType;
         private int[] m_SpawnMonsterCounts;
+        private StageTheme m_StageTheme;
 
         [Conditional("UNITY_EDITOR")]
         private void OnValidate()
@@ -37,9 +46,11 @@ namespace _03.Script.엄시형.Stage.V2
         }
 
         public StageInfo(int[] spawnMonsterCounts
+            , StageTheme theme
             , MonsterType monsterType
             , int mMaxStageId)
         {
+            m_StageTheme = theme;
             m_SpawnMonsterCounts = spawnMonsterCounts;
             // m_AreaPatternList = areaPatternList;
             m_MonsterType = monsterType;

@@ -7,6 +7,7 @@ namespace _03.Script.엄시형.Stage.DTO
     [Serializable]
     public sealed class AreaPattern
     {
+        
         [field: SerializeField]
         public int PatternId { get; private set; }
         
@@ -34,11 +35,6 @@ namespace _03.Script.엄시형.Stage.DTO
             PatternId = id;
 
             MonsterSpawnInfoList = new List<SpawnInfo>(SpawnInfoList);
-        }
-        
-        public int GetStageId()
-        {
-            return PatternId / 100000;
         }
     }
 }

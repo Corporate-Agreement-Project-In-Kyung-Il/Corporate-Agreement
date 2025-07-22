@@ -20,7 +20,6 @@ namespace _03.Script.엄시형.Stage
         
         // private Dictionary<int, StageInfo> m_StageInfoDic = new Dictionary<int, StageInfo>();
         
-        [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
         
         // private Dictionary<int, List<AreaPattern>> m_AreaPatternDic = new Dictionary<int, List<AreaPattern>>();
         
@@ -30,22 +29,11 @@ namespace _03.Script.엄시형.Stage
         //     Init();
         // }
         
-        private List<AreaPattern> GetAllPattern(int count)
-        {
-            var list = m_AreaPatternList.FindAll(pattern =>
-            {
-                return pattern.MonsterSpawnInfoList.Count == count;
-            });
-            Debug.Log($"count : {count}");
-            // m_AreaPatternDic.TryGetValue(count, out List<AreaPattern> list);
-            // Debug.Assert(list != null, $"AreaPatternDic에 {count}키에 해당하는 스폰 정보가 없습니다.");
-            
-            return list;
-        }
+        [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
         
         public AreaPattern GetRandomSpawnPattern(int count)
         {
-            List<AreaPattern> list = GetAllPattern(count);
+            List<AreaPattern> list = GetAllPatternByCount(count);
             
             Debug.Log("AreaPattern Count : " + list.Count);
             
@@ -55,6 +43,18 @@ namespace _03.Script.엄시형.Stage
             return pattern;
         }
         
+        private List<AreaPattern> GetAllPatternByCount(int count)
+        {
+            var list = m_AreaPatternList.FindAll(pattern =>
+            {
+                return pattern.MonsterSpawnInfoList.Count == count;
+            });
+            Debug.Log($"{list.Count} 카운트");
+            // m_AreaPatternDic.TryGetValue(count, out List<AreaPattern> list);
+            // Debug.Assert(list != null, $"AreaPatternDic에 {count}키에 해당하는 스폰 정보가 없습니다.");
+            
+            return list;
+        }
         
         [Conditional("UNITY_EDITOR")]
         public void Init()
