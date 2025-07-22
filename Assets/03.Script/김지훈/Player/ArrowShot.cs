@@ -28,7 +28,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     public void ReturnToPool()
     {
         target = null;
-        transform.rotation = Quaternion.Euler(0f, 0f, 38f);
+        transform.rotation = Quaternion.Euler(0f, 0f, 45f);
         timeSinceStart = 2.1f;
         gameObject.SetActive(false);
         ObjectPoolSystem.Instance.ReturnToPool(this);
@@ -106,7 +106,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
         if (distance <= straight || target.transform.position.y < transform.position.y)
         {
             Vector3 toTarget = (target.position - transform.position).normalized;
-            Vector3 newDirection = Vector3.Slerp(transform.up, toTarget, Time.deltaTime * 20f); // 전환 속도 조절
+            Vector3 newDirection = Vector3.Slerp(transform.up, toTarget, Time.deltaTime * 10f); // 전환 속도 조절
             transform.up = newDirection;
             transform.position += transform.up * velocity;
             

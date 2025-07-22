@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class MagicExplosion : ActiveSkillBase, ISkillID
@@ -24,6 +25,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     private bool isRotate = true;
 
     [SerializeField] Collider2D lastTarget;
+    
 
     public void SetSkillID()
     {
@@ -52,7 +54,11 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         
         if (targetList.Count <= 0)
         {
-            owner.target = lastTarget;
+            GameObject tempTargetObj = GameObject.Find("TempTarget");
+            if (tempTargetObj.TryGetComponent(out Collider2D collider))
+            {
+                owner.target = collider;
+            }
             MoveToEnemyHurt();
             return;
         }
