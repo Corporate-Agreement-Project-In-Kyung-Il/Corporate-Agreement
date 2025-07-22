@@ -8,13 +8,15 @@ public class ConfinerSizeController : MonoBehaviour
 {
     [Header("카메라가 렌더링할 범위의 tilemapCollider들")]
     public List<TilemapCollider2D> tilemapColliders = new List<TilemapCollider2D>(); // 여러 개 할당 가능
-    
+
+    public TilemapCollider2D tilemapCollider;
     private BoxCollider2D boxCollider;
 
     void Awake()
     {
         TryGetComponent(out boxCollider);
         StageClearEvent.stageClearEvent += GenerateLimitMap;
+        tilemapColliders.Add(tilemapCollider);
     }
 
     void UpdateBoxCollider()
@@ -42,10 +44,10 @@ public class ConfinerSizeController : MonoBehaviour
     {
         RemoveTileMap();
         Debug.Log("XXXXX");
-        for (int i = 0; i < Spawner.Instance.CurAreaList.Count; i++)
+        for (int i = 0; i < Spawner.Instance.CurTilemapList.Count; i++)
         {
             Debug.Log("들어가기 시도 중");
-            if (Spawner.Instance.CurAreaList[i].gameObject.TryGetComponent(out TilemapCollider2D tilemapCol))
+            if (Spawner.Instance.CurTilemapList[i].gameObject.TryGetComponent(out TilemapCollider2D tilemapCol))
             {
                 Debug.Log("TileMap 들어감");
                 tilemapColliders.Add(tilemapCol);

@@ -21,10 +21,6 @@ MonoBehaviour:
       <Radius>k__BackingField: 1
     - <Point>k__BackingField: {x: 0.52722037, y: 1.5830946}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.123209, y: 1.1017194}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: -0.22922637, y: 2.637536}
-      <Radius>k__BackingField: 1
   - <PatternId>k__BackingField: 100002
     <MonsterSpawnInfoList>k__BackingField:
     - <Point>k__BackingField: {x: -0.2979943, y: 1.2621775}
@@ -34,8 +30,6 @@ MonoBehaviour:
     - <Point>k__BackingField: {x: 1.2607448, y: 1.1475644}
       <Radius>k__BackingField: 1
     - <Point>k__BackingField: {x: 0.8481372, y: 1.7893982}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.16045843, y: 0.5057306}
       <Radius>k__BackingField: 1
   - <PatternId>k__BackingField: 100003
     <MonsterSpawnInfoList>k__BackingField:
@@ -49,48 +43,3 @@ MonoBehaviour:
       <Radius>k__BackingField: 1
     - <Point>k__BackingField: {x: -0.66475654, y: 1.0329514}
       <Radius>k__BackingField: 1
-  m_StageInfo:
-  - m_BossAreaPattern:
-      <PatternId>k__BackingField: 110004
-      <MonsterSpawnInfoList>k__BackingField:
-      - <Point>k__BackingField: {x: 0, y: 15}
-        <Radius>k__BackingField: 0
-    m_MaxStageId: 15
-    m_SpawnMonsterTypeList: 01000000
-    m_AreaPatternList:
-    - <PatternId>k__BackingField: 100001
-      <MonsterSpawnInfoList>k__BackingField:
-      - <Point>k__BackingField: {x: -0.1375359, y: 6.895415}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 1.3295131, y: 8.087392}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 0.52722037, y: 7.583095}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 1.123209, y: 7.101719}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: -0.22922637, y: 8.637536}
-        <Radius>k__BackingField: 1
-    - <PatternId>k__BackingField: 100002
-      <MonsterSpawnInfoList>k__BackingField:
-      - <Point>k__BackingField: {x: -0.2979943, y: 1.2621775}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 0.3438394, y: 1.1017194}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 1.2607448, y: 1.1475644}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 0.8481372, y: 1.7893982}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 0.16045843, y: 0.5057306}
-        <Radius>k__BackingField: 1
-    - <PatternId>k__BackingField: 100003
-      <MonsterSpawnInfoList>k__BackingField:
-      - <Point>k__BackingField: {x: -0.22922637, y: 2.775072}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 0.61891115, y: 1.491404}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 1.5816617, y: 2.8438396}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: 1.6733525, y: 1.353868}
-        <Radius>k__BackingField: 1
-      - <Point>k__BackingField: {x: -0.66475654, y: 1.0329514}
-        <Radius>k__BackingField: 1

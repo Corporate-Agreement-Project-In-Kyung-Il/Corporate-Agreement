@@ -1200,7 +1200,7 @@ Camera:
   far clip plane: 10
   field of view: 91.49284
   orthographic: 1
-  orthographic size: 5.714286
+  orthographic size: 6.785714
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2152,7 +2152,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 240, y: 60}
+  m_SizeDelta: {x: 70, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1020082307
 GameObject:
@@ -3430,7 +3430,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 240, y: 60}
+  m_SizeDelta: {x: 70, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596208378
 MonoBehaviour:
@@ -3612,7 +3612,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 240, y: 60}
+  m_SizeDelta: {x: 70, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1641550386
 GameObject:
@@ -4192,7 +4192,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 240, y: 60}
+  m_SizeDelta: {x: 70, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1893633361
 GameObject:
@@ -4990,6 +4990,26 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buff1position_x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buff2position_x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
       propertyPath: detectionRange.x
       value: 5
       objectReference: {fileID: 0}
@@ -5087,6 +5107,26 @@ PrefabInstance:
       value: 991338845
       objectReference: {fileID: 0}
     - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buff1position_x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buff2position_x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
       propertyPath: detectionRange.x
       value: 5
       objectReference: {fileID: 0}
@@ -5151,6 +5191,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+      propertyPath: buffsize_x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+      propertyPath: buffsize_y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+      propertyPath: buffsize_z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+      propertyPath: buff1position_x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+      propertyPath: buff2position_x
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
       propertyPath: detectionRange.x
       value: 5
