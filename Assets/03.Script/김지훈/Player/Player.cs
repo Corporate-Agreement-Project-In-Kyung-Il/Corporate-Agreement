@@ -43,6 +43,20 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     public float[] MaxskillCoolTimer => MaxskillCooldownTimers;
     public float[] CurrentCoolTimer => currentSkillCooldownTimers;
 
+    [Header("버프 아이콘 크기")] 
+    public float buffsize_x;
+    public float buffsize_y;
+    public float buffsize_z;
+    
+    [Header("버프 아이콘 위치")] 
+    public float buff1position_x;
+    public float buff1position_y;
+    public float buff1position_z;
+    public float buff2position_x;
+    public float buff2position_y;
+    public float buff2position_z;
+    
+    
     [SerializeField, Header("게임 시작할 때 받아오는 초기값이 저장된 곳."),
      Tooltip("게임 시작할 때 받아오는 초기값이 저장된 곳.\n" + " 초기에 Player의 Stat을 조절하고 싶으면 여기")]
     public PlayerData data;
@@ -339,15 +353,15 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         {
             // 위치 오프셋 설정
             Vector3 spawnOffset = Vector3.zero;
-            if (index == 0) spawnOffset = new Vector3(-0.6f, 0f, 0f); // 왼쪽
-            if (index == 1) spawnOffset = new Vector3(0.6f, 0f, 0f);  // 오른쪽
+            if (index == 0) spawnOffset = new Vector3(buff1position_x, buff1position_y, buff1position_z); // 왼쪽
+            if (index == 1) spawnOffset = new Vector3(buff2position_x, buff2position_y, buff2position_z);  // 오른쪽
 
             // 프리팹 선택 및 생성
             GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
             GameObject buffObj = Instantiate(prefab, transform.position + spawnOffset, Quaternion.identity, transform);
 
             // 스케일 조정
-            buffObj.transform.localScale = new Vector3(1f,1f,1f);
+            buffObj.transform.localScale = new Vector3(buffsize_x,buffsize_y,buffsize_y);
             foreach (var comp in buffObj.GetComponents<MonoBehaviour>())
             {
                 if (comp is ISkillID skill)
