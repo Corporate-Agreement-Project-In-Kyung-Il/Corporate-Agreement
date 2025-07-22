@@ -332,7 +332,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         if (skills[index] is ActiveSkillSO active)
         {
             GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
-            Instantiate(prefab, transform.position, Quaternion.identity);
+            Instantiate(prefab, transform.position, prefab.transform.rotation);
         }
 
         if (skills[index] is BuffSO buff)
