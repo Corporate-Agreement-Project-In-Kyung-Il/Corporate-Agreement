@@ -7,7 +7,12 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
 {
     //Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
     [Header("Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사")]
+    
+    [SerializeField] PlayerData warriorData;
+    [SerializeField] PlayerData archerData;
+    [SerializeField] PlayerData wizardData;
     public PlayerStat[] DependencyPlayerStat;
+    
     
     //버프시킬 scriptAbleObject -> OptionChoice_EquipOption 혹은 OptionChoice_TrainingOption
     [Header("선택지가 EquipSelection일 떄, 선택된 Equip의 ID")]
@@ -41,6 +46,22 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                 Debug.Log($"{equipOption.Description} :::::: {equipOption.Equipment_LvUP}");
                 DependencyPlayerStat[i].attackDamage += equipOption.Attack_LV_UP_Effect;
                 DependencyPlayerStat[i].health += equipOption.HP_LV_UP_Effect;
+
+                switch (i)
+                {
+                    case 0 :
+                        warriorData.attackDamage += equipOption.Attack_LV_UP_Effect;
+                        warriorData.health += equipOption.HP_LV_UP_Effect;
+                        break;
+                    case 1 :
+                        archerData.attackDamage += equipOption.Attack_LV_UP_Effect;
+                        archerData.health += equipOption.HP_LV_UP_Effect;
+                        break;
+                    case 2 :
+                        wizardData.attackDamage += equipOption.Attack_LV_UP_Effect;
+                        wizardData.health += equipOption.HP_LV_UP_Effect;
+                        break;
+                }
                 break;
             }
         }
@@ -75,6 +96,26 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                 DependencyPlayerStat[i].attackDamage += trainingOption.Critical_Damage_Increase;
                 DependencyPlayerStat[i].criticalProbability += trainingOption.Critical_Rate_Increase;
                 DependencyPlayerStat[i].attackSpeed += trainingOption.Attack_Speed_Increase;
+                
+                switch (i)
+                {
+                    case 0 :
+                        warriorData.attackDamage += trainingOption.Critical_Damage_Increase;
+                        warriorData.health += trainingOption.Critical_Damage_Increase;
+                        warriorData.criticalProbability += trainingOption.Critical_Rate_Increase;
+                        break;
+                    case 1 :
+                        archerData.attackDamage += trainingOption.Critical_Damage_Increase;
+                        archerData.health += trainingOption.Critical_Damage_Increase;
+                        archerData.criticalProbability += trainingOption.Critical_Rate_Increase;
+                        break;
+                    case 2 :
+                        wizardData.attackDamage += trainingOption.Critical_Damage_Increase;
+                        wizardData.health += trainingOption.Critical_Damage_Increase;
+                        wizardData.criticalProbability += trainingOption.Critical_Rate_Increase;
+
+                        break;
+                }
                 break;
             }
         }

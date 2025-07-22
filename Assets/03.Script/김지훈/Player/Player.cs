@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     [Header("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기."), Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
     public PlayerStat playerStat = new PlayerStat();
 
+    public float resetHp; 
     private Collider2D col;
     private Rigidbody2D rigid;
     private Animator animator;
@@ -98,6 +100,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     {
         TryGetComponent(out col);
         TryGetComponent(out rigid);
+        
         weapon2 = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
 
@@ -115,7 +118,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         playerStat.training_type = data.training_type;
         playerStat.equip_item = data.equip_item;
         playerStat.skill_possed = data.skill_possed;
-
+        resetHp = playerStat.health;
         attackRange = playerStat.attackRange;
     }
 
@@ -436,6 +439,23 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         Gizmos.DrawWireCube(enemyDetectionCenter, playerStat.detectionRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
+    }
+
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += ResetPlayerStats;
+    }
+
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent -= ResetPlayerStats;
+    }
+
+    private void ResetPlayerStats()
+    {
+        resetHp = data.health;
+        playerStat.health = resetHp;
+        DamgeEvent.OnTriggerPlayerDamageEvent(this);
     }
 }
 
