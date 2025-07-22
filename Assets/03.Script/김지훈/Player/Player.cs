@@ -1,11 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public enum BuffEffectType

@@ -3930,6 +3930,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e8166b98a0d8745aa0d120eca25aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warriorData: {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
+  archerData: {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
+  wizardData: {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
   DependencyPlayerStat:
   - attackRange: 0
     moveSpeed: 0
