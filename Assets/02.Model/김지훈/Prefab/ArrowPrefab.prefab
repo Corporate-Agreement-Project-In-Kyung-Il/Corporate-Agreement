@@ -149,7 +149,11 @@ MonoBehaviour:
   straightAttackRange: 0
   isTargetNotDead: 1
   arrowDamage: 0
+  initialSpeed: 0.3
+  maxSpeed: 30
   timeSinceStart: 2.1
+  curveFloat: 3
+  straight: 0
 --- !u!50 &1734467268760361088
 Rigidbody2D:
   serializedVersion: 4

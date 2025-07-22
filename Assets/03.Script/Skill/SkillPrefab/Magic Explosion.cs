@@ -8,6 +8,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     //광역기 투사체
     public int SkillId;
     public int SkillID { get; set; }
+    public GameObject boomEffect;
 
     public void SetSkillID()
     {
@@ -19,6 +20,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
 
     private void Awake()
     {
+        boomEffect.SetActive(false);
         Initialize();
     }
 
@@ -32,7 +34,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     void Update()
     {
         if (owner.target == null) return;
-        
+
         Vector2 dir = (owner.target.transform.position - transform.position).normalized;
         float dis = Vector2.Distance(owner.target.transform.position, transform.position);
 
@@ -41,6 +43,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         if (dis < 0.2f)
         {
             coll.enabled = true;
+          
         }
     }
 
@@ -48,6 +51,10 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
 
         if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
         {
@@ -61,9 +68,17 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
 
             Debug.Log("마법폭발 공격!");
 
-            Destroy(gameObject);
+            StartCoroutine(effectDelay());
             //데미지입힘
         }
+    }
+
+    IEnumerator effectDelay()
+    {
+        
+        boomEffect.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
     public override void Initialize()
@@ -86,6 +101,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
 
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
+        boomEffect.transform.localScale = new Vector3(stat.Range_width, stat.Range_height, 1f);
     }
 
     private void ReturnToPool()

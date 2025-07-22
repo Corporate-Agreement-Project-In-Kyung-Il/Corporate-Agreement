@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3627931841980187727}
   - component: {fileID: 2082649995279178155}
   m_Layer: 0
-  m_Name: MasicBallPrefab
+  m_Name: MagicBallPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,10 +125,13 @@ MonoBehaviour:
   player: {fileID: 0}
   isTargetNotDead: 1
   magicDamage: 0
-  initialSpeed: 2
+  maxSpeed: 20
+  initialSpeed: 0.5
   explosionTriggerDistance: 0.15
   lifeTime: 7
   timeSinceStart: 2.1
+  curvefloat: 3
+  straight: 1
 --- !u!61 &3627931841980187727
 BoxCollider2D:
   m_ObjectHideFlags: 0

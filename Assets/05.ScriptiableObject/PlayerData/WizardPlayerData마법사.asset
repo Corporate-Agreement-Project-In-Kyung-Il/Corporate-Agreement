@@ -19,7 +19,7 @@ MonoBehaviour:
   characterClass: 2
   characterName: 6
   characterGrade: 0
-  attackDamage: 1000
+  attackDamage: 20
   health: 100
   attackSpeed: 0.5
   criticalProbability: 0

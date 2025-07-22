@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -225,6 +226,7 @@ public class GameManager : MonoBehaviour
         }
 
         optionButton.rerollCount--;
+        optionButton.rerollCountText.text = $"{optionButton.rerollCount} / {baseRerollCount}";
         SetRandomOptionToButton(optionButton, optionButton.rerollCount); // 남은 횟수 유지
     }
 
@@ -344,6 +346,7 @@ public class GameManager : MonoBehaviour
         }
 
         button.rerollCount = rerollCount;
+        button.rerollCountText.text = $"{button.rerollCount} / {baseRerollCount}";
 
         switch (choicedOption)
         {

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
+using _03.Script.엄시형.Util;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -46,7 +47,7 @@ namespace _03.Script.엄시형.Tool
         private int m_PrevIdx = 1;
         
         private readonly List<GameObject> m_PointObjectList = new List<GameObject>();
-        private readonly AreaPatternPersistenceManager m_PersistenceManager = new AreaPatternPersistenceManager();
+        // private readonly AreaPatternPersistenceManager m_PersistenceManager = new AreaPatternPersistenceManager();
         
         // 저장버튼
         // 초기화버튼
@@ -74,7 +75,7 @@ namespace _03.Script.엄시형.Tool
         
         private void Awake()
         {
-            if (m_PersistenceManager.TryReadFromJson(out m_AreaPatternDTOList))
+            if (AreaPatternPersistenceManager.TryReadFromJson(out m_AreaPatternDTOList))
             {
                 // patternId에 해당하는 타일맵 생성
                 var patternId = m_AreaPatternDTOList[0].PatternId;
@@ -227,12 +228,12 @@ namespace _03.Script.엄시형.Tool
                 m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList.Add(spawnInfo);
             }
 
-            m_PersistenceManager.WriteAsJSON(m_AreaPatternDTOList);
+            AreaPatternPersistenceManager.WriteAsJSON(m_AreaPatternDTOList);
         }
 
         private void OpenFolder()
         {
-            EditorUtility.RevealInFinder(m_PersistenceManager.fullPath);
+            EditorUtility.RevealInFinder(AreaPatternPersistenceManager.fullPath);
         }
         
         private void RepaintPoints()
@@ -279,35 +280,5 @@ namespace _03.Script.엄시형.Tool
         }
     }
     
-    public class AreaPatternPersistenceManager
-    {
-        public readonly string fullPath;
-        
-        public AreaPatternPersistenceManager()
-        {
-            fullPath = Path.Combine(Application.dataPath, "05.DataTable", "AreaPattern.json");
-        }
-            
-        public void WriteAsJSON(List<AreaPatternDTO> patterns)
-        {
-            AllAreaPatternDTO allPatterns = new AllAreaPatternDTO(patterns);
-            
-            string json = JsonUtility.ToJson(allPatterns);
-
-            Debug.Log(fullPath);
-            File.WriteAllText(fullPath, json);
-        }
-
-        public bool TryReadFromJson(out List<AreaPatternDTO> areaPatternList)
-        {
-            areaPatternList = new List<AreaPatternDTO>();
-
-            if (File.Exists(fullPath) == false) return false;
-            
-            areaPatternList = JsonUtility.FromJson<AllAreaPatternDTO>(
-                    File.ReadAllText(fullPath)).AreaPatternList;
-            
-            return true;
-        }
-    }
+    
 }

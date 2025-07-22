@@ -8,6 +8,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
     //광역기 투사체, 적 추적후 터짐
     public int SkillId;
     public int SkillID { get; set; }
+    public GameObject boomEffect;
     public void SetSkillID()
     {
         SkillID = SkillId;
@@ -17,6 +18,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
     private BoxCollider2D coll;
     private void Awake()
     {
+        boomEffect.SetActive(false);
         Initialize();
     }
     void Start()
@@ -41,7 +43,11 @@ public class AquaBall : ActiveSkillBase, ISkillID
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
-        
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+
         if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
         {
             CombatEvent combatEvent = new CombatEvent();
@@ -51,14 +57,19 @@ public class AquaBall : ActiveSkillBase, ISkillID
             combatEvent.collider = other;
 
             CombatSystem.instance.AddCombatEvent(combatEvent);
+            
 
-            Debug.Log("아쿠아볼 공격!");
-
-            Destroy(gameObject);
+            StartCoroutine(effectDelay());
+            //데미지입힘
         }
-        Destroy(gameObject);
     }
 
+    IEnumerator effectDelay()
+    {
+        boomEffect.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
     public override void Initialize()
     {
         coll = GetComponent<BoxCollider2D>();
@@ -79,5 +90,6 @@ public class AquaBall : ActiveSkillBase, ISkillID
             
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
+        boomEffect.transform.localScale = new Vector3(stat.Range_width, stat.Range_height, 1f);
     }
 }

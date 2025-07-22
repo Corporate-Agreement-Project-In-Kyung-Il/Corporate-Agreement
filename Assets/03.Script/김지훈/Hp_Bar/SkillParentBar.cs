@@ -71,8 +71,32 @@ public class SkillParentBar : MonoBehaviour
 
     private void ChangeSkillBar()
     {
-        skillSliders[0].Slider.value = 1f-(target.CurrentCoolTimer[0]/target.MaxskillCoolTimer[0]);
-        skillSliders[1].Slider.value =  1f-(target.CurrentCoolTimer[1]/target.MaxskillCoolTimer[1]);
+        for (int i = 0; i < skillSliders.Length; i++)
+        {
+            if (target.skills[i] is BuffSO buff)
+            {
+                BuffEffectType effectType;
+                if (!System.Enum.TryParse(buff.Skill_Buff_Type, out effectType)) continue;
+
+                // 버프가 활성 중이면 항상 1로 유지
+                if (target.HasBuff(effectType))
+                {
+                    skillSliders[i].Slider.value = 1f;
+                }
+                else
+                {
+                    // 버프가 꺼지면 쿨타임 감소 표시
+                    skillSliders[i].Slider.value =
+                        1f - (target.CurrentCoolTimer[i] / target.MaxskillCoolTimer[i]);
+                }
+            }
+            else
+            {
+                // 일반 액티브 스킬은 기존 로직
+                skillSliders[i].Slider.value =
+                    1f - (target.CurrentCoolTimer[i] / target.MaxskillCoolTimer[i]);
+            }
+        }
         
     }
 

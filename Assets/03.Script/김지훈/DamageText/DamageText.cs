@@ -31,7 +31,7 @@ public class DamageText : MonoBehaviour, IObjectPoolItem
 
     private void Update()
     {
-        if (duration < 0)
+        if (target == null || duration < 0)
         {
             ReturnToPool();
             return;
