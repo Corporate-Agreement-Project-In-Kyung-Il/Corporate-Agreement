@@ -4990,6 +4990,26 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buff1position_x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buff2position_x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
       propertyPath: detectionRange.x
       value: 5
       objectReference: {fileID: 0}
@@ -5085,6 +5105,26 @@ PrefabInstance:
     - target: {fileID: 2835530418904383478, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
       propertyPath: m_SortingLayerID
       value: 991338845
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buff1position_x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buff2position_x
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
       propertyPath: detectionRange.x
