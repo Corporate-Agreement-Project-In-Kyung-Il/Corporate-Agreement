@@ -197,7 +197,6 @@ MonoBehaviour:
   skillObjects: []
   skillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
   Selection_ID: 0
-  buffs: []
 --- !u!1 &144104697
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +567,12 @@ MonoBehaviour:
   playerStatAdjust: {fileID: 1689890959}
   skillManager: {fileID: 128173405}
   type: {fileID: 0}
+  "\uB178\uB9D0_\uAC00\uC911\uCE58": 500
+  "\uB808\uC5B4_\uAC00\uC911\uCE58": 257
+  "\uC5D0\uD53D_\uAC00\uC911\uCE58": 140
+  "\uC720\uB2C8\uD06C_\uAC00\uC911\uCE58": 80
+  "\uB808\uC804\uB4DC_\uAC00\uC911\uCE58": 20
+  "\uC2E0\uD654_\uAC00\uC911\uCE58": 3
 --- !u!4 &321154673
 Transform:
   m_ObjectHideFlags: 0
@@ -1128,6 +1133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHpBar: {fileID: 0}
+  skillBar: {fileID: 0}
+  enemyHpDetectionSize: {x: 5.5, y: 25}
 --- !u!1 &800662206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHpBar: {fileID: 6455272225453176847, guid: 10677f9fbd8ad3b42ab10c56433e41d6, type: 3}
+  skillBar: {fileID: 0}
+  enemyHpDetectionSize: {x: 5.5, y: 25}
 --- !u!1 &874625789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &874625790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3876,6 +3885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurStageId: 1
   m_StageEndDetector: {fileID: 1399486814}
   m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
@@ -3890,7 +3900,6 @@ MonoBehaviour:
   - {fileID: 1185224000}
   - {fileID: 1378329100}
   - {fileID: 1044278924}
-  CurStageId: 1
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0
@@ -4439,7 +4448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1893633362
 MonoBehaviour:
   m_ObjectHideFlags: 0

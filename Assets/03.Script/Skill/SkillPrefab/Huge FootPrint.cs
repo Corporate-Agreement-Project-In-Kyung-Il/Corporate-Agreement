@@ -52,7 +52,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
             CombatSystem.instance.AddCombatEvent(combatEvent);
 
             Debug.Log("거대한 발자국 공격!");
-            coll.enabled = false;
+            //coll.enabled = false;
 
             StartCoroutine(effectDelay());
         }
@@ -85,6 +85,6 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
 
-        effect.transform.localScale = new Vector3(stat.Range_width, stat.Range_height, 1);
+        // effect.transform.localScale = new Vector3(stat.Range_width, stat.Range_height, 1);
     }
 }

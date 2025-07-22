@@ -11,6 +11,8 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     public int attackCount;
     public float moveSpeed;
     private bool attacking;
+    public float destroyTime = 1f;
+    float timer = 0;
 
     public void SetSkillID()
     {
@@ -30,7 +32,14 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 
     void Update()
     {
+        timer += Time.deltaTime;
+        if (timer > destroyTime)
+        {
+            Destroy(gameObject);
+        }
+
         if (owner.target == null) return;
+
 
         Vector2 dir = (owner.target.transform.position - transform.position).normalized;
         float dis = Vector2.Distance(owner.target.transform.position, transform.position);

@@ -133,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4143726780913922746}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
@@ -142,7 +142,7 @@ Transform:
   - {fileID: 9158071959927307792}
   - {fileID: 7177438313922986509}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
 --- !u!114 &7409944128174044910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +158,14 @@ MonoBehaviour:
   owner: {fileID: 0}
   SkillId: 100018
   boomEffect: {fileID: 7486694888101289180}
+  maxSpeed: 5.2
+  initialSpeed: 1.5
+  lifeTime: 7
+  timeSinceStart: 2.1
+  lastTarget: {fileID: 0}
   moveSpeed: 8
+  curvefloat: 3
+  straight: 1.25
 --- !u!61 &5203864578159867241
 BoxCollider2D:
   m_ObjectHideFlags: 0
