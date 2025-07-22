@@ -13,6 +13,8 @@ namespace _03.Script.엄시형.Stage.DTO
         [field: SerializeField]
         public List<SpawnInfo> MonsterSpawnInfoList { get; set; } = new List<SpawnInfo>();
         
+        public int SpawnMonsterCount => MonsterSpawnInfoList.Count; 
+        
         public AreaPattern() {}
         
         public AreaPattern(int id, List<SpawnInfoDTO> SpawnInfoDtoList)
