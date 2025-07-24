@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7632117037785583588}
   - component: {fileID: 5045089962592649358}
   m_Layer: 0
-  m_Name: Area15
+  m_Name: Area15 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -832,7 +832,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 0.2688679, b: 0.2688679, a: 1}
+  m_Color: {r: 0.10424703, g: 0.5188679, b: 0, a: 1}
   m_Origin: {x: -3, y: -5, z: 0}
   m_Size: {x: 6, y: 20, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}

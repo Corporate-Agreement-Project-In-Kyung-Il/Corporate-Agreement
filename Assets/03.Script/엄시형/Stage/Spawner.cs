@@ -32,16 +32,14 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private MonsterTableSO m_MonsterTable;
     
-    [SerializeField] private List<Tilemap> m_TilemapList;
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private Player[] m_PlayerList;
     
     private List<Tilemap> m_CurTilemapList = new List<Tilemap>();
     private List<AreaPattern> m_CurAreaList = new List<AreaPattern>();
-
+    private StageTheme m_CurTheme = StageTheme.Grass; // 현재 테마, 초기값은 Grass로 설정
     private StageInfo mStageInfo;
-    // private List<AreaPattern> m_AreaPatternList;
     
     private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
@@ -66,11 +64,15 @@ public sealed class Spawner : MonoBehaviour
             , StageTheme.Grass
             , MonsterType.Slime
             , 15);
+         
         
         // m_StagePatternTable.Init();
         // var areas = m_AreaTilemapTable.m_AreaTilemaps[10001];
         
         GameManager.Instance.GameStart();
+        
+        // 밖에서 초기화 해야 Memory에 올라감
+        m_AreaTilemapTable.Init();
     }
 
     private void OnEnable()
@@ -142,8 +144,10 @@ public sealed class Spawner : MonoBehaviour
     {
         m_CurAreaList = new List<AreaPattern>(mStageInfo.AreaCount);
         
+        // TODO: 테마로 가져오기
         for (int i = 0; i < mStageInfo.AreaCount; i++)
         {
+            // 테마에서 가져오기
             AreaPattern areaPattern = 
                 m_StagePatternTable.GetRandomSpawnPattern(mStageInfo.SpawnMonsterCounts[i]);
             
@@ -190,6 +194,10 @@ public sealed class Spawner : MonoBehaviour
                 , parent: m_CurTilemapList.Last().gameObject);
             
             boss.gameObject.transform.localScale = Vector3.one * 3f;
+
+            m_CurTheme = (StageTheme)Random.Range(0, Enum.GetValues(typeof(StageTheme)).Length);
+            // var themes = Enum.GetValues(typeof(StageTheme));
+            // m_CurTheme = (StageTheme)themes.GetValue(Random.Range(0, themes.Length));
         }
         
         StageClearEvent.OnTriggerStageClearEvent(); // 맵 완성다 되었음.
@@ -235,10 +243,15 @@ public sealed class Spawner : MonoBehaviour
         float topY = 0f;
         
         List<Tilemap> areaList = new List<Tilemap>(areaPatternCount);
+
+        var themeAreaList = m_AreaTilemapTable.GetThemeAreaList(m_CurTheme);
         
         for (int i = 0; i < areaPatternCount; i++)
         {
-            var tilemap = m_AreaTilemapTable.GetTilemapOrNull(m_CurAreaList[i].PatternId);
+            var tilemap = themeAreaList.Find((map) =>
+            {
+                return map.Id == areaPatternList[i];
+            }).Tilemap;
             
             var curTileMap = Instantiate(tilemap
                 , new Vector2(0, topY)
@@ -258,7 +271,10 @@ public sealed class Spawner : MonoBehaviour
         // 보스 스테이지
         if (CurStageId % 3 == 0)
         {
-            var bossTileMap = Instantiate(m_TilemapList[0]
+            // 보스 스테이지 타일맵 ID
+            var tilemap = m_AreaTilemapTable.GetTilemap(m_CurTheme, -1);
+            
+            var bossTileMap = Instantiate(tilemap
                 , new Vector2(0, topY)
                 , Quaternion.identity
                 , parent: m_Grid.transform);

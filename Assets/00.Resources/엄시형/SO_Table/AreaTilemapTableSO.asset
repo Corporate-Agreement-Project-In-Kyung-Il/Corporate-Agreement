@@ -13,15 +13,27 @@ MonoBehaviour:
   m_Name: AreaTilemapTableSO
   m_EditorClassIdentifier: 
   m_TilemapList:
-  - m_Id: 100001
+  - m_Theme: 0
+    m_Id: 3
     m_Tilemap: {fileID: 3852055898315261543, guid: 3b29a737be7651d4a8c8079f34ce5569, type: 3}
-  - m_Id: 100002
+  - m_Theme: 0
+    m_Id: 4
     m_Tilemap: {fileID: 8015887555663789654, guid: 25edda594d25d5546ba185778625e67c, type: 3}
-  - m_Id: 100003
+  - m_Theme: 0
+    m_Id: 5
     m_Tilemap: {fileID: 3852055898315261543, guid: 3f310deb6709f69459443350e203c095, type: 3}
-  - m_Id: 100004
-    m_Tilemap: {fileID: 3852055898315261543, guid: 2806995e89afca94aa8b53e72f54ccd1, type: 3}
-  - m_Id: 100005
-    m_Tilemap: {fileID: 8015887555663789654, guid: ea97571c26006404fbd666b59c4d0dea, type: 3}
-  - m_Id: 100006
-    m_Tilemap: {fileID: 3852055898315261543, guid: efa9b8edd490717448cc8509eb3fb0f2, type: 3}
+  - m_Theme: 1
+    m_Id: 3
+    m_Tilemap: {fileID: 3852055898315261543, guid: c95749da76054504ab407db3af7a9da9, type: 3}
+  - m_Theme: 1
+    m_Id: 4
+    m_Tilemap: {fileID: 3852055898315261543, guid: 7172cd25de0e1bd4d89f9946cbf166fa, type: 3}
+  - m_Theme: 1
+    m_Id: 5
+    m_Tilemap: {fileID: 3852055898315261543, guid: 7c708ddd127038541966e6e1b198eed7, type: 3}
+  - m_Theme: 0
+    m_Id: -1
+    m_Tilemap: {fileID: 3852055898315261543, guid: b7fe8f1c005253f40a2859c8a1ecea46, type: 3}
+  - m_Theme: 1
+    m_Id: -1
+    m_Tilemap: {fileID: 3852055898315261543, guid: 1919242de7ad11f40922c61d2065f04e, type: 3}

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
+using _03.Script.엄시형.Stage.V2;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -77,8 +78,8 @@ namespace _03.Script.엄시형.Tool.V2
                 Debug.Log("성공");
                 
                 // patternId에 해당하는 타일맵 생성
-                var patternId = m_StageInfoList[0].AreaPatternList[0].PatternId;
-                m_Tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
+                var patternId = m_StageInfoList[0].AreaPatternList[0].MonsterSpawnInfoList.Count;
+                m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
                 m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
                 
                 foreach (var spawnInfo in 
@@ -179,7 +180,7 @@ namespace _03.Script.엄시형.Tool.V2
                 
                 var patternId 
                     = m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].PatternId;
-                m_Tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
+                m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
                 m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
                 
                 foreach (var spawnInfo 
