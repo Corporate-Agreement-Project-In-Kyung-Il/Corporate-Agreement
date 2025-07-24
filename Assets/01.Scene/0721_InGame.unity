@@ -824,7 +824,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1678880258}
         m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: PopUpPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1588,7 +1588,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2117860704}
         m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: PopUpPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2631,7 +2631,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1447951144}
         m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: PopUpPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

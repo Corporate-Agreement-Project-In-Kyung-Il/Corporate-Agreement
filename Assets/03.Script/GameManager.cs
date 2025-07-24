@@ -91,6 +91,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private int m_TimeScale;
+    
+    public void ChangeTimeScale()
+    {
+        m_TimeScale++;
+        switch (m_TimeScale % 3)
+        {
+            case 0:
+                Time.timeScale = 1f;
+                break;
+            case 1:
+                Time.timeScale = 2f;
+                break;
+            case 2:
+                Time.timeScale = 3f;
+                break;
+        }
+    }
     public void Resume()
     {
         Time.timeScale = 1f;
