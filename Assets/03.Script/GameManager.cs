@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -90,6 +91,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private int m_TimeScale;
+    
+    public void ChangeTimeScale()
+    {
+        m_TimeScale++;
+        switch (m_TimeScale % 3)
+        {
+            case 0:
+                Time.timeScale = 1f;
+                break;
+            case 1:
+                Time.timeScale = 2f;
+                break;
+            case 2:
+                Time.timeScale = 3f;
+                break;
+        }
+    }
     public void Resume()
     {
         Time.timeScale = 1f;
@@ -225,6 +244,7 @@ public class GameManager : MonoBehaviour
         }
 
         optionButton.rerollCount--;
+        optionButton.rerollCountText.text = $"{optionButton.rerollCount} / {baseRerollCount}";
         SetRandomOptionToButton(optionButton, optionButton.rerollCount); // 남은 횟수 유지
     }
 
@@ -344,6 +364,7 @@ public class GameManager : MonoBehaviour
         }
 
         button.rerollCount = rerollCount;
+        button.rerollCountText.text = $"{button.rerollCount} / {baseRerollCount}";
 
         switch (choicedOption)
         {

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AreaTilemapTableSO
   m_EditorClassIdentifier: 
   m_TilemapList:
+<<<<<<< HEAD
   - m_Theme: 0
     m_Id: 3
     m_Tilemap: {fileID: 3852055898315261543, guid: 3b29a737be7651d4a8c8079f34ce5569, type: 3}
@@ -37,3 +38,11 @@ MonoBehaviour:
   - m_Theme: 1
     m_Id: -1
     m_Tilemap: {fileID: 3852055898315261543, guid: 1919242de7ad11f40922c61d2065f04e, type: 3}
+=======
+  - m_Id: 100001
+    m_Tilemap: {fileID: 3852055898315261543, guid: 6a10b9b39f022d84580acc4524b13611, type: 3}
+  - m_Id: 100002
+    m_Tilemap: {fileID: 8015887555663789654, guid: ef498476fd8bbe6499778109d28fadf1, type: 3}
+  - m_Id: 100003
+    m_Tilemap: {fileID: 3852055898315261543, guid: 7a2d3a503a5b44e4d895d9bb0b52c3ac, type: 3}
+>>>>>>> Develop

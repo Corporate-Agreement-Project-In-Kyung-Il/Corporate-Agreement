@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 1
   moveSpeed: 5
-  isDead: 0
+  isDead: 1
   character_ID: 100001
   characterClass: 0
   characterName: 1
   characterGrade: 0
-  attackDamage: 1
-  health: 100000
+  attackDamage: 10.05
+  health: 2000
   attackSpeed: 1
-  criticalProbability: 0
+  criticalProbability: 0.02
   training_type: 500001
   equip_item: 400001
   skill_possed: ab860100ac860100

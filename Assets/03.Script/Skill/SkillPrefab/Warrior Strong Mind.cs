@@ -10,6 +10,8 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     public int SkillId;
     public int SkillID { get; set; }
 
+    public float destroyTime = 1f;
+    float timer = 0;
 
     public void SetSkillID()
     {
@@ -26,13 +28,20 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     private void Start()
     {
         attackCount = 0;
+
         AttackTarget();
     }
 
     private void Update()
     {
+        timer += Time.deltaTime;
+        if (timer > destroyTime)
+        {
+            Destroy(gameObject);
+        }
+
         if (owner.target == null) return;
-        
+
         transform.position = owner.target.transform.position;
     }
 
@@ -41,25 +50,29 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
         if (attackCount >= stat.Attack_Count)
         {
             Destroy(gameObject);
-            return;
         }
         else
         {
-            if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
-            {
-                attackCount++;
-                CombatEvent combatEvent = new CombatEvent();
-                combatEvent.Receiver = enemyDamage;
-                combatEvent.Sender = owner;
-                combatEvent.Damage = stat.Damage;
-                combatEvent.collider = owner.target;
-
-                CombatSystem.instance.AddCombatEvent(combatEvent);
-
-                Debug.Log("전사의 강한의지 공격!");
-            }
-            AttackTarget();
+            StartCoroutine(DamageDelay());
         }
+    }
+
+    IEnumerator DamageDelay()
+    {
+        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage) && attackCount < stat.Attack_Count)
+        {
+            attackCount++;
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = owner.target;
+
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+        }
+
+        yield return new WaitForSeconds(0.3f);
+        AttackTarget();
     }
 
     public override void Initialize()

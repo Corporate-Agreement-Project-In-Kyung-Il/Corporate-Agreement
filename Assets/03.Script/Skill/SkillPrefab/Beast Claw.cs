@@ -9,6 +9,10 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     public int SkillID { get; set; }
 
     public int attackCount;
+    public float moveSpeed;
+    private bool attacking;
+    public float destroyTime = 1f;
+    float timer = 0;
 
     public void SetSkillID()
     {
@@ -18,13 +22,35 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     void Awake()
     {
         Initialize();
+        attacking = false;
     }
 
     void Start()
     {
         attackCount = 0;
-        
-        AttackTarget();
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > destroyTime)
+        {
+            Destroy(gameObject);
+        }
+
+        if (owner.target == null) return;
+
+
+        Vector2 dir = (owner.target.transform.position - transform.position).normalized;
+        float dis = Vector2.Distance(owner.target.transform.position, transform.position);
+
+        transform.position += (Vector3)(dir * (moveSpeed * Time.deltaTime));
+
+        if (dis < 0.2f && attacking == false)
+        {
+            attacking = true;
+            AttackTarget();
+        }
     }
 
     public void AttackTarget()
@@ -32,25 +58,29 @@ public class BeastClaw : ActiveSkillBase, ISkillID
         if (attackCount >= stat.Attack_Count)
         {
             Destroy(gameObject);
-            return;
         }
         else
         {
-            if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
-            {
-                attackCount++;
-                CombatEvent combatEvent = new CombatEvent();
-                combatEvent.Receiver = enemyDamage;
-                combatEvent.Sender = owner;
-                combatEvent.Damage = stat.Damage;
-                combatEvent.collider = owner.target;
-
-                CombatSystem.instance.AddCombatEvent(combatEvent);
-
-                Debug.Log("야수의 발톱 공격!");
-            }
-            AttackTarget();
+            StartCoroutine(DamageDelay());
         }
+    }
+
+    IEnumerator DamageDelay()
+    {
+        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage) && attackCount < stat.Attack_Count)
+        {
+            attackCount++;
+            CombatEvent combatEvent = new CombatEvent();
+            combatEvent.Receiver = enemyDamage;
+            combatEvent.Sender = owner;
+            combatEvent.Damage = stat.Damage;
+            combatEvent.collider = owner.target;
+
+            CombatSystem.instance.AddCombatEvent(combatEvent);
+        }
+
+        yield return new WaitForSeconds(0.2f);
+        AttackTarget();
     }
 
     public override void Initialize()

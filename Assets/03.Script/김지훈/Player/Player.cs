@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public enum BuffEffectType
@@ -43,6 +40,20 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     public float[] MaxskillCoolTimer => MaxskillCooldownTimers;
     public float[] CurrentCoolTimer => currentSkillCooldownTimers;
 
+    [Header("버프 아이콘 크기")] 
+    public float buffsize_x;
+    public float buffsize_y;
+    public float buffsize_z;
+    
+    [Header("버프 아이콘 위치")] 
+    public float buff1position_x;
+    public float buff1position_y;
+    public float buff1position_z;
+    public float buff2position_x;
+    public float buff2position_y;
+    public float buff2position_z;
+    
+    
     [SerializeField, Header("게임 시작할 때 받아오는 초기값이 저장된 곳."),
      Tooltip("게임 시작할 때 받아오는 초기값이 저장된 곳.\n" + " 초기에 Player의 Stat을 조절하고 싶으면 여기")]
     public PlayerData data;
@@ -50,6 +61,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     [Header("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기."), Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
     public PlayerStat playerStat = new PlayerStat();
 
+    public float resetHp; 
     private Collider2D col;
     private Rigidbody2D rigid;
     private Animator animator;
@@ -84,6 +96,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     {
         TryGetComponent(out col);
         TryGetComponent(out rigid);
+        
         weapon2 = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
 
@@ -101,7 +114,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         playerStat.training_type = data.training_type;
         playerStat.equip_item = data.equip_item;
         playerStat.skill_possed = data.skill_possed;
-
+        resetHp = playerStat.health;
         attackRange = playerStat.attackRange;
     }
 
@@ -231,12 +244,22 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
             return;
         }
 
+        //보스몹을 거리 때문에 인식 못하는데 OverlapBoxnonAlloc으로 하기보다는 거리로 재고 나서
+        //만약 보스몹이 한 Stage 2마리 넣거나 큰 몹을 넣는다면 overlapBoxnonAlloc으로 수정
         float distance = Vector2.Distance(transform.position, target.transform.position);
 
         if (distance > playerStat.attackRange)
         {
-            target = null;
-            return;
+            if (enemyDetectionCol.Length > 0)
+            {
+                target = enemyDetectionCol[0];
+                animator.SetBool(IsAttack, true);
+            }
+            else
+            {
+                target = null;
+                return;
+            }
         }
         else
         {
@@ -322,13 +345,22 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         if (skills[index] is ActiveSkillSO active)
         {
             GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
-            Instantiate(prefab, transform.position, Quaternion.identity);
+            Instantiate(prefab, transform.position, prefab.transform.rotation);
         }
 
         if (skills[index] is BuffSO buff)
         {
+            // 위치 오프셋 설정
+            Vector3 spawnOffset = Vector3.zero;
+            if (index == 0) spawnOffset = new Vector3(buff1position_x, buff1position_y, buff1position_z); // 왼쪽
+            if (index == 1) spawnOffset = new Vector3(buff2position_x, buff2position_y, buff2position_z);  // 오른쪽
+
+            // 프리팹 선택 및 생성
             GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
-            GameObject buffObj = Instantiate(prefab, transform.position, Quaternion.identity, transform);
+            GameObject buffObj = Instantiate(prefab, transform.position + spawnOffset, Quaternion.identity, transform);
+
+            // 스케일 조정
+            buffObj.transform.localScale = new Vector3(buffsize_x,buffsize_y,buffsize_y);
             foreach (var comp in buffObj.GetComponents<MonoBehaviour>())
             {
                 if (comp is ISkillID skill)
@@ -345,11 +377,12 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
 
     private void ResetCooldown(int index)
     {
-        if (skills[index] is ActiveSkillSO active) MaxskillCooldownTimers[index] = active.Skill_Cooldown;
-        else if (skills[index] is BuffSO buff) MaxskillCooldownTimers[index] = buff.Skill_Cooldown;
+        if (skills[index] is ActiveSkillSO active)
+            MaxskillCooldownTimers[index] = active.Skill_Cooldown;
+        else if (skills[index] is BuffSO buff)
+            MaxskillCooldownTimers[index] = buff.Skill_Cooldown;
 
-        currentSkillCooldownTimers[0] = MaxskillCooldownTimers[0];
-        currentSkillCooldownTimers[1] = MaxskillCooldownTimers[1];
+        currentSkillCooldownTimers[index] = MaxskillCooldownTimers[index]; // 수정: 해당 index만 초기화
     }
 
     public bool HasBuff(BuffEffectType buff) => activeBuffs.TryGetValue(buff, out bool isActive) && isActive;
@@ -402,6 +435,23 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         Gizmos.DrawWireCube(enemyDetectionCenter, playerStat.detectionRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
+    }
+
+    private void OnEnable()
+    {
+        StageClearEvent.stageClearEvent += ResetPlayerStats;
+    }
+
+    private void OnDisable()
+    {
+        StageClearEvent.stageClearEvent -= ResetPlayerStats;
+    }
+
+    private void ResetPlayerStats()
+    {
+        resetHp = data.health;
+        playerStat.health = resetHp;
+        DamgeEvent.OnTriggerPlayerDamageEvent(this);
     }
 }
 
