@@ -30,6 +30,10 @@ public class OptionButton : MonoBehaviour
    
    public void OnClick()
    {
+      var panel = checkOptionPanel.GetComponent<Panel>();
+      panel.confirmButton.onClick.RemoveAllListeners();
+      panel.contentText.text = null;
+      checkOptionPanel.SetActive(false);
       switch (optionType)
       {
          case EOptionType.Skill:
