@@ -2428,7 +2428,9 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  rerollCountText: {fileID: 0}
   optionCanvas: {fileID: 188872456}
+  checkOptionPanel: {fileID: 0}
 --- !u!114 &1447951145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3898,8 +3900,6 @@ MonoBehaviour:
   - {fileID: 1185224000}
   - {fileID: 1378329100}
   - {fileID: 1044278924}
-  - {fileID: 1044278924}
-  - {fileID: 1044278924}
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0
@@ -4069,7 +4069,9 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  rerollCountText: {fileID: 0}
   optionCanvas: {fileID: 0}
+  checkOptionPanel: {fileID: 0}
 --- !u!114 &1678880259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4123,6 +4125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e8166b98a0d8745aa0d120eca25aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warriorData: {fileID: 0}
+  archerData: {fileID: 0}
+  wizardData: {fileID: 0}
   DependencyPlayerStat:
   - attackRange: 0
     moveSpeed: 0
@@ -4693,7 +4698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemapColliders: []
-  decoMap: {fileID: 1628772141}
+  tilemapCollider: {fileID: 0}
 --- !u!61 &2015966070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5148,7 +5153,9 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  rerollCountText: {fileID: 0}
   optionCanvas: {fileID: 0}
+  checkOptionPanel: {fileID: 0}
 --- !u!114 &2143961052
 MonoBehaviour:
   m_ObjectHideFlags: 0
