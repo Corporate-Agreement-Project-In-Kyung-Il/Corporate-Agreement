@@ -20,7 +20,7 @@ public class ArrowWeapon : Weapon
         
         bullet.transform.position = transform.position;
         bullet.arrowDamage = player.Damage;
-        if (Random.value < player.playerStat.criticalProbability)
+        if (Random.value < player.buffplayerStat.criticalProbability)
         {
             bullet.arrowDamage =player.Damage* 2f;
         }

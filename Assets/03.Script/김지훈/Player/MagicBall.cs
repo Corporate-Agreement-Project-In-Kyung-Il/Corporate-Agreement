@@ -256,13 +256,13 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
 
     private void OnEnable()
     {
-        StageClearEvent.stageClearEvent += ReturnToPool;
+        StageEvent.stageClearEvent += ReturnToPool;
         shakeTrue = true;
     }
 
     private void OnDisable()
     {
-        StageClearEvent.stageClearEvent -= ReturnToPool;
+        StageEvent.stageClearEvent -= ReturnToPool;
     }
 
 }

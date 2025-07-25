@@ -176,11 +176,11 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     
     private void OnEnable()
     {
-        StageClearEvent.stageClearEvent += ReturnToPool;
+        StageEvent.stageClearEvent += ReturnToPool;
     }
 
     private void OnDisable()
     {
-        StageClearEvent.stageClearEvent -= ReturnToPool;
+        StageEvent.stageClearEvent -= ReturnToPool;
     }
 }

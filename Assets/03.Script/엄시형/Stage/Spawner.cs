@@ -201,7 +201,7 @@ public sealed class Spawner : MonoBehaviour
             // m_CurTheme = (StageTheme)themes.GetValue(Random.Range(0, themes.Length));
         }
         
-        StageClearEvent.OnTriggerStageClearEvent(); // 맵 완성다 되었음.
+        StageEvent.OnTriggerStageClearEvent(); // 맵 완성다 되었음.
     }
     
     /// <summary>
@@ -211,7 +211,7 @@ public sealed class Spawner : MonoBehaviour
     /// <param name="character"></param>
     public void SetPositionStartPoint(Player character)
     {
-        if (m_PlayerSpawnPointDic.TryGetValue(character.playerStat.characterClass
+        if (m_PlayerSpawnPointDic.TryGetValue(character.buffplayerStat.characterClass
                 , out var spawnPos))
         {
             character.transform.position = spawnPos;

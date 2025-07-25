@@ -24,7 +24,7 @@ public class PlayerHpBar : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (target.playerStat.characterName)
+        switch (target.buffplayerStat.characterName)
         {
             case character_name.기본_전사 :
                 offset = Vector3.up * -0.5f; 
@@ -84,7 +84,7 @@ public class PlayerHpBar : MonoBehaviour
     {
         if (target.Equals(damagedPlayer))
         {
-            targetValue = damagedPlayer.playerStat.health / damagedPlayer.data.health;
+            targetValue = damagedPlayer.buffplayerStat.health / damagedPlayer.data.health;
             isLerping = true;
         }
 

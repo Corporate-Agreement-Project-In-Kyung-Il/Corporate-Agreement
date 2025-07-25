@@ -113,13 +113,13 @@ public class FollowCamera : MonoBehaviour
     }
     private void OnEnable()
     {
-        StageClearEvent.stageClearEvent += InitalPosition;
+        StageEvent.stageClearEvent += InitalPosition;
         DamgeEvent.ShakeEvent += Shake;
     }
 
     private void OnDisable()
     {
-        StageClearEvent.stageClearEvent -= InitalPosition;
+        StageEvent.stageClearEvent -= InitalPosition;
         DamgeEvent.ShakeEvent -= Shake;
         
     }
