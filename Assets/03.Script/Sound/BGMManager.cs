@@ -4,8 +4,12 @@ using UnityEngine;
 
 public enum GameState
 {
-    Idle,
-    Dungeon
+    Lobby,
+    Statge1,
+    Statge2,
+    Statge3,
+    Statge4,
+    Statge5,
 }
 
 [System.Serializable]
@@ -46,7 +50,7 @@ public class BGMManager : MonoBehaviour
                 bgmDict.Add(data.state, data.bgmClip);
             }
         }
-        ChangeBGM(GameState.Idle);
+        ChangeBGM(GameState.Lobby);
     }
 
     public void ChangeBGM(GameState newState)
@@ -60,6 +64,7 @@ public class BGMManager : MonoBehaviour
             {
                 bgmSource.clip = clip;
                 bgmSource.volume = 0.4f;
+                bgmSource.loop = true;
                 bgmSource.Play();
             }
         }

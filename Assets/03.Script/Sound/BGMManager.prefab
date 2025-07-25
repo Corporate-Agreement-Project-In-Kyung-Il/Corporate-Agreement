@@ -46,7 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 6648648960117434346}
-  bgmList: []
+  bgmList:
+  - state: 0
+    bgmClip: {fileID: 8300000, guid: 319b1b45e26f4ed44833d9af3057f038, type: 3}
+  - state: 1
+    bgmClip: {fileID: 8300000, guid: 7fd595432a97cce498a36a7a2261eb23, type: 3}
+  - state: 2
+    bgmClip: {fileID: 8300000, guid: 7518a97f04f2df740858cc6d1cc006f1, type: 3}
+  - state: 3
+    bgmClip: {fileID: 8300000, guid: f9d9d31666da40c409343cf0262ebdf7, type: 3}
+  - state: 4
+    bgmClip: {fileID: 8300000, guid: 8f3d28d55793e824c8bfa1efbf645c81, type: 3}
+  - state: 5
+    bgmClip: {fileID: 8300000, guid: 63ec36a9e21df7149bac989fbdd3584b, type: 3}
 --- !u!82 &6648648960117434346
 AudioSource:
   m_ObjectHideFlags: 0
