@@ -102,22 +102,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         weapon2 = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
 
-        playerStat.health = data.health;
-        playerStat.moveSpeed = data.moveSpeed;
-        playerStat.character_ID = data.character_ID;
-        playerStat.characterClass = data.characterClass;
-        playerStat.characterName = data.characterName;
-        playerStat.characterGrade = data.characterGrade;
-        playerStat.attackDamage = data.attackDamage;
-        playerStat.attackSpeed = data.attackSpeed;
-        playerStat.attackRange = data.attackRange;
-        playerStat.criticalProbability = data.criticalProbability;
-        playerStat.detectionRange = detectionRange;
-        playerStat.training_type = data.training_type;
-        playerStat.equip_item = data.equip_item;
-        playerStat.skill_possed = data.skill_possed;
-        resetHp = playerStat.health;
-        attackRange = playerStat.attackRange;
+        initialSetPlayerStats(data);
     }
 
     private void Start()
@@ -448,6 +433,27 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         currentCharacterState = CharacterState.Run;
        
         DamgeEvent.OnTriggerPlayerDamageEvent(this);
+    }
+
+    private void initialSetPlayerStats(PlayerData initialData)
+    {
+        playerStat.health = initialData.health;
+        playerStat.moveSpeed = initialData.moveSpeed;
+        playerStat.character_ID = initialData.character_ID;
+        playerStat.characterClass = initialData.characterClass;
+        playerStat.characterName = initialData.characterName;
+        playerStat.characterGrade = initialData.characterGrade;
+        playerStat.attackDamage = initialData.attackDamage;
+        playerStat.attackSpeed = initialData.attackSpeed;
+        playerStat.attackRange = initialData.attackRange;
+        playerStat.criticalProbability = initialData.criticalProbability;
+        playerStat.detectionRange = detectionRange;
+        playerStat.training_type = initialData.training_type;
+        playerStat.equip_item = initialData.equip_item;
+        playerStat.skill_possed = initialData.skill_possed;
+        resetHp = playerStat.health;
+        attackRange = playerStat.attackRange;
+        playerStat.equip_level = initialData.equip_level;
     }
 }
 

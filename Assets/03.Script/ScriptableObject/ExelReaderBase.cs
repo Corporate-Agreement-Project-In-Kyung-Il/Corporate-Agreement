@@ -25,13 +25,6 @@ public enum MyEnum
     레전드,
     신화
 }
-
-public enum ECharacterGrade
-{
-    S,
-    A
-}
-
 [System.Serializable]
 public class EquipOption : BaseValue
 {
@@ -111,17 +104,16 @@ public class TrainingOption : BaseValue
 public class Character : BaseValue
 {
     public int Character_ID;
-    public string Character_Class;
-    public string Character_Name;
-    public string Character_Grade;
+    public character_class Character_Class;
+    public character_name Character_Name;
+    public character_grade Character_Grade;
     public float Attack;
     public float Health;
     public float Attack_Speed;
     public float Critical_Probability;
     public int Training_type;
     public int equip_item;
-    public int skill_possed1;
-    public int skill_possed2;
+    public List<int> skill_possed;
 }
 
 public abstract class ExelReaderBase<T> : ScriptableObject where T : BaseValue, new()
