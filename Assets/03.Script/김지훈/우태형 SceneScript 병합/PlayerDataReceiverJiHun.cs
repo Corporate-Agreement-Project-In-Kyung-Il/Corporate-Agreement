@@ -50,17 +50,17 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                 switch (i)
                 {
                     case 0 :
-                        warriorData.equip_level = equipOption.Equipment_LvUP;
+                        warriorData.equip_level += equipOption.Equipment_LvUP;
                         warriorData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         warriorData.health += equipOption.HP_LV_UP_Effect;
                         break;
                     case 1 :
-                        archerData.equip_level = equipOption.Equipment_LvUP;
+                        archerData.equip_level += equipOption.Equipment_LvUP;
                         archerData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         archerData.health += equipOption.HP_LV_UP_Effect;
                         break;
                     case 2 :
-                        wizardData.equip_level = equipOption.Equipment_LvUP;
+                        wizardData.equip_level += equipOption.Equipment_LvUP;
                         wizardData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         wizardData.health += equipOption.HP_LV_UP_Effect;
                         break;
