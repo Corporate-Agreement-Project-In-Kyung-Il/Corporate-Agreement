@@ -4692,16 +4692,21 @@ MonoBehaviour:
   m_MonsterStatTable: {fileID: 11400000, guid: 16f2c6dd7713c95479fdf2e0347103ed, type: 2}
   m_MonsterData: {fileID: 11400000, guid: eac4037eda615a84ab77d0319915898b, type: 2}
   m_MonsterTable: {fileID: 11400000, guid: 8cd7e0585f7a01847a69123de230f27a, type: 2}
+  m_CharacterPrefabs:
+  - {fileID: 826854746306196579, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+  - {fileID: 7524582742169491956, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+  - {fileID: 83753358995430796, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+  m_CharacterTable: {fileID: 11400000, guid: b02cd45478f3f12438bd94f858a8a5ff, type: 2}
   m_PlayerData:
   - {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
   - {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
   - {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
-  m_Grid: {fileID: 1058518465}
-  m_StageEndPoint: {fileID: 1399486814}
   m_PlayerList:
   - {fileID: 1185224000}
   - {fileID: 1378329100}
   - {fileID: 1044278924}
+  m_Grid: {fileID: 1058518465}
+  m_StageEndPoint: {fileID: 1399486814}
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0

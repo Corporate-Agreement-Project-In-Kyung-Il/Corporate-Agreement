@@ -31,10 +31,14 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private MonsterStatExel m_MonsterStatTable;
     [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private MonsterTableSO m_MonsterTable;
+    [SerializeField] private Player[] m_CharacterPrefabs;
+    [SerializeField] private PlayerCharacter m_CharacterTable;
     [SerializeField] private PlayerData[] m_PlayerData;
+    
+    [SerializeField] private Player[] m_PlayerList;
+    
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
-    [SerializeField] private Player[] m_PlayerList;
     
     private List<Tilemap> m_CurTilemapList = new List<Tilemap>();
     private List<AreaPattern> m_CurAreaList = new List<AreaPattern>();
@@ -222,22 +226,43 @@ public sealed class Spawner : MonoBehaviour
         }
     }
     
-    public void SpawnCharacters(int[] CharacterIds)
+    public void SpawnCharacters()
     {
-        for (int i = 0; i < CharacterIds.Length; i++)
+        // index 0 전사 100001
+        // index 1 궁수 100004
+        // index 2 마법사 100006
+        // var playerList = PlayerList.Instance.CharacterIDs;
+        var playerList = new int[] {100001, 100004, 100006}; // 임시로 0, 1, 2로 설정
+        
+        for (int i = 0; i < playerList.Length; i++)
         {
-            var characterId = CharacterIds[i];
-            var characterClass = (character_class) characterId;
-            
-            if (m_PlayerSpawnPointDic.TryGetValue(characterClass, out Vector2 spawnPos))
+            character_class characterClass = (i) switch
             {
-                // Player player = Instantiate(m_MonsterTable.GetPlayer(characterClass)
-                //     , spawnPos
-                //     , Quaternion.identity);
-                
-                
-                
-                // m_PlayerList[i] = player;
+                0 => character_class.전사,
+                1 => character_class.궁수,
+                2 => character_class.마법사,
+                _ => throw new Exception("잘못된 캐릭터 클래스 ID입니다.")
+            };
+
+            // Prefab에서 캐릭터를 찾음
+            // TODO : 지금은 Class를 찾지만 특수 캐릭터 프리팹 추가하면 ID로 찾아야함
+            Player player = Array.Find(m_CharacterPrefabs, charactrer =>
+            {
+                return charactrer.playerStat.characterClass == characterClass;
+            });
+
+            // 
+            IDValuePair<Character> characterData = m_CharacterTable.data.Find(data =>
+            {
+                return data.Key_ID == playerList[i];
+            });
+            
+            
+            if (m_PlayerSpawnPointDic
+                .TryGetValue(characterClass, out Vector2 spawnPos))
+            {
+                var spawnedCharacter = Instantiate(player, spawnPos, Quaternion.identity);
+                // spawnedCharacter. 
             }
         }
     }
