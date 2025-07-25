@@ -13,4 +13,5 @@ public class CharacterChooseButton : MonoBehaviour
      public string Skill1_info;
      public string Skill2_info;
      public string characterName;
+     public character_class characterClass;
 }

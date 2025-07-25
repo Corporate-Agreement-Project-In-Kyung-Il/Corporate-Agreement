@@ -204,7 +204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3972800}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1308685685}
+        m_TargetAssemblyTypeName: PlayStartButton, Assembly-CSharp
+        m_MethodName: OnClickStartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3972800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,10 +541,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 0}
   Skill1Sprite: {fileID: 0}
   Skill2Sprite: {fileID: 0}
-  CharacterID: 0
+  CharacterID: 100007
   Skill1_info: 
   Skill2_info: 
   characterName: 
+  characterClass: 2
 --- !u!114 &83877935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +593,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1308685684}
         m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
         m_MethodName: ShowInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 83877934}
+          m_ObjectArgumentAssemblyTypeName: CharacterChooseButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1308685684}
+        m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
+        m_MethodName: GetPlayerID
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 83877934}
@@ -1138,10 +1163,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 21300000, guid: cf99824c846c35c48bb3f856a4fbd1f7, type: 3}
   Skill1Sprite: {fileID: 21300000, guid: f1043b44f1589004e9c0042e2731c654, type: 3}
   Skill2Sprite: {fileID: 21300000, guid: 5917414c9aa642c4f80c6478c45b4faa, type: 3}
-  CharacterID: 0
+  CharacterID: 100001
   Skill1_info: adsfasdf
   Skill2_info: asdfasdfa
   characterName: 5555
+  characterClass: 0
 --- !u!114 &478639300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,6 +1215,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1308685684}
         m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
         m_MethodName: ShowInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 478639299}
+          m_ObjectArgumentAssemblyTypeName: CharacterChooseButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1308685684}
+        m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
+        m_MethodName: GetPlayerID
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 478639299}
@@ -1292,10 +1330,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 0}
   Skill1Sprite: {fileID: 0}
   Skill2Sprite: {fileID: 0}
-  CharacterID: 0
+  CharacterID: 100003
   Skill1_info: 
   Skill2_info: 
   characterName: 
+  characterClass: 0
 --- !u!114 &483833999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,6 +1391,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1308685684}
+        m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
+        m_MethodName: GetPlayerID
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 483833998}
+          m_ObjectArgumentAssemblyTypeName: CharacterChooseButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &483834000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,6 +1441,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483833996}
   m_CullTransparentMesh: 1
+--- !u!1 &569278950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569278952}
+  - component: {fileID: 569278951}
+  m_Layer: 0
+  m_Name: PlayerList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &569278951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569278950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e37eaf198ad6d4d8c7482b1115ec90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterIDs: 000000000000000000000000
+--- !u!4 &569278952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569278950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540, y: 586.4774, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &590561090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,10 +1930,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 0}
   Skill1Sprite: {fileID: 0}
   Skill2Sprite: {fileID: 0}
-  CharacterID: 0
+  CharacterID: 100005
   Skill1_info: 
   Skill2_info: 
   characterName: 
+  characterClass: 1
 --- !u!114 &930236386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,6 +1982,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1308685684}
         m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
         m_MethodName: ShowInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 930236385}
+          m_ObjectArgumentAssemblyTypeName: CharacterChooseButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1308685684}
+        m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
+        m_MethodName: GetPlayerID
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 930236385}
@@ -2030,7 +2139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1079859121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2046,10 +2155,10 @@ RectTransform:
   - {fileID: 899573566}
   m_Father: {fileID: 1946087164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 475, y: -782.5226}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1079859122
 MonoBehaviour:
@@ -2067,10 +2176,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 0}
   Skill1Sprite: {fileID: 0}
   Skill2Sprite: {fileID: 0}
-  CharacterID: 0
+  CharacterID: 100008
   Skill1_info: 
   Skill2_info: 
   characterName: 
+  characterClass: 0
 --- !u!114 &1079859123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2379,10 +2489,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 21300000, guid: 2f9e206413ecbe648bdf952b880ccd6f, type: 3}
   Skill1Sprite: {fileID: 21300000, guid: 5cfa2da6c5115774ebc0b743a61e3438, type: 3}
   Skill2Sprite: {fileID: 21300000, guid: f1043b44f1589004e9c0042e2731c654, type: 3}
-  CharacterID: 0
+  CharacterID: 100002
   Skill1_info: qwer
   Skill2_info: asdf
   characterName: 6755
+  characterClass: 0
 --- !u!114 &1111387342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2430,6 +2541,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1308685684}
         m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
         m_MethodName: ShowInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1111387341}
+          m_ObjectArgumentAssemblyTypeName: CharacterChooseButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1308685684}
+        m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
+        m_MethodName: GetPlayerID
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1111387341}
@@ -2496,7 +2619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1140023122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2512,10 +2635,10 @@ RectTransform:
   - {fileID: 696683810}
   m_Father: {fileID: 1946087164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 745, y: -782.5226}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140023123
 MonoBehaviour:
@@ -2533,10 +2656,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 0}
   Skill1Sprite: {fileID: 0}
   Skill2Sprite: {fileID: 0}
-  CharacterID: 0
+  CharacterID: 100009
   Skill1_info: 
   Skill2_info: 
   characterName: 
+  characterClass: 0
 --- !u!114 &1140023124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2687,10 +2811,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 0}
   Skill1Sprite: {fileID: 0}
   Skill2Sprite: {fileID: 0}
-  CharacterID: 0
+  CharacterID: 100004
   Skill1_info: 
   Skill2_info: 
   characterName: 
+  characterClass: 1
 --- !u!114 &1278934396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2738,6 +2863,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1308685684}
         m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
         m_MethodName: ShowInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1278934395}
+          m_ObjectArgumentAssemblyTypeName: CharacterChooseButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1308685684}
+        m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
+        m_MethodName: GetPlayerID
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1278934395}
@@ -2877,6 +3014,7 @@ GameObject:
   - component: {fileID: 1308685681}
   - component: {fileID: 1308685680}
   - component: {fileID: 1308685684}
+  - component: {fileID: 1308685685}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2985,6 +3123,19 @@ MonoBehaviour:
   Skill1Sprite: {fileID: 590561092}
   Skill2Sprite: {fileID: 19793250}
   CharacterSprite: {fileID: 2033707317}
+  PlayerList: {fileID: 569278951}
+--- !u!114 &1308685685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308685679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54518f5f62632e6479e830dbef84727a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1509196729
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,10 +3496,11 @@ MonoBehaviour:
   CharacterSprite: {fileID: 0}
   Skill1Sprite: {fileID: 0}
   Skill2Sprite: {fileID: 0}
-  CharacterID: 0
+  CharacterID: 100006
   Skill1_info: 
   Skill2_info: 
   characterName: 
+  characterClass: 2
 --- !u!114 &1750398760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3396,6 +3548,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1308685684}
         m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
         m_MethodName: ShowInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1750398759}
+          m_ObjectArgumentAssemblyTypeName: CharacterChooseButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1308685684}
+        m_TargetAssemblyTypeName: CharacterChoosing, Assembly-CSharp
+        m_MethodName: GetPlayerID
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1750398759}
@@ -3634,3 +3798,4 @@ SceneRoots:
   - {fileID: 462389747}
   - {fileID: 1308685683}
   - {fileID: 1554680847}
+  - {fileID: 569278952}
