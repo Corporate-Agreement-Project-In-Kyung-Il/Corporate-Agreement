@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 
 public class HpBarDisplayCanvas : MonoBehaviour
 {
+    public static HpBarDisplayCanvas Instance;
     [Header("PlayerHpBar 표시")]
     public PlayerHpBar playerHpBar;
     
@@ -20,11 +21,17 @@ public class HpBarDisplayCanvas : MonoBehaviour
     private Dictionary<Transform, GameObject> enemyHpBars = new Dictionary<Transform, GameObject>();
     private Dictionary<Transform, GameObject> playerHpBars = new Dictionary<Transform, GameObject>();
     private Plane[] cameraPlanes;
-    private List<Collider2D> monsterList = new List<Collider2D>();
-    private List<Collider2D> playerList = new List<Collider2D>();
+
+    private List<Collider2D> playerList;
     private Collider2D[] colliderEnemy = new Collider2D[30];
     
     public Vector2 enemyHpDetectionSize = new Vector2(5.5f, 25f);
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -103,8 +110,21 @@ public class HpBarDisplayCanvas : MonoBehaviour
                 }
 
                 playerHpBars[playerTransform] = playerHpDisplay.gameObject;
-                playerHpBars[playerTransform] = skillTimeDisplay.gameObject;
+                //playerHpBars[playerTransform] = skillTimeDisplay.gameObject;
             }
         }
     }
+    
+    public void OnPlayerDeath(Player player)
+    {
+        Transform t = player.transform;
+        if (playerHpBars.ContainsKey(t))
+        {
+            Debug.Log($"[HpBar 제거] {t.name}");
+            Destroy(playerHpBars[t]);
+            playerHpBars.Remove(t);
+        }
+    }
+    
+    
 }

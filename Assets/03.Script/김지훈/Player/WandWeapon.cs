@@ -5,7 +5,9 @@ using UnityEngine;
 public class WandWeapon : Weapon
 {
     public MagicBall magicBall;
-    
+
+
+
     public override bool Attack(Collider2D collider)
     {
         if (collider.gameObject.TryGetComponent(out IDamageAble enemyDamage).Equals(false))

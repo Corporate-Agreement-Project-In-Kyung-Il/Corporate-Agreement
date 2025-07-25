@@ -55,6 +55,7 @@ public class PlayerHpBar : MonoBehaviour
 
         if (target.gameObject.activeSelf.Equals(false))
         {
+            HpBarDisplayCanvas.Instance.OnPlayerDeath(target);
             Destroy(gameObject);
             return;
         }
@@ -72,17 +73,10 @@ public class PlayerHpBar : MonoBehaviour
     
     private void FollwTarget()
     {
-        if (target.gameObject.activeSelf == false)
-        {
-            Destroy(gameObject);
-        }
-
-        if (target == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
+        //if (target == null || target.gameObject.activeSelf == false)
+        //{
+        //    Destroy(gameObject);
+        //}
         transform.position = target.transform.position + offset;
     }
 

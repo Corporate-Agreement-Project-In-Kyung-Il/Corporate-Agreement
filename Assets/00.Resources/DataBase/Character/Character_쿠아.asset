@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5693b6435258f494b9ace5b1c779498a, type: 3}
+  m_Name: "Character_\uCFE0\uC544"
+  m_EditorClassIdentifier: 
+  data:
+  - Key_ID: 100007
+    val:
+      Character_ID: 0
+      Character_Class: "\uB9C8\uBC95\uC0AC"
+      Character_Name: "\uCFE0\uC544"
+      Character_Grade: S
+      Attack: 70
+      Health: 93
+      Attack_Speed: 0.5
+      Critical_Probability: 0
+      Training_type: 500003
+      equip_item: 400003
+      skill_possed1: 100018
+      skill_possed2: 100020

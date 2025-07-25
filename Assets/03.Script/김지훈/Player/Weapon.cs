@@ -7,7 +7,6 @@ public abstract class Weapon : MonoBehaviour
 {
     private static readonly int Attack1 = Animator.StringToHash("Attack");
     public Animator playerAnimator;
-    
     protected SpriteRenderer sr;
     protected Player player;
     protected Animator animator;
@@ -17,6 +16,7 @@ public abstract class Weapon : MonoBehaviour
         TryGetComponent(out animator);
         TryGetComponent(out sr); //sr 장착한 검에 대해서 모형 변화
         player = GetComponentInParent<Player>();
+        
     }
 
     protected void Update()
@@ -31,7 +31,5 @@ public abstract class Weapon : MonoBehaviour
         }
         
     }
-    
-
     public abstract bool Attack(Collider2D collider);
 }

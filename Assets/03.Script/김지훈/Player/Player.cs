@@ -32,6 +32,8 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         set => playerStat = value;
     }
 
+    public Weapon WEAPON => weapon2;
+
     public List<int> SkillID => playerStat.skill_possed;
     public ISkillID[] skills = new ISkillID[2];
     public GameObject skillPrefab;
@@ -232,6 +234,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     {
         data.isDead = true;
         gameObject.SetActive(false);
+        AliveExistSystem.Instance.RemovePlayerFromList(col);
     }
 
     private void performAttack()
@@ -437,20 +440,13 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
     }
 
-    private void OnEnable()
-    {
-        StageClearEvent.stageClearEvent += ResetPlayerStats;
-    }
 
-    private void OnDisable()
-    {
-        StageClearEvent.stageClearEvent -= ResetPlayerStats;
-    }
-
-    private void ResetPlayerStats()
+    public void ResetPlayerStats()
     {
         resetHp = data.health;
         playerStat.health = resetHp;
+        currentCharacterState = CharacterState.Run;
+       
         DamgeEvent.OnTriggerPlayerDamageEvent(this);
     }
 }

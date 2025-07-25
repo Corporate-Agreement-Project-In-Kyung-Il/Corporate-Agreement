@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArrowWeapon : Weapon
 {
     public ArrowShot arrowShot;
+    
 
     public override bool Attack(Collider2D collider)
     {
