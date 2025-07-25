@@ -4945,6 +4945,7 @@ MonoBehaviour:
     criticalProbability: 0
     training_type: 0
     equip_item: 0
+    equip_level: 0
     skill_possed: 
   - attackRange: 0
     moveSpeed: 0
@@ -4960,6 +4961,7 @@ MonoBehaviour:
     criticalProbability: 0
     training_type: 0
     equip_item: 0
+    equip_level: 0
     skill_possed: 
   - attackRange: 0
     moveSpeed: 0
@@ -4975,6 +4977,7 @@ MonoBehaviour:
     criticalProbability: 0
     training_type: 0
     equip_item: 0
+    equip_level: 0
     skill_possed: 
   equipSelectionID: 0
   trainingSelectionID: 0

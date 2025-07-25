@@ -60,6 +60,7 @@ public sealed class Spawner : MonoBehaviour
     {
         Instance = this;
         
+        // 임시 데이터 테이블에서 받거나 해야함
         mStageInfo = new StageInfo(new int[] { 3, 4, 5 }
             , StageTheme.Grass
             , MonsterType.Slime
