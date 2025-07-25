@@ -29,7 +29,7 @@ public class SoundExecel : MonoBehaviour
             AudioClip clip = AssetDatabase.LoadAssetAtPath<AudioClip>(filePath);
             if (clip == null)
             {
-                Debug.LogWarning($"❌AudioClip not found at {filePath}");
+                Debug.LogWarning($"AudioClip not found at {filePath}");
                 continue;
             }
 
@@ -40,8 +40,7 @@ public class SoundExecel : MonoBehaviour
 
             // 저장 경로
             string assetPath = savePath + fileName + ".asset";
-            AssetDatabase.CreateAsset(sfxData, assetPath);
-            Debug.Log($" Created: {assetPath}");
+            AssetDatabase.CreateAsset(sfxData, assetPath);         
         }
 
         AssetDatabase.SaveAssets();
