@@ -455,6 +455,27 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         attackRange = playerStat.attackRange;
         playerStat.equip_level = initialData.equip_level;
     }
+    // public void initialSetPlayerStats(Character data)
+    // {
+    //     playerStat.health = data.Health;
+    //     playerStat.moveSpeed = 5f;
+    //     playerStat.character_ID = data.Character_ID;
+    //     playerStat.characterClass = data.Character_Class;
+    //     playerStat.characterName = data.Character_Name;
+    //     playerStat.characterGrade = data.Character_Grade;
+    //     playerStat.attackDamage = data.Attack;
+    //     playerStat.attackSpeed = data.Attack_Speed;
+    //     playerStat.attackRange = ;
+    //     playerStat.criticalProbability = data.criticalProbability;
+    //     playerStat.detectionRange = detectionRange;
+    //     playerStat.training_type = data.training_type;
+    //     playerStat.equip_item = data.equip_item;
+    //     playerStat.skill_possed = data.skill_possed;
+    //     resetHp = playerStat.health;
+    //     attackRange = playerStat.attackRange;
+    //     playerStat.equip_level = data.equip_level;
+    // }
+    
 }
 
 public enum CharacterState

@@ -31,11 +31,11 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private MonsterStatExel m_MonsterStatTable;
     [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private MonsterTableSO m_MonsterTable;
-    [SerializeField] private Player[] m_CharacterPrefabs;
+    [SerializeField] private List<Player> m_CharacterPrefabs;
     [SerializeField] private PlayerCharacter m_CharacterTable;
-    [SerializeField] private PlayerData[] m_PlayerData;
+    [SerializeField] private List<PlayerData> m_PlayerData;
     
-    [SerializeField] private Player[] m_PlayerList;
+    private List<Player> m_PlayerList = new List<Player>();
     
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
@@ -47,9 +47,9 @@ public sealed class Spawner : MonoBehaviour
     
     private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
-        { character_class.궁수, new Vector2(-0.5f, -2f) },
-        { character_class.전사 , new Vector2(0.5f, -1f) },
-        { character_class.마법사 , new Vector2(1.5f, -2f) }
+        { character_class.궁수, new Vector2(-0.5f, 0f) },
+        { character_class.전사 , new Vector2(0.5f, 1f) },
+        { character_class.마법사 , new Vector2(1.5f, 0f) }
     };
     
     [Conditional("UNITY_EDITOR")]
@@ -113,6 +113,7 @@ public sealed class Spawner : MonoBehaviour
         m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
         GetRandomPattern();
         m_CurTilemapList = GenerateMap(mStageInfo.SpawnMonsterCounts);
+        SpawnCharacters();
         SpawnAllMonstersInStage();
     }
 
@@ -162,7 +163,7 @@ public sealed class Spawner : MonoBehaviour
     
     public void SpawnAllMonstersInStage()
     {
-        for (var i = 0; i < m_PlayerList.Length; i++)
+        for (var i = 0; i < m_PlayerList.Count; i++)
         {
             var player = m_PlayerList[i];
             SetPositionStartPoint(player);
@@ -236,33 +237,44 @@ public sealed class Spawner : MonoBehaviour
         
         for (int i = 0; i < playerList.Length; i++)
         {
-            character_class characterClass = (i) switch
+            // TODO: 플레이어 프리팹을 ID로 찾는 로직으로 변경 필요
+            // 프리맵이랑 매핑필요
+            character_class characterClass = (playerList[i]) switch
             {
-                0 => character_class.전사,
-                1 => character_class.궁수,
-                2 => character_class.마법사,
+                100001 => character_class.전사,
+                100004 => character_class.궁수,
+                100006 => character_class.마법사,
                 _ => throw new Exception("잘못된 캐릭터 클래스 ID입니다.")
             };
 
             // Prefab에서 캐릭터를 찾음
             // TODO : 지금은 Class를 찾지만 특수 캐릭터 프리팹 추가하면 ID로 찾아야함
-            Player player = Array.Find(m_CharacterPrefabs, charactrer =>
-            {
-                return charactrer.playerStat.characterClass == characterClass;
-            });
-
-            // 
-            IDValuePair<Character> characterData = m_CharacterTable.data.Find(data =>
-            {
-                return data.Key_ID == playerList[i];
-            });
+            // Player player = m_CharacterPrefabs.Find(charactrer =>
+            // {
+            //     return charactrer.buffplayerStat.characterClass == characterClass;
+            // });
             
+            // Player player = null;
+            // foreach (var p in m_CharacterPrefabs)
+            // {
+            //     if (p.buffplayerStat.characterClass == characterClass)
+            //     {
+            //         player = p;
+            //         break;
+            //     }
+            // }
+
+            var playerData = m_PlayerData.Find(data =>
+            {
+                return data.character_ID == playerList[i];
+            });
             
             if (m_PlayerSpawnPointDic
                 .TryGetValue(characterClass, out Vector2 spawnPos))
             {
-                var spawnedCharacter = Instantiate(player, spawnPos, Quaternion.identity);
-                // spawnedCharacter. 
+                var spawnedCharacter = Instantiate(m_CharacterPrefabs[i], spawnPos, Quaternion.identity);
+                spawnedCharacter.initialSetPlayerStats(playerData);
+                m_PlayerList.Add(spawnedCharacter);
             }
         }
     }
