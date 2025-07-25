@@ -26,10 +26,14 @@ public class OptionButton : MonoBehaviour
    public Canvas optionCanvas;
    public BaseValue selectedData;
    public GameObject checkOptionPanel;
-   public Button popUpYesButton;
+   private Button m_PopUpConfirmButton;
    
    public void OnClick()
    {
+      var panel = checkOptionPanel.GetComponent<Panel>();
+      panel.confirmButton.onClick.RemoveAllListeners();
+      panel.contentText.text = null;
+      checkOptionPanel.SetActive(false);
       switch (optionType)
       {
          case EOptionType.Skill:
@@ -47,10 +51,9 @@ public class OptionButton : MonoBehaviour
             GameManager.Instance.Resume();
             optionCanvas.gameObject.SetActive(false);
             break;
-         
       }
    }
-   /*public void PopUpPanel()
+   public void PopUpPanel()
    {
       if (checkOptionPanel.activeSelf)
       {
@@ -59,7 +62,25 @@ public class OptionButton : MonoBehaviour
       else
       {
          checkOptionPanel.SetActive(true);
-         popUpYesButton.onClick.AddListener();
+         Panel panel = checkOptionPanel.GetComponent<Panel>();
+         switch (optionType)
+         {
+            case EOptionType.Skill:
+               selectedData = GameManager.Instance.skillOption.GetValue(selectID);
+               panel.contentText.text = (selectedData as SkillOption)?.Description;
+               panel.confirmButton.onClick.AddListener(OnClick);
+               break;
+            case EOptionType.Equip:
+               selectedData = GameManager.Instance.equipOption.GetValue(selectID);
+               panel.contentText.text = (selectedData as EquipOption)?.Description;
+               panel.confirmButton.onClick.AddListener(OnClick);
+               break;
+            case EOptionType.Training:
+               selectedData = GameManager.Instance.trainingOption.GetValue(selectID);
+               panel.contentText.text = (selectedData as TrainingOption)?.Description;
+               panel.confirmButton.onClick.AddListener(OnClick);
+               break;
+         }
       }
-   }*/
+   }
 }
