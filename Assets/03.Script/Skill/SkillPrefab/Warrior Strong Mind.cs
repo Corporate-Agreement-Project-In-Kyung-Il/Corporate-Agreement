@@ -59,7 +59,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     IEnumerator DamageDelay()
     {
-        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage) && attackCount < stat.Attack_Count)
+        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
         {
             attackCount++;
             CombatEvent combatEvent = new CombatEvent();
