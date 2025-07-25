@@ -61,7 +61,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     public PlayerData data;
 
     [Header("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기."), Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
-    public PlayerStat playerStat = new PlayerStat();
+    private PlayerStat playerStat = new PlayerStat();
 
     public float resetHp; 
     private Collider2D col;
@@ -435,7 +435,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         DamgeEvent.OnTriggerPlayerDamageEvent(this);
     }
 
-    private void initialSetPlayerStats(PlayerData initialData)
+    public void initialSetPlayerStats(PlayerData initialData)
     {
         playerStat.health = initialData.health;
         playerStat.moveSpeed = initialData.moveSpeed;

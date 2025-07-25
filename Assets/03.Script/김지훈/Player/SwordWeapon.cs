@@ -17,7 +17,7 @@ public class SwordWeapon : Weapon
         combatEvent.Receiver = enemyDamage;
         combatEvent.Sender = player;
         combatEvent.Damage = player.Damage;
-        if (Random.value < player.playerStat.criticalProbability)
+        if (Random.value < player.buffplayerStat.criticalProbability)
         {
             combatEvent.Damage =player.Damage* 2f;
         }

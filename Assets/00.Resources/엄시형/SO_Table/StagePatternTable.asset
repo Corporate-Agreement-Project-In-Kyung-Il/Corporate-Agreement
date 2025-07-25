@@ -15,11 +15,11 @@ MonoBehaviour:
   m_AreaPatternList:
   - <PatternId>k__BackingField: 100001
     <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.13753587, y: 0.8954153}
+    - <Point>k__BackingField: {x: -0.13753587, y: 8.895415}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.3295131, y: 2.0873923}
+    - <Point>k__BackingField: {x: 1.3295131, y: 10.087392}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.52722037, y: 1.5830946}
+    - <Point>k__BackingField: {x: 0.52722037, y: 9.583095}
       <Radius>k__BackingField: 1
   - <PatternId>k__BackingField: 100002
     <MonsterSpawnInfoList>k__BackingField:

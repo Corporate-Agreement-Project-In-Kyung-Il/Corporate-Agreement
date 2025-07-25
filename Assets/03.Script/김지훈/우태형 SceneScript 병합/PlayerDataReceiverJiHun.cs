@@ -44,20 +44,24 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
             if (DependencyPlayerStat[i].equip_item.Equals(equipOption.Equipment_Type_ID))
             {
                 Debug.Log($"{equipOption.Description} :::::: {equipOption.Equipment_LvUP}");
+                DependencyPlayerStat[i].equip_level = equipOption.Equipment_LvUP;
                 DependencyPlayerStat[i].attackDamage += equipOption.Attack_LV_UP_Effect;
                 DependencyPlayerStat[i].health += equipOption.HP_LV_UP_Effect;
 
                 switch (i)
                 {
                     case 0 :
+                        warriorData.equip_level = equipOption.Equipment_LvUP;
                         warriorData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         warriorData.health += equipOption.HP_LV_UP_Effect;
                         break;
                     case 1 :
+                        archerData.equip_level = equipOption.Equipment_LvUP;
                         archerData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         archerData.health += equipOption.HP_LV_UP_Effect;
                         break;
                     case 2 :
+                        wizardData.equip_level = equipOption.Equipment_LvUP;
                         wizardData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         wizardData.health += equipOption.HP_LV_UP_Effect;
                         break;
@@ -113,7 +117,6 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                         wizardData.attackDamage += trainingOption.Critical_Damage_Increase;
                         wizardData.health += trainingOption.Critical_Damage_Increase;
                         wizardData.criticalProbability += trainingOption.Critical_Rate_Increase;
-
                         break;
                 }
                 break;

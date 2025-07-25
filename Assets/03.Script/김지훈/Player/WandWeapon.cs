@@ -21,7 +21,7 @@ public class WandWeapon : Weapon
         
         bullet.transform.position = transform.position;
         bullet.magicDamage = player.Damage;
-        if (Random.value < player.playerStat.criticalProbability)
+        if (Random.value < player.buffplayerStat.criticalProbability)
         {
             bullet.magicDamage =player.Damage* 2f;
         }

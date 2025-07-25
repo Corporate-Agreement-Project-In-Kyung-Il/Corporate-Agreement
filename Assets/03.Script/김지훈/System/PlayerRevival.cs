@@ -13,12 +13,12 @@ public class PlayerRevival : MonoBehaviour
 
     private void OnEnable()
     {
-        StageClearEvent.stageClearEvent += ResetPlayerStats;
+        StageEvent.stageClearEvent += ResetPlayerStats;
     }
 
     private void OnDisable()
     {
-        StageClearEvent.stageClearEvent -= ResetPlayerStats;
+        StageEvent.stageClearEvent -= ResetPlayerStats;
     }
 
     private void ResetPlayerStats()
