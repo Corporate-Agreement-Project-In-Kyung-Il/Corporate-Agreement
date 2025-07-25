@@ -19,8 +19,8 @@ MonoBehaviour:
   characterClass: 1
   characterName: 4
   characterGrade: 0
-  attackDamage: 651
-  health: 2405
+  attackDamage: 811
+  health: 2981
   attackSpeed: 1
   criticalProbability: 0.19999999
   training_type: 500002
