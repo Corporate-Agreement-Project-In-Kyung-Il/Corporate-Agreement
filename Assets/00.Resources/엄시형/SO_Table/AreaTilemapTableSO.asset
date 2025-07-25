@@ -22,3 +22,6 @@ MonoBehaviour:
   - m_Theme: 0
     m_Id: 5
     m_Tilemap: {fileID: 3852055898315261543, guid: 7a2d3a503a5b44e4d895d9bb0b52c3ac, type: 3}
+  - m_Theme: 0
+    m_Id: -1
+    m_Tilemap: {fileID: 3852055898315261543, guid: b7fe8f1c005253f40a2859c8a1ecea46, type: 3}

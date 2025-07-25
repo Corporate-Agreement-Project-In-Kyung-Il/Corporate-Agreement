@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: e623aa229411493b99b953af128998ff
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_PointPrefab: {instanceID: 0}
+  - m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
+  - m_Grid: {instanceID: 0}
+  - m_MainCam: {instanceID: 0}
+  - m_SaveBtn: {instanceID: 0}
+  - m_ResetBtn: {instanceID: 0}
+  - m_DecreaseBtn: {instanceID: 0}
+  - m_IncreaseBtn: {instanceID: 0}
+  - m_OpenFolderBtn: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -31,7 +31,7 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private MonsterStatExel m_MonsterStatTable;
     [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private MonsterTableSO m_MonsterTable;
-    
+    [SerializeField] private PlayerData[] m_PlayerData;
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private Player[] m_PlayerList;
@@ -195,7 +195,7 @@ public sealed class Spawner : MonoBehaviour
             
             boss.gameObject.transform.localScale = Vector3.one * 3f;
 
-            m_CurTheme = (StageTheme)Random.Range(0, Enum.GetValues(typeof(StageTheme)).Length);
+            // m_CurTheme = (StageTheme)Random.Range(0, Enum.GetValues(typeof(StageTheme)).Length);
             // var themes = Enum.GetValues(typeof(StageTheme));
             // m_CurTheme = (StageTheme)themes.GetValue(Random.Range(0, themes.Length));
         }
@@ -220,7 +220,27 @@ public sealed class Spawner : MonoBehaviour
             Debug.Log("캐릭터 클래스에 맞는 스폰 위치가 없습니다.");
         }
     }
-
+    
+    public void SpawnCharacters(int[] CharacterIds)
+    {
+        for (int i = 0; i < CharacterIds.Length; i++)
+        {
+            var characterId = CharacterIds[i];
+            var characterClass = (character_class) characterId;
+            
+            if (m_PlayerSpawnPointDic.TryGetValue(characterClass, out Vector2 spawnPos))
+            {
+                // Player player = Instantiate(m_MonsterTable.GetPlayer(characterClass)
+                //     , spawnPos
+                //     , Quaternion.identity);
+                
+                
+                
+                // m_PlayerList[i] = player;
+            }
+        }
+    }
+    
     /// <summary>
     /// 구역(Area)의 자식으로 몬스터를 스폰.
     /// </summary>

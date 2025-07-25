@@ -17,8 +17,12 @@ using Debug = UnityEngine.Debug;
 
 namespace _03.Script.엄시형.Tool
 {
+#if UNITY_EDITOR
+    [ExecuteInEditMode]
+#endif
     public sealed class AreaPatternGenerator : MonoBehaviour
     {
+#if UNITY_EDITOR
         // TODO : AreaPattern말고 StageInfo로 변경해야함
         // [ReadOnly]
         [SerializeField] public GameObject m_PointPrefab;
@@ -282,6 +286,5 @@ namespace _03.Script.엄시형.Tool
             }
         }
     }
-    
-    
+# endif
 }

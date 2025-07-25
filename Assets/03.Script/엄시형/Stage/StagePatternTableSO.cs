@@ -23,11 +23,11 @@ namespace _03.Script.엄시형.Stage
         
         // private Dictionary<int, List<AreaPattern>> m_AreaPatternDic = new Dictionary<int, List<AreaPattern>>();
         
-        // [Conditional("UNITY_EDITOR")]
-        // private void Reset()
-        // {
-        //     Init();
-        // }
+        [Conditional("UNITY_EDITOR")]
+        private void Reset()
+        {
+            Init();
+        }
         
         [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
         

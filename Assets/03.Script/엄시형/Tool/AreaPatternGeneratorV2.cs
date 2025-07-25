@@ -6,6 +6,7 @@ using System.Linq;
 using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Stage.V2;
+using _03.Script.엄시형.Util;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -16,8 +17,12 @@ using Debug = UnityEngine.Debug;
 
 namespace _03.Script.엄시형.Tool.V2
 {
+#if UNITY_EDITOR
+    [ExecuteInEditMode]
+#endif
     public sealed class AreaPatternGenerator : MonoBehaviour
     {
+#if UNITY_EDITOR
         // TODO : AreaPattern말고 StageInfo로 변경해야함
         // [ReadOnly]
         [SerializeField] public GameObject m_PointPrefab;
@@ -52,7 +57,7 @@ namespace _03.Script.엄시형.Tool.V2
         private readonly List<GameObject> m_PointObjectList = new List<GameObject>();
         // private readonly AreaPatternPersistenceManager m_PersistenceManager
         // = new AreaPatternPersistenceManager();
-        private readonly StageInfoPersistMgr m_StagePersistMgr = new StageInfoPersistMgr();
+        // private readonly StageInfoPersistMgr m_StagePersistMgr = new StageInfoPersistMgr();
         
         [Conditional("UNITY_EDITOR")]
         private void OnValidate()
@@ -73,30 +78,31 @@ namespace _03.Script.엄시형.Tool.V2
 
         private void Awake()
         {
-            if (m_StagePersistMgr.TryReadFromJson(out m_StageInfoList))
-            {
-                Debug.Log("성공");
-                
-                // patternId에 해당하는 타일맵 생성
-                var patternId = m_StageInfoList[0].AreaPatternList[0].MonsterSpawnInfoList.Count;
-                m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
-                m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
-                
-                foreach (var spawnInfo in 
-                         m_StageInfoList[0].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
-                {
-                    Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
-                    GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
-                    point.transform.position = worldPos;
-
-                    point.transform.localScale = Vector3.one * spawnInfo.Diameter;
-                    m_PointObjectList.Add(point.gameObject);
-                }
-            }
-            else
-            {
-                Debug.Log("실패");
-            }
+            // //TODO : 로딩때
+            // if (AreaPatternPersistenceManager.TryReadFromJson(out m_StageInfoList))
+            // {
+            //     Debug.Log("성공");
+            //     
+            //     // patternId에 해당하는 타일맵 생성
+            //     var patternId = m_StageInfoList[0].AreaPatternList[0].MonsterSpawnInfoList.Count;
+            //     m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
+            //     m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
+            //     
+            //     foreach (var spawnInfo in 
+            //              m_StageInfoList[0].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
+            //     {
+            //         Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
+            //         GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
+            //         point.transform.position = worldPos;
+            //
+            //         point.transform.localScale = Vector3.one * spawnInfo.Diameter;
+            //         m_PointObjectList.Add(point.gameObject);
+            //     }
+            // }
+            // else
+            // {
+            //     Debug.Log("실패");
+            // }
         }
 
         private void OnEnable()
@@ -111,7 +117,7 @@ namespace _03.Script.엄시형.Tool.V2
 
         private void WriteAsJson()
         {
-            m_StagePersistMgr.WriteAsJSON(m_StageInfoList);
+            // m_StagePersistMgr.WriteAsJSON(m_StageInfoList);
         }
         
         private void IncreasePatternIdx()
@@ -148,7 +154,7 @@ namespace _03.Script.엄시형.Tool.V2
         
         private void OpenFolder()
         {
-            EditorUtility.RevealInFinder(m_StagePersistMgr.fullPath);
+            // EditorUtility.RevealInFinder(m_StagePersistMgr.fullPath);
         }
         
         private void RepaintPoints()
@@ -196,42 +202,11 @@ namespace _03.Script.엄시형.Tool.V2
             }
         }
         
-        public class StageInfoPersistMgr
-        {
-            public readonly string fullPath;
-            
-            public StageInfoPersistMgr()
-            {
-                fullPath = Path.Combine(Application.dataPath, "05.DataTable", "StageInfo.json");
-            }
-            
-            public void WriteAsJSON(List<StageInfoDTO> stages)
-            {
-                AllStageInfoDTO allStageDto = new AllStageInfoDTO(stages);
-            
-                string json = JsonUtility.ToJson(allStageDto);
-
-                Debug.Log(fullPath);
-                File.WriteAllText(fullPath, json);
-            }
-            
-            public bool TryReadFromJson(out List<StageInfoDTO> areaPatternList)
-            {
-                areaPatternList = new List<StageInfoDTO>();
-
-                if (File.Exists(fullPath) == false) return false;
-            
-                areaPatternList = JsonUtility.FromJson<AllStageInfoDTO>(
-                    File.ReadAllText(fullPath)).StageInfoList;
-            
-                return true;
-            }
-        }
-        
         // 저장버튼
         // 초기화버튼
         // AreaPattern Id-- 버튼
         // AreaPattern Id++ 버튼
         // 폴더 열기 버튼
     }
+# endif
 }

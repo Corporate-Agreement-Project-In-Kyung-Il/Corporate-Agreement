@@ -296,8 +296,28 @@ MonoBehaviour:
   m_DecreaseBtn: {fileID: 832953780}
   m_IncreaseBtn: {fileID: 107861949}
   m_OpenFolderBtn: {fileID: 1414645907}
-  m_StageInfoList: []
-  m_CurIdx: 1
+  m_StageInfoList:
+  - Theme: 0
+    AreaPatternList:
+    - PatternId: 100001
+      MonsterSpawnInfoList:
+      - X: 0
+        Y: 2
+        Diameter: 1
+    - PatternId: 100002
+      MonsterSpawnInfoList:
+      - X: 0
+        Y: 3
+        Diameter: 2
+    SpawnMonsterTypeList: 01000000
+    BossAreaPattern:
+      PatternId: 100003
+      MonsterSpawnInfoList:
+      - X: 0
+        Y: 3
+        Diameter: 2
+    MaxStageId: 15
+  m_CurIdx: 0
 --- !u!1 &244639233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1681,7 @@ GameObject:
   - component: {fileID: 1573588942}
   - component: {fileID: 1573588941}
   m_Layer: 0
-  m_Name: Stage
+  m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
