@@ -242,7 +242,7 @@ public static void ImportBuff(DataTable table)
 }
 
     //하나의 ScriptableObject에 담아서    
-    /*private static void ImportCharacter(DataTable table)
+    private static void ImportCharacter(DataTable table)
     {
         var playerCharacter = ScriptableObject.CreateInstance<PlayerCharacter>();
         for (int i = 3; i < table.Rows.Count; i++)
@@ -251,17 +251,17 @@ public static void ImportBuff(DataTable table)
 
             var character = new Character
             {
-                Character_Class = strarr[1],
-                Character_Name = strarr[2],
-                Character_Grade = strarr[3],
+                Character_ID =  int.Parse(strarr[0]),
+                Character_Class = Enum.Parse<character_class>(strarr[1]),
+                Character_Name = Enum.Parse<character_name>(strarr[2]),
+                Character_Grade = Enum.Parse<character_grade>(strarr[3]),
                 Attack = float.Parse(strarr[4]),
                 Health = float.Parse(strarr[5]),
                 Attack_Speed = float.Parse(strarr[6]),
                 Critical_Probability = float.Parse(strarr[7]),
                 Training_type = int.Parse(strarr[8]),
                 equip_item = int.Parse(strarr[9]),
-                skill_possed1 = int.Parse(strarr[10]),
-                skill_possed2 = int.Parse(strarr[11])
+                skill_possed = new List<int> { int.Parse(strarr[10]), int.Parse(strarr[11]) }
             };
 
             var pair = new IDValuePair<Character> { Key_ID = int.Parse(strarr[0]), val = character };
@@ -269,10 +269,10 @@ public static void ImportBuff(DataTable table)
         }
 
         AssetDatabase.CreateAsset(playerCharacter, $"Assets/00.Resources/DataBase/Character.asset");
-    }*/
+    }
     
     //하나 배열당, 하나의 ScriptableObject에 담아서
-    private static void ImportCharacter(DataTable table)
+    /*private static void ImportCharacter(DataTable table)
     {
         int assetIndex = 0;
         
@@ -284,17 +284,17 @@ public static void ImportBuff(DataTable table)
 
             var character = new Character
             {
-                Character_Class = strarr[1],
-                Character_Name = strarr[2],
-                Character_Grade = strarr[3],
+                Character_ID =  int.Parse(strarr[0]),
+                Character_Class = Enum.Parse<character_class>(strarr[1]),
+                Character_Name = Enum.Parse<character_name>(strarr[2]),
+                Character_Grade = Enum.Parse<character_grade>(strarr[3]),
                 Attack = float.Parse(strarr[4]),
                 Health = float.Parse(strarr[5]),
                 Attack_Speed = float.Parse(strarr[6]),
                 Critical_Probability = float.Parse(strarr[7]),
                 Training_type = int.Parse(strarr[8]),
                 equip_item = int.Parse(strarr[9]),
-                skill_possed1 = int.Parse(strarr[10]),
-                skill_possed2 = int.Parse(strarr[11])
+                skill_possed = new List<int> { int.Parse(strarr[10]), int.Parse(strarr[11]) }
             };
 
             var pair = new IDValuePair<Character> { Key_ID = int.Parse(strarr[0]), val = character };
@@ -318,7 +318,7 @@ public static void ImportBuff(DataTable table)
             assetIndex++;
         }
         //AssetDatabase.CreateAsset(playerCharacter, $"Assets/00.Resources/DataBase/Character.asset");
-    }
+    }*/
 
     private static void ImportSkillOption(DataTable table)
     {
