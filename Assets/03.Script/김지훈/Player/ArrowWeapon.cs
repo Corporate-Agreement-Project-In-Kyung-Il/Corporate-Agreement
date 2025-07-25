@@ -20,6 +20,12 @@ public class ArrowWeapon : Weapon
         
         bullet.transform.position = transform.position;
         bullet.arrowDamage = player.Damage;
+        if (Random.value < player.playerStat.criticalProbability)
+        {
+            bullet.arrowDamage =player.Damage* 2f;
+        }
+
+        
         bullet.target = collider.transform;
         bullet.player = player;
         bullet.straightAttackRange = player.attackRange;
