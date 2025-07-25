@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SwordWeapon : Weapon
 {
+
+
     public override bool Attack(Collider2D collider)
     {
         if (collider.gameObject.TryGetComponent(out IDamageAble enemyDamage).Equals(false))
