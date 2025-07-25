@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
@@ -39,6 +40,8 @@ public abstract class Weapon : MonoBehaviour
 
         if (level >= 0 && level < Level_Sprites.Length)
         {
+            Debug.Log(player.gameObject.name);
+            Debug.Log(level);
             sr.sprite = Level_Sprites[level];
         }
         else
@@ -47,4 +50,14 @@ public abstract class Weapon : MonoBehaviour
         }
     }
     public abstract bool Attack(Collider2D collider);
+
+    private void OnEnable()
+    {
+        StageEvent.equipmentEvent += changeWeapon;
+    }
+
+    private void OnDisable()
+    {
+        StageEvent.equipmentEvent -= changeWeapon;
+    }
 }

@@ -248,7 +248,7 @@ public sealed class Spawner : MonoBehaviour
             // TODO : 지금은 Class를 찾지만 특수 캐릭터 프리팹 추가하면 ID로 찾아야함
             Player player = Array.Find(m_CharacterPrefabs, charactrer =>
             {
-                return charactrer.playerStat.characterClass == characterClass;
+                return charactrer.buffplayerStat.characterClass == characterClass;
             });
 
             // 
