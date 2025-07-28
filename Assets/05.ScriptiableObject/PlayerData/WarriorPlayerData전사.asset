@@ -27,3 +27,4 @@ MonoBehaviour:
   equip_item: 400001
   equip_level: 0
   skill_possed: ab860100ac860100
+  playerUISprite: {fileID: 21300000, guid: 73cabb6b87d362344986baccba98c32c, type: 3}

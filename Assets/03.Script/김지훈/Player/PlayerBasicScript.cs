@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 public interface IDamageAble
 {
@@ -17,6 +18,12 @@ public interface IDamageAble
 public interface IBuffSelection
 { 
     public PlayerStat buffplayerStat { get; }
+}
+
+public interface ISpriteSelection
+{
+    public Sprite PlayerSprite { get; }
+    public Sprite WeaponSprite { get; }
 }
 
 [System.Serializable]

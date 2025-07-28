@@ -8,6 +8,7 @@ public abstract class Weapon : MonoBehaviour
 {
     private static readonly int Attack1 = Animator.StringToHash("Attack");
     public Animator playerAnimator;
+    public Sprite CurrentSprite => sr.sprite;
     protected SpriteRenderer sr;
     protected Player player;
     protected Animator animator;
