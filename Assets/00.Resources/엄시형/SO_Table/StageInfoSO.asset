@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_stageInfoList:
   - m_MaxStageId: 15
-    m_MonsterType: 1
     m_SpawnMonsterCounts: 030000000400000005000000
   - m_MaxStageId: 30
-    m_MonsterType: 1
+    m_SpawnMonsterCounts: 03000000040000000500000005000000
+  - m_MaxStageId: 45
+    m_SpawnMonsterCounts: 03000000040000000500000005000000
+  - m_MaxStageId: 60
+    m_SpawnMonsterCounts: 03000000040000000500000005000000
+  - m_MaxStageId: 400
     m_SpawnMonsterCounts: 03000000040000000500000005000000

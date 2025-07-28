@@ -96,17 +96,20 @@ public sealed class Spawner : MonoBehaviour
         }
         
         CurStageId++;
-        var prevTheme = m_CurTheme;
-        
-        // 전 테마랑 같지 않게 랜덤으로 테마 설정
-        do
+
+        if (CurStageId % 4 == 0)
         {
-            var stageThemes = Enum.GetValues(typeof(StageTheme));
-            m_CurTheme = (StageTheme) stageThemes.GetValue(Random.Range(0, stageThemes.Length));
-        } while (m_CurTheme != prevTheme);
+            var prevTheme = m_CurTheme;
         
-        // 15이상 스테이지 패턴 변경
-        if (15 < CurStageId)
+            // 전 테마랑 같지 않게 랜덤으로 테마 설정
+            do
+            {
+                var stageThemes = Enum.GetValues(typeof(StageTheme));
+                m_CurTheme = (StageTheme) stageThemes.GetValue(Random.Range(0, stageThemes.Length));
+            } while (m_CurTheme != prevTheme);
+        }
+        
+        if (m_StageInfo.MaxStage < CurStageId)
         {
             ++m_CurStageInfoIndex;
             m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
@@ -117,6 +120,14 @@ public sealed class Spawner : MonoBehaviour
         GetRandomPattern();
         m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
         SpawnAllMonstersInStage();
+    }
+    
+    private int GetStageIndexOffset(int stageId)
+    {
+        if (80 < stageId) return 3;
+        if (50 < stageId) return 2;
+        if (15 < stageId) return 1;
+        return 0;
     }
     
     private void Start()
@@ -185,8 +196,8 @@ public sealed class Spawner : MonoBehaviour
         Debug.Assert(m_StageInfo != null, "널 들어옴");
         
         // 한 종류만 나옴
-        MonsterType monsterType = m_StageInfo.MonsterType;
-        
+        // MonsterType monsterType = m_StageInfo.MonsterType;
+        MonsterType monsterType = MonsterType.Slime;
         // 3마리 4마리 패턴중 랜덤리스트 가져옴
         
         // 구역(Area)별로 몬스터 스폰
@@ -205,11 +216,9 @@ public sealed class Spawner : MonoBehaviour
         // 보스 스테이지
         if (CurStageId % 3 == 0)
         {
-            MonsterType type = m_StageInfo.MonsterType;
-            
             var boss = SpawnMonster(
                 new Vector2(0f, 15f)
-                , type
+                , monsterType
                 , parent: m_CurTilemapList.Last().gameObject);
             
             boss.gameObject.transform.localScale = Vector3.one * 3f;

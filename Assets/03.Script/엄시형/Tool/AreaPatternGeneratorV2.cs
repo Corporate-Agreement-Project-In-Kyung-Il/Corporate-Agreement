@@ -48,16 +48,16 @@ namespace _03.Script.엄시형.Tool.V2
         // [SerializeField] private List<AreaPatternDTO> m_AreaPatternDTOList
         // = new List<AreaPatternDTO>();
 
-        [Header("스테이지 정보 리스트")] [SerializeField]
-        private List<AreaPattern> m_StageInfoList;
+        // [Header("스테이지 정보 리스트")] [SerializeField]
+        // private List<AreaPattern> m_StageInfoList;
         // [SerializeField] private List<AreaPattern>
         
         
         // TODO : Id에 따라 변하게
-        [SerializeField]
-        private int m_CurIdx = 0;
+        // [SerializeField]
+        private int m_CurIdx = 3;
 
-        private int m_PrevIdx = 0;
+        private int m_PrevIdx = 3;
 
         private readonly List<GameObject> m_PointObjectList = new List<GameObject>();
         // private readonly AreaPatternPersistenceManager m_PersistenceManager
@@ -88,9 +88,8 @@ namespace _03.Script.엄시형.Tool.V2
             
             m_Tilemap = themeAreaList.First().Tilemap;
             m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
-            m_StageInfoList = m_StagePatternTable.GetAllPatternByCount(3);
             
-            foreach (var spawnInfo in m_StageInfoList[0].MonsterSpawnInfoList)
+            foreach (var spawnInfo in m_StagePatternTable.AreaPatternList[0].MonsterSpawnInfoList)
             {
                 Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Point);
                 GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
@@ -132,7 +131,7 @@ namespace _03.Script.엄시형.Tool.V2
             m_SaveBtn.onClick.AddListener(WriteAsJson);
             // m_IncreaseBtn.onClick.AddListener(Restart);
             m_IncreaseBtn.onClick.AddListener(IncreasePatternIdx);
-            m_DecreaseBtn.onClick.AddListener(DecreasePatternIdx);
+            // m_DecreaseBtn.onClick.AddListener(DecreasePatternIdx);
             m_OpenFolderBtn.onClick.AddListener(OpenFolder);
 
         }
@@ -142,7 +141,7 @@ namespace _03.Script.엄시형.Tool.V2
             m_SaveBtn.onClick.RemoveListener(WriteAsJson);
             // m_IncreaseBtn.onClick.AddListener(Restart);
             m_IncreaseBtn.onClick.RemoveListener(IncreasePatternIdx);
-            m_DecreaseBtn.onClick.RemoveListener(DecreasePatternIdx);
+            // m_DecreaseBtn.onClick.RemoveListener(DecreasePatternIdx);
             m_OpenFolderBtn.onClick.RemoveListener(OpenFolder);
         }
 
@@ -195,35 +194,35 @@ namespace _03.Script.엄시형.Tool.V2
         
         private void IncreasePatternIdx()
         {
-            int maxIndex = m_StageInfoList[m_CurIdx].SpawnMonsterCount; // 0부터 시작하므로 -1
-
-            if (m_CurIdx < maxIndex)
-            {
-                m_CurIdx++;
-            }
-            else
-            {
-                m_CurIdx = 1;
-            }
+            // int maxIndex = m_StagePatternTable.AreaPatternList.Count; // 0부터 시작하므로 -1
+            m_AreaTilemapTable.GetTilemap(StageTheme.Grass, m_CurIdx);
+            // if (m_CurIdx < maxIndex)
+            // {
+            //     m_CurIdx++;
+            // }
+            // else
+            // {
+            //     m_CurIdx = 1;
+            // }
                 
             m_PrevIdx = m_CurIdx;
             RepaintPoints();
         }
         
-        private void DecreasePatternIdx()
-        {
-            if (m_CurIdx > 1)
-            {
-                m_CurIdx--;
-            }
-            else if (m_StageInfoList[m_CurIdx].SpawnMonsterCount > 0)
-            {
-                m_CurIdx = m_StageInfoList[m_CurIdx].SpawnMonsterCount;
-            }
-
-            m_PrevIdx = m_CurIdx;
-            RepaintPoints();
-        }
+        // private void DecreasePatternIdx()
+        // {
+        //     if (m_CurIdx > 1)
+        //     {
+        //         m_CurIdx--;
+        //     }
+        //     else if (m_StageInfoList[m_CurIdx].SpawnMonsterCount > 0)
+        //     {
+        //         m_CurIdx = m_StageInfoList[m_CurIdx].SpawnMonsterCount;
+        //     }
+        //
+        //     m_PrevIdx = m_CurIdx;
+        //     RepaintPoints();
+        // }
         
         private void OpenFolder()
         {
@@ -232,10 +231,8 @@ namespace _03.Script.엄시형.Tool.V2
         
         private void RepaintPoints()
         {
-            if (m_StageInfoList[m_CurIdx].SpawnMonsterCount < m_CurIdx)
+            if (m_StagePatternTable.AreaPatternList[m_CurIdx].SpawnMonsterCount < m_CurIdx)
             {
-                return;
-                
                 foreach (var pointObj in m_PointObjectList)
                 {
                     Destroy(pointObj);
@@ -261,10 +258,10 @@ namespace _03.Script.엄시형.Tool.V2
                 
                 // var patternId 
                 //     = m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList.Count;
-                // m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
-                // m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
+                m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, m_CurIdx);
+                m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
                 
-                var patternId = m_StageInfoList[m_CurIdx].SpawnMonsterCount;
+                // var patternId = m_StagePatternTable.AreaPatternList[m_CurIdx].SpawnMonsterCount;
                 
                 // foreach (var spawnInfo 
                 //          in m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
