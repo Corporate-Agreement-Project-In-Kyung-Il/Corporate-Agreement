@@ -4639,18 +4639,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurStageId: 1
+  CurStageId: 3
   m_StageEndDetector: {fileID: 1399486814}
   m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
   m_MonsterStatTable: {fileID: 11400000, guid: 16f2c6dd7713c95479fdf2e0347103ed, type: 2}
-  m_MonsterData: {fileID: 11400000, guid: eac4037eda615a84ab77d0319915898b, type: 2}
   m_MonsterTable: {fileID: 11400000, guid: 8cd7e0585f7a01847a69123de230f27a, type: 2}
+  m_StageInfoTable: {fileID: 11400000, guid: 148048a4ca4a295448bc4c99256ac30c, type: 2}
+  m_MonsterData: {fileID: 11400000, guid: eac4037eda615a84ab77d0319915898b, type: 2}
+  m_CharacterTable: {fileID: 11400000, guid: b02cd45478f3f12438bd94f858a8a5ff, type: 2}
   m_CharacterPrefabs:
   - {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
   - {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
   - {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
-  m_CharacterTable: {fileID: 11400000, guid: b02cd45478f3f12438bd94f858a8a5ff, type: 2}
   m_PlayerData:
   - {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
   - {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Stage.V2;
+using _03.Script.엄시형.Util;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Tilemaps;
@@ -55,11 +56,9 @@ namespace _03.Script.엄시형.Stage
                     , group => group.ToList());
         }
     }
-        
-    
     
     [Serializable]
-    public class AreaTilemap
+    public class AreaTilemap : ICloneable<AreaTilemap>
     {
         public StageTheme Theme => m_Theme;
         public int Id => m_Id;
@@ -74,6 +73,11 @@ namespace _03.Script.엄시형.Stage
             m_Theme = theme; 
             m_Id = id;
             m_Tilemap = tilemap;
+        }
+
+        public AreaTilemap Clone()
+        {
+            return new AreaTilemap(m_Theme, m_Id, m_Tilemap);
         }
     }
 }

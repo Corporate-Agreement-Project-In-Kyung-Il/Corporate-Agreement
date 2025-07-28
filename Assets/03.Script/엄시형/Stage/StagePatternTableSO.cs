@@ -5,6 +5,7 @@ using System.Linq;
 using _03.Script.엄시형.Data;
 using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage.DTO;
+using _03.Script.엄시형.Stage.V2;
 using _03.Script.엄시형.Util;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -13,7 +14,7 @@ using Random = UnityEngine.Random;
 
 namespace _03.Script.엄시형.Stage
 {
-    [CreateAssetMenu(fileName = "StageInfoSO", menuName = "SO/Stage/StageInfoSO", order = 0)]
+    [CreateAssetMenu(fileName = "StagePatternTableSO", menuName = "SO/Stage/StagePatternTableSO", order = 0)]
     public sealed class StagePatternTableSO : ScriptableObject
     {
         // private AreaPatternPersistenceManager m_AreaPerstistenceMgr = new AreaPatternPersistenceManager();
@@ -43,7 +44,7 @@ namespace _03.Script.엄시형.Stage
             return pattern;
         }
         
-        private List<AreaPattern> GetAllPatternByCount(int count)
+        public List<AreaPattern> GetAllPatternByCount(int count)
         {
             var list = m_AreaPatternList.FindAll(pattern =>
             {

@@ -23,7 +23,7 @@ namespace _03.Script.엄시형.Stage.V2
         public int AreaCount => m_SpawnMonsterCounts.Length;
         public MonsterType MonsterType => m_MonsterType;
         public int MaxStage => m_MaxStageId;
-        public StageTheme Theme => m_Theme;
+        // public StageTheme Theme => m_Theme;
         public int[] SpawnMonsterCounts => m_SpawnMonsterCounts;
         
         // public AreaPattern BossAreaPattern => m_BossAreaPattern;
@@ -34,9 +34,9 @@ namespace _03.Script.엄시형.Stage.V2
         [Header("Max Stage ID 1~15까지면 15입력")]
         [SerializeField] private int m_MaxStageId;
 
-        private MonsterType m_MonsterType;
-        private int[] m_SpawnMonsterCounts;
-        private StageTheme m_Theme;
+        [SerializeField] private MonsterType m_MonsterType;
+        [SerializeField] private int[] m_SpawnMonsterCounts;
+        // [SerializeField] private StageTheme m_Theme;
 
         [Conditional("UNITY_EDITOR")]
         private void OnValidate()
@@ -49,7 +49,7 @@ namespace _03.Script.엄시형.Stage.V2
             , MonsterType monsterType
             , int mMaxStageId)
         {
-            m_Theme = theme;
+            // m_Theme = theme;
             m_SpawnMonsterCounts = spawnMonsterCounts;
             // m_AreaPatternList = areaPatternList;
             m_MonsterType = monsterType;

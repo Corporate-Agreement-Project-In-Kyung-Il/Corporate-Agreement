@@ -29,10 +29,12 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private StagePatternTableSO m_StagePatternTable;
     [SerializeField] private AreaTilemapTableSO m_AreaTilemapTable;
     [SerializeField] private MonsterStatExel m_MonsterStatTable;
-    [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private MonsterTableSO m_MonsterTable;
-    [SerializeField] private List<Player> m_CharacterPrefabs;
+    [SerializeField] private StageInfoTableSO m_StageInfoTable;
+    [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private PlayerCharacter m_CharacterTable;
+    
+    [SerializeField] private List<Player> m_CharacterPrefabs;
     [SerializeField] private List<PlayerData> m_PlayerData;
     
     private List<Player> m_PlayerList = new List<Player>();
@@ -43,7 +45,8 @@ public sealed class Spawner : MonoBehaviour
     private List<Tilemap> m_CurTilemapList = new List<Tilemap>();
     private List<AreaPattern> m_CurAreaList = new List<AreaPattern>();
     private StageTheme m_CurTheme = StageTheme.Grass; // 현재 테마, 초기값은 Grass로 설정
-    private StageInfo mStageInfo;
+    private StageInfo m_StageInfo;
+    private int m_CurStageInfoIndex = 0;
     
     private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
@@ -64,12 +67,7 @@ public sealed class Spawner : MonoBehaviour
     {
         Instance = this;
         
-        // 임시 데이터 테이블에서 받거나 해야함
-        mStageInfo = new StageInfo(new int[] { 3, 4, 5 }
-            , StageTheme.Grass
-            , MonsterType.Slime
-            , 15);
-         
+         m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         
         // m_StagePatternTable.Init();
         // var areas = m_AreaTilemapTable.m_AreaTilemaps[10001];
@@ -98,11 +96,25 @@ public sealed class Spawner : MonoBehaviour
         }
         
         CurStageId++;
+        var prevTheme = m_CurTheme;
+        
+        do
+        {
+            var stageThemes = Enum.GetValues(typeof(StageTheme));
+            m_CurTheme = (StageTheme) stageThemes.GetValue(Random.Range(0, stageThemes.Length));
+        } while (m_CurTheme != prevTheme);
+        
+        // 15이상 스테이지 패턴 변경
+        if (15 < CurStageId)
+        {
+            ++m_CurStageInfoIndex;
+            m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
+        }
         
         m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
         DestoryAllArea();
         GetRandomPattern();
-        m_CurTilemapList = GenerateMap(mStageInfo.SpawnMonsterCounts);
+        m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
         SpawnAllMonstersInStage();
     }
     
@@ -112,7 +124,7 @@ public sealed class Spawner : MonoBehaviour
         // mStageInfo = m_StagePatternTable.GetAreaList(1);
         m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
         GetRandomPattern();
-        m_CurTilemapList = GenerateMap(mStageInfo.SpawnMonsterCounts);
+        m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
         SpawnCharacters();
         SpawnAllMonstersInStage();
     }
@@ -148,14 +160,14 @@ public sealed class Spawner : MonoBehaviour
 
     public void GetRandomPattern()
     {
-        m_CurAreaList = new List<AreaPattern>(mStageInfo.AreaCount);
+        m_CurAreaList = new List<AreaPattern>(m_StageInfo.AreaCount);
         
         // TODO: 테마로 가져오기
-        for (int i = 0; i < mStageInfo.AreaCount; i++)
+        for (int i = 0; i < m_StageInfo.AreaCount; i++)
         {
             // 테마에서 가져오기
             AreaPattern areaPattern = 
-                m_StagePatternTable.GetRandomSpawnPattern(mStageInfo.SpawnMonsterCounts[i]);
+                m_StagePatternTable.GetRandomSpawnPattern(m_StageInfo.SpawnMonsterCounts[i]);
             
             m_CurAreaList.Add(areaPattern);
         }
@@ -169,21 +181,21 @@ public sealed class Spawner : MonoBehaviour
             SetPositionStartPoint(player);
         }
         
-        Debug.Assert(mStageInfo != null, "널 들어옴");
+        Debug.Assert(m_StageInfo != null, "널 들어옴");
         
         // 한 종류만 나옴
-        MonsterType monsterType = mStageInfo.MonsterType;
+        MonsterType monsterType = m_StageInfo.MonsterType;
         
         // 3마리 4마리 패턴중 랜덤리스트 가져옴
         
         // 구역(Area)별로 몬스터 스폰
-        for (int i = 0; i < mStageInfo.AreaCount; i++)
+        for (int i = 0; i < m_StageInfo.AreaCount; i++)
         {
             var area = m_CurAreaList[i];
             
             for (int x = 0; x < area.SpawnMonsterCount; x++)
             {
-                SpawnMonsterInRange(area.MonsterSpawnInfoList[i]
+                SpawnMonsterInRange(area.MonsterSpawnInfoList[x]
                     , monsterType
                     , parent: m_CurTilemapList[i].gameObject);
             }
@@ -192,7 +204,7 @@ public sealed class Spawner : MonoBehaviour
         // 보스 스테이지
         if (CurStageId % 3 == 0)
         {
-            MonsterType type = mStageInfo.MonsterType;
+            MonsterType type = m_StageInfo.MonsterType;
             
             var boss = SpawnMonster(
                 new Vector2(0f, 15f)
@@ -202,8 +214,8 @@ public sealed class Spawner : MonoBehaviour
             boss.gameObject.transform.localScale = Vector3.one * 3f;
 
             // m_CurTheme = (StageTheme)Random.Range(0, Enum.GetValues(typeof(StageTheme)).Length);
-            // var themes = Enum.GetValues(typeof(StageTheme));
-            // m_CurTheme = (StageTheme)themes.GetValue(Random.Range(0, themes.Length));
+            var themes = Enum.GetValues(typeof(StageTheme));
+            m_CurTheme = (StageTheme) themes.GetValue(Random.Range(0, themes.Length));
         }
         
         StageEvent.OnTriggerStageClearEvent(); // 맵 완성다 되었음.
@@ -295,13 +307,14 @@ public sealed class Spawner : MonoBehaviour
         return monster;
     }
     
+    
     public List<Tilemap> GenerateMap(int[] areaPatternList)
     {
         int areaPatternCount = areaPatternList.Length;
         float topY = 0f;
         
         List<Tilemap> areaList = new List<Tilemap>(areaPatternCount);
-
+        
         var themeAreaList = m_AreaTilemapTable.GetThemeAreaList(m_CurTheme);
         
         for (int i = 0; i < areaPatternCount; i++)
@@ -320,7 +333,6 @@ public sealed class Spawner : MonoBehaviour
             curTileMap.CompressBounds();
             
             areaList.Add(curTileMap);
-            
             // Debug.Log(curTileMap.transform.position);
             topY += curTileMap.cellBounds.yMax;
             // topY = curTilemap.transform.position.y + curTileMap.localBounds.extents.y + cellSize.y * 0.5f;
@@ -343,6 +355,7 @@ public sealed class Spawner : MonoBehaviour
         }
         
         m_StageEndPoint.transform.position = new Vector2(0, topY);
+        
         return areaList;
     }
 }
