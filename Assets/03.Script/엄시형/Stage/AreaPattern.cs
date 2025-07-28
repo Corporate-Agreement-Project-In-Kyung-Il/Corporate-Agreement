@@ -7,7 +7,6 @@ namespace _03.Script.엄시형.Stage.DTO
     [Serializable]
     public sealed class AreaPattern
     {
-        
         [field: SerializeField]
         public int PatternId { get; private set; }
         
@@ -33,8 +32,19 @@ namespace _03.Script.엄시형.Stage.DTO
         public AreaPattern(int id, List<SpawnInfo> SpawnInfoList)
         {
             PatternId = id;
-
             MonsterSpawnInfoList = new List<SpawnInfo>(SpawnInfoList);
+        }
+        
+        public AreaPatternDTO ToAreaPatternDTO()
+        {
+            AreaPatternDTO dto = new AreaPatternDTO(PatternId);
+            
+            foreach (var spawnInfo in MonsterSpawnInfoList)
+            {
+                dto.MonsterSpawnInfoList.Add(new SpawnInfoDTO(spawnInfo.Point, spawnInfo.Radius));
+            }
+            
+            return dto;
         }
     }
 }

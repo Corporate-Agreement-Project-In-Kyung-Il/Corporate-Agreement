@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using _03.Script.엄시형.Data;
 using _03.Script.엄시형.Monster;
 using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Stage.V2;
-using _03.Script.엄시형.Util;
+using _03.Script.엄시형.Util.V2;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Debug = UnityEngine.Debug;
@@ -21,14 +23,7 @@ namespace _03.Script.엄시형.Stage
         
         // private Dictionary<int, StageInfo> m_StageInfoDic = new Dictionary<int, StageInfo>();
         
-        
         // private Dictionary<int, List<AreaPattern>> m_AreaPatternDic = new Dictionary<int, List<AreaPattern>>();
-        
-        [Conditional("UNITY_EDITOR")]
-        private void Reset()
-        {
-            Init();
-        }
         
         [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
         
@@ -58,18 +53,24 @@ namespace _03.Script.엄시형.Stage
         }
         
         [Conditional("UNITY_EDITOR")]
-        public void Init()
+        internal void Load()
         {
             m_AreaPatternList.Clear();
             // TODO : 안드로이드 경로 문제
             // Dic으로 변환못함 
             
-            if (AreaPatternPersistenceManager.TryReadFromJson(out List<AreaPatternDTO> areaPatterns))
+            string fullPath = Path.Combine(
+                Application.dataPath
+                , "05.DataTable"
+                , "AreaPattern.json");
+            
+            
+            if (PersistManager.TryReadFromJson(out AllAreaPatternDTO allAreaPatternDTO, fullPath))
             {
-                foreach (var dto in areaPatterns)
+                foreach (var dto in allAreaPatternDTO.AreaPatternList)
                 {
                     // 몬스터 카운트를 키로 저장
-                    int key = dto.MonsterSpawnInfoList.Count;
+                    // int key = dto.MonsterSpawnInfoList.Count;
                     
                     // 키가 없으면 리스트 생성
                     // if (m_AreaPatternDic.ContainsKey(key) == false)
@@ -87,5 +88,50 @@ namespace _03.Script.엄시형.Stage
                 Debug.LogWarning("못읽음");
             }
         }
+
+        [Conditional("UNITY_EDITOR")]
+        internal void Save()
+        {
+            string fullPath = Path.Combine(
+                Application.dataPath
+                , "05.DataTable"
+                , "AreaPattern.json");
+
+            List<AreaPatternDTO> patternDtos = new List<AreaPatternDTO>(m_AreaPatternList.Count);
+            
+            foreach (var pattern in m_AreaPatternList)
+            {
+                patternDtos.Add(pattern.ToAreaPatternDTO());
+            }
+            
+            AllAreaPatternDTO allAreaPatternDto = new AllAreaPatternDTO(patternDtos);
+
+            PersistManager.WriteAsJson(allAreaPatternDto, fullPath);
+        }
     }
+
+#if UNITY_EDITOR
+    [CustomEditor(typeof(StagePatternTableSO))]
+    public sealed class StagePatternTableSOEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            
+            StagePatternTableSO stagePatternTable = (StagePatternTableSO) target;
+            
+            if (GUILayout.Button("Load"))
+            {
+                stagePatternTable.Load();
+                EditorUtility.SetDirty(stagePatternTable);
+            }
+            
+            if (GUILayout.Button("Save"))
+            {
+                stagePatternTable.Save();
+                EditorUtility.SetDirty(stagePatternTable);
+            }
+        }
+    }
+#endif
 }

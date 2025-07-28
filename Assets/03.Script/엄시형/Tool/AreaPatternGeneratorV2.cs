@@ -42,14 +42,14 @@ namespace _03.Script.엄시형.Tool.V2
         [SerializeField] private Button m_OpenFolderBtn;
 
         private Tilemap m_Tilemap;
-        
+        private Tilemap m_StageTilemap;
         
         // TODO : ID읽어와서 중복 못하게
         // [SerializeField] private List<AreaPatternDTO> m_AreaPatternDTOList
         // = new List<AreaPatternDTO>();
 
-        // [Header("스테이지 정보 리스트")] [SerializeField]
-        private List<StageInfoDTO> m_StageInfoList = new List<StageInfoDTO>();
+        [Header("스테이지 정보 리스트")] [SerializeField]
+        private List<AreaPattern> m_StageInfoList;
         // [SerializeField] private List<AreaPattern>
         
         
@@ -88,9 +88,9 @@ namespace _03.Script.엄시형.Tool.V2
             
             m_Tilemap = themeAreaList.First().Tilemap;
             m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
-            List<AreaPattern> patternMonsterCount = m_StagePatternTable.GetAllPatternByCount(3);
+            m_StageInfoList = m_StagePatternTable.GetAllPatternByCount(3);
             
-            foreach (var spawnInfo in patternMonsterCount[0].MonsterSpawnInfoList)
+            foreach (var spawnInfo in m_StageInfoList[0].MonsterSpawnInfoList)
             {
                 Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Point);
                 GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
@@ -195,7 +195,7 @@ namespace _03.Script.엄시형.Tool.V2
         
         private void IncreasePatternIdx()
         {
-            int maxIndex = m_StageInfoList[m_CurIdx].AreaPatternList.Count; // 0부터 시작하므로 -1
+            int maxIndex = m_StageInfoList[m_CurIdx].SpawnMonsterCount; // 0부터 시작하므로 -1
 
             if (m_CurIdx < maxIndex)
             {
@@ -216,9 +216,9 @@ namespace _03.Script.엄시형.Tool.V2
             {
                 m_CurIdx--;
             }
-            else if (m_StageInfoList[m_CurIdx].AreaPatternList.Count > 0)
+            else if (m_StageInfoList[m_CurIdx].SpawnMonsterCount > 0)
             {
-                m_CurIdx = m_StageInfoList[m_CurIdx].AreaPatternList.Count;
+                m_CurIdx = m_StageInfoList[m_CurIdx].SpawnMonsterCount;
             }
 
             m_PrevIdx = m_CurIdx;
@@ -232,7 +232,7 @@ namespace _03.Script.엄시형.Tool.V2
         
         private void RepaintPoints()
         {
-            if (m_StageInfoList[m_CurIdx].AreaPatternList.Count < m_CurIdx)
+            if (m_StageInfoList[m_CurIdx].SpawnMonsterCount < m_CurIdx)
             {
                 return;
                 
@@ -259,21 +259,23 @@ namespace _03.Script.엄시형.Tool.V2
                 var area = m_Grid.GetComponentInChildren<Tilemap>();
                 Destroy(area.gameObject);
                 
-                var patternId 
-                    = m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList.Count;
-                m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
-                m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
+                // var patternId 
+                //     = m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList.Count;
+                // m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
+                // m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
                 
-                foreach (var spawnInfo 
-                         in m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
-                {
-                    Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
-                    GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
-                    point.transform.position = worldPos;
-
-                    point.transform.localScale = Vector3.one * spawnInfo.Diameter;
-                    m_PointObjectList.Add(point.gameObject);
-                }
+                var patternId = m_StageInfoList[m_CurIdx].SpawnMonsterCount;
+                
+                // foreach (var spawnInfo 
+                //          in m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
+                // {
+                //     Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
+                //     GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
+                //     point.transform.position = worldPos;
+                //
+                //     point.transform.localScale = Vector3.one * spawnInfo.Diameter;
+                //     m_PointObjectList.Add(point.gameObject);
+                // }
             }
         }
         

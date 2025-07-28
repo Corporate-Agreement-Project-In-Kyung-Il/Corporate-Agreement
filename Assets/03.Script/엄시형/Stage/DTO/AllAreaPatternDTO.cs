@@ -16,5 +16,6 @@ namespace _03.Script.엄시형.Stage.DTO
         {
             AreaPatternList = areaPatternList;
         }
+        
     }
 }

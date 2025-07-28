@@ -50,9 +50,9 @@ public sealed class Spawner : MonoBehaviour
     
     private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
-        { character_class.궁수, new Vector2(-0.5f, 0f) },
-        { character_class.전사 , new Vector2(0.5f, 1f) },
-        { character_class.마법사 , new Vector2(1.5f, 0f) }
+        { character_class.궁수, new Vector2(-0.5f, 1f) },
+        { character_class.전사 , new Vector2(0.5f, 2f) },
+        { character_class.마법사 , new Vector2(1.5f, 1f) }
     };
     
     [Conditional("UNITY_EDITOR")]
@@ -98,6 +98,7 @@ public sealed class Spawner : MonoBehaviour
         CurStageId++;
         var prevTheme = m_CurTheme;
         
+        // 전 테마랑 같지 않게 랜덤으로 테마 설정
         do
         {
             var stageThemes = Enum.GetValues(typeof(StageTheme));
@@ -245,7 +246,9 @@ public sealed class Spawner : MonoBehaviour
         // index 1 궁수 100004
         // index 2 마법사 100006
         // var playerList = PlayerList.Instance.CharacterIDs;
-        var playerList = new int[] {100001, 100004, 100006}; // 임시로 0, 1, 2로 설정
+        // TODO : 플레이어 ID를 외부에서 받아오는 로직으로 변경 필요
+        // 임시로 0, 1, 2로 설정
+        var playerList = new int[] {100001, 100004, 100006}; 
         
         for (int i = 0; i < playerList.Length; i++)
         {
