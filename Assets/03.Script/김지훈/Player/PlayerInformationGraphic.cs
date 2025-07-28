@@ -35,5 +35,4 @@ public class PlayerInformationGraphic : MonoBehaviour
         image[1].sprite = playerSprite.WeaponSprite;
     }
     
-    
 }
