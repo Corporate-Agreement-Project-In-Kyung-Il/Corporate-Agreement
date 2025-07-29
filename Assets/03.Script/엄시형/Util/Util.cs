@@ -33,3 +33,32 @@ namespace _03.Script.엄시형.Util
         }
     }
 }
+
+namespace _03.Script.엄시형.Util.V2
+{
+    public static class PersistManager
+    {
+        // public static string fullPath 
+        //     = Path.Combine(Application.dataPath, "05.DataTable", "AreaPattern.json");
+            
+        public static void WriteAsJson<T>(T data, string fullPath)
+        {
+            string json = JsonUtility.ToJson(data);
+
+            Debug.Log(fullPath);
+            File.WriteAllText(fullPath, json);
+        }
+
+        public static bool TryReadFromJson<T>(out T data, string fullPath)
+        {
+            data = default;
+
+            if (File.Exists(fullPath) == false) return false;
+            
+            string json = File.ReadAllText(fullPath);
+            data = JsonUtility.FromJson<T>(json);
+            
+            return true;
+        }
+    }
+}

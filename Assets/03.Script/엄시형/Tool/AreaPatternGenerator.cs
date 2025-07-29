@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
+using _03.Script.엄시형.Stage.V2;
 using _03.Script.엄시형.Util;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -16,8 +17,12 @@ using Debug = UnityEngine.Debug;
 
 namespace _03.Script.엄시형.Tool
 {
+#if UNITY_EDITOR
+    [ExecuteInEditMode]
+#endif
     public sealed class AreaPatternGenerator : MonoBehaviour
     {
+#if UNITY_EDITOR
         // TODO : AreaPattern말고 StageInfo로 변경해야함
         // [ReadOnly]
         [SerializeField] public GameObject m_PointPrefab;
@@ -32,6 +37,8 @@ namespace _03.Script.엄시형.Tool
         [SerializeField] private Button m_DecreaseBtn;
         [SerializeField] private Button m_IncreaseBtn;
         [SerializeField] private Button m_OpenFolderBtn;
+        
+        [SerializeField] private StageTheme m_StageTheme = StageTheme.Grass;
         
         private Tilemap m_Tilemap;
         
@@ -79,7 +86,7 @@ namespace _03.Script.엄시형.Tool
             {
                 // patternId에 해당하는 타일맵 생성
                 var patternId = m_AreaPatternDTOList[0].PatternId;
-                m_Tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
+                m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
                 m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
                 
                 foreach (var spawnInfo in m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList)
@@ -264,7 +271,7 @@ namespace _03.Script.엄시형.Tool
                 Destroy(area.gameObject);
                 
                 var patternId = m_AreaPatternDTOList[m_CurIdx - 1].PatternId;
-                m_Tilemap = m_AreaTilemapTable.GetTilemapOrNull(patternId);
+                m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, patternId);
                 m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
                 
                 foreach (var spawnInfo in m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList)
@@ -279,6 +286,5 @@ namespace _03.Script.엄시형.Tool
             }
         }
     }
-    
-    
+# endif
 }

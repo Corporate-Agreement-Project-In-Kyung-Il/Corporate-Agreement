@@ -32,13 +32,19 @@ namespace _03.Script.엄시형.Stage.DTO
         public AreaPattern(int id, List<SpawnInfo> SpawnInfoList)
         {
             PatternId = id;
-
             MonsterSpawnInfoList = new List<SpawnInfo>(SpawnInfoList);
         }
         
-        public int GetStageId()
+        public AreaPatternDTO ToAreaPatternDTO()
         {
-            return PatternId / 100000;
+            AreaPatternDTO dto = new AreaPatternDTO(PatternId);
+            
+            foreach (var spawnInfo in MonsterSpawnInfoList)
+            {
+                dto.MonsterSpawnInfoList.Add(new SpawnInfoDTO(spawnInfo.Point, spawnInfo.Radius));
+            }
+            
+            return dto;
         }
     }
 }

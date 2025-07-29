@@ -23,13 +23,13 @@ public class ProjectileHit : MonoBehaviour, ISkillID
         owner = _owner;
         buffSO = _buff;
 
-        originalAttackSpeed = owner.playerStat.attackSpeed;
-        owner.playerStat.attackSpeed *= 2f;// 맛도 안나네 띠발
+        originalAttackSpeed = owner.buffplayerStat.attackSpeed;
+        owner.buffplayerStat.attackSpeed *= 2f;// 맛도 안나네 띠발
 
         duration = buffSO.Skill_Duration + buffSO.Duration_Increase;
         timer = 0f;
         initialized = true;
-        Debug.Log("공속 버프 on :" +owner.playerStat.attackSpeed);
+        Debug.Log("공속 버프 on :" +owner.buffplayerStat.attackSpeed);
     }
 
     private bool initialized = false;
@@ -41,8 +41,8 @@ public class ProjectileHit : MonoBehaviour, ISkillID
         timer += Time.deltaTime;
         if (timer >= duration)
         {
-            owner.playerStat.attackSpeed = originalAttackSpeed;
-            Debug.Log("공속 버프 off:" +owner.playerStat.attackSpeed);
+            owner.buffplayerStat.attackSpeed = originalAttackSpeed;
+            Debug.Log("공속 버프 off:" +owner.buffplayerStat.attackSpeed);
             Destroy(gameObject);
         }
     }

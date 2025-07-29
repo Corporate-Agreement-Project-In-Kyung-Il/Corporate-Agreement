@@ -4384,7 +4384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1513044768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4710,8 +4710,6 @@ MonoBehaviour:
   m_MonsterStatTable: {fileID: 11400000, guid: 16f2c6dd7713c95479fdf2e0347103ed, type: 2}
   m_MonsterData: {fileID: 11400000, guid: eac4037eda615a84ab77d0319915898b, type: 2}
   m_MonsterTable: {fileID: 11400000, guid: 8cd7e0585f7a01847a69123de230f27a, type: 2}
-  m_TilemapList:
-  - {fileID: 3852055898315261543, guid: b9efca3455c7284469ef2c8ffd8d9352, type: 3}
   m_Grid: {fileID: 1058518465}
   m_StageEndPoint: {fileID: 1399486814}
   m_PlayerList:

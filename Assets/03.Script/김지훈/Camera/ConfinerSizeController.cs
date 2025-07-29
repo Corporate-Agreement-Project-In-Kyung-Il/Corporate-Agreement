@@ -15,7 +15,7 @@ public class ConfinerSizeController : MonoBehaviour
     void Awake()
     {
         TryGetComponent(out boxCollider);
-        StageClearEvent.stageClearEvent += GenerateLimitMap;
+        StageEvent.stageClearEvent += GenerateLimitMap;
         tilemapColliders.Add(tilemapCollider);
     }
 
@@ -58,11 +58,11 @@ public class ConfinerSizeController : MonoBehaviour
     
     private void OnEnable()
     {
-        StageClearEvent.stageClearEvent += GenerateLimitMap;
+        StageEvent.stageClearEvent += GenerateLimitMap;
     }
 
     private void OnDisable()
     {
-        StageClearEvent.stageClearEvent -= GenerateLimitMap;
+        StageEvent.stageClearEvent -= GenerateLimitMap;
     }
 }

@@ -84,7 +84,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1834d1cdfede7f94f884d9367b2dbe1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0
+  skillPrefab: {fileID: 0}
+  skillPrefab2: {fileID: 0}
+  buffsize_x: 3
+  buffsize_y: 3
+  buffsize_z: 3
+  buff1position_x: -0.6
+  buff1position_y: 0
+  buff1position_z: 0
+  buff2position_x: 0.6
+  buff2position_y: 0
+  buff2position_z: 0
   data: {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
   playerStat:
     attackRange: 0
@@ -101,13 +111,17 @@ MonoBehaviour:
     criticalProbability: 0
     training_type: 0
     equip_item: 0
+    equip_level: 0
     skill_possed: 
+  resetHp: 0
   currentCharacterState: 0
   prevCharacterState: 0
-  cameraMove: 1
-  detectionRange: {x: 3, y: 7}
+  detectionRange: {x: 5, y: 7}
   isTarget: 0
   target: {fileID: 0}
+  attackRange: 0
+  shieldBlockChance: 0
+  damageReductionRate: 0
 --- !u!50 &989196831123791944
 Rigidbody2D:
   serializedVersion: 4
@@ -207,8 +221,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1481407433
-  m_SortingLayer: 1
+  m_SortingLayerID: 991338845
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7f176a9fa24d3b4eb490a3831e044d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -360,8 +374,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1481407433
-  m_SortingLayer: 1
+  m_SortingLayerID: 991338845
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -1390991108, guid: c385b4070725c4a4a90bbb9a8b3e8198, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

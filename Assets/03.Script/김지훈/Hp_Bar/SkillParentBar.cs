@@ -30,7 +30,7 @@ public class SkillParentBar : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (target.playerStat.characterName)
+        switch (target.buffplayerStat.characterName)
         {
             case character_name.기본_전사 :
                 offset = Vector3.up * targetPositions[0]; 
