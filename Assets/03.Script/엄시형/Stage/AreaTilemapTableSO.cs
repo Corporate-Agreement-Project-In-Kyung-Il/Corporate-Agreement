@@ -14,6 +14,7 @@ namespace _03.Script.엄시형.Stage
     [CreateAssetMenu(fileName = "AreaTilemapTableSO", menuName = "SO/Stage/AreaTilemapTable", order = 0)]
     public sealed class AreaTilemapTableSO : ScriptableObject
     {
+        public List<AreaTilemap> TilemapList => m_TilemapList;
         [SerializeField] private List<AreaTilemap> m_TilemapList = new List<AreaTilemap>();
         private Dictionary<StageTheme, List<AreaTilemap>> m_TilemapDic;
         

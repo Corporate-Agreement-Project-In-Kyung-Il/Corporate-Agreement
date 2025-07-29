@@ -7,6 +7,7 @@ using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Stage.V2;
 using _03.Script.엄시형.Util;
+using _03.Script.엄시형.Util.V2;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -28,7 +29,7 @@ namespace _03.Script.엄시형.Tool.V2
         // [ReadOnly]
         [SerializeField] public GameObject m_PointPrefab;
 
-        [SerializeField] public AreaTilemapTableSO m_AreaTilemapTable;
+        // [SerializeField] public AreaTilemapTableSO m_AreaTilemapTable;
         [SerializeField] private StagePatternTableSO m_StagePatternTable;
 
         // [ReadOnly]
@@ -41,8 +42,8 @@ namespace _03.Script.엄시형.Tool.V2
         [SerializeField] private Button m_IncreaseBtn;
         [SerializeField] private Button m_OpenFolderBtn;
 
-        private Tilemap m_Tilemap;
-        private Tilemap m_StageTilemap;
+        [SerializeField] private Tilemap m_Tilemap;
+        // private Tilemap m_StageTilemap;
         
         // TODO : ID읽어와서 중복 못하게
         // [SerializeField] private List<AreaPatternDTO> m_AreaPatternDTOList
@@ -55,9 +56,9 @@ namespace _03.Script.엄시형.Tool.V2
         
         // TODO : Id에 따라 변하게
         // [SerializeField]
-        private int m_CurIdx = 3;
+        private int m_CurIdx = 0;
 
-        private int m_PrevIdx = 3;
+        private int m_PrevIdx = 0;
 
         private readonly List<GameObject> m_PointObjectList = new List<GameObject>();
         // private readonly AreaPatternPersistenceManager m_PersistenceManager
@@ -69,7 +70,7 @@ namespace _03.Script.엄시형.Tool.V2
         {
             Debug.Assert(m_PointPrefab != null, "mPointPrefab이 빠졌습니다");
             Debug.Assert(m_MainCam != null, "mMainCam이 빠졌습니다");
-            Debug.Assert(m_AreaTilemapTable != null, "m_AreaTilemapTable != null");
+            // Debug.Assert(m_AreaTilemapTable != null, "m_AreaTilemapTable != null");
             
             if (m_CurIdx != m_PrevIdx)
             {
@@ -83,21 +84,13 @@ namespace _03.Script.엄시형.Tool.V2
 
         private void Awake()
         {
-            m_AreaTilemapTable.Init();
-            var themeAreaList = m_AreaTilemapTable.GetThemeAreaList(StageTheme.Grass);
+            // m_AreaTilemapTable.Init();
+            // var themeAreaList = m_AreaTilemapTable.GetThemeAreaList(StageTheme.Grass);
             
-            m_Tilemap = themeAreaList.First().Tilemap;
-            m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
+            // m_Tilemap = themeAreaList.First().Tilemap;
+            // m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
             
-            foreach (var spawnInfo in m_StagePatternTable.AreaPatternList[0].MonsterSpawnInfoList)
-            {
-                Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Point);
-                GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
-                point.transform.position = worldPos;
-                
-                point.transform.localScale = Vector3.one * spawnInfo.Radius;
-                m_PointObjectList.Add(point.gameObject);
-            }
+            PaintPoints(m_CurIdx);
             
             // //TODO : 로딩때
             // if (AreaPatternPersistenceManager.TryReadFromJson(out m_StageInfoList))
@@ -128,20 +121,20 @@ namespace _03.Script.엄시형.Tool.V2
 
         private void OnEnable()
         {
-            m_SaveBtn.onClick.AddListener(WriteAsJson);
+            m_SaveBtn.onClick.AddListener(Save);
             // m_IncreaseBtn.onClick.AddListener(Restart);
             m_IncreaseBtn.onClick.AddListener(IncreasePatternIdx);
-            // m_DecreaseBtn.onClick.AddListener(DecreasePatternIdx);
+            m_DecreaseBtn.onClick.AddListener(DecreasePatternIdx);
             m_OpenFolderBtn.onClick.AddListener(OpenFolder);
 
         }
 
         private void OnDisable()
         {
-            m_SaveBtn.onClick.RemoveListener(WriteAsJson);
+            m_SaveBtn.onClick.RemoveListener(Save);
             // m_IncreaseBtn.onClick.AddListener(Restart);
             m_IncreaseBtn.onClick.RemoveListener(IncreasePatternIdx);
-            // m_DecreaseBtn.onClick.RemoveListener(DecreasePatternIdx);
+            m_DecreaseBtn.onClick.RemoveListener(DecreasePatternIdx);
             m_OpenFolderBtn.onClick.RemoveListener(OpenFolder);
         }
 
@@ -164,116 +157,117 @@ namespace _03.Script.엄시형.Tool.V2
             }
 
             // // 포인트 오브젝트 배치 우클릭
-            // if (Input.GetKeyDown(KeyCode.Mouse1))
-            // {
-            //     Vector2 worldPos = m_MainCam.ScreenToWorldPoint(Input.mousePosition);
-            //     RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
-            //
-            //     if (hit && hit.collider.TryGetComponent(out Tilemap tilemap))
-            //     {
-            //         Vector2 localPos = m_Tilemap.transform.InverseTransformPoint(hit.point);
-            //         
-            //         float diameter = m_PointPrefab.transform.localScale.x;
-            //     
-            //         // Instantiate는 월드 좌표로 생성해 로컬좌표로 변경함
-            //         GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
-            //         point.transform.localPosition = localPos;
-            //
-            //         SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, diameter);
-            //     
-            //         m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList.Add(spawnInfo);
-            //         m_PointObjectList.Add(point.gameObject);
-            //     }
-            // }
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                Vector2 worldPos = m_MainCam.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
+            
+                if (hit && hit.collider.TryGetComponent(out Tilemap tilemap))
+                {
+                    Vector2 localPos = m_Tilemap.transform.InverseTransformPoint(hit.point);
+                    
+                    float diameter = m_PointPrefab.transform.localScale.x;
+                
+                    // Instantiate는 월드 좌표로 생성해 로컬좌표로 변경함
+                    GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
+                    point.transform.localPosition = localPos;
+            
+                    // SpawnInfo spawnInfo = new SpawnInfo(localPos, diameter);
+                
+                    // m_StagePatternTable
+                    //     .AreaPatternList[m_CurIdx]
+                    //     .MonsterSpawnInfoList
+                    //     .Add(spawnInfo);
+                    
+                    m_PointObjectList.Add(point.gameObject);
+                }
+            }
         }
 
-        private void WriteAsJson()
+        private void Save()
         {
-            // m_StagePersistMgr.WriteAsJSON(m_StageInfoList);
+            string fullPath = Path.Combine(
+                Application.dataPath
+                , "05.DataTable"
+                , "AreaPattern.json");
+            
+            var areaPattern = new AreaPattern(0, new List<SpawnInfo>());
+
+            
+            
+            foreach (var go in m_PointObjectList)
+            {
+                Vector2 localPos = m_Tilemap.transform.InverseTransformPoint(go.transform.position);
+                areaPattern.MonsterSpawnInfoList.Add(new SpawnInfo(localPos, go.transform.localScale.x));
+                // var areaDto = new AreaPatternDTO(0, );
+                // areaPatternDtoList.Add();
+            }
         }
         
         private void IncreasePatternIdx()
         {
-            // int maxIndex = m_StagePatternTable.AreaPatternList.Count; // 0부터 시작하므로 -1
-            m_AreaTilemapTable.GetTilemap(StageTheme.Grass, m_CurIdx);
-            // if (m_CurIdx < maxIndex)
-            // {
-            //     m_CurIdx++;
-            // }
-            // else
-            // {
-            //     m_CurIdx = 1;
-            // }
-                
+            int maxIndex = m_StagePatternTable.AreaPatternList.Count - 1; // 0부터 시작하므로 -1
+            // m_AreaTilemapTable.GetTilemap(StageTheme.Grass, m_CurIdx);
+            if (m_CurIdx < maxIndex)
+            {
+                m_CurIdx++;
+            }
+            else
+            {
+                m_CurIdx = 0;
+            }
+
             m_PrevIdx = m_CurIdx;
-            RepaintPoints();
+            ClearPoints();
+            PaintPoints(m_CurIdx);
         }
         
-        // private void DecreasePatternIdx()
-        // {
-        //     if (m_CurIdx > 1)
-        //     {
-        //         m_CurIdx--;
-        //     }
-        //     else if (m_StageInfoList[m_CurIdx].SpawnMonsterCount > 0)
-        //     {
-        //         m_CurIdx = m_StageInfoList[m_CurIdx].SpawnMonsterCount;
-        //     }
-        //
-        //     m_PrevIdx = m_CurIdx;
-        //     RepaintPoints();
-        // }
+        private void DecreasePatternIdx()
+        {
+            if (m_CurIdx > 1)
+            {
+                m_CurIdx--;
+            }
+            else
+            {
+                m_CurIdx = m_StagePatternTable.AreaPatternList.Count - 1;
+            }
+            // else if (m_StageInfoList[m_CurIdx].SpawnMonsterCount > 0)
+            // {
+            //     m_CurIdx = m_StageInfoList[m_CurIdx].SpawnMonsterCount;
+            // }
+        
+            m_PrevIdx = m_CurIdx;
+            ClearPoints();
+            PaintPoints(m_CurIdx);
+        }
         
         private void OpenFolder()
         {
             // EditorUtility.RevealInFinder(m_StagePersistMgr.fullPath);
         }
         
-        private void RepaintPoints()
+        private void PaintPoints(int index)
         {
-            if (m_StagePatternTable.AreaPatternList[m_CurIdx].SpawnMonsterCount < m_CurIdx)
+            foreach (var spawnInfo in m_StagePatternTable.AreaPatternList[index].MonsterSpawnInfoList)
             {
-                foreach (var pointObj in m_PointObjectList)
-                {
-                    Destroy(pointObj);
-                }
-
-                // m_PointObjectList.Clear();
-                // m_StageInfoList[m_CurIdx].AreaPatternList.Add(new AreaPatternDTO(m_CurIdx));
+                Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Point);
+                GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
+                point.transform.position = worldPos;
+                
+                point.transform.localScale = Vector3.one * spawnInfo.Radius;
+                m_PointObjectList.Add(point.gameObject);
             }
-            else
+        }
+        
+        private void ClearPoints()
+        {
+            foreach (var point in m_PointObjectList)
             {
-                foreach (var pointObj in m_PointObjectList)
-                {
-                    Destroy(pointObj);
-                }
-
-                m_PointObjectList.Clear();
-                
-                // 패턴 ID에 해당하는 타일맵을 생성
-                // patternId에 해당하는 타일맵 생성
-
-                var area = m_Grid.GetComponentInChildren<Tilemap>();
-                Destroy(area.gameObject);
-                
-                // var patternId 
-                //     = m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList.Count;
-                m_Tilemap = m_AreaTilemapTable.GetTilemap(StageTheme.Grass, m_CurIdx);
-                m_Tilemap = Instantiate(m_Tilemap, parent: m_Grid.transform);
-                
-                // var patternId = m_StagePatternTable.AreaPatternList[m_CurIdx].SpawnMonsterCount;
-                
-                // foreach (var spawnInfo 
-                //          in m_StageInfoList[m_CurIdx].AreaPatternList[m_CurIdx].MonsterSpawnInfoList)
-                // {
-                //     Vector2 worldPos = m_Tilemap.transform.TransformPoint(spawnInfo.Pos);
-                //     GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
-                //     point.transform.position = worldPos;
-                //
-                //     point.transform.localScale = Vector3.one * spawnInfo.Diameter;
-                //     m_PointObjectList.Add(point.gameObject);
-                // }
+                Destroy(point);
             }
+            
+            m_PointObjectList.Clear();
         }
         
         // 저장버튼
