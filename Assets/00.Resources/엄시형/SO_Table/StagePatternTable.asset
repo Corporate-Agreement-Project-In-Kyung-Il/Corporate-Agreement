@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StagePatternTable
   m_EditorClassIdentifier: 
   m_AreaPatternList:
-  - <PatternId>k__BackingField: 1
+  - <PatternId>k__BackingField: 1000
     <MonsterSpawnInfoList>k__BackingField:
     - <Point>k__BackingField: {x: -0.13753587, y: 0.8954153}
       <Radius>k__BackingField: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
       <Radius>k__BackingField: 1
     - <Point>k__BackingField: {x: 0.52722037, y: 1.5830946}
       <Radius>k__BackingField: 1
-  - <PatternId>k__BackingField: 2
+  - <PatternId>k__BackingField: 2000
     <MonsterSpawnInfoList>k__BackingField:
     - <Point>k__BackingField: {x: -0.2979943, y: 1.2621775}
       <Radius>k__BackingField: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
       <Radius>k__BackingField: 1
     - <Point>k__BackingField: {x: 0.8481372, y: 1.7893982}
       <Radius>k__BackingField: 1
-  - <PatternId>k__BackingField: 3
+  - <PatternId>k__BackingField: 3000
     <MonsterSpawnInfoList>k__BackingField:
     - <Point>k__BackingField: {x: -0.22922637, y: 2.775072}
       <Radius>k__BackingField: 1

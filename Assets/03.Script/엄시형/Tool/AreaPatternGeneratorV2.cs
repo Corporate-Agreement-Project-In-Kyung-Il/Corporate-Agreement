@@ -7,6 +7,7 @@ using _03.Script.엄시형.Stage;
 using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Stage.V2;
 using _03.Script.엄시형.Util;
+using _03.Script.엄시형.Util.V2;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -120,7 +121,7 @@ namespace _03.Script.엄시형.Tool.V2
 
         private void OnEnable()
         {
-            m_SaveBtn.onClick.AddListener(WriteAsJson);
+            m_SaveBtn.onClick.AddListener(Save);
             // m_IncreaseBtn.onClick.AddListener(Restart);
             m_IncreaseBtn.onClick.AddListener(IncreasePatternIdx);
             m_DecreaseBtn.onClick.AddListener(DecreasePatternIdx);
@@ -130,7 +131,7 @@ namespace _03.Script.엄시형.Tool.V2
 
         private void OnDisable()
         {
-            m_SaveBtn.onClick.RemoveListener(WriteAsJson);
+            m_SaveBtn.onClick.RemoveListener(Save);
             // m_IncreaseBtn.onClick.AddListener(Restart);
             m_IncreaseBtn.onClick.RemoveListener(IncreasePatternIdx);
             m_DecreaseBtn.onClick.RemoveListener(DecreasePatternIdx);
@@ -183,9 +184,24 @@ namespace _03.Script.엄시형.Tool.V2
             }
         }
 
-        private void WriteAsJson()
+        private void Save()
         {
-            // m_StagePersistMgr.WriteAsJSON(m_StageInfoList);
+            string fullPath = Path.Combine(
+                Application.dataPath
+                , "05.DataTable"
+                , "AreaPattern.json");
+            
+            var areaPattern = new AreaPattern(0, new List<SpawnInfo>());
+
+            
+            
+            foreach (var go in m_PointObjectList)
+            {
+                Vector2 localPos = m_Tilemap.transform.InverseTransformPoint(go.transform.position);
+                areaPattern.MonsterSpawnInfoList.Add(new SpawnInfo(localPos, go.transform.localScale.x));
+                // var areaDto = new AreaPatternDTO(0, );
+                // areaPatternDtoList.Add();
+            }
         }
         
         private void IncreasePatternIdx()
