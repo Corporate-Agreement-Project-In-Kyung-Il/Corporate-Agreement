@@ -47,7 +47,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     public void AttackTarget()
     {
-        if (attackCount >= stat.Attack_Count)
+        if (attackCount >= stat.Attack_Count||owner.target==null)
         {
             Destroy(gameObject);
         }
