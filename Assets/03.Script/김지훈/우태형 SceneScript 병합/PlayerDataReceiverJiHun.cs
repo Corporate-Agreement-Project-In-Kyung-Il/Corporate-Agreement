@@ -39,11 +39,10 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
         
         for (int i = 0; i < DependencyPlayerStat.Length; i++)
         {
-            Debug.Log($"{DependencyPlayerStat[i].equip_item} :::: {equipOption.Equipment_Type_ID}");
             
             if (DependencyPlayerStat[i].equip_item.Equals(equipOption.Equipment_Type_ID))
             {
-                Debug.Log($"{equipOption.Description} :::::: {equipOption.Equipment_LvUP}");
+                Debug.Log($"{DependencyPlayerStat[i].characterName} ::: {DependencyPlayerStat[i].equip_item} :::: {equipOption.Equipment_Type_ID}");
                 DependencyPlayerStat[i].equip_level = equipOption.Equipment_LvUP;
                 DependencyPlayerStat[i].attackDamage += equipOption.Attack_LV_UP_Effect;
                 DependencyPlayerStat[i].health += equipOption.HP_LV_UP_Effect;
@@ -51,17 +50,17 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                 switch (i)
                 {
                     case 0 :
-                        warriorData.equip_level = equipOption.Equipment_LvUP;
+                        warriorData.equip_level += equipOption.Equipment_LvUP;
                         warriorData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         warriorData.health += equipOption.HP_LV_UP_Effect;
                         break;
                     case 1 :
-                        archerData.equip_level = equipOption.Equipment_LvUP;
+                        archerData.equip_level += equipOption.Equipment_LvUP;
                         archerData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         archerData.health += equipOption.HP_LV_UP_Effect;
                         break;
                     case 2 :
-                        wizardData.equip_level = equipOption.Equipment_LvUP;
+                        wizardData.equip_level += equipOption.Equipment_LvUP;
                         wizardData.attackDamage += equipOption.Attack_LV_UP_Effect;
                         wizardData.health += equipOption.HP_LV_UP_Effect;
                         break;
@@ -69,7 +68,7 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                 break;
             }
         }
-        
+        StageEvent.OnTriggerEquipmentEvent();
         // HostStat = GameManagerJiHun.Instance.
     }
     
@@ -91,10 +90,11 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
         
         for (int i = 0; i < DependencyPlayerStat.Length; i++)
         {
-            Debug.Log($"{DependencyPlayerStat[i].training_type} :::: {trainingOption.Training_ID}");
+          
             
             if (DependencyPlayerStat[i].training_type.Equals(trainingOption.Training_ID))
             {
+                Debug.Log($"{DependencyPlayerStat[i].characterName} ::: {DependencyPlayerStat[i].training_type} :::: {trainingOption.Training_ID}");
                 Debug.Log($"{trainingOption.Description} :::::: {trainingOption.Training_LvUP}");
                 
                 DependencyPlayerStat[i].attackDamage += trainingOption.Critical_Damage_Increase;

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 83753358995430796}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -6.437, z: 0}
+  m_LocalPosition: {x: 0.5, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -96,23 +96,6 @@ MonoBehaviour:
   buff2position_y: 0
   buff2position_z: 0
   data: {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
-  playerStat:
-    attackRange: 0
-    moveSpeed: 0
-    detectionRange: {x: 0, y: 0}
-    isDead: 0
-    character_ID: 0
-    characterClass: 0
-    characterName: 0
-    characterGrade: 0
-    attackDamage: 0
-    health: 0
-    attackSpeed: 0
-    criticalProbability: 0
-    training_type: 0
-    equip_item: 0
-    equip_level: 0
-    skill_possed: 
   resetHp: 0
   currentCharacterState: 0
   prevCharacterState: 0
@@ -248,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 0}
+  Level_Sprites: []
   magicBall: {fileID: 1288255729655079908, guid: 96cb839f2e1eb1647aee876fd7fa0a9d, type: 3}
 --- !u!95 &7731344337925157286
 Animator:
