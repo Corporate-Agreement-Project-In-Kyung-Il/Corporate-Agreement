@@ -36,7 +36,13 @@ public class SkillManager : MonoBehaviour
         Selection_ID = GameManager.Instance.optionButtons[id].selectID;
         SkillEnchant();
     }
-    private void Awake()
+
+    public void SetPlayers(Player[] playerFromStageManager)
+    {
+        players = playerFromStageManager;
+        SetPlayersWhenStart();
+    }
+    public void SetPlayersWhenStart()
     {
         //AutoAssignSkillObjects();
         FindPlayers();
