@@ -226,10 +226,12 @@ public sealed class Spawner : MonoBehaviour
         // 보스 스테이지
         if (m_CurStageId % 3 == 0)
         {
+            Tilemap bossTilemap = m_CurTilemapList.Last();
+            
             var boss = SpawnMonster(
-                new Vector2(0f, 15f)
+                new Vector2(bossTilemap.localBounds.center.x, bossTilemap.localBounds.max.y - 3f)
                 , monsterType
-                , parent: m_CurTilemapList.Last().gameObject);
+                , parent: bossTilemap.gameObject);
             
             boss.gameObject.transform.localScale = Vector3.one * 3f;
 
@@ -374,7 +376,7 @@ public sealed class Spawner : MonoBehaviour
                 , parent: m_Grid.transform);
             
             areaList.Add(bossTileMap);
-            
+            tilemap.CompressBounds();
             topY += bossTileMap.cellBounds.yMax;
         }
         
