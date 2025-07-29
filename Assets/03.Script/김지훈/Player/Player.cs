@@ -272,7 +272,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
         isTarget = true;
         isTarget = weapon2.Attack(target);
 
-        bool isStillTarget = weapon2.Attack(target);
+        //bool isStillTarget = weapon2.Attack(target);
 
         if (HasBuff(BuffEffectType.Archer_Strong_Mind))
         {
@@ -280,7 +280,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             weapon2.Attack(target);
         }
 
-        isTarget = isStillTarget;
+       // isTarget = isStillTarget;
         attackTimer = 1f / playerStat.attackSpeed;
         SkillCondition();
     }
@@ -438,6 +438,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
 
     public void ResetPlayerStats()
     {
+        Debug.Log("체력 회복 완료");
         resetHp = data.health;
         playerStat.health = resetHp;
         currentCharacterState = CharacterState.Run;

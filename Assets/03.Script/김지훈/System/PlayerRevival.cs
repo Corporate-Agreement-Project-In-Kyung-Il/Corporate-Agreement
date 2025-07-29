@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerRevival : MonoBehaviour
 {
     private Player[] players;
-    private void Awake()
+    private void Start()
     {
         players = GetComponentsInChildren<Player>();
     }
