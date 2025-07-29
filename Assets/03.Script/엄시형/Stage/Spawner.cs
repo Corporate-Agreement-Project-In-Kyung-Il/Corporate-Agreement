@@ -33,6 +33,8 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private StageInfoTableSO m_StageInfoTable;
     [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private PlayerCharacter m_CharacterTable;
+    // 스킬 매니저 추가 했습니다.
+    [SerializeField] private SkillManager m_SkillManager;
     
     [SerializeField] private List<Player> m_CharacterPrefabs;
     [SerializeField] private List<PlayerData> m_PlayerData;
@@ -41,7 +43,7 @@ public sealed class Spawner : MonoBehaviour
     
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
-    
+    [SerializeField] private GameObject m_reviveGameObject;
     private List<Tilemap> m_CurTilemapList = new List<Tilemap>();
     private List<AreaPattern> m_CurAreaList = new List<AreaPattern>();
     private StageTheme m_CurTheme = StageTheme.Grass; // 현재 테마, 초기값은 Grass로 설정
@@ -76,6 +78,8 @@ public sealed class Spawner : MonoBehaviour
         
         // 밖에서 초기화 해야 Memory에 올라감
         m_AreaTilemapTable.Init();
+        SpawnCharacters();
+        m_SkillManager.SetPlayers(m_PlayerList.ToArray());
     }
 
     private void OnEnable()
@@ -137,7 +141,7 @@ public sealed class Spawner : MonoBehaviour
         m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
         GetRandomPattern();
         m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
-        SpawnCharacters();
+        
         SpawnAllMonstersInStage();
     }
 
@@ -296,7 +300,8 @@ public sealed class Spawner : MonoBehaviour
             if (m_PlayerSpawnPointDic
                 .TryGetValue(characterClass, out Vector2 spawnPos))
             {
-                var spawnedCharacter = Instantiate(m_CharacterPrefabs[i], spawnPos, Quaternion.identity);
+                var spawnedCharacter = Instantiate(m_CharacterPrefabs[i], spawnPos, Quaternion.identity
+                    , parent: m_reviveGameObject.transform);
                 spawnedCharacter.initialSetPlayerStats(playerData);
                 m_PlayerList.Add(spawnedCharacter);
             }
