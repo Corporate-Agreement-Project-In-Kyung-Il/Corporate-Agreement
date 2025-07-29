@@ -14,8 +14,12 @@
         public Image CharacterSprite;
 
         [SerializeField] private PlayerList PlayerList;
+        [SerializeField] private ChoiceManager ChoiceManager;
 
         [SerializeField] private List<Button> PlayerChoosingButtons = new List<Button>();
+
+        [SerializeField] private GameObject SameClass;
+        [SerializeField] private GameObject ;
         public void ShowInfo(CharacterChooseButton button)
         {
             CharacterSprite.sprite = button.CharacterSprite;
@@ -24,6 +28,8 @@
             CharacterName.text = button.characterName;
             Skill1Name.text = button.Skill1_info;
             Skill2Name.text = button.Skill2_info;
+            
+            ChoiceManager.ButtonNumber = button.ButtonNumber;
         }
 
         public void GetPlayerID(CharacterChooseButton button)
@@ -31,18 +37,36 @@
 
             if (button.characterClass == character_class.전사)
             {
-                PlayerList.CharacterIDs[0] = button.CharacterID;
-                ToggleSameClassButtons(button, character_class.전사);
+                if (PlayerList.CharacterIDs[0] == 0)
+                {
+                    PlayerList.CharacterIDs[0] = button.CharacterID;
+                }
+                else if(PlayerList.CharacterIDs[0] == button.CharacterID)
+                {
+                    PlayerList.CharacterIDs[0] = 0;
+                }
             }
             else if (button.characterClass == character_class.궁수)
             {
-                PlayerList.CharacterIDs[1] = button.CharacterID;
-                ToggleSameClassButtons(button, character_class.궁수);
+                if (PlayerList.CharacterIDs[1] == 0)
+                {
+                    PlayerList.CharacterIDs[1] = button.CharacterID;
+                }
+                else if(PlayerList.CharacterIDs[1] == button.CharacterID)
+                {
+                    PlayerList.CharacterIDs[1] = 0;
+                }
             }
             else if (button.characterClass == character_class.마법사)
             {
-                PlayerList.CharacterIDs[2] = button.CharacterID;
-                ToggleSameClassButtons(button, character_class.마법사);
+                if (PlayerList.CharacterIDs[2] == 0)
+                {
+                    PlayerList.CharacterIDs[2] = button.CharacterID;
+                }
+                else if(PlayerList.CharacterIDs[2] == button.CharacterID)
+                {
+                    PlayerList.CharacterIDs[2] = 0;
+                }
             }
             HandpointOnOff(button);
         }
@@ -58,32 +82,27 @@
                 button.Hand_img.SetActive(false);
             }
         }
-        
-        private void ToggleSameClassButtons(CharacterChooseButton selectedButton, character_class targetClass)
+
+        private void SameClassPanelOnOff()
         {
-            bool isAnyDisabled = false;
-
-            // 같은 클래스 버튼 중 비활성화된 것이 있는지 확인
-            foreach (Button btn in PlayerChoosingButtons)
+            if (IfSameClass.activeSelf == false)
             {
-                CharacterChooseButton chooseBtn = btn.GetComponent<CharacterChooseButton>();
-                if (chooseBtn != null && chooseBtn.characterClass == targetClass && btn.interactable == false)
-                {
-                    isAnyDisabled = true;
-                    break;
-                }
+                IfSameClass.SetActive(true);
             }
-
-            // 비활성화된 게 있으면 다시 활성화, 아니면 비활성화
-            foreach (Button btn in PlayerChoosingButtons)
+            else if (IfSameClass.activeSelf == true)
             {
-                CharacterChooseButton chooseBtn = btn.GetComponent<CharacterChooseButton>();
-
-                if (chooseBtn != null && chooseBtn != selectedButton && chooseBtn.characterClass == targetClass)
-                {
-                    btn.interactable = isAnyDisabled; // true로 다시 활성화하거나 false로 비활성화
-                }
+                IfSameClass.SetActive(false);
             }
         }
         
+        private void SameClassPanelOnOff()
+
+
+        public void Pick_Character()
+        {
+            var characterChooseButton =
+                PlayerChoosingButtons[ChoiceManager.ButtonNumber].GetComponent<CharacterChooseButton>();
+            GetPlayerID(characterChooseButton);
+        }
+
     }
