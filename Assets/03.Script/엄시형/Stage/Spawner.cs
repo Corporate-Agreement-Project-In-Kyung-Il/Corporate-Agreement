@@ -126,14 +126,6 @@ public sealed class Spawner : MonoBehaviour
         SpawnAllMonstersInStage();
     }
     
-    private int GetStageIndexOffset(int stageId)
-    {
-        if (80 < stageId) return 3;
-        if (50 < stageId) return 2;
-        if (15 < stageId) return 1;
-        return 0;
-    }
-    
     private void Start()
     {
         // m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
@@ -316,8 +308,10 @@ public sealed class Spawner : MonoBehaviour
     /// <returns> 스폰 몬스터 </returns>
     public BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
     {
-        Vector2 randomOffset = Random.insideUnitCircle * spawnInfo.Radius;
+        Vector2 randomOffset = Random.insideUnitCircle * (spawnInfo.Radius * 0.5f);
+        // Debug.Log(randomOffset);
         Vector2 spawnPos = spawnInfo.Point + randomOffset;
+        // Vector2 spawnPos = spawnInfo.Point;
         BaseMonster monster = Instantiate(m_MonsterTable.GetMonster(type), parent.transform);
         monster.transform.localPosition = spawnPos; // 부모의 로컬 좌표로 스폰
         
