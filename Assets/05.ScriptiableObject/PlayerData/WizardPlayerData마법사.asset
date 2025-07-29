@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f79a04dd51417498de54e9d211d321, type: 3}
   m_Name: "WizardPlayerData\uB9C8\uBC95\uC0AC"
   m_EditorClassIdentifier: 
-  attackRange: 3.5
+  attackRange: 8
   moveSpeed: 5
   isDead: 1
   character_ID: 100006
   characterClass: 2
   characterName: 6
   characterGrade: 0
-  attackDamage: 300
-  health: 1864
+  attackDamage: 661.2499
+  health: 4133.2505
   attackSpeed: 0.5
-  criticalProbability: 0
+  criticalProbability: 0.5
   training_type: 500003
   equip_item: 400003
-  equip_level: 0
+  equip_level: 18
   skill_possed: b2860100b3860100
   playerUISprite: {fileID: 21300000, guid: 8a8691d46ac324f4abd3f201b3c3471b, type: 3}
