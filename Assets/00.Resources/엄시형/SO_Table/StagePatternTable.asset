@@ -13,33 +13,33 @@ MonoBehaviour:
   m_Name: StagePatternTable
   m_EditorClassIdentifier: 
   m_AreaPatternList:
-  - <PatternId>k__BackingField: 1000
+  - <PatternId>k__BackingField: 0
     <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.13753587, y: 0.8954153}
+    - <Point>k__BackingField: {x: -0.50505495, y: 2.4789758}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.3295131, y: 2.0873923}
+    - <Point>k__BackingField: {x: 0.51861185, y: 3.5212545}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.52722037, y: 1.5830946}
+    - <Point>k__BackingField: {x: 1.5422792, y: 2.4789758}
       <Radius>k__BackingField: 1
-  - <PatternId>k__BackingField: 2000
+  - <PatternId>k__BackingField: 0
     <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.2979943, y: 1.2621775}
+    - <Point>k__BackingField: {x: -0.50505495, y: 5.0102253}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.3438394, y: 1.1017194}
+    - <Point>k__BackingField: {x: 0.5, y: 4.9730015}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.2607448, y: 1.1475644}
+    - <Point>k__BackingField: {x: 1.5422792, y: 4.9916134}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.8481372, y: 1.7893982}
+    - <Point>k__BackingField: {x: 0.48138785, y: 5.959444}
       <Radius>k__BackingField: 1
-  - <PatternId>k__BackingField: 3000
+  - <PatternId>k__BackingField: 0
     <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.22922637, y: 2.775072}
+    - <Point>k__BackingField: {x: -1.026195, y: 4.5076976}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.61891115, y: 1.491404}
+    - <Point>k__BackingField: {x: 0.9839153, y: 4.4890857}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.5816617, y: 2.8438396}
+    - <Point>k__BackingField: {x: 2.5473342, y: 4.4704733}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.6733525, y: 1.353868}
+    - <Point>k__BackingField: {x: -0.021139622, y: 4.52631}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: -0.66475654, y: 1.0329514}
+    - <Point>k__BackingField: {x: 1.8214612, y: 4.544922}
       <Radius>k__BackingField: 1

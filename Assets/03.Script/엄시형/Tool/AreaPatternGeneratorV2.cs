@@ -35,7 +35,7 @@ namespace _03.Script.엄시형.Tool.V2
         // [ReadOnly]
         [SerializeField] private Grid m_Grid;
         [SerializeField] private Camera m_MainCam;
-
+        
         [SerializeField] private Button m_SaveBtn;
         [SerializeField] private Button m_ResetBtn;
         [SerializeField] private Button m_DecreaseBtn;
@@ -53,7 +53,6 @@ namespace _03.Script.엄시형.Tool.V2
         // private List<AreaPattern> m_StageInfoList;
         // [SerializeField] private List<AreaPattern>
         
-        
         // TODO : Id에 따라 변하게
         // [SerializeField]
         private int m_CurIdx = 0;
@@ -61,6 +60,7 @@ namespace _03.Script.엄시형.Tool.V2
         private int m_PrevIdx = 0;
 
         private readonly List<GameObject> m_PointObjectList = new List<GameObject>();
+        private AreaPattern m_AreaPattern;
         // private readonly AreaPatternPersistenceManager m_PersistenceManager
         // = new AreaPatternPersistenceManager();
         // private readonly StageInfoPersistMgr m_StagePersistMgr = new StageInfoPersistMgr();
@@ -171,13 +171,8 @@ namespace _03.Script.엄시형.Tool.V2
                     // Instantiate는 월드 좌표로 생성해 로컬좌표로 변경함
                     GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
                     point.transform.localPosition = localPos;
-            
+                    
                     // SpawnInfo spawnInfo = new SpawnInfo(localPos, diameter);
-                
-                    // m_StagePatternTable
-                    //     .AreaPatternList[m_CurIdx]
-                    //     .MonsterSpawnInfoList
-                    //     .Add(spawnInfo);
                     
                     m_PointObjectList.Add(point.gameObject);
                 }
@@ -186,27 +181,25 @@ namespace _03.Script.엄시형.Tool.V2
 
         private void Save()
         {
-            string fullPath = Path.Combine(
-                Application.dataPath
-                , "05.DataTable"
-                , "AreaPattern.json");
-            
-            var areaPattern = new AreaPattern(0, new List<SpawnInfo>());
-
-            
+            m_AreaPattern = new AreaPattern(0, new List<SpawnInfo>());
             
             foreach (var go in m_PointObjectList)
             {
                 Vector2 localPos = m_Tilemap.transform.InverseTransformPoint(go.transform.position);
-                areaPattern.MonsterSpawnInfoList.Add(new SpawnInfo(localPos, go.transform.localScale.x));
+                m_AreaPattern.MonsterSpawnInfoList.Add(new SpawnInfo(localPos, go.transform.localScale.x));
+                m_StagePatternTable.AreaPatternList[m_CurIdx] = m_AreaPattern;
+                //.Add(new SpawnInfo(localPos, go.transform.localScale.x));
                 // var areaDto = new AreaPatternDTO(0, );
                 // areaPatternDtoList.Add();
             }
+            
+            m_StagePatternTable.Save();
+            m_AreaPattern = null;
         }
         
         private void IncreasePatternIdx()
         {
-            int maxIndex = m_StagePatternTable.AreaPatternList.Count - 1; // 0부터 시작하므로 -1
+            int maxIndex = m_StagePatternTable.AreaPatternList.Count - 1;
             // m_AreaTilemapTable.GetTilemap(StageTheme.Grass, m_CurIdx);
             if (m_CurIdx < maxIndex)
             {
@@ -224,7 +217,7 @@ namespace _03.Script.엄시형.Tool.V2
         
         private void DecreasePatternIdx()
         {
-            if (m_CurIdx > 1)
+            if (m_CurIdx > 0)
             {
                 m_CurIdx--;
             }
