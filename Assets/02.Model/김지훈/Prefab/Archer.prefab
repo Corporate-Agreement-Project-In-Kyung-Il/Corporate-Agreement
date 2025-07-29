@@ -231,7 +231,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 0}
-  Level_Sprites: []
+  Level_Sprites:
+  - {fileID: 21300000, guid: bc9e65ddd7454a64589d96ac70e3b18a, type: 3}
+  - {fileID: 21300000, guid: 5e281ea8d7804944c86e6170179e7d32, type: 3}
+  - {fileID: 21300000, guid: 1826f7e17b87eb244b3b3f52077619e4, type: 3}
+  - {fileID: 21300000, guid: b5d5c03a26710874eb424b6ac4857ce3, type: 3}
+  - {fileID: 21300000, guid: 20f7c9b76c41d5847a9ab8f1973f4c28, type: 3}
+  - {fileID: 21300000, guid: de8df13aaf858184290671704c6bbd8c, type: 3}
+  - {fileID: 21300000, guid: 0ccb3e9ae3ccdfe45ab17ff4c83e3bbd, type: 3}
+  - {fileID: 21300000, guid: 54dcd341a219d664fafc3efec3983f5d, type: 3}
   arrowShot: {fileID: 1578177575278391442, guid: c2206df7a40cecb4690a957a7a93ed43, type: 3}
 --- !u!95 &5245062659682666109
 Animator:
