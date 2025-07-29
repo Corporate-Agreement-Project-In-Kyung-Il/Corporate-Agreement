@@ -171,12 +171,12 @@ namespace _03.Script.엄시형.Tool.V2
                     GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
                     point.transform.localPosition = localPos;
             
-                    SpawnInfo spawnInfo = new SpawnInfo(localPos, diameter);
+                    // SpawnInfo spawnInfo = new SpawnInfo(localPos, diameter);
                 
-                    m_StagePatternTable
-                        .AreaPatternList[m_CurIdx]
-                        .MonsterSpawnInfoList
-                        .Add(spawnInfo);
+                    // m_StagePatternTable
+                    //     .AreaPatternList[m_CurIdx]
+                    //     .MonsterSpawnInfoList
+                    //     .Add(spawnInfo);
                     
                     m_PointObjectList.Add(point.gameObject);
                 }
