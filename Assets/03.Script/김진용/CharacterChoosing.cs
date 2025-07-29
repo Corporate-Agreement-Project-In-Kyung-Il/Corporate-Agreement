@@ -15,7 +15,7 @@
 
         [SerializeField] private PlayerList PlayerList;
 
-        
+        [SerializeField] private List<Button> PlayerChoosingButtons = new List<Button>();
         public void ShowInfo(CharacterChooseButton button)
         {
             CharacterSprite.sprite = button.CharacterSprite;
@@ -32,16 +32,58 @@
             if (button.characterClass == character_class.전사)
             {
                 PlayerList.CharacterIDs[0] = button.CharacterID;
+                ToggleSameClassButtons(button, character_class.전사);
             }
             else if (button.characterClass == character_class.궁수)
             {
                 PlayerList.CharacterIDs[1] = button.CharacterID;
+                ToggleSameClassButtons(button, character_class.궁수);
             }
             else if (button.characterClass == character_class.마법사)
             {
                 PlayerList.CharacterIDs[2] = button.CharacterID;
+                ToggleSameClassButtons(button, character_class.마법사);
+            }
+            HandpointOnOff(button);
+        }
+
+        private void HandpointOnOff(CharacterChooseButton button)
+        {
+            if (button.Hand_img.activeSelf == false)
+            {
+                button.Hand_img.SetActive(true);
+            }
+            else if (button.Hand_img.activeSelf == true)
+            {
+                button.Hand_img.SetActive(false);
+            }
+        }
+        
+        private void ToggleSameClassButtons(CharacterChooseButton selectedButton, character_class targetClass)
+        {
+            bool isAnyDisabled = false;
+
+            // 같은 클래스 버튼 중 비활성화된 것이 있는지 확인
+            foreach (Button btn in PlayerChoosingButtons)
+            {
+                CharacterChooseButton chooseBtn = btn.GetComponent<CharacterChooseButton>();
+                if (chooseBtn != null && chooseBtn.characterClass == targetClass && btn.interactable == false)
+                {
+                    isAnyDisabled = true;
+                    break;
+                }
             }
 
+            // 비활성화된 게 있으면 다시 활성화, 아니면 비활성화
+            foreach (Button btn in PlayerChoosingButtons)
+            {
+                CharacterChooseButton chooseBtn = btn.GetComponent<CharacterChooseButton>();
 
+                if (chooseBtn != null && chooseBtn != selectedButton && chooseBtn.characterClass == targetClass)
+                {
+                    btn.interactable = isAnyDisabled; // true로 다시 활성화하거나 false로 비활성화
+                }
+            }
         }
+        
     }
