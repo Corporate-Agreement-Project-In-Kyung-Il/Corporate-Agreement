@@ -22,10 +22,16 @@ public class OptionButton : MonoBehaviour
    public int rerollCount;
    public EOptionType optionType;
    public int selectID;
+   
    public Text rerollCountText;
    public Canvas optionCanvas;
    public BaseValue selectedData;
    public GameObject checkOptionPanel;
+   
+   [SerializeField]
+   private Sprite[] m_GradeImages;
+   [SerializeField]
+   private Image m_ChoiceImage;
    private Button m_PopUpConfirmButton;
    
    public void OnClick()
@@ -50,6 +56,31 @@ public class OptionButton : MonoBehaviour
             m_TrainingOptionEvent.Invoke();
             GameManager.Instance.Resume();
             optionCanvas.gameObject.SetActive(false);
+            break;
+      }
+   }
+
+   public void SetOptionGradeImage(MyGrade grade)
+   {
+      switch (grade)
+      {
+         case MyGrade.노말 :
+            m_ChoiceImage.sprite = m_GradeImages[0];
+            break;
+         case MyGrade.레어 :
+            m_ChoiceImage.sprite = m_GradeImages[1];
+            break;
+         case MyGrade.에픽 :
+            m_ChoiceImage.sprite = m_GradeImages[2];
+            break;
+         case MyGrade.유니크 :
+            m_ChoiceImage.sprite = m_GradeImages[3];
+            break;
+         case MyGrade.레전드 :
+            m_ChoiceImage.sprite = m_GradeImages[4];
+            break;
+         case MyGrade.신화 :
+            m_ChoiceImage.sprite = m_GradeImages[5];
             break;
       }
    }

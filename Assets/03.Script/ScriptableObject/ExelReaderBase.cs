@@ -16,7 +16,7 @@ public abstract class BaseValue
     
 }
 
-public enum MyEnum
+public enum MyGrade
 {
     노말,
     레어,
@@ -35,7 +35,7 @@ public enum ECharacterGrade
 [System.Serializable]
 public class EquipOption : BaseValue
 {
-    public MyEnum Selection_Level;
+    public MyGrade Selection_Level;
     public string Description;
     public int Equipment_Type_ID;
     public float Attack_LV_UP_Effect;
@@ -71,7 +71,7 @@ public class MonsterExel : BaseValue
 [System.Serializable]
 public class SkillOption : BaseValue
 {
-    public MyEnum Selection_Level;
+    public MyGrade Selection_Level;
     public string Description;
     public int Skill_ID;
     public float Cooldown_Reduction;
@@ -98,7 +98,7 @@ public class Training : BaseValue
 [System.Serializable]
 public class TrainingOption : BaseValue
 {
-    public MyEnum Selection_Level;
+    public MyGrade Selection_Level;
     public string Description;
     public int Training_ID;
     public float Critical_Damage_Increase;
