@@ -8,15 +8,9 @@ using UnityEngine.UI;
 
 public class PlayerInformationGraphic : MonoBehaviour
 {
-    private TMP_Text[] text;
-    private Image[] image;
-
-    private void Awake()
-    {
-        text = GetComponentsInChildren<TMP_Text>();
-        image = GetComponentsInChildren<Image>();
-    }
-
+    [SerializeField] private TMP_Text[] text;
+    [SerializeField] private Image[] image;
+    
     public void UIPlayerInformationSetting(IBuffSelection playerStat)
     {
         text[0].text = playerStat.buffplayerStat.characterName.ToString(CultureInfo.InvariantCulture);
