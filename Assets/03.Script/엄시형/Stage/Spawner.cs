@@ -171,7 +171,7 @@ public sealed class Spawner : MonoBehaviour
         Debug.Assert(mStageInfo != null, "널 들어옴");
         
         // 한 종류만 나옴
-        MonsterType monsterType = mStageInfo.MonsterType;
+        MonsterType monsterType = MonsterType.Slime;
         
         // 3마리 4마리 패턴중 랜덤리스트 가져옴
         
@@ -191,7 +191,7 @@ public sealed class Spawner : MonoBehaviour
         // 보스 스테이지
         if (CurStageId % 3 == 0)
         {
-            MonsterType type = mStageInfo.MonsterType;
+            MonsterType type = MonsterType.Slime;
             
             var boss = SpawnMonster(
                 new Vector2(0f, 15f)
