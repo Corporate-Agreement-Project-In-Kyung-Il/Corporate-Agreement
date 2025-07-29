@@ -15,99 +15,92 @@ MonoBehaviour:
   data:
   - Key_ID: 100001
     val:
-      Character_ID: 0
-      Character_Class: "\uC804\uC0AC"
-      Character_Name: "\uAE30\uBCF8_\uC804\uC0AC"
-      Character_Grade: A
+      Character_ID: 100001
+      Character_Class: 0
+      Character_Name: 1
+      Character_Grade: 0
       Attack: 67
       Health: 110
       Attack_Speed: 1
       Critical_Probability: 0
       Training_type: 500001
       equip_item: 400001
-      skill_possed1: 100011
-      skill_possed2: 100012
+      skill_possed: ab860100ac860100
   - Key_ID: 100002
     val:
-      Character_ID: 0
-      Character_Class: "\uC804\uC0AC"
-      Character_Name: "\uC544\uC774\uC5B8"
-      Character_Grade: S
+      Character_ID: 100002
+      Character_Class: 0
+      Character_Name: 2
+      Character_Grade: 1
       Attack: 64
       Health: 130
       Attack_Speed: 1
       Critical_Probability: 0
       Training_type: 500001
       equip_item: 400001
-      skill_possed1: 100011
-      skill_possed2: 100013
+      skill_possed: ab860100ad860100
   - Key_ID: 100003
     val:
-      Character_ID: 0
-      Character_Class: "\uC804\uC0AC"
-      Character_Name: "\uB514\uB178"
-      Character_Grade: S
+      Character_ID: 100003
+      Character_Class: 0
+      Character_Name: 3
+      Character_Grade: 1
       Attack: 70
       Health: 100
       Attack_Speed: 1
       Critical_Probability: 0
       Training_type: 500001
       equip_item: 400001
-      skill_possed1: 100011
-      skill_possed2: 100014
+      skill_possed: ab860100ae860100
   - Key_ID: 100004
     val:
-      Character_ID: 0
-      Character_Class: "\uAD81\uC218"
-      Character_Name: "\uAE30\uBCF8_\uAD81\uC218"
-      Character_Grade: A
+      Character_ID: 100004
+      Character_Class: 1
+      Character_Name: 4
+      Character_Grade: 0
       Attack: 67
       Health: 88
       Attack_Speed: 1
       Critical_Probability: 0
       Training_type: 500002
       equip_item: 400002
-      skill_possed1: 100015
-      skill_possed2: 100016
+      skill_possed: af860100b0860100
   - Key_ID: 100005
     val:
-      Character_ID: 0
-      Character_Class: "\uAD81\uC218"
-      Character_Name: "\uC0AC\uBE44\uB098"
-      Character_Grade: S
+      Character_ID: 100005
+      Character_Class: 1
+      Character_Name: 5
+      Character_Grade: 1
       Attack: 70
       Health: 93
       Attack_Speed: 1
       Critical_Probability: 0
       Training_type: 500002
       equip_item: 400002
-      skill_possed1: 100015
-      skill_possed2: 100017
+      skill_possed: af860100b1860100
   - Key_ID: 100006
     val:
-      Character_ID: 0
-      Character_Class: "\uB9C8\uBC95\uC0AC"
-      Character_Name: "\uAE30\uBCF8_\uB9C8\uBC95\uC0AC"
-      Character_Grade: A
+      Character_ID: 100006
+      Character_Class: 2
+      Character_Name: 6
+      Character_Grade: 0
       Attack: 67
       Health: 88
       Attack_Speed: 0.5
       Critical_Probability: 0
       Training_type: 500003
       equip_item: 400003
-      skill_possed1: 100018
-      skill_possed2: 100019
+      skill_possed: b2860100b3860100
   - Key_ID: 100007
     val:
-      Character_ID: 0
-      Character_Class: "\uB9C8\uBC95\uC0AC"
-      Character_Name: "\uCFE0\uC544"
-      Character_Grade: S
+      Character_ID: 100007
+      Character_Class: 2
+      Character_Name: 7
+      Character_Grade: 1
       Attack: 70
       Health: 93
       Attack_Speed: 0.5
       Critical_Probability: 0
       Training_type: 500003
       equip_item: 400003
-      skill_possed1: 100018
-      skill_possed2: 100020
+      skill_possed: b2860100b4860100

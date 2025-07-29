@@ -24,7 +24,7 @@ public class PlayerHpBar : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (target.playerStat.characterName)
+        switch (target.buffplayerStat.characterName)
         {
             case character_name.기본_전사 :
                 offset = Vector3.up * -0.5f; 
@@ -55,6 +55,7 @@ public class PlayerHpBar : MonoBehaviour
 
         if (target.gameObject.activeSelf.Equals(false))
         {
+            HpBarDisplayCanvas.Instance.OnPlayerDeath(target);
             Destroy(gameObject);
             return;
         }
@@ -72,17 +73,10 @@ public class PlayerHpBar : MonoBehaviour
     
     private void FollwTarget()
     {
-        if (target.gameObject.activeSelf == false)
-        {
-            Destroy(gameObject);
-        }
-
-        if (target == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
+        //if (target == null || target.gameObject.activeSelf == false)
+        //{
+        //    Destroy(gameObject);
+        //}
         transform.position = target.transform.position + offset;
     }
 
@@ -90,7 +84,7 @@ public class PlayerHpBar : MonoBehaviour
     {
         if (target.Equals(damagedPlayer))
         {
-            targetValue = damagedPlayer.playerStat.health / damagedPlayer.data.health;
+            targetValue = damagedPlayer.buffplayerStat.health / damagedPlayer.data.health;
             isLerping = true;
         }
 

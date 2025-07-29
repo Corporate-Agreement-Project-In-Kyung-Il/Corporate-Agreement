@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 public interface IDamageAble
 {
@@ -17,6 +18,12 @@ public interface IDamageAble
 public interface IBuffSelection
 { 
     public PlayerStat buffplayerStat { get; }
+}
+
+public interface ISpriteSelection
+{
+    public Sprite PlayerSprite { get; }
+    public Sprite WeaponSprite { get; }
 }
 
 [System.Serializable]
@@ -42,6 +49,7 @@ public class PlayerStat
 
     public int training_type; //훈련 적용 분류
     public int equip_item; //장비 적용 분류
+    public int equip_level;
     public List<int> skill_possed; //스킬 적용
 
 }

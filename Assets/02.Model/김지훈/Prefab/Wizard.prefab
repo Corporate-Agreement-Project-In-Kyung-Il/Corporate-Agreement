@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 83753358995430796}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -6.437, z: 0}
+  m_LocalPosition: {x: 0.5, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -84,30 +84,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1834d1cdfede7f94f884d9367b2dbe1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0
+  skillPrefab: {fileID: 0}
+  skillPrefab2: {fileID: 0}
+  buffsize_x: 3
+  buffsize_y: 3
+  buffsize_z: 3
+  buff1position_x: -0.6
+  buff1position_y: 0
+  buff1position_z: 0
+  buff2position_x: 0.6
+  buff2position_y: 0
+  buff2position_z: 0
   data: {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
-  playerStat:
-    attackRange: 0
-    moveSpeed: 0
-    detectionRange: {x: 0, y: 0}
-    isDead: 0
-    character_ID: 0
-    characterClass: 0
-    characterName: 0
-    characterGrade: 0
-    attackDamage: 0
-    health: 0
-    attackSpeed: 0
-    criticalProbability: 0
-    training_type: 0
-    equip_item: 0
-    skill_possed: 
+  resetHp: 0
   currentCharacterState: 0
   prevCharacterState: 0
-  cameraMove: 1
-  detectionRange: {x: 3, y: 7}
+  detectionRange: {x: 5, y: 7}
   isTarget: 0
   target: {fileID: 0}
+  attackRange: 0
+  shieldBlockChance: 0
+  damageReductionRate: 0
 --- !u!50 &989196831123791944
 Rigidbody2D:
   serializedVersion: 4
@@ -207,8 +204,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1481407433
-  m_SortingLayer: 1
+  m_SortingLayerID: 991338845
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7f176a9fa24d3b4eb490a3831e044d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -234,6 +231,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 0}
+  Level_Sprites:
+  - {fileID: 21300000, guid: b7f176a9fa24d3b4eb490a3831e044d7, type: 3}
+  - {fileID: 21300000, guid: 08896aa7377cdff4baeed652d3dbb481, type: 3}
+  - {fileID: 21300000, guid: 7485499a24774a742a34160d701a627c, type: 3}
+  - {fileID: 21300000, guid: 70dd6a66db2ec1a47913a406b897d0d9, type: 3}
+  - {fileID: 21300000, guid: 3bb3e82e2cab20645bde6a257fcdfc09, type: 3}
+  - {fileID: 21300000, guid: 89798a8586a0dbb48898ed1af6f0c0f9, type: 3}
+  - {fileID: 21300000, guid: 38e6546979b12e345a9cc0ee49cccfb9, type: 3}
+  - {fileID: 21300000, guid: 01a200945652a7541acdc72bf8bc5bd4, type: 3}
+  - {fileID: 21300000, guid: 55d7aaeca4cd6f649b5a455dd4fc757a, type: 3}
   magicBall: {fileID: 1288255729655079908, guid: 96cb839f2e1eb1647aee876fd7fa0a9d, type: 3}
 --- !u!95 &7731344337925157286
 Animator:
@@ -360,8 +367,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1481407433
-  m_SortingLayer: 1
+  m_SortingLayerID: 991338845
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -1390991108, guid: c385b4070725c4a4a90bbb9a8b3e8198, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SwordWeapon : Weapon
 {
+
+
     public override bool Attack(Collider2D collider)
     {
         if (collider.gameObject.TryGetComponent(out IDamageAble enemyDamage).Equals(false))
@@ -15,7 +17,7 @@ public class SwordWeapon : Weapon
         combatEvent.Receiver = enemyDamage;
         combatEvent.Sender = player;
         combatEvent.Damage = player.Damage;
-        if (Random.value < player.playerStat.criticalProbability)
+        if (Random.value < player.buffplayerStat.criticalProbability)
         {
             combatEvent.Damage =player.Damage* 2f;
         }

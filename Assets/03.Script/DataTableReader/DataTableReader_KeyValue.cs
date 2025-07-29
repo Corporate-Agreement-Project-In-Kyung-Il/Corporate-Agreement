@@ -71,7 +71,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
                     int Character_ID = int.Parse(strarr[0]);
                     string Character_Class = strarr[1];
                     string Character_Name = strarr[2];
-                    ECharacterGrade grade = (ECharacterGrade)Enum.Parse(typeof(ECharacterGrade), strarr[3]);
+                    string grade = strarr[3];
                     float Attack = float.Parse(strarr[4]);
                     float Health = float.Parse(strarr[5]);
                     float Attack_Speed = float.Parse(strarr[6]);
@@ -84,17 +84,16 @@ public class DataTableReader_KeyValue : MonoBehaviour
                     var CharacterValue = new Character
                     {
                         Character_ID = Character_ID,
-                        Character_Class = Character_Class,
-                        Character_Name = Character_Name,
-                        Character_Grade = grade.ToString(),
+                        Character_Class = Enum.Parse<character_class>(Character_Class),
+                        Character_Name = Enum.Parse<character_name>(Character_Name),
+                        Character_Grade = Enum.Parse<character_grade>(grade),
                         Attack = Attack,
                         Health = Health,
                         Attack_Speed = Attack_Speed,
                         Critical_Probability = Critical_Probability,
                         Training_type = Training_type,
                         equip_item = equip_item,
-                        skill_possed1 = skill_possed1,
-                        skill_possed2 = skill_possed2
+                        skill_possed = new List<int> { skill_possed1, skill_possed2 }  // ✅ 이렇게 한 줄로도 가능
                     };
             
                     var pair = new IDValuePair<Character>
@@ -122,7 +121,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
             
                     int key = int.Parse(strarr[0]);
                     int skill_ID = int.Parse(strarr[1]);
-                    MyEnum grade = (MyEnum)Enum.Parse(typeof(MyEnum), strarr[2]);
+                    MyGrade grade = (MyGrade)Enum.Parse(typeof(MyGrade), strarr[2]);
                     string description = strarr[3];
                     float cooldownReduction = float.Parse(strarr[4]);
                     float durationIncrease = float.Parse(strarr[5]);
@@ -167,7 +166,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
             
                     int key = int.Parse(strarr[0]);
                     int equipmentTypeId = int.Parse(strarr[1]);
-                    MyEnum grade = (MyEnum)Enum.Parse(typeof(MyEnum), strarr[2]);
+                    MyGrade grade = (MyGrade)Enum.Parse(typeof(MyGrade), strarr[2]);
                     string description = strarr[3];
                     float attackLvUpEffect = float.Parse(strarr[4]);
                     float hpLvUpEffect = float.Parse(strarr[5]);
@@ -208,7 +207,7 @@ public class DataTableReader_KeyValue : MonoBehaviour
             
                     int key = int.Parse(strarr[0]);
                     int trainingId = int.Parse(strarr[1]);
-                    MyEnum grade = (MyEnum)Enum.Parse(typeof(MyEnum), strarr[2]);
+                    MyGrade grade = (MyGrade)Enum.Parse(typeof(MyGrade), strarr[2]);
                     string description = strarr[3];
                     float criticalDamageIncrease = float.Parse(strarr[4]);
                     float criticalRateIncrease = float.Parse(strarr[5]);

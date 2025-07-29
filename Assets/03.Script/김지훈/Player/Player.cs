@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public enum BuffEffectType
@@ -14,7 +15,7 @@ public enum BuffEffectType
     // 나중에 쉽게 추가 가능
 }
 
-public class Player : MonoBehaviour, IDamageAble, IBuffSelection
+public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelection
 {
     private static readonly int IsRun = Animator.StringToHash("isRun");
     private static readonly int IsAttack = Animator.StringToHash("isAttack");
@@ -26,11 +27,22 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     public float Damage => playerStat.attackDamage;
     public float CurrentHp => playerStat.health;
 
+    /// <summary>
+    ///  ISpriteSelection의 Sprite
+    /// </summary>
+    public Sprite PlayerSprite => data.playerUISprite;
+    public Sprite WeaponSprite => WEAPON.CurrentSprite;
+    
+    /// <summary>
+    /// BuffPlayerStat
+    /// </summary>
     public PlayerStat buffplayerStat
     {
         get => playerStat;
         set => playerStat = value;
     }
+
+    public Weapon WEAPON => weapon2;
 
     public List<int> SkillID => playerStat.skill_possed;
     public ISkillID[] skills = new ISkillID[2];
@@ -59,7 +71,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     public PlayerData data;
 
     [Header("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기."), Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
-    public PlayerStat playerStat = new PlayerStat();
+    private PlayerStat playerStat = new PlayerStat();
 
     public float resetHp; 
     private Collider2D col;
@@ -100,22 +112,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         weapon2 = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
 
-        playerStat.health = data.health;
-        playerStat.moveSpeed = data.moveSpeed;
-        playerStat.character_ID = data.character_ID;
-        playerStat.characterClass = data.characterClass;
-        playerStat.characterName = data.characterName;
-        playerStat.characterGrade = data.characterGrade;
-        playerStat.attackDamage = data.attackDamage;
-        playerStat.attackSpeed = data.attackSpeed;
-        playerStat.attackRange = data.attackRange;
-        playerStat.criticalProbability = data.criticalProbability;
-        playerStat.detectionRange = detectionRange;
-        playerStat.training_type = data.training_type;
-        playerStat.equip_item = data.equip_item;
-        playerStat.skill_possed = data.skill_possed;
-        resetHp = playerStat.health;
-        attackRange = playerStat.attackRange;
+        initialSetPlayerStats(data);
     }
 
     private void Start()
@@ -232,6 +229,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
     {
         data.isDead = true;
         gameObject.SetActive(false);
+        AliveExistSystem.Instance.RemovePlayerFromList(col);
     }
 
     private void performAttack()
@@ -437,22 +435,38 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection
         Gizmos.DrawWireCube(transform.position, new Vector2(playerStat.attackRange, playerStat.attackRange));
     }
 
-    private void OnEnable()
-    {
-        StageClearEvent.stageClearEvent += ResetPlayerStats;
-    }
 
-    private void OnDisable()
-    {
-        StageClearEvent.stageClearEvent -= ResetPlayerStats;
-    }
-
-    private void ResetPlayerStats()
+    public void ResetPlayerStats()
     {
         resetHp = data.health;
         playerStat.health = resetHp;
+        currentCharacterState = CharacterState.Run;
+       
         DamgeEvent.OnTriggerPlayerDamageEvent(this);
     }
+
+    public void initialSetPlayerStats(PlayerData initialData)
+    {
+        playerStat.health = initialData.health;
+        playerStat.moveSpeed = initialData.moveSpeed;
+        playerStat.character_ID = initialData.character_ID;
+        playerStat.characterClass = initialData.characterClass;
+        playerStat.characterName = initialData.characterName;
+        playerStat.characterGrade = initialData.characterGrade;
+        playerStat.attackDamage = initialData.attackDamage;
+        playerStat.attackSpeed = initialData.attackSpeed;
+        playerStat.attackRange = initialData.attackRange;
+        playerStat.criticalProbability = initialData.criticalProbability;
+        playerStat.detectionRange = detectionRange;
+        playerStat.training_type = initialData.training_type;
+        playerStat.equip_item = initialData.equip_item;
+        playerStat.skill_possed = initialData.skill_possed;
+        resetHp = playerStat.health;
+        attackRange = playerStat.attackRange;
+        playerStat.equip_level = initialData.equip_level;
+    }
+
+
 }
 
 public enum CharacterState

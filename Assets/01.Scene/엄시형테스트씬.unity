@@ -1678,17 +1678,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1044278924 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
-  m_PrefabInstance: {fileID: 371448464740521723}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1834d1cdfede7f94f884d9367b2dbe1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1058518465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,17 +1970,6 @@ RectTransform:
   m_AnchoredPosition: {x: 322.5, y: -70}
   m_SizeDelta: {x: 240, y: 60}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1185224000 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
-  m_PrefabInstance: {fileID: 4845916418550879969}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1834d1cdfede7f94f884d9367b2dbe1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1198262284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,17 +2206,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1378329100 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
-  m_PrefabInstance: {fileID: 2593611471807610423}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1834d1cdfede7f94f884d9367b2dbe1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1399486813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,7 +2395,9 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  rerollCountText: {fileID: 0}
   optionCanvas: {fileID: 188872456}
+  checkOptionPanel: {fileID: 0}
 --- !u!114 &1447951145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3885,21 +3854,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurStageId: 1
+  CurStageId: 3
   m_StageEndDetector: {fileID: 1399486814}
   m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
   m_MonsterStatTable: {fileID: 11400000, guid: 16f2c6dd7713c95479fdf2e0347103ed, type: 2}
-  m_MonsterData: {fileID: 11400000, guid: eac4037eda615a84ab77d0319915898b, type: 2}
   m_MonsterTable: {fileID: 11400000, guid: 8cd7e0585f7a01847a69123de230f27a, type: 2}
-  m_TilemapList:
-  - {fileID: 3852055898315261543, guid: 7c708ddd127038541966e6e1b198eed7, type: 3}
+  m_StageInfoTable: {fileID: 11400000, guid: 148048a4ca4a295448bc4c99256ac30c, type: 2}
+  m_MonsterData: {fileID: 11400000, guid: eac4037eda615a84ab77d0319915898b, type: 2}
+  m_CharacterTable: {fileID: 11400000, guid: b02cd45478f3f12438bd94f858a8a5ff, type: 2}
+  m_CharacterPrefabs: []
+  m_PlayerData: []
   m_Grid: {fileID: 1058518465}
   m_StageEndPoint: {fileID: 1399486814}
-  m_PlayerList:
-  - {fileID: 1185224000}
-  - {fileID: 1378329100}
-  - {fileID: 1044278924}
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0
@@ -4069,7 +4036,9 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  rerollCountText: {fileID: 0}
   optionCanvas: {fileID: 0}
+  checkOptionPanel: {fileID: 0}
 --- !u!114 &1678880259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4123,6 +4092,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e8166b98a0d8745aa0d120eca25aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warriorData: {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
+  archerData: {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
+  wizardData: {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
   DependencyPlayerStat:
   - attackRange: 0
     moveSpeed: 0
@@ -4138,6 +4110,7 @@ MonoBehaviour:
     criticalProbability: 0
     training_type: 0
     equip_item: 0
+    equip_level: 0
     skill_possed: 
   - attackRange: 0
     moveSpeed: 0
@@ -4153,6 +4126,7 @@ MonoBehaviour:
     criticalProbability: 0
     training_type: 0
     equip_item: 0
+    equip_level: 0
     skill_possed: 
   - attackRange: 0
     moveSpeed: 0
@@ -4168,6 +4142,7 @@ MonoBehaviour:
     criticalProbability: 0
     training_type: 0
     equip_item: 0
+    equip_level: 0
     skill_possed: 
   equipSelectionID: 0
   trainingSelectionID: 0
@@ -4693,7 +4668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemapColliders: []
-  decoMap: {fileID: 1628772141}
+  tilemapCollider: {fileID: 0}
 --- !u!61 &2015966070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5148,7 +5123,9 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  rerollCountText: {fileID: 0}
   optionCanvas: {fileID: 0}
+  checkOptionPanel: {fileID: 0}
 --- !u!114 &2143961052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5248,7 +5225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8233098715114932692, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8000002
+      value: 0.4499998
       objectReference: {fileID: 0}
     - target: {fileID: 8233098715114932692, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5317,7 +5294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3052112776325436124, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6869998
+      value: 0.5630002
       objectReference: {fileID: 0}
     - target: {fileID: 3052112776325436124, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5394,7 +5371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6067534161320484885, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8000002
+      value: 1.4499998
       objectReference: {fileID: 0}
     - target: {fileID: 6067534161320484885, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
       propertyPath: m_LocalPosition.z

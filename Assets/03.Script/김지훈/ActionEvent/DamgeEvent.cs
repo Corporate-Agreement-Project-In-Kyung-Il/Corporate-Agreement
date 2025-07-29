@@ -26,13 +26,21 @@ public class DamgeEvent
     }
 }
 
-public class StageClearEvent
+public class StageEvent
 {
     public static event Action stageClearEvent;
-
+    public static event Action equipmentEvent;
+    
     public static void OnTriggerStageClearEvent()
     {
         Debug.Log("TileMap 생성 신호 발생");
         stageClearEvent?.Invoke();
     }
+
+    public static void OnTriggerEquipmentEvent()
+    {
+        Debug.Log("TileMap 생성 신호 발생");
+        equipmentEvent?.Invoke();
+    }
+    
 }
