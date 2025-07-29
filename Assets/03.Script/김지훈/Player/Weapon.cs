@@ -13,6 +13,8 @@ public abstract class Weapon : MonoBehaviour
     protected Player player;
     protected Animator animator;
 
+    public bool isSkill = false;
+
     [SerializeField] protected Sprite[] Level_Sprites;
     
     protected void Start()

@@ -277,6 +277,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
         if (HasBuff(BuffEffectType.Archer_Strong_Mind))
         {
             Debug.Log("🏹 아처 스트롱 마인드 발동! 추가 공격");
+            weapon2.isSkill = true;
             weapon2.Attack(target);
         }
 
