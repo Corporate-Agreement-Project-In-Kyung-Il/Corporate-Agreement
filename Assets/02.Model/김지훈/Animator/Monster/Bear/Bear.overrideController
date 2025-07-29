@@ -8,4 +8,6 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Bear
   m_Controller: {fileID: 9100000, guid: 0263d27b118d5c84799e9d8dc8b7909b, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4ac60e5c52c22da46b93ef62ccb18bfb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 05789dfe51b2b3d4897f3f52b20f2aa4, type: 2}
