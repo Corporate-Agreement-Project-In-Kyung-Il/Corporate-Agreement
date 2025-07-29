@@ -22,7 +22,7 @@ public sealed class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     public List<Tilemap> CurTilemapList => m_CurTilemapList;
-    public int CurStageId = 1;
+    public int m_CurStageId = 1;
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
@@ -64,12 +64,26 @@ public sealed class Spawner : MonoBehaviour
         // Debug.Assert(mStageInfo != null, "mStageInfo 인스펙터에서 빠짐");
         // Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
     }
-    
+
     void Awake()
     {
         Instance = this;
+        m_AreaTilemapTable.Init();
+
+        m_CurStageInfoIndex = m_CurStageId switch
+        {
+            >= 400 => 4,
+            >= 60 => 3,
+            >= 45 => 2,
+            >= 30 => 1,
+            >= 15 => 0,
+            _ => m_CurStageInfoIndex
+        };
+
+        m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         
-         m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
+        
+         // m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         
         // m_StagePatternTable.Init();
         // var areas = m_AreaTilemapTable.m_AreaTilemaps[10001];
@@ -77,7 +91,7 @@ public sealed class Spawner : MonoBehaviour
         GameManager.Instance.GameStart();
         
         // 밖에서 초기화 해야 Memory에 올라감
-        m_AreaTilemapTable.Init();
+        
         SpawnCharacters();
         m_SkillManager.SetPlayers(m_PlayerList.ToArray());
     }
@@ -94,14 +108,14 @@ public sealed class Spawner : MonoBehaviour
 
     public void SetNextStage()
     {
-        if (CurStageId % 3 == 0)
+        if (m_CurStageId % 3 == 0)
         {
             GameManager.Instance.CreateChoices(3);
         }
         
-        CurStageId++;
+        m_CurStageId++;
 
-        if (CurStageId % 4 == 0)
+        if (m_CurStageId % 4 == 0)
         {
             var prevTheme = m_CurTheme;
         
@@ -113,13 +127,13 @@ public sealed class Spawner : MonoBehaviour
             } while (m_CurTheme != prevTheme);
         }
         
-        if (m_StageInfo.MaxStage < CurStageId)
+        if (m_StageInfo.MaxStage < m_CurStageId)
         {
             ++m_CurStageInfoIndex;
             m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         }
         
-        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
+        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(m_CurStageId));
         DestoryAllArea();
         GetRandomPattern();
         m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
@@ -130,7 +144,7 @@ public sealed class Spawner : MonoBehaviour
     {
         // m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
         // mStageInfo = m_StagePatternTable.GetAreaList(1);
-        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
+        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(m_CurStageId));
         GetRandomPattern();
         m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
         
@@ -155,8 +169,8 @@ public sealed class Spawner : MonoBehaviour
        
        return monster;
     }
-    
-    public void DestoryAllArea()
+
+    private void DestoryAllArea()
     {
         for (int i = 0; i < m_CurTilemapList.Count; i++)
         {
@@ -166,7 +180,7 @@ public sealed class Spawner : MonoBehaviour
         m_CurTilemapList.Clear();
     }
 
-    public void GetRandomPattern()
+    private void GetRandomPattern()
     {
         m_CurAreaList = new List<AreaPattern>(m_StageInfo.AreaCount);
         
@@ -180,8 +194,8 @@ public sealed class Spawner : MonoBehaviour
             m_CurAreaList.Add(areaPattern);
         }
     }
-    
-    public void SpawnAllMonstersInStage()
+
+    private void SpawnAllMonstersInStage()
     {
         for (var i = 0; i < m_PlayerList.Count; i++)
         {
@@ -210,7 +224,7 @@ public sealed class Spawner : MonoBehaviour
         }
 
         // 보스 스테이지
-        if (CurStageId % 3 == 0)
+        if (m_CurStageId % 3 == 0)
         {
             var boss = SpawnMonster(
                 new Vector2(0f, 15f)
@@ -232,7 +246,7 @@ public sealed class Spawner : MonoBehaviour
     /// **Instantiate하는게 아님**.
     /// </summary>
     /// <param name="character"></param>
-    public void SetPositionStartPoint(Player character)
+    private void SetPositionStartPoint(Player character)
     {
         if (m_PlayerSpawnPointDic.TryGetValue(character.buffplayerStat.characterClass
                 , out var spawnPos))
@@ -244,8 +258,8 @@ public sealed class Spawner : MonoBehaviour
             Debug.Log("캐릭터 클래스에 맞는 스폰 위치가 없습니다.");
         }
     }
-    
-    public void SpawnCharacters()
+
+    private void SpawnCharacters()
     {
         // index 0 전사 100001
         // index 1 궁수 100004
@@ -318,7 +332,6 @@ public sealed class Spawner : MonoBehaviour
         return monster;
     }
     
-    
     public List<Tilemap> GenerateMap(int[] areaPatternList)
     {
         int areaPatternCount = areaPatternList.Length;
@@ -350,7 +363,7 @@ public sealed class Spawner : MonoBehaviour
         }
 
         // 보스 스테이지
-        if (CurStageId % 3 == 0)
+        if (m_CurStageId % 3 == 0)
         {
             // 보스 스테이지 타일맵 ID
             var tilemap = m_AreaTilemapTable.GetTilemap(m_CurTheme, -1);
