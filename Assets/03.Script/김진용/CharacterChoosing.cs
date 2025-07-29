@@ -18,8 +18,8 @@
 
         [SerializeField] private List<Button> PlayerChoosingButtons = new List<Button>();
 
-        [SerializeField] private GameObject SameClass;
-        [SerializeField] private GameObject ;
+        [SerializeField] private GameObject SameClassPanel;
+        public GameObject No3ClassPanel;
         public void ShowInfo(CharacterChooseButton button)
         {
             CharacterSprite.sprite = button.CharacterSprite;
@@ -44,6 +44,10 @@
                 else if(PlayerList.CharacterIDs[0] == button.CharacterID)
                 {
                     PlayerList.CharacterIDs[0] = 0;
+                }
+                else if (PlayerList.CharacterIDs[0] != button.CharacterID && PlayerList.CharacterIDs[0] != 0)
+                {
+                    SameClassPanelOnOff();
                 }
             }
             else if (button.characterClass == character_class.궁수)
@@ -85,17 +89,24 @@
 
         private void SameClassPanelOnOff()
         {
-            if (IfSameClass.activeSelf == false)
+            if (SameClassPanel.activeSelf == false)
             {
-                IfSameClass.SetActive(true);
+                StartCoroutine(ShowSameClassPanel());
             }
-            else if (IfSameClass.activeSelf == true)
+            
+        }
+
+        private void No3ClassPanelOnOff()
+        {
+            if (No3ClassPanel.activeSelf == false)
             {
-                IfSameClass.SetActive(false);
+                No3ClassPanel.SetActive(true);
+            }
+            else if (No3ClassPanel.activeSelf == true)
+            {
+                No3ClassPanel.SetActive(false);
             }
         }
-        
-        private void SameClassPanelOnOff()
 
 
         public void Pick_Character()
@@ -103,6 +114,12 @@
             var characterChooseButton =
                 PlayerChoosingButtons[ChoiceManager.ButtonNumber].GetComponent<CharacterChooseButton>();
             GetPlayerID(characterChooseButton);
+        }
+        private IEnumerator ShowSameClassPanel()
+        {
+            SameClassPanel.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+            SameClassPanel.SetActive(false);
         }
 
     }
