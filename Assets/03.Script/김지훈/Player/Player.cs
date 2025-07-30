@@ -32,7 +32,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     /// </summary>
     public Sprite PlayerSprite => data.playerUISprite;
     public Sprite WeaponSprite => WEAPON.CurrentSprite;
-    
+
     /// <summary>
     /// BuffPlayerStat
     /// </summary>
