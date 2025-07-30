@@ -12,30 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4efbecc5da141c9ad1c51a749400cb1, type: 3}
   m_Name: StagePatternTable
   m_EditorClassIdentifier: 
-  m_AreaPatternList:
-  - <PatternId>k__BackingField: 0
-    <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.6209818, y: 9.449219}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.3915181, y: 2.632924}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.3915181, y: 2.632924}
-      <Radius>k__BackingField: 1
-  - <PatternId>k__BackingField: 0
-    <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.42209822, y: 11.166853}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.5125003, y: 9.413057}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: -0.1328125, y: 5.2003345}
-      <Radius>k__BackingField: 1
-  - <PatternId>k__BackingField: 0
-    <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: 0.24687493, y: 10.769085}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: -0.22321427, y: 7.1349335}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.4763393, y: 4.3867188}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.24687493, y: 2.5967631}
-      <Radius>k__BackingField: 1
+  m_AreaPatternList: []
