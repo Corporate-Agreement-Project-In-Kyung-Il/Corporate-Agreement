@@ -5446,6 +5446,7 @@ MonoBehaviour:
   m_Grid: {fileID: 1058518465}
   m_StageEndPoint: {fileID: 1399486814}
   m_reviveGameObject: {fileID: 922078190}
+  m_BossSpawnYOffset: 1
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0

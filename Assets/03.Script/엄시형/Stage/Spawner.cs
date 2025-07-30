@@ -23,6 +23,7 @@ public sealed class Spawner : MonoBehaviour
     public static Spawner Instance { get; private set; }
     public List<Tilemap> CurTilemapList => m_CurTilemapList;
     public int m_CurStageId = 1;
+    [SerializeField] private float m_BossSpawnYOffset = 0f; 
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
@@ -44,11 +45,13 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private GameObject m_reviveGameObject;
+    
     private List<Tilemap> m_CurTilemapList = new List<Tilemap>();
     private List<AreaPattern> m_CurAreaList = new List<AreaPattern>();
     private StageTheme m_CurTheme = StageTheme.Grass; // 현재 테마, 초기값은 Grass로 설정
     private StageInfo m_StageInfo;
     private int m_CurStageInfoIndex = 0;
+    
     
     private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
     {
@@ -229,7 +232,7 @@ public sealed class Spawner : MonoBehaviour
             Tilemap bossTilemap = m_CurTilemapList.Last();
             
             var boss = SpawnMonster(
-                new Vector2(bossTilemap.localBounds.center.x, bossTilemap.localBounds.max.y - 3f)
+                new Vector2(bossTilemap.localBounds.center.x, bossTilemap.localBounds.max.y - m_BossSpawnYOffset)
                 , monsterType
                 , parent: bossTilemap.gameObject);
             

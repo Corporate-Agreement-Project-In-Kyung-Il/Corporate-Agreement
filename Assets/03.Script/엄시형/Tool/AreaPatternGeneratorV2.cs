@@ -20,8 +20,17 @@ using Debug = UnityEngine.Debug;
 namespace _03.Script.엄시형.Tool.V2
 {
 #if UNITY_EDITOR
-    // 플레이시 게임오브젝트 생성시 자동 삭제가 안됨
-    // [ExecuteInEditMode]
+    // // 플레이시 게임오브젝트 생성시 자동 삭제가 안됨
+    // // [ExecuteInEditMode]
+    // [CustomEditor(typeof(AreaPatternGenerator))]
+    // public sealed class AreaPatternGeneratorEditor : Editor
+    // {
+    //     public override void OnInspectorGUI()
+    //     {
+    //         base.OnInspectorGUI();
+    //     }
+    // }
+    
 #endif
     public sealed class AreaPatternGenerator : MonoBehaviour
     {
@@ -191,6 +200,11 @@ namespace _03.Script.엄시형.Tool.V2
                 // var areaDto = new AreaPatternDTO(0, );
                 // areaPatternDtoList.Add();
             }
+            
+            m_StagePatternTable.AreaPatternList.Sort((pattern1, pattern2) =>
+            {
+                return pattern1.SpawnMonsterCount.CompareTo(pattern2.SpawnMonsterCount);
+            });
             
             m_StagePatternTable.Save();
             m_AreaPattern = null;
