@@ -230,6 +230,7 @@ public sealed class Spawner : MonoBehaviour
         if (m_CurStageId % 3 == 0)
         {
             Tilemap bossTilemap = m_CurTilemapList.Last();
+            bossTilemap.CompressBounds();
             
             var boss = SpawnMonster(
                 new Vector2(bossTilemap.localBounds.center.x, bossTilemap.localBounds.max.y - m_BossSpawnYOffset)
