@@ -261,12 +261,43 @@ public class GameManager : MonoBehaviour
     }
 
     public ScriptableObject type;
-    public void UpgradeChoice(OptionButton optionButton)
+    public GameObject upgradePanel;
+    public void PopUpUpgradeChoice(OptionButton optionButton)
     {
-        GetMatchedOptionData(optionButton);
+        if (upgradePanel.activeSelf)
+        {
+            upgradePanel.SetActive(false);
+        }
+        else
+        {
+            UpgradePanelOpen(optionButton);
+        }
+        
+        //UpGradeGetMatchedOptionData(optionButton);
     }
     
-    public void  GetMatchedOptionData(OptionButton optionButton)
+    public void UpgradePanelOpen(OptionButton optionButton)
+    {
+        upgradePanel.SetActive(true);
+        type = GetOptionType(optionButton.optionType);
+        if (type is OptionChoice_SkillOption skillOption)
+        {
+            var so = type as OptionChoice_SkillOption;
+            upgradePanel.GetComponent<UpGradePanel>().SetUpgradeData(so.GetValue(optionButton.selectID).Selection_Level, optionButton);
+        }
+        else if (type is OptionChoice_EquipOption equipOption)
+        {
+            var so = type as OptionChoice_EquipOption;
+            upgradePanel.GetComponent<UpGradePanel>().SetUpgradeData(so.GetValue(optionButton.selectID).Selection_Level, optionButton);
+        }
+        else if (type is OptionChoice_TrainingOption trainingOption)
+        {
+            var so = type as OptionChoice_TrainingOption;
+            upgradePanel.GetComponent<UpGradePanel>().SetUpgradeData(so.GetValue(optionButton.selectID).Selection_Level, optionButton);
+        }
+    }
+    
+    public void  UpGradeGetMatchedOptionData(OptionButton optionButton)
     {
         type = GetOptionType(optionButton.optionType);
 
@@ -293,6 +324,7 @@ public class GameManager : MonoBehaviour
                     optionButton.selectID = skillNextGrade.Key_ID;
                     optionButton.SetOptionGradeImage(skillNextGrade.val.Selection_Level);
                     Debug.Log($"[Upgrade] {skillValue.Selection_Level} → {skillNextGrade.val.Selection_Level}");
+                    UpgradePanelOpen(optionButton);
                 }
                 else
                 {
@@ -318,6 +350,7 @@ public class GameManager : MonoBehaviour
                     optionButton.selectID = equipNextGrade.Key_ID;
                     optionButton.SetOptionGradeImage(equipNextGrade.val.Selection_Level);
                     Debug.Log($"[Upgrade] {equipValue.Selection_Level} → {equipNextGrade.val.Selection_Level}");
+                    UpgradePanelOpen(optionButton);
                 }
                 else
                 {
@@ -344,6 +377,7 @@ public class GameManager : MonoBehaviour
                     optionButton.selectID = trainingNextGrade.Key_ID;
                     optionButton.SetOptionGradeImage(trainingNextGrade.val.Selection_Level);
                     Debug.Log($"[Upgrade] {trainingValue.Selection_Level} → {trainingNextGrade.val.Selection_Level}");
+                    UpgradePanelOpen(optionButton);
                 }
                 else
                 {
@@ -524,6 +558,11 @@ public class GameManager : MonoBehaviour
         return option.data[randomIndex];
     }
     #endregion
+
+    public void UpGradeFailed(OptionButton optionButton)
+    {
+        Debug.Log(" 강화 실패 ");
+    }
 }
 
 public enum EOptionType

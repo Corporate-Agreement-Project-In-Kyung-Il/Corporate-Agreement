@@ -27,7 +27,6 @@ public class OptionButton : MonoBehaviour
    public Canvas optionCanvas;
    public BaseValue selectedData;
    public GameObject checkOptionPanel;
-   
    [SerializeField]
    private Sprite[] m_GradeImages;
    [SerializeField]
@@ -84,7 +83,7 @@ public class OptionButton : MonoBehaviour
             break;
       }
    }
-   public void PopUpPanel()
+   public void PopUpOptionChoicePanel()
    {
       if (checkOptionPanel.activeSelf)
       {
