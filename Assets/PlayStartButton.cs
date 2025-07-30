@@ -17,8 +17,9 @@ public class PlayStartButton : MonoBehaviour
     // 버튼이 눌렸을 때 호출되는 함수
     public void OnClickStartButton()
     {
-        if (PlayerList.CharacterIDs[0] == 0 && PlayerList.CharacterIDs[1] == 0 && PlayerList.CharacterIDs[2] == 0)
+        if (PlayerList.CharacterIDs[0] == 0 || PlayerList.CharacterIDs[1] == 0 || PlayerList.CharacterIDs[2] == 0)
         {
+            Debug.Log("ww");
             StartCoroutine(ShowNo3ClassPanel());
             return;
         }

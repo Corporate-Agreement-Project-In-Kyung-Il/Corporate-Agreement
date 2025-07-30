@@ -40,10 +40,12 @@
                 if (PlayerList.CharacterIDs[0] == 0)
                 {
                     PlayerList.CharacterIDs[0] = button.CharacterID;
+                    HandpointOnOff(button);
                 }
                 else if(PlayerList.CharacterIDs[0] == button.CharacterID)
                 {
                     PlayerList.CharacterIDs[0] = 0;
+                    HandpointOnOff(button);
                 }
                 else if (PlayerList.CharacterIDs[0] != button.CharacterID && PlayerList.CharacterIDs[0] != 0)
                 {
@@ -55,10 +57,16 @@
                 if (PlayerList.CharacterIDs[1] == 0)
                 {
                     PlayerList.CharacterIDs[1] = button.CharacterID;
+                    HandpointOnOff(button);
                 }
                 else if(PlayerList.CharacterIDs[1] == button.CharacterID)
                 {
                     PlayerList.CharacterIDs[1] = 0;
+                    HandpointOnOff(button);
+                }
+                else if (PlayerList.CharacterIDs[1] != button.CharacterID && PlayerList.CharacterIDs[1] != 0)
+                {
+                    SameClassPanelOnOff();
                 }
             }
             else if (button.characterClass == character_class.마법사)
@@ -66,13 +74,19 @@
                 if (PlayerList.CharacterIDs[2] == 0)
                 {
                     PlayerList.CharacterIDs[2] = button.CharacterID;
+                    HandpointOnOff(button);
                 }
                 else if(PlayerList.CharacterIDs[2] == button.CharacterID)
                 {
                     PlayerList.CharacterIDs[2] = 0;
+                    HandpointOnOff(button);
+                }
+                else if (PlayerList.CharacterIDs[2] != button.CharacterID && PlayerList.CharacterIDs[2] != 0)
+                {
+                    SameClassPanelOnOff();
                 }
             }
-            HandpointOnOff(button);
+            
         }
 
         private void HandpointOnOff(CharacterChooseButton button)

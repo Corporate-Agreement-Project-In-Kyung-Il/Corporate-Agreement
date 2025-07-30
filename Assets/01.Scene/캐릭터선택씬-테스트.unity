@@ -535,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4fb1bdc6345bb3c4783b33a1a88dc901, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -690,8 +690,8 @@ MonoBehaviour:
   CharacterID: 100007
   Skill1_info: "\uB113\uC740 \uBC94\uC704 \uD53C\uD574\uB97C \uC8FC\uB294 \uB9E4\uC9C1
     \uBCFC \uBC1C\uC0AC"
-  Skill2_info: "\uC815\uB839\uC758 \uD798\uC744 \uBC1C\uD718\uD558\uC5EC \uB9E4\uC6B0
-    \uD070 \uB370\uBBF8\uC9C0\uB97C \uC8FC\uB294 \uB9E4\uC9C1 \uBCFC \uBC1C\uC0AC"
+  Skill2_info: "\uC815\uB839\uC758 \uD798\uC774 \uBD99\uC740 \uAC70\uB300 \uAD6C\uCCB4
+    \uBC1C\uC0AC"
   characterName: "\uCFE0\uC544"
   characterClass: 2
   Hand_img: {fileID: 460160075}
@@ -850,10 +850,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ccc53422ad10d184b84adf79194de7f8, type: 3}
-    m_FontSize: 36
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 51
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -861,7 +861,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &108072400
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1698,7 +1698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uC804\uC0AC"
 --- !u!222 &257453690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2442,8 +2442,8 @@ MonoBehaviour:
   Skill1Sprite: {fileID: 21300000, guid: ba07344fa79086f40963a6a5bd46b611, type: 3}
   Skill2Sprite: {fileID: 21300000, guid: 4fb1bdc6345bb3c4783b33a1a88dc901, type: 3}
   CharacterID: 100001
-  Skill1_info: "\uC9C0\uC18D \uC2DC\uAC04 \uB3D9\uC548 \uC77C\uC815 \uD655\uB960\uB85C
-    \uC801\uC758 \uACF5\uACA9\uC744 \uBB34\uC2DC\uD558\uB294 \uBC29\uD328 \uC0AC\uC6A9"
+  Skill1_info: "4\uCD08 \uB3D9\uC548 \uC77C\uC815 \uD655\uB960\uB85C \uBC29\uD328
+    \uC0AC\uC6A9 "
   Skill2_info: "3\uBC88\uC758 \uAE30\uBCF8 \uACF5\uACA9\uC774 \uC5F0\uC18D\uC801\uC73C\uB85C
     \uBC1C\uB3D9"
   characterName: "\uC804\uC0AC"
@@ -2604,8 +2604,8 @@ MonoBehaviour:
   Skill1Sprite: {fileID: 21300000, guid: ba07344fa79086f40963a6a5bd46b611, type: 3}
   Skill2Sprite: {fileID: 21300000, guid: e75520cf4aaae3e4e8d77af29bf3610f, type: 3}
   CharacterID: 100003
-  Skill1_info: "\uC9C0\uC18D \uC2DC\uAC04 \uB3D9\uC548 \uC77C\uC815 \uD655\uB960\uB85C
-    \uC801\uC758 \uACF5\uACA9\uC744 \uBB34\uC2DC\uD558\uB294 \uBC29\uD328 \uC0AC\uC6A9"
+  Skill1_info: "4\uCD08 \uB3D9\uC548 \uC77C\uC815 \uD655\uB960\uB85C \uBC29\uD328
+    \uC0AC\uC6A9 "
   Skill2_info: "\uC804\uBA74 \uB113\uC740 \uBC94\uC704\uC5D0 \uBCA0\uAE30 \uACF5\uACA9\uC744
     \uAC00\uD568."
   characterName: "\uB514\uB178"
@@ -2888,7 +2888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ba07344fa79086f40963a6a5bd46b611, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3270,8 +3270,7 @@ MonoBehaviour:
   Skill1Sprite: {fileID: 21300000, guid: e75f4684e7fde6d4ea3ff81450b0696e, type: 3}
   Skill2Sprite: {fileID: 21300000, guid: a656bc9d945855c4a86041964f18f746, type: 3}
   CharacterID: 100005
-  Skill1_info: "\uC9C0\uC18D \uC2DC\uAC04 \uB3D9\uC548 \uACF5\uACA9 \uC18D\uB3C4
-    2\uBC30 \uC99D\uAC00"
+  Skill1_info: "2\uCD08 \uB3D9\uC548 \uACF5\uACA9 \uC18D\uB3C4 2\uBC30 \uC99D\uAC00"
   Skill2_info: "3\uBC88\uC758 \uAE30\uBCF8 \uACF5\uACA9\uC774 \uC5F0\uC18D\uC801\uC73C\uB85C
     \uBC1C\uB3D9"
   characterName: "\uC0AC\uBE44\uB098"
@@ -3582,10 +3581,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ccc53422ad10d184b84adf79194de7f8, type: 3}
-    m_FontSize: 36
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 51
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3593,7 +3592,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1111289142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3661,10 +3660,9 @@ MonoBehaviour:
   Skill1Sprite: {fileID: 21300000, guid: ba07344fa79086f40963a6a5bd46b611, type: 3}
   Skill2Sprite: {fileID: 21300000, guid: d0a7a99e7e4a31247b14d43a5ec6a9af, type: 3}
   CharacterID: 100002
-  Skill1_info: "\uC9C0\uC18D \uC2DC\uAC04 \uB3D9\uC548 \uC77C\uC815 \uD655\uB960\uB85C
-    \uC801\uC758 \uACF5\uACA9\uC744 \uBB34\uC2DC\uD558\uB294 \uBC29\uD328 \uC0AC\uC6A9"
-  Skill2_info: "\uC9C0\uC18D \uC2DC\uAC04 \uB3D9\uC548 \uC801\uC758 \uACF5\uACA9
-    \uB370\uBBF8\uC9C0\uB97C 40% \uACBD\uAC10"
+  Skill1_info: "4\uCD08 \uB3D9\uC548 \uC77C\uC815 \uD655\uB960\uB85C \uBC29\uD328
+    \uC0AC\uC6A9 "
+  Skill2_info: "4\uCD08 \uB3D9\uC548 \uBC1B\uB294 \uB370\uBBF8\uC9C0 40% \uACBD\uAC10"
   characterName: "\uC544\uC774\uC5B8"
   characterClass: 0
   Hand_img: {fileID: 2105022}
@@ -4114,10 +4112,9 @@ MonoBehaviour:
   Skill1Sprite: {fileID: 21300000, guid: e75f4684e7fde6d4ea3ff81450b0696e, type: 3}
   Skill2Sprite: {fileID: 21300000, guid: 2ad7abeb90a95d741b05c813ae99d0fb, type: 3}
   CharacterID: 100004
-  Skill1_info: "\uC9C0\uC18D \uC2DC\uAC04 \uB3D9\uC548 \uACF5\uACA9 \uC18D\uB3C4
-    2\uBC30 \uC99D\uAC00"
-  Skill2_info: "\uC9C0\uC18D \uC2DC\uAC04 \uB3D9\uC548 \uB9E4 \uACF5\uACA9 \uC2DC
-    \uD0C0\uACA9 \uD69F\uC218 x2"
+  Skill1_info: "2\uCD08 \uB3D9\uC548 \uACF5\uACA9 \uC18D\uB3C4 2\uBC30 \uC99D\uAC00"
+  Skill2_info: "2\uCD08 \uB3D9\uC548 \uB9E4 \uACF5\uACA9 \uC2DC \uD0C0\uACA9 \uD69F\uC218
+    x2"
   characterName: "\uAD81\uC218"
   characterClass: 1
   Hand_img: {fileID: 325786964}
@@ -5226,8 +5223,7 @@ MonoBehaviour:
   CharacterID: 100006
   Skill1_info: "\uB113\uC740 \uBC94\uC704 \uD53C\uD574\uB97C \uC8FC\uB294 \uB9E4\uC9C1
     \uBCFC \uBC1C\uC0AC"
-  Skill2_info: "\uC9C0\uC18D \uC2DC\uAC04 \uB3D9\uC548 \uAE30\uBCF8 \uACF5\uACA9\uB825
-    2\uBC30 \uC99D\uAC00"
+  Skill2_info: "3\uCD08 \uB3D9\uC548 \uAE30\uBCF8 \uACF5\uACA9\uB825 2\uBC30 \uC99D\uAC00"
   characterName: "\uB9C8\uBC95\uC0AC"
   characterClass: 2
   Hand_img: {fileID: 971846269}
@@ -5722,8 +5718,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: cf99824c846c35c48bb3f856a4fbd1f7, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
