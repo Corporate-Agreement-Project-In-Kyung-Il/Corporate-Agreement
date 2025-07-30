@@ -8,6 +8,7 @@ using _03.Script.엄시형.Stage.DTO;
 using _03.Script.엄시형.Stage.V2;
 using _03.Script.엄시형.Util;
 using _03.Script.엄시형.Util.V2;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -19,8 +20,17 @@ using Debug = UnityEngine.Debug;
 namespace _03.Script.엄시형.Tool.V2
 {
 #if UNITY_EDITOR
-    // 플레이시 게임오브젝트 생성시 자동 삭제가 안됨
-    // [ExecuteInEditMode]
+    // // 플레이시 게임오브젝트 생성시 자동 삭제가 안됨
+    // // [ExecuteInEditMode]
+    // [CustomEditor(typeof(AreaPatternGenerator))]
+    // public sealed class AreaPatternGeneratorEditor : Editor
+    // {
+    //     public override void OnInspectorGUI()
+    //     {
+    //         base.OnInspectorGUI();
+    //     }
+    // }
+    
 #endif
     public sealed class AreaPatternGenerator : MonoBehaviour
     {
@@ -32,19 +42,17 @@ namespace _03.Script.엄시형.Tool.V2
         // [SerializeField] public AreaTilemapTableSO m_AreaTilemapTable;
         [SerializeField] private StagePatternTableSO m_StagePatternTable;
 
-        // [ReadOnly]
         [SerializeField] private Grid m_Grid;
         [SerializeField] private Camera m_MainCam;
-
+        
         [SerializeField] private Button m_SaveBtn;
-        [SerializeField] private Button m_ResetBtn;
+        [SerializeField] private Button m_AddBtn;
         [SerializeField] private Button m_DecreaseBtn;
         [SerializeField] private Button m_IncreaseBtn;
         [SerializeField] private Button m_OpenFolderBtn;
 
         [SerializeField] private Tilemap m_Tilemap;
         // private Tilemap m_StageTilemap;
-        
         // TODO : ID읽어와서 중복 못하게
         // [SerializeField] private List<AreaPatternDTO> m_AreaPatternDTOList
         // = new List<AreaPatternDTO>();
@@ -53,7 +61,6 @@ namespace _03.Script.엄시형.Tool.V2
         // private List<AreaPattern> m_StageInfoList;
         // [SerializeField] private List<AreaPattern>
         
-        
         // TODO : Id에 따라 변하게
         // [SerializeField]
         private int m_CurIdx = 0;
@@ -61,6 +68,7 @@ namespace _03.Script.엄시형.Tool.V2
         private int m_PrevIdx = 0;
 
         private readonly List<GameObject> m_PointObjectList = new List<GameObject>();
+        private AreaPattern m_AreaPattern;
         // private readonly AreaPatternPersistenceManager m_PersistenceManager
         // = new AreaPatternPersistenceManager();
         // private readonly StageInfoPersistMgr m_StagePersistMgr = new StageInfoPersistMgr();
@@ -122,7 +130,7 @@ namespace _03.Script.엄시형.Tool.V2
         private void OnEnable()
         {
             m_SaveBtn.onClick.AddListener(Save);
-            // m_IncreaseBtn.onClick.AddListener(Restart);
+            m_AddBtn.onClick.AddListener(Add);
             m_IncreaseBtn.onClick.AddListener(IncreasePatternIdx);
             m_DecreaseBtn.onClick.AddListener(DecreasePatternIdx);
             m_OpenFolderBtn.onClick.AddListener(OpenFolder);
@@ -132,7 +140,7 @@ namespace _03.Script.엄시형.Tool.V2
         private void OnDisable()
         {
             m_SaveBtn.onClick.RemoveListener(Save);
-            // m_IncreaseBtn.onClick.AddListener(Restart);
+            m_AddBtn.onClick.RemoveListener(Add);
             m_IncreaseBtn.onClick.RemoveListener(IncreasePatternIdx);
             m_DecreaseBtn.onClick.RemoveListener(DecreasePatternIdx);
             m_OpenFolderBtn.onClick.RemoveListener(OpenFolder);
@@ -171,13 +179,8 @@ namespace _03.Script.엄시형.Tool.V2
                     // Instantiate는 월드 좌표로 생성해 로컬좌표로 변경함
                     GameObject point = Instantiate(m_PointPrefab, parent: m_Tilemap.transform);
                     point.transform.localPosition = localPos;
-            
+                    
                     // SpawnInfo spawnInfo = new SpawnInfo(localPos, diameter);
-                
-                    // m_StagePatternTable
-                    //     .AreaPatternList[m_CurIdx]
-                    //     .MonsterSpawnInfoList
-                    //     .Add(spawnInfo);
                     
                     m_PointObjectList.Add(point.gameObject);
                 }
@@ -186,27 +189,30 @@ namespace _03.Script.엄시형.Tool.V2
 
         private void Save()
         {
-            string fullPath = Path.Combine(
-                Application.dataPath
-                , "05.DataTable"
-                , "AreaPattern.json");
-            
-            var areaPattern = new AreaPattern(0, new List<SpawnInfo>());
-
-            
+            m_AreaPattern = new AreaPattern(0, new List<SpawnInfo>());
             
             foreach (var go in m_PointObjectList)
             {
                 Vector2 localPos = m_Tilemap.transform.InverseTransformPoint(go.transform.position);
-                areaPattern.MonsterSpawnInfoList.Add(new SpawnInfo(localPos, go.transform.localScale.x));
+                m_AreaPattern.MonsterSpawnInfoList.Add(new SpawnInfo(localPos, go.transform.localScale.x));
+                m_StagePatternTable.AreaPatternList[m_CurIdx] = m_AreaPattern;
+                //.Add(new SpawnInfo(localPos, go.transform.localScale.x));
                 // var areaDto = new AreaPatternDTO(0, );
                 // areaPatternDtoList.Add();
             }
+            
+            m_StagePatternTable.AreaPatternList.Sort((pattern1, pattern2) =>
+            {
+                return pattern1.SpawnMonsterCount.CompareTo(pattern2.SpawnMonsterCount);
+            });
+            
+            m_StagePatternTable.Save();
+            m_AreaPattern = null;
         }
         
         private void IncreasePatternIdx()
         {
-            int maxIndex = m_StagePatternTable.AreaPatternList.Count - 1; // 0부터 시작하므로 -1
+            int maxIndex = m_StagePatternTable.AreaPatternList.Count - 1;
             // m_AreaTilemapTable.GetTilemap(StageTheme.Grass, m_CurIdx);
             if (m_CurIdx < maxIndex)
             {
@@ -221,10 +227,18 @@ namespace _03.Script.엄시형.Tool.V2
             ClearPoints();
             PaintPoints(m_CurIdx);
         }
+
+        private void Add()
+        {
+            ClearPoints();
+            m_StagePatternTable.AreaPatternList.Add(new AreaPattern(0, new List<SpawnInfo>()));
+            m_CurIdx = m_StagePatternTable.AreaPatternList.Count - 1;
+            PaintPoints(m_CurIdx);
+        }
         
         private void DecreasePatternIdx()
         {
-            if (m_CurIdx > 1)
+            if (m_CurIdx > 0)
             {
                 m_CurIdx--;
             }
@@ -244,7 +258,12 @@ namespace _03.Script.엄시형.Tool.V2
         
         private void OpenFolder()
         {
-            // EditorUtility.RevealInFinder(m_StagePersistMgr.fullPath);
+            string fullPath = Path.Combine(
+                Application.dataPath
+                , "05.DataTable"
+                , "AreaPattern.json");
+            
+            EditorUtility.RevealInFinder(fullPath);
         }
         
         private void PaintPoints(int index)

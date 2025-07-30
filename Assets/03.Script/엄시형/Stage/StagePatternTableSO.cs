@@ -132,6 +132,16 @@ namespace _03.Script.엄시형.Stage
                 stagePatternTable.Save();
                 EditorUtility.SetDirty(stagePatternTable);
             }
+            
+            if (GUILayout.Button("OpenFolder"))
+            {
+                string fullPath = Path.Combine(
+                    Application.dataPath
+                    , "05.DataTable"
+                    , "AreaPattern.json");
+                
+                EditorUtility.RevealInFinder(fullPath);
+            }
         }
     }
 #endif

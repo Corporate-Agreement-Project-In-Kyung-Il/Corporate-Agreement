@@ -5425,7 +5425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurStageId: 1
+  m_CurStageId: 3
   m_StageEndDetector: {fileID: 1399486814}
   m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
@@ -5446,6 +5446,7 @@ MonoBehaviour:
   m_Grid: {fileID: 1058518465}
   m_StageEndPoint: {fileID: 1399486814}
   m_reviveGameObject: {fileID: 922078190}
+  m_BossSpawnYOffset: 1
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0
