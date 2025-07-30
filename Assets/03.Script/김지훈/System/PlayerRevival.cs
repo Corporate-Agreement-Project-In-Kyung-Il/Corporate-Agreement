@@ -30,6 +30,7 @@ public class PlayerRevival : MonoBehaviour
                 players[i].gameObject.SetActive(true);
             }
             players[i].ResetPlayerStats();
+
         }
     }
 
