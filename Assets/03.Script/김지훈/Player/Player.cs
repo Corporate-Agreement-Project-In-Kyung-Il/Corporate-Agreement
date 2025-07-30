@@ -466,6 +466,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
         resetHp = playerStat.health;
         attackRange = playerStat.attackRange;
         playerStat.equip_level = initialData.equip_level;
+        playerStat.training_level = initialData.training_level;
     }
 
 

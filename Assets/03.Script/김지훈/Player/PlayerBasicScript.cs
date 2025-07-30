@@ -34,24 +34,35 @@ public class PlayerStat
     public float moveSpeed;
     public Vector2 detectionRange;
     public bool isDead;
-    
+
     //기존 기획 Table에 있는 것들
     public int character_ID;
-    
+
     public character_class characterClass; //캐릭터 직업
     public character_name characterName; //캐릭터 이름
     public character_grade characterGrade; //캐릭터 등급
-    
+
     public float attackDamage; // 기본 공격력
     public float health; // 기본 체력
     public float attackSpeed; //기본 공격 속도
     public float criticalProbability; //기본 크리티컬 발동 확률
 
     public int training_type; //훈련 적용 분류
+    public int training_level;
     public int equip_item; //장비 적용 분류
     public int equip_level;
     public List<int> skill_possed; //스킬 적용
 
+    public override string ToString()
+    {
+        return
+            $"{characterClass}, {characterName}, {characterGrade}, 훈련레벨 : {training_level}, 장비레벨 : {equip_level}, {(int)health}, {(int)attackDamage}, {(int)criticalProbability * 100}%";
+    }
+    
+    public string[] ToStatArrayFromToString()
+    {
+        return ToString().Split(", ");
+    }
 }
 
 public enum character_class
