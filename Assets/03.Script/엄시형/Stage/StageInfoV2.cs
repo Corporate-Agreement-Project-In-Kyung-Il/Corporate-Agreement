@@ -14,6 +14,9 @@ namespace _03.Script.엄시형.Stage.V2
     {
         Grass,
         Perple,
+        A,
+        B,
+        C,
     }
     
     [Serializable]

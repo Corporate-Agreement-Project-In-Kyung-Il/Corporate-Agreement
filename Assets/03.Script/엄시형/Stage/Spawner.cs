@@ -118,17 +118,7 @@ public sealed class Spawner : MonoBehaviour
         
         m_CurStageId++;
 
-        if (m_CurStageId % 4 == 0)
-        {
-            var prevTheme = m_CurTheme;
         
-            // 전 테마랑 같지 않게 랜덤으로 테마 설정
-            do
-            {
-                var stageThemes = Enum.GetValues(typeof(StageTheme));
-                m_CurTheme = (StageTheme) stageThemes.GetValue(Random.Range(0, stageThemes.Length));
-            } while (m_CurTheme != prevTheme);
-        }
         
         if (m_StageInfo.MaxStage < m_CurStageId)
         {
@@ -240,8 +230,17 @@ public sealed class Spawner : MonoBehaviour
             boss.gameObject.transform.localScale = Vector3.one * 3f;
 
             // m_CurTheme = (StageTheme)Random.Range(0, Enum.GetValues(typeof(StageTheme)).Length);
-            var themes = Enum.GetValues(typeof(StageTheme));
-            m_CurTheme = (StageTheme) themes.GetValue(Random.Range(0, themes.Length));
+            // var themes = Enum.GetValues(typeof(StageTheme));
+            // m_CurTheme = (StageTheme) themes.GetValue(Random.Range(0, themes.Length));
+            
+            var prevTheme = m_CurTheme;
+    
+            // 전 테마랑 같지 않게 랜덤으로 테마 설정
+            do
+            {
+                // var stageThemes = Enum.GetValues(typeof(StageTheme));
+                m_CurTheme = (StageTheme) (Random.Range(0, 2));
+            } while (m_CurTheme != prevTheme);
         }
         
         StageEvent.OnTriggerStageClearEvent(); // 맵 완성다 되었음.
