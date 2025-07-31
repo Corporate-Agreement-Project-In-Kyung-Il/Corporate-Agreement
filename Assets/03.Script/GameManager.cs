@@ -89,6 +89,11 @@ public class GameManager : MonoBehaviour
     
     public void ChangeTimeScale()
     {
+        if(canvas.gameObject.activeSelf)
+        {
+            Debug.Log("선택지 활성화 중에는 시간 변경 불가");
+            return;
+        }
         m_TimeScale++;
         switch (m_TimeScale % 3)
         {
@@ -119,6 +124,11 @@ public class GameManager : MonoBehaviour
     }
     public void Resume()
     {
+        if(canvas.gameObject.activeSelf)
+        {
+            Debug.Log("선택지 활성화 중에는 시간 변경 불가");
+            return;
+        }
         Time.timeScale = 1f;
         IsPaused = false;
         if (pausePanel.activeSelf)
@@ -272,8 +282,6 @@ public class GameManager : MonoBehaviour
         {
             UpgradePanelOpen(optionButton);
         }
-        
-        //UpGradeGetMatchedOptionData(optionButton);
     }
     
     public void UpgradePanelOpen(OptionButton optionButton)

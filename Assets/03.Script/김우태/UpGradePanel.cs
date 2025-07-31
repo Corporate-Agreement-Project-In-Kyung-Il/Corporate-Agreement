@@ -18,6 +18,11 @@ public class UpGradePanel : Panel
         public int chanceToDoubleSucceed;
     }
     public UpgradeData[] upgradeDatas = new  UpgradeData[5];
+    
+    public UpgradeResult upgradeSuccessPanel;
+    public UpgradeResult upgradeFailPanel;
+    
+    public Animator upgradeAnimation;
     private Dictionary<MyGrade, UpgradeData> m_UpgradeDatas;
     private MyGrade m_CurrentGradeIndex;
     private OptionButton m_CurrentOptionButton;
@@ -44,8 +49,26 @@ public class UpGradePanel : Panel
         doubleSucceedText.text = m_UpgradeDatas[grade].chanceToDoubleSucceed.ToString();
     }
 
+    IEnumerator WaitForAnimationEnd()
+    {
+        upgradeAnimation.gameObject.SetActive(true);
+        while (true)
+        {
+            AnimatorStateInfo info = upgradeAnimation.GetCurrentAnimatorStateInfo(0);
+            if (info.normalizedTime >= 1f && !upgradeAnimation.IsInTransition(0))
+            {
+                upgradeAnimation.gameObject.SetActive(false);
+                break;
+            }
+            yield return null;
+        }
+
+        Debug.Log("애니메이션 끝!");
+    }
+    
     public void TryUpgrade()
     {
+        StartCoroutine(WaitForAnimationEnd());
         // 현재 등급의 강화 데이터 가져오기
         var upgradeData = m_UpgradeDatas[m_CurrentGradeIndex];
 
@@ -66,6 +89,10 @@ public class UpGradePanel : Panel
         else
         {
             GameManager.Instance.UpGradeFailed(m_CurrentOptionButton);
+            upgradeFailPanel.gameObject.SetActive(true);
+            upgradeFailPanel.upgradeResultText.text = "강화 실패";
+            upgradeFailPanel.upgradeImage = m_CurrentOptionButton.choiceImage;
+            //upgradeFailPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
         }
     }
 }
