@@ -126,8 +126,8 @@ public sealed class Spawner : MonoBehaviour
             // 전 테마랑 같지 않게 랜덤으로 테마 설정
             do
             {
-                // var stageThemes = Enum.GetValues(typeof(StageTheme));
-                m_CurTheme = (StageTheme) Random.Range(0, 2);
+                var stageThemes = Enum.GetValues(typeof(StageTheme));
+                m_CurTheme = (StageTheme) Random.Range(1, stageThemes.Length);
             } while (m_CurTheme == prevTheme);
         
             // Debug.Log(m_CurTheme);
