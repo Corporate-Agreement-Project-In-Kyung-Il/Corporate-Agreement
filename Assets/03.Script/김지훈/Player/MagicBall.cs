@@ -38,8 +38,11 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     public string Key { get; set; }
     public GameObject GameObject => gameObject;
     private SpriteRenderer spriteRenderer;
+    
+    private HashSet<Collider2D> damagedColliders = new HashSet<Collider2D>();
     public void ReturnToPool()
     {
+        damagedColliders.Clear();
         spriteRenderer.sortingLayerName = "Skill";
         spriteRenderer.sortingOrder = 2;
         target = null;
@@ -231,7 +234,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
     //}
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
+        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false) || damagedColliders.Contains(other))
             return;
         
         if(other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
@@ -243,7 +246,7 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
             combatEvent.collider = other;
             
             CombatSystem.instance.AddCombatEvent(combatEvent);
-
+            damagedColliders.Add(other);
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))
             {
                 isTargetNotDead = false;

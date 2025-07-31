@@ -100,6 +100,7 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                 DependencyPlayerStat[i].attackDamage += trainingOption.Critical_Damage_Increase;
                 DependencyPlayerStat[i].criticalProbability += trainingOption.Critical_Rate_Increase;
                 DependencyPlayerStat[i].attackSpeed += trainingOption.Attack_Speed_Increase;
+                DependencyPlayerStat[i].training_level += trainingOption.Training_LvUP;
                 
                 switch (i)
                 {
@@ -107,16 +108,19 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                         warriorData.attackDamage += trainingOption.Critical_Damage_Increase;
                         warriorData.health += trainingOption.Critical_Damage_Increase;
                         warriorData.criticalProbability += trainingOption.Critical_Rate_Increase;
+                        warriorData.training_level += trainingOption.Training_LvUP;
                         break;
                     case 1 :
                         archerData.attackDamage += trainingOption.Critical_Damage_Increase;
                         archerData.health += trainingOption.Critical_Damage_Increase;
                         archerData.criticalProbability += trainingOption.Critical_Rate_Increase;
+                        archerData.training_level += trainingOption.Training_LvUP;
                         break;
                     case 2 :
                         wizardData.attackDamage += trainingOption.Critical_Damage_Increase;
                         wizardData.health += trainingOption.Critical_Damage_Increase;
                         wizardData.criticalProbability += trainingOption.Critical_Rate_Increase;
+                        wizardData.training_level += trainingOption.Training_LvUP;
                         break;
                 }
                 break;

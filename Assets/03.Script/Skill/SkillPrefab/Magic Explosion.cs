@@ -68,16 +68,6 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         }
 
         MoveToEnemyHurt();
-
-        //Vector2 dir = (owner.target.transform.position - transform.position).normalized;
-        //float dis = Vector2.Distance(owner.target.transform.position, transform.position);
-        //
-        //transform.position += (Vector3)(dir * (moveSpeed * Time.deltaTime));
-        //
-        //if (dis < 0.2f)
-        //{
-        //    coll.enabled = true;
-        //}
     }
 
     private void FindNextTarget()
@@ -173,7 +163,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
             transform.position += transform.up * (velocity);
         }
         
-        if (distanceToTarget < 0.3f) //터지기 시작하는 거리
+        if (distanceToTarget < 0.5f) //터지기 시작하는 거리
         {
             if (shakePossible)
             {
@@ -189,6 +179,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
+        
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);

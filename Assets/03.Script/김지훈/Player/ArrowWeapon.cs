@@ -18,6 +18,12 @@ public class ArrowWeapon : Weapon
         //---------------
         ArrowShot bullet = ObjectPoolSystem.Instance.GetObjectOrNull("ArrowShot") as ArrowShot;
         
+        if (isSkill)
+        {
+            bullet.transform.rotation = Quaternion.Euler(0, 0, -45f);
+            isSkill = false;
+        }
+        
         bullet.transform.position = transform.position;
         bullet.arrowDamage = player.Damage;
         if (Random.value < player.buffplayerStat.criticalProbability)

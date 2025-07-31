@@ -47,7 +47,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     public void AttackTarget()
     {
-        if (attackCount >= stat.Attack_Count)
+        if (attackCount >= stat.Attack_Count||owner.target==null)
         {
             Destroy(gameObject);
         }
@@ -59,7 +59,8 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     IEnumerator DamageDelay()
     {
-        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+
+        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage) && owner.target != null)
         {
             attackCount++;
             CombatEvent combatEvent = new CombatEvent();
