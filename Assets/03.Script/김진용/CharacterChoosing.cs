@@ -14,12 +14,15 @@
         public Image CharacterSprite;
 
         [SerializeField] private PlayerList PlayerList;
+        
         [SerializeField] private ChoiceManager ChoiceManager;
-
         [SerializeField] private List<Button> PlayerChoosingButtons = new List<Button>();
-
+        
+        
+        
         [SerializeField] private GameObject SameClassPanel;
         public GameObject No3ClassPanel;
+        
         public void ShowInfo(CharacterChooseButton button)
         {
             CharacterSprite.sprite = button.CharacterSprite;

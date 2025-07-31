@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerList : MonoBehaviour
 {
     private static PlayerList instance;
+    public int currentStage;
     public static PlayerList Instance
     {
         get
@@ -28,5 +29,4 @@ public class PlayerList : MonoBehaviour
             Destroy(gameObject); // 중복 생성을 방지
         }
     }
-    
 }
