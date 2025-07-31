@@ -262,7 +262,7 @@ public sealed class Spawner : MonoBehaviour
                 , parent: bossTilemap.gameObject);
             
             var monster = boss as MonsterController;
-            monster.SetMonsterData(m_MonsterData);
+            monster.SetBossData(m_MonsterData);
             
             boss.gameObject.transform.localScale = Vector3.one * 3f;
         }

@@ -33,20 +33,30 @@ public class MonsterController : BaseMonster, IDamageAble
     {
         TryGetComponent(out collider2D);
         TryGetComponent(out weapon);
+        
+        monsterStat.playerDetectionRange = playerDetection;
     }
 
     public void SetMonsterData(MonsterData monsterData)
     {
         monsterStat.health = monsterData.Monster_HP;
-        monsterStat.playerDetectionRange = playerDetection;
-        
         monsterStat.damage = monsterData.Monster_Attack;
         monsterStat.attackRange = monsterData.attackRange;
         monsterStat.attackSpeed = monsterData.attackSpeed;
-        
         monsterStat.quantity = monsterData.Monster_quantity;
         monsterStat.moveSpeed = monsterData.moveSpeed;
     }
+    
+    public void SetBossData(MonsterData monsterData)
+    {
+        monsterStat.health = monsterData.Boss_HP;
+        monsterStat.damage = monsterData.Boss_Attack;
+        monsterStat.attackRange = monsterData.attackRange;
+        monsterStat.attackSpeed = monsterData.attackSpeed;
+        monsterStat.quantity = monsterData.Monster_quantity;
+        monsterStat.moveSpeed = monsterData.moveSpeed;
+    }
+    
     
     private void Start()
     {
