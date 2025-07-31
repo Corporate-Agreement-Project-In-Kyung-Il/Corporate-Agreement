@@ -100,34 +100,40 @@ public sealed class Spawner : MonoBehaviour
 
     private void OnEnable()
     {
-        m_StageEndDetector.OnStageEnd += SetNextStage;
+        m_StageEndDetector.OnStageEnd += SetStage;
     }
     
     private void OnDisable()
     {
-        m_StageEndDetector.OnStageEnd -= SetNextStage;
+        m_StageEndDetector.OnStageEnd -= SetStage;
     }
 
-    public void SetNextStage()
+    public void SetStage()
     {
+        m_CurStageId++;
+        
         // 선택지
         if (m_CurStageId % 3 == 0)
         {
             GameManager.Instance.CreateChoices(3);
         }
         
-        m_CurStageId++;
-
-        var prevTheme = m_CurTheme;
-        
-        // 전 테마랑 같지 않게 랜덤으로 테마 설정
-        do
+        // 보스 이후 테마 변경
+        if (m_CurStageId % 3 == 1)
         {
-            // var stageThemes = Enum.GetValues(typeof(StageTheme));
-            m_CurTheme = (StageTheme) Random.Range(0, 2);
-        } while (m_CurTheme == prevTheme);
+            var prevTheme = m_CurTheme;
         
-        // Debug.Log(m_CurTheme);
+            // 전 테마랑 같지 않게 랜덤으로 테마 설정
+            do
+            {
+                // var stageThemes = Enum.GetValues(typeof(StageTheme));
+                m_CurTheme = (StageTheme) Random.Range(0, 2);
+            } while (m_CurTheme == prevTheme);
+        
+            // Debug.Log(m_CurTheme);
+        }
+        
+
         
         // 15 30 45 60 400 넘어가면 몬스터 수, 구역 패턴 변화
         if (m_StageInfo.MaxStage < m_CurStageId)
@@ -283,7 +289,7 @@ public sealed class Spawner : MonoBehaviour
         // var playerList = PlayerList.Instance.CharacterIDs;
         // TODO : 플레이어 ID를 외부에서 받아오는 로직으로 변경 필요
         // 임시로 0, 1, 2로 설정
-        var playerList = new int[] {100001, 100004, 100006}; 
+        var playerList = new int[] {100001, 100004, 100006};
         
         for (int i = 0; i < playerList.Length; i++)
         {
