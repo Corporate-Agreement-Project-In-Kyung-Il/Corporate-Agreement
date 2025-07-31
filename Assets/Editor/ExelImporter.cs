@@ -58,7 +58,19 @@ public static class ExcelImporter
 
     private static void ImportMonsterStat(DataTable table)
     {
-        var monsterStat = ScriptableObject.CreateInstance<MonsterStatExel>();
+        string assetPath = "Assets/00.Resources/DataBase/MonsterStat.asset";
+        var monsterSO = AssetDatabase.LoadAssetAtPath<MonsterStatExel>(assetPath);
+        
+        if (monsterSO == null)
+        {
+            monsterSO = ScriptableObject.CreateInstance<MonsterStatExel>();
+            AssetDatabase.CreateAsset(monsterSO, assetPath);
+        }
+        else
+        {
+            monsterSO.data.Clear();
+        }
+        
         for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
@@ -75,52 +87,53 @@ public static class ExcelImporter
             };
 
             var pair = new IDValuePair<MonsterExel> { Key_ID = int.Parse(strarr[0]), val = monster };
-            monsterStat.data.Add(pair);
+            monsterSO.data.Add(pair);
         }
         Debug.Log("Monster");
-        AssetDatabase.CreateAsset(monsterStat, $"Assets/00.Resources/DataBase/MonsterStat.asset");
+        EditorUtility.SetDirty(monsterSO);  // 변경 내용 에디터에 알리기
+        AssetDatabase.SaveAssets();
     }
     
-    public static void ImportActiveSkill(DataTable table)
-{
-    for (int i = 1; i < table.Rows.Count; i++)
-    {
-        var row = table.Rows[i];
-        if (row == null || row.ItemArray.Length < 13 || string.IsNullOrWhiteSpace(row[0]?.ToString()))
-            continue;
+    public static void ImportActiveSkill(DataTable table) 
+    { 
+        for (int i = 1; i < table.Rows.Count; i++) 
+        { 
+            var row = table.Rows[i]; 
+            if (row == null || row.ItemArray.Length < 13 || string.IsNullOrWhiteSpace(row[0]?.ToString()))
+                continue;
 
-        ActiveSkillSO skill = ScriptableObject.CreateInstance<ActiveSkillSO>();
+            ActiveSkillSO skill = ScriptableObject.CreateInstance<ActiveSkillSO>();
 
-        if (!int.TryParse(row[0]?.ToString(), out skill.Skill_ID)) continue;
-        skill.Skill_Name = row[1]?.ToString();
-        skill.Skill_Type = SkillType.active;
+            if (!int.TryParse(row[0]?.ToString(), out skill.Skill_ID)) continue;
+            skill.Skill_Name = row[1]?.ToString();
+            skill.Skill_Type = SkillType.active;
 
-        int.TryParse(row[3]?.ToString(), out skill.Skill_Minimum_LV);
-        int.TryParse(row[4]?.ToString(), out skill.Skill_Maximum_LV);
-        float.TryParse(row[5]?.ToString(), out skill.Skill_Cooldown);
-        float.TryParse(row[6]?.ToString(), out skill.Skill_Damage);
-        int.TryParse(row[7]?.ToString(), out skill.Skill_Attack_Count);
-        bool.TryParse(row[8]?.ToString(), out skill.Wide_Area);
-        float.TryParse(row[9]?.ToString(), out skill.Skill_Range_width);
-        float.TryParse(row[10]?.ToString(), out skill.Skill_Range_height);
-        float.TryParse(row[11]?.ToString(), out skill.Cooldown_Reduction);
-        float.TryParse(row[12]?.ToString(), out skill.Damage_Increase);
+            int.TryParse(row[3]?.ToString(), out skill.Skill_Minimum_LV);
+            int.TryParse(row[4]?.ToString(), out skill.Skill_Maximum_LV);
+            float.TryParse(row[5]?.ToString(), out skill.Skill_Cooldown);
+            float.TryParse(row[6]?.ToString(), out skill.Skill_Damage);
+            int.TryParse(row[7]?.ToString(), out skill.Skill_Attack_Count);
+            bool.TryParse(row[8]?.ToString(), out skill.Wide_Area);
+            float.TryParse(row[9]?.ToString(), out skill.Skill_Range_width);
+            float.TryParse(row[10]?.ToString(), out skill.Skill_Range_height);
+            float.TryParse(row[11]?.ToString(), out skill.Cooldown_Reduction);
+            float.TryParse(row[12]?.ToString(), out skill.Damage_Increase);
 
-        string assetPath = $"Assets/00.Resources/DataBase/Skills/Active/{skill.Skill_Name}.asset";
-        Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
-        AssetDatabase.CreateAsset(skill, assetPath);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-
-        skill.SetPrefab();
-        EditorApplication.delayCall += () =>
-        {
-            skill.SetPrefab();
-            EditorUtility.SetDirty(skill);
+            string assetPath = $"Assets/00.Resources/DataBase/Skills/Active/{skill.Skill_Name}.asset";
+            Directory.CreateDirectory(Path.GetDirectoryName(assetPath));
+            AssetDatabase.CreateAsset(skill, assetPath);
             AssetDatabase.SaveAssets();
-        };
+            AssetDatabase.Refresh();
+
+            skill.SetPrefab();
+            EditorApplication.delayCall += () =>
+            {
+                skill.SetPrefab();
+                EditorUtility.SetDirty(skill);
+                AssetDatabase.SaveAssets();
+            };
+        }
     }
-}
 
 public static void ImportBuffSkill(DataTable table)
 {
@@ -244,6 +257,19 @@ public static void ImportBuff(DataTable table)
     //하나의 ScriptableObject에 담아서    
     private static void ImportCharacter(DataTable table)
     {
+        string assetPath = "Assets/00.Resources/DataBase/Character.asset";
+        var characterSO = AssetDatabase.LoadAssetAtPath<PlayerCharacter>(assetPath);
+        
+        if (characterSO == null)
+        {
+            characterSO = ScriptableObject.CreateInstance<PlayerCharacter>();
+            AssetDatabase.CreateAsset(characterSO, assetPath);
+        }
+        else
+        {
+            characterSO.data.Clear();
+        }
+        
         var playerCharacter = ScriptableObject.CreateInstance<PlayerCharacter>();
         for (int i = 3; i < table.Rows.Count; i++)
         {
@@ -267,8 +293,8 @@ public static void ImportBuff(DataTable table)
             var pair = new IDValuePair<Character> { Key_ID = int.Parse(strarr[0]), val = character };
             playerCharacter.data.Add(pair);
         }
-
-        AssetDatabase.CreateAsset(playerCharacter, $"Assets/00.Resources/DataBase/Character.asset");
+        EditorUtility.SetDirty(characterSO);  // 변경 내용 에디터에 알리기
+        AssetDatabase.SaveAssets();
     }
     
     //하나 배열당, 하나의 ScriptableObject에 담아서
@@ -322,7 +348,19 @@ public static void ImportBuff(DataTable table)
 
     private static void ImportSkillOption(DataTable table)
     {
-        var optionSkill = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
+        string assetPath = "Assets/00.Resources/DataBase/OptionChoice/SkillOptionChoice.asset";
+        var skillSO = AssetDatabase.LoadAssetAtPath<OptionChoice_SkillOption>(assetPath);
+        
+        if (skillSO == null)
+        {
+            skillSO = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
+            AssetDatabase.CreateAsset(skillSO, assetPath);
+        }
+        else
+        {
+            skillSO.data.Clear();
+        }
+        
         for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
@@ -340,13 +378,25 @@ public static void ImportBuff(DataTable table)
             };
 
             var pair = new IDValuePair<SkillOption> { Key_ID = int.Parse(strarr[0]), val = skill };
-            optionSkill.data.Add(pair);
+            skillSO.data.Add(pair);
         }
-
-        AssetDatabase.CreateAsset(optionSkill, $"Assets/00.Resources/DataBase/OptionChoice/SkillOptionChoice.asset");
+        EditorUtility.SetDirty(skillSO);  // 변경 내용 에디터에 알리기
+        AssetDatabase.SaveAssets();
     }
     private static void ImportEquip(DataTable table)
     {
+        string assetPath = "Assets/00.Resources/DataBase/Equip.asset";
+        var equipSO = AssetDatabase.LoadAssetAtPath<PlayerEquip>(assetPath);
+        
+        if (equipSO == null)
+        {
+            equipSO = ScriptableObject.CreateInstance<PlayerEquip>();
+            AssetDatabase.CreateAsset(equipSO, assetPath);
+        }
+        else
+        {
+            equipSO.data.Clear();
+        }
         var playerEquip = ScriptableObject.CreateInstance<PlayerEquip>();
         for (int i = 3; i < table.Rows.Count; i++)
         {
@@ -364,14 +414,25 @@ public static void ImportBuff(DataTable table)
             };
 
             var pair = new IDValuePair<Equip> { Key_ID = int.Parse(strarr[0]), val = equip };
-            playerEquip.data.Add(pair);
+            equipSO.data.Add(pair);
         }
-
-        AssetDatabase.CreateAsset(playerEquip, $"Assets/00.Resources/DataBase/Equip.asset");
+        EditorUtility.SetDirty(equipSO);  // 변경 내용 에디터에 알리기
+        AssetDatabase.SaveAssets();
     }
     private static void ImportEquipOption(DataTable table)
     {
-        var optionEquip = ScriptableObject.CreateInstance<OptionChoice_EquipOption>();
+        string assetPath = "Assets/00.Resources/DataBase/OptionChoice/EquipOptionChoice.asset";
+        var optionEquipSO = AssetDatabase.LoadAssetAtPath<OptionChoice_EquipOption>(assetPath);
+        
+        if (optionEquipSO == null)
+        {
+            optionEquipSO = ScriptableObject.CreateInstance<OptionChoice_EquipOption>();
+            AssetDatabase.CreateAsset(optionEquipSO, assetPath);
+        }
+        else
+        {
+            optionEquipSO.data.Clear();
+        }
         for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
@@ -387,14 +448,26 @@ public static void ImportBuff(DataTable table)
             };
 
             var pair = new IDValuePair<EquipOption> { Key_ID = int.Parse(strarr[0]), val = equip };
-            optionEquip.data.Add(pair);
+            optionEquipSO.data.Add(pair);
         }
-
-        AssetDatabase.CreateAsset(optionEquip, $"Assets/00.Resources/DataBase/OptionChoice/EquipOptionChoice.asset");
+        EditorUtility.SetDirty(optionEquipSO);  // 변경 내용 에디터에 알리기
+        AssetDatabase.SaveAssets();
     }
     private static void ImportTraining(DataTable table)
     {
-        var playerTraining = ScriptableObject.CreateInstance<PlayerTraining>();
+        string assetPath = "Assets/00.Resources/DataBase/TrainingOptionChoice.asset";
+        var trainingSO = AssetDatabase.LoadAssetAtPath<PlayerTraining>(assetPath);
+        
+        if (trainingSO == null)
+        {
+            trainingSO = ScriptableObject.CreateInstance<PlayerTraining>();
+            AssetDatabase.CreateAsset(trainingSO, assetPath);
+        }
+        else
+        {
+            trainingSO.data.Clear();
+        }
+        
         for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
@@ -413,14 +486,26 @@ public static void ImportBuff(DataTable table)
             };
 
             var pair = new IDValuePair<Training> { Key_ID = int.Parse(strarr[0]), val = training };
-            playerTraining.data.Add(pair);
+            trainingSO.data.Add(pair);
         }
-
-        AssetDatabase.CreateAsset(playerTraining, $"Assets/00.Resources/DataBase/TrainingOptionChoice.asset");
+        EditorUtility.SetDirty(trainingSO);  // 변경 내용 에디터에 알리기
+        AssetDatabase.SaveAssets();
     }
     private static void ImportTrainingOption(DataTable table)
     {
-        var optionTraining = ScriptableObject.CreateInstance<OptionChoice_TrainingOption>();
+        string assetPath = "Assets/00.Resources/DataBase/OptionChoice/TrainingOptionChoice.asset";
+        var trainingOptionSO = AssetDatabase.LoadAssetAtPath<OptionChoice_TrainingOption>(assetPath);
+        
+        if (trainingOptionSO == null)
+        {
+            trainingOptionSO = ScriptableObject.CreateInstance<OptionChoice_TrainingOption>();
+            AssetDatabase.CreateAsset(trainingOptionSO, assetPath);
+        }
+        else
+        {
+            trainingOptionSO.data.Clear();
+        }
+
         for (int i = 3; i < table.Rows.Count; i++)
         {
             var strarr = GetTrimmedCells(table, i);
@@ -437,10 +522,11 @@ public static void ImportBuff(DataTable table)
             };
 
             var pair = new IDValuePair<TrainingOption> { Key_ID = int.Parse(strarr[0]), val = training };
-            optionTraining.data.Add(pair);
+            trainingOptionSO.data.Add(pair);
         }
 
-        AssetDatabase.CreateAsset(optionTraining, $"Assets/00.Resources/DataBase/OptionChoice/TrainingOptionChoice.asset");
+        EditorUtility.SetDirty(trainingOptionSO);  // 변경 내용 에디터에 알리기
+        AssetDatabase.SaveAssets();
     }
 
     private static string[] GetTrimmedCells(DataTable table, int rowIndex)
