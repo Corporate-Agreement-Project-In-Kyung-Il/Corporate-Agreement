@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillSound: {fileID: 11400000, guid: 9c73d11a8a5d79546a08e057a2b037bc, type: 2}
+  SkillIcon: {fileID: 21300000, guid: a656bc9d945855c4a86041964f18f746, type: 3}
   owner: {fileID: 0}
-  skillSprite: {fileID: 0}
   SkillId: 100017
   attackCount: 0
   moveSpeed: 0

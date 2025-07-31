@@ -1,14 +1,9 @@
 using UnityEngine;
 
-public class Archer_Strong_Mind : MonoBehaviour, ISkillID
+public class Archer_Strong_Mind : BuffBase, ISkillID
 {
     public SFXData buffSound;
-    public Sprite SkillSprite { get; set; }
-    public Sprite skillSprite;
-    public void SetSkillSprite()
-    {
-        SkillSprite = skillSprite;
-    }
+   
     public int SkillId;
     public int SkillID { get; set; }
     public void SetSkillID() => SkillID = SkillId;
@@ -25,7 +20,7 @@ public class Archer_Strong_Mind : MonoBehaviour, ISkillID
     }
     public void Initialize(Player _owner, BuffSO _buff)
     {
-        SetSkillSprite();
+        
         owner = _owner;
         buffSO = _buff;
 

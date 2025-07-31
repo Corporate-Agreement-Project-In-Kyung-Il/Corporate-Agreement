@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,11 @@ public interface ISpriteSelection
 {
     public Sprite PlayerSprite { get; }
     public Sprite WeaponSprite { get; }
+    public Sprite Skill1Icon { get; }
+    public Sprite Skill2Icon { get; }
+    
+    public String Skill1Name { get; set; }
+    public String Skill2Name { get; set;}
 }
 
 [System.Serializable]
@@ -52,7 +58,7 @@ public class PlayerStat
     public int equip_item; //장비 적용 분류
     public int equip_level;
     public List<int> skill_possed; //스킬 적용
-
+    
     public override string ToString()
     {
         return

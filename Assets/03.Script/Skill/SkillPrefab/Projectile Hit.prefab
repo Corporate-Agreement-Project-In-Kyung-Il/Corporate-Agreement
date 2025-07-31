@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7b2ad7d069e514d81772437bfe636a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkillIcon: {fileID: 21300000, guid: e75f4684e7fde6d4ea3ff81450b0696e, type: 3}
+  SkillName: 
   SkillId: 100015
   owner: {fileID: 0}
   buffSO: {fileID: 0}

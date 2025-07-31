@@ -33,7 +33,7 @@ public class SkillManagerJiHun : MonoBehaviour
 
         foreach (var skill in skills)
         {
-            skill.SetSkillSprite();
+            
             skill.SetSkillID();
         }
         //ConnectSkills();

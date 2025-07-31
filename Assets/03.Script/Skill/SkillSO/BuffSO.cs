@@ -66,7 +66,7 @@ public class BuffSO : ScriptableObject, ISkillID
                         {
                             Debug.Log(comp);
                             skillScript.SetSkillID();
-                            skillScript.SetSkillSprite();
+                            
                             // 스크립트의 SkillID가 SO의 Skill_ID와 같은지 비교
                             if (skillScript.SkillID == Skill_ID)
                             {

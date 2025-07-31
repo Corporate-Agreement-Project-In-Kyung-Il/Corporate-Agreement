@@ -6,6 +6,8 @@ using UnityEngine;
 public abstract class ActiveSkillBase : MonoBehaviour
 {
     public SFXData skillSound;
+
+    public Sprite SkillIcon;
     //owner로 데이터 받아옴
     //Instantiate 할때 같이 정보 넘겨줌
     public Player owner;
@@ -15,6 +17,7 @@ public abstract class ActiveSkillBase : MonoBehaviour
 
     public class SkillStat
     {
+        public string SkillName;
         public int Minimum_LV;
         public int current_LV;
         public int Maximum_LV;

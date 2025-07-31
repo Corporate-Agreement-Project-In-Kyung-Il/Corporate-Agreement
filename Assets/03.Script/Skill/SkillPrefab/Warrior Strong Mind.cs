@@ -6,12 +6,6 @@ using UnityEngine.Serialization;
 
 public class WarriorStrongMind : ActiveSkillBase, ISkillID
 {
-    public Sprite SkillSprite { get; set; }
-    public Sprite skillSprite;
-    public void SetSkillSprite()
-    {
-        SkillSprite = skillSprite;
-    }
     //단일 공격 3번때림 
     public int SkillId;
     public int SkillID { get; set; }
@@ -85,16 +79,17 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     public override void Initialize()
     {
         SetSkillID();
-        SetSkillSprite();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
             stat.Attack_Count = skill.Skill_Attack_Count;
+            stat.SkillName = skill.Skill_Name;
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
             stat.Attack_Count = skill2.Skill_Attack_Count;
+            stat.SkillName = skill2.Skill_Name;
         }
     }
 }

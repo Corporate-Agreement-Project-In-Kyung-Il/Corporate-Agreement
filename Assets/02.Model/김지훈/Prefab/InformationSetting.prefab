@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 7203973529205557159}
   - component: {fileID: 5856386138604893074}
   m_Layer: 5
-  m_Name: ImageCriticalRate (2)
+  m_Name: ImageSkill2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 3508138666381557580}
   - component: {fileID: 5197745593838881729}
   m_Layer: 5
-  m_Name: ImageCriticalRate (1)
+  m_Name: ImageSkill1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,9 +794,13 @@ MonoBehaviour:
   - {fileID: 8915422810470297482}
   - {fileID: 6255074163259086902}
   - {fileID: 5410291688929959063}
+  - {fileID: 7459360545681526772}
+  - {fileID: 2150144438856475136}
   image:
   - {fileID: 2153835609511430556}
   - {fileID: 2910184047403701775}
+  - {fileID: 5197745593838881729}
+  - {fileID: 5856386138604893074}
 --- !u!1 &3421174333917281164
 GameObject:
   m_ObjectHideFlags: 0

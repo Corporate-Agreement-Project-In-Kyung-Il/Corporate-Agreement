@@ -1,14 +1,10 @@
 using UnityEngine;
 
-public class Shield_Protection : MonoBehaviour, ISkillID
+public class Shield_Protection : BuffBase, ISkillID
 {
     public SFXData buffSound;
-    public Sprite SkillSprite { get; set; }
-    public Sprite skillSprite;
-    public void SetSkillSprite()
-    {
-        SkillSprite = skillSprite;
-    }
+
+    
     public int SkillId;
     public int SkillID { get; set; }
     public void SetSkillID() => SkillID = SkillId;
@@ -26,7 +22,6 @@ public class Shield_Protection : MonoBehaviour, ISkillID
     }
     public void Initialize(Player _owner, BuffSO _buff)
     {
-        SetSkillSprite();
         owner = _owner;
         buffSO = _buff;
 

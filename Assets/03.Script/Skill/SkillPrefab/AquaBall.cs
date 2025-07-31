@@ -14,13 +14,6 @@ public class AquaBall : ActiveSkillBase, ISkillID
         SkillID = SkillId;
     }
 
-    public Sprite SkillSprite { get; set; }
-    public Sprite skillSprite;
-    public void SetSkillSprite()
-    {
-        SkillSprite = skillSprite;
-    }
-
     public float moveSpeed;
     private BoxCollider2D coll;
     private void Awake()
@@ -82,13 +75,13 @@ public class AquaBall : ActiveSkillBase, ISkillID
     {
         coll = GetComponent<BoxCollider2D>();
         SetSkillID();
-        SetSkillSprite();
+        
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
             stat.Range_width=skill.Skill_Range_width;
             stat.Range_height=skill.Skill_Range_height;
-            
+            stat.SkillName = skill.Skill_Name;
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
@@ -96,7 +89,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
             stat.Damage = skill2.Skill_Damage;
             stat.Range_width=skill2.Skill_Range_width;
             stat.Range_height=skill2.Skill_Range_height;
-            
+            stat.SkillName = skill2.Skill_Name;
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         boomEffect.transform.localScale = new Vector3(stat.Range_width, stat.Range_height, 1f);
