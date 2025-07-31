@@ -219,6 +219,7 @@ public sealed class Spawner : MonoBehaviour
 
     private void SpawnAllMonstersInStage()
     {
+        
         for (var i = 0; i < m_PlayerList.Count; i++)
         {
             var player = m_PlayerList[i];
@@ -240,9 +241,11 @@ public sealed class Spawner : MonoBehaviour
             
             for (int x = 0; x < area.SpawnMonsterCount; x++)
             {
-                SpawnMonsterInRange(area.MonsterSpawnInfoList[x]
+                var basemonster = SpawnMonsterInRange(area.MonsterSpawnInfoList[x]
                     , monsterType
                     , parent: m_CurTilemapList[i].gameObject);
+                var monster = basemonster as MonsterController;
+                monster.SetMonsterData(m_MonsterData);
             }
         }
 
@@ -257,6 +260,9 @@ public sealed class Spawner : MonoBehaviour
                 new Vector2(bossTilemap.localBounds.center.x, bossTilemap.localBounds.max.y - m_BossSpawnYOffset)
                 , monsterType
                 , parent: bossTilemap.gameObject);
+            
+            var monster = boss as MonsterController;
+            monster.SetMonsterData(m_MonsterData);
             
             boss.gameObject.transform.localScale = Vector3.one * 3f;
         }
@@ -343,7 +349,7 @@ public sealed class Spawner : MonoBehaviour
     /// <param name="type"> 몬스터 종류(MonsterType) </param>
     /// <param name="parent"> 구역(Area) </param>
     /// <returns> 스폰 몬스터 </returns>
-    public void SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
+    public BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
     {
         Vector2 randomOffset = Random.insideUnitCircle * (spawnInfo.Radius * 0.5f);
         // Debug.Log(randomOffset);
@@ -351,6 +357,7 @@ public sealed class Spawner : MonoBehaviour
         // Vector2 spawnPos = spawnInfo.Point;
         BaseMonster monster = Instantiate(m_MonsterTable.GetMonster(type), parent.transform);
         monster.transform.localPosition = spawnPos; // 부모의 로컬 좌표로 스폰
+        return monster;
     }
     
     public List<Tilemap> GenerateMap(int[] areaPatternList)

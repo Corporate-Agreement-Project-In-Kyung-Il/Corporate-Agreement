@@ -33,7 +33,10 @@ public class MonsterController : BaseMonster, IDamageAble
     {
         TryGetComponent(out collider2D);
         TryGetComponent(out weapon);
-        
+    }
+
+    public void SetMonsterData(MonsterData monsterData)
+    {
         monsterStat.health = monsterData.Monster_HP;
         monsterStat.playerDetectionRange = playerDetection;
         
@@ -44,7 +47,7 @@ public class MonsterController : BaseMonster, IDamageAble
         monsterStat.quantity = monsterData.Monster_quantity;
         monsterStat.moveSpeed = monsterData.moveSpeed;
     }
-
+    
     private void Start()
     {
         CombatSystem.instance.RegisterMonster(this);
