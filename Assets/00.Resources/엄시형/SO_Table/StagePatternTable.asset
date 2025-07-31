@@ -13,33 +13,29 @@ MonoBehaviour:
   m_Name: StagePatternTable
   m_EditorClassIdentifier: 
   m_AreaPatternList:
-  - <PatternId>k__BackingField: 1
+  - <PatternId>k__BackingField: 0
     <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.13753587, y: 0.8954153}
+    - <Point>k__BackingField: {x: -0.6209818, y: 9.449219}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.3295131, y: 2.0873923}
+    - <Point>k__BackingField: {x: 0.3915181, y: 2.632924}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.52722037, y: 1.5830946}
+    - <Point>k__BackingField: {x: 0.3915181, y: 2.632924}
       <Radius>k__BackingField: 1
-  - <PatternId>k__BackingField: 2
+  - <PatternId>k__BackingField: 0
     <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.2979943, y: 1.2621775}
+    - <Point>k__BackingField: {x: -0.42209822, y: 11.166853}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.3438394, y: 1.1017194}
+    - <Point>k__BackingField: {x: 1.5125003, y: 9.413057}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.2607448, y: 1.1475644}
+    - <Point>k__BackingField: {x: -0.1328125, y: 5.2003345}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.8481372, y: 1.7893982}
-      <Radius>k__BackingField: 1
-  - <PatternId>k__BackingField: 3
+  - <PatternId>k__BackingField: 0
     <MonsterSpawnInfoList>k__BackingField:
-    - <Point>k__BackingField: {x: -0.22922637, y: 2.775072}
+    - <Point>k__BackingField: {x: 0.24687493, y: 10.769085}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 0.61891115, y: 1.491404}
+    - <Point>k__BackingField: {x: -0.22321427, y: 7.1349335}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.5816617, y: 2.8438396}
+    - <Point>k__BackingField: {x: 1.4763393, y: 4.3867188}
       <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: 1.6733525, y: 1.353868}
-      <Radius>k__BackingField: 1
-    - <Point>k__BackingField: {x: -0.66475654, y: 1.0329514}
+    - <Point>k__BackingField: {x: 0.24687493, y: 2.5967631}
       <Radius>k__BackingField: 1

@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class HugeFootPrint : ActiveSkillBase, ISkillID
 {
+    public Sprite SkillSprite { get; set; }
+    public Sprite skillSprite;
+    public void SetSkillSprite()
+    {
+        SkillSprite = skillSprite;
+    }
     //광역기 한번때림
     public int SkillId;
     public int SkillID { get; set; }
@@ -68,6 +74,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
     {
         coll = GetComponent<BoxCollider2D>();
         SetSkillID();
+        SetSkillSprite();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;

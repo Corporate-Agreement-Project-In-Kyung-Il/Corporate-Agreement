@@ -13,6 +13,9 @@ public interface ISkillID
     public int SkillID { get; set; }
 
     public void SetSkillID();
+    public void SetSkillSprite();
+    
+    public Sprite SkillSprite { get; set; }
 }
 
 public class SkillManager : MonoBehaviour
@@ -69,6 +72,7 @@ public class SkillManager : MonoBehaviour
         foreach (var skill in skills)
         {
             skill.SetSkillID();
+            skill.SetSkillSprite();
         }
 
         ConnectSkills();

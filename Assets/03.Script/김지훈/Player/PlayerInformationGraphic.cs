@@ -8,25 +8,20 @@ using UnityEngine.UI;
 
 public class PlayerInformationGraphic : MonoBehaviour
 {
-    private TMP_Text[] text;
-    private Image[] image;
-
-    private void Awake()
-    {
-        text = GetComponentsInChildren<TMP_Text>();
-        image = GetComponentsInChildren<Image>();
-    }
-
+    [Header("0번 characterClass, 1번 characterName, 2번 characterGrade \n 3번 training_level, 4번 equip_level \n 5번 health, 6번 attackDamage\n, 7번 criticalProbability")]
+    [SerializeField] private TMP_Text[] text;
+    [SerializeField] private Image[] image;
+    
     public void UIPlayerInformationSetting(IBuffSelection playerStat)
     {
-        text[0].text = playerStat.buffplayerStat.characterName.ToString(CultureInfo.InvariantCulture);
-        text[1].text = playerStat.buffplayerStat.characterClass.ToString(CultureInfo.InvariantCulture);
-        text[2].text = playerStat.buffplayerStat.characterGrade.ToString(CultureInfo.InvariantCulture);
-        text[3].text = playerStat.buffplayerStat.health.ToString(CultureInfo.InvariantCulture);
-        text[4].text = playerStat.buffplayerStat.attackDamage.ToString(CultureInfo.InvariantCulture);
-        text[5].text = playerStat.buffplayerStat.attackSpeed.ToString(CultureInfo.InvariantCulture);
-        text[6].text = playerStat.buffplayerStat.equip_level.ToString(CultureInfo.InvariantCulture);
-        text[7].text = playerStat.buffplayerStat.criticalProbability.ToString(CultureInfo.InvariantCulture);
+        string[] statArray = playerStat.buffplayerStat.ToStatArrayFromToString();
+
+        for (int i = 0; i < statArray.Length; i++)
+        {
+            text[i].text = statArray[i];
+        }
+
+        text[statArray.Length].text = ((int)playerStat.buffplayerStat.attackDamage * 2).ToString();
     }
 
     public void UISpirteSetting(ISpriteSelection playerSprite)
@@ -34,5 +29,7 @@ public class PlayerInformationGraphic : MonoBehaviour
         image[0].sprite = playerSprite.PlayerSprite;
         image[1].sprite = playerSprite.WeaponSprite;
     }
+    
+
     
 }

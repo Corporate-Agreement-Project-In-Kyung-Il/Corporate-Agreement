@@ -12,6 +12,7 @@ public class MonsterController : BaseMonster, IDamageAble
     public GameObject GameObject => gameObject;
     public float Damage => monsterStat.damage;
     public float CurrentHp => monsterStat.health;
+    public Vector2 playerDetection;
 
     //Component 받아오는 요소
     [Tooltip("초기에 실행할 때 monsterData로 체력, 공격력등을 받아오는 데이터\n" + "게임 시작할 때 monster의 체력을 올리고 싶다면 여기서 바꾸기")] 
@@ -34,7 +35,7 @@ public class MonsterController : BaseMonster, IDamageAble
         TryGetComponent(out weapon);
         
         monsterStat.health = monsterData.Monster_HP;
-        monsterStat.playerDetectionRange = new Vector2(3f, 10f);
+        monsterStat.playerDetectionRange = playerDetection;
         
         monsterStat.damage = monsterData.Monster_Attack;
         monsterStat.attackRange = monsterData.attackRange;
