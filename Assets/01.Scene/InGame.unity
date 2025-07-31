@@ -2921,7 +2921,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurStageId: 1
   m_StageEndDetector: {fileID: 1399486814}
   m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
@@ -2942,6 +2941,11 @@ MonoBehaviour:
   m_Grid: {fileID: 1058518465}
   m_StageEndPoint: {fileID: 1399486814}
   m_reviveGameObject: {fileID: 922078190}
+  m_CurStageId: 1
+  m_BossSpawnYOffset: 3
+  m_ArcherSpawnPos: {x: -0.5, y: 1}
+  m_WarriorSpawnPos: {x: 0.5, y: 2}
+  m_WizardSpawnPos: {x: 1.5, y: 1}
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0
@@ -4419,6 +4423,10 @@ PrefabInstance:
       propertyPath: m_TrainingOptionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1689890959}
+    - target: {fileID: 6455416147499234557, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PopUpOptionChoicePanel
+      objectReference: {fileID: 0}
     - target: {fileID: 6582281646823595911, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
