@@ -16,6 +16,8 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
         SkillID = Skill_ID;
     }
 
+    public Sprite SkillSprite { get; set; }
+
     public int Skill_ID;
     public string Skill_Name;
     public SkillType Skill_Type;
@@ -63,6 +65,7 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
                         {
                             Debug.Log(comp);
                             skillScript.SetSkillID();
+                            skillScript.SetSkillSprite();
                             // 스크립트의 SkillID가 SO의 Skill_ID와 같은지 비교
                             if (skillScript.SkillID == Skill_ID)
                             {

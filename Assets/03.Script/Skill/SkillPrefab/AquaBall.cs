@@ -14,6 +14,13 @@ public class AquaBall : ActiveSkillBase, ISkillID
         SkillID = SkillId;
     }
 
+    public Sprite SkillSprite { get; set; }
+    public Sprite skillSprite;
+    public void SetSkillSprite()
+    {
+        SkillSprite = skillSprite;
+    }
+
     public float moveSpeed;
     private BoxCollider2D coll;
     private void Awake()
@@ -74,6 +81,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
     {
         coll = GetComponent<BoxCollider2D>();
         SetSkillID();
+        SetSkillSprite();
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
