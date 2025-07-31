@@ -320,9 +320,9 @@ public sealed class Spawner : MonoBehaviour
             // 프리맵이랑 매핑필요
             character_class characterClass = (playerList[i]) switch
             {
-                100001 => character_class.전사,
-                100004 => character_class.궁수,
-                100006 => character_class.마법사,
+                100001 or 100002 or 100003 => character_class.전사,
+                100004 or 100005 => character_class.궁수,
+                100006 or 100007 => character_class.마법사,
                 _ => throw new Exception("잘못된 캐릭터 클래스 ID입니다.")
             };
 
