@@ -80,5 +80,10 @@ public class BuffSO : ScriptableObject, ISkillID
             }
         }
     }
+
+    public void SetSkillSprite()
+    {
+       
+    }
 #endif
 }

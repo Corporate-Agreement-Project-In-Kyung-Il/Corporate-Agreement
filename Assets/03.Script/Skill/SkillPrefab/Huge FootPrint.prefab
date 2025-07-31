@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb92f331ddc66f47be0d379cb36ea69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillSound: {fileID: 11400000, guid: 66ad404aa17d9ed44a697cd17c930fb1, type: 2}
   owner: {fileID: 0}
+  skillSprite: {fileID: 0}
   SkillId: 100014
   effect: {fileID: 2200293995506512734}
   coll: {fileID: 0}

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WizardStrongMind : MonoBehaviour, ISkillID
 {
+    
     public Sprite SkillSprite { get; set; }
     public Sprite skillSprite;
     public void SetSkillSprite()

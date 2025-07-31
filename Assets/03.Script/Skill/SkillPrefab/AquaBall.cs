@@ -30,6 +30,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
     }
     void Start()
     {
+        SFXManager.Instance.Play(skillSound);
         coll.enabled = false;
     }
     void Update()

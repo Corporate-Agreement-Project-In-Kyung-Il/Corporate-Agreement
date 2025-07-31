@@ -31,6 +31,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
     private void Start()
     {
+        SFXManager.Instance.Play(skillSound);
     }
 
     void Update()

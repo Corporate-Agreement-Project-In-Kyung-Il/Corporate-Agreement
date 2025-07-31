@@ -34,7 +34,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     private void Start()
     {
         attackCount = 0;
-
+        SFXManager.Instance.Play(skillSound);
         AttackTarget();
     }
 

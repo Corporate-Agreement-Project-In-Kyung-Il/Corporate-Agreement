@@ -33,6 +33,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 
     void Start()
     {
+        SFXManager.Instance.Play(skillSound);
         attackCount = 0;
     }
 

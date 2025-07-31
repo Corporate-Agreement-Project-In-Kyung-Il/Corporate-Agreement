@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2bc0b5d26ae3d47a084dd536baf3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillSound: {fileID: 11400000, guid: 9c73d11a8a5d79546a08e057a2b037bc, type: 2}
   owner: {fileID: 0}
   SkillId: 100018
   boomEffect: {fileID: 7486694888101289180}
@@ -163,6 +164,7 @@ MonoBehaviour:
   lifeTime: 7
   timeSinceStart: 2.1
   lastTarget: {fileID: 0}
+  skillSprite: {fileID: 0}
   moveSpeed: 8
   curvefloat: 3
   straight: 1.25

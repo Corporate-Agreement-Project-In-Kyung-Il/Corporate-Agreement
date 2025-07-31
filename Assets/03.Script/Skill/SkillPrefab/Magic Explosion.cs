@@ -50,6 +50,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         Debug.Log("start MagicExplosion");
         targetList = AliveExistSystem.Instance.monsterList;   
         coll.enabled = false;
+        SFXManager.Instance.Play(skillSound);
     }
 
 

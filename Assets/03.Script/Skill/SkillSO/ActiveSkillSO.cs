@@ -79,5 +79,10 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
             }
         }
     }
+
+    public void SetSkillSprite()
+    {
+        
+    }
 #endif
 }

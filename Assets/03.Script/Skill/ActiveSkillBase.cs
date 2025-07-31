@@ -5,10 +5,11 @@ using UnityEngine;
 
 public abstract class ActiveSkillBase : MonoBehaviour
 {
+    public SFXData skillSound;
     //owner로 데이터 받아옴
     //Instantiate 할때 같이 정보 넘겨줌
     public Player owner;
-    
+
     //public Player owner;
     public SkillStat stat = new SkillStat();
 

@@ -45,10 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73d5a82aa4dcb34a89112bb2d98c460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillSound: {fileID: 11400000, guid: 9c73d11a8a5d79546a08e057a2b037bc, type: 2}
   owner: {fileID: 0}
+  skillSprite: {fileID: 0}
   SkillId: 100017
   attackCount: 0
   moveSpeed: 0
+  destroyTime: 1
 --- !u!1 &8115530448955229230
 GameObject:
   m_ObjectHideFlags: 0
