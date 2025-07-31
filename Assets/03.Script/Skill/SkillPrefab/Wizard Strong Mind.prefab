@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc94ae4704891ff4ca0ac98fd4f1547e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffSound: {fileID: 11400000, guid: 261744726074d1f4b87963510f78eb9a, type: 2}
+  skillSprite: {fileID: 0}
   SkillId: 100019
   owner: {fileID: 0}
   buffSO: {fileID: 0}

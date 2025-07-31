@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Archer_Strong_Mind : MonoBehaviour, ISkillID
 {
+    public SFXData buffSound;
     public Sprite SkillSprite { get; set; }
     public Sprite skillSprite;
     public void SetSkillSprite()
@@ -18,7 +19,10 @@ public class Archer_Strong_Mind : MonoBehaviour, ISkillID
     private float duration;
     private float timer;
     private bool initialized = false;
-
+    private void Start()
+    {
+        SFXManager.Instance.Play(buffSound);
+    }
     public void Initialize(Player _owner, BuffSO _buff)
     {
         SetSkillSprite();

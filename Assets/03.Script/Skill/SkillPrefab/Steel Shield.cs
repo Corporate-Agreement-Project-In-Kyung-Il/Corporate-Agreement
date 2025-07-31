@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SteelShield : MonoBehaviour, ISkillID
 {
+    public SFXData buffSound;
     public Sprite SkillSprite { get; set; }
     public Sprite skillSprite;
     public void SetSkillSprite()
@@ -19,7 +20,10 @@ public class SteelShield : MonoBehaviour, ISkillID
     private float timer;
     private float reductionRate = 0.6f;
     private bool initialized = false;
-
+    private void Start()
+    {
+        SFXManager.Instance.Play(buffSound);
+    }
     public void Initialize(Player _owner, BuffSO _buff)
     {
         SetSkillSprite();
