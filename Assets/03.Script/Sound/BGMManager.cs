@@ -47,7 +47,6 @@ public class BGMManager : MonoBehaviour
         {
             if (bgmDict.ContainsKey(data.state) == false)
             {
-                Debug.Log("5");
                 bgmDict.Add(data.state, data.bgmClip);
             }
         }
