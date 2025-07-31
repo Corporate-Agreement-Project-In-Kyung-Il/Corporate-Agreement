@@ -12,6 +12,7 @@ public class MonsterController : BaseMonster, IDamageAble
     public GameObject GameObject => gameObject;
     public float Damage => monsterStat.damage;
     public float CurrentHp => monsterStat.health;
+    public Vector2 playerDetection;
 
     //Component 받아오는 요소
     [Tooltip("초기에 실행할 때 monsterData로 체력, 공격력등을 받아오는 데이터\n" + "게임 시작할 때 monster의 체력을 올리고 싶다면 여기서 바꾸기")] 
@@ -33,17 +34,30 @@ public class MonsterController : BaseMonster, IDamageAble
         TryGetComponent(out collider2D);
         TryGetComponent(out weapon);
         
+        monsterStat.playerDetectionRange = playerDetection;
+    }
+
+    public void SetMonsterData(MonsterData monsterData)
+    {
         monsterStat.health = monsterData.Monster_HP;
-        monsterStat.playerDetectionRange = new Vector2(3f, 10f);
-        
         monsterStat.damage = monsterData.Monster_Attack;
         monsterStat.attackRange = monsterData.attackRange;
         monsterStat.attackSpeed = monsterData.attackSpeed;
-        
         monsterStat.quantity = monsterData.Monster_quantity;
         monsterStat.moveSpeed = monsterData.moveSpeed;
     }
-
+    
+    public void SetBossData(MonsterData monsterData)
+    {
+        monsterStat.health = monsterData.Boss_HP;
+        monsterStat.damage = monsterData.Boss_Attack;
+        monsterStat.attackRange = monsterData.attackRange;
+        monsterStat.attackSpeed = monsterData.attackSpeed;
+        monsterStat.quantity = monsterData.Monster_quantity;
+        monsterStat.moveSpeed = monsterData.moveSpeed;
+    }
+    
+    
     private void Start()
     {
         CombatSystem.instance.RegisterMonster(this);
@@ -181,7 +195,7 @@ public class MonsterController : BaseMonster, IDamageAble
     }
 
 
-    public override MonsterType Type => monsterData.monsterType;
+    public override MonsterType Type => m_Type;
 }
 [System.Serializable]
 public class MonsterStat

@@ -22,11 +22,14 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     [SerializeField] private float timeSinceStart = 2.1f;  
     private Vector3 lastTarget = new Vector3(0, 80f, 0f);
     
+    private HashSet<Collider2D> damagedColliders = new HashSet<Collider2D>();
+    
     //IObjectPoolItem
     public string Key { get; set; }
     public GameObject GameObject => gameObject;
     public void ReturnToPool()
     {
+        damagedColliders.Clear();
         target = null;
         transform.rotation = Quaternion.Euler(0f, 0f, 45f);
         timeSinceStart = 2.1f;
@@ -151,7 +154,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
+        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false) || damagedColliders.Contains(other))
             return;
 
         if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage) && other.transform.Equals(target))
@@ -162,7 +165,7 @@ public class ArrowShot : MonoBehaviour, IObjectPoolItem
             combatEvent.Damage = arrowDamage;
             combatEvent.collider = other;
             CombatSystem.instance.AddCombatEvent(combatEvent);
-            
+            damagedColliders.Add(other);
             ReturnToPool();
 
             if (enemyDamage.CurrentHp <= 0 && other.transform.Equals(target))

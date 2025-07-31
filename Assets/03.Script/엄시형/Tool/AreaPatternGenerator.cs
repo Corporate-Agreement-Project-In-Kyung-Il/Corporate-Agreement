@@ -234,7 +234,7 @@ namespace _03.Script.엄시형.Tool
                 SpawnInfoDTO spawnInfo = new SpawnInfoDTO(localPos, pointObj.transform.localScale.x);
                 m_AreaPatternDTOList[m_CurIdx - 1].MonsterSpawnInfoList.Add(spawnInfo);
             }
-
+            
             AreaPatternPersistenceManager.WriteAsJSON(m_AreaPatternDTOList);
         }
 

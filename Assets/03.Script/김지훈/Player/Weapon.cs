@@ -13,6 +13,8 @@ public abstract class Weapon : MonoBehaviour
     protected Player player;
     protected Animator animator;
 
+    public bool isSkill = false;
+
     [SerializeField] protected Sprite[] Level_Sprites;
     
     protected void Start()
@@ -20,6 +22,7 @@ public abstract class Weapon : MonoBehaviour
         TryGetComponent(out animator);
         TryGetComponent(out sr); //sr 장착한 검에 대해서 모형 변화
         player = GetComponentInParent<Player>();
+        changeWeapon();
     }
     
 

@@ -19,11 +19,12 @@ MonoBehaviour:
   characterClass: 2
   characterName: 6
   characterGrade: 0
-  attackDamage: 300
-  health: 1864
+  attackDamage: 861.69977
+  health: 5393.7007
   attackSpeed: 0.5
-  criticalProbability: 0
+  criticalProbability: 0.68000007
   training_type: 500003
+  training_level: 0
   equip_item: 400003
   equip_level: 0
   skill_possed: b2860100b3860100
