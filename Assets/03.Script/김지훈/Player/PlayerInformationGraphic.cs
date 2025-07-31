@@ -30,7 +30,8 @@ public class PlayerInformationGraphic : MonoBehaviour
         image[1].sprite = playerSprite.WeaponSprite;
         image[2].sprite = playerSprite.Skill1Icon;
         image[3].sprite = playerSprite.Skill2Icon;
-        
+        text[8].text = playerSprite.Skill1Name;
+        text[9].text = playerSprite.Skill2Name;
     }
     
 

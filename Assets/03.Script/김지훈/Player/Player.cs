@@ -136,7 +136,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             {
                 activeScript.owner = this;
                 PlayerSkill1Icon=activeScript.SkillIcon;
-                Skill1Name = activeScript.stat.SkillName;
+                Skill1Name = activeScript.SkillName;
             }
         }
         else if (skills[0] is BuffSO buff1)
@@ -156,7 +156,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             {
                 activeScript.owner = this;
                 PlayerSkill2Icon=activeScript.SkillIcon;
-                Skill2Name = activeScript.stat.SkillName;
+                Skill2Name = activeScript.SkillName;
             }
         }
         else if (skills[1] is BuffSO buff2)

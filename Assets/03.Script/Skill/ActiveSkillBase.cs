@@ -6,8 +6,10 @@ using UnityEngine;
 public abstract class ActiveSkillBase : MonoBehaviour
 {
     public SFXData skillSound;
+    public string SkillName;
 
     public Sprite SkillIcon;
+
     //owner로 데이터 받아옴
     //Instantiate 할때 같이 정보 넘겨줌
     public Player owner;

@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillSound: {fileID: 11400000, guid: 9c73d11a8a5d79546a08e057a2b037bc, type: 2}
+  SkillName: "\uC544\uCFE0\uC544 \uBCFC"
   SkillIcon: {fileID: 21300000, guid: 9522e6fded1066f43b7f169d758a6c2c, type: 3}
   owner: {fileID: 0}
   SkillId: 100020
