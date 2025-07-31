@@ -22,8 +22,6 @@ public sealed class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     public List<Tilemap> CurTilemapList => m_CurTilemapList;
-    public int m_CurStageId = 1;
-    [SerializeField] private float m_BossSpawnYOffset = 0f; 
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
@@ -40,25 +38,35 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private List<Player> m_CharacterPrefabs;
     [SerializeField] private List<PlayerData> m_PlayerData;
     
-    private List<Player> m_PlayerList = new List<Player>();
-    
     [SerializeField] private GameObject m_Grid;  
     [SerializeField] private StageEndDetector m_StageEndPoint;
     [SerializeField] private GameObject m_reviveGameObject;
     
+    [Space(50)]
+    [Header("현재 스테이지")]
+    [SerializeField] private int m_CurStageId = 1;
+    
+    [Header("보스 스폰 위치 높이 조절")]
+    [SerializeField] private float m_BossSpawnYOffset = 3f;
+    
+    [Header("궁수 스폰 위치")]
+    [SerializeField] private Vector2 m_ArcherSpawnPos = new Vector2(-0.5f, 1f);
+    
+    [Header("전사 스폰 위치")]
+    [SerializeField] private Vector2 m_WarriorSpawnPos = new Vector2(0.5f, 2f);
+    
+    [Header("마법사 위치 조절")]
+    [SerializeField] private Vector2 m_WizardSpawnPos = new Vector2(1.5f, 1f);
+    
+    private List<Player> m_PlayerList = new List<Player>();
     private List<Tilemap> m_CurTilemapList = new List<Tilemap>();
     private List<AreaPattern> m_CurPatternList = new List<AreaPattern>();
     private StageTheme m_CurTheme = StageTheme.Grass; // 현재 테마, 초기값은 Grass로 설정
     private StageInfo m_StageInfo;
     private int m_CurStageInfoIndex = 0;
-    
-    
-    private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
-    {
-        { character_class.궁수, new Vector2(-0.5f, 1f) },
-        { character_class.전사 , new Vector2(0.5f, 2f) },
-        { character_class.마법사 , new Vector2(1.5f, 1f) }
-    };
+
+
+    private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic;
     
     [Conditional("UNITY_EDITOR")]
     private void OnValidate()
@@ -71,6 +79,14 @@ public sealed class Spawner : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        
+        m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
+        {
+            { character_class.궁수, m_ArcherSpawnPos },
+            { character_class.전사 , m_WarriorSpawnPos },
+            { character_class.마법사 , m_WizardSpawnPos }
+        };
+        
         m_AreaTilemapTable.Init();
 
         m_CurStageInfoIndex = m_CurStageId switch
