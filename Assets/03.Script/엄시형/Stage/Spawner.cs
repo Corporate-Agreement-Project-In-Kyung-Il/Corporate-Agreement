@@ -47,7 +47,7 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private GameObject m_reviveGameObject;
     
     private List<Tilemap> m_CurTilemapList = new List<Tilemap>();
-    private List<AreaPattern> m_CurAreaList = new List<AreaPattern>();
+    private List<AreaPattern> m_CurPatternList = new List<AreaPattern>();
     private StageTheme m_CurTheme = StageTheme.Grass; // 현재 테마, 초기값은 Grass로 설정
     private StageInfo m_StageInfo;
     private int m_CurStageInfoIndex = 0;
@@ -93,8 +93,7 @@ public sealed class Spawner : MonoBehaviour
         
         GameManager.Instance.GameStart();
         
-        // 밖에서 초기화 해야 Memory에 올라감
-        
+        // 캐릭터 스폰
         SpawnCharacters();
         m_SkillManager.SetPlayers(m_PlayerList.ToArray());
     }
@@ -111,6 +110,7 @@ public sealed class Spawner : MonoBehaviour
 
     public void SetNextStage()
     {
+        // 선택지
         if (m_CurStageId % 3 == 0)
         {
             GameManager.Instance.CreateChoices(3);
@@ -127,16 +127,22 @@ public sealed class Spawner : MonoBehaviour
             m_CurTheme = (StageTheme) Random.Range(0, 2);
         } while (m_CurTheme == prevTheme);
         
-        Debug.Log(m_CurTheme);
+        // Debug.Log(m_CurTheme);
         
+        // 15 30 45 60 400 넘어가면 몬스터 수, 구역 패턴 변화
         if (m_StageInfo.MaxStage < m_CurStageId)
         {
             ++m_CurStageInfoIndex;
             m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         }
         
+        // 테이블에서 몬스터 정보를 가져와 몬스터 스탯에 적용 SO
         m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(m_CurStageId));
+        
+        // 모든 구역 파괴 (몬스터도 구역 하위로 들어가 사라짐)
         DestoryAllArea();
+        
+        // 몬스터 수에 따라 스폰 패턴 랜덤으로 
         GetRandomPattern();
         m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
         SpawnAllMonstersInStage();
@@ -160,6 +166,14 @@ public sealed class Spawner : MonoBehaviour
     //         , Quaternion.identity);
     // }
     
+    
+    /// <summary>
+    /// parent
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="type"></param>
+    /// <param name="parent">구역</param>
+    /// <returns></returns>
     private BaseMonster SpawnMonster(Vector2 position, MonsterType type
         , GameObject parent)
     {
@@ -184,7 +198,7 @@ public sealed class Spawner : MonoBehaviour
 
     private void GetRandomPattern()
     {
-        m_CurAreaList = new List<AreaPattern>(m_StageInfo.AreaCount);
+        m_CurPatternList = new List<AreaPattern>(m_StageInfo.AreaCount);
         
         // TODO: 테마로 가져오기
         for (int i = 0; i < m_StageInfo.AreaCount; i++)
@@ -193,7 +207,7 @@ public sealed class Spawner : MonoBehaviour
             AreaPattern areaPattern = 
                 m_StagePatternTable.GetRandomSpawnPattern(m_StageInfo.SpawnMonsterCounts[i]);
             
-            m_CurAreaList.Add(areaPattern);
+            m_CurPatternList.Add(areaPattern);
         }
     }
 
@@ -215,7 +229,7 @@ public sealed class Spawner : MonoBehaviour
         // 구역(Area)별로 몬스터 스폰
         for (int i = 0; i < m_StageInfo.AreaCount; i++)
         {
-            var area = m_CurAreaList[i];
+            var area = m_CurPatternList[i];
             
             for (int x = 0; x < area.SpawnMonsterCount; x++)
             {
@@ -229,6 +243,7 @@ public sealed class Spawner : MonoBehaviour
         if (m_CurStageId % 3 == 0)
         {
             Tilemap bossTilemap = m_CurTilemapList.Last();
+            
             bossTilemap.CompressBounds();
             
             var boss = SpawnMonster(
@@ -243,8 +258,8 @@ public sealed class Spawner : MonoBehaviour
     }
     
     /// <summary>
-    /// 플레이어 캐릭터의 시작 위치를 설정합니다.
-    /// **Instantiate하는게 아님**.
+    /// 플레이어 캐릭터의 시작 위치를 설정합니다. <br/>
+    /// <b>Instantiate하는게 아님</b>
     /// </summary>
     /// <param name="character"></param>
     private void SetPositionStartPoint(Player character)
@@ -321,7 +336,7 @@ public sealed class Spawner : MonoBehaviour
     /// <param name="type"> 몬스터 종류(MonsterType) </param>
     /// <param name="parent"> 구역(Area) </param>
     /// <returns> 스폰 몬스터 </returns>
-    public BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
+    public void SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
     {
         Vector2 randomOffset = Random.insideUnitCircle * (spawnInfo.Radius * 0.5f);
         // Debug.Log(randomOffset);
@@ -329,8 +344,6 @@ public sealed class Spawner : MonoBehaviour
         // Vector2 spawnPos = spawnInfo.Point;
         BaseMonster monster = Instantiate(m_MonsterTable.GetMonster(type), parent.transform);
         monster.transform.localPosition = spawnPos; // 부모의 로컬 좌표로 스폰
-        
-        return monster;
     }
     
     public List<Tilemap> GenerateMap(int[] areaPatternList)

@@ -53,11 +53,11 @@ namespace _03.Script.엄시형.Stage
             return list;
         }
 
-        [Conditional("UNITY_EDITOR")]
-        private void Awake()
-        {
-            Load();
-        }
+        // [Conditional("UNITY_EDITOR")]
+        // private void Awake()
+        // {
+        //     Load();
+        // }
 
         [Conditional("UNITY_EDITOR")]
         internal void Load()
@@ -114,6 +114,7 @@ namespace _03.Script.엄시형.Stage
             AllAreaPatternDTO allAreaPatternDto = new AllAreaPatternDTO(patternDtos);
 
             PersistManager.WriteAsJson(allAreaPatternDto, fullPath);
+            EditorUtility.SetDirty(this);
         }
     }
 
