@@ -182,7 +182,7 @@ public class MonsterController : BaseMonster, IDamageAble
     }
 
 
-    public override MonsterType Type => monsterData.monsterType;
+    public override MonsterType Type => m_Type;
 }
 [System.Serializable]
 public class MonsterStat

@@ -229,7 +229,8 @@ public sealed class Spawner : MonoBehaviour
         
         // 한 종류만 나옴
         // MonsterType monsterType = m_StageInfo.MonsterType;
-        MonsterType monsterType = MonsterType.Slime;
+        var monsterEnumList = Enum.GetValues(typeof(MonsterType));
+        MonsterType monsterType = (MonsterType) Random.Range(1, monsterEnumList.Length);
         // 3마리 4마리 패턴중 랜덤리스트 가져옴
         
         // 구역(Area)별로 몬스터 스폰
