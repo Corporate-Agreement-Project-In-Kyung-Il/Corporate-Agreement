@@ -21,7 +21,7 @@ public class UpGradePanel : Panel
     
     public UpgradeResult upgradeSuccessPanel;
     public UpgradeResult upgradeFailPanel;
-    
+    public GameObject upgradeAnimationObject;
     public Animator upgradeAnimation;
     private Dictionary<MyGrade, UpgradeData> m_UpgradeDatas;
     private MyGrade m_CurrentGradeIndex;
@@ -58,6 +58,7 @@ public class UpGradePanel : Panel
             if (info.normalizedTime >= 1f && !upgradeAnimation.IsInTransition(0))
             {
                 upgradeAnimation.gameObject.SetActive(false);
+                upgradeAnimationObject.gameObject.SetActive(false);
                 break;
             }
             yield return null;
@@ -68,6 +69,7 @@ public class UpGradePanel : Panel
     
     public void TryUpgrade()
     {
+        upgradeAnimationObject.gameObject.SetActive(true);
         StartCoroutine(WaitForAnimationEnd());
         // 현재 등급의 강화 데이터 가져오기
         var upgradeData = m_UpgradeDatas[m_CurrentGradeIndex];
