@@ -67,4 +67,9 @@ public class PlayerSettingUI : MonoBehaviour
         }
 
     }
+
+    private void SkillLevelUI(PlayerInformationGraphic info)
+    {
+        
+    }
 }

@@ -32,6 +32,13 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     /// </summary>
     public Sprite PlayerSprite => data.playerUISprite;
     public Sprite WeaponSprite => WEAPON.CurrentSprite;
+    public Sprite Skill1Icon => PlayerSkill1Icon;
+    public Sprite Skill2Icon => PlayerSkill2Icon;
+    public string Skill1Name { get; set; }
+    public string Skill2Name { get; set; }
+
+    public Sprite PlayerSkill1Icon;
+    public Sprite PlayerSkill2Icon;
 
     /// <summary>
     /// BuffPlayerStat
@@ -117,7 +124,10 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
 
     private void Start()
     {
-        if (weapon2 != null) weapon2.playerAnimator = animator;
+        if (weapon2 != null)
+        {
+            weapon2.playerAnimator = animator;
+        }
 
         if (skills[0] is ActiveSkillSO skill1)
         {
@@ -125,11 +135,18 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             if (skillPrefab.TryGetComponent(out ActiveSkillBase activeScript))
             {
                 activeScript.owner = this;
+                PlayerSkill1Icon=activeScript.SkillIcon;
+                Skill1Name = activeScript.SkillName;
             }
         }
         else if (skills[0] is BuffSO buff1)
         {
             skillPrefab = buff1.SkillPrefab;
+            if (skillPrefab.TryGetComponent(out BuffBase buffScript))
+            {
+                PlayerSkill1Icon = buffScript.SkillIcon;
+                Skill1Name = buffScript.SkillName;
+            }
         }
 
         if (skills[1] is ActiveSkillSO skill2)
@@ -138,9 +155,19 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             if (skillPrefab2.TryGetComponent(out ActiveSkillBase activeScript))
             {
                 activeScript.owner = this;
+                PlayerSkill2Icon=activeScript.SkillIcon;
+                Skill2Name = activeScript.SkillName;
             }
         }
-        else if (skills[1] is BuffSO buff2) skillPrefab2 = buff2.SkillPrefab;
+        else if (skills[1] is BuffSO buff2)
+        {
+            skillPrefab2 = buff2.SkillPrefab;
+            if (skillPrefab2.TryGetComponent(out BuffBase buffScript))
+            {
+                PlayerSkill2Icon=buffScript.SkillIcon;
+                Skill2Name = buffScript.SkillName;
+            }
+        }
 
         InputGameManagerSkillID(playerStat.characterClass, playerStat.skill_possed[1]);
     }

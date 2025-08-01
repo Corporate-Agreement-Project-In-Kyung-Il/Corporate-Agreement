@@ -29,6 +29,7 @@ public class OptionButton : MonoBehaviour
    public GameObject checkOptionPanel;
    public Sprite[] gradeImages;
    public Image choiceImage;
+   public Text choiceText;
    private Button m_PopUpConfirmButton;
    
    public void OnClick()
@@ -57,27 +58,33 @@ public class OptionButton : MonoBehaviour
       }
    }
 
-   public void SetOptionGradeImage(MyGrade grade)
+   public void SetOptionGradeImage(EMyGrade grade, string selection_Name)
    {
       switch (grade)
       {
-         case MyGrade.노말 :
+         case EMyGrade.노말 :
             choiceImage.sprite = gradeImages[0];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.레어 :
+         case EMyGrade.레어 :
             choiceImage.sprite = gradeImages[1];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.에픽 :
+         case EMyGrade.에픽 :
             choiceImage.sprite = gradeImages[2];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.유니크 :
+         case EMyGrade.유니크 :
             choiceImage.sprite = gradeImages[3];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.레전드 :
+         case EMyGrade.레전드 :
             choiceImage.sprite = gradeImages[4];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.신화 :
+         case EMyGrade.신화 :
             choiceImage.sprite = gradeImages[5];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
       }
    }

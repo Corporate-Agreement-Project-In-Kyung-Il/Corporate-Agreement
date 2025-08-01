@@ -12,7 +12,7 @@ public class UpGradePanel : Panel
     [System.Serializable]
     public struct UpgradeData
     {
-        public MyGrade grade;
+        public EMyGrade grade;
         public int chanceToSucceed;
         public int chanceToFail;
         public int chanceToDoubleSucceed;
@@ -23,15 +23,15 @@ public class UpGradePanel : Panel
     public UpgradeResult upgradeFailPanel;
     public GameObject upgradeAnimationObject;
     public Animator upgradeAnimation;
-    private Dictionary<MyGrade, UpgradeData> m_UpgradeDatas;
-    private MyGrade m_CurrentGradeIndex;
+    private Dictionary<EMyGrade, UpgradeData> m_UpgradeDatas;
+    private EMyGrade m_CurrentGradeIndex;
     private OptionButton m_CurrentOptionButton;
     private bool m_IsInitialized = false;
     private void Awake()
     {
         if (!m_IsInitialized)
         {
-            m_UpgradeDatas = new Dictionary<MyGrade, UpgradeData>();
+            m_UpgradeDatas = new Dictionary<EMyGrade, UpgradeData>();
             foreach (var data in upgradeDatas)
             {
                 m_UpgradeDatas.Add(data.grade, data);
@@ -40,7 +40,7 @@ public class UpGradePanel : Panel
         }
     }
 
-    public void SetUpgradeData(MyGrade grade, OptionButton optionButton)
+    public void SetUpgradeData(EMyGrade grade, OptionButton optionButton)
     {
         m_CurrentGradeIndex = grade;
         m_CurrentOptionButton = optionButton;
@@ -80,21 +80,28 @@ public class UpGradePanel : Panel
         if (rand < upgradeData.chanceToSucceed)
         {
             GameManager.Instance.UpGradeGetMatchedOptionData(m_CurrentOptionButton);
+            upgradeSuccessPanel.gameObject.SetActive(true);
+            upgradeSuccessPanel.upgradeResultText.text = "강화 성공";
+            upgradeSuccessPanel.upgradeImage.sprite = m_CurrentOptionButton.choiceImage.sprite;
+            upgradeSuccessPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
         }
         else if (rand < upgradeData.chanceToSucceed + upgradeData.chanceToDoubleSucceed)
         {
             for(int i = 0; i < 2; i++)
             {
                 GameManager.Instance.UpGradeGetMatchedOptionData(m_CurrentOptionButton);
+                upgradeSuccessPanel.gameObject.SetActive(true);
+                upgradeSuccessPanel.upgradeResultText.text = "강화 대성공";
+                upgradeSuccessPanel.upgradeImage.sprite = m_CurrentOptionButton.choiceImage.sprite;
+                upgradeSuccessPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
             }
         }
         else
         {
-            GameManager.Instance.UpGradeFailed(m_CurrentOptionButton);
             upgradeFailPanel.gameObject.SetActive(true);
             upgradeFailPanel.upgradeResultText.text = "강화 실패";
-            upgradeFailPanel.upgradeImage = m_CurrentOptionButton.choiceImage;
-            //upgradeFailPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
+            upgradeFailPanel.upgradeImage.sprite = m_CurrentOptionButton.choiceImage.sprite;
+            upgradeFailPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
         }
     }
 }

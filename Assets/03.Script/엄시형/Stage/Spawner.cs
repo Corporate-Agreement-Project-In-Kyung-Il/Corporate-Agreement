@@ -22,7 +22,7 @@ public sealed class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     public List<Tilemap> CurTilemapList => m_CurTilemapList;
-    public int CurStageId => m_CurStageId; 
+    public int CurStageId => m_CurStageId;
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
@@ -102,16 +102,20 @@ public sealed class Spawner : MonoBehaviour
 
         m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         
-        // m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
-        
-        // m_StagePatternTable.Init();
-        // var areas = m_AreaTilemapTable.m_AreaTilemaps[10001];
-        
         // 캐릭터 스폰
         SpawnCharacters();
         m_SkillManager.SetPlayers(m_PlayerList.ToArray());
         
         GameManager.Instance.GameStart();
+    }
+    
+    private void Start()
+    {
+        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(m_CurStageId));
+        GetRandomPattern();
+        m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
+        
+        SpawnAllMonstersInStage();
     }
 
     private void OnEnable()
@@ -170,16 +174,6 @@ public sealed class Spawner : MonoBehaviour
         SpawnAllMonstersInStage();
     }
     
-    private void Start()
-    {
-        // m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(CurStageId));
-        // mStageInfo = m_StagePatternTable.GetAreaList(1);
-        m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(m_CurStageId));
-        GetRandomPattern();
-        m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
-        
-        SpawnAllMonstersInStage();
-    }
 
     // private Player SpawnPlayer(Vector2 position, character_class characterClass)
     // {

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SE_Attack_Release
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 97f66e00efd89564aa280aed58bf001b, type: 3}
-  volume: 1
+  volume: 2

@@ -368,7 +368,7 @@ public static void ImportBuff(DataTable table)
             var skill = new SkillOption
             {
                 Skill_ID = int.Parse(strarr[1]),
-                Selection_Level = (MyGrade)Enum.Parse(typeof(MyGrade), strarr[2]),
+                Selection_Level = (EMyGrade)Enum.Parse(typeof(EMyGrade), strarr[2]),
                 Description = strarr[3],
                 Cooldown_Reduction = float.Parse(strarr[4]),
                 Duration_Increase = float.Parse(strarr[5]),
@@ -440,7 +440,7 @@ public static void ImportBuff(DataTable table)
             var equip = new EquipOption
             {
                 Equipment_Type_ID = int.Parse(strarr[1]),
-                Selection_Level = (MyGrade)Enum.Parse(typeof(MyGrade), strarr[2]),
+                Selection_Level = (EMyGrade)Enum.Parse(typeof(EMyGrade), strarr[2]),
                 Description = strarr[3],
                 Attack_LV_UP_Effect = float.Parse(strarr[4]),
                 HP_LV_UP_Effect = float.Parse(strarr[5]),
@@ -455,7 +455,7 @@ public static void ImportBuff(DataTable table)
     }
     private static void ImportTraining(DataTable table)
     {
-        string assetPath = "Assets/00.Resources/DataBase/TrainingOptionChoice.asset";
+        string assetPath = "Assets/00.Resources/DataBase/Training.asset";
         var trainingSO = AssetDatabase.LoadAssetAtPath<PlayerTraining>(assetPath);
         
         if (trainingSO == null)
@@ -513,7 +513,7 @@ public static void ImportBuff(DataTable table)
             var training = new TrainingOption
             {
                 Training_ID = int.Parse(strarr[1]),
-                Selection_Level = (MyGrade)Enum.Parse(typeof(MyGrade), strarr[2]),
+                Selection_Level = (EMyGrade)Enum.Parse(typeof(EMyGrade), strarr[2]),
                 Description = strarr[3],
                 Critical_Damage_Increase = float.Parse(strarr[4]),
                 Critical_Rate_Increase = float.Parse(strarr[5]),

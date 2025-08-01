@@ -23,12 +23,16 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Skill SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_SkillOption skillOption;
+    public ActiveSkillSO activeSkillSO;
+    public BuffListSO passiveSkillSO;
 
     [Tooltip("Equip SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_EquipOption equipOption;
+    public PlayerEquip equip;
 
     [Tooltip("Training SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_TrainingOption trainingOption;
+    public PlayerTraining training;
 
     [SerializeField] private OptionChoice_SkillOption m_IngameSkillOption;
     public static GameManager Instance { get; private set; }
@@ -158,22 +162,22 @@ public class GameManager : MonoBehaviour
             int Q = GetRandomSelectionID(equipOption, EOptionType.Equip);
             switch (equipOption.GetValue(Q).Selection_Level)
             {
-                case MyGrade.노말:
+                case EMyGrade.노말:
                     노말++;
                     break;
-                case MyGrade.레어:
+                case EMyGrade.레어:
                     레어++;
                     break;
-                case MyGrade.에픽:
+                case EMyGrade.에픽:
                     에픽++;
                     break;
-                case MyGrade.유니크:
+                case EMyGrade.유니크:
                     유니크++;
                     break;
-                case MyGrade.레전드:
+                case EMyGrade.레전드:
                     레전드++;
                     break;
-                case MyGrade.신화:
+                case EMyGrade.신화:
                     신화++;
                     break;
             }
@@ -326,11 +330,12 @@ public class GameManager : MonoBehaviour
                     .Where(v => v.val.Selection_Level > skillValue.Selection_Level)
                     .OrderBy(v => v.val.Selection_Level)
                     .FirstOrDefault();
-                if (skillNextGrade != null)
+                if (skillNextGrade != default)
                 {
                     // 승급 가능
                     optionButton.selectID = skillNextGrade.Key_ID;
-                    optionButton.SetOptionGradeImage(skillNextGrade.val.Selection_Level);
+                    optionButton.selectedData = skillNextGrade.val;
+                    optionButton.SetOptionGradeImage(skillNextGrade.val.Selection_Level,skillManager.GetSkillName(optionButton.selectID));///////////////////////////////////////////////////////////
                     Debug.Log($"[Upgrade] {skillValue.Selection_Level} → {skillNextGrade.val.Selection_Level}");
                     UpgradePanelOpen(optionButton);
                 }
@@ -352,11 +357,13 @@ public class GameManager : MonoBehaviour
                     .Where(v => v.val.Selection_Level > equipValue.Selection_Level)
                     .OrderBy(v => v.val.Selection_Level)
                     .FirstOrDefault();
-                if (equipNextGrade != null)
+                if (equipNextGrade != default)
                 {
                     // 승급 가능
                     optionButton.selectID = equipNextGrade.Key_ID;
-                    optionButton.SetOptionGradeImage(equipNextGrade.val.Selection_Level);
+                    optionButton.selectedData = equipNextGrade.val;
+                    optionButton.SetOptionGradeImage(equipNextGrade.val.Selection_Level, 
+                        equip.GetValue(equipOption.GetValue(equipNextGrade.Key_ID).Equipment_Type_ID).Equipment_Type_Name);
                     Debug.Log($"[Upgrade] {equipValue.Selection_Level} → {equipNextGrade.val.Selection_Level}");
                     UpgradePanelOpen(optionButton);
                 }
@@ -379,11 +386,13 @@ public class GameManager : MonoBehaviour
                     .Where(v => v.val.Selection_Level > trainingValue.Selection_Level)
                     .OrderBy(v => v.val.Selection_Level)
                     .FirstOrDefault();
-                if (trainingNextGrade != null)
+                if (trainingNextGrade != default)
                 {
                     // 승급 가능
                     optionButton.selectID = trainingNextGrade.Key_ID;
-                    optionButton.SetOptionGradeImage(trainingNextGrade.val.Selection_Level);
+                    optionButton.selectedData = trainingNextGrade.val;
+                    optionButton.SetOptionGradeImage(trainingNextGrade.val.Selection_Level, 
+                        training.GetValue(trainingOption.GetValue(trainingNextGrade.Key_ID).Training_ID).Training_Name);
                     Debug.Log($"[Upgrade] {trainingValue.Selection_Level} → {trainingNextGrade.val.Selection_Level}");
                     UpgradePanelOpen(optionButton);
                 }
@@ -431,28 +440,31 @@ public class GameManager : MonoBehaviour
                 button.selectID = GetRandomSelectionID(skill, EOptionType.Skill);
                 button.optionType = EOptionType.Skill;
                 button.selectedData = skillData.val;
-                button.SetOptionGradeImage(skill.GetValue(button.selectID).Selection_Level);
+                button.SetOptionGradeImage(skill.GetValue(button.selectID).Selection_Level, 
+                    skillManager.GetSkillName(button.selectID)); //여기하고/////////////////////////////////////////////////////////////////////////
                 Debug.Log($"[Skill] 선택지: {button.selectID} / {skill.GetValue( button.selectID).Selection_Level}");
                 break;
 
             case EOptionType.Equip:
-                var equip = option as OptionChoice_EquipOption;
-                var equipData = GetSelectionData(equip);
-                button.selectID = GetRandomSelectionID(equip, EOptionType.Equip);
+                var equipment = option as OptionChoice_EquipOption;
+                var equipData = GetSelectionData(equipment);
+                button.selectID = GetRandomSelectionID(equipment, EOptionType.Equip);
                 button.optionType = EOptionType.Equip;
                 button.selectedData = equipData.val;//equip.GetValue();
-                button.SetOptionGradeImage(equip.GetValue(button.selectID).Selection_Level);
-                Debug.Log($"[Equip] 선택지: {button.selectID} / {equip.GetValue(button.selectID).Selection_Level}");
+                button.SetOptionGradeImage(equipment.GetValue(button.selectID).Selection_Level, 
+                    equip.GetValue(equipOption.GetValue(button.selectID).Equipment_Type_ID).Equipment_Type_Name);
+                Debug.Log($"[Equip] 선택지: {button.selectID} / {equipment.GetValue(button.selectID).Selection_Level}");
                 break;
 
             case EOptionType.Training:
-                var training = option as OptionChoice_TrainingOption;
-                var tariningData = GetSelectionData(training);
-                button.selectID = GetRandomSelectionID(training, EOptionType.Training);
+                var trainings = option as OptionChoice_TrainingOption;
+                var tariningData = GetSelectionData(trainings);
+                button.selectID = GetRandomSelectionID(trainings, EOptionType.Training);
                 button.optionType = EOptionType.Training;
                 button.selectedData = tariningData.val;
-                button.SetOptionGradeImage(training.GetValue(button.selectID).Selection_Level);
-                Debug.Log($"[Training] 선택지: {button.selectID} / {training.GetValue(button.selectID).Selection_Level}");
+                button.SetOptionGradeImage(trainings.GetValue(button.selectID).Selection_Level, 
+                    training.GetValue(trainingOption.GetValue(button.selectID).Training_ID).Training_Name);
+                Debug.Log($"[Training] 선택지: {button.selectID} / {trainings.GetValue(button.selectID).Selection_Level}");
                 break;
         }
     }
@@ -485,14 +497,14 @@ public class GameManager : MonoBehaviour
         return option.data[randomIndex].Key_ID; // IDValuePair<T> 에 id가 있다고 가정*/
         
         // 1. 등급별 가중치 설정
-        Dictionary<MyGrade, int> levelWeights = new Dictionary<MyGrade, int>()
+        Dictionary<EMyGrade, int> levelWeights = new Dictionary<EMyGrade, int>()
         {
-            { MyGrade.노말, 노말_가중치 },
-            { MyGrade.레어, 레어_가중치 },
-            { MyGrade.에픽, 에픽_가중치 },
-            { MyGrade.유니크, 유니크_가중치 },
-            { MyGrade.레전드, 레전드_가중치 },
-            { MyGrade.신화, 신화_가중치 }
+            { EMyGrade.노말, 노말_가중치 },
+            { EMyGrade.레어, 레어_가중치 },
+            { EMyGrade.에픽, 에픽_가중치 },
+            { EMyGrade.유니크, 유니크_가중치 },
+            { EMyGrade.레전드, 레전드_가중치 },
+            { EMyGrade.신화, 신화_가중치 }
         };
         
         List<(int id, int weight)> weightedList = new List<(int, int)>();
@@ -566,11 +578,6 @@ public class GameManager : MonoBehaviour
         return option.data[randomIndex];
     }
     #endregion
-
-    public void UpGradeFailed(OptionButton optionButton)
-    {
-        Debug.Log(" 강화 실패 ");
-    }
 }
 
 public enum EOptionType

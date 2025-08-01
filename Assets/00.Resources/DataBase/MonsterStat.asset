@@ -15,6 +15,7 @@ MonoBehaviour:
   data:
   - Key_ID: 1
     val:
+      Selection_Level: 0
       Stage_ID: 1
       Monster_HP: 150
       Monster_Attack: 15
@@ -24,6 +25,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 2
     val:
+      Selection_Level: 0
       Stage_ID: 2
       Monster_HP: 158
       Monster_Attack: 16
@@ -33,6 +35,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 3
     val:
+      Selection_Level: 0
       Stage_ID: 3
       Monster_HP: 167
       Monster_Attack: 17
@@ -42,6 +45,7 @@ MonoBehaviour:
       Boss_Attack: 25.5
   - Key_ID: 4
     val:
+      Selection_Level: 0
       Stage_ID: 4
       Monster_HP: 177
       Monster_Attack: 18
@@ -51,6 +55,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 5
     val:
+      Selection_Level: 0
       Stage_ID: 5
       Monster_HP: 187
       Monster_Attack: 19
@@ -60,6 +65,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 6
     val:
+      Selection_Level: 0
       Stage_ID: 6
       Monster_HP: 197
       Monster_Attack: 20
@@ -69,6 +75,7 @@ MonoBehaviour:
       Boss_Attack: 30
   - Key_ID: 7
     val:
+      Selection_Level: 0
       Stage_ID: 7
       Monster_HP: 209
       Monster_Attack: 21
@@ -78,6 +85,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 8
     val:
+      Selection_Level: 0
       Stage_ID: 8
       Monster_HP: 220
       Monster_Attack: 22
@@ -87,6 +95,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 9
     val:
+      Selection_Level: 0
       Stage_ID: 9
       Monster_HP: 233
       Monster_Attack: 23
@@ -96,6 +105,7 @@ MonoBehaviour:
       Boss_Attack: 34.5
   - Key_ID: 10
     val:
+      Selection_Level: 0
       Stage_ID: 10
       Monster_HP: 246
       Monster_Attack: 25
@@ -105,6 +115,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 11
     val:
+      Selection_Level: 0
       Stage_ID: 11
       Monster_HP: 260
       Monster_Attack: 26
@@ -114,6 +125,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 12
     val:
+      Selection_Level: 0
       Stage_ID: 12
       Monster_HP: 275
       Monster_Attack: 27
@@ -123,6 +135,7 @@ MonoBehaviour:
       Boss_Attack: 40.5
   - Key_ID: 13
     val:
+      Selection_Level: 0
       Stage_ID: 13
       Monster_HP: 290
       Monster_Attack: 29
@@ -132,6 +145,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 14
     val:
+      Selection_Level: 0
       Stage_ID: 14
       Monster_HP: 307
       Monster_Attack: 31
@@ -141,6 +155,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 15
     val:
+      Selection_Level: 0
       Stage_ID: 15
       Monster_HP: 324
       Monster_Attack: 32
@@ -150,6 +165,7 @@ MonoBehaviour:
       Boss_Attack: 48
   - Key_ID: 16
     val:
+      Selection_Level: 0
       Stage_ID: 16
       Monster_HP: 342
       Monster_Attack: 34
@@ -159,6 +175,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 17
     val:
+      Selection_Level: 0
       Stage_ID: 17
       Monster_HP: 362
       Monster_Attack: 36
@@ -168,6 +185,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 18
     val:
+      Selection_Level: 0
       Stage_ID: 18
       Monster_HP: 382
       Monster_Attack: 38
@@ -177,6 +195,7 @@ MonoBehaviour:
       Boss_Attack: 57
   - Key_ID: 19
     val:
+      Selection_Level: 0
       Stage_ID: 19
       Monster_HP: 404
       Monster_Attack: 40
@@ -186,6 +205,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 20
     val:
+      Selection_Level: 0
       Stage_ID: 20
       Monster_HP: 427
       Monster_Attack: 43
@@ -195,6 +215,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 21
     val:
+      Selection_Level: 0
       Stage_ID: 21
       Monster_HP: 451
       Monster_Attack: 45
@@ -204,6 +225,7 @@ MonoBehaviour:
       Boss_Attack: 67.5
   - Key_ID: 22
     val:
+      Selection_Level: 0
       Stage_ID: 22
       Monster_HP: 476
       Monster_Attack: 48
@@ -213,6 +235,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 23
     val:
+      Selection_Level: 0
       Stage_ID: 23
       Monster_HP: 503
       Monster_Attack: 50
@@ -222,6 +245,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 24
     val:
+      Selection_Level: 0
       Stage_ID: 24
       Monster_HP: 531
       Monster_Attack: 53
@@ -231,6 +255,7 @@ MonoBehaviour:
       Boss_Attack: 79.5
   - Key_ID: 25
     val:
+      Selection_Level: 0
       Stage_ID: 25
       Monster_HP: 562
       Monster_Attack: 56
@@ -240,6 +265,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 26
     val:
+      Selection_Level: 0
       Stage_ID: 26
       Monster_HP: 593
       Monster_Attack: 59
@@ -249,6 +275,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 27
     val:
+      Selection_Level: 0
       Stage_ID: 27
       Monster_HP: 627
       Monster_Attack: 63
@@ -258,6 +285,7 @@ MonoBehaviour:
       Boss_Attack: 94.5
   - Key_ID: 28
     val:
+      Selection_Level: 0
       Stage_ID: 28
       Monster_HP: 662
       Monster_Attack: 66
@@ -267,6 +295,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 29
     val:
+      Selection_Level: 0
       Stage_ID: 29
       Monster_HP: 700
       Monster_Attack: 70
@@ -276,6 +305,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 30
     val:
+      Selection_Level: 0
       Stage_ID: 30
       Monster_HP: 739
       Monster_Attack: 74
@@ -285,6 +315,7 @@ MonoBehaviour:
       Boss_Attack: 111
   - Key_ID: 31
     val:
+      Selection_Level: 0
       Stage_ID: 31
       Monster_HP: 781
       Monster_Attack: 78
@@ -294,6 +325,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 32
     val:
+      Selection_Level: 0
       Stage_ID: 32
       Monster_HP: 825
       Monster_Attack: 83
@@ -303,6 +335,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 33
     val:
+      Selection_Level: 0
       Stage_ID: 33
       Monster_HP: 872
       Monster_Attack: 87
@@ -312,6 +345,7 @@ MonoBehaviour:
       Boss_Attack: 130.5
   - Key_ID: 34
     val:
+      Selection_Level: 0
       Stage_ID: 34
       Monster_HP: 921
       Monster_Attack: 92
@@ -321,6 +355,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 35
     val:
+      Selection_Level: 0
       Stage_ID: 35
       Monster_HP: 973
       Monster_Attack: 97
@@ -330,6 +365,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 36
     val:
+      Selection_Level: 0
       Stage_ID: 36
       Monster_HP: 1028
       Monster_Attack: 103
@@ -339,6 +375,7 @@ MonoBehaviour:
       Boss_Attack: 154.5
   - Key_ID: 37
     val:
+      Selection_Level: 0
       Stage_ID: 37
       Monster_HP: 1086
       Monster_Attack: 109
@@ -348,6 +385,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 38
     val:
+      Selection_Level: 0
       Stage_ID: 38
       Monster_HP: 1148
       Monster_Attack: 115
@@ -357,6 +395,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 39
     val:
+      Selection_Level: 0
       Stage_ID: 39
       Monster_HP: 1213
       Monster_Attack: 121
@@ -366,6 +405,7 @@ MonoBehaviour:
       Boss_Attack: 181.5
   - Key_ID: 40
     val:
+      Selection_Level: 0
       Stage_ID: 40
       Monster_HP: 1281
       Monster_Attack: 128
@@ -375,6 +415,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 41
     val:
+      Selection_Level: 0
       Stage_ID: 41
       Monster_HP: 1354
       Monster_Attack: 135
@@ -384,6 +425,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 42
     val:
+      Selection_Level: 0
       Stage_ID: 42
       Monster_HP: 1430
       Monster_Attack: 143
@@ -393,6 +435,7 @@ MonoBehaviour:
       Boss_Attack: 214.5
   - Key_ID: 43
     val:
+      Selection_Level: 0
       Stage_ID: 43
       Monster_HP: 1511
       Monster_Attack: 151
@@ -402,6 +445,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 44
     val:
+      Selection_Level: 0
       Stage_ID: 44
       Monster_HP: 1597
       Monster_Attack: 160
@@ -411,6 +455,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 45
     val:
+      Selection_Level: 0
       Stage_ID: 45
       Monster_HP: 1687
       Monster_Attack: 169
@@ -420,6 +465,7 @@ MonoBehaviour:
       Boss_Attack: 253.5
   - Key_ID: 46
     val:
+      Selection_Level: 0
       Stage_ID: 46
       Monster_HP: 1782
       Monster_Attack: 178
@@ -429,6 +475,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 47
     val:
+      Selection_Level: 0
       Stage_ID: 47
       Monster_HP: 1883
       Monster_Attack: 188
@@ -438,6 +485,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 48
     val:
+      Selection_Level: 0
       Stage_ID: 48
       Monster_HP: 1989
       Monster_Attack: 199
@@ -447,6 +495,7 @@ MonoBehaviour:
       Boss_Attack: 298.5
   - Key_ID: 49
     val:
+      Selection_Level: 0
       Stage_ID: 49
       Monster_HP: 2102
       Monster_Attack: 210
@@ -456,6 +505,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 50
     val:
+      Selection_Level: 0
       Stage_ID: 50
       Monster_HP: 2221
       Monster_Attack: 222
@@ -465,6 +515,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 51
     val:
+      Selection_Level: 0
       Stage_ID: 51
       Monster_HP: 2346
       Monster_Attack: 235
@@ -474,6 +525,7 @@ MonoBehaviour:
       Boss_Attack: 352.5
   - Key_ID: 52
     val:
+      Selection_Level: 0
       Stage_ID: 52
       Monster_HP: 2479
       Monster_Attack: 248
@@ -483,6 +535,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 53
     val:
+      Selection_Level: 0
       Stage_ID: 53
       Monster_HP: 2619
       Monster_Attack: 262
@@ -492,6 +545,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 54
     val:
+      Selection_Level: 0
       Stage_ID: 54
       Monster_HP: 2767
       Monster_Attack: 277
@@ -501,6 +555,7 @@ MonoBehaviour:
       Boss_Attack: 415.5
   - Key_ID: 55
     val:
+      Selection_Level: 0
       Stage_ID: 55
       Monster_HP: 2924
       Monster_Attack: 292
@@ -510,6 +565,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 56
     val:
+      Selection_Level: 0
       Stage_ID: 56
       Monster_HP: 3089
       Monster_Attack: 309
@@ -519,6 +575,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 57
     val:
+      Selection_Level: 0
       Stage_ID: 57
       Monster_HP: 3264
       Monster_Attack: 326
@@ -528,6 +585,7 @@ MonoBehaviour:
       Boss_Attack: 489
   - Key_ID: 58
     val:
+      Selection_Level: 0
       Stage_ID: 58
       Monster_HP: 3448
       Monster_Attack: 345
@@ -537,6 +595,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 59
     val:
+      Selection_Level: 0
       Stage_ID: 59
       Monster_HP: 3643
       Monster_Attack: 364
@@ -546,6 +605,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 60
     val:
+      Selection_Level: 0
       Stage_ID: 60
       Monster_HP: 3849
       Monster_Attack: 385
@@ -555,6 +615,7 @@ MonoBehaviour:
       Boss_Attack: 577.5
   - Key_ID: 61
     val:
+      Selection_Level: 0
       Stage_ID: 61
       Monster_HP: 3083
       Monster_Attack: 308
@@ -564,6 +625,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 62
     val:
+      Selection_Level: 0
       Stage_ID: 62
       Monster_HP: 3143
       Monster_Attack: 316
@@ -573,6 +635,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 63
     val:
+      Selection_Level: 0
       Stage_ID: 63
       Monster_HP: 3203
       Monster_Attack: 324
@@ -582,6 +645,7 @@ MonoBehaviour:
       Boss_Attack: 486
   - Key_ID: 64
     val:
+      Selection_Level: 0
       Stage_ID: 64
       Monster_HP: 3263
       Monster_Attack: 332
@@ -591,6 +655,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 65
     val:
+      Selection_Level: 0
       Stage_ID: 65
       Monster_HP: 3323
       Monster_Attack: 340
@@ -600,6 +665,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 66
     val:
+      Selection_Level: 0
       Stage_ID: 66
       Monster_HP: 3383
       Monster_Attack: 348
@@ -609,6 +675,7 @@ MonoBehaviour:
       Boss_Attack: 522
   - Key_ID: 67
     val:
+      Selection_Level: 0
       Stage_ID: 67
       Monster_HP: 3443
       Monster_Attack: 356
@@ -618,6 +685,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 68
     val:
+      Selection_Level: 0
       Stage_ID: 68
       Monster_HP: 3503
       Monster_Attack: 364
@@ -627,6 +695,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 69
     val:
+      Selection_Level: 0
       Stage_ID: 69
       Monster_HP: 3563
       Monster_Attack: 372
@@ -636,6 +705,7 @@ MonoBehaviour:
       Boss_Attack: 558
   - Key_ID: 70
     val:
+      Selection_Level: 0
       Stage_ID: 70
       Monster_HP: 3623
       Monster_Attack: 380
@@ -645,6 +715,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 71
     val:
+      Selection_Level: 0
       Stage_ID: 71
       Monster_HP: 3683
       Monster_Attack: 388
@@ -654,6 +725,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 72
     val:
+      Selection_Level: 0
       Stage_ID: 72
       Monster_HP: 3743
       Monster_Attack: 396
@@ -663,6 +735,7 @@ MonoBehaviour:
       Boss_Attack: 594
   - Key_ID: 73
     val:
+      Selection_Level: 0
       Stage_ID: 73
       Monster_HP: 3803
       Monster_Attack: 404
@@ -672,6 +745,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 74
     val:
+      Selection_Level: 0
       Stage_ID: 74
       Monster_HP: 3863
       Monster_Attack: 412
@@ -681,6 +755,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 75
     val:
+      Selection_Level: 0
       Stage_ID: 75
       Monster_HP: 3923
       Monster_Attack: 420
@@ -690,6 +765,7 @@ MonoBehaviour:
       Boss_Attack: 630
   - Key_ID: 76
     val:
+      Selection_Level: 0
       Stage_ID: 76
       Monster_HP: 3983
       Monster_Attack: 428
@@ -699,6 +775,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 77
     val:
+      Selection_Level: 0
       Stage_ID: 77
       Monster_HP: 4043
       Monster_Attack: 436
@@ -708,6 +785,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 78
     val:
+      Selection_Level: 0
       Stage_ID: 78
       Monster_HP: 4103
       Monster_Attack: 444
@@ -717,6 +795,7 @@ MonoBehaviour:
       Boss_Attack: 666
   - Key_ID: 79
     val:
+      Selection_Level: 0
       Stage_ID: 79
       Monster_HP: 4163
       Monster_Attack: 452
@@ -726,6 +805,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 80
     val:
+      Selection_Level: 0
       Stage_ID: 80
       Monster_HP: 4223
       Monster_Attack: 460
@@ -735,6 +815,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 81
     val:
+      Selection_Level: 0
       Stage_ID: 81
       Monster_HP: 4283
       Monster_Attack: 468
@@ -744,6 +825,7 @@ MonoBehaviour:
       Boss_Attack: 702
   - Key_ID: 82
     val:
+      Selection_Level: 0
       Stage_ID: 82
       Monster_HP: 5819
       Monster_Attack: 804
@@ -753,6 +835,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 83
     val:
+      Selection_Level: 0
       Stage_ID: 83
       Monster_HP: 5897
       Monster_Attack: 816
@@ -762,6 +845,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 84
     val:
+      Selection_Level: 0
       Stage_ID: 84
       Monster_HP: 5975
       Monster_Attack: 828
@@ -771,6 +855,7 @@ MonoBehaviour:
       Boss_Attack: 1242
   - Key_ID: 85
     val:
+      Selection_Level: 0
       Stage_ID: 85
       Monster_HP: 6053
       Monster_Attack: 840
@@ -780,6 +865,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 86
     val:
+      Selection_Level: 0
       Stage_ID: 86
       Monster_HP: 6131
       Monster_Attack: 852
@@ -789,6 +875,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 87
     val:
+      Selection_Level: 0
       Stage_ID: 87
       Monster_HP: 6209
       Monster_Attack: 864
@@ -798,6 +885,7 @@ MonoBehaviour:
       Boss_Attack: 1296
   - Key_ID: 88
     val:
+      Selection_Level: 0
       Stage_ID: 88
       Monster_HP: 6287
       Monster_Attack: 876
@@ -807,6 +895,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 89
     val:
+      Selection_Level: 0
       Stage_ID: 89
       Monster_HP: 6365
       Monster_Attack: 888
@@ -816,6 +905,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 90
     val:
+      Selection_Level: 0
       Stage_ID: 90
       Monster_HP: 6443
       Monster_Attack: 900
@@ -825,6 +915,7 @@ MonoBehaviour:
       Boss_Attack: 1350
   - Key_ID: 91
     val:
+      Selection_Level: 0
       Stage_ID: 91
       Monster_HP: 6521
       Monster_Attack: 912
@@ -834,6 +925,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 92
     val:
+      Selection_Level: 0
       Stage_ID: 92
       Monster_HP: 6599
       Monster_Attack: 924
@@ -843,6 +935,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 93
     val:
+      Selection_Level: 0
       Stage_ID: 93
       Monster_HP: 6677
       Monster_Attack: 936
@@ -852,6 +945,7 @@ MonoBehaviour:
       Boss_Attack: 1404
   - Key_ID: 94
     val:
+      Selection_Level: 0
       Stage_ID: 94
       Monster_HP: 6755
       Monster_Attack: 948
@@ -861,6 +955,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 95
     val:
+      Selection_Level: 0
       Stage_ID: 95
       Monster_HP: 6833
       Monster_Attack: 960
@@ -870,6 +965,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 96
     val:
+      Selection_Level: 0
       Stage_ID: 96
       Monster_HP: 6911
       Monster_Attack: 972
@@ -879,6 +975,7 @@ MonoBehaviour:
       Boss_Attack: 1458
   - Key_ID: 97
     val:
+      Selection_Level: 0
       Stage_ID: 97
       Monster_HP: 6989
       Monster_Attack: 984
@@ -888,6 +985,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 98
     val:
+      Selection_Level: 0
       Stage_ID: 98
       Monster_HP: 7067
       Monster_Attack: 996
@@ -897,6 +995,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 99
     val:
+      Selection_Level: 0
       Stage_ID: 99
       Monster_HP: 7145
       Monster_Attack: 1008
@@ -906,6 +1005,7 @@ MonoBehaviour:
       Boss_Attack: 1512
   - Key_ID: 100
     val:
+      Selection_Level: 0
       Stage_ID: 100
       Monster_HP: 7223
       Monster_Attack: 1020
@@ -915,6 +1015,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 101
     val:
+      Selection_Level: 0
       Stage_ID: 101
       Monster_HP: 7301
       Monster_Attack: 1032
@@ -924,6 +1025,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 102
     val:
+      Selection_Level: 0
       Stage_ID: 102
       Monster_HP: 7379
       Monster_Attack: 1044
@@ -933,6 +1035,7 @@ MonoBehaviour:
       Boss_Attack: 1566
   - Key_ID: 103
     val:
+      Selection_Level: 0
       Stage_ID: 103
       Monster_HP: 7457
       Monster_Attack: 1056
@@ -942,6 +1045,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 104
     val:
+      Selection_Level: 0
       Stage_ID: 104
       Monster_HP: 7535
       Monster_Attack: 1068
@@ -951,6 +1055,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 105
     val:
+      Selection_Level: 0
       Stage_ID: 105
       Monster_HP: 7613
       Monster_Attack: 1080
@@ -960,6 +1065,7 @@ MonoBehaviour:
       Boss_Attack: 1620
   - Key_ID: 106
     val:
+      Selection_Level: 0
       Stage_ID: 106
       Monster_HP: 7691
       Monster_Attack: 1092
@@ -969,6 +1075,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 107
     val:
+      Selection_Level: 0
       Stage_ID: 107
       Monster_HP: 7769
       Monster_Attack: 1104
@@ -978,6 +1085,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 108
     val:
+      Selection_Level: 0
       Stage_ID: 108
       Monster_HP: 7847
       Monster_Attack: 1116
@@ -987,6 +1095,7 @@ MonoBehaviour:
       Boss_Attack: 1674
   - Key_ID: 109
     val:
+      Selection_Level: 0
       Stage_ID: 109
       Monster_HP: 7925
       Monster_Attack: 1128
@@ -996,6 +1105,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 110
     val:
+      Selection_Level: 0
       Stage_ID: 110
       Monster_HP: 8003
       Monster_Attack: 1140
@@ -1005,6 +1115,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 111
     val:
+      Selection_Level: 0
       Stage_ID: 111
       Monster_HP: 8081
       Monster_Attack: 1152
@@ -1014,6 +1125,7 @@ MonoBehaviour:
       Boss_Attack: 1728
   - Key_ID: 112
     val:
+      Selection_Level: 0
       Stage_ID: 112
       Monster_HP: 8159
       Monster_Attack: 1164
@@ -1023,6 +1135,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 113
     val:
+      Selection_Level: 0
       Stage_ID: 113
       Monster_HP: 8237
       Monster_Attack: 1176
@@ -1032,6 +1145,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 114
     val:
+      Selection_Level: 0
       Stage_ID: 114
       Monster_HP: 8315
       Monster_Attack: 1188
@@ -1041,6 +1155,7 @@ MonoBehaviour:
       Boss_Attack: 1782
   - Key_ID: 115
     val:
+      Selection_Level: 0
       Stage_ID: 115
       Monster_HP: 8393
       Monster_Attack: 1200
@@ -1050,6 +1165,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 116
     val:
+      Selection_Level: 0
       Stage_ID: 116
       Monster_HP: 8471
       Monster_Attack: 1212
@@ -1059,6 +1175,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 117
     val:
+      Selection_Level: 0
       Stage_ID: 117
       Monster_HP: 8549
       Monster_Attack: 1224
@@ -1068,6 +1185,7 @@ MonoBehaviour:
       Boss_Attack: 1836
   - Key_ID: 118
     val:
+      Selection_Level: 0
       Stage_ID: 118
       Monster_HP: 8627
       Monster_Attack: 1236
@@ -1077,6 +1195,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 119
     val:
+      Selection_Level: 0
       Stage_ID: 119
       Monster_HP: 8705
       Monster_Attack: 1248
@@ -1086,6 +1205,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 120
     val:
+      Selection_Level: 0
       Stage_ID: 120
       Monster_HP: 8783
       Monster_Attack: 1260
@@ -1095,6 +1215,7 @@ MonoBehaviour:
       Boss_Attack: 1890
   - Key_ID: 121
     val:
+      Selection_Level: 0
       Stage_ID: 121
       Monster_HP: 8861
       Monster_Attack: 1272
@@ -1104,6 +1225,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 122
     val:
+      Selection_Level: 0
       Stage_ID: 122
       Monster_HP: 8939
       Monster_Attack: 1284
@@ -1113,6 +1235,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 123
     val:
+      Selection_Level: 0
       Stage_ID: 123
       Monster_HP: 9017
       Monster_Attack: 1296
@@ -1122,6 +1245,7 @@ MonoBehaviour:
       Boss_Attack: 1944
   - Key_ID: 124
     val:
+      Selection_Level: 0
       Stage_ID: 124
       Monster_HP: 9095
       Monster_Attack: 1308
@@ -1131,6 +1255,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 125
     val:
+      Selection_Level: 0
       Stage_ID: 125
       Monster_HP: 9173
       Monster_Attack: 1320
@@ -1140,6 +1265,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 126
     val:
+      Selection_Level: 0
       Stage_ID: 126
       Monster_HP: 9251
       Monster_Attack: 1332
@@ -1149,6 +1275,7 @@ MonoBehaviour:
       Boss_Attack: 1998
   - Key_ID: 127
     val:
+      Selection_Level: 0
       Stage_ID: 127
       Monster_HP: 9329
       Monster_Attack: 1344
@@ -1158,6 +1285,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 128
     val:
+      Selection_Level: 0
       Stage_ID: 128
       Monster_HP: 9407
       Monster_Attack: 1356
@@ -1167,6 +1295,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 129
     val:
+      Selection_Level: 0
       Stage_ID: 129
       Monster_HP: 9485
       Monster_Attack: 1368
@@ -1176,6 +1305,7 @@ MonoBehaviour:
       Boss_Attack: 2052
   - Key_ID: 130
     val:
+      Selection_Level: 0
       Stage_ID: 130
       Monster_HP: 9563
       Monster_Attack: 1380
@@ -1185,6 +1315,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 131
     val:
+      Selection_Level: 0
       Stage_ID: 131
       Monster_HP: 9641
       Monster_Attack: 1392
@@ -1194,6 +1325,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 132
     val:
+      Selection_Level: 0
       Stage_ID: 132
       Monster_HP: 9719
       Monster_Attack: 1404
@@ -1203,6 +1335,7 @@ MonoBehaviour:
       Boss_Attack: 2106
   - Key_ID: 133
     val:
+      Selection_Level: 0
       Stage_ID: 133
       Monster_HP: 9797
       Monster_Attack: 1416
@@ -1212,6 +1345,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 134
     val:
+      Selection_Level: 0
       Stage_ID: 134
       Monster_HP: 9875
       Monster_Attack: 1428
@@ -1221,6 +1355,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 135
     val:
+      Selection_Level: 0
       Stage_ID: 135
       Monster_HP: 9953
       Monster_Attack: 1440
@@ -1230,6 +1365,7 @@ MonoBehaviour:
       Boss_Attack: 2160
   - Key_ID: 136
     val:
+      Selection_Level: 0
       Stage_ID: 136
       Monster_HP: 10031
       Monster_Attack: 1452
@@ -1239,6 +1375,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 137
     val:
+      Selection_Level: 0
       Stage_ID: 137
       Monster_HP: 10109
       Monster_Attack: 1464
@@ -1248,6 +1385,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 138
     val:
+      Selection_Level: 0
       Stage_ID: 138
       Monster_HP: 10187
       Monster_Attack: 1476
@@ -1257,6 +1395,7 @@ MonoBehaviour:
       Boss_Attack: 2214
   - Key_ID: 139
     val:
+      Selection_Level: 0
       Stage_ID: 139
       Monster_HP: 10265
       Monster_Attack: 1488
@@ -1266,6 +1405,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 140
     val:
+      Selection_Level: 0
       Stage_ID: 140
       Monster_HP: 10343
       Monster_Attack: 1500
@@ -1275,6 +1415,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 141
     val:
+      Selection_Level: 0
       Stage_ID: 141
       Monster_HP: 10421
       Monster_Attack: 1512
@@ -1284,6 +1425,7 @@ MonoBehaviour:
       Boss_Attack: 2268
   - Key_ID: 142
     val:
+      Selection_Level: 0
       Stage_ID: 142
       Monster_HP: 10499
       Monster_Attack: 1524
@@ -1293,6 +1435,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 143
     val:
+      Selection_Level: 0
       Stage_ID: 143
       Monster_HP: 10577
       Monster_Attack: 1536
@@ -1302,6 +1445,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 144
     val:
+      Selection_Level: 0
       Stage_ID: 144
       Monster_HP: 10655
       Monster_Attack: 1548
@@ -1311,6 +1455,7 @@ MonoBehaviour:
       Boss_Attack: 2322
   - Key_ID: 145
     val:
+      Selection_Level: 0
       Stage_ID: 145
       Monster_HP: 10733
       Monster_Attack: 1560
@@ -1320,6 +1465,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 146
     val:
+      Selection_Level: 0
       Stage_ID: 146
       Monster_HP: 10811
       Monster_Attack: 1572
@@ -1329,6 +1475,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 147
     val:
+      Selection_Level: 0
       Stage_ID: 147
       Monster_HP: 10889
       Monster_Attack: 1584
@@ -1338,6 +1485,7 @@ MonoBehaviour:
       Boss_Attack: 2376
   - Key_ID: 148
     val:
+      Selection_Level: 0
       Stage_ID: 148
       Monster_HP: 10967
       Monster_Attack: 1596
@@ -1347,6 +1495,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 149
     val:
+      Selection_Level: 0
       Stage_ID: 149
       Monster_HP: 11045
       Monster_Attack: 1608
@@ -1356,6 +1505,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 150
     val:
+      Selection_Level: 0
       Stage_ID: 150
       Monster_HP: 11123
       Monster_Attack: 1620
@@ -1365,6 +1515,7 @@ MonoBehaviour:
       Boss_Attack: 2430
   - Key_ID: 151
     val:
+      Selection_Level: 0
       Stage_ID: 151
       Monster_HP: 11201
       Monster_Attack: 1632
@@ -1374,6 +1525,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 152
     val:
+      Selection_Level: 0
       Stage_ID: 152
       Monster_HP: 11279
       Monster_Attack: 1644
@@ -1383,6 +1535,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 153
     val:
+      Selection_Level: 0
       Stage_ID: 153
       Monster_HP: 11357
       Monster_Attack: 1656
@@ -1392,6 +1545,7 @@ MonoBehaviour:
       Boss_Attack: 2484
   - Key_ID: 154
     val:
+      Selection_Level: 0
       Stage_ID: 154
       Monster_HP: 11435
       Monster_Attack: 1668
@@ -1401,6 +1555,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 155
     val:
+      Selection_Level: 0
       Stage_ID: 155
       Monster_HP: 11513
       Monster_Attack: 1680
@@ -1410,6 +1565,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 156
     val:
+      Selection_Level: 0
       Stage_ID: 156
       Monster_HP: 11591
       Monster_Attack: 1692
@@ -1419,6 +1575,7 @@ MonoBehaviour:
       Boss_Attack: 2538
   - Key_ID: 157
     val:
+      Selection_Level: 0
       Stage_ID: 157
       Monster_HP: 11669
       Monster_Attack: 1704
@@ -1428,6 +1585,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 158
     val:
+      Selection_Level: 0
       Stage_ID: 158
       Monster_HP: 11747
       Monster_Attack: 1716
@@ -1437,6 +1595,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 159
     val:
+      Selection_Level: 0
       Stage_ID: 159
       Monster_HP: 11825
       Monster_Attack: 1728
@@ -1446,6 +1605,7 @@ MonoBehaviour:
       Boss_Attack: 2592
   - Key_ID: 160
     val:
+      Selection_Level: 0
       Stage_ID: 160
       Monster_HP: 11903
       Monster_Attack: 1740
@@ -1455,6 +1615,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 161
     val:
+      Selection_Level: 0
       Stage_ID: 161
       Monster_HP: 11981
       Monster_Attack: 1752
@@ -1464,6 +1625,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 162
     val:
+      Selection_Level: 0
       Stage_ID: 162
       Monster_HP: 12059
       Monster_Attack: 1764
@@ -1473,6 +1635,7 @@ MonoBehaviour:
       Boss_Attack: 2646
   - Key_ID: 163
     val:
+      Selection_Level: 0
       Stage_ID: 163
       Monster_HP: 12137
       Monster_Attack: 1776
@@ -1482,6 +1645,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 164
     val:
+      Selection_Level: 0
       Stage_ID: 164
       Monster_HP: 12215
       Monster_Attack: 1788
@@ -1491,6 +1655,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 165
     val:
+      Selection_Level: 0
       Stage_ID: 165
       Monster_HP: 12293
       Monster_Attack: 1800
@@ -1500,6 +1665,7 @@ MonoBehaviour:
       Boss_Attack: 2700
   - Key_ID: 166
     val:
+      Selection_Level: 0
       Stage_ID: 166
       Monster_HP: 12371
       Monster_Attack: 1812
@@ -1509,6 +1675,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 167
     val:
+      Selection_Level: 0
       Stage_ID: 167
       Monster_HP: 12449
       Monster_Attack: 1824
@@ -1518,6 +1685,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 168
     val:
+      Selection_Level: 0
       Stage_ID: 168
       Monster_HP: 12527
       Monster_Attack: 1836
@@ -1527,6 +1695,7 @@ MonoBehaviour:
       Boss_Attack: 2754
   - Key_ID: 169
     val:
+      Selection_Level: 0
       Stage_ID: 169
       Monster_HP: 12605
       Monster_Attack: 1848
@@ -1536,6 +1705,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 170
     val:
+      Selection_Level: 0
       Stage_ID: 170
       Monster_HP: 12683
       Monster_Attack: 1860
@@ -1545,6 +1715,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 171
     val:
+      Selection_Level: 0
       Stage_ID: 171
       Monster_HP: 12761
       Monster_Attack: 1872
@@ -1554,6 +1725,7 @@ MonoBehaviour:
       Boss_Attack: 2808
   - Key_ID: 172
     val:
+      Selection_Level: 0
       Stage_ID: 172
       Monster_HP: 12839
       Monster_Attack: 1884
@@ -1563,6 +1735,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 173
     val:
+      Selection_Level: 0
       Stage_ID: 173
       Monster_HP: 12917
       Monster_Attack: 1896
@@ -1572,6 +1745,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 174
     val:
+      Selection_Level: 0
       Stage_ID: 174
       Monster_HP: 12995
       Monster_Attack: 1908
@@ -1581,6 +1755,7 @@ MonoBehaviour:
       Boss_Attack: 2862
   - Key_ID: 175
     val:
+      Selection_Level: 0
       Stage_ID: 175
       Monster_HP: 13073
       Monster_Attack: 1920
@@ -1590,6 +1765,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 176
     val:
+      Selection_Level: 0
       Stage_ID: 176
       Monster_HP: 13151
       Monster_Attack: 1932
@@ -1599,6 +1775,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 177
     val:
+      Selection_Level: 0
       Stage_ID: 177
       Monster_HP: 13229
       Monster_Attack: 1944
@@ -1608,6 +1785,7 @@ MonoBehaviour:
       Boss_Attack: 2916
   - Key_ID: 178
     val:
+      Selection_Level: 0
       Stage_ID: 178
       Monster_HP: 13307
       Monster_Attack: 1956
@@ -1617,6 +1795,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 179
     val:
+      Selection_Level: 0
       Stage_ID: 179
       Monster_HP: 13385
       Monster_Attack: 1968
@@ -1626,6 +1805,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 180
     val:
+      Selection_Level: 0
       Stage_ID: 180
       Monster_HP: 13463
       Monster_Attack: 1980
@@ -1635,6 +1815,7 @@ MonoBehaviour:
       Boss_Attack: 2970
   - Key_ID: 181
     val:
+      Selection_Level: 0
       Stage_ID: 181
       Monster_HP: 13541
       Monster_Attack: 1992
@@ -1644,6 +1825,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 182
     val:
+      Selection_Level: 0
       Stage_ID: 182
       Monster_HP: 13619
       Monster_Attack: 2004
@@ -1653,6 +1835,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 183
     val:
+      Selection_Level: 0
       Stage_ID: 183
       Monster_HP: 13697
       Monster_Attack: 2016
@@ -1662,6 +1845,7 @@ MonoBehaviour:
       Boss_Attack: 3024
   - Key_ID: 184
     val:
+      Selection_Level: 0
       Stage_ID: 184
       Monster_HP: 13775
       Monster_Attack: 2028
@@ -1671,6 +1855,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 185
     val:
+      Selection_Level: 0
       Stage_ID: 185
       Monster_HP: 13853
       Monster_Attack: 2040
@@ -1680,6 +1865,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 186
     val:
+      Selection_Level: 0
       Stage_ID: 186
       Monster_HP: 13931
       Monster_Attack: 2052
@@ -1689,6 +1875,7 @@ MonoBehaviour:
       Boss_Attack: 3078
   - Key_ID: 187
     val:
+      Selection_Level: 0
       Stage_ID: 187
       Monster_HP: 14009
       Monster_Attack: 2064
@@ -1698,6 +1885,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 188
     val:
+      Selection_Level: 0
       Stage_ID: 188
       Monster_HP: 14087
       Monster_Attack: 2076
@@ -1707,6 +1895,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 189
     val:
+      Selection_Level: 0
       Stage_ID: 189
       Monster_HP: 14165
       Monster_Attack: 2088
@@ -1716,6 +1905,7 @@ MonoBehaviour:
       Boss_Attack: 3132
   - Key_ID: 190
     val:
+      Selection_Level: 0
       Stage_ID: 190
       Monster_HP: 14243
       Monster_Attack: 2100
@@ -1725,6 +1915,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 191
     val:
+      Selection_Level: 0
       Stage_ID: 191
       Monster_HP: 14321
       Monster_Attack: 2112
@@ -1734,6 +1925,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 192
     val:
+      Selection_Level: 0
       Stage_ID: 192
       Monster_HP: 14399
       Monster_Attack: 2124
@@ -1743,6 +1935,7 @@ MonoBehaviour:
       Boss_Attack: 3186
   - Key_ID: 193
     val:
+      Selection_Level: 0
       Stage_ID: 193
       Monster_HP: 14477
       Monster_Attack: 2136
@@ -1752,6 +1945,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 194
     val:
+      Selection_Level: 0
       Stage_ID: 194
       Monster_HP: 14555
       Monster_Attack: 2148
@@ -1761,6 +1955,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 195
     val:
+      Selection_Level: 0
       Stage_ID: 195
       Monster_HP: 14633
       Monster_Attack: 2160
@@ -1770,6 +1965,7 @@ MonoBehaviour:
       Boss_Attack: 3240
   - Key_ID: 196
     val:
+      Selection_Level: 0
       Stage_ID: 196
       Monster_HP: 14711
       Monster_Attack: 2172
@@ -1779,6 +1975,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 197
     val:
+      Selection_Level: 0
       Stage_ID: 197
       Monster_HP: 14789
       Monster_Attack: 2184
@@ -1788,6 +1985,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 198
     val:
+      Selection_Level: 0
       Stage_ID: 198
       Monster_HP: 14867
       Monster_Attack: 2196
@@ -1797,6 +1995,7 @@ MonoBehaviour:
       Boss_Attack: 3294
   - Key_ID: 199
     val:
+      Selection_Level: 0
       Stage_ID: 199
       Monster_HP: 14945
       Monster_Attack: 2208
@@ -1806,6 +2005,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 200
     val:
+      Selection_Level: 0
       Stage_ID: 200
       Monster_HP: 15023
       Monster_Attack: 2220
@@ -1815,6 +2015,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 201
     val:
+      Selection_Level: 0
       Stage_ID: 201
       Monster_HP: 15101
       Monster_Attack: 2232
@@ -1824,6 +2025,7 @@ MonoBehaviour:
       Boss_Attack: 3348
   - Key_ID: 202
     val:
+      Selection_Level: 0
       Stage_ID: 202
       Monster_HP: 15179
       Monster_Attack: 2244
@@ -1833,6 +2035,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 203
     val:
+      Selection_Level: 0
       Stage_ID: 203
       Monster_HP: 15257
       Monster_Attack: 2256
@@ -1842,6 +2045,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 204
     val:
+      Selection_Level: 0
       Stage_ID: 204
       Monster_HP: 15335
       Monster_Attack: 2268
@@ -1851,6 +2055,7 @@ MonoBehaviour:
       Boss_Attack: 3402
   - Key_ID: 205
     val:
+      Selection_Level: 0
       Stage_ID: 205
       Monster_HP: 15413
       Monster_Attack: 2280
@@ -1860,6 +2065,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 206
     val:
+      Selection_Level: 0
       Stage_ID: 206
       Monster_HP: 15491
       Monster_Attack: 2292
@@ -1869,6 +2075,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 207
     val:
+      Selection_Level: 0
       Stage_ID: 207
       Monster_HP: 15569
       Monster_Attack: 2304
@@ -1878,6 +2085,7 @@ MonoBehaviour:
       Boss_Attack: 3456
   - Key_ID: 208
     val:
+      Selection_Level: 0
       Stage_ID: 208
       Monster_HP: 15647
       Monster_Attack: 2316
@@ -1887,6 +2095,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 209
     val:
+      Selection_Level: 0
       Stage_ID: 209
       Monster_HP: 15725
       Monster_Attack: 2328
@@ -1896,6 +2105,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 210
     val:
+      Selection_Level: 0
       Stage_ID: 210
       Monster_HP: 15803
       Monster_Attack: 2340
@@ -1905,6 +2115,7 @@ MonoBehaviour:
       Boss_Attack: 3510
   - Key_ID: 211
     val:
+      Selection_Level: 0
       Stage_ID: 211
       Monster_HP: 15881
       Monster_Attack: 2352
@@ -1914,6 +2125,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 212
     val:
+      Selection_Level: 0
       Stage_ID: 212
       Monster_HP: 15959
       Monster_Attack: 2364
@@ -1923,6 +2135,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 213
     val:
+      Selection_Level: 0
       Stage_ID: 213
       Monster_HP: 16037
       Monster_Attack: 2376
@@ -1932,6 +2145,7 @@ MonoBehaviour:
       Boss_Attack: 3564
   - Key_ID: 214
     val:
+      Selection_Level: 0
       Stage_ID: 214
       Monster_HP: 16115
       Monster_Attack: 2388
@@ -1941,6 +2155,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 215
     val:
+      Selection_Level: 0
       Stage_ID: 215
       Monster_HP: 16193
       Monster_Attack: 2400
@@ -1950,6 +2165,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 216
     val:
+      Selection_Level: 0
       Stage_ID: 216
       Monster_HP: 16271
       Monster_Attack: 2412
@@ -1959,6 +2175,7 @@ MonoBehaviour:
       Boss_Attack: 3618
   - Key_ID: 217
     val:
+      Selection_Level: 0
       Stage_ID: 217
       Monster_HP: 16349
       Monster_Attack: 2424
@@ -1968,6 +2185,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 218
     val:
+      Selection_Level: 0
       Stage_ID: 218
       Monster_HP: 16427
       Monster_Attack: 2436
@@ -1977,6 +2195,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 219
     val:
+      Selection_Level: 0
       Stage_ID: 219
       Monster_HP: 16505
       Monster_Attack: 2448
@@ -1986,6 +2205,7 @@ MonoBehaviour:
       Boss_Attack: 3672
   - Key_ID: 220
     val:
+      Selection_Level: 0
       Stage_ID: 220
       Monster_HP: 16583
       Monster_Attack: 2460
@@ -1995,6 +2215,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 221
     val:
+      Selection_Level: 0
       Stage_ID: 221
       Monster_HP: 16661
       Monster_Attack: 2472
@@ -2004,6 +2225,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 222
     val:
+      Selection_Level: 0
       Stage_ID: 222
       Monster_HP: 16739
       Monster_Attack: 2484
@@ -2013,6 +2235,7 @@ MonoBehaviour:
       Boss_Attack: 3726
   - Key_ID: 223
     val:
+      Selection_Level: 0
       Stage_ID: 223
       Monster_HP: 16817
       Monster_Attack: 2496
@@ -2022,6 +2245,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 224
     val:
+      Selection_Level: 0
       Stage_ID: 224
       Monster_HP: 16895
       Monster_Attack: 2508
@@ -2031,6 +2255,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 225
     val:
+      Selection_Level: 0
       Stage_ID: 225
       Monster_HP: 16973
       Monster_Attack: 2520
@@ -2040,6 +2265,7 @@ MonoBehaviour:
       Boss_Attack: 3780
   - Key_ID: 226
     val:
+      Selection_Level: 0
       Stage_ID: 226
       Monster_HP: 17051
       Monster_Attack: 2532
@@ -2049,6 +2275,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 227
     val:
+      Selection_Level: 0
       Stage_ID: 227
       Monster_HP: 17129
       Monster_Attack: 2544
@@ -2058,6 +2285,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 228
     val:
+      Selection_Level: 0
       Stage_ID: 228
       Monster_HP: 17207
       Monster_Attack: 2556
@@ -2067,6 +2295,7 @@ MonoBehaviour:
       Boss_Attack: 3834
   - Key_ID: 229
     val:
+      Selection_Level: 0
       Stage_ID: 229
       Monster_HP: 17285
       Monster_Attack: 2568
@@ -2076,6 +2305,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 230
     val:
+      Selection_Level: 0
       Stage_ID: 230
       Monster_HP: 17363
       Monster_Attack: 2580
@@ -2085,6 +2315,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 231
     val:
+      Selection_Level: 0
       Stage_ID: 231
       Monster_HP: 17441
       Monster_Attack: 2592
@@ -2094,6 +2325,7 @@ MonoBehaviour:
       Boss_Attack: 3888
   - Key_ID: 232
     val:
+      Selection_Level: 0
       Stage_ID: 232
       Monster_HP: 17519
       Monster_Attack: 2604
@@ -2103,6 +2335,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 233
     val:
+      Selection_Level: 0
       Stage_ID: 233
       Monster_HP: 17597
       Monster_Attack: 2616
@@ -2112,6 +2345,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 234
     val:
+      Selection_Level: 0
       Stage_ID: 234
       Monster_HP: 17675
       Monster_Attack: 2628
@@ -2121,6 +2355,7 @@ MonoBehaviour:
       Boss_Attack: 3942
   - Key_ID: 235
     val:
+      Selection_Level: 0
       Stage_ID: 235
       Monster_HP: 17753
       Monster_Attack: 2640
@@ -2130,6 +2365,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 236
     val:
+      Selection_Level: 0
       Stage_ID: 236
       Monster_HP: 17831
       Monster_Attack: 2652
@@ -2139,6 +2375,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 237
     val:
+      Selection_Level: 0
       Stage_ID: 237
       Monster_HP: 17909
       Monster_Attack: 2664
@@ -2148,6 +2385,7 @@ MonoBehaviour:
       Boss_Attack: 3996
   - Key_ID: 238
     val:
+      Selection_Level: 0
       Stage_ID: 238
       Monster_HP: 17987
       Monster_Attack: 2676
@@ -2157,6 +2395,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 239
     val:
+      Selection_Level: 0
       Stage_ID: 239
       Monster_HP: 18065
       Monster_Attack: 2688
@@ -2166,6 +2405,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 240
     val:
+      Selection_Level: 0
       Stage_ID: 240
       Monster_HP: 18143
       Monster_Attack: 2700
@@ -2175,6 +2415,7 @@ MonoBehaviour:
       Boss_Attack: 4050
   - Key_ID: 241
     val:
+      Selection_Level: 0
       Stage_ID: 241
       Monster_HP: 18221
       Monster_Attack: 2712
@@ -2184,6 +2425,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 242
     val:
+      Selection_Level: 0
       Stage_ID: 242
       Monster_HP: 18299
       Monster_Attack: 2724
@@ -2193,6 +2435,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 243
     val:
+      Selection_Level: 0
       Stage_ID: 243
       Monster_HP: 18377
       Monster_Attack: 2736
@@ -2202,6 +2445,7 @@ MonoBehaviour:
       Boss_Attack: 4104
   - Key_ID: 244
     val:
+      Selection_Level: 0
       Stage_ID: 244
       Monster_HP: 18455
       Monster_Attack: 2748
@@ -2211,6 +2455,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 245
     val:
+      Selection_Level: 0
       Stage_ID: 245
       Monster_HP: 18533
       Monster_Attack: 2760
@@ -2220,6 +2465,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 246
     val:
+      Selection_Level: 0
       Stage_ID: 246
       Monster_HP: 18611
       Monster_Attack: 2772
@@ -2229,6 +2475,7 @@ MonoBehaviour:
       Boss_Attack: 4158
   - Key_ID: 247
     val:
+      Selection_Level: 0
       Stage_ID: 247
       Monster_HP: 18689
       Monster_Attack: 2784
@@ -2238,6 +2485,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 248
     val:
+      Selection_Level: 0
       Stage_ID: 248
       Monster_HP: 18767
       Monster_Attack: 2796
@@ -2247,6 +2495,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 249
     val:
+      Selection_Level: 0
       Stage_ID: 249
       Monster_HP: 18845
       Monster_Attack: 2808
@@ -2256,6 +2505,7 @@ MonoBehaviour:
       Boss_Attack: 4212
   - Key_ID: 250
     val:
+      Selection_Level: 0
       Stage_ID: 250
       Monster_HP: 18923
       Monster_Attack: 2820
@@ -2265,6 +2515,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 251
     val:
+      Selection_Level: 0
       Stage_ID: 251
       Monster_HP: 19001
       Monster_Attack: 2832
@@ -2274,6 +2525,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 252
     val:
+      Selection_Level: 0
       Stage_ID: 252
       Monster_HP: 19079
       Monster_Attack: 2844
@@ -2283,6 +2535,7 @@ MonoBehaviour:
       Boss_Attack: 4266
   - Key_ID: 253
     val:
+      Selection_Level: 0
       Stage_ID: 253
       Monster_HP: 19157
       Monster_Attack: 2856
@@ -2292,6 +2545,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 254
     val:
+      Selection_Level: 0
       Stage_ID: 254
       Monster_HP: 19235
       Monster_Attack: 2868
@@ -2301,6 +2555,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 255
     val:
+      Selection_Level: 0
       Stage_ID: 255
       Monster_HP: 19313
       Monster_Attack: 2880
@@ -2310,6 +2565,7 @@ MonoBehaviour:
       Boss_Attack: 4320
   - Key_ID: 256
     val:
+      Selection_Level: 0
       Stage_ID: 256
       Monster_HP: 19391
       Monster_Attack: 2892
@@ -2319,6 +2575,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 257
     val:
+      Selection_Level: 0
       Stage_ID: 257
       Monster_HP: 19469
       Monster_Attack: 2904
@@ -2328,6 +2585,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 258
     val:
+      Selection_Level: 0
       Stage_ID: 258
       Monster_HP: 19547
       Monster_Attack: 2916
@@ -2337,6 +2595,7 @@ MonoBehaviour:
       Boss_Attack: 4374
   - Key_ID: 259
     val:
+      Selection_Level: 0
       Stage_ID: 259
       Monster_HP: 19625
       Monster_Attack: 2928
@@ -2346,6 +2605,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 260
     val:
+      Selection_Level: 0
       Stage_ID: 260
       Monster_HP: 19703
       Monster_Attack: 2940
@@ -2355,6 +2615,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 261
     val:
+      Selection_Level: 0
       Stage_ID: 261
       Monster_HP: 19781
       Monster_Attack: 2952
@@ -2364,6 +2625,7 @@ MonoBehaviour:
       Boss_Attack: 4428
   - Key_ID: 262
     val:
+      Selection_Level: 0
       Stage_ID: 262
       Monster_HP: 19859
       Monster_Attack: 2964
@@ -2373,6 +2635,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 263
     val:
+      Selection_Level: 0
       Stage_ID: 263
       Monster_HP: 19937
       Monster_Attack: 2976
@@ -2382,6 +2645,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 264
     val:
+      Selection_Level: 0
       Stage_ID: 264
       Monster_HP: 20015
       Monster_Attack: 2988
@@ -2391,6 +2655,7 @@ MonoBehaviour:
       Boss_Attack: 4482
   - Key_ID: 265
     val:
+      Selection_Level: 0
       Stage_ID: 265
       Monster_HP: 20093
       Monster_Attack: 3000
@@ -2400,6 +2665,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 266
     val:
+      Selection_Level: 0
       Stage_ID: 266
       Monster_HP: 20171
       Monster_Attack: 3012
@@ -2409,6 +2675,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 267
     val:
+      Selection_Level: 0
       Stage_ID: 267
       Monster_HP: 20249
       Monster_Attack: 3024
@@ -2418,6 +2685,7 @@ MonoBehaviour:
       Boss_Attack: 4536
   - Key_ID: 268
     val:
+      Selection_Level: 0
       Stage_ID: 268
       Monster_HP: 20327
       Monster_Attack: 3036
@@ -2427,6 +2695,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 269
     val:
+      Selection_Level: 0
       Stage_ID: 269
       Monster_HP: 20405
       Monster_Attack: 3048
@@ -2436,6 +2705,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 270
     val:
+      Selection_Level: 0
       Stage_ID: 270
       Monster_HP: 20483
       Monster_Attack: 3060
@@ -2445,6 +2715,7 @@ MonoBehaviour:
       Boss_Attack: 4590
   - Key_ID: 271
     val:
+      Selection_Level: 0
       Stage_ID: 271
       Monster_HP: 20561
       Monster_Attack: 3072
@@ -2454,6 +2725,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 272
     val:
+      Selection_Level: 0
       Stage_ID: 272
       Monster_HP: 20639
       Monster_Attack: 3084
@@ -2463,6 +2735,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 273
     val:
+      Selection_Level: 0
       Stage_ID: 273
       Monster_HP: 20717
       Monster_Attack: 3096
@@ -2472,6 +2745,7 @@ MonoBehaviour:
       Boss_Attack: 4644
   - Key_ID: 274
     val:
+      Selection_Level: 0
       Stage_ID: 274
       Monster_HP: 20795
       Monster_Attack: 3108
@@ -2481,6 +2755,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 275
     val:
+      Selection_Level: 0
       Stage_ID: 275
       Monster_HP: 20873
       Monster_Attack: 3120
@@ -2490,6 +2765,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 276
     val:
+      Selection_Level: 0
       Stage_ID: 276
       Monster_HP: 20951
       Monster_Attack: 3132
@@ -2499,6 +2775,7 @@ MonoBehaviour:
       Boss_Attack: 4698
   - Key_ID: 277
     val:
+      Selection_Level: 0
       Stage_ID: 277
       Monster_HP: 21029
       Monster_Attack: 3144
@@ -2508,6 +2785,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 278
     val:
+      Selection_Level: 0
       Stage_ID: 278
       Monster_HP: 21107
       Monster_Attack: 3156
@@ -2517,6 +2795,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 279
     val:
+      Selection_Level: 0
       Stage_ID: 279
       Monster_HP: 21185
       Monster_Attack: 3168
@@ -2526,6 +2805,7 @@ MonoBehaviour:
       Boss_Attack: 4752
   - Key_ID: 280
     val:
+      Selection_Level: 0
       Stage_ID: 280
       Monster_HP: 21263
       Monster_Attack: 3180
@@ -2535,6 +2815,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 281
     val:
+      Selection_Level: 0
       Stage_ID: 281
       Monster_HP: 21341
       Monster_Attack: 3192
@@ -2544,6 +2825,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 282
     val:
+      Selection_Level: 0
       Stage_ID: 282
       Monster_HP: 21419
       Monster_Attack: 3204
@@ -2553,6 +2835,7 @@ MonoBehaviour:
       Boss_Attack: 4806
   - Key_ID: 283
     val:
+      Selection_Level: 0
       Stage_ID: 283
       Monster_HP: 21497
       Monster_Attack: 3216
@@ -2562,6 +2845,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 284
     val:
+      Selection_Level: 0
       Stage_ID: 284
       Monster_HP: 21575
       Monster_Attack: 3228
@@ -2571,6 +2855,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 285
     val:
+      Selection_Level: 0
       Stage_ID: 285
       Monster_HP: 21653
       Monster_Attack: 3240
@@ -2580,6 +2865,7 @@ MonoBehaviour:
       Boss_Attack: 4860
   - Key_ID: 286
     val:
+      Selection_Level: 0
       Stage_ID: 286
       Monster_HP: 21731
       Monster_Attack: 3252
@@ -2589,6 +2875,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 287
     val:
+      Selection_Level: 0
       Stage_ID: 287
       Monster_HP: 21809
       Monster_Attack: 3264
@@ -2598,6 +2885,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 288
     val:
+      Selection_Level: 0
       Stage_ID: 288
       Monster_HP: 21887
       Monster_Attack: 3276
@@ -2607,6 +2895,7 @@ MonoBehaviour:
       Boss_Attack: 4914
   - Key_ID: 289
     val:
+      Selection_Level: 0
       Stage_ID: 289
       Monster_HP: 21965
       Monster_Attack: 3288
@@ -2616,6 +2905,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 290
     val:
+      Selection_Level: 0
       Stage_ID: 290
       Monster_HP: 22043
       Monster_Attack: 3300
@@ -2625,6 +2915,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 291
     val:
+      Selection_Level: 0
       Stage_ID: 291
       Monster_HP: 22121
       Monster_Attack: 3312
@@ -2634,6 +2925,7 @@ MonoBehaviour:
       Boss_Attack: 4968
   - Key_ID: 292
     val:
+      Selection_Level: 0
       Stage_ID: 292
       Monster_HP: 22199
       Monster_Attack: 3324
@@ -2643,6 +2935,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 293
     val:
+      Selection_Level: 0
       Stage_ID: 293
       Monster_HP: 22277
       Monster_Attack: 3336
@@ -2652,6 +2945,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 294
     val:
+      Selection_Level: 0
       Stage_ID: 294
       Monster_HP: 22355
       Monster_Attack: 3348
@@ -2661,6 +2955,7 @@ MonoBehaviour:
       Boss_Attack: 5022
   - Key_ID: 295
     val:
+      Selection_Level: 0
       Stage_ID: 295
       Monster_HP: 22433
       Monster_Attack: 3360
@@ -2670,6 +2965,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 296
     val:
+      Selection_Level: 0
       Stage_ID: 296
       Monster_HP: 22511
       Monster_Attack: 3372
@@ -2679,6 +2975,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 297
     val:
+      Selection_Level: 0
       Stage_ID: 297
       Monster_HP: 22589
       Monster_Attack: 3384
@@ -2688,6 +2985,7 @@ MonoBehaviour:
       Boss_Attack: 5076
   - Key_ID: 298
     val:
+      Selection_Level: 0
       Stage_ID: 298
       Monster_HP: 22667
       Monster_Attack: 3396
@@ -2697,6 +2995,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 299
     val:
+      Selection_Level: 0
       Stage_ID: 299
       Monster_HP: 22745
       Monster_Attack: 3408
@@ -2706,6 +3005,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 300
     val:
+      Selection_Level: 0
       Stage_ID: 300
       Monster_HP: 22823
       Monster_Attack: 3420
@@ -2715,6 +3015,7 @@ MonoBehaviour:
       Boss_Attack: 5130
   - Key_ID: 301
     val:
+      Selection_Level: 0
       Stage_ID: 301
       Monster_HP: 22901
       Monster_Attack: 3432
@@ -2724,6 +3025,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 302
     val:
+      Selection_Level: 0
       Stage_ID: 302
       Monster_HP: 22979
       Monster_Attack: 3444
@@ -2733,6 +3035,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 303
     val:
+      Selection_Level: 0
       Stage_ID: 303
       Monster_HP: 23057
       Monster_Attack: 3456
@@ -2742,6 +3045,7 @@ MonoBehaviour:
       Boss_Attack: 5184
   - Key_ID: 304
     val:
+      Selection_Level: 0
       Stage_ID: 304
       Monster_HP: 23135
       Monster_Attack: 3468
@@ -2751,6 +3055,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 305
     val:
+      Selection_Level: 0
       Stage_ID: 305
       Monster_HP: 23213
       Monster_Attack: 3480
@@ -2760,6 +3065,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 306
     val:
+      Selection_Level: 0
       Stage_ID: 306
       Monster_HP: 23291
       Monster_Attack: 3492
@@ -2769,6 +3075,7 @@ MonoBehaviour:
       Boss_Attack: 5238
   - Key_ID: 307
     val:
+      Selection_Level: 0
       Stage_ID: 307
       Monster_HP: 23369
       Monster_Attack: 3504
@@ -2778,6 +3085,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 308
     val:
+      Selection_Level: 0
       Stage_ID: 308
       Monster_HP: 23447
       Monster_Attack: 3516
@@ -2787,6 +3095,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 309
     val:
+      Selection_Level: 0
       Stage_ID: 309
       Monster_HP: 23525
       Monster_Attack: 3528
@@ -2796,6 +3105,7 @@ MonoBehaviour:
       Boss_Attack: 5292
   - Key_ID: 310
     val:
+      Selection_Level: 0
       Stage_ID: 310
       Monster_HP: 23603
       Monster_Attack: 3540
@@ -2805,6 +3115,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 311
     val:
+      Selection_Level: 0
       Stage_ID: 311
       Monster_HP: 23681
       Monster_Attack: 3552
@@ -2814,6 +3125,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 312
     val:
+      Selection_Level: 0
       Stage_ID: 312
       Monster_HP: 23759
       Monster_Attack: 3564
@@ -2823,6 +3135,7 @@ MonoBehaviour:
       Boss_Attack: 5346
   - Key_ID: 313
     val:
+      Selection_Level: 0
       Stage_ID: 313
       Monster_HP: 23837
       Monster_Attack: 3576
@@ -2832,6 +3145,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 314
     val:
+      Selection_Level: 0
       Stage_ID: 314
       Monster_HP: 23915
       Monster_Attack: 3588
@@ -2841,6 +3155,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 315
     val:
+      Selection_Level: 0
       Stage_ID: 315
       Monster_HP: 23993
       Monster_Attack: 3600
@@ -2850,6 +3165,7 @@ MonoBehaviour:
       Boss_Attack: 5400
   - Key_ID: 316
     val:
+      Selection_Level: 0
       Stage_ID: 316
       Monster_HP: 24071
       Monster_Attack: 3612
@@ -2859,6 +3175,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 317
     val:
+      Selection_Level: 0
       Stage_ID: 317
       Monster_HP: 24149
       Monster_Attack: 3624
@@ -2868,6 +3185,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 318
     val:
+      Selection_Level: 0
       Stage_ID: 318
       Monster_HP: 24227
       Monster_Attack: 3636
@@ -2877,6 +3195,7 @@ MonoBehaviour:
       Boss_Attack: 5454
   - Key_ID: 319
     val:
+      Selection_Level: 0
       Stage_ID: 319
       Monster_HP: 24305
       Monster_Attack: 3648
@@ -2886,6 +3205,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 320
     val:
+      Selection_Level: 0
       Stage_ID: 320
       Monster_HP: 24383
       Monster_Attack: 3660
@@ -2895,6 +3215,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 321
     val:
+      Selection_Level: 0
       Stage_ID: 321
       Monster_HP: 24461
       Monster_Attack: 3672
@@ -2904,6 +3225,7 @@ MonoBehaviour:
       Boss_Attack: 5508
   - Key_ID: 322
     val:
+      Selection_Level: 0
       Stage_ID: 322
       Monster_HP: 24539
       Monster_Attack: 3684
@@ -2913,6 +3235,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 323
     val:
+      Selection_Level: 0
       Stage_ID: 323
       Monster_HP: 24617
       Monster_Attack: 3696
@@ -2922,6 +3245,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 324
     val:
+      Selection_Level: 0
       Stage_ID: 324
       Monster_HP: 24695
       Monster_Attack: 3708
@@ -2931,6 +3255,7 @@ MonoBehaviour:
       Boss_Attack: 5562
   - Key_ID: 325
     val:
+      Selection_Level: 0
       Stage_ID: 325
       Monster_HP: 24773
       Monster_Attack: 3720
@@ -2940,6 +3265,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 326
     val:
+      Selection_Level: 0
       Stage_ID: 326
       Monster_HP: 24851
       Monster_Attack: 3732
@@ -2949,6 +3275,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 327
     val:
+      Selection_Level: 0
       Stage_ID: 327
       Monster_HP: 24929
       Monster_Attack: 3744
@@ -2958,6 +3285,7 @@ MonoBehaviour:
       Boss_Attack: 5616
   - Key_ID: 328
     val:
+      Selection_Level: 0
       Stage_ID: 328
       Monster_HP: 25007
       Monster_Attack: 3756
@@ -2967,6 +3295,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 329
     val:
+      Selection_Level: 0
       Stage_ID: 329
       Monster_HP: 25085
       Monster_Attack: 3768
@@ -2976,6 +3305,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 330
     val:
+      Selection_Level: 0
       Stage_ID: 330
       Monster_HP: 25163
       Monster_Attack: 3780
@@ -2985,6 +3315,7 @@ MonoBehaviour:
       Boss_Attack: 5670
   - Key_ID: 331
     val:
+      Selection_Level: 0
       Stage_ID: 331
       Monster_HP: 25241
       Monster_Attack: 3792
@@ -2994,6 +3325,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 332
     val:
+      Selection_Level: 0
       Stage_ID: 332
       Monster_HP: 25319
       Monster_Attack: 3804
@@ -3003,6 +3335,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 333
     val:
+      Selection_Level: 0
       Stage_ID: 333
       Monster_HP: 25397
       Monster_Attack: 3816
@@ -3012,6 +3345,7 @@ MonoBehaviour:
       Boss_Attack: 5724
   - Key_ID: 334
     val:
+      Selection_Level: 0
       Stage_ID: 334
       Monster_HP: 25475
       Monster_Attack: 3828
@@ -3021,6 +3355,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 335
     val:
+      Selection_Level: 0
       Stage_ID: 335
       Monster_HP: 25553
       Monster_Attack: 3840
@@ -3030,6 +3365,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 336
     val:
+      Selection_Level: 0
       Stage_ID: 336
       Monster_HP: 25631
       Monster_Attack: 3852
@@ -3039,6 +3375,7 @@ MonoBehaviour:
       Boss_Attack: 5778
   - Key_ID: 337
     val:
+      Selection_Level: 0
       Stage_ID: 337
       Monster_HP: 25709
       Monster_Attack: 3864
@@ -3048,6 +3385,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 338
     val:
+      Selection_Level: 0
       Stage_ID: 338
       Monster_HP: 25787
       Monster_Attack: 3876
@@ -3057,6 +3395,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 339
     val:
+      Selection_Level: 0
       Stage_ID: 339
       Monster_HP: 25865
       Monster_Attack: 3888
@@ -3066,6 +3405,7 @@ MonoBehaviour:
       Boss_Attack: 5832
   - Key_ID: 340
     val:
+      Selection_Level: 0
       Stage_ID: 340
       Monster_HP: 25943
       Monster_Attack: 3900
@@ -3075,6 +3415,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 341
     val:
+      Selection_Level: 0
       Stage_ID: 341
       Monster_HP: 26021
       Monster_Attack: 3912
@@ -3084,6 +3425,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 342
     val:
+      Selection_Level: 0
       Stage_ID: 342
       Monster_HP: 26099
       Monster_Attack: 3924
@@ -3093,6 +3435,7 @@ MonoBehaviour:
       Boss_Attack: 5886
   - Key_ID: 343
     val:
+      Selection_Level: 0
       Stage_ID: 343
       Monster_HP: 26177
       Monster_Attack: 3936
@@ -3102,6 +3445,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 344
     val:
+      Selection_Level: 0
       Stage_ID: 344
       Monster_HP: 26255
       Monster_Attack: 3948
@@ -3111,6 +3455,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 345
     val:
+      Selection_Level: 0
       Stage_ID: 345
       Monster_HP: 26333
       Monster_Attack: 3960
@@ -3120,6 +3465,7 @@ MonoBehaviour:
       Boss_Attack: 5940
   - Key_ID: 346
     val:
+      Selection_Level: 0
       Stage_ID: 346
       Monster_HP: 26411
       Monster_Attack: 3972
@@ -3129,6 +3475,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 347
     val:
+      Selection_Level: 0
       Stage_ID: 347
       Monster_HP: 26489
       Monster_Attack: 3984
@@ -3138,6 +3485,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 348
     val:
+      Selection_Level: 0
       Stage_ID: 348
       Monster_HP: 26567
       Monster_Attack: 3996
@@ -3147,6 +3495,7 @@ MonoBehaviour:
       Boss_Attack: 5994
   - Key_ID: 349
     val:
+      Selection_Level: 0
       Stage_ID: 349
       Monster_HP: 26645
       Monster_Attack: 4008
@@ -3156,6 +3505,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 350
     val:
+      Selection_Level: 0
       Stage_ID: 350
       Monster_HP: 26723
       Monster_Attack: 4020
@@ -3165,6 +3515,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 351
     val:
+      Selection_Level: 0
       Stage_ID: 351
       Monster_HP: 26801
       Monster_Attack: 4032
@@ -3174,6 +3525,7 @@ MonoBehaviour:
       Boss_Attack: 6048
   - Key_ID: 352
     val:
+      Selection_Level: 0
       Stage_ID: 352
       Monster_HP: 26879
       Monster_Attack: 4044
@@ -3183,6 +3535,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 353
     val:
+      Selection_Level: 0
       Stage_ID: 353
       Monster_HP: 26957
       Monster_Attack: 4056
@@ -3192,6 +3545,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 354
     val:
+      Selection_Level: 0
       Stage_ID: 354
       Monster_HP: 27035
       Monster_Attack: 4068
@@ -3201,6 +3555,7 @@ MonoBehaviour:
       Boss_Attack: 6102
   - Key_ID: 355
     val:
+      Selection_Level: 0
       Stage_ID: 355
       Monster_HP: 27113
       Monster_Attack: 4080
@@ -3210,6 +3565,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 356
     val:
+      Selection_Level: 0
       Stage_ID: 356
       Monster_HP: 27191
       Monster_Attack: 4092
@@ -3219,6 +3575,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 357
     val:
+      Selection_Level: 0
       Stage_ID: 357
       Monster_HP: 27269
       Monster_Attack: 4104
@@ -3228,6 +3585,7 @@ MonoBehaviour:
       Boss_Attack: 6156
   - Key_ID: 358
     val:
+      Selection_Level: 0
       Stage_ID: 358
       Monster_HP: 27347
       Monster_Attack: 4116
@@ -3237,6 +3595,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 359
     val:
+      Selection_Level: 0
       Stage_ID: 359
       Monster_HP: 27425
       Monster_Attack: 4128
@@ -3246,6 +3605,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 360
     val:
+      Selection_Level: 0
       Stage_ID: 360
       Monster_HP: 27503
       Monster_Attack: 4140
@@ -3255,6 +3615,7 @@ MonoBehaviour:
       Boss_Attack: 6210
   - Key_ID: 361
     val:
+      Selection_Level: 0
       Stage_ID: 361
       Monster_HP: 27581
       Monster_Attack: 4152
@@ -3264,6 +3625,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 362
     val:
+      Selection_Level: 0
       Stage_ID: 362
       Monster_HP: 27659
       Monster_Attack: 4164
@@ -3273,6 +3635,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 363
     val:
+      Selection_Level: 0
       Stage_ID: 363
       Monster_HP: 27737
       Monster_Attack: 4176
@@ -3282,6 +3645,7 @@ MonoBehaviour:
       Boss_Attack: 6264
   - Key_ID: 364
     val:
+      Selection_Level: 0
       Stage_ID: 364
       Monster_HP: 27815
       Monster_Attack: 4188
@@ -3291,6 +3655,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 365
     val:
+      Selection_Level: 0
       Stage_ID: 365
       Monster_HP: 27893
       Monster_Attack: 4200
@@ -3300,6 +3665,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 366
     val:
+      Selection_Level: 0
       Stage_ID: 366
       Monster_HP: 27971
       Monster_Attack: 4212
@@ -3309,6 +3675,7 @@ MonoBehaviour:
       Boss_Attack: 6318
   - Key_ID: 367
     val:
+      Selection_Level: 0
       Stage_ID: 367
       Monster_HP: 28049
       Monster_Attack: 4224
@@ -3318,6 +3685,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 368
     val:
+      Selection_Level: 0
       Stage_ID: 368
       Monster_HP: 28127
       Monster_Attack: 4236
@@ -3327,6 +3695,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 369
     val:
+      Selection_Level: 0
       Stage_ID: 369
       Monster_HP: 28205
       Monster_Attack: 4248
@@ -3336,6 +3705,7 @@ MonoBehaviour:
       Boss_Attack: 6372
   - Key_ID: 370
     val:
+      Selection_Level: 0
       Stage_ID: 370
       Monster_HP: 28283
       Monster_Attack: 4260
@@ -3345,6 +3715,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 371
     val:
+      Selection_Level: 0
       Stage_ID: 371
       Monster_HP: 28361
       Monster_Attack: 4272
@@ -3354,6 +3725,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 372
     val:
+      Selection_Level: 0
       Stage_ID: 372
       Monster_HP: 28439
       Monster_Attack: 4284
@@ -3363,6 +3735,7 @@ MonoBehaviour:
       Boss_Attack: 6426
   - Key_ID: 373
     val:
+      Selection_Level: 0
       Stage_ID: 373
       Monster_HP: 28517
       Monster_Attack: 4296
@@ -3372,6 +3745,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 374
     val:
+      Selection_Level: 0
       Stage_ID: 374
       Monster_HP: 28595
       Monster_Attack: 4308
@@ -3381,6 +3755,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 375
     val:
+      Selection_Level: 0
       Stage_ID: 375
       Monster_HP: 28673
       Monster_Attack: 4320
@@ -3390,6 +3765,7 @@ MonoBehaviour:
       Boss_Attack: 6480
   - Key_ID: 376
     val:
+      Selection_Level: 0
       Stage_ID: 376
       Monster_HP: 28751
       Monster_Attack: 4332
@@ -3399,6 +3775,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 377
     val:
+      Selection_Level: 0
       Stage_ID: 377
       Monster_HP: 28829
       Monster_Attack: 4344
@@ -3408,6 +3785,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 378
     val:
+      Selection_Level: 0
       Stage_ID: 378
       Monster_HP: 28907
       Monster_Attack: 4356
@@ -3417,6 +3795,7 @@ MonoBehaviour:
       Boss_Attack: 6534
   - Key_ID: 379
     val:
+      Selection_Level: 0
       Stage_ID: 379
       Monster_HP: 28985
       Monster_Attack: 4368
@@ -3426,6 +3805,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 380
     val:
+      Selection_Level: 0
       Stage_ID: 380
       Monster_HP: 29063
       Monster_Attack: 4380
@@ -3435,6 +3815,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 381
     val:
+      Selection_Level: 0
       Stage_ID: 381
       Monster_HP: 29141
       Monster_Attack: 4392
@@ -3444,6 +3825,7 @@ MonoBehaviour:
       Boss_Attack: 6588
   - Key_ID: 382
     val:
+      Selection_Level: 0
       Stage_ID: 382
       Monster_HP: 29219
       Monster_Attack: 4404
@@ -3453,6 +3835,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 383
     val:
+      Selection_Level: 0
       Stage_ID: 383
       Monster_HP: 29297
       Monster_Attack: 4416
@@ -3462,6 +3845,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 384
     val:
+      Selection_Level: 0
       Stage_ID: 384
       Monster_HP: 29375
       Monster_Attack: 4428
@@ -3471,6 +3855,7 @@ MonoBehaviour:
       Boss_Attack: 6642
   - Key_ID: 385
     val:
+      Selection_Level: 0
       Stage_ID: 385
       Monster_HP: 29453
       Monster_Attack: 4440
@@ -3480,6 +3865,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 386
     val:
+      Selection_Level: 0
       Stage_ID: 386
       Monster_HP: 29531
       Monster_Attack: 4452
@@ -3489,6 +3875,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 387
     val:
+      Selection_Level: 0
       Stage_ID: 387
       Monster_HP: 29609
       Monster_Attack: 4464
@@ -3498,6 +3885,7 @@ MonoBehaviour:
       Boss_Attack: 6696
   - Key_ID: 388
     val:
+      Selection_Level: 0
       Stage_ID: 388
       Monster_HP: 29687
       Monster_Attack: 4476
@@ -3507,6 +3895,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 389
     val:
+      Selection_Level: 0
       Stage_ID: 389
       Monster_HP: 29765
       Monster_Attack: 4488
@@ -3516,6 +3905,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 390
     val:
+      Selection_Level: 0
       Stage_ID: 390
       Monster_HP: 29843
       Monster_Attack: 4500
@@ -3525,6 +3915,7 @@ MonoBehaviour:
       Boss_Attack: 6750
   - Key_ID: 391
     val:
+      Selection_Level: 0
       Stage_ID: 391
       Monster_HP: 29921
       Monster_Attack: 4512
@@ -3534,6 +3925,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 392
     val:
+      Selection_Level: 0
       Stage_ID: 392
       Monster_HP: 29999
       Monster_Attack: 4524
@@ -3543,6 +3935,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 393
     val:
+      Selection_Level: 0
       Stage_ID: 393
       Monster_HP: 30077
       Monster_Attack: 4536
@@ -3552,6 +3945,7 @@ MonoBehaviour:
       Boss_Attack: 6804
   - Key_ID: 394
     val:
+      Selection_Level: 0
       Stage_ID: 394
       Monster_HP: 30155
       Monster_Attack: 4548
@@ -3561,6 +3955,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 395
     val:
+      Selection_Level: 0
       Stage_ID: 395
       Monster_HP: 30233
       Monster_Attack: 4560
@@ -3570,6 +3965,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 396
     val:
+      Selection_Level: 0
       Stage_ID: 396
       Monster_HP: 30311
       Monster_Attack: 4572
@@ -3579,6 +3975,7 @@ MonoBehaviour:
       Boss_Attack: 6858
   - Key_ID: 397
     val:
+      Selection_Level: 0
       Stage_ID: 397
       Monster_HP: 30389
       Monster_Attack: 4584
@@ -3588,6 +3985,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 398
     val:
+      Selection_Level: 0
       Stage_ID: 398
       Monster_HP: 30467
       Monster_Attack: 4596
@@ -3597,6 +3995,7 @@ MonoBehaviour:
       Boss_Attack: 0
   - Key_ID: 399
     val:
+      Selection_Level: 0
       Stage_ID: 399
       Monster_HP: 30545
       Monster_Attack: 4608
@@ -3606,6 +4005,7 @@ MonoBehaviour:
       Boss_Attack: 6912
   - Key_ID: 400
     val:
+      Selection_Level: 0
       Stage_ID: 400
       Monster_HP: 30623
       Monster_Attack: 4620

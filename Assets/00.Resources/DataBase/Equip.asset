@@ -15,6 +15,7 @@ MonoBehaviour:
   data:
   - Key_ID: 400001
     val:
+      Selection_Level: 0
       Equipment_Type_ID: 0
       Equipment_Type_Name: "\uAC80\uACFC_\uBC29\uD328"
       Equipment_Attack: 0
@@ -25,6 +26,7 @@ MonoBehaviour:
       HP_LV_UP_Effect: 180
   - Key_ID: 400002
     val:
+      Selection_Level: 0
       Equipment_Type_ID: 0
       Equipment_Type_Name: "\uD65C\uACFC_\uAC11\uC637"
       Equipment_Attack: 0
@@ -35,6 +37,7 @@ MonoBehaviour:
       HP_LV_UP_Effect: 144
   - Key_ID: 400003
     val:
+      Selection_Level: 0
       Equipment_Type_ID: 0
       Equipment_Type_Name: "\uC9C0\uD321\uC774\uC640_\uB9C8\uBC95\uC11C"
       Equipment_Attack: 0

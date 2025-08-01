@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,10 +14,14 @@ public class IDValuePair<T> where T : BaseValue
 [System.Serializable]
 public abstract class BaseValue
 {
-    
+    public EMyGrade Selection_Level;
+    public EMyGrade GetGrade()
+    {
+        return Selection_Level;
+    }
 }
 
-public enum MyGrade
+public enum EMyGrade
 {
     노말,
     레어,
@@ -28,7 +33,6 @@ public enum MyGrade
 [System.Serializable]
 public class EquipOption : BaseValue
 {
-    public MyGrade Selection_Level;
     public string Description;
     public int Equipment_Type_ID;
     public float Attack_LV_UP_Effect;
@@ -64,7 +68,6 @@ public class MonsterExel : BaseValue
 [System.Serializable]
 public class SkillOption : BaseValue
 {
-    public MyGrade Selection_Level;
     public string Description;
     public int Skill_ID;
     public float Cooldown_Reduction;
@@ -91,7 +94,6 @@ public class Training : BaseValue
 [System.Serializable]
 public class TrainingOption : BaseValue
 {
-    public MyGrade Selection_Level;
     public string Description;
     public int Training_ID;
     public float Critical_Damage_Increase;
