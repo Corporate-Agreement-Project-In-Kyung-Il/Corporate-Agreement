@@ -8,9 +8,9 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
     //Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사
     [Header("Player에 InputGameManagerSkillID 메소드를 보면됨. 이때 0번째 = 전사, 1번째 = 궁수, 2번째 = 마법사")]
     
-    [SerializeField] PlayerData warriorData;
-    [SerializeField] PlayerData archerData;
-    [SerializeField] PlayerData wizardData;
+    //0번 전사, 1번 궁수, 2번 마법사
+    public PlayerData[] Data;
+
     public PlayerStat[] DependencyPlayerStat;
     
     
@@ -50,21 +50,22 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                 switch (i)
                 {
                     case 0 :
-                        warriorData.equip_level += equipOption.Equipment_LvUP;
-                        warriorData.attackDamage += equipOption.Attack_LV_UP_Effect;
-                        warriorData.health += equipOption.HP_LV_UP_Effect;
+                        Data[0].equip_level += equipOption.Equipment_LvUP;
+                        Data[0].attackDamage += equipOption.Attack_LV_UP_Effect;
+                        Data[0].health += equipOption.HP_LV_UP_Effect;
                         break;
                     case 1 :
-                        archerData.equip_level += equipOption.Equipment_LvUP;
-                        archerData.attackDamage += equipOption.Attack_LV_UP_Effect;
-                        archerData.health += equipOption.HP_LV_UP_Effect;
+                        Data[1].equip_level += equipOption.Equipment_LvUP;
+                        Data[1].attackDamage += equipOption.Attack_LV_UP_Effect;
+                        Data[1].health += equipOption.HP_LV_UP_Effect;
                         break;
                     case 2 :
-                        wizardData.equip_level += equipOption.Equipment_LvUP;
-                        wizardData.attackDamage += equipOption.Attack_LV_UP_Effect;
-                        wizardData.health += equipOption.HP_LV_UP_Effect;
+                        Data[2].equip_level += equipOption.Equipment_LvUP;
+                        Data[2].attackDamage += equipOption.Attack_LV_UP_Effect;
+                        Data[2].health += equipOption.HP_LV_UP_Effect;
                         break;
                 }
+                TSVLoaderSample.OverwritePlayerData(Data[i]);
                 break;
             }
         }
@@ -105,26 +106,28 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                 switch (i)
                 {
                     case 0 :
-                        warriorData.attackDamage += trainingOption.Critical_Damage_Increase;
-                        warriorData.health += trainingOption.Critical_Damage_Increase;
-                        warriorData.criticalProbability += trainingOption.Critical_Rate_Increase;
-                        warriorData.training_level += trainingOption.Training_LvUP;
+                        Data[0].attackDamage += trainingOption.Critical_Damage_Increase;
+                        Data[0].health += trainingOption.Critical_Damage_Increase;
+                        Data[0].criticalProbability += trainingOption.Critical_Rate_Increase;
+                        Data[0].training_level += trainingOption.Training_LvUP;
                         break;
                     case 1 :
-                        archerData.attackDamage += trainingOption.Critical_Damage_Increase;
-                        archerData.health += trainingOption.Critical_Damage_Increase;
-                        archerData.criticalProbability += trainingOption.Critical_Rate_Increase;
-                        archerData.training_level += trainingOption.Training_LvUP;
+                        Data[1].attackDamage += trainingOption.Critical_Damage_Increase;
+                        Data[1].health += trainingOption.Critical_Damage_Increase;
+                        Data[1].criticalProbability += trainingOption.Critical_Rate_Increase;
+                        Data[1].training_level += trainingOption.Training_LvUP;
                         break;
                     case 2 :
-                        wizardData.attackDamage += trainingOption.Critical_Damage_Increase;
-                        wizardData.health += trainingOption.Critical_Damage_Increase;
-                        wizardData.criticalProbability += trainingOption.Critical_Rate_Increase;
-                        wizardData.training_level += trainingOption.Training_LvUP;
+                        Data[2].attackDamage += trainingOption.Critical_Damage_Increase;
+                        Data[2].health += trainingOption.Critical_Damage_Increase;
+                        Data[2].criticalProbability += trainingOption.Critical_Rate_Increase;
+                        Data[2].training_level += trainingOption.Training_LvUP;
                         break;
                 }
+                TSVLoaderSample.OverwritePlayerData(Data[i]);
                 break;
             }
+            
         }
     }
     
