@@ -278,6 +278,10 @@ public class GameManager : MonoBehaviour
     public GameObject upgradePanel;
     public void PopUpUpgradeChoice(OptionButton optionButton)
     {
+        if (optionButton.isUpgradable == false)
+        {
+            return;
+        }
         if (upgradePanel.activeSelf)
         {
             upgradePanel.SetActive(false);
@@ -341,6 +345,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    optionButton.isUpgradable = false;
                     // 더 높은 등급이 없음
                     Debug.Log("이미 최고 등급입니다.");
                 }
@@ -369,6 +374,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    optionButton.isUpgradable = false;
                     // 더 높은 등급이 없음
                     Debug.Log("이미 최고 등급입니다.");
                 }
@@ -398,6 +404,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    optionButton.isUpgradable = false;
                     // 더 높은 등급이 없음
                     Debug.Log("이미 최고 등급입니다.");
                 }
@@ -422,7 +429,8 @@ public class GameManager : MonoBehaviour
     private void SetRandomOptionToButton(OptionButton button, int rerollCount)
     {
         EOptionType choicedOption = GetRandomOptionType();
-
+        button.isUpgradable = true;
+        button.brokenImage.SetActive(false);
         if (!m_Options.TryGetValue(choicedOption, out ScriptableObject option))
         {
             Debug.LogError("No option found for type: " + choicedOption);

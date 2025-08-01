@@ -22,6 +22,8 @@ public class OptionButton : MonoBehaviour
    public int rerollCount;
    public EOptionType optionType;
    public int selectID;
+   public bool isUpgradable;
+   public GameObject brokenImage;
    
    public Text rerollCountText;
    public Canvas optionCanvas;
@@ -90,6 +92,10 @@ public class OptionButton : MonoBehaviour
    }
    public void PopUpOptionChoicePanel()
    {
+      if (isUpgradable == false)
+      {
+         return;
+      }
       if (checkOptionPanel.activeSelf)
       {
          checkOptionPanel.SetActive(false);
