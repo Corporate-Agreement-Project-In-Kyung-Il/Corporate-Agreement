@@ -82,6 +82,14 @@ public sealed class Spawner : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        int savedStage = PlayerList.Instance.currentStage;
+        
+        // 플레이어가 저장된 스테이지가 있으면 그 스테이지로 시작
+        if (0 < savedStage)
+        {
+            m_CurStageId = savedStage;
+        }
+
         
         m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
         {
