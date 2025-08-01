@@ -308,10 +308,10 @@ public sealed class Spawner : MonoBehaviour
         // index 0 전사 100001
         // index 1 궁수 100004
         // index 2 마법사 100006
-        // var playerList = PlayerList.Instance.CharacterIDs;
+        var playerList = PlayerList.Instance.CharacterIDs;
         // TODO : 플레이어 ID를 외부에서 받아오는 로직으로 변경 필요
         // 임시로 0, 1, 2로 설정
-        var playerList = new int[] {100001, 100004, 100006};
+        // var playerList = new int[] {100001, 100004, 100006};
         
         for (int i = 0; i < playerList.Length; i++)
         {
