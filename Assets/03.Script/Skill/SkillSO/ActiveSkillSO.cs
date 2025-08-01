@@ -23,7 +23,7 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
     public SkillType Skill_Type;
     public int Skill_Minimum_LV;
 
-    public int Skill_current_LV;
+    public int Skill_current_LV=1;
     public int Skill_Maximum_LV;
     public float Skill_Cooldown;
     public float Skill_Damage;

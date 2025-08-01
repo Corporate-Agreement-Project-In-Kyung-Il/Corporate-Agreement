@@ -19,6 +19,7 @@ public class SFXManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
 
         for (int i = 0; i < poolSize; i++)
         {
