@@ -27,6 +27,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 
     void Start()
     {
+        SFXManager.Instance.Play(skillSound);
         attackCount = 0;
     }
 
@@ -86,15 +87,18 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     public override void Initialize()
     {
         SetSkillID();
+        
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
             stat.Attack_Count = skill.Skill_Attack_Count;
+            stat.SkillName = skill.Skill_Name;
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
             stat.Attack_Count = skill2.Skill_Attack_Count;
+            stat.SkillName = skill2.Skill_Name;
         }
     }
 }

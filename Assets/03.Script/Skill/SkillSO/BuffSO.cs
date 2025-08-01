@@ -34,6 +34,8 @@ public class BuffSO : ScriptableObject, ISkillID
     {
         SkillID = Skill_ID;
     }
+
+    public Sprite SkillSprite { get; set; }
     //
 #if UNITY_EDITOR
     public void SetPrefab()
@@ -64,6 +66,7 @@ public class BuffSO : ScriptableObject, ISkillID
                         {
                             Debug.Log(comp);
                             skillScript.SetSkillID();
+                            
                             // 스크립트의 SkillID가 SO의 Skill_ID와 같은지 비교
                             if (skillScript.SkillID == Skill_ID)
                             {
@@ -76,6 +79,11 @@ public class BuffSO : ScriptableObject, ISkillID
                 }
             }
         }
+    }
+
+    public void SetSkillSprite()
+    {
+       
     }
 #endif
 }

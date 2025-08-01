@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fe33401d370b94fa590fe0537390e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkillIcon: {fileID: 21300000, guid: d0a7a99e7e4a31247b14d43a5ec6a9af, type: 3}
+  SkillName: "\uAC15\uCCA0 \uC2E4\uB4DC"
+  buffSound: {fileID: 11400000, guid: 185680c6c89ce434d842b26041a232ca, type: 2}
   SkillId: 100013
   owner: {fileID: 0}
   buffSO: {fileID: 0}

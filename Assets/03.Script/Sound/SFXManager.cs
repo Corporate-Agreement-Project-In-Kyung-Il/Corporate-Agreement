@@ -36,7 +36,6 @@ public class SFXManager : MonoBehaviour
                 sources.clip = sfxData.clip;
                 sources.volume = sfxData.volume;
      
-
                 sources.Play();
                 return;
             }
