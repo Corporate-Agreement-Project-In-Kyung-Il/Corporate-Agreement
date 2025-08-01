@@ -5026,6 +5026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterList: []
   playerList: []
+  retireCanvas: {fileID: 0}
 --- !u!1 &2069321265
 GameObject:
   m_ObjectHideFlags: 0
@@ -6498,6 +6499,22 @@ PrefabInstance:
       propertyPath: m_FontData.m_BestFit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: Data.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: Data.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
+    - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: Data.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
+    - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: Data.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
     - target: {fileID: 8404402728171240983, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
@@ -6550,6 +6567,10 @@ PrefabInstance:
       propertyPath: optionButtons.Array.data[2]
       value: 
       objectReference: {fileID: 1678880258}
+    - target: {fileID: 9067918093994029956, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 9104729605869461379, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
