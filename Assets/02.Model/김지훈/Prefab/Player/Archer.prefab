@@ -99,7 +99,7 @@ MonoBehaviour:
   resetHp: 0
   currentCharacterState: 0
   prevCharacterState: 0
-  detectionRange: {x: 5, y: 7}
+  detectionRange: {x: 5, y: 5}
   isTarget: 0
   target: {fileID: 0}
   attackRange: 0
