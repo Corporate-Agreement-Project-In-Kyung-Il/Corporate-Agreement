@@ -4688,6 +4688,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
   - {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
   characterChoosing: {fileID: 0}
+  characterSprites:
+  - {fileID: 21300000, guid: cf99824c846c35c48bb3f856a4fbd1f7, type: 3}
+  - {fileID: 21300000, guid: 5e7b4368632dd15489344ddab40c9afb, type: 3}
+  - {fileID: 21300000, guid: 119fc63d70b1c134ca5b31459a2b6ec5, type: 3}
+  - {fileID: 21300000, guid: 1d57bf6e71cfec24c8bdcfdae6dc33b8, type: 3}
+  - {fileID: 21300000, guid: 66ca8f7b91d3b824eaa2c1fd3848db7d, type: 3}
+  - {fileID: 21300000, guid: 2f9e206413ecbe648bdf952b880ccd6f, type: 3}
+  - {fileID: 21300000, guid: 3f344fa0db831d34ca175b1624711738, type: 3}
 --- !u!1 &1322421508
 GameObject:
   m_ObjectHideFlags: 0

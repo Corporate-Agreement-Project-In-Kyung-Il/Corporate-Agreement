@@ -4,6 +4,7 @@ using UnityEngine;
 public class TSVLoaderSample : MonoBehaviour
 {
     public int currentStage;
+
     public class SampleData
     {
         public int? CurrentStage { get; set; }
@@ -26,10 +27,14 @@ public class TSVLoaderSample : MonoBehaviour
     }
     
     public static List<SampleData> SampleDataList { get; set; }
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
-    async void Awake()
+    private void Awake()
+    {
+        GetThePlayerDataInSaveFile();
+    }
+
+    async void GetThePlayerDataInSaveFile()
     {
         //Unity의 StreamingAssets 경로, PersistentDataPath 경로 검색해서 스터디 할것.
         //아래 두 내용 주석 해제하면 어떤건지 나옴
@@ -56,5 +61,37 @@ public class TSVLoaderSample : MonoBehaviour
             Debug.Log(lastStage);
         }
         currentStage = (int)lastStage;
+    }
+
+    public void OverwritePlayerData(PlayerData newData)
+    {
+        if (SampleDataList == null)
+        {
+            Debug.LogWarning("SampleDataList가 아직 로드되지 않았습니다.");
+            return;
+        }
+
+        int index = SampleDataList.FindIndex(data => data.Character_ID == newData.character_ID);
+        if (index >= 0)
+        {
+            InputData(SampleDataList[index], newData);
+            Debug.Log($"ID {newData.character_ID}에 해당하는 데이터를 성공적으로 덮어썼습니다.");
+        }
+        else
+        {
+            Debug.LogWarning($"ID {newData.character_ID}를 찾을 수 없습니다. 새로 추가합니다.");
+        }
+    }
+
+    private void InputData(SampleData sample, PlayerData newData)
+    {
+        sample.Attack = newData.attackDamage;
+        sample.Health = newData.health;
+        sample.Attack_Speed = newData.attackSpeed;
+        sample.Critical_Probability = newData.criticalProbability;
+        sample.Training_Level = newData.training_level;
+        sample.Equip_Level = newData.equip_level;
+        sample.Skill1_Level = newData.skill_level1;
+        sample.Skill2_Level = newData.skill_level2;
     }
 }

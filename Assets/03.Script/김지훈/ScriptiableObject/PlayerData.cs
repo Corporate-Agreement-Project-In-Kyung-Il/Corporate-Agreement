@@ -30,5 +30,8 @@ public class PlayerData : ScriptableObject
     public int equip_level;
     public List<int> skill_possed; //스킬 적용
 
+    public int skill_level1;
+    public int skill_level2;
+
     public Sprite playerUISprite;
 }

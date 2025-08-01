@@ -620,7 +620,7 @@ Camera:
   far clip plane: 10
   field of view: 91.49284
   orthographic: 1
-  orthographic size: 5.714286
+  orthographic size: 6.785714
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4635,6 +4635,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 5001625310718226077, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6228405132521303574, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -4687,6 +4691,10 @@ PrefabInstance:
       propertyPath: optionButtons.Array.data[2]
       value: 
       objectReference: {fileID: 1678880258}
+    - target: {fileID: 9067918093994029956, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 350
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

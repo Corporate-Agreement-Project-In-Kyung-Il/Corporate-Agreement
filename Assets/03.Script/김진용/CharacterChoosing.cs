@@ -19,7 +19,6 @@
         [SerializeField] private List<Button> PlayerChoosingButtons = new List<Button>();
         
         
-        
         [SerializeField] private GameObject SameClassPanel;
         public GameObject No3ClassPanel;
         
