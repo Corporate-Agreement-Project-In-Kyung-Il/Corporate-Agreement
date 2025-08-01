@@ -134,7 +134,7 @@ public class SkillManager : MonoBehaviour
         Origin_skillObjects = assets;
     
         // 5) 에디터에 Dirty 표시해서 저장하도록 함
-        EditorUtility.SetDirty(this);
+        //EditorUtility.SetDirty(this);
     }
     
     public void SkillEnchant()
