@@ -31,6 +31,7 @@ public class PlayerList : MonoBehaviour
     }
     public void InitializePutData(PlayerData Data, TSVLoaderSample.SampleData playerData, Sprite playerSprite)
     {
+        currentStage = (int)playerData.CurrentStage;
         Data.character_ID = playerData.Character_ID;
         Data.characterClass = playerData.Character_Class;
         Data.characterName = playerData.Character_Name;
