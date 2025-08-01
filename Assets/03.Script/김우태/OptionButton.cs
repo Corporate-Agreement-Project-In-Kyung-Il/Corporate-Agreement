@@ -27,11 +27,9 @@ public class OptionButton : MonoBehaviour
    public Canvas optionCanvas;
    public BaseValue selectedData;
    public GameObject checkOptionPanel;
-   
-   [SerializeField]
-   private Sprite[] m_GradeImages;
-   [SerializeField]
-   private Image m_ChoiceImage;
+   public Sprite[] gradeImages;
+   public Image choiceImage;
+   public Text choiceText;
    private Button m_PopUpConfirmButton;
    
    public void OnClick()
@@ -44,47 +42,53 @@ public class OptionButton : MonoBehaviour
       {
          case EOptionType.Skill:
             m_SkillOptionEvent.Invoke();
-            GameManager.Instance.Resume();
             optionCanvas.gameObject.SetActive(false);
+            GameManager.Instance.Resume();
             break;
          case EOptionType.Equip:
             m_EquipOptionEvent.Invoke();
-            GameManager.Instance.Resume();
             optionCanvas.gameObject.SetActive(false);
+            GameManager.Instance.Resume();
             break;
          case EOptionType.Training:
             m_TrainingOptionEvent.Invoke();
-            GameManager.Instance.Resume();
             optionCanvas.gameObject.SetActive(false);
+            GameManager.Instance.Resume();
             break;
       }
    }
 
-   public void SetOptionGradeImage(MyGrade grade)
+   public void SetOptionGradeImage(EMyGrade grade, string selection_Name)
    {
       switch (grade)
       {
-         case MyGrade.노말 :
-            m_ChoiceImage.sprite = m_GradeImages[0];
+         case EMyGrade.노말 :
+            choiceImage.sprite = gradeImages[0];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.레어 :
-            m_ChoiceImage.sprite = m_GradeImages[1];
+         case EMyGrade.레어 :
+            choiceImage.sprite = gradeImages[1];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.에픽 :
-            m_ChoiceImage.sprite = m_GradeImages[2];
+         case EMyGrade.에픽 :
+            choiceImage.sprite = gradeImages[2];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.유니크 :
-            m_ChoiceImage.sprite = m_GradeImages[3];
+         case EMyGrade.유니크 :
+            choiceImage.sprite = gradeImages[3];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.레전드 :
-            m_ChoiceImage.sprite = m_GradeImages[4];
+         case EMyGrade.레전드 :
+            choiceImage.sprite = gradeImages[4];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
-         case MyGrade.신화 :
-            m_ChoiceImage.sprite = m_GradeImages[5];
+         case EMyGrade.신화 :
+            choiceImage.sprite = gradeImages[5];
+            choiceText.text = $"{grade.ToString()} {selection_Name}";
             break;
       }
    }
-   public void PopUpPanel()
+   public void PopUpOptionChoicePanel()
    {
       if (checkOptionPanel.activeSelf)
       {

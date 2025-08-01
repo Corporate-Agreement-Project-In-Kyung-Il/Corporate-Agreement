@@ -184,16 +184,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   Origin_skillObjects:
-  - {fileID: 11400000, guid: 862394ac6f9a08e41bf4961270814a9b, type: 2}
-  - {fileID: 11400000, guid: f706b4408a614e647a6e0733fcdc5f1c, type: 2}
-  - {fileID: 11400000, guid: 82a956103d63f3549aa4d6519c21fc49, type: 2}
-  - {fileID: 11400000, guid: 5b180d11364a81a4a88b5f886133d011, type: 2}
-  - {fileID: 11400000, guid: 88ddf401846552343aaf7d8e126a1c2e, type: 2}
-  - {fileID: 11400000, guid: 4cfa488539845a54d93d38f3488a7dd3, type: 2}
-  - {fileID: 11400000, guid: d29449668be5b5241ba545682d536a5a, type: 2}
-  - {fileID: 11400000, guid: 410aaae6396ed6e449f263d2c83700a4, type: 2}
-  - {fileID: 11400000, guid: 1440924e63783b54a91a69fed6844451, type: 2}
-  - {fileID: 11400000, guid: 6f9b667c932c60e4a9be050064b7377a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skillObjects: []
   skillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
   Selection_ID: 0
@@ -630,6 +630,7 @@ MonoBehaviour:
   skillManager: {fileID: 128173405}
   pausePanel: {fileID: 1159654436}
   type: {fileID: 0}
+  upgradePanel: {fileID: 0}
   "\uB178\uB9D0_\uAC00\uC911\uCE58": 500
   "\uB808\uC5B4_\uAC00\uC911\uCE58": 257
   "\uC5D0\uD53D_\uAC00\uC911\uCE58": 140
@@ -886,7 +887,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1678880258}
         m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
-        m_MethodName: PopUpPanel
+        m_MethodName: PopUpOptionChoicePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2411,7 +2412,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2117860704}
         m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
-        m_MethodName: PopUpPanel
+        m_MethodName: PopUpOptionChoicePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3680,7 +3681,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1447951144}
         m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
-        m_MethodName: PopUpPanel
+        m_MethodName: PopUpOptionChoicePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4569,14 +4570,14 @@ MonoBehaviour:
   rerollCountText: {fileID: 1618504080}
   optionCanvas: {fileID: 188872456}
   checkOptionPanel: {fileID: 1020082307}
-  m_GradeImages:
+  gradeImages:
   - {fileID: 21300000, guid: cc340b081b983b7419fbf84da335fcf6, type: 3}
   - {fileID: 21300000, guid: f78ea4fc5fcebb64bade4ff99dc3afed, type: 3}
   - {fileID: 21300000, guid: 16aa55138642c0249add22b2b7fa0173, type: 3}
   - {fileID: 21300000, guid: 3b38633bd477ceb4ca36b46f003336b1, type: 3}
   - {fileID: 21300000, guid: 4f946345879fcda4aabccd01ad206674, type: 3}
   - {fileID: 21300000, guid: e6add665928b7ad449d0b920cbfe7410, type: 3}
-  m_ChoiceImage: {fileID: 1198262287}
+  choiceImage: {fileID: 1198262287}
 --- !u!114 &1447951145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5425,7 +5426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CurStageId: 3
   m_StageEndDetector: {fileID: 1399486814}
   m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
@@ -5446,7 +5446,11 @@ MonoBehaviour:
   m_Grid: {fileID: 1058518465}
   m_StageEndPoint: {fileID: 1399486814}
   m_reviveGameObject: {fileID: 922078190}
+  m_CurStageId: 1
   m_BossSpawnYOffset: 1
+  m_ArcherSpawnPos: {x: -0.5, y: 1}
+  m_WarriorSpawnPos: {x: 0.5, y: 2}
+  m_WizardSpawnPos: {x: 1.5, y: 1}
 --- !u!4 &1641550388
 Transform:
   m_ObjectHideFlags: 0
@@ -5619,14 +5623,14 @@ MonoBehaviour:
   rerollCountText: {fileID: 1405148153}
   optionCanvas: {fileID: 188872456}
   checkOptionPanel: {fileID: 1020082307}
-  m_GradeImages:
+  gradeImages:
   - {fileID: 21300000, guid: cc340b081b983b7419fbf84da335fcf6, type: 3}
   - {fileID: 21300000, guid: f78ea4fc5fcebb64bade4ff99dc3afed, type: 3}
   - {fileID: 21300000, guid: 16aa55138642c0249add22b2b7fa0173, type: 3}
   - {fileID: 21300000, guid: 3b38633bd477ceb4ca36b46f003336b1, type: 3}
   - {fileID: 21300000, guid: 4f946345879fcda4aabccd01ad206674, type: 3}
   - {fileID: 21300000, guid: e6add665928b7ad449d0b920cbfe7410, type: 3}
-  m_ChoiceImage: {fileID: 399789072}
+  choiceImage: {fileID: 399789072}
 --- !u!114 &1678880259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5697,6 +5701,7 @@ MonoBehaviour:
     attackSpeed: 0
     criticalProbability: 0
     training_type: 0
+    training_level: 0
     equip_item: 0
     equip_level: 0
     skill_possed: 
@@ -5713,6 +5718,7 @@ MonoBehaviour:
     attackSpeed: 0
     criticalProbability: 0
     training_type: 0
+    training_level: 0
     equip_item: 0
     equip_level: 0
     skill_possed: 
@@ -5729,6 +5735,7 @@ MonoBehaviour:
     attackSpeed: 0
     criticalProbability: 0
     training_type: 0
+    training_level: 0
     equip_item: 0
     equip_level: 0
     skill_possed: 
@@ -6890,14 +6897,14 @@ MonoBehaviour:
   rerollCountText: {fileID: 879091422}
   optionCanvas: {fileID: 188872456}
   checkOptionPanel: {fileID: 1020082307}
-  m_GradeImages:
+  gradeImages:
   - {fileID: 21300000, guid: cc340b081b983b7419fbf84da335fcf6, type: 3}
   - {fileID: 21300000, guid: f78ea4fc5fcebb64bade4ff99dc3afed, type: 3}
   - {fileID: 21300000, guid: 16aa55138642c0249add22b2b7fa0173, type: 3}
   - {fileID: 21300000, guid: 3b38633bd477ceb4ca36b46f003336b1, type: 3}
   - {fileID: 21300000, guid: 4f946345879fcda4aabccd01ad206674, type: 3}
   - {fileID: 21300000, guid: e6add665928b7ad449d0b920cbfe7410, type: 3}
-  m_ChoiceImage: {fileID: 835410153}
+  choiceImage: {fileID: 835410153}
 --- !u!114 &2143961052
 MonoBehaviour:
   m_ObjectHideFlags: 0

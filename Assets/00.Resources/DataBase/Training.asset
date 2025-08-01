@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e96502d0d940c4aa5116931410118d, type: 3}
-  m_Name: TrainingOptionChoice
+  m_Name: Training
   m_EditorClassIdentifier: 
   data:
   - Key_ID: 500001
     val:
+      Selection_Level: 0
       Training_ID: 0
       Training_Name: "\uAC15\uC778\uD55C_\uC804\uC0AC\uC758_\uBE44\uAE30"
       Critical_Rate: 0
@@ -27,6 +28,7 @@ MonoBehaviour:
       Attack_Speed_Increase: 0.03
   - Key_ID: 500002
     val:
+      Selection_Level: 0
       Training_ID: 0
       Training_Name: "\uB0A0\uB835\uD55C_\uAD81\uC218\uC758_\uBE44\uAE30"
       Critical_Rate: 0
@@ -39,6 +41,7 @@ MonoBehaviour:
       Attack_Speed_Increase: 0.05
   - Key_ID: 500003
     val:
+      Selection_Level: 0
       Training_ID: 0
       Training_Name: "\uACE0\uACE0\uD55C_\uB9C8\uBC95\uC0AC\uC758_\uBE44\uAE30"
       Critical_Rate: 0

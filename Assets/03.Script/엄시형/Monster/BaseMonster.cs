@@ -10,12 +10,13 @@ namespace _03.Script.엄시형.Monster
         Bear0,
         Catumon,
         Bugfly,
+        Goblin,
     }
     
     public abstract class BaseMonster : MonoBehaviour
     {
         public abstract MonsterType Type { get; }
 
-        private MonsterType mType;
+        [SerializeField] protected MonsterType m_Type;
     }
 }
