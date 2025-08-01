@@ -22,10 +22,10 @@ MonoBehaviour:
   attackDamage: 67
   health: 80
   attackSpeed: 0.5
-  criticalProbability: 1.0399997
+  criticalProbability: 1.5399992
   training_type: 500003
-  training_level: 18
+  training_level: 43
   equip_item: 400003
-  equip_level: 34
+  equip_level: 56
   skill_possed: b2860100b3860100
   playerUISprite: {fileID: 21300000, guid: 8a8691d46ac324f4abd3f201b3c3471b, type: 3}
