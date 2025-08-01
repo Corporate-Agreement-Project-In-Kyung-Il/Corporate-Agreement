@@ -22,6 +22,7 @@ public sealed class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     public List<Tilemap> CurTilemapList => m_CurTilemapList;
+    public int CurStageId => CurStageId; 
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
