@@ -335,8 +335,7 @@ public class GameManager : MonoBehaviour
                     // 승급 가능
                     optionButton.selectID = skillNextGrade.Key_ID;
                     optionButton.selectedData = skillNextGrade.val;
-                    optionButton.SetOptionGradeImage(skillNextGrade.val.Selection_Level, 
-                        "Skill");
+                    optionButton.SetOptionGradeImage(skillNextGrade.val.Selection_Level,skillManager.GetSkillName(optionButton.selectID));///////////////////////////////////////////////////////////
                     Debug.Log($"[Upgrade] {skillValue.Selection_Level} → {skillNextGrade.val.Selection_Level}");
                     UpgradePanelOpen(optionButton);
                 }
@@ -442,7 +441,7 @@ public class GameManager : MonoBehaviour
                 button.optionType = EOptionType.Skill;
                 button.selectedData = skillData.val;
                 button.SetOptionGradeImage(skill.GetValue(button.selectID).Selection_Level, 
-                    "Skill"); //여기하고
+                    skillManager.GetSkillName(button.selectID)); //여기하고/////////////////////////////////////////////////////////////////////////
                 Debug.Log($"[Skill] 선택지: {button.selectID} / {skill.GetValue( button.selectID).Selection_Level}");
                 break;
 

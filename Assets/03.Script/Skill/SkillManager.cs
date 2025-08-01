@@ -23,6 +23,7 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private ScriptableObject[] skillObjects;
     [SerializeField] private OptionChoice_SkillOption skillOption;
 
+    
 
     public int Selection_ID; // 여기다 스킬 선택했을때 넣어주시면 됩니다. 
 
@@ -58,6 +59,18 @@ public class SkillManager : MonoBehaviour
         }
 
         skillObjects = clonedList.ToArray();
+        
+        foreach (var skill in skillObjects)
+        {
+            if (skill is ActiveSkillSO active)
+            {
+                Debug.Log($"[ActiveSkill 복사됨] Name: {active.name}, SkillID: {active.Skill_ID}, Skill_Name: {active.Skill_Name}");
+            }
+            else if (skill is BuffSO buff)
+            {
+                Debug.Log($"[BuffSkill 복사됨] Name: {buff.name}, SkillID: {buff.Skill_ID}, Skill_Name: {buff.Skill_Name}");
+            }
+        }
         // skillObjects 안에 들어있는 ScriptableObject 중 ISkillID를 구현한 것만 필터링
         List<ISkillID> temp = new List<ISkillID>();
         foreach (var obj in skillObjects)
@@ -141,6 +154,7 @@ public class SkillManager : MonoBehaviour
     {
         var a = skillOption.GetValue(Selection_ID);
 
+        
         Debug.Log($"Skill_ID: {a.Skill_ID}, Selection_Level: {a.Selection_Level}, Description: {a.Description}, " +
                   $"Cooldown_Reduction: {a.Cooldown_Reduction}, Duration_Increase: {a.Duration_Increase}, " +
                   $"Activation_Rate_Increase: {a.Activation_Rate_Increase}, Damage_Increase: {a.Damage_Increase}, " +
@@ -186,4 +200,45 @@ public class SkillManager : MonoBehaviour
             }
         }
     }
+
+    public string GetSkillName(int SelectID)
+    {
+
+        var selectedOption = skillOption.GetValue(SelectID);
+        int targetSkillID = selectedOption.Skill_ID;
+
+        Debug.Log("targetSkillID" + targetSkillID);
+        foreach (var skill in skillObjects)
+        {
+            Debug.Log("1차");
+            if (skill == null)
+            {
+                Debug.Log("null");
+                continue;
+            }
+
+            if (skill is ActiveSkillSO activeSkill)
+            {Debug.Log("2차");
+                if (activeSkill.Skill_ID == targetSkillID)
+                {
+                    Debug.Log("activeSkill.Skill_Name" + activeSkill.Skill_Name);
+                    return activeSkill.Skill_Name;
+                }
+            }
+        
+
+            if (skill is BuffSO buffSkill)
+            {Debug.Log("3차");
+                if (buffSkill.Skill_ID == targetSkillID)
+                {
+                    Debug.Log("buffSkill.Skill_Name" + buffSkill.Skill_Name);
+                    return buffSkill.Skill_Name;
+                }
+            }
+        }
+
+        Debug.LogWarning($"Skill ID {targetSkillID}에 해당하는 스킬을 찾을 수 없습니다.");
+        return "Unknown Skill";
+    }
+
 }
