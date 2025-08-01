@@ -63,7 +63,7 @@ public class TSVLoaderSample : MonoBehaviour
         currentStage = (int)lastStage;
     }
 
-    public void OverwritePlayerData(PlayerData newData)
+    public static void OverwritePlayerData(PlayerData newData)
     {
         if (SampleDataList == null)
         {
@@ -83,8 +83,9 @@ public class TSVLoaderSample : MonoBehaviour
         }
     }
 
-    private void InputData(SampleData sample, PlayerData newData)
+    private static void InputData(SampleData sample, PlayerData newData)
     {
+        //sample.CurrentStage = Spawner.Instance.
         sample.Attack = newData.attackDamage;
         sample.Health = newData.health;
         sample.Attack_Speed = newData.attackSpeed;

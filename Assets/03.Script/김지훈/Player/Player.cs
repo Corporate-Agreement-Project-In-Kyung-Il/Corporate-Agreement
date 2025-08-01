@@ -228,8 +228,9 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     private void performDie()
     {
         data.isDead = true;
-        gameObject.SetActive(false);
+        TSVLoaderSample.OverwritePlayerData(data);
         AliveExistSystem.Instance.RemovePlayerFromList(col);
+        gameObject.SetActive(false);
     }
 
     private void performAttack()
