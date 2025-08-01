@@ -5343,7 +5343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurStageId: 1
+  m_CurStageId: 1
+  m_BossSpawnYOffset: 0
   m_StageEndDetector: {fileID: 1399486814}
   m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
@@ -5614,6 +5615,7 @@ MonoBehaviour:
     attackSpeed: 0
     criticalProbability: 0
     training_type: 0
+    training_level: 0
     equip_item: 0
     equip_level: 0
     skill_possed: 
@@ -5630,6 +5632,7 @@ MonoBehaviour:
     attackSpeed: 0
     criticalProbability: 0
     training_type: 0
+    training_level: 0
     equip_item: 0
     equip_level: 0
     skill_possed: 
@@ -5646,6 +5649,7 @@ MonoBehaviour:
     attackSpeed: 0
     criticalProbability: 0
     training_type: 0
+    training_level: 0
     equip_item: 0
     equip_level: 0
     skill_possed: 

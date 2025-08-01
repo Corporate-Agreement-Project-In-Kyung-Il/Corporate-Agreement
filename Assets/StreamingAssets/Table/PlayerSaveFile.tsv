@@ -1,0 +1,8 @@
+Character_ID	Character_Class	Character_Name	Character_Grade	Attack	Health	Attack_Speed	Critical_Probability	Training_type	Equip_Item	Skill_Possed1	Skill_Possed2	Training_Level	Equip_Level	Skill1_Level	Skill2_Level	CurrentStage
+100001	전사	기본_전사	A	67	110	1	0	500001	400001	100011	100012	0	0	0	0	1
+100002	전사	아이언	S	64	130	1	0	500001	400001	100011	100013	0	0	0	0	
+100003	전사	디노	S	70	100	1	0	500001	400001	100011	100014	0	0	0	0	
+100004	궁수	기본_궁수	A	67	88	1	0	500002	400002	100015	100016	0	0	0	0	
+100005	궁수	사비나	S	70	93	1	0	500002	400002	100015	100017	0	0	0	0	
+100006	마법사	기본_마법사	A	67	88	0.5	0	500003	400003	100018	100019	0	0	0	0	
+100007	마법사	쿠아	S	70	93	0.5	0	500003	400003	100018	100020	0	0	0	0	

@@ -21,7 +21,7 @@ public class PlayerInformationGraphic : MonoBehaviour
             text[i].text = statArray[i];
         }
 
-        text[statArray.Length].text = (playerStat.buffplayerStat.attackDamage * 2).ToString();
+        text[statArray.Length].text = ((int)playerStat.buffplayerStat.attackDamage * 2).ToString();
     }
 
     public void UISpirteSetting(ISpriteSelection playerSprite)
