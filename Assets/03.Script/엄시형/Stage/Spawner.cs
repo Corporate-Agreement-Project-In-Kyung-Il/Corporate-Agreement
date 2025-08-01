@@ -22,6 +22,7 @@ public sealed class Spawner : MonoBehaviour
 {
     public static Spawner Instance { get; private set; }
     public List<Tilemap> CurTilemapList => m_CurTilemapList;
+    public int CurStageId => m_CurStageId; 
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
@@ -101,17 +102,16 @@ public sealed class Spawner : MonoBehaviour
 
         m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         
-        
-         // m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
+        // m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         
         // m_StagePatternTable.Init();
         // var areas = m_AreaTilemapTable.m_AreaTilemaps[10001];
         
-        GameManager.Instance.GameStart();
-        
         // 캐릭터 스폰
         SpawnCharacters();
         m_SkillManager.SetPlayers(m_PlayerList.ToArray());
+        
+        GameManager.Instance.GameStart();
     }
 
     private void OnEnable()
@@ -309,10 +309,10 @@ public sealed class Spawner : MonoBehaviour
         // index 0 전사 100001
         // index 1 궁수 100004
         // index 2 마법사 100006
-        // var playerList = PlayerList.Instance.CharacterIDs;
+        var playerList = PlayerList.Instance.CharacterIDs;
         // TODO : 플레이어 ID를 외부에서 받아오는 로직으로 변경 필요
         // 임시로 0, 1, 2로 설정
-        var playerList = new int[] {100001, 100004, 100006};
+        // var playerList = new int[] {100001, 100004, 100006};
         
         for (int i = 0; i < playerList.Length; i++)
         {
@@ -320,9 +320,9 @@ public sealed class Spawner : MonoBehaviour
             // 프리맵이랑 매핑필요
             character_class characterClass = (playerList[i]) switch
             {
-                100001 => character_class.전사,
-                100004 => character_class.궁수,
-                100006 => character_class.마법사,
+                100001 or 100002 or 100003 => character_class.전사,
+                100004 or 100005 => character_class.궁수,
+                100006 or 100007 => character_class.마법사,
                 _ => throw new Exception("잘못된 캐릭터 클래스 ID입니다.")
             };
 
