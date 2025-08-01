@@ -455,7 +455,7 @@ public static void ImportBuff(DataTable table)
     }
     private static void ImportTraining(DataTable table)
     {
-        string assetPath = "Assets/00.Resources/DataBase/TrainingOptionChoice.asset";
+        string assetPath = "Assets/00.Resources/DataBase/Training.asset";
         var trainingSO = AssetDatabase.LoadAssetAtPath<PlayerTraining>(assetPath);
         
         if (trainingSO == null)

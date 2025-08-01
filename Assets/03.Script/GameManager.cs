@@ -23,12 +23,16 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Skill SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_SkillOption skillOption;
+    public ActiveSkillSO activeSkillSO;
+    public BuffListSO passiveSkillSO;
 
     [Tooltip("Equip SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_EquipOption equipOption;
+    public PlayerEquip equip;
 
     [Tooltip("Training SckiptableObject가 들어가야 합니다.")]
     public OptionChoice_TrainingOption trainingOption;
+    public PlayerTraining training;
 
     [SerializeField] private OptionChoice_SkillOption m_IngameSkillOption;
     public static GameManager Instance { get; private set; }
@@ -330,9 +334,10 @@ public class GameManager : MonoBehaviour
                 {
                     // 승급 가능
                     optionButton.selectID = skillNextGrade.Key_ID;
-                    optionButton.SetOptionGradeImage(skillNextGrade.val.Selection_Level);
-                    Debug.Log($"[Upgrade] {skillValue.Selection_Level} → {skillNextGrade.val.Selection_Level}");
                     optionButton.selectedData = skillNextGrade.val;
+                    optionButton.SetOptionGradeImage(skillNextGrade.val.Selection_Level, 
+                        "Skill");
+                    Debug.Log($"[Upgrade] {skillValue.Selection_Level} → {skillNextGrade.val.Selection_Level}");
                     UpgradePanelOpen(optionButton);
                 }
                 else
@@ -357,9 +362,10 @@ public class GameManager : MonoBehaviour
                 {
                     // 승급 가능
                     optionButton.selectID = equipNextGrade.Key_ID;
-                    optionButton.SetOptionGradeImage(equipNextGrade.val.Selection_Level);
-                    Debug.Log($"[Upgrade] {equipValue.Selection_Level} → {equipNextGrade.val.Selection_Level}");
                     optionButton.selectedData = equipNextGrade.val;
+                    optionButton.SetOptionGradeImage(equipNextGrade.val.Selection_Level, 
+                        equip.GetValue(equipOption.GetValue(equipNextGrade.Key_ID).Equipment_Type_ID).Equipment_Type_Name);
+                    Debug.Log($"[Upgrade] {equipValue.Selection_Level} → {equipNextGrade.val.Selection_Level}");
                     UpgradePanelOpen(optionButton);
                 }
                 else
@@ -385,9 +391,10 @@ public class GameManager : MonoBehaviour
                 {
                     // 승급 가능
                     optionButton.selectID = trainingNextGrade.Key_ID;
-                    optionButton.SetOptionGradeImage(trainingNextGrade.val.Selection_Level);
-                    Debug.Log($"[Upgrade] {trainingValue.Selection_Level} → {trainingNextGrade.val.Selection_Level}");
                     optionButton.selectedData = trainingNextGrade.val;
+                    optionButton.SetOptionGradeImage(trainingNextGrade.val.Selection_Level, 
+                        training.GetValue(trainingOption.GetValue(trainingNextGrade.Key_ID).Training_ID).Training_Name);
+                    Debug.Log($"[Upgrade] {trainingValue.Selection_Level} → {trainingNextGrade.val.Selection_Level}");
                     UpgradePanelOpen(optionButton);
                 }
                 else
@@ -434,28 +441,31 @@ public class GameManager : MonoBehaviour
                 button.selectID = GetRandomSelectionID(skill, EOptionType.Skill);
                 button.optionType = EOptionType.Skill;
                 button.selectedData = skillData.val;
-                button.SetOptionGradeImage(skill.GetValue(button.selectID).Selection_Level);
+                button.SetOptionGradeImage(skill.GetValue(button.selectID).Selection_Level, 
+                    "Skill"); //여기하고
                 Debug.Log($"[Skill] 선택지: {button.selectID} / {skill.GetValue( button.selectID).Selection_Level}");
                 break;
 
             case EOptionType.Equip:
-                var equip = option as OptionChoice_EquipOption;
-                var equipData = GetSelectionData(equip);
-                button.selectID = GetRandomSelectionID(equip, EOptionType.Equip);
+                var equipment = option as OptionChoice_EquipOption;
+                var equipData = GetSelectionData(equipment);
+                button.selectID = GetRandomSelectionID(equipment, EOptionType.Equip);
                 button.optionType = EOptionType.Equip;
                 button.selectedData = equipData.val;//equip.GetValue();
-                button.SetOptionGradeImage(equip.GetValue(button.selectID).Selection_Level);
-                Debug.Log($"[Equip] 선택지: {button.selectID} / {equip.GetValue(button.selectID).Selection_Level}");
+                button.SetOptionGradeImage(equipment.GetValue(button.selectID).Selection_Level, 
+                    equip.GetValue(equipOption.GetValue(button.selectID).Equipment_Type_ID).Equipment_Type_Name);
+                Debug.Log($"[Equip] 선택지: {button.selectID} / {equipment.GetValue(button.selectID).Selection_Level}");
                 break;
 
             case EOptionType.Training:
-                var training = option as OptionChoice_TrainingOption;
-                var tariningData = GetSelectionData(training);
-                button.selectID = GetRandomSelectionID(training, EOptionType.Training);
+                var trainings = option as OptionChoice_TrainingOption;
+                var tariningData = GetSelectionData(trainings);
+                button.selectID = GetRandomSelectionID(trainings, EOptionType.Training);
                 button.optionType = EOptionType.Training;
                 button.selectedData = tariningData.val;
-                button.SetOptionGradeImage(training.GetValue(button.selectID).Selection_Level);
-                Debug.Log($"[Training] 선택지: {button.selectID} / {training.GetValue(button.selectID).Selection_Level}");
+                button.SetOptionGradeImage(trainings.GetValue(button.selectID).Selection_Level, 
+                    training.GetValue(trainingOption.GetValue(button.selectID).Training_ID).Training_Name);
+                Debug.Log($"[Training] 선택지: {button.selectID} / {trainings.GetValue(button.selectID).Selection_Level}");
                 break;
         }
     }
