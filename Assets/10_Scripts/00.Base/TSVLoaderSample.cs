@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class TSVLoaderSample : MonoBehaviour
 {
-    public int currentStage;
-
     public class SampleData
     {
         public int? CurrentStage { get; set; }
@@ -60,7 +58,6 @@ public class TSVLoaderSample : MonoBehaviour
 
             Debug.Log(lastStage);
         }
-        currentStage = (int)lastStage;
     }
     
 

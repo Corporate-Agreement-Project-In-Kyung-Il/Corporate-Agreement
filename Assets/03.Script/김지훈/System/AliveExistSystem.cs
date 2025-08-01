@@ -10,6 +10,8 @@ public class AliveExistSystem : MonoBehaviour
     public List<Collider2D> monsterList = new List<Collider2D>();
     [Header("현재 Stage에 살아있는 Player들")]
     public List<Collider2D> playerList = new List<Collider2D>();
+
+    public GameObject retireCanvas;
     
     private Collider2D col;
     private void Awake()
@@ -21,7 +23,18 @@ public class AliveExistSystem : MonoBehaviour
     {
         TryGetComponent(out col);
     }
-    
+
+    private bool playerListExist = false;
+
+    private void Update()
+    {
+        
+        //if (playerListExist && playerList.Count <= 0)
+        //{
+        //    retireCanvas.SetActive(true);
+        //}
+    }
+
     private void OnDisable()
     {
         monsterList.Clear();
