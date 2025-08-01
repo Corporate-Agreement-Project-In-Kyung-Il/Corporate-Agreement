@@ -101,17 +101,16 @@ public sealed class Spawner : MonoBehaviour
 
         m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         
-        
-         // m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
+        // m_StageInfo = m_StageInfoTable.GetStageInfoByIndex(m_CurStageInfoIndex);
         
         // m_StagePatternTable.Init();
         // var areas = m_AreaTilemapTable.m_AreaTilemaps[10001];
         
-        GameManager.Instance.GameStart();
-        
         // 캐릭터 스폰
         SpawnCharacters();
         m_SkillManager.SetPlayers(m_PlayerList.ToArray());
+        
+        GameManager.Instance.GameStart();
     }
 
     private void OnEnable()
