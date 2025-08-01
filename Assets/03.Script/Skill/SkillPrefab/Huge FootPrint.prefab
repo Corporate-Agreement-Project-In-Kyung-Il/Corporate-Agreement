@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillSound: {fileID: 11400000, guid: 66ad404aa17d9ed44a697cd17c930fb1, type: 2}
+  SkillName: "\uAC70\uB300\uD55C \uBC1C\uC790\uAD6D"
+  SkillIcon: {fileID: 21300000, guid: e75520cf4aaae3e4e8d77af29bf3610f, type: 3}
   owner: {fileID: 0}
-  skillSprite: {fileID: 0}
   SkillId: 100014
   effect: {fileID: 2200293995506512734}
   coll: {fileID: 0}

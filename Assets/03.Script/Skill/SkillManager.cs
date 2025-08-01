@@ -13,9 +13,7 @@ public interface ISkillID
     public int SkillID { get; set; }
 
     public void SetSkillID();
-    public void SetSkillSprite();
-    
-    public Sprite SkillSprite { get; set; }
+
 }
 
 public class SkillManager : MonoBehaviour
@@ -45,9 +43,12 @@ public class SkillManager : MonoBehaviour
         players = playerFromStageManager;
         SetPlayersWhenStart();
     }
+
+    
+
     public void SetPlayersWhenStart()
     {
-        //AutoAssignSkillObjects();
+        AutoAssignSkillObjects();
         FindPlayers();
         List<ScriptableObject> clonedList = new();
         foreach (var origin in Origin_skillObjects)
@@ -72,16 +73,15 @@ public class SkillManager : MonoBehaviour
         foreach (var skill in skills)
         {
             skill.SetSkillID();
-            skill.SetSkillSprite();
+            
         }
 
         ConnectSkills();
     }
 
 
-    private void Awake()
+    void Update()
     {
-        AutoAssignSkillObjects();
     }
 
     public void FindPlayers()
@@ -134,7 +134,7 @@ public class SkillManager : MonoBehaviour
         Origin_skillObjects = assets;
     
         // 5) 에디터에 Dirty 표시해서 저장하도록 함
-        EditorUtility.SetDirty(this);
+        //EditorUtility.SetDirty(this);
     }
     
     public void SkillEnchant()
