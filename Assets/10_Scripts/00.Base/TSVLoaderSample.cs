@@ -62,30 +62,30 @@ public class TSVLoaderSample : MonoBehaviour
         }
         currentStage = (int)lastStage;
     }
+    
 
-    public static void OverwritePlayerData(PlayerData newData)
+
+    public static async void OverwritePlayerData(PlayerData newData)
     {
         if (SampleDataList == null)
         {
-            Debug.LogWarning("SampleDataList가 아직 로드되지 않았습니다.");
             return;
         }
 
         int index = SampleDataList.FindIndex(data => data.Character_ID == newData.character_ID);
+        
         if (index >= 0)
         {
             InputData(SampleDataList[index], newData);
-            Debug.Log($"ID {newData.character_ID}에 해당하는 데이터를 성공적으로 덮어썼습니다.");
         }
-        else
-        {
-            Debug.LogWarning($"ID {newData.character_ID}를 찾을 수 없습니다. 새로 추가합니다.");
-        }
+
+        
+        await TSVLoader.SaveTableAsync("PlayerSaveFile", SampleDataList);
     }
 
     private static void InputData(SampleData sample, PlayerData newData)
     {
-        //sample.CurrentStage = Spawner.Instance.
+        sample.CurrentStage = Spawner.Instance.CurStageId;
         sample.Attack = newData.attackDamage;
         sample.Health = newData.health;
         sample.Attack_Speed = newData.attackSpeed;
