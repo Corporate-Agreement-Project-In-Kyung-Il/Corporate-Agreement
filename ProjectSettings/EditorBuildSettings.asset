@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01.Scene/JUNO UI/MainMenu.unity
+    path: Assets/01.Scene/MainMenu.unity
     guid: 0a68a26a1ef63eb4f9410a7b7784f36b
   - enabled: 1
     path: Assets/01.Scene/ChooseCharacter.unity
