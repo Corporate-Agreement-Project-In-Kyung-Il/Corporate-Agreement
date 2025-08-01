@@ -13,6 +13,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 using StageInfo = _03.Script.엄시형.Stage.V2.StageInfo;
@@ -23,6 +24,7 @@ public sealed class Spawner : MonoBehaviour
     public static Spawner Instance { get; private set; }
     public List<Tilemap> CurTilemapList => m_CurTilemapList;
     public int CurStageId => m_CurStageId;
+    public Text pauseStageText;
     
     [SerializeField] private StageEndDetector m_StageEndDetector;
     
@@ -107,6 +109,7 @@ public sealed class Spawner : MonoBehaviour
         m_SkillManager.SetPlayers(m_PlayerList.ToArray());
         
         GameManager.Instance.GameStart();
+        pauseStageText.text = $"현재 층 B - {m_CurStageId.ToString()}F";
     }
     
     private void Start()
@@ -131,7 +134,7 @@ public sealed class Spawner : MonoBehaviour
     public void SetStage()
     {
         m_CurStageId++;
-        
+        pauseStageText.text = $"현재 층 B - {m_CurStageId.ToString()}F";
         // 선택지
         if (m_CurStageId % 3 == 0)
         {

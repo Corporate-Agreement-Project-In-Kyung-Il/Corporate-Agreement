@@ -431,6 +431,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398100888}
   m_CullTransparentMesh: 1
+--- !u!114 &466036521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 341222891482052986, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+  m_PrefabInstance: {fileID: 4254370391496771819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &480785932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,6 +3503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78237f183411024b9972ae1400dac90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseStageText: {fileID: 466036521}
   m_StageEndDetector: {fileID: 1399486814}
   m_StagePatternTable: {fileID: 11400000, guid: ae9c20e221d1d2841b992f49e46da407, type: 2}
   m_AreaTilemapTable: {fileID: 11400000, guid: 64f4496df60f591449dba239c2671f4e, type: 2}
@@ -5708,6 +5720,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 341222891482052986, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ccc53422ad10d184b84adf79194de7f8, type: 3}
+    - target: {fileID: 1717020826034320515, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 800dcccea1af49c4fb2060469d1b9b02, type: 3}
     - target: {fileID: 1984596588572103768, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5752,6 +5772,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2400830872372995501, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 296.95
+      objectReference: {fileID: 0}
     - target: {fileID: 4446714161385803137, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -217.10004
@@ -5759,6 +5783,10 @@ PrefabInstance:
     - target: {fileID: 4446714161385803137, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897736632587748524, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_Name
+      value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 6228405132521303574, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_Name
@@ -5772,6 +5800,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 8404402728171240983, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ccc53422ad10d184b84adf79194de7f8, type: 3}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: equip
       value: 
