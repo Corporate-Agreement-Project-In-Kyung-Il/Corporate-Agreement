@@ -20,12 +20,12 @@ MonoBehaviour:
   characterName: 1
   characterGrade: 0
   attackDamage: 67
-  health: 100
+  health: 120
   attackSpeed: 1
-  criticalProbability: 1.08
+  criticalProbability: 1.1999999
   training_type: 500001
-  training_level: 48
+  training_level: 54
   equip_item: 400001
-  equip_level: 70
+  equip_level: 77
   skill_possed: ab860100ac860100
   playerUISprite: {fileID: 21300000, guid: 73cabb6b87d362344986baccba98c32c, type: 3}
