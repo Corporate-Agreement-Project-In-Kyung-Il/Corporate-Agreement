@@ -11,7 +11,7 @@ public class BuffSO : ScriptableObject, ISkillID
     public SkillType Skill_Type;
     public int Skill_Minimum_LV;
 
-    public int Skill_current_LV;
+    public int Skill_current_LV = 1;
     public  character_class Skill_Class;
     public character_name Skill_Character;
     public bool Skill_Range;
