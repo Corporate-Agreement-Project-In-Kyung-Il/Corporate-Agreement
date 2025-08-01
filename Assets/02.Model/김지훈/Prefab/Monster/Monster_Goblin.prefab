@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0458ababe3356504ea95a21a20c5bf1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Type: 5
   playerDetection: {x: 3, y: 10}
   monsterData: {fileID: 11400000, guid: eac4037eda615a84ab77d0319915898b, type: 2}
   monsterStat:
