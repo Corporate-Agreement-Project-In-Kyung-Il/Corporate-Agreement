@@ -139,7 +139,7 @@ public sealed class Spawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // DestroyAllMonsters();
-            RetryStage(m_CurMonsterType);
+            RetryStage();
         }
     }
 
@@ -151,10 +151,10 @@ public sealed class Spawner : MonoBehaviour
         }
     }
 
-    private void RetryStage(MonsterType monsterType)
+    public void RetryStage()
     {
         DestroyAllMonsters();
-        SpawnMonsters(monsterType);
+        SpawnMonsters();
         TeleportPlayersStartPoint(m_PlayerList);
     }
     
@@ -165,7 +165,7 @@ public sealed class Spawner : MonoBehaviour
         m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
         
         yield return null;
-        SpawnMonsters(m_CurMonsterType);
+        SpawnMonsters();
     }
 
     private void OnEnable()
@@ -224,7 +224,7 @@ public sealed class Spawner : MonoBehaviour
         GetRandomPattern();
         m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
         
-        SpawnMonsters(m_CurMonsterType);
+        SpawnMonsters();
         
         TeleportPlayersStartPoint(m_PlayerList);
     }
@@ -287,7 +287,7 @@ public sealed class Spawner : MonoBehaviour
         }
     }
 
-    private void SpawnMonsters(MonsterType monsterType)
+    private void SpawnMonsters()
     {
         Debug.Assert(m_StageInfo != null, "널 들어옴");
         
@@ -299,7 +299,7 @@ public sealed class Spawner : MonoBehaviour
             for (int x = 0; x < area.SpawnMonsterCount; x++)
             {
                 var basemonster = SpawnMonsterInRange(area.MonsterSpawnInfoList[x]
-                    , monsterType
+                    , m_CurMonsterType
                     , parent: m_CurTilemapList[i].gameObject);
                 
                 var monster = basemonster as MonsterController;
@@ -317,7 +317,7 @@ public sealed class Spawner : MonoBehaviour
             
             var boss = SpawnMonster(
                 new Vector2(bossTilemap.localBounds.center.x, bossTilemap.localBounds.max.y - m_BossSpawnYOffset)
-                , monsterType
+                , m_CurMonsterType
                 , parent: bossTilemap.gameObject);
             
             var monster = boss as MonsterController;
