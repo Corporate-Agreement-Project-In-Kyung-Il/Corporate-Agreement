@@ -4975,7 +4975,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterList: []
   playerList: []
-  retireCanvas: {fileID: 0}
 --- !u!1 &2069321265
 GameObject:
   m_ObjectHideFlags: 0
@@ -6557,6 +6556,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_BestFit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: RetireCanvas
+      value: 
+      objectReference: {fileID: 1883279145}
     - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: Data.Array.size
       value: 3
