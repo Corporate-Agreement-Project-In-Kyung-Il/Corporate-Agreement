@@ -283,6 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1834d1cdfede7f94f884d9367b2dbe1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerSkill1Icon: {fileID: 0}
+  PlayerSkill2Icon: {fileID: 0}
   skillPrefab: {fileID: 0}
   skillPrefab2: {fileID: 0}
   buffsize_x: 3
@@ -304,6 +306,8 @@ MonoBehaviour:
   attackRange: 0
   shieldBlockChance: 0
   damageReductionRate: 0
+  hitSound: {fileID: 11400000, guid: b25f682ecc1c7334fabbf7649fc0b1b3, type: 2}
+  dieSound: {fileID: 11400000, guid: cadd80533d9ca3147a54d30f798dab2d, type: 2}
 --- !u!50 &3261939076049401711
 Rigidbody2D:
   serializedVersion: 4
@@ -430,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 0}
+  isSkill: 0
   Level_Sprites:
   - {fileID: 21300000, guid: 853ce7f347616204380be40afa4b5faf, type: 3}
   - {fileID: 21300000, guid: 3a8f1ff9d4e95314cb2208605665800e, type: 3}

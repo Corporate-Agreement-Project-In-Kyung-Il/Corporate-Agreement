@@ -32,7 +32,14 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     /// </summary>
     public Sprite PlayerSprite => data.playerUISprite;
     public Sprite WeaponSprite => WEAPON.CurrentSprite;
-    
+    public Sprite Skill1Icon => PlayerSkill1Icon;
+    public Sprite Skill2Icon => PlayerSkill2Icon;
+    public string Skill1Name { get; set; }
+    public string Skill2Name { get; set; }
+
+    public Sprite PlayerSkill1Icon;
+    public Sprite PlayerSkill2Icon;
+
     /// <summary>
     /// BuffPlayerStat
     /// </summary>
@@ -52,20 +59,20 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     public float[] MaxskillCoolTimer => MaxskillCooldownTimers;
     public float[] CurrentCoolTimer => currentSkillCooldownTimers;
 
-    [Header("버프 아이콘 크기")] 
+    [Header("버프 아이콘 크기")]
     public float buffsize_x;
     public float buffsize_y;
     public float buffsize_z;
-    
-    [Header("버프 아이콘 위치")] 
+
+    [Header("버프 아이콘 위치")]
     public float buff1position_x;
     public float buff1position_y;
     public float buff1position_z;
     public float buff2position_x;
     public float buff2position_y;
     public float buff2position_z;
-    
-    
+
+
     [SerializeField, Header("게임 시작할 때 받아오는 초기값이 저장된 곳."),
      Tooltip("게임 시작할 때 받아오는 초기값이 저장된 곳.\n" + " 초기에 Player의 Stat을 조절하고 싶으면 여기")]
     public PlayerData data;
@@ -73,7 +80,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     [Header("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기."), Tooltip("playerStat으로 게임 도중 Stat을 조절하고 싶으면 여기.")]
     private PlayerStat playerStat = new PlayerStat();
 
-    public float resetHp; 
+    public float resetHp;
     private Collider2D col;
     private Rigidbody2D rigid;
     private Animator animator;
@@ -104,11 +111,17 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
 
     private Vector2 targetPos;
 
+    //사운드 관련 에셋
+    [SerializeField] private SFXData hitSound;
+    [SerializeField] private SFXData dieSound;
+    [SerializeField] private SFXData attackSound;
+    private int classIndex; //0=전사 1=궁수 2=법사
+
     private void Awake()
     {
         TryGetComponent(out col);
         TryGetComponent(out rigid);
-        
+
         weapon2 = GetComponentInChildren<Weapon>();
         animator = GetComponentInChildren<Animator>();
 
@@ -117,7 +130,10 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
 
     private void Start()
     {
-        if (weapon2 != null) weapon2.playerAnimator = animator;
+        if (weapon2 != null)
+        {
+            weapon2.playerAnimator = animator;
+        }
 
         if (skills[0] is ActiveSkillSO skill1)
         {
@@ -125,11 +141,18 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             if (skillPrefab.TryGetComponent(out ActiveSkillBase activeScript))
             {
                 activeScript.owner = this;
+                PlayerSkill1Icon = activeScript.SkillIcon;
+                Skill1Name = activeScript.SkillName;
             }
         }
         else if (skills[0] is BuffSO buff1)
         {
             skillPrefab = buff1.SkillPrefab;
+            if (skillPrefab.TryGetComponent(out BuffBase buffScript))
+            {
+                PlayerSkill1Icon = buffScript.SkillIcon;
+                Skill1Name = buffScript.SkillName;
+            }
         }
 
         if (skills[1] is ActiveSkillSO skill2)
@@ -138,9 +161,19 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             if (skillPrefab2.TryGetComponent(out ActiveSkillBase activeScript))
             {
                 activeScript.owner = this;
+                PlayerSkill2Icon = activeScript.SkillIcon;
+                Skill2Name = activeScript.SkillName;
             }
         }
-        else if (skills[1] is BuffSO buff2) skillPrefab2 = buff2.SkillPrefab;
+        else if (skills[1] is BuffSO buff2)
+        {
+            skillPrefab2 = buff2.SkillPrefab;
+            if (skillPrefab2.TryGetComponent(out BuffBase buffScript))
+            {
+                PlayerSkill2Icon = buffScript.SkillIcon;
+                Skill2Name = buffScript.SkillName;
+            }
+        }
 
         InputGameManagerSkillID(playerStat.characterClass, playerStat.skill_possed[1]);
     }
@@ -228,8 +261,8 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     private void performDie()
     {
         data.isDead = true;
-        gameObject.SetActive(false);
         AliveExistSystem.Instance.RemovePlayerFromList(col);
+        gameObject.SetActive(false);
     }
 
     private void performAttack()
@@ -251,7 +284,14 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             if (enemyDetectionCol.Length > 0)
             {
                 target = enemyDetectionCol[0];
+
+                if (classIndex != 0)
+                {
+                    SFXManager.Instance.Play(attackSound);
+                }
+
                 animator.SetBool(IsAttack, true);
+
             }
             else
             {
@@ -281,13 +321,15 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             weapon2.Attack(target);
         }
 
-       // isTarget = isStillTarget;
+        // isTarget = isStillTarget;
         attackTimer = 1f / playerStat.attackSpeed;
         SkillCondition();
     }
 
+
     public void TakeDamage(CombatEvent combatEvent)
     {
+
         float finalDamage = combatEvent.Damage * (1 - damageReductionRate);
         playerStat.health -= finalDamage;
         DamgeEvent.OnTriggerPlayerDamageEvent(this);
@@ -306,10 +348,13 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             return;
         }
 
+        SFXManager.Instance.Play(hitSound);
+
         playerStat.health -= combatEvent.Damage;
         if (playerStat.health <= 0)
         {
             cameraMove = false;
+            SFXManager.Instance.Play(dieSound);
             ChangeState(CharacterState.Die);
         }
     }
@@ -359,7 +404,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
             GameObject buffObj = Instantiate(prefab, transform.position + spawnOffset, Quaternion.identity, transform);
 
             // 스케일 조정
-            buffObj.transform.localScale = new Vector3(buffsize_x,buffsize_y,buffsize_y);
+            buffObj.transform.localScale = new Vector3(buffsize_x, buffsize_y, buffsize_y);
             foreach (var comp in buffObj.GetComponents<MonoBehaviour>())
             {
                 if (comp is ISkillID skill)
@@ -408,19 +453,23 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
 
     private void InputGameManagerSkillID(character_class character, int canskillID)
     {
+
         switch (character)
         {
             case character_class.전사:
+                classIndex = 0;
                 GameManager.Instance.characterSkillID[0] = 100011;
                 GameManager.Instance.characterSkillID[1] = canskillID;
                 GameManager.Instance.playerStatAdjust.DependencyPlayerStat[0] = buffplayerStat;
                 break;
             case character_class.궁수:
+                classIndex = 1;
                 GameManager.Instance.characterSkillID[2] = 100015;
                 GameManager.Instance.characterSkillID[3] = canskillID;
                 GameManager.Instance.playerStatAdjust.DependencyPlayerStat[1] = buffplayerStat;
                 break;
             case character_class.마법사:
+                classIndex = 2;
                 GameManager.Instance.characterSkillID[4] = 100018;
                 GameManager.Instance.characterSkillID[5] = canskillID;
                 GameManager.Instance.playerStatAdjust.DependencyPlayerStat[2] = buffplayerStat;
@@ -443,7 +492,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
         resetHp = data.health;
         playerStat.health = resetHp;
         currentCharacterState = CharacterState.Run;
-       
+
         DamgeEvent.OnTriggerPlayerDamageEvent(this);
     }
 

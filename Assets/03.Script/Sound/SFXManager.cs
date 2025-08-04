@@ -19,6 +19,7 @@ public class SFXManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
 
         for (int i = 0; i < poolSize; i++)
         {
@@ -36,7 +37,6 @@ public class SFXManager : MonoBehaviour
                 sources.clip = sfxData.clip;
                 sources.volume = sfxData.volume;
      
-
                 sources.Play();
                 return;
             }

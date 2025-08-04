@@ -7,7 +7,8 @@ public class CameraConfinerBox : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!mainCamera.orthographic)
+        
+        if (!mainCamera.orthographic || confineBox == null)
         {
             Debug.LogWarning("Orthographic 카메라만 지원합니다.");
             return;

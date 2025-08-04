@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HugeFootPrint : ActiveSkillBase, ISkillID
 {
+    
+
     //광역기 한번때림
     public int SkillId;
     public int SkillID { get; set; }
@@ -25,6 +27,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
 
     private void Start()
     {
+        SFXManager.Instance.Play(skillSound);
     }
 
     void Update()
@@ -68,12 +71,13 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
     {
         coll = GetComponent<BoxCollider2D>();
         SetSkillID();
+        
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
             stat.Range_height = skill.Skill_Range_height;
             stat.Range_width = skill.Skill_Range_width;
-
+            stat.SkillName = skill.Skill_Name;
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
@@ -81,7 +85,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
             stat.Damage = skill2.Skill_Damage;
             stat.Range_height = skill2.Skill_Range_height;
             stat.Range_width = skill2.Skill_Range_width;
-
+            stat.SkillName = skill2.Skill_Name;
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
 

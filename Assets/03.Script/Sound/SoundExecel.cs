@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class SoundExecel : MonoBehaviour
 {
 
+#if UNITY_EDITOR
     [MenuItem("Tools/Create SFXData (From Path)")]
     public static void CreateAllSFXData()
     {
@@ -46,5 +49,5 @@ public class SoundExecel : MonoBehaviour
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
-
+#endif
 }

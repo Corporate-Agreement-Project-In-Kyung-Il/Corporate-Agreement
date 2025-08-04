@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class Archer_Strong_Mind : MonoBehaviour, ISkillID
+public class Archer_Strong_Mind : BuffBase, ISkillID
 {
+    public SFXData buffSound;
+   
     public int SkillId;
     public int SkillID { get; set; }
     public void SetSkillID() => SkillID = SkillId;
@@ -12,9 +14,13 @@ public class Archer_Strong_Mind : MonoBehaviour, ISkillID
     private float duration;
     private float timer;
     private bool initialized = false;
-
+    private void Start()
+    {
+        SFXManager.Instance.Play(buffSound);
+    }
     public void Initialize(Player _owner, BuffSO _buff)
     {
+        
         owner = _owner;
         buffSO = _buff;
 
@@ -29,6 +35,7 @@ public class Archer_Strong_Mind : MonoBehaviour, ISkillID
 
     void Update()
     {
+        
         if (!initialized) return;
 
         timer += Time.deltaTime;

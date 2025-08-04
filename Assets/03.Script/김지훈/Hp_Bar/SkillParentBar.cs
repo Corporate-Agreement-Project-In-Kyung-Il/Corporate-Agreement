@@ -36,19 +36,24 @@ public class SkillParentBar : MonoBehaviour
                 offset = Vector3.up * targetPositions[0]; 
                 break;
             case character_name.디노 :
+                offset = Vector3.up * targetPositions[0]; 
                 break;
             case character_name.아이언 :
+                offset = Vector3.up * targetPositions[0]; 
                 break;
             case character_name.기본_궁수 :
                 offset = Vector3.up * targetPositions[1]; 
                 break;
-            case character_name.쿠아 :
+            case character_name.사비나 :
+                offset = Vector3.up * targetPositions[1]; 
                 break;
             case character_name.기본_마법사 :
                 offset = Vector3.up * targetPositions[2]; 
                 break;
-            case character_name.사비나 :
+            case character_name.쿠아 :
+                offset = Vector3.up * targetPositions[2]; 
                 break;
+
 
         }
         

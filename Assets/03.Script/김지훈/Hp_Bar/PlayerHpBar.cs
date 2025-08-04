@@ -30,18 +30,22 @@ public class PlayerHpBar : MonoBehaviour
                 offset = Vector3.up * -0.5f; 
                 break;
             case character_name.디노 :
+                offset = Vector3.up * -0.5f; 
                 break;
             case character_name.아이언 :
+                offset = Vector3.up * -0.5f; 
                 break;
             case character_name.기본_궁수 :
                 offset = Vector3.up * -0.55f; 
                 break;
-            case character_name.쿠아 :
+            case character_name.사비나 :
+                offset = Vector3.up * -0.55f; 
                 break;
             case character_name.기본_마법사 :
                 offset = Vector3.up * -0.65f; 
                 break;
-            case character_name.사비나 :
+            case character_name.쿠아 :
+                offset = Vector3.up * -0.65f; 
                 break;
 
         }

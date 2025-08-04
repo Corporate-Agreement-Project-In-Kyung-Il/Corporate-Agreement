@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class SteelShield : MonoBehaviour, ISkillID
+public class SteelShield : BuffBase, ISkillID
 {
+    public SFXData buffSound;
     public int SkillId;
     public int SkillID { get; set; }
     public void SetSkillID() => SkillID = SkillId;
@@ -13,7 +14,10 @@ public class SteelShield : MonoBehaviour, ISkillID
     private float timer;
     private float reductionRate = 0.6f;
     private bool initialized = false;
-
+    private void Start()
+    {
+        SFXManager.Instance.Play(buffSound);
+    }
     public void Initialize(Player _owner, BuffSO _buff)
     {
         owner = _owner;

@@ -16,12 +16,14 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
         SkillID = Skill_ID;
     }
 
+    public Sprite SkillSprite { get; set; }
+
     public int Skill_ID;
     public string Skill_Name;
     public SkillType Skill_Type;
     public int Skill_Minimum_LV;
 
-    public int Skill_current_LV;
+    public int Skill_current_LV=1;
     public int Skill_Maximum_LV;
     public float Skill_Cooldown;
     public float Skill_Damage;
@@ -63,6 +65,7 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
                         {
                             Debug.Log(comp);
                             skillScript.SetSkillID();
+                            
                             // 스크립트의 SkillID가 SO의 Skill_ID와 같은지 비교
                             if (skillScript.SkillID == Skill_ID)
                             {
@@ -75,6 +78,11 @@ public class ActiveSkillSO : ScriptableObject, ISkillID
                 }
             }
         }
+    }
+
+    public void SetSkillSprite()
+    {
+        
     }
 #endif
 }
