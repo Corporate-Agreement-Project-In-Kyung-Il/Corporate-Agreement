@@ -12,6 +12,7 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
     public PlayerData[] Data;
 
     public PlayerStat[] DependencyPlayerStat;
+    public GameObject RetireCanvas;
     
     
     //버프시킬 scriptAbleObject -> OptionChoice_EquipOption 혹은 OptionChoice_TrainingOption
@@ -19,9 +20,17 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
     public int equipSelectionID;
     [Header("선택지가 TrainingSelection일 떄, 선택된 Training의 ID")]
     public int trainingSelectionID;
-    
-    
-    
+
+    public void LateUpdate()
+    {
+        for (int i = 0; i < DependencyPlayerStat.Length; i++)
+        {
+            if (DependencyPlayerStat[i].health >= 0)
+                return;
+        }
+        RetireCanvas.SetActive(true);
+    }
+
     public void SetEquipSelectionID(int id)
     {
         equipSelectionID = GameManager.Instance.optionButtons[id].selectID;
