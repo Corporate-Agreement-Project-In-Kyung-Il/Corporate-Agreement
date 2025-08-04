@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 #if UNITY_EDITOR
 using UnityEditor;
-using System.Linq;
 #endif
+using System.Linq;
+
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -49,7 +51,9 @@ public class SkillManager : MonoBehaviour
 
     public void SetPlayersWhenStart()
     {
+        #if UNITY_EDITOR
         AutoAssignSkillObjects();
+        #endif
         FindPlayers();
         List<ScriptableObject> clonedList = new();
         foreach (var origin in Origin_skillObjects)
@@ -120,7 +124,7 @@ public class SkillManager : MonoBehaviour
             }
         }
     }
-
+#if UNITY_EDITOR
     private void AutoAssignSkillObjects()
     {
         // 1) 검색할 폴더 경로 지정
@@ -131,10 +135,12 @@ public class SkillManager : MonoBehaviour
         };
     
         // 2) 해당 폴더 내의 ScriptableObject 에셋 GUID만 검색
+     
         string[] guids = AssetDatabase.FindAssets(
             "t:ScriptableObject",
             skillFolders
         );
+      
     
         // 3) GUID → 에셋 로드 → 필터링(null 제거) → 배열 변환
         var assets = guids
@@ -149,7 +155,7 @@ public class SkillManager : MonoBehaviour
         // 5) 에디터에 Dirty 표시해서 저장하도록 함
         //EditorUtility.SetDirty(this);
     }
-    
+    #endif
     public void SkillEnchant()
     {
         var a = skillOption.GetValue(Selection_ID);

@@ -20,21 +20,9 @@ using Debug = UnityEngine.Debug;
 namespace _03.Script.엄시형.Tool.V2
 {
 #if UNITY_EDITOR
-    // // 플레이시 게임오브젝트 생성시 자동 삭제가 안됨
-    // // [ExecuteInEditMode]
-    // [CustomEditor(typeof(AreaPatternGenerator))]
-    // public sealed class AreaPatternGeneratorEditor : Editor
-    // {
-    //     public override void OnInspectorGUI()
-    //     {
-    //         base.OnInspectorGUI();
-    //     }
-    // }
-    
-#endif
     public sealed class AreaPatternGenerator : MonoBehaviour
     {
-#if UNITY_EDITOR
+
         // TODO : AreaPattern말고 StageInfo로 변경해야함
         // [ReadOnly]
         [SerializeField] public GameObject m_PointPrefab;

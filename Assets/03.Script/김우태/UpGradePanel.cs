@@ -69,6 +69,10 @@ public class UpGradePanel : Panel
     
     public void TryUpgrade()
     {
+        if (m_CurrentOptionButton.isUpgradable == false)
+        {
+            return;
+        }
         upgradeAnimationObject.gameObject.SetActive(true);
         StartCoroutine(WaitForAnimationEnd());
         // 현재 등급의 강화 데이터 가져오기
@@ -102,6 +106,8 @@ public class UpGradePanel : Panel
             upgradeFailPanel.upgradeResultText.text = "강화 실패";
             upgradeFailPanel.upgradeImage.sprite = m_CurrentOptionButton.choiceImage.sprite;
             upgradeFailPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
+            m_CurrentOptionButton.isUpgradable = false;
+            m_CurrentOptionButton.brokenImage.SetActive(true);
         }
     }
 }

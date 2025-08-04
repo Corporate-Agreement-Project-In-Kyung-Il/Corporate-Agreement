@@ -255,7 +255,6 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     private void performDie()
     {
         data.isDead = true;
-        TSVLoaderSample.OverwritePlayerData(data); //나중에 다 죽었을 때 버튼뜰 때 저장하는 걸로 바꾸기
         AliveExistSystem.Instance.RemovePlayerFromList(col);
         gameObject.SetActive(false);
     }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CsvHelper;
 using CsvHelper.Configuration;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public static class TSVLoader
 {
@@ -19,6 +20,17 @@ public static class TSVLoader
         HeaderValidated = null,
     };
 
+    private static Task<UnityWebRequest> SendWebRequestAsync(UnityWebRequest request)
+    {
+        var tcs = new TaskCompletionSource<UnityWebRequest>();
+        var asyncOp = request.SendWebRequest();
+        asyncOp.completed += _ =>
+        {
+            tcs.SetResult(request);
+        };
+        return tcs.Task;
+    }
+    
     /// <summary>
     /// Application.persistentDataPath/Table 폴더에서 주어진 테이블 이름의 TSV 파일을 읽어 List<T>로 반환합니다.
     /// </summary>
@@ -42,20 +54,20 @@ public static class TSVLoader
             {
 #if UNITY_ANDROID && !UNITY_EDITOR
             // Android는 UnityWebRequest로 읽어야 함
-            using (UnityEngine.Networking.UnityWebRequest request = UnityEngine.Networking.UnityWebRequest.Get(streamingPath))
-            {
-                await request.SendWebRequest();
-
-                if (request.result != UnityEngine.Networking.UnityWebRequest.Result.Success)
+using (UnityWebRequest request = UnityWebRequest.Get(streamingPath))
                 {
-                    Debug.LogError($"[TableLoader] StreamingAssets에서 파일 복사 실패: {request.error}");
-                    return null;
-                }
+                    await SendWebRequestAsync(request);
 
-                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-                File.WriteAllBytes(filePath, request.downloadHandler.data);
-                Debug.Log($"[TableLoader] StreamingAssets에서 {tableName}.tsv 복사 완료");
-            }
+                    if (request.result != UnityWebRequest.Result.Success)
+                    {
+                        Debug.LogError($"[TableLoader] StreamingAssets에서 파일 복사 실패: {request.error}");
+                        return null;
+                    }
+
+                    Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                    File.WriteAllBytes(filePath, request.downloadHandler.data);
+                    Debug.Log($"[TableLoader] StreamingAssets에서 {tableName}.tsv 복사 완료");
+                }
 #else
                 if (File.Exists(streamingPath))
                 {

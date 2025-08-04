@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -56,11 +57,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -113,6 +109,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadScene(int sceneIndex, GameObject callobject)
+    {
+        callobject.SetActive(false);
+        if (canvas.gameObject.activeSelf)
+        {
+            Debug.Log("선택지 활성화 중에는 씬 변경 불가");
+            return;
+        }
+        Time.timeScale = 1f; // 씬 전환 시 시간 스케일 초기화
+        IsPaused = false;
+        SceneManager.LoadScene(sceneIndex);
+    }
     public void ResumeAndPause()
     {
         if (IsPaused)
@@ -219,6 +227,10 @@ public class GameManager : MonoBehaviour
         m_Options[EOptionType.Skill] = m_IngameSkillOption;
         m_Options[EOptionType.Equip] = equipOption;
         m_Options[EOptionType.Training] = trainingOption;
+        if (skillManager == null)
+        {
+            skillManager = FindObjectOfType<SkillManager>();
+        }
         skillManager.SetSkillOption(m_IngameSkillOption);
 
         CreateChoices(3);
@@ -278,6 +290,10 @@ public class GameManager : MonoBehaviour
     public GameObject upgradePanel;
     public void PopUpUpgradeChoice(OptionButton optionButton)
     {
+        if (optionButton.isUpgradable == false)
+        {
+            return;
+        }
         if (upgradePanel.activeSelf)
         {
             upgradePanel.SetActive(false);
@@ -341,6 +357,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    optionButton.isUpgradable = false;
                     // 더 높은 등급이 없음
                     Debug.Log("이미 최고 등급입니다.");
                 }
@@ -369,6 +386,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    optionButton.isUpgradable = false;
                     // 더 높은 등급이 없음
                     Debug.Log("이미 최고 등급입니다.");
                 }
@@ -398,6 +416,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    optionButton.isUpgradable = false;
                     // 더 높은 등급이 없음
                     Debug.Log("이미 최고 등급입니다.");
                 }
@@ -422,7 +441,8 @@ public class GameManager : MonoBehaviour
     private void SetRandomOptionToButton(OptionButton button, int rerollCount)
     {
         EOptionType choicedOption = GetRandomOptionType();
-
+        button.isUpgradable = true;
+        button.brokenImage.SetActive(false);
         if (!m_Options.TryGetValue(choicedOption, out ScriptableObject option))
         {
             Debug.LogError("No option found for type: " + choicedOption);
