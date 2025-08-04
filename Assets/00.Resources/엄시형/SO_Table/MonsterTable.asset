@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: MonsterTable
   m_EditorClassIdentifier: 
   mMonsters:
+  - {fileID: 5417800384967519980, guid: 7f898e4f324ee624a8f5dfed19e167fa, type: 3}
+  - {fileID: 5417800384967519980, guid: 5a5dd1b44de535345bb064d4c3ffb2da, type: 3}
+  - {fileID: 5417800384967519980, guid: 1e542b072e1b8c549b3b1265fc8e3627, type: 3}
+  - {fileID: 5417800384967519980, guid: ee6ccc6f24cbe0e4bab35767e87baf32, type: 3}
   - {fileID: 5417800384967519980, guid: 897c544420be25149ae3188c0d9ff2cd, type: 3}

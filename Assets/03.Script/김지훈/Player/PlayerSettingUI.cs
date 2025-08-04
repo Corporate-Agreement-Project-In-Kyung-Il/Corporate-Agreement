@@ -27,7 +27,13 @@ public class PlayerSettingUI : MonoBehaviour
         if (isInformationDisplayed)
         {
             for (int i = 0; i < PlayerArray.Length; i++)
-                Destroy(PlayerArray[i].gameObject);
+            {
+                if (PlayerArray[i] != null)
+                {
+                    Destroy(PlayerArray[i].gameObject);
+                    PlayerArray[i] = null;
+                }
+            }
             panel.gameObject.SetActive(false);
             isInformationDisplayed = false;
             text.text = "현재 상태";
@@ -60,5 +66,10 @@ public class PlayerSettingUI : MonoBehaviour
             text.text = "뒤로가기";
         }
 
+    }
+
+    private void SkillLevelUI(PlayerInformationGraphic info)
+    {
+        
     }
 }

@@ -1,14 +1,14 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayStartButton : MonoBehaviour
 {
     public PlayerList PlayerList;
+    public PlayerData[] PlayerData;
     public CharacterChoosing characterChoosing;
-
+    public Sprite[] characterSprites;
     private void Start()
     {
         characterChoosing=GetComponent<CharacterChoosing>();
@@ -24,7 +24,8 @@ public class PlayStartButton : MonoBehaviour
             return;
         }
 
-        
+        PutThePlayerData();
+
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; 
         SceneManager.LoadScene(currentSceneIndex + 1); // 다음 씬 로드
     }
@@ -39,5 +40,25 @@ public class PlayStartButton : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         characterChoosing.No3ClassPanel.SetActive(false);
     }
+
+    private void PutThePlayerData()
+    {
+        var sampleList = TSVLoaderSample.SampleDataList;
+        var putListID = PlayerList.Instance.CharacterIDs;
+
+        for (int i = 0; i < putListID.Length; i++)
+        {
+            for (int j = 0; j < sampleList.Count; j++)
+            {
+                if (sampleList[j].Character_ID.Equals(putListID[i]))
+                {
+                    PlayerList.Instance.InitializePutData(PlayerData[i], sampleList[j], characterSprites[j]);
+                }
+            }
+        }
+        //(int)sampleList[0].CurrentStage;
+    }
+    
+    
     
 }

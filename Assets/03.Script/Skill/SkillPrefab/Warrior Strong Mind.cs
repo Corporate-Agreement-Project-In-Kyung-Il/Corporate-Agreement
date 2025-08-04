@@ -28,7 +28,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     private void Start()
     {
         attackCount = 0;
-
+        SFXManager.Instance.Play(skillSound);
         AttackTarget();
     }
 
@@ -47,7 +47,7 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     public void AttackTarget()
     {
-        if (attackCount >= stat.Attack_Count)
+        if (attackCount >= stat.Attack_Count||owner.target==null)
         {
             Destroy(gameObject);
         }
@@ -59,7 +59,8 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
 
     IEnumerator DamageDelay()
     {
-        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+
+        if (owner.target.gameObject.TryGetComponent(out IDamageAble enemyDamage) && owner.target != null)
         {
             attackCount++;
             CombatEvent combatEvent = new CombatEvent();
@@ -78,16 +79,17 @@ public class WarriorStrongMind : ActiveSkillBase, ISkillID
     public override void Initialize()
     {
         SetSkillID();
-
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
             stat.Attack_Count = skill.Skill_Attack_Count;
+            stat.SkillName = skill.Skill_Name;
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
             stat.Damage = skill2.Skill_Damage;
             stat.Attack_Count = skill2.Skill_Attack_Count;
+            stat.SkillName = skill2.Skill_Name;
         }
     }
 }

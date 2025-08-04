@@ -24,7 +24,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
 
     [SerializeField] Collider2D lastTarget;
     
-
+    
     public void SetSkillID()
     {
         SkillID = SkillId;
@@ -44,6 +44,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         Debug.Log("start MagicExplosion");
         targetList = AliveExistSystem.Instance.monsterList;   
         coll.enabled = false;
+        SFXManager.Instance.Play(skillSound);
     }
 
 
@@ -68,16 +69,6 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
         }
 
         MoveToEnemyHurt();
-
-        //Vector2 dir = (owner.target.transform.position - transform.position).normalized;
-        //float dis = Vector2.Distance(owner.target.transform.position, transform.position);
-        //
-        //transform.position += (Vector3)(dir * (moveSpeed * Time.deltaTime));
-        //
-        //if (dis < 0.2f)
-        //{
-        //    coll.enabled = true;
-        //}
     }
 
     private void FindNextTarget()
@@ -173,7 +164,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
             transform.position += transform.up * (velocity);
         }
         
-        if (distanceToTarget < 0.3f) //터지기 시작하는 거리
+        if (distanceToTarget < 0.5f) //터지기 시작하는 거리
         {
             if (shakePossible)
             {
@@ -189,6 +180,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
+        
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
@@ -223,12 +215,13 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     {
         coll = GetComponent<BoxCollider2D>();
         SetSkillID();
+        
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
             stat.Damage = skill.Skill_Damage;
             stat.Range_width = skill.Skill_Range_width;
             stat.Range_height = skill.Skill_Range_height;
-
+            stat.SkillName = skill.Skill_Name;
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
@@ -236,7 +229,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
             stat.Damage = skill2.Skill_Damage;
             stat.Range_width = skill2.Skill_Range_width;
             stat.Range_height = skill2.Skill_Range_height;
-
+            stat.SkillName = skill2.Skill_Name;
             coll.size = new Vector2(stat.Range_width, stat.Range_height);
         }
         boomEffect.transform.localScale = new Vector3(stat.Range_width, stat.Range_height, 1f);

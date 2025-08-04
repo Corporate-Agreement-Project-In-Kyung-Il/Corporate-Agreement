@@ -21,7 +21,7 @@ public class AliveExistSystem : MonoBehaviour
     {
         TryGetComponent(out col);
     }
-    
+
     private void OnDisable()
     {
         monsterList.Clear();

@@ -52,7 +52,13 @@ namespace _03.Script.엄시형.Stage
             
             return list;
         }
-        
+
+        // [Conditional("UNITY_EDITOR")]
+        // private void Awake()
+        // {
+        //     Load();
+        // }
+
         [Conditional("UNITY_EDITOR")]
         internal void Load()
         {
@@ -108,6 +114,9 @@ namespace _03.Script.엄시형.Stage
             AllAreaPatternDTO allAreaPatternDto = new AllAreaPatternDTO(patternDtos);
 
             PersistManager.WriteAsJson(allAreaPatternDto, fullPath);
+            #if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+            #endif
         }
     }
 
@@ -131,6 +140,16 @@ namespace _03.Script.엄시형.Stage
             {
                 stagePatternTable.Save();
                 EditorUtility.SetDirty(stagePatternTable);
+            }
+            
+            if (GUILayout.Button("OpenFolder"))
+            {
+                string fullPath = Path.Combine(
+                    Application.dataPath
+                    , "05.DataTable"
+                    , "AreaPattern.json");
+                
+                EditorUtility.RevealInFinder(fullPath);
             }
         }
     }

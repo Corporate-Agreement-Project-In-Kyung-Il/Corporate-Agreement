@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class Shield_Protection : MonoBehaviour, ISkillID
+public class Shield_Protection : BuffBase, ISkillID
 {
+    public SFXData buffSound;
+
+    
     public int SkillId;
     public int SkillID { get; set; }
     public void SetSkillID() => SkillID = SkillId;
@@ -13,7 +16,10 @@ public class Shield_Protection : MonoBehaviour, ISkillID
     private float timer;
     private float activationRate;
     private bool initialized = false;
-
+    private void Start()
+    {
+        SFXManager.Instance.Play(buffSound);
+    }
     public void Initialize(Player _owner, BuffSO _buff)
     {
         owner = _owner;

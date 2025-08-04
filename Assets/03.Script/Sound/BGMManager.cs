@@ -50,20 +50,20 @@ public class BGMManager : MonoBehaviour
                 bgmDict.Add(data.state, data.bgmClip);
             }
         }
+
         ChangeBGM(GameState.Lobby);
     }
 
     public void ChangeBGM(GameState newState)
     {
-        if (currentState == newState) return;
+       
         currentState = newState;
-
         if (bgmDict.TryGetValue(newState, out AudioClip clip))
         {
             if (bgmSource.clip != clip)
             {
                 bgmSource.clip = clip;
-                bgmSource.volume = 0.4f;
+                bgmSource.volume = 1f;
                 bgmSource.loop = true;
                 bgmSource.Play();
             }

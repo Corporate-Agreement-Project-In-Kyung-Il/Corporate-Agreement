@@ -16,7 +16,7 @@ MonoBehaviour:
   Skill_Name: "\uB9C8\uBC95_\uD3ED\uBC1C"
   Skill_Type: 0
   Skill_Minimum_LV: 1
-  Skill_current_LV: 0
+  Skill_current_LV: 1
   Skill_Maximum_LV: 1024
   Skill_Cooldown: 3
   Skill_Damage: 2

@@ -16,7 +16,7 @@ MonoBehaviour:
   Skill_Name: "\uAC15\uCCA0_\uC2E4\uB4DC"
   Skill_Type: 1
   Skill_Minimum_LV: 1
-  Skill_current_LV: 0
+  Skill_current_LV: 1
   Skill_Class: 3
   Skill_Character: 2
   Skill_Range: 0
