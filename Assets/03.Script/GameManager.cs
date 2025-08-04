@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused = false;
     public GameObject pausePanel;
 
+    //사운드 데이터
+   
 
     private void Awake()
     {
