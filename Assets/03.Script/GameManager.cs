@@ -236,6 +236,10 @@ public class GameManager : MonoBehaviour
         CreateChoices(3);
     }
 
+    public void DestroyPlayerList()
+    {
+        Destroy(PlayerList.Instance.gameObject);
+    }
 /*#if UNITY_EDITOR
         // 게임 시작할 때 InGame선택지 ScriptableObject 생성
         // 1. HashSet으로 ID 생성

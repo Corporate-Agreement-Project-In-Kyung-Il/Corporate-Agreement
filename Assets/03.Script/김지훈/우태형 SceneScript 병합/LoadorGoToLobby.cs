@@ -11,8 +11,10 @@ public class LoadorGoToLobby : MonoBehaviour
     private Button[] buttons;
     private Player[] players;
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return null;
+        players = PlayerRevival.players;
         buttons = GetComponentsInChildren<Button>();
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -30,18 +32,22 @@ public class LoadorGoToLobby : MonoBehaviour
         
         if (index.Equals(0))
         {
+            Spawner.Instance.RetryStage();
             //살아나
-            for (int i = 0; i < players.Length; i++)
-            {
-                players[i].initialSetPlayerStats(players[i].data);
-                players[i].gameObject.SetActive(true);
-                players[i].ChangeState(CharacterState.Run);
-            }
+            // for (int i = 0; i < players.Length; i++)
+            // {
+            //     
+            //     players[i].initialSetPlayerStats(players[i].data);
+            //     players[i].gameObject.SetActive(true);
+            //     players[i].ChangeState(CharacterState.Run);
+            // }
         }
         else
         {
             //돌아가
+            Destroy(PlayerList.Instance.gameObject);
             GameManager.Instance.LoadScene(0, this.gameObject);
         }
+        gameObject.SetActive(false);
     }
 }

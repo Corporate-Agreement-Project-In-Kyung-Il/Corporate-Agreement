@@ -17,7 +17,7 @@ public class DamageText : MonoBehaviour, IObjectPoolItem
     private Transform target;
     private float duration;
     
-    private static Dictionary<Transform, int> targetSpawnCounter = new Dictionary<Transform, int>();
+    private static Dictionary<Transform, List<bool>> targetSpawnCounter = new Dictionary<Transform, List<bool>>();
     private int myOrderIndex = 0; // 내가 몇 번째로 생성된 DamageText인지
     private void Awake()
     {
@@ -28,15 +28,29 @@ public class DamageText : MonoBehaviour, IObjectPoolItem
     public void Set(Transform target, string content, float duration, Color color)
     {
         this.target = target;
-        text.text = content;
         this.duration = duration;
+        text.text = content;
         text.color = color;
         
         if (!targetSpawnCounter.ContainsKey(target))
-            targetSpawnCounter[target] = 0;
+            targetSpawnCounter[target] = new List<bool>();
+            //targetSpawnCounter[target] = 0;
 
-        myOrderIndex = targetSpawnCounter[target];
-        targetSpawnCounter[target]++;
+        //myOrderIndex = targetSpawnCounter[target];
+        //targetSpawnCounter[target]++;
+        
+        List<bool> slots = targetSpawnCounter[target];
+        
+        int index = slots.FindIndex(s => s == false);
+        if (index == -1)
+        {
+            index = slots.Count;
+            slots.Add(true);
+        }else
+        {
+            slots[index] = true;
+        }
+        myOrderIndex = index;
     }
 
     private void Update()
@@ -58,6 +72,31 @@ public class DamageText : MonoBehaviour, IObjectPoolItem
 
     public void ReturnToPool()
     {
+        if (target != null && targetSpawnCounter.ContainsKey(target))
+        {
+            List<bool> slots = targetSpawnCounter[target];
+            if (myOrderIndex >= 0 && myOrderIndex < slots.Count)
+            {
+                slots[myOrderIndex] = false;
+            }
+
+            // 전체 슬롯이 비었다면 해당 타겟에 대한 슬롯도 정리
+            bool allEmpty = true;
+            foreach (bool b in slots)
+            {
+                if (b)
+                {
+                    allEmpty = false;
+                    break;
+                }
+            }
+
+            if (allEmpty)
+            {
+                targetSpawnCounter.Remove(target);
+            }
+        }
+        
         ObjectPoolSystem.Instance.ReturnToPool(this);
     }
 }
