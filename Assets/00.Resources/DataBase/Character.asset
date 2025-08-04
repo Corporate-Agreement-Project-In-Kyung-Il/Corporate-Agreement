@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca1326b96197a3488640ab1a1f6d9f2, type: 3}
-  m_Name: SE_Attack_Release
+  m_Script: {fileID: 11500000, guid: 5693b6435258f494b9ace5b1c779498a, type: 3}
+  m_Name: Character
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 97f66e00efd89564aa280aed58bf001b, type: 3}
-  volume: 1
+  data: []

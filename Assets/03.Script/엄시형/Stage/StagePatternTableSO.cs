@@ -114,7 +114,9 @@ namespace _03.Script.엄시형.Stage
             AllAreaPatternDTO allAreaPatternDto = new AllAreaPatternDTO(patternDtos);
 
             PersistManager.WriteAsJson(allAreaPatternDto, fullPath);
+            #if UNITY_EDITOR
             EditorUtility.SetDirty(this);
+            #endif
         }
     }
 

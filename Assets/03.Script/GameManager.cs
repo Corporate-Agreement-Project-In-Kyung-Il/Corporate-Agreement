@@ -219,6 +219,10 @@ public class GameManager : MonoBehaviour
         m_Options[EOptionType.Skill] = m_IngameSkillOption;
         m_Options[EOptionType.Equip] = equipOption;
         m_Options[EOptionType.Training] = trainingOption;
+        if (skillManager == null)
+        {
+            skillManager = FindObjectOfType<SkillManager>();
+        }
         skillManager.SetSkillOption(m_IngameSkillOption);
 
         CreateChoices(3);

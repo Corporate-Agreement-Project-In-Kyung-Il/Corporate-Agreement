@@ -117,18 +117,31 @@ public sealed class Spawner : MonoBehaviour
         m_SkillManager.SetPlayers(m_PlayerList.ToArray());
         
         m_CurTheme = (StageTheme) Random.Range(1, m_ThemeLength);
-        
+
+        if (GameManager.Instance == null)
+        {
+            StartCoroutine(co_Delay(5));
+        }
         GameManager.Instance.GameStart();
         pauseStageText[0].text = $"B - {m_CurStageId.ToString()}F";
         pauseStageText[1].text = $"현재 층 B - {m_CurStageId.ToString()}F";
     }
+
+    IEnumerator co_Delay(int num)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            yield return null;
+        }
+    }
     
-    private void Start()
+    IEnumerator  Start()
     {
         m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(m_CurStageId));
         GetRandomPattern();
         m_CurTilemapList = GenerateMap(m_StageInfo.SpawnMonsterCounts);
         
+        yield return null;
         SpawnAllMonstersInStage();
     }
 
