@@ -68,7 +68,8 @@ public sealed class Spawner : MonoBehaviour
     private StageInfo m_StageInfo;
     private int m_CurStageInfoIndex = 0;
     private int m_ThemeLength = 0;
-
+    private int m_MonsterTypeLength = 0;
+    
     private Dictionary<character_class, Vector2> m_PlayerSpawnPointDic;
     
     [Conditional("UNITY_EDITOR")]
@@ -79,12 +80,15 @@ public sealed class Spawner : MonoBehaviour
         // Debug.Assert(mMonsterTable != null, "MonsterTableSO 인스펙터에서 빠짐");
     }
 
-    void Awake()
+    private void Awake()
     {
         Instance = this;
         
         int savedStage = PlayerList.Instance.currentStage;
+        
         m_ThemeLength = Enum.GetValues(typeof(StageTheme)).Length;
+        m_MonsterTypeLength = Enum.GetValues(typeof(MonsterType)).Length;
+        
         // 플레이어가 저장된 스테이지가 있으면 그 스테이지로 시작
         if (0 < savedStage)
         {
@@ -122,12 +126,21 @@ public sealed class Spawner : MonoBehaviour
         {
             StartCoroutine(co_Delay(5));
         }
+        
         GameManager.Instance.GameStart();
         pauseStageText[0].text = $"B - {m_CurStageId.ToString()}F";
         pauseStageText[1].text = $"현재 층 B - {m_CurStageId.ToString()}F";
     }
 
-    IEnumerator co_Delay(int num)
+    private void Update()
+    {
+        // if (Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     DestroyAllMonsters();
+        // }
+    }
+
+    private IEnumerator co_Delay(int num)
     {
         for (int i = 0; i < num; i++)
         {
@@ -135,7 +148,7 @@ public sealed class Spawner : MonoBehaviour
         }
     }
     
-    IEnumerator  Start()
+    private IEnumerator Start()
     {
         m_MonsterData.SetMonsterData(m_MonsterStatTable.GetValue(m_CurStageId));
         GetRandomPattern();
@@ -158,8 +171,10 @@ public sealed class Spawner : MonoBehaviour
     public void SetStage()
     {
         m_CurStageId++;
+        
         pauseStageText[0].text = $"B - {m_CurStageId.ToString()}F";
         pauseStageText[1].text = $"현재 층 B - {m_CurStageId.ToString()}F";
+        
         // 선택지
         if (m_CurStageId % 3 == 0)
         {
@@ -230,6 +245,20 @@ public sealed class Spawner : MonoBehaviour
         m_CurTilemapList.Clear();
     }
 
+    private void DestroyAllMonsters()
+    {
+        for (int i = 0; i < m_CurTilemapList.Count; i++)
+        {
+            var monsters = m_CurTilemapList[i].GetComponentsInChildren<BaseMonster>();
+            
+            foreach (var monster in monsters)
+            {
+                Destroy(monster.gameObject);
+            }
+        }
+    }
+    
+    
     private void GetRandomPattern()
     {
         m_CurPatternList = new List<AreaPattern>(m_StageInfo.AreaCount);
@@ -247,6 +276,7 @@ public sealed class Spawner : MonoBehaviour
 
     private void SpawnAllMonstersInStage()
     {
+        Debug.Assert(m_StageInfo != null, "널 들어옴");
         
         for (var i = 0; i < m_PlayerList.Count; i++)
         {
@@ -254,11 +284,8 @@ public sealed class Spawner : MonoBehaviour
             SetPositionStartPoint(player);
         }
         
-        Debug.Assert(m_StageInfo != null, "널 들어옴");
-        
         // 한 종류만 나옴
-        var monsterEnumList = Enum.GetValues(typeof(MonsterType));
-        MonsterType monsterType = (MonsterType) Random.Range(1, monsterEnumList.Length);
+        MonsterType monsterType = (MonsterType) Random.Range(1, m_MonsterTypeLength);
         // 3마리 4마리 패턴중 랜덤리스트 가져옴
         
         // 구역(Area)별로 몬스터 스폰
@@ -271,7 +298,9 @@ public sealed class Spawner : MonoBehaviour
                 var basemonster = SpawnMonsterInRange(area.MonsterSpawnInfoList[x]
                     , monsterType
                     , parent: m_CurTilemapList[i].gameObject);
+                
                 var monster = basemonster as MonsterController;
+                
                 monster.SetMonsterData(m_MonsterData);
             }
         }
@@ -280,7 +309,7 @@ public sealed class Spawner : MonoBehaviour
         if (m_CurStageId % 3 == 0)
         {
             Tilemap bossTilemap = m_CurTilemapList.Last();
-            
+             
             bossTilemap.CompressBounds();
             
             var boss = SpawnMonster(
@@ -314,7 +343,7 @@ public sealed class Spawner : MonoBehaviour
             Debug.Log("캐릭터 클래스에 맞는 스폰 위치가 없습니다.");
         }
     }
-
+    
     private void SpawnCharacters()
     {
         // index 0 전사 100001
