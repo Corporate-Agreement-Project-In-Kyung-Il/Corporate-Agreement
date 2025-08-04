@@ -11,7 +11,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
     public GameObject boomEffect;
 
     private List<Collider2D> targetList;
-
+    private bool isBoom=false;
     [Header("최대 속도")] public float maxSpeed = 5f;
     [Header("유도 설정")]
     [SerializeField] private float initialSpeed = 2f;
@@ -51,7 +51,10 @@ public class AquaBall : ActiveSkillBase, ISkillID
 
     void Update()
     {
-
+        if (isBoom)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
         if (targetList.Count <= 0)
         {
             GameObject tempTargetObj = GameObject.Find("TempTarget");
@@ -70,6 +73,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
         }
 
         MoveToEnemyHurt();
+       
     }
 
     private void FindNextTarget()
@@ -206,7 +210,7 @@ public class AquaBall : ActiveSkillBase, ISkillID
 
     IEnumerator effectDelay()
     {
-
+        isBoom = true;
         boomEffect.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
