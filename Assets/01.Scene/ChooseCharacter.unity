@@ -4669,6 +4669,7 @@ MonoBehaviour:
   - {fileID: 6841361}
   SameClassPanel: {fileID: 1622939923}
   No3ClassPanel: {fileID: 139239764}
+  chooseSound: {fileID: 11400000, guid: 2ebbb813164c2694f82d445e98a7d25d, type: 2}
 --- !u!114 &1308685685
 MonoBehaviour:
   m_ObjectHideFlags: 0
