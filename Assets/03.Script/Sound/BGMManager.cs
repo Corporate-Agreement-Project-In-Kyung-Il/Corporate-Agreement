@@ -52,7 +52,6 @@ public class BGMManager : MonoBehaviour
         }
 
         ChangeBGM(GameState.Lobby);
-
     }
 
     public void ChangeBGM(GameState newState)

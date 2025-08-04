@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Panel : MonoBehaviour
@@ -13,6 +10,6 @@ public class Panel : MonoBehaviour
 
     public void ReturnTitleScene()
     {
-        SceneManager.LoadScene(0);
+        GameManager.Instance.LoadScene(0, this.gameObject);
     }
 }

@@ -4281,6 +4281,7 @@ GameObject:
   - component: {fileID: 1883279146}
   - component: {fileID: 1883279148}
   - component: {fileID: 1883279147}
+  - component: {fileID: 1883279149}
   m_Layer: 5
   m_Name: "\uAC8C\uC784 \uC624\uBC84 \uCC3D"
   m_TagString: Untagged
@@ -4348,6 +4349,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883279145}
   m_CullTransparentMesh: 1
+--- !u!114 &1883279149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883279145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a916f8957ff39034b8f829eed5056c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1893633361
 GameObject:
   m_ObjectHideFlags: 0
@@ -4975,7 +4988,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterList: []
   playerList: []
-  retireCanvas: {fileID: 0}
 --- !u!1 &2069321265
 GameObject:
   m_ObjectHideFlags: 0
@@ -6421,6 +6433,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_BestFit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1056841154051945709, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeAndPause
+      objectReference: {fileID: 0}
     - target: {fileID: 1717020826034320515, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
@@ -6484,6 +6500,10 @@ PrefabInstance:
     - target: {fileID: 2715168099336117685, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_LocalScale.y
       value: 5.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805093824484464124, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3195887970365118855, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -6549,6 +6569,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 6634254947189152069, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_Name
+      value: "\uD6C4\uD1F4 \uBC84\uD2BC"
+      objectReference: {fileID: 0}
     - target: {fileID: 6721373815857763650, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
@@ -6557,6 +6581,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_BestFit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: RetireCanvas
+      value: 
+      objectReference: {fileID: 1883279145}
     - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: Data.Array.size
       value: 3

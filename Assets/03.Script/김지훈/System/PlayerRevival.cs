@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerRevival : MonoBehaviour
 {
-    private Player[] players;
+    public static Player[] players;
     private  void Start()
     {
         players = GetComponentsInChildren<Player>();

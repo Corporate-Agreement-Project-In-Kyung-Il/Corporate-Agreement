@@ -68,6 +68,6 @@ public class CameraPoint : MonoBehaviour
 
     private void OnDisable()
     {
-        StageEvent.stageClearEvent += InitalPosition;
+        StageEvent.stageClearEvent -= InitalPosition;
     }
 }
