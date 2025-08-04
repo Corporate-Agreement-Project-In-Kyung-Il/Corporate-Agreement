@@ -15,7 +15,6 @@ public class ConfinerSizeController : MonoBehaviour
     void Awake()
     {
         TryGetComponent(out boxCollider);
-        StageEvent.stageClearEvent += GenerateLimitMap;
         tilemapColliders.Add(tilemapCollider);
     }
 

@@ -809,7 +809,7 @@ Camera:
   far clip plane: 10
   field of view: 91.49284
   orthographic: 1
-  orthographic size: 6.785714
+  orthographic size: 5.714286
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6501,6 +6501,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5.65
       objectReference: {fileID: 0}
+    - target: {fileID: 2805093824484464124, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3195887970365118855, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -6576,6 +6580,34 @@ PrefabInstance:
     - target: {fileID: 6721373815857763650, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_FontData.m_BestFit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567040415547549962, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567040415547549962, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567040415547549962, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 321154672}
+    - target: {fileID: 7567040415547549962, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567040415547549962, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DestroyPlayerList
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567040415547549962, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567040415547549962, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: RetireCanvas
