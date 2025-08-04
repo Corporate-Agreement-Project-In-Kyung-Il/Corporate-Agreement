@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -56,11 +57,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -113,6 +109,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadScene(int sceneIndex, GameObject callobject)
+    {
+        callobject.SetActive(false);
+        if (canvas.gameObject.activeSelf)
+        {
+            Debug.Log("선택지 활성화 중에는 씬 변경 불가");
+            return;
+        }
+        Time.timeScale = 1f; // 씬 전환 시 시간 스케일 초기화
+        IsPaused = false;
+        SceneManager.LoadScene(sceneIndex);
+    }
     public void ResumeAndPause()
     {
         if (IsPaused)
