@@ -11,8 +11,10 @@ public class LoadorGoToLobby : MonoBehaviour
     private Button[] buttons;
     private Player[] players;
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return null;
+        players = PlayerRevival.players;
         buttons = GetComponentsInChildren<Button>();
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -43,5 +45,6 @@ public class LoadorGoToLobby : MonoBehaviour
             //돌아가
             GameManager.Instance.LoadScene(0, this.gameObject);
         }
+        gameObject.SetActive(false);
     }
 }
