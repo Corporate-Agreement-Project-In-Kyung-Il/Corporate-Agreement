@@ -2818,7 +2818,7 @@ MonoBehaviour:
   brokenImage: {fileID: 0}
   rerollCountText: {fileID: 0}
   optionCanvas: {fileID: 0}
-  checkOptionPanel: {fileID: 0}
+  checkOptionPanel: {fileID: 1562049756028117718}
   gradeImages: []
   choiceImage: {fileID: 0}
   choiceText: {fileID: 0}
@@ -3625,6 +3625,7 @@ MonoBehaviour:
   upgradeFailPanel: {fileID: 627833468}
   upgradeAnimationObject: {fileID: 552633020}
   upgradeAnimation: {fileID: 1515269001}
+  dummyOptionButton: {fileID: 1365030764}
   successSound: {fileID: 11400000, guid: 91259af88660a634ca15521e988dc134, type: 2}
   failedSound: {fileID: 11400000, guid: f88580f3bb2a0114a9d98893f91a4562, type: 2}
   enchantClickSound: {fileID: 11400000, guid: dd795ebdf231d5b4aa67736f4ffe95d4, type: 2}
@@ -4022,7 +4023,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
   - {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
   m_Grid: {fileID: 1058518467}
-  m_StageEndPoint: {fileID: 1399486814}
   m_ReviveGameObject: {fileID: 922078190}
   m_CurStageId: 400
   m_BossSpawnYOffset: 3
@@ -6468,6 +6468,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1689890959}
     - target: {fileID: 6455416147499234557, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1365030764}
+    - target: {fileID: 6455416147499234557, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PopUpOptionChoicePanel
       objectReference: {fileID: 0}
@@ -6835,6 +6839,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1278964822442535299, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
   m_PrefabInstance: {fileID: 1562049756028117714}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1562049756028117718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 750448025099872328, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
+  m_PrefabInstance: {fileID: 1562049756028117714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4254370391496771819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6848,8 +6857,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: ccc53422ad10d184b84adf79194de7f8, type: 3}
     - target: {fileID: 552681883436469636, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4254370391496771823}
+    - target: {fileID: 552681883436469636, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeAndPause
+      value: ReturnTitleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 552681883436469636, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Panel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 890107119839656241, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_FontData.m_Font
