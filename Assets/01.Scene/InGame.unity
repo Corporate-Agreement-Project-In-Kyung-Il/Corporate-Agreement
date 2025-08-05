@@ -3625,6 +3625,9 @@ MonoBehaviour:
   upgradeFailPanel: {fileID: 627833468}
   upgradeAnimationObject: {fileID: 552633020}
   upgradeAnimation: {fileID: 1515269001}
+  successSound: {fileID: 11400000, guid: 91259af88660a634ca15521e988dc134, type: 2}
+  failedSound: {fileID: 11400000, guid: f88580f3bb2a0114a9d98893f91a4562, type: 2}
+  enchantClickSound: {fileID: 11400000, guid: dd795ebdf231d5b4aa67736f4ffe95d4, type: 2}
 --- !u!1 &1553428815
 GameObject:
   m_ObjectHideFlags: 0
