@@ -85,17 +85,19 @@ public sealed class Spawner : MonoBehaviour
     {
         Instance = this;
         
-        int savedStage = PlayerList.Instance.currentStage;
+        // int savedStage = PlayerList.Instance.currentStage;
         
+        // Enum 길이 캐싱
         m_ThemeTypeLength = Enum.GetValues(typeof(StageTheme)).Length;
         m_MonsterTypeLength = Enum.GetValues(typeof(MonsterType)).Length;
+        
         m_CurMonsterType = (MonsterType) Random.Range(1, m_MonsterTypeLength);
         
         // 플레이어가 저장된 스테이지가 있으면 그 스테이지로 시작
-        if (0 < savedStage)
-        {
-            m_CurStageId = savedStage;
-        }
+        // if (1 < savedStage)
+        // {
+        //     m_CurStageId = savedStage;
+        // }
         
         m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
         {
@@ -133,15 +135,6 @@ public sealed class Spawner : MonoBehaviour
         
         pauseStageText[0].text = $"B - {m_CurStageId.ToString()}F";
         pauseStageText[1].text = $"현재 층 B - {m_CurStageId.ToString()}F";
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            // DestroyAllMonsters();
-            RetryStage();
-        }
     }
 
     private IEnumerator co_Delay(int num)
@@ -191,27 +184,26 @@ public sealed class Spawner : MonoBehaviour
         pauseStageText[0].text = $"B - {m_CurStageId.ToString()}F";
         pauseStageText[1].text = $"현재 층 B - {m_CurStageId.ToString()}F";
         
-        // 선택지
-        if (m_CurStageId % 3 == 0)
-        {
-            GameManager.Instance.CreateChoices(3);
-        }
-        
         // 보스 이후 테마 변경
         if (m_CurStageId % 3 == 1)
         {
+            // CreateChoices하면 
+            GameManager.Instance.CreateChoices(3);
+            
             var prevTheme = m_CurTheme;
             var prevMonsterType = m_CurMonsterType;
-            // 전 테마랑 같지 않게 랜덤으로 테마 설정
+            
+            // 동일한 테마, 몬스터가 나오지 않을때까지 랜덤 돌리기
             do
             {
                 m_CurMonsterType = (MonsterType) Random.Range(1, m_MonsterTypeLength);
-                m_CurTheme = (StageTheme) Random.Range(1, m_ThemeTypeLength);
-            } while (m_CurTheme == prevTheme && m_CurMonsterType == prevMonsterType);
-        
-            // Debug.Log(m_CurTheme);
-        }
+            } while (m_CurMonsterType == prevMonsterType);
 
+            do
+            {
+                m_CurTheme = (StageTheme) Random.Range(1, m_ThemeTypeLength);
+            } while (m_CurTheme == prevTheme);
+        }
         
         // 15 30 45 60 400 넘어가면 몬스터 수, 구역 패턴 변화
         if (m_CurStageInfo.MaxStage < m_CurStageId)
