@@ -16,9 +16,9 @@ MonoBehaviour:
   - Key_ID: 630001
     val:
       Selection_Level: 0
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        5% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500001
       Critical_Damage_Increase: 0.05
       Critical_Rate_Increase: 0.02
@@ -27,9 +27,9 @@ MonoBehaviour:
   - Key_ID: 630002
     val:
       Selection_Level: 1
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        10% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500001
       Critical_Damage_Increase: 0.1
       Critical_Rate_Increase: 0.04
@@ -38,9 +38,9 @@ MonoBehaviour:
   - Key_ID: 630003
     val:
       Selection_Level: 2
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 9% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        15% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 9% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500001
       Critical_Damage_Increase: 0.15
       Critical_Rate_Increase: 0.06
@@ -49,9 +49,9 @@ MonoBehaviour:
   - Key_ID: 630004
     val:
       Selection_Level: 3
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 12% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        20% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 12% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500001
       Critical_Damage_Increase: 0.2
       Critical_Rate_Increase: 0.08
@@ -60,9 +60,9 @@ MonoBehaviour:
   - Key_ID: 630005
     val:
       Selection_Level: 4
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
-        \uACF5\uACA9 \uC18D\uB3C4\uAC00 18% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        30% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        12% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 18% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500001
       Critical_Damage_Increase: 0.3
       Critical_Rate_Increase: 0.12
@@ -71,9 +71,9 @@ MonoBehaviour:
   - Key_ID: 630006
     val:
       Selection_Level: 5
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 16% \uC99D\uAC00\uD558\uBA70
-        \uACF5\uACA9 \uC18D\uB3C4\uAC00 24% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        40% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        16% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 24% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500001
       Critical_Damage_Increase: 0.4
       Critical_Rate_Increase: 0.16
@@ -82,9 +82,9 @@ MonoBehaviour:
   - Key_ID: 630007
     val:
       Selection_Level: 0
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        10% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500002
       Critical_Damage_Increase: 0.1
       Critical_Rate_Increase: 0.02
@@ -93,9 +93,9 @@ MonoBehaviour:
   - Key_ID: 630008
     val:
       Selection_Level: 1
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        20% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500002
       Critical_Damage_Increase: 0.2
       Critical_Rate_Increase: 0.04
@@ -104,9 +104,9 @@ MonoBehaviour:
   - Key_ID: 630009
     val:
       Selection_Level: 2
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        30% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500002
       Critical_Damage_Increase: 0.3
       Critical_Rate_Increase: 0.06
@@ -115,9 +115,9 @@ MonoBehaviour:
   - Key_ID: 630010
     val:
       Selection_Level: 3
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        40% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500002
       Critical_Damage_Increase: 0.4
       Critical_Rate_Increase: 0.08
@@ -126,9 +126,9 @@ MonoBehaviour:
   - Key_ID: 630011
     val:
       Selection_Level: 4
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 60% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
-        \uACF5\uACA9 \uC18D\uB3C4\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        60% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        12% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500002
       Critical_Damage_Increase: 0.6
       Critical_Rate_Increase: 0.12
@@ -137,9 +137,9 @@ MonoBehaviour:
   - Key_ID: 630012
     val:
       Selection_Level: 5
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 80% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 16% \uC99D\uAC00\uD558\uBA70
-        \uACF5\uACA9 \uC18D\uB3C4\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        80% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        16% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500002
       Critical_Damage_Increase: 0.8
       Critical_Rate_Increase: 0.16
@@ -148,9 +148,9 @@ MonoBehaviour:
   - Key_ID: 630013
     val:
       Selection_Level: 0
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        5% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        2% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500003
       Critical_Damage_Increase: 0.05
       Critical_Rate_Increase: 0.02
@@ -159,9 +159,9 @@ MonoBehaviour:
   - Key_ID: 630014
     val:
       Selection_Level: 1
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        10% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        4% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500003
       Critical_Damage_Increase: 0.1
       Critical_Rate_Increase: 0.04
@@ -170,9 +170,9 @@ MonoBehaviour:
   - Key_ID: 630015
     val:
       Selection_Level: 2
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 9% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        15% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        6% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 9% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500003
       Critical_Damage_Increase: 0.15
       Critical_Rate_Increase: 0.06
@@ -181,9 +181,9 @@ MonoBehaviour:
   - Key_ID: 630016
     val:
       Selection_Level: 3
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9
-        \uC18D\uB3C4\uAC00 12% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        20% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        8% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 12% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500003
       Critical_Damage_Increase: 0.2
       Critical_Rate_Increase: 0.08
@@ -192,9 +192,9 @@ MonoBehaviour:
   - Key_ID: 630017
     val:
       Selection_Level: 4
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 12% \uC99D\uAC00\uD558\uBA70
-        \uACF5\uACA9 \uC18D\uB3C4\uAC00 18% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        30% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        12% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 18% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500003
       Critical_Damage_Increase: 0.3
       Critical_Rate_Increase: 0.12
@@ -203,9 +203,9 @@ MonoBehaviour:
   - Key_ID: 630018
     val:
       Selection_Level: 5
-      Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD558\uACE0,
-        \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774 18% \uC99D\uAC00\uD558\uBA70
-        \uACF5\uACA9 \uC18D\uB3C4\uAC00 24% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+        40% \uC99D\uAC00\uD558\uACE0, \uD06C\uB9AC\uD2F0\uCEEC \uD655\uB960\uC774
+        18% \uC99D\uAC00\uD558\uBA70 \uACF5\uACA9 \uC18D\uB3C4\uAC00 24% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Training_ID: 500003
       Critical_Damage_Increase: 0.4
       Critical_Rate_Increase: 0.18
