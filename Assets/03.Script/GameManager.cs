@@ -51,8 +51,6 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused = false;
     public GameObject pausePanel;
 
-    //사운드 데이터
-   
 
     private void Awake()
     {
@@ -87,7 +85,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int m_TimeScale = 1;
+    private int m_TimeScale;
     
     public void ChangeTimeScale()
     {
@@ -143,7 +141,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("선택지 활성화 중에는 시간 변경 불가");
             return;
         }
-        Time.timeScale = m_TimeScale;
+        Time.timeScale = 1f;
         IsPaused = false;
         if (pausePanel.activeSelf)
         {
@@ -281,9 +279,9 @@ public class GameManager : MonoBehaviour
 
     public void RerollChoice(OptionButton optionButton)
     {
-        if (optionButton.rerollCount == 0 || optionButton.isUpgradable == false)
+        if (optionButton.rerollCount == 0)
         {
-            Debug.Log("리롤 불가!!");
+            Debug.Log("리롤 횟수 없음!!");
             return;
         }
 

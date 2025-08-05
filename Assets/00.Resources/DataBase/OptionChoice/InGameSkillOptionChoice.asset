@@ -16,9 +16,10 @@ MonoBehaviour:
   - Key_ID: 620001
     val:
       Selection_Level: 0
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD558\uBA70,
-        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 1% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uBC29\uD328\uC758 \uAC00\uD638 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD558\uBA70, \uBC29\uD328
+        \uBC1C\uB3D9 \uD655\uB960\uC774 1% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100011
       Cooldown_Reduction: 0.2
       Duration_Increase: 0.05
@@ -28,9 +29,10 @@ MonoBehaviour:
   - Key_ID: 620002
     val:
       Selection_Level: 1
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD558\uBA70,
-        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 2% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uBC29\uD328\uC758 \uAC00\uD638 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD558\uBA70, \uBC29\uD328
+        \uBC1C\uB3D9 \uD655\uB960\uC774 2% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100011
       Cooldown_Reduction: 0.4
       Duration_Increase: 0.1
@@ -40,9 +42,10 @@ MonoBehaviour:
   - Key_ID: 620003
     val:
       Selection_Level: 2
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD558\uBA70,
-        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uBC29\uD328\uC758 \uAC00\uD638 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD558\uBA70, \uBC29\uD328
+        \uBC1C\uB3D9 \uD655\uB960\uC774 3% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100011
       Cooldown_Reduction: 0.6
       Duration_Increase: 0.15
@@ -52,9 +55,10 @@ MonoBehaviour:
   - Key_ID: 620004
     val:
       Selection_Level: 3
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD558\uBA70,
-        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 4% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uBC29\uD328\uC758 \uAC00\uD638 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD558\uBA70, \uBC29\uD328
+        \uBC1C\uB3D9 \uD655\uB960\uC774 4% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100011
       Cooldown_Reduction: 0.8
       Duration_Increase: 0.2
@@ -64,9 +68,10 @@ MonoBehaviour:
   - Key_ID: 620005
     val:
       Selection_Level: 4
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD558\uBA70,
-        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uBC29\uD328\uC758 \uAC00\uD638 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD558\uBA70, \uBC29\uD328
+        \uBC1C\uB3D9 \uD655\uB960\uC774 6% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100011
       Cooldown_Reduction: 1.2
       Duration_Increase: 0.3
@@ -76,9 +81,10 @@ MonoBehaviour:
   - Key_ID: 620006
     val:
       Selection_Level: 5
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD558\uBA70,
-        \uBC29\uD328 \uBC1C\uB3D9 \uD655\uB960\uC774 8% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uBC29\uD328\uC758 \uAC00\uD638 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD558\uBA70, \uBC29\uD328
+        \uBC1C\uB3D9 \uD655\uB960\uC774 8% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100011
       Cooldown_Reduction: 1.6
       Duration_Increase: 0.4
@@ -88,74 +94,81 @@ MonoBehaviour:
   - Key_ID: 620007
     val:
       Selection_Level: 0
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uC804\uC0AC\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0,
         1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100012
       Cooldown_Reduction: 0.1
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.05
+      Damage_Increase: 0.1
       Skill_LvUP: 1
   - Key_ID: 620008
     val:
       Selection_Level: 1
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uC804\uC0AC\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
         1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100012
       Cooldown_Reduction: 0.2
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.1
+      Damage_Increase: 0.2
       Skill_LvUP: 2
   - Key_ID: 620009
     val:
       Selection_Level: 2
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uC804\uC0AC\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0,
         1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100012
       Cooldown_Reduction: 0.3
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.15
+      Damage_Increase: 0.3
       Skill_LvUP: 3
   - Key_ID: 620010
     val:
       Selection_Level: 3
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uC804\uC0AC\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
         1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100012
       Cooldown_Reduction: 0.4
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.2
+      Damage_Increase: 0.4
       Skill_LvUP: 4
   - Key_ID: 620011
     val:
       Selection_Level: 4
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uC804\uC0AC\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
         1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100012
       Cooldown_Reduction: 0.6
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.3
+      Damage_Increase: 0.6
       Skill_LvUP: 6
   - Key_ID: 620012
     val:
       Selection_Level: 5
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uC804\uC0AC\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
         1\uD0C0 \uB2F9 \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100012
       Cooldown_Reduction: 0.8
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.4
+      Damage_Increase: 0.8
       Skill_LvUP: 8
   - Key_ID: 620025
     val:
       Selection_Level: 0
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uD22C\uC0AC\uCCB4 \uBA85\uC911 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100015
       Cooldown_Reduction: 0.2
       Duration_Increase: 0.05
@@ -165,8 +178,9 @@ MonoBehaviour:
   - Key_ID: 620026
     val:
       Selection_Level: 1
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uD22C\uC0AC\uCCB4 \uBA85\uC911 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100015
       Cooldown_Reduction: 0.4
       Duration_Increase: 0.1
@@ -176,8 +190,9 @@ MonoBehaviour:
   - Key_ID: 620027
     val:
       Selection_Level: 2
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uD22C\uC0AC\uCCB4 \uBA85\uC911 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100015
       Cooldown_Reduction: 0.6
       Duration_Increase: 0.15
@@ -187,8 +202,9 @@ MonoBehaviour:
   - Key_ID: 620028
     val:
       Selection_Level: 3
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uD22C\uC0AC\uCCB4 \uBA85\uC911 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100015
       Cooldown_Reduction: 0.8
       Duration_Increase: 0.2
@@ -198,8 +214,9 @@ MonoBehaviour:
   - Key_ID: 620029
     val:
       Selection_Level: 4
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uD22C\uC0AC\uCCB4 \uBA85\uC911 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100015
       Cooldown_Reduction: 1.2
       Duration_Increase: 0.3
@@ -209,8 +226,9 @@ MonoBehaviour:
   - Key_ID: 620030
     val:
       Selection_Level: 5
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uD22C\uC0AC\uCCB4 \uBA85\uC911 \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0, \uBC84\uD504
+        \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100015
       Cooldown_Reduction: 1.6
       Duration_Increase: 0.4
@@ -220,7 +238,8 @@ MonoBehaviour:
   - Key_ID: 620031
     val:
       Selection_Level: 0
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uAD81\uC218\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
         \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 5% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100016
       Cooldown_Reduction: 0.2
@@ -231,7 +250,8 @@ MonoBehaviour:
   - Key_ID: 620032
     val:
       Selection_Level: 1
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uAD81\uC218\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
         \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100016
       Cooldown_Reduction: 0.4
@@ -242,7 +262,8 @@ MonoBehaviour:
   - Key_ID: 620033
     val:
       Selection_Level: 2
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uAD81\uC218\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
         \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 15% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100016
       Cooldown_Reduction: 0.6
@@ -253,7 +274,8 @@ MonoBehaviour:
   - Key_ID: 620034
     val:
       Selection_Level: 3
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uAD81\uC218\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
         \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100016
       Cooldown_Reduction: 0.8
@@ -264,7 +286,8 @@ MonoBehaviour:
   - Key_ID: 620035
     val:
       Selection_Level: 4
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uAD81\uC218\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
         \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100016
       Cooldown_Reduction: 1.2
@@ -275,7 +298,8 @@ MonoBehaviour:
   - Key_ID: 620036
     val:
       Selection_Level: 5
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
+      Description: "\uAD81\uC218\uC758 \uAC15\uD55C \uC758\uC9C0 \uC2A4\uD0AC\uC758
+        \uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
         \uBC84\uD504 \uC9C0\uC18D \uC2DC\uAC04\uC774 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100016
       Cooldown_Reduction: 1.6
@@ -286,8 +310,9 @@ MonoBehaviour:
   - Key_ID: 620043
     val:
       Selection_Level: 0
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0
-        \uB370\uBBF8\uC9C0\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95 \uD3ED\uBC1C \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.1\uCD08 \uAC10\uC18C\uD558\uACE0 \uB370\uBBF8\uC9C0\uAC00
+        10% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100018
       Cooldown_Reduction: 0.1
       Duration_Increase: 0
@@ -297,8 +322,9 @@ MonoBehaviour:
   - Key_ID: 620044
     val:
       Selection_Level: 1
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0
-        \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95 \uD3ED\uBC1C \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0 \uB370\uBBF8\uC9C0\uAC00
+        20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100018
       Cooldown_Reduction: 0.2
       Duration_Increase: 0
@@ -308,8 +334,9 @@ MonoBehaviour:
   - Key_ID: 620045
     val:
       Selection_Level: 2
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0
-        \uB370\uBBF8\uC9C0\uAC00 30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95 \uD3ED\uBC1C \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.3\uCD08 \uAC10\uC18C\uD558\uACE0 \uB370\uBBF8\uC9C0\uAC00
+        30% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100018
       Cooldown_Reduction: 0.3
       Duration_Increase: 0
@@ -319,8 +346,9 @@ MonoBehaviour:
   - Key_ID: 620046
     val:
       Selection_Level: 3
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0
-        \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95 \uD3ED\uBC1C \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0 \uB370\uBBF8\uC9C0\uAC00
+        40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100018
       Cooldown_Reduction: 0.4
       Duration_Increase: 0
@@ -330,8 +358,9 @@ MonoBehaviour:
   - Key_ID: 620047
     val:
       Selection_Level: 4
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0
-        \uB370\uBBF8\uC9C0\uAC00 60% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95 \uD3ED\uBC1C \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0 \uB370\uBBF8\uC9C0\uAC00
+        60% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100018
       Cooldown_Reduction: 0.6
       Duration_Increase: 0
@@ -341,8 +370,9 @@ MonoBehaviour:
   - Key_ID: 620048
     val:
       Selection_Level: 5
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0
-        \uB370\uBBF8\uC9C0\uAC00 80% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95 \uD3ED\uBC1C \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0 \uB370\uBBF8\uC9C0\uAC00
+        80% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100018
       Cooldown_Reduction: 0.8
       Duration_Increase: 0
@@ -352,8 +382,9 @@ MonoBehaviour:
   - Key_ID: 620055
     val:
       Selection_Level: 0
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uB370\uBBF8\uC9C0\uAC00 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC544\uCFE0\uC544 \uBCFC \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.2\uCD08 \uAC10\uC18C\uD558\uACE0, \uB370\uBBF8\uC9C0\uAC00
+        20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100020
       Cooldown_Reduction: 0.2
       Duration_Increase: 0
@@ -363,8 +394,9 @@ MonoBehaviour:
   - Key_ID: 620056
     val:
       Selection_Level: 1
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uB370\uBBF8\uC9C0\uAC00 40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC544\uCFE0\uC544 \uBCFC \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.4\uCD08 \uAC10\uC18C\uD558\uACE0, \uB370\uBBF8\uC9C0\uAC00
+        40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100020
       Cooldown_Reduction: 0.4
       Duration_Increase: 0
@@ -374,8 +406,9 @@ MonoBehaviour:
   - Key_ID: 620057
     val:
       Selection_Level: 2
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uB370\uBBF8\uC9C0\uAC00 60% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC544\uCFE0\uC544 \uBCFC \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.6\uCD08 \uAC10\uC18C\uD558\uACE0, \uB370\uBBF8\uC9C0\uAC00
+        60% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100020
       Cooldown_Reduction: 0.6
       Duration_Increase: 0
@@ -385,8 +418,9 @@ MonoBehaviour:
   - Key_ID: 620058
     val:
       Selection_Level: 3
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uB370\uBBF8\uC9C0\uAC00 80% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC544\uCFE0\uC544 \uBCFC \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 0.8\uCD08 \uAC10\uC18C\uD558\uACE0, \uB370\uBBF8\uC9C0\uAC00
+        80% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100020
       Cooldown_Reduction: 0.8
       Duration_Increase: 0
@@ -396,8 +430,9 @@ MonoBehaviour:
   - Key_ID: 620059
     val:
       Selection_Level: 4
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uB370\uBBF8\uC9C0\uAC00 120% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC544\uCFE0\uC544 \uBCFC \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 1.2\uCD08 \uAC10\uC18C\uD558\uACE0, \uB370\uBBF8\uC9C0\uAC00
+        120% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100020
       Cooldown_Reduction: 1.2
       Duration_Increase: 0
@@ -407,8 +442,9 @@ MonoBehaviour:
   - Key_ID: 620060
     val:
       Selection_Level: 5
-      Description: "\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0,
-        \uB370\uBBF8\uC9C0\uAC00 160% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC544\uCFE0\uC544 \uBCFC \uC2A4\uD0AC\uC758 \uC7AC\uC0AC\uC6A9
+        \uB300\uAE30\uC2DC\uAC04\uC774 1.6\uCD08 \uAC10\uC18C\uD558\uACE0, \uB370\uBBF8\uC9C0\uAC00
+        160% \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Skill_ID: 100020
       Cooldown_Reduction: 1.6
       Duration_Increase: 0

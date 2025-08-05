@@ -35,7 +35,6 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private StageInfoTableSO m_StageInfoTable;
     [SerializeField] private MonsterData m_MonsterData;
     [SerializeField] private PlayerCharacter m_CharacterTable;
-    
     // 스킬 매니저 추가 했습니다.
     [SerializeField] private SkillManager m_SkillManager;
     
@@ -43,7 +42,8 @@ public sealed class Spawner : MonoBehaviour
     [SerializeField] private List<PlayerData> m_PlayerData;
     
     [SerializeField] private Grid m_Grid;  
-    [SerializeField] private GameObject m_ReviveGameObject;
+    [SerializeField] private StageEndDetector m_StageEndPoint;
+    [FormerlySerializedAs("m_reviveGameObject")] [SerializeField] private GameObject m_ReviveGameObject;
     
     [Space(50)]
     [Header("현재 스테이지")]
@@ -314,7 +314,7 @@ public sealed class Spawner : MonoBehaviour
             {
                 var basemonster = SpawnMonsterInRange(area.MonsterSpawnInfoList[x]
                     , monsterType
-                    , parent: tilemapList[i]);
+                    , parent: tilemapList[i].gameObject);
                 
                 var monster = basemonster as MonsterController;
                 
@@ -325,19 +325,19 @@ public sealed class Spawner : MonoBehaviour
         // 보스 스테이지
         if (m_CurStageId % 3 == 0)
         {
-            Tilemap bossTilemap = tilemapList.Last();
+            Tilemap bossTilemap = m_CurTilemapList.Last();
              
             bossTilemap.CompressBounds();
             
             var boss = SpawnMonster(
                 new Vector2(bossTilemap.localBounds.center.x, bossTilemap.localBounds.max.y - m_BossSpawnYOffset)
-                , monsterType
+                , m_CurMonsterType
                 , parent: bossTilemap.gameObject);
             
             var monster = boss as MonsterController;
-            monster.SetBossData(monsterData);
+            monster.SetBossData(m_MonsterData);
             
-            monster.transform.localScale = Vector3.one * 3f;
+            boss.gameObject.transform.localScale = Vector3.one * 3f;
         }
         
         StageEvent.OnTriggerStageClearEvent(); // 맵 완성다 되었음.
@@ -414,7 +414,7 @@ public sealed class Spawner : MonoBehaviour
     /// <param name="type"> 몬스터 종류(MonsterType) </param>
     /// <param name="parent"> 구역(Area) </param>
     /// <returns> 스폰 몬스터 </returns>
-    public BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, Tilemap parent)
+    public BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
     {
         Vector2 randomOffset = Random.insideUnitCircle * (spawnInfo.Radius * 0.5f);
         // Debug.Log(randomOffset);
@@ -470,7 +470,7 @@ public sealed class Spawner : MonoBehaviour
             topY += bossTileMap.cellBounds.yMax;
         }
         
-        m_StageEndDetector.transform.position = new Vector2(0, topY);
+        m_StageEndPoint.transform.position = new Vector2(0, topY);
         
         return areaList;
     }
