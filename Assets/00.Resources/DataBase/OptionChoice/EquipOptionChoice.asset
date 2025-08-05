@@ -16,8 +16,8 @@ MonoBehaviour:
   - Key_ID: 610001
     val:
       Selection_Level: 0
-      Description: "\uACF5\uACA9\uB825\uC774 10 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        100 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 10 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 100 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 10
       HP_LV_UP_Effect: 100
@@ -25,8 +25,8 @@ MonoBehaviour:
   - Key_ID: 610002
     val:
       Selection_Level: 1
-      Description: "\uACF5\uACA9\uB825\uC774 20 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        200 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 20 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 200 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 20
       HP_LV_UP_Effect: 200
@@ -34,8 +34,8 @@ MonoBehaviour:
   - Key_ID: 610003
     val:
       Selection_Level: 2
-      Description: "\uACF5\uACA9\uB825\uC774 30 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        300 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 30 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 300 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 30
       HP_LV_UP_Effect: 300
@@ -43,8 +43,8 @@ MonoBehaviour:
   - Key_ID: 610004
     val:
       Selection_Level: 3
-      Description: "\uACF5\uACA9\uB825\uC774 40 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        400 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 40 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 400 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 40
       HP_LV_UP_Effect: 400
@@ -52,8 +52,8 @@ MonoBehaviour:
   - Key_ID: 610005
     val:
       Selection_Level: 4
-      Description: "\uACF5\uACA9\uB825\uC774 60 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        600 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 60 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 600 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 60
       HP_LV_UP_Effect: 600
@@ -61,8 +61,8 @@ MonoBehaviour:
   - Key_ID: 610006
     val:
       Selection_Level: 5
-      Description: "\uACF5\uACA9\uB825\uC774 80 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        800 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uC804\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 80 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 800 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400001
       Attack_LV_UP_Effect: 80
       HP_LV_UP_Effect: 800
@@ -70,8 +70,8 @@ MonoBehaviour:
   - Key_ID: 610007
     val:
       Selection_Level: 0
-      Description: "\uACF5\uACA9\uB825\uC774 8 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        80 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uACF5\uACA9\uB825\uC774 8 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 80 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 8
       HP_LV_UP_Effect: 80
@@ -79,8 +79,8 @@ MonoBehaviour:
   - Key_ID: 610008
     val:
       Selection_Level: 1
-      Description: "\uACF5\uACA9\uB825\uC774 16 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        160 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uACF5\uACA9\uB825\uC774 16 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 160 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 16
       HP_LV_UP_Effect: 160
@@ -88,8 +88,8 @@ MonoBehaviour:
   - Key_ID: 610009
     val:
       Selection_Level: 2
-      Description: "\uACF5\uACA9\uB825\uC774 24 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        240 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uACF5\uACA9\uB825\uC774 24 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 240 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 24
       HP_LV_UP_Effect: 240
@@ -97,8 +97,8 @@ MonoBehaviour:
   - Key_ID: 610010
     val:
       Selection_Level: 3
-      Description: "\uACF5\uACA9\uB825\uC774 32 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        320 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uACF5\uACA9\uB825\uC774 32 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 320 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 32
       HP_LV_UP_Effect: 320
@@ -106,8 +106,8 @@ MonoBehaviour:
   - Key_ID: 610011
     val:
       Selection_Level: 4
-      Description: "\uACF5\uACA9\uB825\uC774 48 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        480 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uACF5\uACA9\uB825\uC774 48 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 480 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 48
       HP_LV_UP_Effect: 480
@@ -115,8 +115,8 @@ MonoBehaviour:
   - Key_ID: 610012
     val:
       Selection_Level: 5
-      Description: "\uACF5\uACA9\uB825\uC774 64 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        640 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uAD81\uC218\uC758 \uACF5\uACA9\uB825\uC774 64 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 640 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400002
       Attack_LV_UP_Effect: 64
       HP_LV_UP_Effect: 640
@@ -124,8 +124,8 @@ MonoBehaviour:
   - Key_ID: 610013
     val:
       Selection_Level: 0
-      Description: "\uACF5\uACA9\uB825\uC774 4 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        70 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 4 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 70 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 4
       HP_LV_UP_Effect: 70
@@ -133,8 +133,8 @@ MonoBehaviour:
   - Key_ID: 610014
     val:
       Selection_Level: 1
-      Description: "\uACF5\uACA9\uB825\uC774 8 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        140 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 8 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 140 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 8
       HP_LV_UP_Effect: 140
@@ -142,8 +142,8 @@ MonoBehaviour:
   - Key_ID: 610015
     val:
       Selection_Level: 2
-      Description: "\uACF5\uACA9\uB825\uC774 12 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        210 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 12 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 210 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 12
       HP_LV_UP_Effect: 210
@@ -151,8 +151,8 @@ MonoBehaviour:
   - Key_ID: 610016
     val:
       Selection_Level: 3
-      Description: "\uACF5\uACA9\uB825\uC774 16 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        280 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 16 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 280 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 16
       HP_LV_UP_Effect: 280
@@ -160,8 +160,8 @@ MonoBehaviour:
   - Key_ID: 610017
     val:
       Selection_Level: 4
-      Description: "\uACF5\uACA9\uB825\uC774 24 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        420 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 24 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 420 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 24
       HP_LV_UP_Effect: 420
@@ -169,8 +169,8 @@ MonoBehaviour:
   - Key_ID: 610018
     val:
       Selection_Level: 5
-      Description: "\uACF5\uACA9\uB825\uC774 32 \uC99D\uAC00\uD558\uACE0, \uCCB4\uB825\uC774
-        560 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      Description: "\uB9C8\uBC95\uC0AC\uC758 \uACF5\uACA9\uB825\uC774 32 \uC99D\uAC00\uD558\uACE0,
+        \uCCB4\uB825\uC774 560 \uC99D\uAC00\uD569\uB2C8\uB2E4."
       Equipment_Type_ID: 400003
       Attack_LV_UP_Effect: 32
       HP_LV_UP_Effect: 560
