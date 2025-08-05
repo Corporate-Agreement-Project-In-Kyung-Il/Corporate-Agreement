@@ -4021,10 +4021,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
   - {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
   - {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
-  m_Grid: {fileID: 1058518465}
+  m_Grid: {fileID: 1058518467}
   m_StageEndPoint: {fileID: 1399486814}
-  m_reviveGameObject: {fileID: 922078190}
-  m_CurStageId: 1
+  m_ReviveGameObject: {fileID: 922078190}
+  m_CurStageId: 400
   m_BossSpawnYOffset: 3
   m_ArcherSpawnPos: {x: -0.5, y: 1}
   m_WarriorSpawnPos: {x: 0.5, y: 2}
