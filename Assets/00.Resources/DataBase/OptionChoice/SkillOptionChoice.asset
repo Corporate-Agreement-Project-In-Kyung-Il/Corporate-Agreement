@@ -94,7 +94,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0.1
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.05
+      Damage_Increase: 0.1
       Skill_LvUP: 1
   - Key_ID: 620008
     val:
@@ -105,7 +105,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0.2
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.1
+      Damage_Increase: 0.2
       Skill_LvUP: 2
   - Key_ID: 620009
     val:
@@ -116,7 +116,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0.3
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.15
+      Damage_Increase: 0.3
       Skill_LvUP: 3
   - Key_ID: 620010
     val:
@@ -127,7 +127,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0.4
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.2
+      Damage_Increase: 0.4
       Skill_LvUP: 4
   - Key_ID: 620011
     val:
@@ -138,7 +138,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0.6
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.3
+      Damage_Increase: 0.6
       Skill_LvUP: 6
   - Key_ID: 620012
     val:
@@ -149,7 +149,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0.8
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.4
+      Damage_Increase: 0.8
       Skill_LvUP: 8
   - Key_ID: 620013
     val:
@@ -423,7 +423,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.05
+      Damage_Increase: 0.1
       Skill_LvUP: 1
   - Key_ID: 620038
     val:
@@ -433,7 +433,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.1
+      Damage_Increase: 0.2
       Skill_LvUP: 2
   - Key_ID: 620039
     val:
@@ -443,7 +443,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.15
+      Damage_Increase: 0.3
       Skill_LvUP: 3
   - Key_ID: 620040
     val:
@@ -453,7 +453,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.2
+      Damage_Increase: 0.4
       Skill_LvUP: 4
   - Key_ID: 620041
     val:
@@ -463,7 +463,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.3
+      Damage_Increase: 0.6
       Skill_LvUP: 6
   - Key_ID: 620042
     val:
@@ -473,7 +473,7 @@ MonoBehaviour:
       Cooldown_Reduction: 0
       Duration_Increase: 0
       Activation_Rate_Increase: 0
-      Damage_Increase: 0.4
+      Damage_Increase: 0.8
       Skill_LvUP: 8
   - Key_ID: 620043
     val:
