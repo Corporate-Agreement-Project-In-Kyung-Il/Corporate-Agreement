@@ -143,6 +143,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("선택지 활성화 중에는 시간 변경 불가");
             return;
         }
+
+        if (m_TimeScale > 3)
+        {
+            m_TimeScale = 1;
+        }
         Time.timeScale = m_TimeScale;
         IsPaused = false;
         if (pausePanel.activeSelf)
