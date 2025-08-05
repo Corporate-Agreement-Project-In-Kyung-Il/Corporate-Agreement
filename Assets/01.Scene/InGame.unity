@@ -8167,9 +8167,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 59a288d438933b64eb4929e1bd364ba0, type: 2}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: "\uB178\uB9D0_\uAC00\uC911\uCE58"
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: "\uB808\uC5B4_\uAC00\uC911\uCE58"
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: "\uC2E0\uD654_\uAC00\uC911\uCE58"
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: "\uC5D0\uD53D_\uAC00\uC911\uCE58"
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_IngameSkillOption
       value: 
       objectReference: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: "\uB808\uC804\uB4DC_\uAC00\uC911\uCE58"
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: "\uC720\uB2C8\uD06C_\uAC00\uC911\uCE58"
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: optionButtons.Array.data[0]
       value: 
