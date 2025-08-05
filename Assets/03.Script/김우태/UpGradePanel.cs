@@ -108,6 +108,7 @@ public class UpGradePanel : Panel
             upgradeFailPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
             m_CurrentOptionButton.isUpgradable = false;
             m_CurrentOptionButton.brokenImage.SetActive(true);
+            //closeButton.onClick.Invoke();
         }
     }
 }
