@@ -162,10 +162,9 @@ public class MonsterController : BaseMonster, IDamageAble
         attackTimer = 1f / monsterStat.attackSpeed;
 
     }
-    [SerializeField] SFXData dieSound;
+
     private void performDie()
     {
-        SFXManager.Instance.Play(dieSound);
         gameObject.SetActive(false);
     }
     

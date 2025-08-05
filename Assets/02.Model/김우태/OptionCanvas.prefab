@@ -856,17 +856,14 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  isUpgradable: 0
+  brokenImage: {fileID: 0}
   rerollCountText: {fileID: 8710407019918494090}
   optionCanvas: {fileID: 3531509244495891544}
   checkOptionPanel: {fileID: 750448025099872328}
-  m_GradeImages:
-  - {fileID: 21300000, guid: cc340b081b983b7419fbf84da335fcf6, type: 3}
-  - {fileID: 21300000, guid: f78ea4fc5fcebb64bade4ff99dc3afed, type: 3}
-  - {fileID: 21300000, guid: 16aa55138642c0249add22b2b7fa0173, type: 3}
-  - {fileID: 21300000, guid: 3b38633bd477ceb4ca36b46f003336b1, type: 3}
-  - {fileID: 21300000, guid: 4f946345879fcda4aabccd01ad206674, type: 3}
-  - {fileID: 21300000, guid: e6add665928b7ad449d0b920cbfe7410, type: 3}
-  m_ChoiceImage: {fileID: 2288487248880762050}
+  gradeImages: []
+  choiceImage: {fileID: 0}
+  choiceText: {fileID: 0}
 --- !u!1 &1886288675064483338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 120, y: -48}
+  m_AnchoredPosition: {x: 120, y: -67.1}
   m_SizeDelta: {x: 140.377, y: 42.0098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1780215633080946930
@@ -1973,17 +1970,14 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  isUpgradable: 0
+  brokenImage: {fileID: 0}
   rerollCountText: {fileID: 1366182157646153936}
   optionCanvas: {fileID: 3531509244495891544}
   checkOptionPanel: {fileID: 750448025099872328}
-  m_GradeImages:
-  - {fileID: 21300000, guid: cc340b081b983b7419fbf84da335fcf6, type: 3}
-  - {fileID: 21300000, guid: f78ea4fc5fcebb64bade4ff99dc3afed, type: 3}
-  - {fileID: 21300000, guid: 16aa55138642c0249add22b2b7fa0173, type: 3}
-  - {fileID: 21300000, guid: 3b38633bd477ceb4ca36b46f003336b1, type: 3}
-  - {fileID: 21300000, guid: 4f946345879fcda4aabccd01ad206674, type: 3}
-  - {fileID: 21300000, guid: e6add665928b7ad449d0b920cbfe7410, type: 3}
-  m_ChoiceImage: {fileID: 6008323389065635796}
+  gradeImages: []
+  choiceImage: {fileID: 0}
+  choiceText: {fileID: 0}
 --- !u!1 &2832610542095501163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,17 +2235,14 @@ MonoBehaviour:
   rerollCount: 0
   optionType: 0
   selectID: 0
+  isUpgradable: 0
+  brokenImage: {fileID: 0}
   rerollCountText: {fileID: 3774280760151703353}
   optionCanvas: {fileID: 3531509244495891544}
   checkOptionPanel: {fileID: 750448025099872328}
-  m_GradeImages:
-  - {fileID: 21300000, guid: cc340b081b983b7419fbf84da335fcf6, type: 3}
-  - {fileID: 21300000, guid: f78ea4fc5fcebb64bade4ff99dc3afed, type: 3}
-  - {fileID: 21300000, guid: 16aa55138642c0249add22b2b7fa0173, type: 3}
-  - {fileID: 21300000, guid: 3b38633bd477ceb4ca36b46f003336b1, type: 3}
-  - {fileID: 21300000, guid: 4f946345879fcda4aabccd01ad206674, type: 3}
-  - {fileID: 21300000, guid: e6add665928b7ad449d0b920cbfe7410, type: 3}
-  m_ChoiceImage: {fileID: 8953895027368815212}
+  gradeImages: []
+  choiceImage: {fileID: 0}
+  choiceText: {fileID: 0}
 --- !u!1 &3392271253648471109
 GameObject:
   m_ObjectHideFlags: 0
