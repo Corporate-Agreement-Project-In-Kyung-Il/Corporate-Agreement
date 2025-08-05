@@ -483,7 +483,6 @@ GameObject:
   - component: {fileID: 444669120}
   - component: {fileID: 444669122}
   - component: {fileID: 444669121}
-  - component: {fileID: 444669123}
   m_Layer: 5
   m_Name: "\uC2A4\uD14C\uC774\uC9C0 \uD45C\uAE30"
   m_TagString: Untagged
@@ -552,18 +551,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444669119}
   m_CullTransparentMesh: 1
---- !u!114 &444669123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444669119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 363b0f1a2f3a3cb4fb8d9979b9d01210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &480785932
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +875,7 @@ Camera:
   far clip plane: 10
   field of view: 91.49284
   orthographic: 1
-  orthographic size: 6.785714
+  orthographic size: 6.964286
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4157,6 +4144,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
   - {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
   m_Grid: {fileID: 1058518467}
+  m_StageEndPoint: {fileID: 1399486814}
   m_ReviveGameObject: {fileID: 922078190}
   m_CurStageId: 1
   m_BossSpawnYOffset: 3
