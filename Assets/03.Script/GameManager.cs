@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        FollowCamera.shakeOffset = Vector3.zero;
         Time.timeScale = 0f;
         IsPaused = true;
     }
