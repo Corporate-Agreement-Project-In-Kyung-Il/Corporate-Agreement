@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused = false;
     public GameObject pausePanel;
 
+    //사운드 데이터
+   
 
     private void Awake()
     {
@@ -151,6 +153,8 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        FollowCamera.shakeOffset = Vector3.zero;
+        FollowCamera.shakeTimer = -1f;
         Time.timeScale = 0f;
         IsPaused = true;
     }

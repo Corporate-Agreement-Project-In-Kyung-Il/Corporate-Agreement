@@ -204,8 +204,7 @@ public class MagicExplosion : ActiveSkillBase, ISkillID
     }
 
     IEnumerator effectDelay()
-    {
-        
+    {       
         boomEffect.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
