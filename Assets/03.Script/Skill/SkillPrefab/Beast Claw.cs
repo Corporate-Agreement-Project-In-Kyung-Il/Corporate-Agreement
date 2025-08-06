@@ -6,7 +6,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 {
     public int SkillId;
     public int SkillID { get; set; }
-    
+    int count = 0;
 
     private List<Collider2D> targetList;
 
@@ -33,7 +33,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     private BoxCollider2D coll;
 
     private void Awake()
-    {    
+    {
         Initialize();
     }
 
@@ -41,7 +41,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
     {
         Debug.Log("start 야수의 발톱");
         targetList = AliveExistSystem.Instance.monsterList;
-       
+
         SFXManager.Instance.Play(skillSound);
     }
 
@@ -134,7 +134,7 @@ public class BeastClaw : ActiveSkillBase, ISkillID
                 Vector3 nextPos = Vector2.MoveTowards(transform.position, owner.target.transform.position, velocity);
                 transform.position = nextPos;
             }
-      
+
         }
         else //아직 터지기 전으로 목표와의 거리가 있어서 곡선형으로 완만하게 움직이게
         {
@@ -150,30 +150,32 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 
             transform.position += transform.up * (velocity);
         }
-   
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")).Equals(false))
             return;
-     
+
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
         }
-
-        if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+        while (count < stat.Attack_Count)
         {
-            CombatEvent combatEvent = new CombatEvent();
-            combatEvent.Receiver = enemyDamage;
-            combatEvent.Sender = owner;
-            combatEvent.Damage = stat.Damage;
-            combatEvent.collider = other;
+            count++;
+            if (other.gameObject.TryGetComponent(out IDamageAble enemyDamage))
+            {
+                CombatEvent combatEvent = new CombatEvent();
+                combatEvent.Receiver = enemyDamage;
+                combatEvent.Sender = owner;
+                combatEvent.Damage = stat.Damage;
+                combatEvent.collider = other;
 
-            CombatSystem.instance.AddCombatEvent(combatEvent);
+                CombatSystem.instance.AddCombatEvent(combatEvent);
 
-            Debug.Log("발톱!");
-
+                Debug.Log("발톱!");
+            }
             //데미지입힘
         }
         coll.enabled = false;
@@ -202,13 +204,13 @@ public class BeastClaw : ActiveSkillBase, ISkillID
 
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
-            stat.Damage = skill.Skill_Damage;
+            stat.Damage = owner.Damage * skill.Skill_Damage;
             stat.Attack_Count = skill.Skill_Attack_Count;
             stat.SkillName = skill.Skill_Name;
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
-            stat.Damage = skill2.Skill_Damage;
+            stat.Damage = owner.Damage * skill2.Skill_Damage;
             stat.Attack_Count = skill2.Skill_Attack_Count;
             stat.SkillName = skill2.Skill_Name;
         }
