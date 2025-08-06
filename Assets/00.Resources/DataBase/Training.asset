@@ -17,7 +17,7 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Training_ID: 0
-      Training_Name: "\uAC15\uC778\uD55C \uC804\uC0AC\uC758 \uBE44\uAE30"
+      Training_Name: "\uAC15\uC778\uD55C_\uC804\uC0AC\uC758_\uBE44\uAE30"
       Critical_Rate: 0
       Critical_Damage: 1.5
       Attack_Speed: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Training_ID: 0
-      Training_Name: "\uB0A0\uB835\uD55C \uAD81\uC218\uC758 \uBE44\uAE30"
+      Training_Name: "\uB0A0\uB835\uD55C_\uAD81\uC218\uC758_\uBE44\uAE30"
       Critical_Rate: 0
       Critical_Damage: 1.75
       Attack_Speed: 1
@@ -43,7 +43,7 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Training_ID: 0
-      Training_Name: "\uACE0\uACE0\uD55C \uB9C8\uBC95\uC0AC\uC758 \uBE44\uAE30"
+      Training_Name: "\uACE0\uACE0\uD55C_\uB9C8\uBC95\uC0AC\uC758_\uBE44\uAE30"
       Critical_Rate: 0
       Critical_Damage: 2
       Attack_Speed: 0.5

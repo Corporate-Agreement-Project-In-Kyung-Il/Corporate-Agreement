@@ -68,7 +68,7 @@ public class EnemyHpBar : MonoBehaviour, IObjectPoolItem
     {
         if (target.Equals(damagedMonster))
         {
-            targetValue = damagedMonster.CurrentHp / damagedMonster.MaxHp;
+            targetValue = damagedMonster.CurrentHp / damagedMonster.monsterData.Monster_HP;
             isLerping = true;
         }
     }

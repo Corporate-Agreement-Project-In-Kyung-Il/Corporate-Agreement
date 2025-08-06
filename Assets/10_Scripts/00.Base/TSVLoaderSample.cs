@@ -60,7 +60,9 @@ public class TSVLoaderSample : MonoBehaviour
         }
     }
     
-    /*public static async void OverwritePlayerData(PlayerData newData)
+
+
+    public static async void OverwritePlayerData(PlayerData newData)
     {
         if (SampleDataList == null)
         {
@@ -76,9 +78,9 @@ public class TSVLoaderSample : MonoBehaviour
 
         
         await TSVLoader.SaveTableAsync("PlayerSaveFile", SampleDataList);
-    }*/
+    }
 
-    /*private static void InputData(SampleData sample, PlayerData newData)
+    private static void InputData(SampleData sample, PlayerData newData)
     {
         sample.CurrentStage = Spawner.Instance.CurStageId;
         sample.Attack = newData.attackDamage;
@@ -89,5 +91,5 @@ public class TSVLoaderSample : MonoBehaviour
         sample.Equip_Level = newData.equip_level;
         sample.Skill1_Level = newData.skill_level1;
         sample.Skill2_Level = newData.skill_level2;
-    }*/
+    }
 }

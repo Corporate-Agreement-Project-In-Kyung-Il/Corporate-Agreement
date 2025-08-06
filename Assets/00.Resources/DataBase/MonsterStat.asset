@@ -17,8 +17,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 1
-      Monster_HP: 80
-      Monster_Attack: 8
+      Monster_HP: 90
+      Monster_Attack: 9
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -27,8 +27,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 2
-      Monster_HP: 85
-      Monster_Attack: 8
+      Monster_HP: 95
+      Monster_Attack: 10
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -37,18 +37,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 3
-      Monster_HP: 89
-      Monster_Attack: 9
+      Monster_HP: 100
+      Monster_Attack: 10
       Monster_SpawnCount: 12
       IsBossStage: 1
-      Boss_HP: 267
-      Boss_Attack: 13.5
+      Boss_HP: 200
+      Boss_Attack: 15
   - Key_ID: 4
     val:
       Selection_Level: 0
       Stage_ID: 4
-      Monster_HP: 94
-      Monster_Attack: 9
+      Monster_HP: 106
+      Monster_Attack: 11
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -57,8 +57,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 5
-      Monster_HP: 100
-      Monster_Attack: 10
+      Monster_HP: 112
+      Monster_Attack: 11
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -67,18 +67,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 6
-      Monster_HP: 105
-      Monster_Attack: 11
+      Monster_HP: 118
+      Monster_Attack: 12
       Monster_SpawnCount: 12
       IsBossStage: 1
-      Boss_HP: 315
-      Boss_Attack: 16.5
+      Boss_HP: 236
+      Boss_Attack: 18
   - Key_ID: 7
     val:
       Selection_Level: 0
       Stage_ID: 7
-      Monster_HP: 111
-      Monster_Attack: 11
+      Monster_HP: 125
+      Monster_Attack: 13
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 8
-      Monster_HP: 118
-      Monster_Attack: 12
+      Monster_HP: 132
+      Monster_Attack: 13
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -97,18 +97,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 9
-      Monster_HP: 124
-      Monster_Attack: 12
+      Monster_HP: 140
+      Monster_Attack: 14
       Monster_SpawnCount: 12
       IsBossStage: 1
-      Boss_HP: 372
-      Boss_Attack: 18
+      Boss_HP: 280
+      Boss_Attack: 21
   - Key_ID: 10
     val:
       Selection_Level: 0
       Stage_ID: 10
-      Monster_HP: 131
-      Monster_Attack: 13
+      Monster_HP: 148
+      Monster_Attack: 15
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -117,8 +117,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 11
-      Monster_HP: 139
-      Monster_Attack: 14
+      Monster_HP: 156
+      Monster_Attack: 16
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -127,18 +127,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 12
-      Monster_HP: 147
-      Monster_Attack: 15
+      Monster_HP: 165
+      Monster_Attack: 16
       Monster_SpawnCount: 12
       IsBossStage: 1
-      Boss_HP: 441
-      Boss_Attack: 22.5
+      Boss_HP: 330
+      Boss_Attack: 24
   - Key_ID: 13
     val:
       Selection_Level: 0
       Stage_ID: 13
-      Monster_HP: 155
-      Monster_Attack: 15
+      Monster_HP: 174
+      Monster_Attack: 17
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -147,8 +147,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 14
-      Monster_HP: 164
-      Monster_Attack: 16
+      Monster_HP: 184
+      Monster_Attack: 18
       Monster_SpawnCount: 12
       IsBossStage: 0
       Boss_HP: 0
@@ -157,18 +157,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 15
-      Monster_HP: 173
-      Monster_Attack: 17
+      Monster_HP: 194
+      Monster_Attack: 19
       Monster_SpawnCount: 12
       IsBossStage: 1
-      Boss_HP: 519
-      Boss_Attack: 25.5
+      Boss_HP: 388
+      Boss_Attack: 28.5
   - Key_ID: 16
     val:
       Selection_Level: 0
       Stage_ID: 16
-      Monster_HP: 183
-      Monster_Attack: 18
+      Monster_HP: 205
+      Monster_Attack: 21
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -177,8 +177,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 17
-      Monster_HP: 193
-      Monster_Attack: 19
+      Monster_HP: 217
+      Monster_Attack: 22
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -187,18 +187,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 18
-      Monster_HP: 204
-      Monster_Attack: 20
+      Monster_HP: 229
+      Monster_Attack: 23
       Monster_SpawnCount: 15
       IsBossStage: 1
-      Boss_HP: 612
-      Boss_Attack: 30
+      Boss_HP: 458
+      Boss_Attack: 34.5
   - Key_ID: 19
     val:
       Selection_Level: 0
       Stage_ID: 19
-      Monster_HP: 215
-      Monster_Attack: 22
+      Monster_HP: 242
+      Monster_Attack: 24
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -207,8 +207,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 20
-      Monster_HP: 227
-      Monster_Attack: 23
+      Monster_HP: 256
+      Monster_Attack: 26
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -217,18 +217,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 21
-      Monster_HP: 240
-      Monster_Attack: 24
+      Monster_HP: 270
+      Monster_Attack: 27
       Monster_SpawnCount: 15
       IsBossStage: 1
-      Boss_HP: 720
-      Boss_Attack: 36
+      Boss_HP: 540
+      Boss_Attack: 40.5
   - Key_ID: 22
     val:
       Selection_Level: 0
       Stage_ID: 22
-      Monster_HP: 254
-      Monster_Attack: 25
+      Monster_HP: 286
+      Monster_Attack: 29
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 23
-      Monster_HP: 268
-      Monster_Attack: 27
+      Monster_HP: 302
+      Monster_Attack: 30
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -247,18 +247,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 24
-      Monster_HP: 283
-      Monster_Attack: 28
+      Monster_HP: 319
+      Monster_Attack: 32
       Monster_SpawnCount: 15
       IsBossStage: 1
-      Boss_HP: 849
-      Boss_Attack: 42
+      Boss_HP: 638
+      Boss_Attack: 48
   - Key_ID: 25
     val:
       Selection_Level: 0
       Stage_ID: 25
-      Monster_HP: 299
-      Monster_Attack: 30
+      Monster_HP: 337
+      Monster_Attack: 34
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -267,8 +267,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 26
-      Monster_HP: 316
-      Monster_Attack: 32
+      Monster_HP: 356
+      Monster_Attack: 36
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -277,18 +277,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 27
-      Monster_HP: 334
-      Monster_Attack: 33
+      Monster_HP: 376
+      Monster_Attack: 38
       Monster_SpawnCount: 15
       IsBossStage: 1
-      Boss_HP: 1002
-      Boss_Attack: 49.5
+      Boss_HP: 752
+      Boss_Attack: 57
   - Key_ID: 28
     val:
       Selection_Level: 0
       Stage_ID: 28
-      Monster_HP: 353
-      Monster_Attack: 35
+      Monster_HP: 397
+      Monster_Attack: 40
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -297,8 +297,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 29
-      Monster_HP: 373
-      Monster_Attack: 37
+      Monster_HP: 420
+      Monster_Attack: 42
       Monster_SpawnCount: 15
       IsBossStage: 0
       Boss_HP: 0
@@ -307,18 +307,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 30
-      Monster_HP: 394
-      Monster_Attack: 39
+      Monster_HP: 444
+      Monster_Attack: 44
       Monster_SpawnCount: 15
       IsBossStage: 1
-      Boss_HP: 1182
-      Boss_Attack: 58.5
+      Boss_HP: 888
+      Boss_Attack: 66
   - Key_ID: 31
     val:
       Selection_Level: 0
       Stage_ID: 31
-      Monster_HP: 417
-      Monster_Attack: 42
+      Monster_HP: 469
+      Monster_Attack: 47
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 32
-      Monster_HP: 440
-      Monster_Attack: 44
+      Monster_HP: 495
+      Monster_Attack: 50
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -337,18 +337,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 33
-      Monster_HP: 465
-      Monster_Attack: 46
+      Monster_HP: 523
+      Monster_Attack: 52
       Monster_SpawnCount: 23
       IsBossStage: 1
-      Boss_HP: 1395
-      Boss_Attack: 69
+      Boss_HP: 1046
+      Boss_Attack: 78
   - Key_ID: 34
     val:
       Selection_Level: 0
       Stage_ID: 34
-      Monster_HP: 491
-      Monster_Attack: 49
+      Monster_HP: 553
+      Monster_Attack: 55
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -357,8 +357,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 35
-      Monster_HP: 519
-      Monster_Attack: 52
+      Monster_HP: 584
+      Monster_Attack: 58
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -367,18 +367,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 36
-      Monster_HP: 548
-      Monster_Attack: 55
+      Monster_HP: 617
+      Monster_Attack: 62
       Monster_SpawnCount: 23
       IsBossStage: 1
-      Boss_HP: 1644
-      Boss_Attack: 82.5
+      Boss_HP: 1234
+      Boss_Attack: 93
   - Key_ID: 37
     val:
       Selection_Level: 0
       Stage_ID: 37
-      Monster_HP: 579
-      Monster_Attack: 58
+      Monster_HP: 652
+      Monster_Attack: 65
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -387,8 +387,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 38
-      Monster_HP: 612
-      Monster_Attack: 61
+      Monster_HP: 689
+      Monster_Attack: 69
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -397,18 +397,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 39
-      Monster_HP: 647
-      Monster_Attack: 65
+      Monster_HP: 728
+      Monster_Attack: 73
       Monster_SpawnCount: 23
       IsBossStage: 1
-      Boss_HP: 1941
-      Boss_Attack: 97.5
+      Boss_HP: 1456
+      Boss_Attack: 109.5
   - Key_ID: 40
     val:
       Selection_Level: 0
       Stage_ID: 40
-      Monster_HP: 683
-      Monster_Attack: 68
+      Monster_HP: 769
+      Monster_Attack: 77
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -417,8 +417,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 41
-      Monster_HP: 722
-      Monster_Attack: 72
+      Monster_HP: 812
+      Monster_Attack: 81
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -427,18 +427,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 42
-      Monster_HP: 763
-      Monster_Attack: 76
+      Monster_HP: 858
+      Monster_Attack: 86
       Monster_SpawnCount: 23
       IsBossStage: 1
-      Boss_HP: 2289
-      Boss_Attack: 114
+      Boss_HP: 1716
+      Boss_Attack: 129
   - Key_ID: 43
     val:
       Selection_Level: 0
       Stage_ID: 43
-      Monster_HP: 806
-      Monster_Attack: 81
+      Monster_HP: 907
+      Monster_Attack: 91
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -447,8 +447,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 44
-      Monster_HP: 852
-      Monster_Attack: 85
+      Monster_HP: 958
+      Monster_Attack: 96
       Monster_SpawnCount: 23
       IsBossStage: 0
       Boss_HP: 0
@@ -457,18 +457,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 45
-      Monster_HP: 900
-      Monster_Attack: 90
+      Monster_HP: 1012
+      Monster_Attack: 101
       Monster_SpawnCount: 23
       IsBossStage: 1
-      Boss_HP: 2700
-      Boss_Attack: 135
+      Boss_HP: 2024
+      Boss_Attack: 151.5
   - Key_ID: 46
     val:
       Selection_Level: 0
       Stage_ID: 46
-      Monster_HP: 951
-      Monster_Attack: 95
+      Monster_HP: 1069
+      Monster_Attack: 107
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -477,8 +477,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 47
-      Monster_HP: 1004
-      Monster_Attack: 100
+      Monster_HP: 1130
+      Monster_Attack: 113
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -487,18 +487,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 48
-      Monster_HP: 1061
-      Monster_Attack: 106
+      Monster_HP: 1194
+      Monster_Attack: 119
       Monster_SpawnCount: 27
       IsBossStage: 1
-      Boss_HP: 3183
-      Boss_Attack: 159
+      Boss_HP: 2388
+      Boss_Attack: 178.5
   - Key_ID: 49
     val:
       Selection_Level: 0
       Stage_ID: 49
-      Monster_HP: 1121
-      Monster_Attack: 112
+      Monster_HP: 1261
+      Monster_Attack: 126
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -507,8 +507,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 50
-      Monster_HP: 1184
-      Monster_Attack: 118
+      Monster_HP: 1332
+      Monster_Attack: 133
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -517,18 +517,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 51
-      Monster_HP: 1251
-      Monster_Attack: 125
+      Monster_HP: 1408
+      Monster_Attack: 141
       Monster_SpawnCount: 27
       IsBossStage: 1
-      Boss_HP: 3753
-      Boss_Attack: 187.5
+      Boss_HP: 2816
+      Boss_Attack: 211.5
   - Key_ID: 52
     val:
       Selection_Level: 0
       Stage_ID: 52
-      Monster_HP: 1322
-      Monster_Attack: 132
+      Monster_HP: 1487
+      Monster_Attack: 149
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -537,8 +537,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 53
-      Monster_HP: 1397
-      Monster_Attack: 140
+      Monster_HP: 1572
+      Monster_Attack: 157
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -547,18 +547,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 54
-      Monster_HP: 1476
-      Monster_Attack: 148
+      Monster_HP: 1660
+      Monster_Attack: 166
       Monster_SpawnCount: 27
       IsBossStage: 1
-      Boss_HP: 4428
-      Boss_Attack: 222
+      Boss_HP: 3320
+      Boss_Attack: 249
   - Key_ID: 55
     val:
       Selection_Level: 0
       Stage_ID: 55
-      Monster_HP: 1559
-      Monster_Attack: 156
+      Monster_HP: 1754
+      Monster_Attack: 175
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -567,8 +567,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 56
-      Monster_HP: 1648
-      Monster_Attack: 165
+      Monster_HP: 1853
+      Monster_Attack: 185
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -577,18 +577,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 57
-      Monster_HP: 1741
-      Monster_Attack: 174
+      Monster_HP: 1958
+      Monster_Attack: 196
       Monster_SpawnCount: 27
       IsBossStage: 1
-      Boss_HP: 5223
-      Boss_Attack: 261
+      Boss_HP: 3916
+      Boss_Attack: 294
   - Key_ID: 58
     val:
       Selection_Level: 0
       Stage_ID: 58
-      Monster_HP: 1839
-      Monster_Attack: 184
+      Monster_HP: 2069
+      Monster_Attack: 207
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -597,8 +597,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 59
-      Monster_HP: 1943
-      Monster_Attack: 194
+      Monster_HP: 2186
+      Monster_Attack: 219
       Monster_SpawnCount: 27
       IsBossStage: 0
       Boss_HP: 0
@@ -607,18 +607,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 60
-      Monster_HP: 2053
-      Monster_Attack: 205
+      Monster_HP: 2310
+      Monster_Attack: 231
       Monster_SpawnCount: 27
       IsBossStage: 1
-      Boss_HP: 6159
-      Boss_Attack: 307.5
+      Boss_HP: 4620
+      Boss_Attack: 346.5
   - Key_ID: 61
     val:
       Selection_Level: 0
       Stage_ID: 61
-      Monster_HP: 2148
-      Monster_Attack: 227
+      Monster_HP: 3083
+      Monster_Attack: 308
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -627,8 +627,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 62
-      Monster_HP: 2195
-      Monster_Attack: 233
+      Monster_HP: 3143
+      Monster_Attack: 316
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -637,18 +637,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 63
-      Monster_HP: 2243
-      Monster_Attack: 240
+      Monster_HP: 3203
+      Monster_Attack: 324
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 6729
-      Boss_Attack: 360
+      Boss_HP: 6406
+      Boss_Attack: 486
   - Key_ID: 64
     val:
       Selection_Level: 0
       Stage_ID: 64
-      Monster_HP: 2290
-      Monster_Attack: 247
+      Monster_HP: 3263
+      Monster_Attack: 332
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -657,8 +657,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 65
-      Monster_HP: 2338
-      Monster_Attack: 253
+      Monster_HP: 3323
+      Monster_Attack: 340
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -667,18 +667,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 66
-      Monster_HP: 2385
-      Monster_Attack: 260
+      Monster_HP: 3383
+      Monster_Attack: 348
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 7155
-      Boss_Attack: 390
+      Boss_HP: 6766
+      Boss_Attack: 522
   - Key_ID: 67
     val:
       Selection_Level: 0
       Stage_ID: 67
-      Monster_HP: 2433
-      Monster_Attack: 267
+      Monster_HP: 3443
+      Monster_Attack: 356
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -687,8 +687,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 68
-      Monster_HP: 2480
-      Monster_Attack: 273
+      Monster_HP: 3503
+      Monster_Attack: 364
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -697,18 +697,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 69
-      Monster_HP: 2528
-      Monster_Attack: 280
+      Monster_HP: 3563
+      Monster_Attack: 372
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 7584
-      Boss_Attack: 420
+      Boss_HP: 7126
+      Boss_Attack: 558
   - Key_ID: 70
     val:
       Selection_Level: 0
       Stage_ID: 70
-      Monster_HP: 2575
-      Monster_Attack: 287
+      Monster_HP: 3623
+      Monster_Attack: 380
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -717,8 +717,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 71
-      Monster_HP: 2623
-      Monster_Attack: 293
+      Monster_HP: 3683
+      Monster_Attack: 388
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -727,18 +727,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 72
-      Monster_HP: 2670
-      Monster_Attack: 300
+      Monster_HP: 3743
+      Monster_Attack: 396
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 8010
-      Boss_Attack: 450
+      Boss_HP: 7486
+      Boss_Attack: 594
   - Key_ID: 73
     val:
       Selection_Level: 0
       Stage_ID: 73
-      Monster_HP: 2718
-      Monster_Attack: 307
+      Monster_HP: 3803
+      Monster_Attack: 404
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -747,8 +747,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 74
-      Monster_HP: 2765
-      Monster_Attack: 313
+      Monster_HP: 3863
+      Monster_Attack: 412
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -757,18 +757,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 75
-      Monster_HP: 2813
-      Monster_Attack: 320
+      Monster_HP: 3923
+      Monster_Attack: 420
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 8439
-      Boss_Attack: 480
+      Boss_HP: 7846
+      Boss_Attack: 630
   - Key_ID: 76
     val:
       Selection_Level: 0
       Stage_ID: 76
-      Monster_HP: 2860
-      Monster_Attack: 327
+      Monster_HP: 3983
+      Monster_Attack: 428
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -777,8 +777,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 77
-      Monster_HP: 2908
-      Monster_Attack: 333
+      Monster_HP: 4043
+      Monster_Attack: 436
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -787,18 +787,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 78
-      Monster_HP: 2955
-      Monster_Attack: 340
+      Monster_HP: 4103
+      Monster_Attack: 444
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 8865
-      Boss_Attack: 510
+      Boss_HP: 8206
+      Boss_Attack: 666
   - Key_ID: 79
     val:
       Selection_Level: 0
       Stage_ID: 79
-      Monster_HP: 3003
-      Monster_Attack: 347
+      Monster_HP: 4163
+      Monster_Attack: 452
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -807,8 +807,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 80
-      Monster_HP: 3050
-      Monster_Attack: 353
+      Monster_HP: 4223
+      Monster_Attack: 460
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -817,18 +817,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 81
-      Monster_HP: 3098
-      Monster_Attack: 360
+      Monster_HP: 4283
+      Monster_Attack: 468
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 9294
-      Boss_Attack: 540
+      Boss_HP: 8566
+      Boss_Attack: 702
   - Key_ID: 82
     val:
       Selection_Level: 0
       Stage_ID: 82
-      Monster_HP: 3723
-      Monster_Attack: 392
+      Monster_HP: 5819
+      Monster_Attack: 804
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -837,8 +837,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 83
-      Monster_HP: 3791
-      Monster_Attack: 401
+      Monster_HP: 5897
+      Monster_Attack: 816
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -847,18 +847,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 84
-      Monster_HP: 3858
-      Monster_Attack: 409
+      Monster_HP: 5975
+      Monster_Attack: 828
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 11574
-      Boss_Attack: 613.5
+      Boss_HP: 11950
+      Boss_Attack: 1242
   - Key_ID: 85
     val:
       Selection_Level: 0
       Stage_ID: 85
-      Monster_HP: 3926
-      Monster_Attack: 418
+      Monster_HP: 6053
+      Monster_Attack: 840
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -867,8 +867,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 86
-      Monster_HP: 3994
-      Monster_Attack: 426
+      Monster_HP: 6131
+      Monster_Attack: 852
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -877,18 +877,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 87
-      Monster_HP: 4061
-      Monster_Attack: 435
+      Monster_HP: 6209
+      Monster_Attack: 864
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 12183
-      Boss_Attack: 652.5
+      Boss_HP: 12418
+      Boss_Attack: 1296
   - Key_ID: 88
     val:
       Selection_Level: 0
       Stage_ID: 88
-      Monster_HP: 4129
-      Monster_Attack: 443
+      Monster_HP: 6287
+      Monster_Attack: 876
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -897,8 +897,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 89
-      Monster_HP: 4196
-      Monster_Attack: 452
+      Monster_HP: 6365
+      Monster_Attack: 888
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -907,18 +907,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 90
-      Monster_HP: 4264
-      Monster_Attack: 460
+      Monster_HP: 6443
+      Monster_Attack: 900
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 12792
-      Boss_Attack: 690
+      Boss_HP: 12886
+      Boss_Attack: 1350
   - Key_ID: 91
     val:
       Selection_Level: 0
       Stage_ID: 91
-      Monster_HP: 4332
-      Monster_Attack: 468
+      Monster_HP: 6521
+      Monster_Attack: 912
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -927,8 +927,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 92
-      Monster_HP: 4399
-      Monster_Attack: 477
+      Monster_HP: 6599
+      Monster_Attack: 924
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -937,18 +937,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 93
-      Monster_HP: 4467
-      Monster_Attack: 485
+      Monster_HP: 6677
+      Monster_Attack: 936
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 13401
-      Boss_Attack: 727.5
+      Boss_HP: 13354
+      Boss_Attack: 1404
   - Key_ID: 94
     val:
       Selection_Level: 0
       Stage_ID: 94
-      Monster_HP: 4534
-      Monster_Attack: 494
+      Monster_HP: 6755
+      Monster_Attack: 948
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -957,8 +957,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 95
-      Monster_HP: 4602
-      Monster_Attack: 502
+      Monster_HP: 6833
+      Monster_Attack: 960
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -967,18 +967,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 96
-      Monster_HP: 4670
-      Monster_Attack: 511
+      Monster_HP: 6911
+      Monster_Attack: 972
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 14010
-      Boss_Attack: 766.5
+      Boss_HP: 13822
+      Boss_Attack: 1458
   - Key_ID: 97
     val:
       Selection_Level: 0
       Stage_ID: 97
-      Monster_HP: 4737
-      Monster_Attack: 519
+      Monster_HP: 6989
+      Monster_Attack: 984
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -987,8 +987,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 98
-      Monster_HP: 4805
-      Monster_Attack: 528
+      Monster_HP: 7067
+      Monster_Attack: 996
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -997,18 +997,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 99
-      Monster_HP: 4872
-      Monster_Attack: 536
+      Monster_HP: 7145
+      Monster_Attack: 1008
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 14616
-      Boss_Attack: 804
+      Boss_HP: 14290
+      Boss_Attack: 1512
   - Key_ID: 100
     val:
       Selection_Level: 0
       Stage_ID: 100
-      Monster_HP: 4940
-      Monster_Attack: 544
+      Monster_HP: 7223
+      Monster_Attack: 1020
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1017,8 +1017,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 101
-      Monster_HP: 5008
-      Monster_Attack: 553
+      Monster_HP: 7301
+      Monster_Attack: 1032
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1027,18 +1027,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 102
-      Monster_HP: 5075
-      Monster_Attack: 561
+      Monster_HP: 7379
+      Monster_Attack: 1044
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 15225
-      Boss_Attack: 841.5
+      Boss_HP: 14758
+      Boss_Attack: 1566
   - Key_ID: 103
     val:
       Selection_Level: 0
       Stage_ID: 103
-      Monster_HP: 5143
-      Monster_Attack: 570
+      Monster_HP: 7457
+      Monster_Attack: 1056
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1047,8 +1047,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 104
-      Monster_HP: 5210
-      Monster_Attack: 578
+      Monster_HP: 7535
+      Monster_Attack: 1068
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1057,18 +1057,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 105
-      Monster_HP: 5278
-      Monster_Attack: 587
+      Monster_HP: 7613
+      Monster_Attack: 1080
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 15834
-      Boss_Attack: 880.5
+      Boss_HP: 15226
+      Boss_Attack: 1620
   - Key_ID: 106
     val:
       Selection_Level: 0
       Stage_ID: 106
-      Monster_HP: 5346
-      Monster_Attack: 595
+      Monster_HP: 7691
+      Monster_Attack: 1092
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1077,8 +1077,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 107
-      Monster_HP: 5413
-      Monster_Attack: 604
+      Monster_HP: 7769
+      Monster_Attack: 1104
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1087,18 +1087,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 108
-      Monster_HP: 5481
-      Monster_Attack: 612
+      Monster_HP: 7847
+      Monster_Attack: 1116
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 16443
-      Boss_Attack: 918
+      Boss_HP: 15694
+      Boss_Attack: 1674
   - Key_ID: 109
     val:
       Selection_Level: 0
       Stage_ID: 109
-      Monster_HP: 5548
-      Monster_Attack: 620
+      Monster_HP: 7925
+      Monster_Attack: 1128
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1107,8 +1107,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 110
-      Monster_HP: 5616
-      Monster_Attack: 629
+      Monster_HP: 8003
+      Monster_Attack: 1140
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1117,18 +1117,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 111
-      Monster_HP: 5684
-      Monster_Attack: 637
+      Monster_HP: 8081
+      Monster_Attack: 1152
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 17052
-      Boss_Attack: 955.5
+      Boss_HP: 16162
+      Boss_Attack: 1728
   - Key_ID: 112
     val:
       Selection_Level: 0
       Stage_ID: 112
-      Monster_HP: 5751
-      Monster_Attack: 646
+      Monster_HP: 8159
+      Monster_Attack: 1164
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1137,8 +1137,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 113
-      Monster_HP: 5819
-      Monster_Attack: 654
+      Monster_HP: 8237
+      Monster_Attack: 1176
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1147,18 +1147,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 114
-      Monster_HP: 5886
-      Monster_Attack: 663
+      Monster_HP: 8315
+      Monster_Attack: 1188
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 17658
-      Boss_Attack: 994.5
+      Boss_HP: 16630
+      Boss_Attack: 1782
   - Key_ID: 115
     val:
       Selection_Level: 0
       Stage_ID: 115
-      Monster_HP: 5954
-      Monster_Attack: 671
+      Monster_HP: 8393
+      Monster_Attack: 1200
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1167,8 +1167,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 116
-      Monster_HP: 6022
-      Monster_Attack: 680
+      Monster_HP: 8471
+      Monster_Attack: 1212
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1177,18 +1177,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 117
-      Monster_HP: 6089
-      Monster_Attack: 688
+      Monster_HP: 8549
+      Monster_Attack: 1224
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 18267
-      Boss_Attack: 1032
+      Boss_HP: 17098
+      Boss_Attack: 1836
   - Key_ID: 118
     val:
       Selection_Level: 0
       Stage_ID: 118
-      Monster_HP: 6157
-      Monster_Attack: 696
+      Monster_HP: 8627
+      Monster_Attack: 1236
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1197,8 +1197,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 119
-      Monster_HP: 6224
-      Monster_Attack: 705
+      Monster_HP: 8705
+      Monster_Attack: 1248
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1207,18 +1207,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 120
-      Monster_HP: 6292
-      Monster_Attack: 713
+      Monster_HP: 8783
+      Monster_Attack: 1260
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 18876
-      Boss_Attack: 1069.5
+      Boss_HP: 17566
+      Boss_Attack: 1890
   - Key_ID: 121
     val:
       Selection_Level: 0
       Stage_ID: 121
-      Monster_HP: 6360
-      Monster_Attack: 722
+      Monster_HP: 8861
+      Monster_Attack: 1272
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1227,8 +1227,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 122
-      Monster_HP: 6427
-      Monster_Attack: 730
+      Monster_HP: 8939
+      Monster_Attack: 1284
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1237,18 +1237,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 123
-      Monster_HP: 6495
-      Monster_Attack: 739
+      Monster_HP: 9017
+      Monster_Attack: 1296
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 19485
-      Boss_Attack: 1108.5
+      Boss_HP: 18034
+      Boss_Attack: 1944
   - Key_ID: 124
     val:
       Selection_Level: 0
       Stage_ID: 124
-      Monster_HP: 6562
-      Monster_Attack: 747
+      Monster_HP: 9095
+      Monster_Attack: 1308
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1257,8 +1257,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 125
-      Monster_HP: 6630
-      Monster_Attack: 756
+      Monster_HP: 9173
+      Monster_Attack: 1320
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1267,18 +1267,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 126
-      Monster_HP: 6698
-      Monster_Attack: 764
+      Monster_HP: 9251
+      Monster_Attack: 1332
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 20094
-      Boss_Attack: 1146
+      Boss_HP: 18502
+      Boss_Attack: 1998
   - Key_ID: 127
     val:
       Selection_Level: 0
       Stage_ID: 127
-      Monster_HP: 6765
-      Monster_Attack: 772
+      Monster_HP: 9329
+      Monster_Attack: 1344
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1287,8 +1287,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 128
-      Monster_HP: 6833
-      Monster_Attack: 781
+      Monster_HP: 9407
+      Monster_Attack: 1356
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1297,18 +1297,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 129
-      Monster_HP: 6900
-      Monster_Attack: 789
+      Monster_HP: 9485
+      Monster_Attack: 1368
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 20700
-      Boss_Attack: 1183.5
+      Boss_HP: 18970
+      Boss_Attack: 2052
   - Key_ID: 130
     val:
       Selection_Level: 0
       Stage_ID: 130
-      Monster_HP: 6968
-      Monster_Attack: 798
+      Monster_HP: 9563
+      Monster_Attack: 1380
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1317,8 +1317,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 131
-      Monster_HP: 7036
-      Monster_Attack: 806
+      Monster_HP: 9641
+      Monster_Attack: 1392
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1327,18 +1327,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 132
-      Monster_HP: 7103
-      Monster_Attack: 815
+      Monster_HP: 9719
+      Monster_Attack: 1404
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 21309
-      Boss_Attack: 1222.5
+      Boss_HP: 19438
+      Boss_Attack: 2106
   - Key_ID: 133
     val:
       Selection_Level: 0
       Stage_ID: 133
-      Monster_HP: 7171
-      Monster_Attack: 823
+      Monster_HP: 9797
+      Monster_Attack: 1416
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1347,8 +1347,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 134
-      Monster_HP: 7238
-      Monster_Attack: 832
+      Monster_HP: 9875
+      Monster_Attack: 1428
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1357,18 +1357,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 135
-      Monster_HP: 7306
-      Monster_Attack: 840
+      Monster_HP: 9953
+      Monster_Attack: 1440
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 21918
-      Boss_Attack: 1260
+      Boss_HP: 19906
+      Boss_Attack: 2160
   - Key_ID: 136
     val:
       Selection_Level: 0
       Stage_ID: 136
-      Monster_HP: 7374
-      Monster_Attack: 848
+      Monster_HP: 10031
+      Monster_Attack: 1452
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1377,8 +1377,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 137
-      Monster_HP: 7441
-      Monster_Attack: 857
+      Monster_HP: 10109
+      Monster_Attack: 1464
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1387,18 +1387,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 138
-      Monster_HP: 7509
-      Monster_Attack: 865
+      Monster_HP: 10187
+      Monster_Attack: 1476
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 22527
-      Boss_Attack: 1297.5
+      Boss_HP: 20374
+      Boss_Attack: 2214
   - Key_ID: 139
     val:
       Selection_Level: 0
       Stage_ID: 139
-      Monster_HP: 7576
-      Monster_Attack: 874
+      Monster_HP: 10265
+      Monster_Attack: 1488
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1407,8 +1407,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 140
-      Monster_HP: 7644
-      Monster_Attack: 882
+      Monster_HP: 10343
+      Monster_Attack: 1500
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1417,18 +1417,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 141
-      Monster_HP: 7712
-      Monster_Attack: 891
+      Monster_HP: 10421
+      Monster_Attack: 1512
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 23136
-      Boss_Attack: 1336.5
+      Boss_HP: 20842
+      Boss_Attack: 2268
   - Key_ID: 142
     val:
       Selection_Level: 0
       Stage_ID: 142
-      Monster_HP: 7779
-      Monster_Attack: 899
+      Monster_HP: 10499
+      Monster_Attack: 1524
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1437,8 +1437,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 143
-      Monster_HP: 7847
-      Monster_Attack: 908
+      Monster_HP: 10577
+      Monster_Attack: 1536
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1447,18 +1447,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 144
-      Monster_HP: 7914
-      Monster_Attack: 916
+      Monster_HP: 10655
+      Monster_Attack: 1548
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 23742
-      Boss_Attack: 1374
+      Boss_HP: 21310
+      Boss_Attack: 2322
   - Key_ID: 145
     val:
       Selection_Level: 0
       Stage_ID: 145
-      Monster_HP: 7982
-      Monster_Attack: 924
+      Monster_HP: 10733
+      Monster_Attack: 1560
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1467,8 +1467,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 146
-      Monster_HP: 8050
-      Monster_Attack: 933
+      Monster_HP: 10811
+      Monster_Attack: 1572
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1477,18 +1477,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 147
-      Monster_HP: 8117
-      Monster_Attack: 941
+      Monster_HP: 10889
+      Monster_Attack: 1584
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 24351
-      Boss_Attack: 1411.5
+      Boss_HP: 21778
+      Boss_Attack: 2376
   - Key_ID: 148
     val:
       Selection_Level: 0
       Stage_ID: 148
-      Monster_HP: 8185
-      Monster_Attack: 950
+      Monster_HP: 10967
+      Monster_Attack: 1596
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1497,8 +1497,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 149
-      Monster_HP: 8252
-      Monster_Attack: 958
+      Monster_HP: 11045
+      Monster_Attack: 1608
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1507,18 +1507,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 150
-      Monster_HP: 8320
-      Monster_Attack: 967
+      Monster_HP: 11123
+      Monster_Attack: 1620
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 24960
-      Boss_Attack: 1450.5
+      Boss_HP: 22246
+      Boss_Attack: 2430
   - Key_ID: 151
     val:
       Selection_Level: 0
       Stage_ID: 151
-      Monster_HP: 8388
-      Monster_Attack: 975
+      Monster_HP: 11201
+      Monster_Attack: 1632
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1527,8 +1527,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 152
-      Monster_HP: 8455
-      Monster_Attack: 984
+      Monster_HP: 11279
+      Monster_Attack: 1644
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1537,18 +1537,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 153
-      Monster_HP: 8523
-      Monster_Attack: 992
+      Monster_HP: 11357
+      Monster_Attack: 1656
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 25569
-      Boss_Attack: 1488
+      Boss_HP: 22714
+      Boss_Attack: 2484
   - Key_ID: 154
     val:
       Selection_Level: 0
       Stage_ID: 154
-      Monster_HP: 8590
-      Monster_Attack: 1000
+      Monster_HP: 11435
+      Monster_Attack: 1668
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1557,8 +1557,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 155
-      Monster_HP: 8658
-      Monster_Attack: 1009
+      Monster_HP: 11513
+      Monster_Attack: 1680
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1567,18 +1567,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 156
-      Monster_HP: 8726
-      Monster_Attack: 1017
+      Monster_HP: 11591
+      Monster_Attack: 1692
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 26178
-      Boss_Attack: 1525.5
+      Boss_HP: 23182
+      Boss_Attack: 2538
   - Key_ID: 157
     val:
       Selection_Level: 0
       Stage_ID: 157
-      Monster_HP: 8793
-      Monster_Attack: 1026
+      Monster_HP: 11669
+      Monster_Attack: 1704
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1587,8 +1587,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 158
-      Monster_HP: 8861
-      Monster_Attack: 1034
+      Monster_HP: 11747
+      Monster_Attack: 1716
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1597,18 +1597,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 159
-      Monster_HP: 8928
-      Monster_Attack: 1043
+      Monster_HP: 11825
+      Monster_Attack: 1728
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 26784
-      Boss_Attack: 1564.5
+      Boss_HP: 23650
+      Boss_Attack: 2592
   - Key_ID: 160
     val:
       Selection_Level: 0
       Stage_ID: 160
-      Monster_HP: 8996
-      Monster_Attack: 1051
+      Monster_HP: 11903
+      Monster_Attack: 1740
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1617,8 +1617,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 161
-      Monster_HP: 9064
-      Monster_Attack: 1060
+      Monster_HP: 11981
+      Monster_Attack: 1752
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1627,18 +1627,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 162
-      Monster_HP: 9131
-      Monster_Attack: 1068
+      Monster_HP: 12059
+      Monster_Attack: 1764
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 27393
-      Boss_Attack: 1602
+      Boss_HP: 24118
+      Boss_Attack: 2646
   - Key_ID: 163
     val:
       Selection_Level: 0
       Stage_ID: 163
-      Monster_HP: 9199
-      Monster_Attack: 1076
+      Monster_HP: 12137
+      Monster_Attack: 1776
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1647,8 +1647,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 164
-      Monster_HP: 9266
-      Monster_Attack: 1085
+      Monster_HP: 12215
+      Monster_Attack: 1788
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1657,18 +1657,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 165
-      Monster_HP: 9334
-      Monster_Attack: 1093
+      Monster_HP: 12293
+      Monster_Attack: 1800
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 28002
-      Boss_Attack: 1639.5
+      Boss_HP: 24586
+      Boss_Attack: 2700
   - Key_ID: 166
     val:
       Selection_Level: 0
       Stage_ID: 166
-      Monster_HP: 9402
-      Monster_Attack: 1102
+      Monster_HP: 12371
+      Monster_Attack: 1812
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1677,8 +1677,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 167
-      Monster_HP: 9469
-      Monster_Attack: 1110
+      Monster_HP: 12449
+      Monster_Attack: 1824
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1687,18 +1687,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 168
-      Monster_HP: 9537
-      Monster_Attack: 1119
+      Monster_HP: 12527
+      Monster_Attack: 1836
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 28611
-      Boss_Attack: 1678.5
+      Boss_HP: 25054
+      Boss_Attack: 2754
   - Key_ID: 169
     val:
       Selection_Level: 0
       Stage_ID: 169
-      Monster_HP: 9604
-      Monster_Attack: 1127
+      Monster_HP: 12605
+      Monster_Attack: 1848
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1707,8 +1707,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 170
-      Monster_HP: 9672
-      Monster_Attack: 1136
+      Monster_HP: 12683
+      Monster_Attack: 1860
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1717,18 +1717,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 171
-      Monster_HP: 9740
-      Monster_Attack: 1144
+      Monster_HP: 12761
+      Monster_Attack: 1872
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 29220
-      Boss_Attack: 1716
+      Boss_HP: 25522
+      Boss_Attack: 2808
   - Key_ID: 172
     val:
       Selection_Level: 0
       Stage_ID: 172
-      Monster_HP: 9807
-      Monster_Attack: 1152
+      Monster_HP: 12839
+      Monster_Attack: 1884
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1737,8 +1737,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 173
-      Monster_HP: 9875
-      Monster_Attack: 1161
+      Monster_HP: 12917
+      Monster_Attack: 1896
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1747,18 +1747,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 174
-      Monster_HP: 9942
-      Monster_Attack: 1169
+      Monster_HP: 12995
+      Monster_Attack: 1908
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 29826
-      Boss_Attack: 1753.5
+      Boss_HP: 25990
+      Boss_Attack: 2862
   - Key_ID: 175
     val:
       Selection_Level: 0
       Stage_ID: 175
-      Monster_HP: 10010
-      Monster_Attack: 1178
+      Monster_HP: 13073
+      Monster_Attack: 1920
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1767,8 +1767,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 176
-      Monster_HP: 10078
-      Monster_Attack: 1186
+      Monster_HP: 13151
+      Monster_Attack: 1932
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1777,18 +1777,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 177
-      Monster_HP: 10145
-      Monster_Attack: 1195
+      Monster_HP: 13229
+      Monster_Attack: 1944
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 30435
-      Boss_Attack: 1792.5
+      Boss_HP: 26458
+      Boss_Attack: 2916
   - Key_ID: 178
     val:
       Selection_Level: 0
       Stage_ID: 178
-      Monster_HP: 10213
-      Monster_Attack: 1203
+      Monster_HP: 13307
+      Monster_Attack: 1956
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1797,8 +1797,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 179
-      Monster_HP: 10280
-      Monster_Attack: 1212
+      Monster_HP: 13385
+      Monster_Attack: 1968
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1807,18 +1807,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 180
-      Monster_HP: 10348
-      Monster_Attack: 1220
+      Monster_HP: 13463
+      Monster_Attack: 1980
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 31044
-      Boss_Attack: 1830
+      Boss_HP: 26926
+      Boss_Attack: 2970
   - Key_ID: 181
     val:
       Selection_Level: 0
       Stage_ID: 181
-      Monster_HP: 10416
-      Monster_Attack: 1228
+      Monster_HP: 13541
+      Monster_Attack: 1992
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1827,8 +1827,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 182
-      Monster_HP: 10483
-      Monster_Attack: 1237
+      Monster_HP: 13619
+      Monster_Attack: 2004
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1837,18 +1837,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 183
-      Monster_HP: 10551
-      Monster_Attack: 1245
+      Monster_HP: 13697
+      Monster_Attack: 2016
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 31653
-      Boss_Attack: 1867.5
+      Boss_HP: 27394
+      Boss_Attack: 3024
   - Key_ID: 184
     val:
       Selection_Level: 0
       Stage_ID: 184
-      Monster_HP: 10618
-      Monster_Attack: 1254
+      Monster_HP: 13775
+      Monster_Attack: 2028
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1857,8 +1857,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 185
-      Monster_HP: 10686
-      Monster_Attack: 1262
+      Monster_HP: 13853
+      Monster_Attack: 2040
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1867,18 +1867,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 186
-      Monster_HP: 10754
-      Monster_Attack: 1271
+      Monster_HP: 13931
+      Monster_Attack: 2052
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 32262
-      Boss_Attack: 1906.5
+      Boss_HP: 27862
+      Boss_Attack: 3078
   - Key_ID: 187
     val:
       Selection_Level: 0
       Stage_ID: 187
-      Monster_HP: 10821
-      Monster_Attack: 1279
+      Monster_HP: 14009
+      Monster_Attack: 2064
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1887,8 +1887,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 188
-      Monster_HP: 10889
-      Monster_Attack: 1288
+      Monster_HP: 14087
+      Monster_Attack: 2076
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1897,18 +1897,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 189
-      Monster_HP: 10956
-      Monster_Attack: 1296
+      Monster_HP: 14165
+      Monster_Attack: 2088
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 32868
-      Boss_Attack: 1944
+      Boss_HP: 28330
+      Boss_Attack: 3132
   - Key_ID: 190
     val:
       Selection_Level: 0
       Stage_ID: 190
-      Monster_HP: 11024
-      Monster_Attack: 1304
+      Monster_HP: 14243
+      Monster_Attack: 2100
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1917,8 +1917,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 191
-      Monster_HP: 11092
-      Monster_Attack: 1313
+      Monster_HP: 14321
+      Monster_Attack: 2112
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1927,18 +1927,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 192
-      Monster_HP: 11159
-      Monster_Attack: 1321
+      Monster_HP: 14399
+      Monster_Attack: 2124
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 33477
-      Boss_Attack: 1981.5
+      Boss_HP: 28798
+      Boss_Attack: 3186
   - Key_ID: 193
     val:
       Selection_Level: 0
       Stage_ID: 193
-      Monster_HP: 11227
-      Monster_Attack: 1330
+      Monster_HP: 14477
+      Monster_Attack: 2136
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1947,8 +1947,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 194
-      Monster_HP: 11294
-      Monster_Attack: 1338
+      Monster_HP: 14555
+      Monster_Attack: 2148
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1957,18 +1957,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 195
-      Monster_HP: 11362
-      Monster_Attack: 1347
+      Monster_HP: 14633
+      Monster_Attack: 2160
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 34086
-      Boss_Attack: 2020.5
+      Boss_HP: 29266
+      Boss_Attack: 3240
   - Key_ID: 196
     val:
       Selection_Level: 0
       Stage_ID: 196
-      Monster_HP: 11430
-      Monster_Attack: 1355
+      Monster_HP: 14711
+      Monster_Attack: 2172
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1977,8 +1977,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 197
-      Monster_HP: 11497
-      Monster_Attack: 1364
+      Monster_HP: 14789
+      Monster_Attack: 2184
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -1987,18 +1987,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 198
-      Monster_HP: 11565
-      Monster_Attack: 1372
+      Monster_HP: 14867
+      Monster_Attack: 2196
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 34695
-      Boss_Attack: 2058
+      Boss_HP: 29734
+      Boss_Attack: 3294
   - Key_ID: 199
     val:
       Selection_Level: 0
       Stage_ID: 199
-      Monster_HP: 11632
-      Monster_Attack: 1380
+      Monster_HP: 14945
+      Monster_Attack: 2208
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2007,8 +2007,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 200
-      Monster_HP: 11700
-      Monster_Attack: 1389
+      Monster_HP: 15023
+      Monster_Attack: 2220
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2017,18 +2017,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 201
-      Monster_HP: 11768
-      Monster_Attack: 1397
+      Monster_HP: 15101
+      Monster_Attack: 2232
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 35304
-      Boss_Attack: 2095.5
+      Boss_HP: 30202
+      Boss_Attack: 3348
   - Key_ID: 202
     val:
       Selection_Level: 0
       Stage_ID: 202
-      Monster_HP: 11835
-      Monster_Attack: 1406
+      Monster_HP: 15179
+      Monster_Attack: 2244
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2037,8 +2037,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 203
-      Monster_HP: 11903
-      Monster_Attack: 1414
+      Monster_HP: 15257
+      Monster_Attack: 2256
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2047,18 +2047,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 204
-      Monster_HP: 11970
-      Monster_Attack: 1423
+      Monster_HP: 15335
+      Monster_Attack: 2268
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 35910
-      Boss_Attack: 2134.5
+      Boss_HP: 30670
+      Boss_Attack: 3402
   - Key_ID: 205
     val:
       Selection_Level: 0
       Stage_ID: 205
-      Monster_HP: 12038
-      Monster_Attack: 1431
+      Monster_HP: 15413
+      Monster_Attack: 2280
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2067,8 +2067,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 206
-      Monster_HP: 12106
-      Monster_Attack: 1440
+      Monster_HP: 15491
+      Monster_Attack: 2292
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2077,18 +2077,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 207
-      Monster_HP: 12173
-      Monster_Attack: 1448
+      Monster_HP: 15569
+      Monster_Attack: 2304
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 36519
-      Boss_Attack: 2172
+      Boss_HP: 31138
+      Boss_Attack: 3456
   - Key_ID: 208
     val:
       Selection_Level: 0
       Stage_ID: 208
-      Monster_HP: 12241
-      Monster_Attack: 1456
+      Monster_HP: 15647
+      Monster_Attack: 2316
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2097,8 +2097,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 209
-      Monster_HP: 12308
-      Monster_Attack: 1465
+      Monster_HP: 15725
+      Monster_Attack: 2328
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2107,18 +2107,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 210
-      Monster_HP: 12376
-      Monster_Attack: 1473
+      Monster_HP: 15803
+      Monster_Attack: 2340
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 37128
-      Boss_Attack: 2209.5
+      Boss_HP: 31606
+      Boss_Attack: 3510
   - Key_ID: 211
     val:
       Selection_Level: 0
       Stage_ID: 211
-      Monster_HP: 12444
-      Monster_Attack: 1482
+      Monster_HP: 15881
+      Monster_Attack: 2352
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2127,8 +2127,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 212
-      Monster_HP: 12511
-      Monster_Attack: 1490
+      Monster_HP: 15959
+      Monster_Attack: 2364
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2137,18 +2137,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 213
-      Monster_HP: 12579
-      Monster_Attack: 1499
+      Monster_HP: 16037
+      Monster_Attack: 2376
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 37737
-      Boss_Attack: 2248.5
+      Boss_HP: 32074
+      Boss_Attack: 3564
   - Key_ID: 214
     val:
       Selection_Level: 0
       Stage_ID: 214
-      Monster_HP: 12646
-      Monster_Attack: 1507
+      Monster_HP: 16115
+      Monster_Attack: 2388
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2157,8 +2157,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 215
-      Monster_HP: 12714
-      Monster_Attack: 1516
+      Monster_HP: 16193
+      Monster_Attack: 2400
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2167,18 +2167,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 216
-      Monster_HP: 12782
-      Monster_Attack: 1524
+      Monster_HP: 16271
+      Monster_Attack: 2412
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 38346
-      Boss_Attack: 2286
+      Boss_HP: 32542
+      Boss_Attack: 3618
   - Key_ID: 217
     val:
       Selection_Level: 0
       Stage_ID: 217
-      Monster_HP: 12849
-      Monster_Attack: 1532
+      Monster_HP: 16349
+      Monster_Attack: 2424
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2187,8 +2187,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 218
-      Monster_HP: 12917
-      Monster_Attack: 1541
+      Monster_HP: 16427
+      Monster_Attack: 2436
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2197,18 +2197,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 219
-      Monster_HP: 12984
-      Monster_Attack: 1549
+      Monster_HP: 16505
+      Monster_Attack: 2448
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 38952
-      Boss_Attack: 2323.5
+      Boss_HP: 33010
+      Boss_Attack: 3672
   - Key_ID: 220
     val:
       Selection_Level: 0
       Stage_ID: 220
-      Monster_HP: 13052
-      Monster_Attack: 1558
+      Monster_HP: 16583
+      Monster_Attack: 2460
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2217,8 +2217,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 221
-      Monster_HP: 13120
-      Monster_Attack: 1566
+      Monster_HP: 16661
+      Monster_Attack: 2472
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2227,18 +2227,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 222
-      Monster_HP: 13187
-      Monster_Attack: 1575
+      Monster_HP: 16739
+      Monster_Attack: 2484
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 39561
-      Boss_Attack: 2362.5
+      Boss_HP: 33478
+      Boss_Attack: 3726
   - Key_ID: 223
     val:
       Selection_Level: 0
       Stage_ID: 223
-      Monster_HP: 13255
-      Monster_Attack: 1583
+      Monster_HP: 16817
+      Monster_Attack: 2496
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2247,8 +2247,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 224
-      Monster_HP: 13322
-      Monster_Attack: 1592
+      Monster_HP: 16895
+      Monster_Attack: 2508
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2257,18 +2257,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 225
-      Monster_HP: 13390
-      Monster_Attack: 1600
+      Monster_HP: 16973
+      Monster_Attack: 2520
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 40170
-      Boss_Attack: 2400
+      Boss_HP: 33946
+      Boss_Attack: 3780
   - Key_ID: 226
     val:
       Selection_Level: 0
       Stage_ID: 226
-      Monster_HP: 13458
-      Monster_Attack: 1608
+      Monster_HP: 17051
+      Monster_Attack: 2532
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2277,8 +2277,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 227
-      Monster_HP: 13525
-      Monster_Attack: 1617
+      Monster_HP: 17129
+      Monster_Attack: 2544
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2287,18 +2287,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 228
-      Monster_HP: 13593
-      Monster_Attack: 1625
+      Monster_HP: 17207
+      Monster_Attack: 2556
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 40779
-      Boss_Attack: 2437.5
+      Boss_HP: 34414
+      Boss_Attack: 3834
   - Key_ID: 229
     val:
       Selection_Level: 0
       Stage_ID: 229
-      Monster_HP: 13660
-      Monster_Attack: 1634
+      Monster_HP: 17285
+      Monster_Attack: 2568
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2307,8 +2307,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 230
-      Monster_HP: 13728
-      Monster_Attack: 1642
+      Monster_HP: 17363
+      Monster_Attack: 2580
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2317,18 +2317,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 231
-      Monster_HP: 13796
-      Monster_Attack: 1651
+      Monster_HP: 17441
+      Monster_Attack: 2592
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 41388
-      Boss_Attack: 2476.5
+      Boss_HP: 34882
+      Boss_Attack: 3888
   - Key_ID: 232
     val:
       Selection_Level: 0
       Stage_ID: 232
-      Monster_HP: 13863
-      Monster_Attack: 1659
+      Monster_HP: 17519
+      Monster_Attack: 2604
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2337,8 +2337,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 233
-      Monster_HP: 13931
-      Monster_Attack: 1668
+      Monster_HP: 17597
+      Monster_Attack: 2616
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2347,18 +2347,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 234
-      Monster_HP: 13998
-      Monster_Attack: 1676
+      Monster_HP: 17675
+      Monster_Attack: 2628
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 41994
-      Boss_Attack: 2514
+      Boss_HP: 35350
+      Boss_Attack: 3942
   - Key_ID: 235
     val:
       Selection_Level: 0
       Stage_ID: 235
-      Monster_HP: 14066
-      Monster_Attack: 1684
+      Monster_HP: 17753
+      Monster_Attack: 2640
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2367,8 +2367,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 236
-      Monster_HP: 14134
-      Monster_Attack: 1693
+      Monster_HP: 17831
+      Monster_Attack: 2652
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2377,18 +2377,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 237
-      Monster_HP: 14201
-      Monster_Attack: 1701
+      Monster_HP: 17909
+      Monster_Attack: 2664
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 42603
-      Boss_Attack: 2551.5
+      Boss_HP: 35818
+      Boss_Attack: 3996
   - Key_ID: 238
     val:
       Selection_Level: 0
       Stage_ID: 238
-      Monster_HP: 14269
-      Monster_Attack: 1710
+      Monster_HP: 17987
+      Monster_Attack: 2676
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2397,8 +2397,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 239
-      Monster_HP: 14336
-      Monster_Attack: 1718
+      Monster_HP: 18065
+      Monster_Attack: 2688
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2407,18 +2407,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 240
-      Monster_HP: 14404
-      Monster_Attack: 1727
+      Monster_HP: 18143
+      Monster_Attack: 2700
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 43212
-      Boss_Attack: 2590.5
+      Boss_HP: 36286
+      Boss_Attack: 4050
   - Key_ID: 241
     val:
       Selection_Level: 0
       Stage_ID: 241
-      Monster_HP: 14472
-      Monster_Attack: 1735
+      Monster_HP: 18221
+      Monster_Attack: 2712
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2427,8 +2427,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 242
-      Monster_HP: 14539
-      Monster_Attack: 1744
+      Monster_HP: 18299
+      Monster_Attack: 2724
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2437,18 +2437,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 243
-      Monster_HP: 14607
-      Monster_Attack: 1752
+      Monster_HP: 18377
+      Monster_Attack: 2736
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 43821
-      Boss_Attack: 2628
+      Boss_HP: 36754
+      Boss_Attack: 4104
   - Key_ID: 244
     val:
       Selection_Level: 0
       Stage_ID: 244
-      Monster_HP: 14674
-      Monster_Attack: 1760
+      Monster_HP: 18455
+      Monster_Attack: 2748
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2457,8 +2457,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 245
-      Monster_HP: 14742
-      Monster_Attack: 1769
+      Monster_HP: 18533
+      Monster_Attack: 2760
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2467,18 +2467,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 246
-      Monster_HP: 14810
-      Monster_Attack: 1777
+      Monster_HP: 18611
+      Monster_Attack: 2772
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 44430
-      Boss_Attack: 2665.5
+      Boss_HP: 37222
+      Boss_Attack: 4158
   - Key_ID: 247
     val:
       Selection_Level: 0
       Stage_ID: 247
-      Monster_HP: 14877
-      Monster_Attack: 1786
+      Monster_HP: 18689
+      Monster_Attack: 2784
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2487,8 +2487,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 248
-      Monster_HP: 14945
-      Monster_Attack: 1794
+      Monster_HP: 18767
+      Monster_Attack: 2796
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2497,18 +2497,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 249
-      Monster_HP: 15012
-      Monster_Attack: 1803
+      Monster_HP: 18845
+      Monster_Attack: 2808
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 45036
-      Boss_Attack: 2704.5
+      Boss_HP: 37690
+      Boss_Attack: 4212
   - Key_ID: 250
     val:
       Selection_Level: 0
       Stage_ID: 250
-      Monster_HP: 15080
-      Monster_Attack: 1811
+      Monster_HP: 18923
+      Monster_Attack: 2820
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2517,8 +2517,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 251
-      Monster_HP: 15148
-      Monster_Attack: 1820
+      Monster_HP: 19001
+      Monster_Attack: 2832
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2527,18 +2527,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 252
-      Monster_HP: 15215
-      Monster_Attack: 1828
+      Monster_HP: 19079
+      Monster_Attack: 2844
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 45645
-      Boss_Attack: 2742
+      Boss_HP: 38158
+      Boss_Attack: 4266
   - Key_ID: 253
     val:
       Selection_Level: 0
       Stage_ID: 253
-      Monster_HP: 15283
-      Monster_Attack: 1836
+      Monster_HP: 19157
+      Monster_Attack: 2856
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2547,8 +2547,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 254
-      Monster_HP: 15350
-      Monster_Attack: 1845
+      Monster_HP: 19235
+      Monster_Attack: 2868
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2557,18 +2557,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 255
-      Monster_HP: 15418
-      Monster_Attack: 1853
+      Monster_HP: 19313
+      Monster_Attack: 2880
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 46254
-      Boss_Attack: 2779.5
+      Boss_HP: 38626
+      Boss_Attack: 4320
   - Key_ID: 256
     val:
       Selection_Level: 0
       Stage_ID: 256
-      Monster_HP: 15486
-      Monster_Attack: 1862
+      Monster_HP: 19391
+      Monster_Attack: 2892
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2577,8 +2577,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 257
-      Monster_HP: 15553
-      Monster_Attack: 1870
+      Monster_HP: 19469
+      Monster_Attack: 2904
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2587,18 +2587,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 258
-      Monster_HP: 15621
-      Monster_Attack: 1879
+      Monster_HP: 19547
+      Monster_Attack: 2916
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 46863
-      Boss_Attack: 2818.5
+      Boss_HP: 39094
+      Boss_Attack: 4374
   - Key_ID: 259
     val:
       Selection_Level: 0
       Stage_ID: 259
-      Monster_HP: 15688
-      Monster_Attack: 1887
+      Monster_HP: 19625
+      Monster_Attack: 2928
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2607,8 +2607,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 260
-      Monster_HP: 15756
-      Monster_Attack: 1896
+      Monster_HP: 19703
+      Monster_Attack: 2940
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2617,18 +2617,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 261
-      Monster_HP: 15824
-      Monster_Attack: 1904
+      Monster_HP: 19781
+      Monster_Attack: 2952
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 47472
-      Boss_Attack: 2856
+      Boss_HP: 39562
+      Boss_Attack: 4428
   - Key_ID: 262
     val:
       Selection_Level: 0
       Stage_ID: 262
-      Monster_HP: 15891
-      Monster_Attack: 1912
+      Monster_HP: 19859
+      Monster_Attack: 2964
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2637,8 +2637,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 263
-      Monster_HP: 15959
-      Monster_Attack: 1921
+      Monster_HP: 19937
+      Monster_Attack: 2976
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2647,18 +2647,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 264
-      Monster_HP: 16026
-      Monster_Attack: 1929
+      Monster_HP: 20015
+      Monster_Attack: 2988
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 48078
-      Boss_Attack: 2893.5
+      Boss_HP: 40030
+      Boss_Attack: 4482
   - Key_ID: 265
     val:
       Selection_Level: 0
       Stage_ID: 265
-      Monster_HP: 16094
-      Monster_Attack: 1938
+      Monster_HP: 20093
+      Monster_Attack: 3000
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2667,8 +2667,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 266
-      Monster_HP: 16162
-      Monster_Attack: 1946
+      Monster_HP: 20171
+      Monster_Attack: 3012
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2677,18 +2677,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 267
-      Monster_HP: 16229
-      Monster_Attack: 1955
+      Monster_HP: 20249
+      Monster_Attack: 3024
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 48687
-      Boss_Attack: 2932.5
+      Boss_HP: 40498
+      Boss_Attack: 4536
   - Key_ID: 268
     val:
       Selection_Level: 0
       Stage_ID: 268
-      Monster_HP: 16297
-      Monster_Attack: 1963
+      Monster_HP: 20327
+      Monster_Attack: 3036
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2697,8 +2697,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 269
-      Monster_HP: 16364
-      Monster_Attack: 1972
+      Monster_HP: 20405
+      Monster_Attack: 3048
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2707,18 +2707,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 270
-      Monster_HP: 16432
-      Monster_Attack: 1980
+      Monster_HP: 20483
+      Monster_Attack: 3060
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 49296
-      Boss_Attack: 2970
+      Boss_HP: 40966
+      Boss_Attack: 4590
   - Key_ID: 271
     val:
       Selection_Level: 0
       Stage_ID: 271
-      Monster_HP: 16500
-      Monster_Attack: 1988
+      Monster_HP: 20561
+      Monster_Attack: 3072
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2727,8 +2727,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 272
-      Monster_HP: 16567
-      Monster_Attack: 1997
+      Monster_HP: 20639
+      Monster_Attack: 3084
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2737,18 +2737,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 273
-      Monster_HP: 16635
-      Monster_Attack: 2005
+      Monster_HP: 20717
+      Monster_Attack: 3096
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 49905
-      Boss_Attack: 3007.5
+      Boss_HP: 41434
+      Boss_Attack: 4644
   - Key_ID: 274
     val:
       Selection_Level: 0
       Stage_ID: 274
-      Monster_HP: 16702
-      Monster_Attack: 2014
+      Monster_HP: 20795
+      Monster_Attack: 3108
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2757,8 +2757,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 275
-      Monster_HP: 16770
-      Monster_Attack: 2022
+      Monster_HP: 20873
+      Monster_Attack: 3120
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2767,18 +2767,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 276
-      Monster_HP: 16838
-      Monster_Attack: 2031
+      Monster_HP: 20951
+      Monster_Attack: 3132
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 50514
-      Boss_Attack: 3046.5
+      Boss_HP: 41902
+      Boss_Attack: 4698
   - Key_ID: 277
     val:
       Selection_Level: 0
       Stage_ID: 277
-      Monster_HP: 16905
-      Monster_Attack: 2039
+      Monster_HP: 21029
+      Monster_Attack: 3144
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2787,8 +2787,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 278
-      Monster_HP: 16973
-      Monster_Attack: 2048
+      Monster_HP: 21107
+      Monster_Attack: 3156
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2797,18 +2797,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 279
-      Monster_HP: 17040
-      Monster_Attack: 2056
+      Monster_HP: 21185
+      Monster_Attack: 3168
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 51120
-      Boss_Attack: 3084
+      Boss_HP: 42370
+      Boss_Attack: 4752
   - Key_ID: 280
     val:
       Selection_Level: 0
       Stage_ID: 280
-      Monster_HP: 17108
-      Monster_Attack: 2064
+      Monster_HP: 21263
+      Monster_Attack: 3180
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2817,8 +2817,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 281
-      Monster_HP: 17176
-      Monster_Attack: 2073
+      Monster_HP: 21341
+      Monster_Attack: 3192
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2827,18 +2827,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 282
-      Monster_HP: 17243
-      Monster_Attack: 2081
+      Monster_HP: 21419
+      Monster_Attack: 3204
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 51729
-      Boss_Attack: 3121.5
+      Boss_HP: 42838
+      Boss_Attack: 4806
   - Key_ID: 283
     val:
       Selection_Level: 0
       Stage_ID: 283
-      Monster_HP: 17311
-      Monster_Attack: 2090
+      Monster_HP: 21497
+      Monster_Attack: 3216
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2847,8 +2847,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 284
-      Monster_HP: 17378
-      Monster_Attack: 2098
+      Monster_HP: 21575
+      Monster_Attack: 3228
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2857,18 +2857,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 285
-      Monster_HP: 17446
-      Monster_Attack: 2107
+      Monster_HP: 21653
+      Monster_Attack: 3240
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 52338
-      Boss_Attack: 3160.5
+      Boss_HP: 43306
+      Boss_Attack: 4860
   - Key_ID: 286
     val:
       Selection_Level: 0
       Stage_ID: 286
-      Monster_HP: 17514
-      Monster_Attack: 2115
+      Monster_HP: 21731
+      Monster_Attack: 3252
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2877,8 +2877,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 287
-      Monster_HP: 17581
-      Monster_Attack: 2124
+      Monster_HP: 21809
+      Monster_Attack: 3264
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2887,18 +2887,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 288
-      Monster_HP: 17649
-      Monster_Attack: 2132
+      Monster_HP: 21887
+      Monster_Attack: 3276
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 52947
-      Boss_Attack: 3198
+      Boss_HP: 43774
+      Boss_Attack: 4914
   - Key_ID: 289
     val:
       Selection_Level: 0
       Stage_ID: 289
-      Monster_HP: 17716
-      Monster_Attack: 2140
+      Monster_HP: 21965
+      Monster_Attack: 3288
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2907,8 +2907,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 290
-      Monster_HP: 17784
-      Monster_Attack: 2149
+      Monster_HP: 22043
+      Monster_Attack: 3300
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2917,18 +2917,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 291
-      Monster_HP: 17852
-      Monster_Attack: 2157
+      Monster_HP: 22121
+      Monster_Attack: 3312
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 53556
-      Boss_Attack: 3235.5
+      Boss_HP: 44242
+      Boss_Attack: 4968
   - Key_ID: 292
     val:
       Selection_Level: 0
       Stage_ID: 292
-      Monster_HP: 17919
-      Monster_Attack: 2166
+      Monster_HP: 22199
+      Monster_Attack: 3324
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2937,8 +2937,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 293
-      Monster_HP: 17987
-      Monster_Attack: 2174
+      Monster_HP: 22277
+      Monster_Attack: 3336
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2947,18 +2947,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 294
-      Monster_HP: 18054
-      Monster_Attack: 2183
+      Monster_HP: 22355
+      Monster_Attack: 3348
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 54162
-      Boss_Attack: 3274.5
+      Boss_HP: 44710
+      Boss_Attack: 5022
   - Key_ID: 295
     val:
       Selection_Level: 0
       Stage_ID: 295
-      Monster_HP: 18122
-      Monster_Attack: 2191
+      Monster_HP: 22433
+      Monster_Attack: 3360
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2967,8 +2967,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 296
-      Monster_HP: 18190
-      Monster_Attack: 2200
+      Monster_HP: 22511
+      Monster_Attack: 3372
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2977,18 +2977,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 297
-      Monster_HP: 18257
-      Monster_Attack: 2208
+      Monster_HP: 22589
+      Monster_Attack: 3384
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 54771
-      Boss_Attack: 3312
+      Boss_HP: 45178
+      Boss_Attack: 5076
   - Key_ID: 298
     val:
       Selection_Level: 0
       Stage_ID: 298
-      Monster_HP: 18325
-      Monster_Attack: 2216
+      Monster_HP: 22667
+      Monster_Attack: 3396
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -2997,8 +2997,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 299
-      Monster_HP: 18392
-      Monster_Attack: 2225
+      Monster_HP: 22745
+      Monster_Attack: 3408
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3007,18 +3007,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 300
-      Monster_HP: 18460
-      Monster_Attack: 2233
+      Monster_HP: 22823
+      Monster_Attack: 3420
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 55380
-      Boss_Attack: 3349.5
+      Boss_HP: 45646
+      Boss_Attack: 5130
   - Key_ID: 301
     val:
       Selection_Level: 0
       Stage_ID: 301
-      Monster_HP: 18528
-      Monster_Attack: 2242
+      Monster_HP: 22901
+      Monster_Attack: 3432
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3027,8 +3027,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 302
-      Monster_HP: 18595
-      Monster_Attack: 2250
+      Monster_HP: 22979
+      Monster_Attack: 3444
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3037,18 +3037,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 303
-      Monster_HP: 18663
-      Monster_Attack: 2259
+      Monster_HP: 23057
+      Monster_Attack: 3456
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 55989
-      Boss_Attack: 3388.5
+      Boss_HP: 46114
+      Boss_Attack: 5184
   - Key_ID: 304
     val:
       Selection_Level: 0
       Stage_ID: 304
-      Monster_HP: 18730
-      Monster_Attack: 2267
+      Monster_HP: 23135
+      Monster_Attack: 3468
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3057,8 +3057,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 305
-      Monster_HP: 18798
-      Monster_Attack: 2276
+      Monster_HP: 23213
+      Monster_Attack: 3480
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3067,18 +3067,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 306
-      Monster_HP: 18866
-      Monster_Attack: 2284
+      Monster_HP: 23291
+      Monster_Attack: 3492
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 56598
-      Boss_Attack: 3426
+      Boss_HP: 46582
+      Boss_Attack: 5238
   - Key_ID: 307
     val:
       Selection_Level: 0
       Stage_ID: 307
-      Monster_HP: 18933
-      Monster_Attack: 2292
+      Monster_HP: 23369
+      Monster_Attack: 3504
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3087,8 +3087,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 308
-      Monster_HP: 19001
-      Monster_Attack: 2301
+      Monster_HP: 23447
+      Monster_Attack: 3516
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3097,18 +3097,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 309
-      Monster_HP: 19068
-      Monster_Attack: 2309
+      Monster_HP: 23525
+      Monster_Attack: 3528
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 57204
-      Boss_Attack: 3463.5
+      Boss_HP: 47050
+      Boss_Attack: 5292
   - Key_ID: 310
     val:
       Selection_Level: 0
       Stage_ID: 310
-      Monster_HP: 19136
-      Monster_Attack: 2318
+      Monster_HP: 23603
+      Monster_Attack: 3540
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3117,8 +3117,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 311
-      Monster_HP: 19204
-      Monster_Attack: 2326
+      Monster_HP: 23681
+      Monster_Attack: 3552
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3127,18 +3127,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 312
-      Monster_HP: 19271
-      Monster_Attack: 2335
+      Monster_HP: 23759
+      Monster_Attack: 3564
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 57813
-      Boss_Attack: 3502.5
+      Boss_HP: 47518
+      Boss_Attack: 5346
   - Key_ID: 313
     val:
       Selection_Level: 0
       Stage_ID: 313
-      Monster_HP: 19339
-      Monster_Attack: 2343
+      Monster_HP: 23837
+      Monster_Attack: 3576
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3147,8 +3147,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 314
-      Monster_HP: 19406
-      Monster_Attack: 2352
+      Monster_HP: 23915
+      Monster_Attack: 3588
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3157,18 +3157,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 315
-      Monster_HP: 19474
-      Monster_Attack: 2360
+      Monster_HP: 23993
+      Monster_Attack: 3600
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 58422
-      Boss_Attack: 3540
+      Boss_HP: 47986
+      Boss_Attack: 5400
   - Key_ID: 316
     val:
       Selection_Level: 0
       Stage_ID: 316
-      Monster_HP: 19542
-      Monster_Attack: 2368
+      Monster_HP: 24071
+      Monster_Attack: 3612
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3177,8 +3177,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 317
-      Monster_HP: 19609
-      Monster_Attack: 2377
+      Monster_HP: 24149
+      Monster_Attack: 3624
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3187,18 +3187,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 318
-      Monster_HP: 19677
-      Monster_Attack: 2385
+      Monster_HP: 24227
+      Monster_Attack: 3636
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 59031
-      Boss_Attack: 3577.5
+      Boss_HP: 48454
+      Boss_Attack: 5454
   - Key_ID: 319
     val:
       Selection_Level: 0
       Stage_ID: 319
-      Monster_HP: 19744
-      Monster_Attack: 2394
+      Monster_HP: 24305
+      Monster_Attack: 3648
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3207,8 +3207,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 320
-      Monster_HP: 19812
-      Monster_Attack: 2402
+      Monster_HP: 24383
+      Monster_Attack: 3660
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3217,18 +3217,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 321
-      Monster_HP: 19880
-      Monster_Attack: 2411
+      Monster_HP: 24461
+      Monster_Attack: 3672
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 59640
-      Boss_Attack: 3616.5
+      Boss_HP: 48922
+      Boss_Attack: 5508
   - Key_ID: 322
     val:
       Selection_Level: 0
       Stage_ID: 322
-      Monster_HP: 19947
-      Monster_Attack: 2419
+      Monster_HP: 24539
+      Monster_Attack: 3684
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3237,8 +3237,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 323
-      Monster_HP: 20015
-      Monster_Attack: 2428
+      Monster_HP: 24617
+      Monster_Attack: 3696
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3247,18 +3247,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 324
-      Monster_HP: 20082
-      Monster_Attack: 2436
+      Monster_HP: 24695
+      Monster_Attack: 3708
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 60246
-      Boss_Attack: 3654
+      Boss_HP: 49390
+      Boss_Attack: 5562
   - Key_ID: 325
     val:
       Selection_Level: 0
       Stage_ID: 325
-      Monster_HP: 20150
-      Monster_Attack: 2444
+      Monster_HP: 24773
+      Monster_Attack: 3720
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3267,8 +3267,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 326
-      Monster_HP: 20218
-      Monster_Attack: 2453
+      Monster_HP: 24851
+      Monster_Attack: 3732
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3277,18 +3277,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 327
-      Monster_HP: 20285
-      Monster_Attack: 2461
+      Monster_HP: 24929
+      Monster_Attack: 3744
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 60855
-      Boss_Attack: 3691.5
+      Boss_HP: 49858
+      Boss_Attack: 5616
   - Key_ID: 328
     val:
       Selection_Level: 0
       Stage_ID: 328
-      Monster_HP: 20353
-      Monster_Attack: 2470
+      Monster_HP: 25007
+      Monster_Attack: 3756
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3297,8 +3297,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 329
-      Monster_HP: 20420
-      Monster_Attack: 2478
+      Monster_HP: 25085
+      Monster_Attack: 3768
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3307,18 +3307,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 330
-      Monster_HP: 20488
-      Monster_Attack: 2487
+      Monster_HP: 25163
+      Monster_Attack: 3780
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 61464
-      Boss_Attack: 3730.5
+      Boss_HP: 50326
+      Boss_Attack: 5670
   - Key_ID: 331
     val:
       Selection_Level: 0
       Stage_ID: 331
-      Monster_HP: 20556
-      Monster_Attack: 2495
+      Monster_HP: 25241
+      Monster_Attack: 3792
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3327,8 +3327,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 332
-      Monster_HP: 20623
-      Monster_Attack: 2504
+      Monster_HP: 25319
+      Monster_Attack: 3804
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3337,18 +3337,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 333
-      Monster_HP: 20691
-      Monster_Attack: 2512
+      Monster_HP: 25397
+      Monster_Attack: 3816
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 62073
-      Boss_Attack: 3768
+      Boss_HP: 50794
+      Boss_Attack: 5724
   - Key_ID: 334
     val:
       Selection_Level: 0
       Stage_ID: 334
-      Monster_HP: 20758
-      Monster_Attack: 2520
+      Monster_HP: 25475
+      Monster_Attack: 3828
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3357,8 +3357,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 335
-      Monster_HP: 20826
-      Monster_Attack: 2529
+      Monster_HP: 25553
+      Monster_Attack: 3840
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3367,18 +3367,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 336
-      Monster_HP: 20894
-      Monster_Attack: 2537
+      Monster_HP: 25631
+      Monster_Attack: 3852
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 62682
-      Boss_Attack: 3805.5
+      Boss_HP: 51262
+      Boss_Attack: 5778
   - Key_ID: 337
     val:
       Selection_Level: 0
       Stage_ID: 337
-      Monster_HP: 20961
-      Monster_Attack: 2546
+      Monster_HP: 25709
+      Monster_Attack: 3864
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3387,8 +3387,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 338
-      Monster_HP: 21029
-      Monster_Attack: 2554
+      Monster_HP: 25787
+      Monster_Attack: 3876
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3397,18 +3397,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 339
-      Monster_HP: 21096
-      Monster_Attack: 2563
+      Monster_HP: 25865
+      Monster_Attack: 3888
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 63288
-      Boss_Attack: 3844.5
+      Boss_HP: 51730
+      Boss_Attack: 5832
   - Key_ID: 340
     val:
       Selection_Level: 0
       Stage_ID: 340
-      Monster_HP: 21164
-      Monster_Attack: 2571
+      Monster_HP: 25943
+      Monster_Attack: 3900
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3417,8 +3417,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 341
-      Monster_HP: 21232
-      Monster_Attack: 2580
+      Monster_HP: 26021
+      Monster_Attack: 3912
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3427,18 +3427,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 342
-      Monster_HP: 21299
-      Monster_Attack: 2588
+      Monster_HP: 26099
+      Monster_Attack: 3924
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 63897
-      Boss_Attack: 3882
+      Boss_HP: 52198
+      Boss_Attack: 5886
   - Key_ID: 343
     val:
       Selection_Level: 0
       Stage_ID: 343
-      Monster_HP: 21367
-      Monster_Attack: 2596
+      Monster_HP: 26177
+      Monster_Attack: 3936
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3447,8 +3447,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 344
-      Monster_HP: 21434
-      Monster_Attack: 2605
+      Monster_HP: 26255
+      Monster_Attack: 3948
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3457,18 +3457,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 345
-      Monster_HP: 21502
-      Monster_Attack: 2613
+      Monster_HP: 26333
+      Monster_Attack: 3960
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 64506
-      Boss_Attack: 3919.5
+      Boss_HP: 52666
+      Boss_Attack: 5940
   - Key_ID: 346
     val:
       Selection_Level: 0
       Stage_ID: 346
-      Monster_HP: 21570
-      Monster_Attack: 2622
+      Monster_HP: 26411
+      Monster_Attack: 3972
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3477,8 +3477,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 347
-      Monster_HP: 21637
-      Monster_Attack: 2630
+      Monster_HP: 26489
+      Monster_Attack: 3984
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3487,18 +3487,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 348
-      Monster_HP: 21705
-      Monster_Attack: 2639
+      Monster_HP: 26567
+      Monster_Attack: 3996
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 65115
-      Boss_Attack: 3958.5
+      Boss_HP: 53134
+      Boss_Attack: 5994
   - Key_ID: 349
     val:
       Selection_Level: 0
       Stage_ID: 349
-      Monster_HP: 21772
-      Monster_Attack: 2647
+      Monster_HP: 26645
+      Monster_Attack: 4008
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3507,8 +3507,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 350
-      Monster_HP: 21840
-      Monster_Attack: 2656
+      Monster_HP: 26723
+      Monster_Attack: 4020
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3517,18 +3517,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 351
-      Monster_HP: 21908
-      Monster_Attack: 2664
+      Monster_HP: 26801
+      Monster_Attack: 4032
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 65724
-      Boss_Attack: 3996
+      Boss_HP: 53602
+      Boss_Attack: 6048
   - Key_ID: 352
     val:
       Selection_Level: 0
       Stage_ID: 352
-      Monster_HP: 21975
-      Monster_Attack: 2672
+      Monster_HP: 26879
+      Monster_Attack: 4044
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3537,8 +3537,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 353
-      Monster_HP: 22043
-      Monster_Attack: 2681
+      Monster_HP: 26957
+      Monster_Attack: 4056
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3547,18 +3547,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 354
-      Monster_HP: 22110
-      Monster_Attack: 2689
+      Monster_HP: 27035
+      Monster_Attack: 4068
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 66330
-      Boss_Attack: 4033.5
+      Boss_HP: 54070
+      Boss_Attack: 6102
   - Key_ID: 355
     val:
       Selection_Level: 0
       Stage_ID: 355
-      Monster_HP: 22178
-      Monster_Attack: 2698
+      Monster_HP: 27113
+      Monster_Attack: 4080
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3567,8 +3567,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 356
-      Monster_HP: 22246
-      Monster_Attack: 2706
+      Monster_HP: 27191
+      Monster_Attack: 4092
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3577,18 +3577,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 357
-      Monster_HP: 22313
-      Monster_Attack: 2715
+      Monster_HP: 27269
+      Monster_Attack: 4104
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 66939
-      Boss_Attack: 4072.5
+      Boss_HP: 54538
+      Boss_Attack: 6156
   - Key_ID: 358
     val:
       Selection_Level: 0
       Stage_ID: 358
-      Monster_HP: 22381
-      Monster_Attack: 2723
+      Monster_HP: 27347
+      Monster_Attack: 4116
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3597,8 +3597,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 359
-      Monster_HP: 22448
-      Monster_Attack: 2732
+      Monster_HP: 27425
+      Monster_Attack: 4128
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3607,18 +3607,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 360
-      Monster_HP: 22516
-      Monster_Attack: 2740
+      Monster_HP: 27503
+      Monster_Attack: 4140
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 67548
-      Boss_Attack: 4110
+      Boss_HP: 55006
+      Boss_Attack: 6210
   - Key_ID: 361
     val:
       Selection_Level: 0
       Stage_ID: 361
-      Monster_HP: 22584
-      Monster_Attack: 2748
+      Monster_HP: 27581
+      Monster_Attack: 4152
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3627,8 +3627,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 362
-      Monster_HP: 22651
-      Monster_Attack: 2757
+      Monster_HP: 27659
+      Monster_Attack: 4164
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3637,18 +3637,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 363
-      Monster_HP: 22719
-      Monster_Attack: 2765
+      Monster_HP: 27737
+      Monster_Attack: 4176
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 68157
-      Boss_Attack: 4147.5
+      Boss_HP: 55474
+      Boss_Attack: 6264
   - Key_ID: 364
     val:
       Selection_Level: 0
       Stage_ID: 364
-      Monster_HP: 22786
-      Monster_Attack: 2774
+      Monster_HP: 27815
+      Monster_Attack: 4188
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3657,8 +3657,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 365
-      Monster_HP: 22854
-      Monster_Attack: 2782
+      Monster_HP: 27893
+      Monster_Attack: 4200
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3667,18 +3667,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 366
-      Monster_HP: 22922
-      Monster_Attack: 2791
+      Monster_HP: 27971
+      Monster_Attack: 4212
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 68766
-      Boss_Attack: 4186.5
+      Boss_HP: 55942
+      Boss_Attack: 6318
   - Key_ID: 367
     val:
       Selection_Level: 0
       Stage_ID: 367
-      Monster_HP: 22989
-      Monster_Attack: 2799
+      Monster_HP: 28049
+      Monster_Attack: 4224
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3687,8 +3687,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 368
-      Monster_HP: 23057
-      Monster_Attack: 2808
+      Monster_HP: 28127
+      Monster_Attack: 4236
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3697,18 +3697,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 369
-      Monster_HP: 23124
-      Monster_Attack: 2816
+      Monster_HP: 28205
+      Monster_Attack: 4248
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 69372
-      Boss_Attack: 4224
+      Boss_HP: 56410
+      Boss_Attack: 6372
   - Key_ID: 370
     val:
       Selection_Level: 0
       Stage_ID: 370
-      Monster_HP: 23192
-      Monster_Attack: 2824
+      Monster_HP: 28283
+      Monster_Attack: 4260
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3717,8 +3717,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 371
-      Monster_HP: 23260
-      Monster_Attack: 2833
+      Monster_HP: 28361
+      Monster_Attack: 4272
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3727,18 +3727,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 372
-      Monster_HP: 23327
-      Monster_Attack: 2841
+      Monster_HP: 28439
+      Monster_Attack: 4284
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 69981
-      Boss_Attack: 4261.5
+      Boss_HP: 56878
+      Boss_Attack: 6426
   - Key_ID: 373
     val:
       Selection_Level: 0
       Stage_ID: 373
-      Monster_HP: 23395
-      Monster_Attack: 2850
+      Monster_HP: 28517
+      Monster_Attack: 4296
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3747,8 +3747,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 374
-      Monster_HP: 23462
-      Monster_Attack: 2858
+      Monster_HP: 28595
+      Monster_Attack: 4308
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3757,18 +3757,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 375
-      Monster_HP: 23530
-      Monster_Attack: 2867
+      Monster_HP: 28673
+      Monster_Attack: 4320
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 70590
-      Boss_Attack: 4300.5
+      Boss_HP: 57346
+      Boss_Attack: 6480
   - Key_ID: 376
     val:
       Selection_Level: 0
       Stage_ID: 376
-      Monster_HP: 23598
-      Monster_Attack: 2875
+      Monster_HP: 28751
+      Monster_Attack: 4332
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3777,8 +3777,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 377
-      Monster_HP: 23665
-      Monster_Attack: 2884
+      Monster_HP: 28829
+      Monster_Attack: 4344
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3787,18 +3787,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 378
-      Monster_HP: 23733
-      Monster_Attack: 2892
+      Monster_HP: 28907
+      Monster_Attack: 4356
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 71199
-      Boss_Attack: 4338
+      Boss_HP: 57814
+      Boss_Attack: 6534
   - Key_ID: 379
     val:
       Selection_Level: 0
       Stage_ID: 379
-      Monster_HP: 23800
-      Monster_Attack: 2900
+      Monster_HP: 28985
+      Monster_Attack: 4368
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3807,8 +3807,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 380
-      Monster_HP: 23868
-      Monster_Attack: 2909
+      Monster_HP: 29063
+      Monster_Attack: 4380
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3817,18 +3817,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 381
-      Monster_HP: 23936
-      Monster_Attack: 2917
+      Monster_HP: 29141
+      Monster_Attack: 4392
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 71808
-      Boss_Attack: 4375.5
+      Boss_HP: 58282
+      Boss_Attack: 6588
   - Key_ID: 382
     val:
       Selection_Level: 0
       Stage_ID: 382
-      Monster_HP: 24003
-      Monster_Attack: 2926
+      Monster_HP: 29219
+      Monster_Attack: 4404
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3837,8 +3837,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 383
-      Monster_HP: 24071
-      Monster_Attack: 2934
+      Monster_HP: 29297
+      Monster_Attack: 4416
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3847,18 +3847,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 384
-      Monster_HP: 24138
-      Monster_Attack: 2943
+      Monster_HP: 29375
+      Monster_Attack: 4428
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 72414
-      Boss_Attack: 4414.5
+      Boss_HP: 58750
+      Boss_Attack: 6642
   - Key_ID: 385
     val:
       Selection_Level: 0
       Stage_ID: 385
-      Monster_HP: 24206
-      Monster_Attack: 2951
+      Monster_HP: 29453
+      Monster_Attack: 4440
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3867,8 +3867,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 386
-      Monster_HP: 24274
-      Monster_Attack: 2960
+      Monster_HP: 29531
+      Monster_Attack: 4452
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3877,18 +3877,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 387
-      Monster_HP: 24341
-      Monster_Attack: 2968
+      Monster_HP: 29609
+      Monster_Attack: 4464
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 73023
-      Boss_Attack: 4452
+      Boss_HP: 59218
+      Boss_Attack: 6696
   - Key_ID: 388
     val:
       Selection_Level: 0
       Stage_ID: 388
-      Monster_HP: 24409
-      Monster_Attack: 2976
+      Monster_HP: 29687
+      Monster_Attack: 4476
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3897,8 +3897,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 389
-      Monster_HP: 24476
-      Monster_Attack: 2985
+      Monster_HP: 29765
+      Monster_Attack: 4488
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3907,18 +3907,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 390
-      Monster_HP: 24544
-      Monster_Attack: 2993
+      Monster_HP: 29843
+      Monster_Attack: 4500
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 73632
-      Boss_Attack: 4489.5
+      Boss_HP: 59686
+      Boss_Attack: 6750
   - Key_ID: 391
     val:
       Selection_Level: 0
       Stage_ID: 391
-      Monster_HP: 24612
-      Monster_Attack: 3002
+      Monster_HP: 29921
+      Monster_Attack: 4512
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3927,8 +3927,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 392
-      Monster_HP: 24679
-      Monster_Attack: 3010
+      Monster_HP: 29999
+      Monster_Attack: 4524
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3937,18 +3937,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 393
-      Monster_HP: 24747
-      Monster_Attack: 3019
+      Monster_HP: 30077
+      Monster_Attack: 4536
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 74241
-      Boss_Attack: 4528.5
+      Boss_HP: 60154
+      Boss_Attack: 6804
   - Key_ID: 394
     val:
       Selection_Level: 0
       Stage_ID: 394
-      Monster_HP: 24814
-      Monster_Attack: 3027
+      Monster_HP: 30155
+      Monster_Attack: 4548
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3957,8 +3957,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 395
-      Monster_HP: 24882
-      Monster_Attack: 3036
+      Monster_HP: 30233
+      Monster_Attack: 4560
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3967,18 +3967,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 396
-      Monster_HP: 24950
-      Monster_Attack: 3044
+      Monster_HP: 30311
+      Monster_Attack: 4572
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 74850
-      Boss_Attack: 4566
+      Boss_HP: 60622
+      Boss_Attack: 6858
   - Key_ID: 397
     val:
       Selection_Level: 0
       Stage_ID: 397
-      Monster_HP: 25017
-      Monster_Attack: 3052
+      Monster_HP: 30389
+      Monster_Attack: 4584
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3987,8 +3987,8 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 398
-      Monster_HP: 25085
-      Monster_Attack: 3061
+      Monster_HP: 30467
+      Monster_Attack: 4596
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0
@@ -3997,18 +3997,18 @@ MonoBehaviour:
     val:
       Selection_Level: 0
       Stage_ID: 399
-      Monster_HP: 25152
-      Monster_Attack: 3069
+      Monster_HP: 30545
+      Monster_Attack: 4608
       Monster_SpawnCount: 39
       IsBossStage: 1
-      Boss_HP: 75456
-      Boss_Attack: 4603.5
+      Boss_HP: 61090
+      Boss_Attack: 6912
   - Key_ID: 400
     val:
       Selection_Level: 0
       Stage_ID: 400
-      Monster_HP: 25220
-      Monster_Attack: 3078
+      Monster_HP: 30623
+      Monster_Attack: 4620
       Monster_SpawnCount: 39
       IsBossStage: 0
       Boss_HP: 0

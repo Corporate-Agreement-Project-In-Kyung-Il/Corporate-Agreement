@@ -74,7 +74,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
         
         if (owner.skills[0].SkillID == SkillID && owner.skills[0] is ActiveSkillSO skill)
         {
-            stat.Damage = owner.Damage * skill.Skill_Damage;
+            stat.Damage = skill.Skill_Damage;
             stat.Range_height = skill.Skill_Range_height;
             stat.Range_width = skill.Skill_Range_width;
             stat.SkillName = skill.Skill_Name;
@@ -82,7 +82,7 @@ public class HugeFootPrint : ActiveSkillBase, ISkillID
         }
         else if (owner.skills[1].SkillID == SkillID && owner.skills[1] is ActiveSkillSO skill2)
         {
-            stat.Damage = owner.Damage * skill2.Skill_Damage;
+            stat.Damage = skill2.Skill_Damage;
             stat.Range_height = skill2.Skill_Range_height;
             stat.Range_width = skill2.Skill_Range_width;
             stat.SkillName = skill2.Skill_Name;

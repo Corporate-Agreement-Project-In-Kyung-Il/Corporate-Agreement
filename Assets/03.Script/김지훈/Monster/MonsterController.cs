@@ -11,8 +11,6 @@ public class MonsterController : BaseMonster, IDamageAble
     public Collider2D mainCollider => collider2D;
     public GameObject GameObject => gameObject;
     public float Damage => monsterStat.damage;
-    
-    public float MaxHp => monsterStat.maxHp;
     public float CurrentHp => monsterStat.health;
     public Vector2 playerDetection;
 
@@ -41,7 +39,6 @@ public class MonsterController : BaseMonster, IDamageAble
 
     public void SetMonsterData(MonsterData monsterData)
     {
-        monsterStat.maxHp = monsterData.Monster_HP;
         monsterStat.health = monsterData.Monster_HP;
         monsterStat.damage = monsterData.Monster_Attack;
         monsterStat.attackRange = monsterData.attackRange;
@@ -52,7 +49,6 @@ public class MonsterController : BaseMonster, IDamageAble
     
     public void SetBossData(MonsterData monsterData)
     {
-        monsterStat.maxHp = monsterData.Boss_HP;
         monsterStat.health = monsterData.Boss_HP;
         monsterStat.damage = monsterData.Boss_Attack;
         monsterStat.attackRange = monsterData.attackRange;
@@ -162,9 +158,10 @@ public class MonsterController : BaseMonster, IDamageAble
         attackTimer = 1f / monsterStat.attackSpeed;
 
     }
-
+    [SerializeField] SFXData dieSound;
     private void performDie()
     {
+        SFXManager.Instance.Play(dieSound);
         gameObject.SetActive(false);
     }
     
@@ -204,7 +201,6 @@ public class MonsterController : BaseMonster, IDamageAble
 [System.Serializable]
 public class MonsterStat
 {
-    public float maxHp;
     public float health;
     public float damage;
     public float quantity;

@@ -23,7 +23,6 @@ public class UpGradePanel : Panel
     public UpgradeResult upgradeFailPanel;
     public GameObject upgradeAnimationObject;
     public Animator upgradeAnimation;
-    public OptionButton dummyOptionButton;
     private Dictionary<EMyGrade, UpgradeData> m_UpgradeDatas;
     private EMyGrade m_CurrentGradeIndex;
     private OptionButton m_CurrentOptionButton;
@@ -69,12 +68,20 @@ public class UpGradePanel : Panel
             yield return null;
         }
 
-        AfterAnimationEnd();
         Debug.Log("애니메이션 끝!");
     }
 
-    public void AfterAnimationEnd()
+    public void TryUpgrade()
     {
+
+        if (m_CurrentOptionButton.isUpgradable == false)
+        {
+            return;
+        }
+        SFXManager.Instance.Play(enchantClickSound);
+
+        upgradeAnimationObject.gameObject.SetActive(true);
+        StartCoroutine(WaitForAnimationEnd());
         // 현재 등급의 강화 데이터 가져오기
         var upgradeData = m_UpgradeDatas[m_CurrentGradeIndex];
 
@@ -113,20 +120,6 @@ public class UpGradePanel : Panel
             upgradeFailPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
             m_CurrentOptionButton.isUpgradable = false;
             m_CurrentOptionButton.brokenImage.SetActive(true);
-            GameManager.Instance.PopUpUpgradeChoice(dummyOptionButton);
         }
-    }
-    public void TryUpgrade()
-    {
-
-        if (m_CurrentOptionButton.isUpgradable == false)
-        {
-            return;
-        }
-        SFXManager.Instance.Play(enchantClickSound);
-
-        upgradeAnimationObject.gameObject.SetActive(true);
-        StartCoroutine(WaitForAnimationEnd());
-        
     }
 }
