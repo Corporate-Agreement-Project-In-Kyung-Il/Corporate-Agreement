@@ -3566,6 +3566,7 @@ MonoBehaviour:
   gradeImages: []
   choiceImage: {fileID: 0}
   choiceText: {fileID: 0}
+  gradeText: {fileID: 0}
 --- !u!1 &1399486813
 GameObject:
   m_ObjectHideFlags: 0
@@ -4406,6 +4407,10 @@ MonoBehaviour:
   upgradeFailPanel: {fileID: 627833468}
   upgradeAnimationObject: {fileID: 552633020}
   upgradeAnimation: {fileID: 1515269001}
+  dummyOptionButton: {fileID: 0}
+  successSound: {fileID: 11400000, guid: 91259af88660a634ca15521e988dc134, type: 2}
+  failedSound: {fileID: 11400000, guid: f88580f3bb2a0114a9d98893f91a4562, type: 2}
+  enchantClickSound: {fileID: 11400000, guid: dd795ebdf231d5b4aa67736f4ffe95d4, type: 2}
 --- !u!1 &1582793734
 GameObject:
   m_ObjectHideFlags: 0
@@ -7207,6 +7212,10 @@ PrefabInstance:
     - target: {fileID: 5103517534085400859, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191946273516894422, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5232210946281983842, guid: 4803f6b016be37145a50654bbe4e1077, type: 3}
       propertyPath: m_AnchorMax.y

@@ -109,7 +109,7 @@ using (UnityWebRequest request = UnityWebRequest.Get(streamingPath))
         }
     }
     
-     public static async Task SaveTableAsync<T>(string tableName, List<T> dataList, bool isStreamingAssetPath = false)
+     /*public static async Task SaveTableAsync<T>(string tableName, List<T> dataList, bool isStreamingAssetPath = false)
      {
          string basePath = Application.persistentDataPath;
          string folderPath = Path.Combine(basePath, "Table");
@@ -132,6 +132,6 @@ using (UnityWebRequest request = UnityWebRequest.Get(streamingPath))
              }
              Debug.Log("저장되었습니다.");
          }
-     }
+     }*/
     
 }
