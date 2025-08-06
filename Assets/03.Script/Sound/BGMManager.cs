@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState
+public enum BGMState
 {
     Lobby,
     Statge1,
@@ -15,7 +15,7 @@ public enum GameState
 [System.Serializable]
 public class BGMData
 {
-    public GameState state;
+    public BGMState state;
     public AudioClip bgmClip;
 }
 
@@ -27,10 +27,10 @@ public class BGMManager : MonoBehaviour
     private AudioSource bgmSource;
 
     [SerializeField]
-    private List<BGMData> bgmList;
+    private BGMData[] bgmList;
 
-    private Dictionary<GameState, AudioClip> bgmDict = new Dictionary<GameState, AudioClip>();
-    private GameState currentState;
+    private Dictionary<BGMState, AudioClip> bgmDict = new Dictionary<BGMState, AudioClip>();
+    private BGMState currentState;
 
     void Awake()
     {
@@ -51,10 +51,10 @@ public class BGMManager : MonoBehaviour
             }
         }
 
-        ChangeBGM(GameState.Lobby);
+        ChangeBGM(BGMState.Lobby);
     }
 
-    public void ChangeBGM(GameState newState)
+    public void ChangeBGM(BGMState newState)
     {
        
         currentState = newState;
