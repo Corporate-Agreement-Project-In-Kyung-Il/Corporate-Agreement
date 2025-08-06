@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int m_TimeScale;
+    private int m_TimeScale = 1;
     
     public void ChangeTimeScale()
     {
@@ -143,7 +143,19 @@ public class GameManager : MonoBehaviour
             Debug.Log("선택지 활성화 중에는 시간 변경 불가");
             return;
         }
-        Time.timeScale = 1f;
+
+        switch (m_TimeScale % 3)
+        {
+            case 0:
+                Time.timeScale = 1f;
+                break;
+            case 1:
+                Time.timeScale = 2f;
+                break;
+            case 2:
+                Time.timeScale = 3f;
+                break;
+        }
         IsPaused = false;
         if (pausePanel.activeSelf)
         {
@@ -153,6 +165,8 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        FollowCamera.shakeOffset = Vector3.zero;
+        FollowCamera.shakeTimer = -1f;
         Time.timeScale = 0f;
         IsPaused = true;
     }
@@ -281,9 +295,9 @@ public class GameManager : MonoBehaviour
 
     public void RerollChoice(OptionButton optionButton)
     {
-        if (optionButton.rerollCount == 0)
+        if (optionButton.rerollCount == 0 || optionButton.isUpgradable == false)
         {
-            Debug.Log("리롤 횟수 없음!!");
+            Debug.Log("리롤 불가!!");
             return;
         }
 
@@ -612,6 +626,3 @@ public enum EOptionType
     Equip,
     Training
 }
-
-
-

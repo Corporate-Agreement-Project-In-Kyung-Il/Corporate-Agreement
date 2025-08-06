@@ -94,7 +94,6 @@ MonoBehaviour:
     playerDetectionRange: {x: 5, y: 5}
   currentCharacterState: 0
   prevCharacterState: 0
-  dieSound: {fileID: 11400000, guid: 922dfed42fcab6441aa819af3622f4e2, type: 2}
 --- !u!1 &5518025287678806961
 GameObject:
   m_ObjectHideFlags: 0
