@@ -31,6 +31,8 @@ public class PlayStartButton : MonoBehaviour
     }
     public void OnClickBackButton()
     {
+        //
+        Destroy(PlayerList.gameObject);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; 
         SceneManager.LoadScene(currentSceneIndex -1); // 다음 씬 로드
     }
