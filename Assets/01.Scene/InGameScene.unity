@@ -3783,7 +3783,7 @@ MonoBehaviour:
   m_PlayerData: []
   m_Grid: {fileID: 1058518465}
   m_StageEndPoint: {fileID: 1399486814}
-  m_reviveGameObject: {fileID: 0}
+  m_ReviveGameObject: {fileID: 0}
   m_CurStageId: 1
   m_BossSpawnYOffset: 3
   m_ArcherSpawnPos: {x: -0.5, y: 1}
@@ -5134,6 +5134,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
+      propertyPath: buffsize_z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 276199666697241509, guid: 64ce8be127f171c4aab9d14c7cfc5b3d, type: 3}
       propertyPath: detectionRange.x
       value: 5
       objectReference: {fileID: 0}
@@ -5231,6 +5243,18 @@ PrefabInstance:
       value: 991338845
       objectReference: {fileID: 0}
     - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
+      propertyPath: buffsize_z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012459446457096688, guid: 7ce5db4cf89acd844803b9bb2452da3a, type: 3}
       propertyPath: detectionRange.x
       value: 5
       objectReference: {fileID: 0}
@@ -5295,6 +5319,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+      propertyPath: buffsize_x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+      propertyPath: buffsize_y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
+      propertyPath: buffsize_z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2498310314189669686, guid: 998083dd4bd06724ab1078f623a985df, type: 3}
       propertyPath: detectionRange.x
       value: 5
