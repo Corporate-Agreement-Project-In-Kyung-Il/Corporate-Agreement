@@ -204,8 +204,8 @@ public class MagicBall : MonoBehaviour, IObjectPoolItem
 
             transform.position += transform.up * (velocity);
         }
-        Debug.Log($"Distance to target : {distanceToTarget}");
-        if (distanceToTarget < 0.35f)
+        
+        if (distanceToTarget < 0.3f)
         {
             animator.SetTrigger(Explosion);
             

@@ -1313,8 +1313,12 @@ MonoBehaviour:
   - {fileID: 0}
   baseRerollCount: 3
   skillOption: {fileID: 11400000, guid: 285384f425eae6d498af08bea9782029, type: 2}
+  activeSkillSO: {fileID: 0}
+  passiveSkillSO: {fileID: 0}
   equipOption: {fileID: 11400000, guid: 549d7421d10a73b45ab8118e516d4ac8, type: 2}
+  equip: {fileID: 0}
   trainingOption: {fileID: 11400000, guid: 59a288d438933b64eb4929e1bd364ba0, type: 2}
+  training: {fileID: 0}
   m_IngameSkillOption: {fileID: 11400000, guid: 42efdd7c0d9d6194eb061c4989d89ebd, type: 2}
   characterSkillID: ab860100af860100b2860100ac860100b0860100b4860100
   canvas: {fileID: 0}
@@ -1556,9 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e8166b98a0d8745aa0d120eca25aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warriorData: {fileID: 11400000, guid: 2cd982ee57ce306468bead921b3e26e8, type: 2}
-  archerData: {fileID: 11400000, guid: 2f1ef44c810518c4fb492b34ce3ff84c, type: 2}
-  wizardData: {fileID: 11400000, guid: b647f8616092d9541a7383c6e721b908, type: 2}
+  Data: []
   DependencyPlayerStat:
   - attackRange: 0
     moveSpeed: 0
@@ -1611,6 +1613,7 @@ MonoBehaviour:
     equip_item: 0
     equip_level: 0
     skill_possed: 
+  RetireCanvas: {fileID: 0}
   equipSelectionID: 0
   trainingSelectionID: 0
 --- !u!1 &8387412450807813012

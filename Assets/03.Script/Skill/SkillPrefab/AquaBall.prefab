@@ -161,14 +161,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   SkillId: 100020
   boomEffect: {fileID: 3645513421020779610}
-  maxSpeed: 5
-  initialSpeed: 2
-  lifeTime: 7
-  timeSinceStart: 2
-  lastTarget: {fileID: 0}
   moveSpeed: 8
-  curvefloat: 3
-  straight: 0
 --- !u!61 &6936442006367251607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -229,7 +222,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

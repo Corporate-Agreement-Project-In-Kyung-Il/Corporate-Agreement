@@ -21,8 +21,8 @@ public class FollowCamera : MonoBehaviour
     public float shakeDuration = 0.5f;  // 흔들리는 시간
     public float shakeMagnitude = 0.2f; // 흔들림 세기
 
-    public static Vector3 shakeOffset;
-    public static float shakeTimer = 0f;
+    private Vector3 shakeOffset;
+    private float shakeTimer = 0f;
     private Vector3 cameraPosition = new Vector3(0.5f, 1, -10);
     private void Awake()
     {
@@ -104,7 +104,7 @@ public class FollowCamera : MonoBehaviour
 
     public static void Shake()
     {
-        shakeTimer = instance.shakeDuration;
+        instance.shakeTimer = instance.shakeDuration;
     }
 
     private void InitalPosition()

@@ -17,21 +17,16 @@ public class UpGradePanel : Panel
         public int chanceToFail;
         public int chanceToDoubleSucceed;
     }
-    public UpgradeData[] upgradeDatas = new UpgradeData[5];
-
+    public UpgradeData[] upgradeDatas = new  UpgradeData[5];
+    
     public UpgradeResult upgradeSuccessPanel;
     public UpgradeResult upgradeFailPanel;
     public GameObject upgradeAnimationObject;
     public Animator upgradeAnimation;
-    public OptionButton dummyOptionButton;
     private Dictionary<EMyGrade, UpgradeData> m_UpgradeDatas;
     private EMyGrade m_CurrentGradeIndex;
     private OptionButton m_CurrentOptionButton;
     private bool m_IsInitialized = false;
-
-    [SerializeField] SFXData successSound;
-    [SerializeField] SFXData failedSound;
-    [SerializeField] private SFXData enchantClickSound;
     private void Awake()
     {
         if (!m_IsInitialized)
@@ -69,12 +64,17 @@ public class UpGradePanel : Panel
             yield return null;
         }
 
-        AfterAnimationEnd();
         Debug.Log("애니메이션 끝!");
     }
-
-    public void AfterAnimationEnd()
+    
+    public void TryUpgrade()
     {
+        if (m_CurrentOptionButton.isUpgradable == false)
+        {
+            return;
+        }
+        upgradeAnimationObject.gameObject.SetActive(true);
+        StartCoroutine(WaitForAnimationEnd());
         // 현재 등급의 강화 데이터 가져오기
         var upgradeData = m_UpgradeDatas[m_CurrentGradeIndex];
 
@@ -83,8 +83,6 @@ public class UpGradePanel : Panel
 
         if (rand < upgradeData.chanceToSucceed)
         {
-            SFXManager.Instance.Play(successSound);
-
             GameManager.Instance.UpGradeGetMatchedOptionData(m_CurrentOptionButton);
             upgradeSuccessPanel.gameObject.SetActive(true);
             upgradeSuccessPanel.upgradeResultText.text = "강화 성공";
@@ -93,7 +91,7 @@ public class UpGradePanel : Panel
         }
         else if (rand < upgradeData.chanceToSucceed + upgradeData.chanceToDoubleSucceed)
         {
-            for (int i = 0; i < 2; i++)
+            for(int i = 0; i < 2; i++)
             {
                 GameManager.Instance.UpGradeGetMatchedOptionData(m_CurrentOptionButton);
                 upgradeSuccessPanel.gameObject.SetActive(true);
@@ -101,32 +99,15 @@ public class UpGradePanel : Panel
                 upgradeSuccessPanel.upgradeImage.sprite = m_CurrentOptionButton.choiceImage.sprite;
                 upgradeSuccessPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
             }
-            SFXManager.Instance.Play(successSound);
         }
         else
         {
-            SFXManager.Instance.Play(failedSound);
-
             upgradeFailPanel.gameObject.SetActive(true);
             upgradeFailPanel.upgradeResultText.text = "강화 실패";
             upgradeFailPanel.upgradeImage.sprite = m_CurrentOptionButton.choiceImage.sprite;
             upgradeFailPanel.upgradeContentText.text = m_CurrentOptionButton.selectedData.GetGrade().ToString();
             m_CurrentOptionButton.isUpgradable = false;
             m_CurrentOptionButton.brokenImage.SetActive(true);
-            GameManager.Instance.PopUpUpgradeChoice(dummyOptionButton);
         }
-    }
-    public void TryUpgrade()
-    {
-
-        if (m_CurrentOptionButton.isUpgradable == false)
-        {
-            return;
-        }
-        SFXManager.Instance.Play(enchantClickSound);
-
-        upgradeAnimationObject.gameObject.SetActive(true);
-        StartCoroutine(WaitForAnimationEnd());
-        
     }
 }

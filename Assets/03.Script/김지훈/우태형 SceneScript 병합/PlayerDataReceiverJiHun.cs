@@ -74,7 +74,7 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                         Data[2].health += equipOption.HP_LV_UP_Effect;
                         break;
                 }
-                /*TSVLoaderSample.OverwritePlayerData(Data[i]);*/
+                TSVLoaderSample.OverwritePlayerData(Data[i]);
                 break;
             }
         }
@@ -133,7 +133,7 @@ public class PlayerDataReceiverJiHun : MonoBehaviour
                         Data[2].training_level += trainingOption.Training_LvUP;
                         break;
                 }
-                /*TSVLoaderSample.OverwritePlayerData(Data[i]);*/
+                TSVLoaderSample.OverwritePlayerData(Data[i]);
                 break;
             }
             

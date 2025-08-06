@@ -25,10 +25,10 @@ public class LoadorGoToLobby : MonoBehaviour
 
     private void OnButtonClicked(int index)
     {
-        /*for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < players.Length; i++)
         {
             TSVLoaderSample.OverwritePlayerData(players[i].data);
-        }*/
+        }
         
         if (index.Equals(0))
         {
