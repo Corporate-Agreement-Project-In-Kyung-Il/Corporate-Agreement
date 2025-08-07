@@ -19,6 +19,8 @@ public class CharacterChooseButton : MonoBehaviour
      public GameObject Hand_img;
      public GameObject character_img;
      public GameObject character_name;
+
+     public GameObject choosePanel;
      private void Start()
      {
           character_name.GetComponent<Text>().text = characterName;

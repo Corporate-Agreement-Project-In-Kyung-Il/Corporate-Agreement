@@ -22,6 +22,7 @@ public class CharacterChoosing : MonoBehaviour
     [SerializeField] private GameObject SameClassPanel;
     public GameObject No3ClassPanel;
 
+    [SerializeField] private List<GameObject> ChoosePanels = new List<GameObject>();
     public void ShowInfo(CharacterChooseButton button)
     {
         CharacterSprite.sprite = button.CharacterSprite;
@@ -139,4 +140,20 @@ public class CharacterChoosing : MonoBehaviour
         SameClassPanel.SetActive(false);
     }
 
+    public void ChoosePanelOnOff(CharacterChooseButton button)
+    {
+        for (int i = 0; i < ChoosePanels.Count; i++)
+        {
+            ChoosePanels[i].SetActive(false);
+        }
+
+        if (button.choosePanel.activeSelf == false)
+        {
+            button.choosePanel.SetActive(true);
+        }
+        else if (button.choosePanel.activeSelf == true)
+        {
+            button.choosePanel.SetActive(false);
+        }
+    }
 }
