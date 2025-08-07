@@ -26,7 +26,7 @@ public class WizardStrongMind : BuffBase, ISkillID
         buffSO = _buff;
 
         originalDamage = owner.buffplayerStat.attackDamage;
-        owner.buffplayerStat.attackDamage *= 2f;
+        owner.buffplayerStat.attackDamage *= 2.0f;
 
         duration = buffSO.Skill_Duration + buffSO.Duration_Increase;
         timer = 0f;
