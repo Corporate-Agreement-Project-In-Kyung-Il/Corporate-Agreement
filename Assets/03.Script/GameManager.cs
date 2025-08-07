@@ -218,11 +218,12 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         var playerList = skillManager.GetPlayerList();
-        for(int i = 0; i < playerList.Length / 2; i++)
-        {
-            characterSkillID[i] = playerList[i].data.skill_possed[0]; // 각 플레이어의 첫 번째 스킬 ID를 가져옴
-            characterSkillID[i + 1] = playerList[i].data.skill_possed[1];
-        }
+        characterSkillID[0] = playerList[0].data.skill_possed[0];
+        characterSkillID[1] = playerList[0].data.skill_possed[1];
+        characterSkillID[2] = playerList[1].data.skill_possed[0];
+        characterSkillID[3] = playerList[1].data.skill_possed[1];
+        characterSkillID[4] = playerList[2].data.skill_possed[0];
+        characterSkillID[5] = playerList[2].data.skill_possed[1];
         SetIngameDatabase();
     }
 
