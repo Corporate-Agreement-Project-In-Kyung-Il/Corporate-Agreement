@@ -60,6 +60,17 @@ public class OptionButton : MonoBehaviour
             break;
       }
    }
+   
+   public void CloseOptionCanvas()
+   {
+      if (optionCanvas.gameObject.activeSelf)
+      {
+         optionCanvas.gameObject.SetActive(false);
+         var panel = checkOptionPanel.GetComponent<Panel>();
+         panel.confirmButton.onClick.RemoveAllListeners();
+         GameManager.Instance.Resume();
+      }
+   }
 
    public void SetOptionGradeImage(EMyGrade grade, string selection_Name)
    {
