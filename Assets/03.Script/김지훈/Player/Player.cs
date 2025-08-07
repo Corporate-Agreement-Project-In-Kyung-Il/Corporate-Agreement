@@ -438,9 +438,17 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     public void TriggerBuff(BuffSO buff)
     {
         if (!Enum.TryParse(buff.Skill_Buff_Type, out BuffEffectType effect)) return;
-        if (HasBuff(effect) || !CanUseBuff(effect)) return;
 
+        
+        if (HasBuff(effect)) return;
+
+        
+        if (!CanUseBuff(effect)) return;
+
+        
         SetBuffState(effect, true);
+
+       
         StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect, buff.Skill_Cooldown));
     }
 
