@@ -31,6 +31,10 @@ public class SkillManager : MonoBehaviour
 
     private ISkillID[] skills;
 
+    public Player[] GetPlayerList()
+    {
+        return players;
+    }
     public void SetSkillOption(OptionChoice_SkillOption ingameSkillOption)
     {
         skillOption = ingameSkillOption;

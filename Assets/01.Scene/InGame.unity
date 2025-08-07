@@ -2043,10 +2043,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2966695319105822345, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6228405132521303574, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8068269739448036174, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: RetireCanvas
+      value: 
+      objectReference: {fileID: 4254370391496771821}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: canvas
       value: 
@@ -2071,6 +2079,30 @@ PrefabInstance:
       propertyPath: optionButtons.Array.data[2]
       value: 
       objectReference: {fileID: 1678880258}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: characterSkillID.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: characterSkillID.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: characterSkillID.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: characterSkillID.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: characterSkillID.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+      propertyPath: characterSkillID.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2087,6 +2119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4254370391496771821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2966695319105822345, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
+  m_PrefabInstance: {fileID: 4254370391496771819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4254370391496771822 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 341222891482052986, guid: c7f612b543d3d444686b195af1c818ec, type: 3}

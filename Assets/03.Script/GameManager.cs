@@ -217,6 +217,12 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
+        var playerList = skillManager.GetPlayerList();
+        for(int i = 0; i < playerList.Length / 2; i++)
+        {
+            characterSkillID[i] = playerList[i].data.skill_possed[0]; // 각 플레이어의 첫 번째 스킬 ID를 가져옴
+            characterSkillID[i + 1] = playerList[i].data.skill_possed[1];
+        }
         SetIngameDatabase();
     }
 
@@ -232,12 +238,12 @@ public class GameManager : MonoBehaviour
         m_IngameSkillOption = ScriptableObject.CreateInstance<OptionChoice_SkillOption>();
         m_IngameSkillOption.data = filtered;
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
         // 에디터에서만 저장 (실제 게임 빌드에는 필요 없음)
         AssetDatabase.CreateAsset(m_IngameSkillOption,
             $"Assets/00.Resources/DataBase/OptionChoice/InGameSkillOptionChoice.asset");
         AssetDatabase.SaveAssets();
-#endif
+#endif*/
 
         // 공통 로직: 필드 등록 및 세팅
         m_Options[EOptionType.Skill] = m_IngameSkillOption;
