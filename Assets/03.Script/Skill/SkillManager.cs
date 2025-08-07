@@ -197,6 +197,10 @@ public class SkillManager : MonoBehaviour
                         Debug.Log(
                             $"▶ {player.name}의 Skill {buff.Skill_ID} 레벨이 {a.Skill_LvUP} 만큼 증가 → 현재 레벨: {buff.Skill_current_LV}");
                         buff.Skill_Cooldown -= a.Cooldown_Reduction;
+                        if (buff.Skill_Cooldown - a.Cooldown_Reduction <= 0.1f)
+                        {
+                            buff.Skill_Cooldown = 0.1f;
+                        }
                         Debug.Log(
                             $"▶ {player.name}의 Skill {buff.Skill_ID} 쿨타임이 {a.Cooldown_Reduction} 만큼 감소 → 현재 쿨타임: {buff.Skill_Cooldown}");
                         buff.Skill_Duration += a.Duration_Increase;

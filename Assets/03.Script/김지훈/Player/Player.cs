@@ -394,28 +394,7 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
 
         if (skills[index] is BuffSO buff)
         {
-            // 위치 오프셋 설정
-            Vector3 spawnOffset = Vector3.zero;
-            if (index == 0) spawnOffset = new Vector3(buff1position_x, buff1position_y, buff1position_z); // 왼쪽
-            if (index == 1) spawnOffset = new Vector3(buff2position_x, buff2position_y, buff2position_z);  // 오른쪽
-
-            // 프리팹 선택 및 생성
-            GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
-            GameObject buffObj = Instantiate(prefab, transform.position + spawnOffset, Quaternion.identity, transform);
-
-            // 스케일 조정
-            buffObj.transform.localScale = new Vector3(buffsize_x, buffsize_y, buffsize_y);
-            foreach (var comp in buffObj.GetComponents<MonoBehaviour>())
-            {
-                if (comp is ISkillID skill)
-                {
-                    if (comp is Shield_Protection shield) shield.Initialize(this, buff);
-                    else if (comp is SteelShield steel) steel.Initialize(this, buff);
-                    else if (comp is ProjectileHit proj) proj.Initialize(this, buff);
-                    else if (comp is Archer_Strong_Mind archer) archer.Initialize(this, buff);
-                    else if (comp is WizardStrongMind wizard) wizard.Initialize(this, buff);
-                }
-            }
+            TriggerBuff(buff, index); 
         }
     }
 
@@ -435,21 +414,36 @@ public class Player : MonoBehaviour, IDamageAble, IBuffSelection, ISpriteSelecti
     private bool CanUseBuff(BuffEffectType type) =>
         !buffCooldownTimers.ContainsKey(type) || buffCooldownTimers[type] <= 0f;
 
-    public void TriggerBuff(BuffSO buff)
+    public void TriggerBuff(BuffSO buff, int index)
     {
         if (!Enum.TryParse(buff.Skill_Buff_Type, out BuffEffectType effect)) return;
 
-        
         if (HasBuff(effect)) return;
-
-        
         if (!CanUseBuff(effect)) return;
 
-        
         SetBuffState(effect, true);
-
-       
         StartCoroutine(RemoveBuffAfter(buff.Skill_Duration, effect, buff.Skill_Cooldown));
+
+        // ✅ 여기서만 프리팹 생성
+        Vector3 spawnOffset = index == 0
+            ? new Vector3(buff1position_x, buff1position_y, buff1position_z)
+            : new Vector3(buff2position_x, buff2position_y, buff2position_z);
+
+        GameObject prefab = index == 0 ? skillPrefab : skillPrefab2;
+        GameObject buffObj = Instantiate(prefab, transform.position + spawnOffset, Quaternion.identity, transform);
+
+        buffObj.transform.localScale = new Vector3(buffsize_x, buffsize_y, buffsize_y);
+        foreach (var comp in buffObj.GetComponents<MonoBehaviour>())
+        {
+            if (comp is ISkillID skill)
+            {
+                if (comp is Shield_Protection shield) shield.Initialize(this, buff);
+                else if (comp is SteelShield steel) steel.Initialize(this, buff);
+                else if (comp is ProjectileHit proj) proj.Initialize(this, buff);
+                else if (comp is Archer_Strong_Mind archer) archer.Initialize(this, buff);
+                else if (comp is WizardStrongMind wizard) wizard.Initialize(this, buff);
+            }
+        }
     }
 
     private IEnumerator RemoveBuffAfter(float duration, BuffEffectType effect, float cooldown)
