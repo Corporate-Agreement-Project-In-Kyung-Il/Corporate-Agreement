@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuButton : MonoBehaviour
 {
     [SerializeField] private GameObject EsekaiSkillPanel;
+    [SerializeField] private GameObject BlackPanel;
     [SerializeField] private SFXData buttonSound;
     public void LoadScene()
     {
@@ -25,6 +26,18 @@ public class MainMenuButton : MonoBehaviour
         else 
         {
             EsekaiSkillPanel.SetActive(true);
+        }
+    }
+
+    public void OnoffBlackPanel()
+    {
+        if (BlackPanel.activeSelf)
+        {
+            BlackPanel.SetActive(false);
+        }
+        else 
+        {
+            BlackPanel.SetActive(true);
         }
     }
 }
