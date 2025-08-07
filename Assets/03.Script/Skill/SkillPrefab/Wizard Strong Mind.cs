@@ -20,15 +20,17 @@ public class WizardStrongMind : BuffBase, ISkillID
     }
     public void Initialize(Player _owner, BuffSO _buff)
     {
+        if (initialized) return; // ✅ 중복 방지
+        initialized = true;
         owner = _owner;
         buffSO = _buff;
 
         originalDamage = owner.buffplayerStat.attackDamage;
-        owner.buffplayerStat.attackDamage *= 2f;
+        owner.buffplayerStat.attackDamage *= 2.0f;
 
         duration = buffSO.Skill_Duration + buffSO.Duration_Increase;
         timer = 0f;
-        initialized = true;
+        
 
         Debug.Log($"💥 마법사 공격력 2배 ON: {owner.buffplayerStat.attackDamage}");
     }
