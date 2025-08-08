@@ -2385,31 +2385,31 @@ PrefabInstance:
       objectReference: {fileID: 1523485450}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: baseRerollCount
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: "\uB178\uB9D0_\uAC00\uC911\uCE58"
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: "\uB808\uC5B4_\uAC00\uC911\uCE58"
-      value: 0
+      value: 257
       objectReference: {fileID: 0}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: "\uC2E0\uD654_\uAC00\uC911\uCE58"
-      value: 1000
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: "\uC5D0\uD53D_\uAC00\uC911\uCE58"
-      value: 0
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: "\uB808\uC804\uB4DC_\uAC00\uC911\uCE58"
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: "\uC720\uB2C8\uD06C_\uAC00\uC911\uCE58"
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8864749288796057002, guid: c7f612b543d3d444686b195af1c818ec, type: 3}
       propertyPath: optionButtons.Array.data[0]
