@@ -448,7 +448,7 @@ public sealed class Spawner : MonoBehaviour
                 , parent: grid.transform);
 
             // 사이즈가 이상하게 나와서 CompressBounds를 통해 사이즈를 재조정
-            curTileMap.CompressBounds();
+            // curTileMap.CompressBounds();
 
             areaList.Add(curTileMap);
             topY += curTileMap.cellBounds.yMax;
@@ -466,7 +466,7 @@ public sealed class Spawner : MonoBehaviour
                 , parent: m_Grid.transform);
 
             areaList.Add(bossTileMap);
-            tilemap.CompressBounds();
+            // tilemap.CompressBounds();
             topY += bossTileMap.cellBounds.yMax;
         }
 
