@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerList : MonoBehaviour
 {
     private static PlayerList instance;
@@ -19,14 +19,29 @@ public class PlayerList : MonoBehaviour
     
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
+            return;
         }
-        else
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        // 씬 변경 감지
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (instance == this) instance = null;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 씬 index 0이면 파괴
+        if (scene.buildIndex == 0)
         {
-            Destroy(gameObject); // 중복 생성을 방지
+            Destroy(gameObject);
         }
     }
     public void InitializePutData(PlayerData Data, TSVLoaderSample.SampleData playerData, Sprite playerSprite)
