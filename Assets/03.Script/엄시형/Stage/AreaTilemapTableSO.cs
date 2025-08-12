@@ -59,7 +59,7 @@ namespace _03.Script.엄시형.Stage
     }
     
     [Serializable]
-    public class AreaTilemap : ICloneable<AreaTilemap>
+    public class AreaTilemap
     {
         public StageTheme Theme => m_Theme;
         public int Id => m_Id;
@@ -74,11 +74,6 @@ namespace _03.Script.엄시형.Stage
             m_Theme = theme; 
             m_Id = id;
             m_Tilemap = tilemap;
-        }
-
-        public AreaTilemap Clone()
-        {
-            return new AreaTilemap(m_Theme, m_Id, m_Tilemap);
         }
     }
 }

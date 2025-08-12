@@ -4,10 +4,6 @@ using UnityEngine.Serialization;
 
 namespace _03.Script.엄시형.Stage.DTO
 {
-    /// <summary>
-    /// 데이터 교환용 클래스
-    /// 다른용도 사용금지
-    /// </summary>
     [Serializable]
     public struct SpawnInfoDTO
     {
@@ -17,7 +13,6 @@ namespace _03.Script.엄시형.Stage.DTO
         
         public Vector2 Pos => new Vector2(X, Y);
         
-        // public SpawnInfoDTO() {}
         public SpawnInfoDTO(Vector2 pos, float diameter)
         {
             X = pos.x;

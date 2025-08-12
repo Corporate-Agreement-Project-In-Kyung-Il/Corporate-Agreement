@@ -44,7 +44,7 @@ public class TilemapBoundsCompressor : EditorWindow
             Undo.RecordObject(tilemap, "Compress Tilemap Bounds");
 
             tilemap.CompressBounds();
-            // EditorUtility.SetDirty(tilemap.gameObject);
+            EditorUtility.SetDirty(tilemap.gameObject);
             compressedCount++;
         }
 
