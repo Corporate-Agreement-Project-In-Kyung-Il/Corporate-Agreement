@@ -16,16 +16,11 @@ public sealed class AutoMapGenerator : MonoBehaviour
     // TODO : Tilemap을 여러개 넣어서 순차적으로 생성하는 기능 추가
     
     [SerializeField] private StageInfo m_StageInfo;
-    [SerializeField] private GameObject m_Grid;  
-    // [SerializeField] private TilemapRenderer m_CurTilemapRenderer;
-    // [SerializeField] private int mTileCount = 10;
-    // [SerializeField] private float mTileHeight = 1f;
+    [SerializeField] private GameObject m_Grid; 
     
     [Conditional("UNITY_EDITOR")]
     private void OnValidate()
     {
         Debug.Assert(m_Grid != null, "m_Grid 컴포넌트를 넣어주세요");
-        // Debug.Log(m_AreaInfoTable.GetInfoOrNull(10001));
-        // Debug.Assert(m_TilemapList.Count <= 0, "m_TilemapList가 없음 컴포넌트를 넣어주세요");
     }
 }

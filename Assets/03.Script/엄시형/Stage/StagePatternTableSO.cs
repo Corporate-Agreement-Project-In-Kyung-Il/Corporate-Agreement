@@ -19,12 +19,6 @@ namespace _03.Script.엄시형.Stage
     [CreateAssetMenu(fileName = "StagePatternTableSO", menuName = "SO/Stage/StagePatternTableSO", order = 0)]
     public sealed class StagePatternTableSO : ScriptableObject
     {
-        // private AreaPatternPersistenceManager m_AreaPerstistenceMgr = new AreaPatternPersistenceManager();
-        
-        // private Dictionary<int, StageInfo> m_StageInfoDic = new Dictionary<int, StageInfo>();
-        
-        // private Dictionary<int, List<AreaPattern>> m_AreaPatternDic = new Dictionary<int, List<AreaPattern>>();
-        
         public List<AreaPattern> AreaPatternList => m_AreaPatternList;
         [SerializeField] private List<AreaPattern> m_AreaPatternList = new List<AreaPattern>();
         
@@ -46,18 +40,11 @@ namespace _03.Script.엄시형.Stage
             {
                 return pattern.MonsterSpawnInfoList.Count == count;
             });
+            
             Debug.Log($"{list.Count} 카운트");
-            // m_AreaPatternDic.TryGetValue(count, out List<AreaPattern> list);
-            // Debug.Assert(list != null, $"AreaPatternDic에 {count}키에 해당하는 스폰 정보가 없습니다.");
             
             return list;
         }
-
-        // [Conditional("UNITY_EDITOR")]
-        // private void Awake()
-        // {
-        //     Load();
-        // }
 
         [Conditional("UNITY_EDITOR")]
         internal void Load()
@@ -76,18 +63,8 @@ namespace _03.Script.엄시형.Stage
             {
                 foreach (var dto in allAreaPatternDTO.AreaPatternList)
                 {
-                    // 몬스터 카운트를 키로 저장
-                    // int key = dto.MonsterSpawnInfoList.Count;
-                    
-                    // 키가 없으면 리스트 생성
-                    // if (m_AreaPatternDic.ContainsKey(key) == false)
-                    // {
-                    //     m_AreaPatternDic[key] = new List<AreaPattern>();
-                    // }
-
                     var areaPattern = dto.ToAreaPattern();
                     m_AreaPatternList.Add(areaPattern);
-                    // m_AreaPatternDic[key].Add(areaPattern);
                 }
             }
             else

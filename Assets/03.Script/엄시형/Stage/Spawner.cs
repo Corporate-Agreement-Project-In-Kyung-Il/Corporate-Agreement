@@ -89,19 +89,11 @@ public sealed class Spawner : MonoBehaviour
     {
         Instance = this;
 
-        // int savedStage = PlayerList.Instance.currentStage;
-
         // Enum 길이 캐싱
         m_ThemeTypeLength = Enum.GetValues(typeof(StageTheme)).Length;
         m_MonsterTypeLength = Enum.GetValues(typeof(MonsterType)).Length;
 
         m_CurMonsterType = (MonsterType)Random.Range(1, m_MonsterTypeLength);
-
-        // 플레이어가 저장된 스테이지가 있으면 그 스테이지로 시작
-        // if (1 < savedStage)
-        // {
-        //     m_CurStageId = savedStage;
-        // }
 
         m_PlayerSpawnPointDic = new Dictionary<character_class, Vector2>
         {
@@ -326,9 +318,7 @@ public sealed class Spawner : MonoBehaviour
         if (m_CurStageId % 3 == 0)
         {
             Tilemap bossTilemap = m_CurTilemapList.Last();
-
-            bossTilemap.CompressBounds();
-
+            
             var boss = SpawnMonster(
                 new Vector2(bossTilemap.localBounds.center.x, bossTilemap.localBounds.max.y - m_BossSpawnYOffset)
                 , m_CurMonsterType
@@ -374,12 +364,9 @@ public sealed class Spawner : MonoBehaviour
         // index 0 전사 100001
         // index 1 궁수 100004
         // index 2 마법사 100006
-        // 임시로 0, 1, 2로 설정
-        // var playerList = new int[] {100001, 100004, 100006};
 
         for (int i = 0; i < charactersCount; i++)
         {
-            // TODO: 플레이어 프리팹을 ID로 찾는 로직으로 변경 필요
             // 프리맵이랑 매핑필요
             character_class characterClass = (characterIDs[i]) switch
             {
@@ -417,9 +404,7 @@ public sealed class Spawner : MonoBehaviour
     public BaseMonster SpawnMonsterInRange(SpawnInfo spawnInfo, MonsterType type, GameObject parent)
     {
         Vector2 randomOffset = Random.insideUnitCircle * (spawnInfo.Radius * 0.5f);
-        // Debug.Log(randomOffset);
         Vector2 spawnPos = spawnInfo.Point + randomOffset;
-        // Vector2 spawnPos = spawnInfo.Point;
         BaseMonster monster = Instantiate(m_MonsterTable.GetMonster(type), parent.transform);
         monster.transform.localPosition = spawnPos; // 부모의 로컬 좌표로 스폰
         return monster;
@@ -447,9 +432,6 @@ public sealed class Spawner : MonoBehaviour
                 , Quaternion.identity
                 , parent: grid.transform);
 
-            // 사이즈가 이상하게 나와서 CompressBounds를 통해 사이즈를 재조정
-            curTileMap.CompressBounds();
-
             areaList.Add(curTileMap);
             topY += curTileMap.cellBounds.yMax;
         }
@@ -466,7 +448,6 @@ public sealed class Spawner : MonoBehaviour
                 , parent: m_Grid.transform);
 
             areaList.Add(bossTileMap);
-            tilemap.CompressBounds();
             topY += bossTileMap.cellBounds.yMax;
         }
 
